@@ -1,52 +1,64 @@
 .container {
   display: flex;
 }
-
 .singInContainer {
   width: 746px;
+  height: 1024px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+.headerIcon {
+  margin-right: 360px;
+  margin-top: -350px;
+  margin-bottom: 100px;
+}
 .singInTextStyle {
   width: 360px;
 }
-
-.cardsContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: "absolute";
-  width: 746px;
-  height: 700px;
-  left: 694px;
-  border-radius: 8px;
-  background-color: #f7f9fb;
-  border: 1px solid #dcdddf;
+.loginText {
+  color: #1e2837;
+  font-family: "Graphik";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 32px;
 }
+.accountText {
+  color: #90959c;
+  font-family: "Graphik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+}
+
 .loginOptionsContainer {
   display: flex;
   flex-direction: row;
   gap: 32px;
+  color: #1e2837;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
 }
 .loginOptionsStyle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #ffffff;
   border: 1px solid #e5e5e5;
   width: 164px;
   height: 50px;
   border-radius: 5px;
   margin-top: 30px;
-  margin-bottom: 36px;
 }
 .inputStyle {
-  width: 360px;
-  height: 50px;
-  border-radius: 4px;
-  box-sizing: border-box;
-  border: 1px solid #d5d8de;
-  padding-left: 17px;
-  margin-bottom: 18px;
+  /* padding-left: 10px; */
+  background-color: #ffffff;
 }
 .linkedTitle {
   display: flex;
@@ -69,4 +81,19 @@
   background-color: #3a74d2;
   color: #fff;
   margin-top: 20px;
+}
+.iconsStyle {
+  padding-right: 8px;
+}
+.cardsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: "absolute";
+  width: 746px;
+  height: 1024px;
+  left: 694px;
+  border-radius: 8px;
+  background-color: #f7f9fb;
+  border: 1px solid #dcdddf;
 }
