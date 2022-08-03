@@ -2,7 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import classes from "./SignIn.module.css";
-import { borderLeft } from "@mui/system";
+import Link from "next/link";
 
 export const SignIn = () => {
   return (
@@ -17,9 +17,9 @@ export const SignIn = () => {
           <h1 className={classes.loginText}>Login</h1>
           <span className={classes.accountText}>
             Don't have an account?
-            <a href="url" className={classes.linkedTitleStyle}>
-              Create one
-            </a>
+            <Link href="/SignUp">
+              <a className={classes.linkedTitleStyle}> Create one</a>
+            </Link>
           </span>
         </div>
         <div className={classes.loginOptionsContainer}>

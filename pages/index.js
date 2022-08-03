@@ -1,4 +1,10 @@
-import { SignIn } from "../components/SignIn";
+import { SignIn } from "../components/contents/SignIn";
+import { SignUp } from "../components/contents/SignUp";
 export default function Home() {
-  return <SignIn />;
+  return (
+    <div>
+      {/* <SignIn /> */}
+      <SignUp />
+    </div>
+  );
 }
