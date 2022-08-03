@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+}
+
+.singInContainer {
+  width: 746px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.singInTextStyle {
+  width: 360px;
+}
+
+.cardsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: "absolute";
+  width: 746px;
+  height: 700px;
+  left: 694px;
+  border-radius: 8px;
+  background-color: #f7f9fb;
+  border: 1px solid #dcdddf;
+}
+.loginOptionsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+}
+.loginOptionsStyle {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  width: 164px;
+  height: 50px;
+  border-radius: 5px;
+  margin-top: 30px;
+  margin-bottom: 36px;
+}
+.inputStyle {
+  width: 360px;
+  height: 50px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 1px solid #d5d8de;
+  padding-left: 17px;
+  margin-bottom: 18px;
+}
+.linkedTitle {
+  display: flex;
+  justify-content: flex-end;
+  width: 360px;
+}
+.linkedTitleStyle {
+  color: #3a74d2;
+  font-family: "Graphik";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  padding-left: 3px;
+}
+.loginButton {
+  width: 360px;
+  height: 52px;
+  border-radius: 5px;
+  background-color: #3a74d2;
+  color: #fff;
+  margin-top: 20px;
+}
