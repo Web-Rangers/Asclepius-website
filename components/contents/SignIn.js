@@ -85,9 +85,9 @@ export const SignIn = () => {
           />
         </Box>
         <div className={classes.linkedTitle}>
-          <a href="url" className={classes.linkedTitleStyle}>
-            Forget password?
-          </a>
+          <Link href="/passwordRecoveryPage">
+            <a className={classes.linkedTitleStyle}>Forget password?</a>
+          </Link>
         </div>
         <button className={classes.loginButton} type="submit">
           Login

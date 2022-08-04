@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+}
+.singInContainer {
+  width: 746px;
+  height: 1024px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.headerIcon {
+  margin-right: 360px;
+  margin-top: -350px;
+  margin-bottom: 300px;
+}
+.passwordRecoveryText {
+  display: flex;
+  justify-content: flex-start;
+  width: 360px;
+  height: 32px;
+  font-family: "Noto Sans";
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 32px;
+  color: #1e2837;
+}
+.inputStyle {
+  padding-left: 8px;
+  background-color: #ffffff;
+  border-top: 1px solid #d5d8de;
+  border-left: 1px solid #d5d8de;
+  border-right: 1px solid #d5d8de;
+}
+.loginButton {
+  width: 360px;
+  height: 52px;
+  border-radius: 5px;
+  background-color: #3a74d2;
+  color: #fff;
+}
+.returnTextStyle {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+  width: 360px;
+  font-family: "Noto Sans";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  color: #1e2837;
+}
+.cardsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: "absolute";
+  width: 746px;
+  height: 1024px;
+  left: 694px;
+  border-radius: 8px;
+  background-color: #f7f9fb;
+  border: 1px solid #dcdddf;
+}
