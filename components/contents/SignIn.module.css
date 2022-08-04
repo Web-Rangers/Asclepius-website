@@ -11,6 +11,11 @@
 }
 .headerIcon {
   margin-right: 360px;
+  margin-top: -127px;
+  margin-bottom: 100px;
+}
+.headerIconSignIn {
+  margin-right: 360px;
   margin-top: -350px;
   margin-bottom: 100px;
 }
@@ -57,9 +62,13 @@
   margin-top: 30px;
 }
 .inputStyle {
-  /* padding-left: 10px; */
+  padding-left: 8px;
   background-color: #ffffff;
+  border-top: 1px solid #d5d8de;
+  border-left: 1px solid #d5d8de;
+  border-right: 1px solid #d5d8de;
 }
+
 .linkedTitle {
   display: flex;
   justify-content: flex-end;
@@ -99,4 +108,31 @@
 }
 
 .nameSurnameContainer {
+  position: "relative";
+  width: 164px;
+  border-top: 1px solid #d5d8de;
+  border-left: 1px solid #d5d8de;
+  border-right: 1px solid #d5d8de;
+  background-color: #ffffff;
+  padding-left: 8px;
+}
+
+.lineContainer {
+  display: flex;
+  gap: 32px;
+  width: 360px;
+}
+.line {
+  width: 164px;
+  height: 1px;
+  background-color: #e5e5e5;
+  margin-top: 22px;
+}
+.lineTextStyle {
+  font-family: "Noto Sans";
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #c4c4c4;
+  margin-top: 10px;
 }

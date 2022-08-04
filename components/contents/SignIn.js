@@ -11,13 +11,13 @@ export const SignIn = () => {
         <img
           src="headerIcon.svg"
           alt="headerIcon"
-          className={classes.headerIcon}
+          className={classes.headerIconSignIn}
         />
         <div className={classes.singInTextStyle}>
           <h1 className={classes.loginText}>Login</h1>
           <span className={classes.accountText}>
             Don't have an account?
-            <Link href="/SignUp">
+            <Link href="/signUpPage">
               <a className={classes.linkedTitleStyle}> Create one</a>
             </Link>
           </span>
@@ -35,6 +35,11 @@ export const SignIn = () => {
             />
             Facebook
           </button>
+        </div>
+        <div className={classes.lineContainer}>
+          <span className={classes.line}></span>
+          <span className={classes.lineTextStyle}>or</span>
+          <span className={classes.line}></span>
         </div>
         <Box
           component="form"
