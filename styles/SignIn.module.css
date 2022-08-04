@@ -2,7 +2,7 @@
   display: flex;
 }
 .singInContainer {
-  width: 746px;
+  flex: 1;
   height: 1024px;
   display: flex;
   flex-direction: column;
@@ -96,10 +96,10 @@
 }
 .cardsContainer {
   display: flex;
+  flex: 1;
   justify-content: center;
   align-items: center;
   position: "absolute";
-  width: 746px;
   height: 1024px;
   left: 694px;
   border-radius: 8px;

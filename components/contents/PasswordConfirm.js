@@ -1,24 +1,17 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import Link from "next/link";
-import { useRouter } from "next/router";
+
 import classes from "../../styles/passRecovery.module.css";
 
-export const PasswordRecovery = () => {
-  const router = useRouter();
-  const [email, setEmail] = useState("");
+export const PasswordConfirm = () => {
+  const [enterCode, setEnterCode] = useState("");
 
   const handleChange = (event) => {
-    setEmail(event.target.value);
+    setEnterCode(event.target.value);
     console.log(event.target.value);
   };
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    router.push("/createNewPass");
-    console.log("ddd");
-  };
   return (
     <div className={classes.container}>
       <div className={classes.singInContainer}>
@@ -27,7 +20,17 @@ export const PasswordRecovery = () => {
           alt="headerIcon"
           className={classes.headerIcon}
         />
-        <h1 className={classes.passwordRecoveryText}>Password recovery</h1>
+        <img
+          src="confirm.svg"
+          alt="Confirm Icon"
+          // className={classes.headerIcon}
+        />
+        <h1 className={classes.passwordRecoveryText}>
+          Please check your E-mail
+        </h1>
+        <span className={classes.codeText}>
+          A one time code will be sent to your e-mail{" "}
+        </span>
         <Box
           component="form"
           sx={{
@@ -53,29 +56,20 @@ export const PasswordRecovery = () => {
         >
           <TextField
             id="filled-basic"
-            label="E-mail"
+            label="Enter code"
             variant="filled"
-            type="email"
-            value={email}
+            type="text"
+            value={enterCode}
             onChange={handleChange}
             InputProps={{
               className: classes.inputStyle,
             }}
           />
         </Box>
-        <button
-          className={classes.loginButton}
-          type="submit"
-          onClick={handleClick}
-        >
-          Login
-        </button>
 
-        <div>
-          <Link href="/signInPage">
-            <a className={classes.returnTextStyle}> Return back</a>
-          </Link>
-        </div>
+        <button className={classes.loginButton} type="submit">
+          Confirm
+        </button>
       </div>
       <div className={classes.cardsContainer}>
         <img src="cards.png" alt="cards" />

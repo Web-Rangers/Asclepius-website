@@ -1,20 +1,17 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import Link from "next/link";
 import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import classes from "../../styles/SignIn.module.css";
+import classes from "../../styles/passRecovery.module.css";
+import { useRouter } from "next/router";
 
-import Link from "next/link";
-
-export const SignUp = () => {
+export const CreateNewPass = () => {
+  const router = useRouter();
   const [values, setValues] = useState({
-    name: "",
-    surname: "",
-    email: "",
-    phoneNumber: "",
     password: "",
     repeatPassword: "",
     showPassword: false,
@@ -44,6 +41,10 @@ export const SignUp = () => {
     event.preventDefault();
   };
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    router.push("/confirmPasswordPage");
+  };
   return (
     <div className={classes.container}>
       <div className={classes.singInContainer}>
@@ -52,35 +53,7 @@ export const SignUp = () => {
           alt="headerIcon"
           className={classes.headerIcon}
         />
-        <div className={classes.singInTextStyle}>
-          <h1 className={classes.loginText}>Sign up</h1>
-          <span className={classes.accountText}>
-            You already have an account?
-            <Link href="/signInPage">
-              <a className={classes.linkedTitleStyle}> Sign in</a>
-            </Link>
-          </span>
-        </div>
-        <div className={classes.loginOptionsContainer}>
-          <button type="button" className={classes.loginOptionsStyle}>
-            <img src="google.svg" alt="google" className={classes.iconsStyle} />
-            Google
-          </button>
-          <button type="button" className={classes.loginOptionsStyle}>
-            <img
-              src="facebook.svg"
-              alt="facebook"
-              className={classes.iconsStyle}
-            />
-            Facebook
-          </button>
-        </div>
-        <div className={classes.lineContainer}>
-          <span className={classes.line}></span>
-          <span className={classes.lineTextStyle}>or</span>
-          <span className={classes.line}></span>
-        </div>
-
+        <h1 className={classes.passwordRecoveryText}>Password recovery</h1>
         <Box
           component="form"
           sx={{
@@ -103,60 +76,13 @@ export const SignUp = () => {
           noValidate
           autoComplete="off"
         >
-          <div className={classes.lineContainer}>
-            <TextField
-              id="filled-basic"
-              label="Name"
-              variant="filled"
-              type="text"
-              value={values.name}
-              onChange={handleChange("name")}
-              InputProps={{
-                className: classes.nameSurnameContainer,
-              }}
-            />
-            <TextField
-              id="filled-basic"
-              label="Surname"
-              variant="filled"
-              type="text"
-              value={values.surname}
-              onChange={handleChange("surname")}
-              InputProps={{
-                className: classes.nameSurnameContainer,
-              }}
-            />
-          </div>
           <TextField
-            id="filled-basic"
-            label="E-mail"
-            variant="filled"
-            type="email"
-            value={values.email}
-            onChange={handleChange("email")}
-            InputProps={{
-              className: classes.inputStyle,
-            }}
-          />
-          <TextField
-            id="filled-basic"
-            label="Phone number"
-            variant="filled"
-            type="text"
-            value={values.phoneNumber}
-            onChange={handleChange("phoneNumber")}
-            InputProps={{
-              className: classes.inputStyle,
-            }}
-          />
-          <TextField
-            id="filled-basic"
-            label="Password"
+            id="1"
+            label="Enter new password"
             variant="filled"
             type={values.showPassword ? "text" : "password"}
             value={values.password}
             onChange={handleChange("password")}
-            autoComplete="current-password"
             InputProps={{
               className: classes.inputStyle,
               endAdornment: (
@@ -174,10 +100,9 @@ export const SignUp = () => {
             }}
           />
           <TextField
-            id="filled-basic"
+            id="2"
             label="Repeat password"
             variant="filled"
-            autoComplete="current-password"
             type={values.showRepeatPassword ? "text" : "password"}
             value={values.repeatPassword}
             onChange={handleChange("repeatPassword")}
@@ -202,12 +127,19 @@ export const SignUp = () => {
             }}
           />
         </Box>
-
-        <button className={classes.loginButton} type="submit">
-          Login
+        <button
+          className={classes.loginButton}
+          type="submit"
+          onClick={handleClick}
+        >
+          Send
         </button>
+        <div>
+          <Link href="/passwordRecoveryPage">
+            <a className={classes.returnTextStyle}> Return back</a>
+          </Link>
+        </div>
       </div>
-
       <div className={classes.cardsContainer}>
         <img src="cards.png" alt="cards" />
       </div>

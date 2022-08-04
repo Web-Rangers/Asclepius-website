@@ -1,7 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import classes from "./SignIn.module.css";
+import classes from "../../styles/SignIn.module.css";
 import Link from "next/link";
 
 export const SignIn = () => {
