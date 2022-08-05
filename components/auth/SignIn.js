@@ -1,8 +1,9 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 import classes from "../../styles/SignIn.module.css";
 import Link from "next/link";
+import Input from "../ui/input";
+import Button from "../ui/Button";
+import Text from "../ui/Text";
 
 export const SignIn = () => {
   return (
@@ -15,12 +16,12 @@ export const SignIn = () => {
         />
         <div className={classes.singInTextStyle}>
           <h1 className={classes.loginText}>Login</h1>
-          <span className={classes.accountText}>
+          <Text style={classes.accountText}>
             Don't have an account?
             <Link href="/signUpPage">
               <a className={classes.linkedTitleStyle}> Create one</a>
             </Link>
-          </span>
+          </Text>
         </div>
         <div className={classes.loginOptionsContainer}>
           <button type="button" className={classes.loginOptionsStyle}>
@@ -37,63 +38,33 @@ export const SignIn = () => {
           </button>
         </div>
         <div className={classes.lineContainer}>
-          <span className={classes.line}></span>
-          <span className={classes.lineTextStyle}>or</span>
-          <span className={classes.line}></span>
+          <Text style={classes.line} />
+          <Text style={classes.lineTextStyle}>or</Text>
+          <Text style={classes.line} />
         </div>
-        <Box
-          component="form"
-          sx={{
-            "& > :not(style)": {
-              m: 3,
-              width: 360,
-              display: "flex",
-              backgroundColor: "rgb(255,255,255)",
-              border: "1px solid #D5D8DE",
-              "&:hover": {
-                border: "1px solid #3A74D2",
-                backgroundColor: "rgb(250,250,250)",
-              },
-              "& label": {
-                display: "flex",
-                alignSelf: "flex-start",
-                marginLeft: 1,
-              },
-            },
+        <Input
+          label="Name"
+          type="text"
+          inputProps={{
+            className: classes.inputStyle,
           }}
-          noValidate
-          autoComplete="off"
-        >
-          <TextField
-            id="filled-basic"
-            label="Name"
-            variant="filled"
-            type="text"
-            InputProps={{
-              className: classes.inputStyle,
-            }}
-          />
-          <TextField
-            id="filled-basic"
-            label="Password"
-            variant="filled"
-            type="password"
-            autoComplete="current-password"
-            InputProps={{
-              className: classes.inputStyle,
-            }}
-          />
-        </Box>
+        />
+        <Input
+          label="Password"
+          variant="filled"
+          type="password"
+          autoComplete="current-password"
+          inputProps={{
+            className: classes.inputStyle,
+          }}
+        />
         <div className={classes.linkedTitle}>
           <Link href="/passwordRecoveryPage">
             <a className={classes.linkedTitleStyle}>Forget password?</a>
           </Link>
         </div>
-        <button className={classes.loginButton} type="submit">
-          Login
-        </button>
+        <Button type="submit" name="Login" />
       </div>
-
       <div className={classes.cardsContainer}>
         <img src="cards.png" alt="cards" />
       </div>

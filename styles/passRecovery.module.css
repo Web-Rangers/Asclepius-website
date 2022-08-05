@@ -10,12 +10,23 @@
   align-items: center;
 }
 .headerIcon {
-  position: absolute;
+  position: relative;
   margin-right: 360px;
-  margin-top: -350px;
-  margin-bottom: 300px;
+  margin-top: -400px;
+  margin-bottom: 250px;
 }
 .passwordRecoveryText {
+  display: flex;
+  justify-content: flex-start;
+  width: 368px;
+  height: 32px;
+  font-family: "Noto Sans";
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 32px;
+  color: #1e2837;
+}
+.checkEmailText {
   display: flex;
   justify-content: center;
   width: 368px;
@@ -32,6 +43,7 @@
   border-top: 1px solid #d5d8de;
   border-left: 1px solid #d5d8de;
   border-right: 1px solid #d5d8de;
+  width: 360px;
 }
 .loginButton {
   width: 360px;
@@ -39,6 +51,7 @@
   border-radius: 5px;
   background-color: #3a74d2;
   color: #fff;
+  margin-top: 18px;
 }
 .returnTextStyle {
   display: flex;
