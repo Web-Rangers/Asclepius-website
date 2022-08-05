@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { SignUp } from "../../components/contents/SignUp";
+import { SignUp } from "../../components/auth/SignUp";
 
 function SignUpPage() {
   return (

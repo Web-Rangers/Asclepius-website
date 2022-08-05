@@ -1,16 +1,13 @@
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import classes from "../../styles/SignIn.module.css";
 
-export const Input = (props) => {
+const Input = (props) => {
   return (
     <Box
       component="form"
       sx={{
         "& > :not(style)": {
-          m: 3,
-          width: 360,
-          display: "flex",
+          mt: 1.8,
           backgroundColor: "rgb(255,255,255)",
           border: "1px solid #D5D8DE",
           "&:hover": {
@@ -29,15 +26,15 @@ export const Input = (props) => {
     >
       <TextField
         id="filled-basic"
-        label="Enter code"
+        label={props.label}
         variant="filled"
-        type="text"
-        value={enterCode}
-        onChange={handleChange}
-        InputProps={{
-          className: classes.inputStyle,
-        }}
+        type={props.type}
+        value={props.enterCode}
+        onChange={props.handleChange}
+        InputProps={props.inputProps}
       />
     </Box>
   );
 };
+
+export default Input;

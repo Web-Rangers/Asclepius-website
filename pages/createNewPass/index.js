@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { CreateNewPass } from "../../components/contents/CreateNewPass";
+import { CreateNewPass } from "../../components/auth/CreateNewPass";
 
 function PasswordRecoveryPage() {
   return (

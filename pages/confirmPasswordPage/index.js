@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { PasswordConfirm } from "../../components/contents/PasswordConfirm";
+import { PasswordConfirm } from "../../components/auth/PasswordConfirm";
 
 function ConfirmPasswordPage() {
   return (

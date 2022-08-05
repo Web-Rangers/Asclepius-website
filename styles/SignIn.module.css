@@ -67,12 +67,14 @@
   border-top: 1px solid #d5d8de;
   border-left: 1px solid #d5d8de;
   border-right: 1px solid #d5d8de;
+  width: 360px;
 }
 
 .linkedTitle {
   display: flex;
   justify-content: flex-end;
   width: 360px;
+  margin-top: 18px;
 }
 .linkedTitleStyle {
   color: #3a74d2;
@@ -106,9 +108,12 @@
   background-color: #f7f9fb;
   border: 1px solid #dcdddf;
 }
-
 .nameSurnameContainer {
-  position: "relative";
+  display: flex;
+  gap: 29px;
+  width: 360px;
+}
+.nameSurnameStyle {
   width: 164px;
   border-top: 1px solid #d5d8de;
   border-left: 1px solid #d5d8de;
@@ -122,6 +127,7 @@
   gap: 32px;
   width: 360px;
 }
+
 .line {
   width: 164px;
   height: 1px;

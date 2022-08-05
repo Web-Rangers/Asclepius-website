@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { SignIn } from "../../components/contents/SignIn";
+import { SignIn } from "../../components/auth/SignIn";
 
 function SignInPage() {
   return (
