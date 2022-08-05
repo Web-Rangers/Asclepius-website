@@ -3,12 +3,12 @@ import { PasswordConfirm } from "../../components/auth/PasswordConfirm";
 
 function ConfirmPasswordPage() {
   return (
-    <div>
+    <>
       <Head>
         <title>Confrim password</title>
       </Head>
       <PasswordConfirm />
-    </div>
+    </>
   );
 }
 
