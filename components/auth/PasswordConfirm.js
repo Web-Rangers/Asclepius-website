@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Input from "../ui/input";
+import Input from "../ui/Input";
 import classes from "../../styles/passRecovery.module.css";
 import Button from "../ui/Button";
 import Text from "../ui/Text";

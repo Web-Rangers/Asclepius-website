@@ -1,0 +1,44 @@
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 150px;
+  margin-right: 30px;
+}
+.headerIcon {
+  margin-top: 15px;
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 800px;
+  list-style: none;
+  margin-bottom: 50px;
+}
+.navbar li {
+  font-family: "Noto Sans";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21.79px;
+  color: #1e2837;
+}
+.navbar li a {
+  color: #3a74d2;
+}
+.navbar li form select {
+  padding-left: 10px;
+  border: none;
+  width: 80px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: #f7f9fb;
+}
+.signInButton {
+  width: 146px;
+  height: 48px;
+  border-radius: 5px;
+  background-color: #1e2837;
+  color: #ffffff;
+}

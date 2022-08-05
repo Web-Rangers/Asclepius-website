@@ -3,7 +3,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import classes from "../../styles/SignIn.module.css";
+import classes from "../../styles/signIn.module.css";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
 import Text from "../ui/Text";
