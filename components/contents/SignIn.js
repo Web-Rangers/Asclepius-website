@@ -1,8 +1,8 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import classes from "./SignIn.module.css";
-import { borderLeft } from "@mui/system";
+import classes from "../../styles/SignIn.module.css";
+import Link from "next/link";
 
 export const SignIn = () => {
   return (
@@ -11,15 +11,15 @@ export const SignIn = () => {
         <img
           src="headerIcon.svg"
           alt="headerIcon"
-          className={classes.headerIcon}
+          className={classes.headerIconSignIn}
         />
         <div className={classes.singInTextStyle}>
           <h1 className={classes.loginText}>Login</h1>
           <span className={classes.accountText}>
             Don't have an account?
-            <a href="url" className={classes.linkedTitleStyle}>
-              Create one
-            </a>
+            <Link href="/signUpPage">
+              <a className={classes.linkedTitleStyle}> Create one</a>
+            </Link>
           </span>
         </div>
         <div className={classes.loginOptionsContainer}>
@@ -35,6 +35,11 @@ export const SignIn = () => {
             />
             Facebook
           </button>
+        </div>
+        <div className={classes.lineContainer}>
+          <span className={classes.line}></span>
+          <span className={classes.lineTextStyle}>or</span>
+          <span className={classes.line}></span>
         </div>
         <Box
           component="form"
@@ -80,9 +85,9 @@ export const SignIn = () => {
           />
         </Box>
         <div className={classes.linkedTitle}>
-          <a href="url" className={classes.linkedTitleStyle}>
-            Forget password?
-          </a>
+          <Link href="/passwordRecoveryPage">
+            <a className={classes.linkedTitleStyle}>Forget password?</a>
+          </Link>
         </div>
         <button className={classes.loginButton} type="submit">
           Login
