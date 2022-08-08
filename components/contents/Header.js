@@ -1,5 +1,6 @@
 import Button from "../ui/Button";
 import classes from "../../styles/headerFooter.module.css";
+import DropDown from "../ui/DropDown";
 
 const Header = () => {
   return (
@@ -19,13 +20,7 @@ const Header = () => {
           <Button name="Sign in" style={classes.signInButton} />
         </li>
         <li>
-          <form action="#">
-            <select name="languages" id="lang">
-              <option value="Eng">Eng</option>
-              <option value="Geo">Geo</option>
-              <option value="Rus">Rus</option>
-            </select>
-          </form>
+          <DropDown />
         </li>
       </ul>
     </div>

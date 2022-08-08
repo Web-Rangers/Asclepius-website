@@ -27,14 +27,7 @@
 .navbar li a {
   color: #3a74d2;
 }
-.navbar li form select {
-  padding-left: 10px;
-  border: none;
-  width: 80px;
-  height: 48px;
-  border-radius: 8px;
-  background-color: #f7f9fb;
-}
+
 .signInButton {
   width: 146px;
   height: 48px;

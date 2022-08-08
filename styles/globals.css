@@ -14,7 +14,15 @@ a {
 * {
   box-sizing: border-box;
 }
+@font-face {
+  font-family: "Noto Sans";
+  src: url("../components/fonts/NotoSans/NotoSans-Regular.ttf");
+}
 
+@font-face {
+  font-family: "Graphik";
+  src: url("../components/fonts/Graphik/GraphikRegular.otf");
+}
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
