@@ -1,23 +1,44 @@
 import Button from "../ui/Button";
 import classes from "../../styles/headerFooter.module.css";
 import DropDown from "../ui/DropDown";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Header = () => {
+  const router = useRouter();
+  const handleClick = (e) => {
+    e.preventDefault();
+    router.push("/signInPage");
+  };
+
+  console.log(router);
   return (
     <div className={classes.headerContainer}>
       <div className={classes.headerIcon}>
         <img src="headerIcon.svg" alt="headerIcon" />
       </div>
       <ul className={classes.navbar}>
-        <li>Home</li>
-        <li>Button</li>
-        <li>About us</li>
-        <li>Offers</li>
         <li>
-          <a href="#">Contact</a>
+          <Link href="/Home">Home</Link>
         </li>
         <li>
-          <Button name="Sign in" style={classes.signInButton} />
+          <Link href="/Button">Button</Link>
+        </li>
+        <li>
+          <Link href="About us"> About us</Link>
+        </li>
+        <li>
+          <Link href="#Offers">Offers</Link>
+        </li>
+        <li>
+          <Link href="#">Contact</Link>
+        </li>
+        <li>
+          <Button
+            name="Sign in"
+            style={classes.signInButton}
+            onClick={handleClick}
+          />
         </li>
         <li>
           <DropDown />

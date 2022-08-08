@@ -24,7 +24,7 @@
   line-height: 21.79px;
   color: #1e2837;
 }
-.navbar li a {
+.navbar li:nth-child(5) {
   color: #3a74d2;
 }
 
@@ -34,4 +34,80 @@
   border-radius: 5px;
   background-color: #1e2837;
   color: #ffffff;
+}
+
+.footerContainer {
+  display: flex;
+  height: 222px;
+  background-color: #f7f9fb;
+}
+.headerIcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 0px;
+}
+.headerIcon img {
+  width: 30px;
+}
+.leftSideContainer {
+  display: flex;
+  flex-direction: row;
+  padding-left: 140px;
+  width: 448px;
+  margin-top: 30px;
+}
+.rightSideContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 36px;
+}
+.companyConatiner {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-right: 100px;
+}
+.companyConatiner img {
+  width: 30px;
+}
+.textTitle {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #1e2837;
+}
+.textStyle {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #797a80;
+}
+.allRightsText {
+  padding-left: 140px;
+  background-color: #f7f9fb;
+  padding-bottom: 20px;
+}
+.iconContainer {
+  display: flex;
+  flex-direction: row;
+}
+.iconContainer img {
+  width: 24px;
+  height: 24px;
+  margin-right: 22px;
+}
+.leftSideContainerText {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 28px;
+  color: #797a80;
+  padding-top: 10px;
 }

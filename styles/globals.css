@@ -23,6 +23,7 @@ a {
   font-family: "Graphik";
   src: url("../components/fonts/Graphik/GraphikRegular.otf");
 }
+
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
