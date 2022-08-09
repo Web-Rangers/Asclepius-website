@@ -19,7 +19,6 @@ export const ContactUs = () => {
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
-    console.log(prop);
   };
 
   return (
