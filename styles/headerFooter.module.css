@@ -45,10 +45,11 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-top: 0px;
+  margin-top: 25px;
 }
 .headerIcon img {
-  width: 30px;
+  width: 47px;
+  height: 40px;
 }
 .leftSideContainer {
   display: flex;

@@ -4,7 +4,6 @@ import Input from "../ui/Input";
 import Button from "../ui/Button";
 import Text from "../ui/Text";
 import Header from "./header";
-import Footer from "./Footer";
 
 export const ContactUs = () => {
   const [values, setValues] = useState({
@@ -118,7 +117,6 @@ export const ContactUs = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

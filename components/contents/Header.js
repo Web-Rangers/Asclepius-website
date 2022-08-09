@@ -19,19 +19,29 @@ const Header = () => {
       </div>
       <ul className={classes.navbar}>
         <li>
-          <Link href="/Home">Home</Link>
+          <Link href="/Home">
+            <a>Home</a>
+          </Link>
         </li>
         <li>
-          <Link href="/Button">Button</Link>
+          <Link href="/Button">
+            <a>Button</a>
+          </Link>
         </li>
         <li>
-          <Link href="About us"> About us</Link>
+          <Link href="About us">
+            <a> About us</a>
+          </Link>
         </li>
         <li>
-          <Link href="#Offers">Offers</Link>
+          <Link href="#Offers">
+            <a>Offers</a>
+          </Link>
         </li>
         <li>
-          <Link href="#">Contact</Link>
+          <Link href="#">
+            <a>Contact</a>
+          </Link>
         </li>
         <li>
           <Button
