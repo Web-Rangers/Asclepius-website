@@ -69,7 +69,6 @@
   border-right: 1px solid #d5d8de;
   width: 360px;
 }
-
 .linkedTitle {
   display: flex;
   justify-content: flex-end;
@@ -98,6 +97,7 @@
 }
 .cardsContainer {
   display: flex;
+  flex-direction: column;
   flex: 1;
   justify-content: center;
   align-items: center;
@@ -127,7 +127,6 @@
   gap: 32px;
   width: 360px;
 }
-
 .line {
   width: 164px;
   height: 1px;
@@ -141,4 +140,41 @@
   line-height: 16px;
   color: #c4c4c4;
   margin-top: 10px;
+}
+.contactUsInputText {
+  display: flex;
+  justify-content: flex-start;
+  font-family: "Noto Sans";
+  width: 360px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  color: #1e2837;
+  margin-top: 20px;
+  margin-bottom: -10px;
+}
+.contactUsNameText {
+  display: flex;
+  justify-content: flex-start;
+  font-family: "Noto Sans";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  color: #1e2837;
+  margin-top: 20px;
+  margin-bottom: -10px;
+}
+.contactInfo {
+  display: flex;
+  align-items: center;
+  margin-top: 32px;
+}
+.contactInfoText {
+  font-family: "Noto Sans";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #1e2837;
+  padding-left: 3px;
+  padding-right: 15px;
 }

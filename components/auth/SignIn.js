@@ -1,7 +1,7 @@
 import * as React from "react";
-import classes from "../../styles/SignIn.module.css";
+import classes from "../../styles/signIn.module.css";
 import Link from "next/link";
-import Input from "../ui/input";
+import Input from "../ui/Input";
 import Button from "../ui/Button";
 import Text from "../ui/Text";
 
