@@ -1,0 +1,230 @@
+.firstPart {
+  margin-bottom: 64px;
+}
+
+.firstPartImg {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.firstPartImg img {
+  width: 367px;
+  height: 228px;
+  border-radius: 5px;
+}
+
+.cardItemContainer {
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+}
+.imgPartImage {
+  width: 268px;
+  height: 167px;
+  border-radius: 5px;
+}
+.clinicCardContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  background-color: #f7f9fb;
+}
+.clinicCardContainerTitle {
+  display: flex;
+  flex-direction: column;
+  margin: 77px 165px 39px 125px;
+}
+.arrows {
+  display: flex;
+  justify-content: space-between;
+}
+.clinicCardList {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.serviceTextStyle {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21.79px;
+  color: #3a74d2;
+  margin-bottom: 20px;
+}
+.ourClinicTextStyle {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 28px;
+  color: #1e2837;
+}
+.clinicNameText {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21.79px;
+  color: #1e2837;
+  margin-top: 18px;
+}
+.clinicAddressText {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #797a80;
+  margin-top: 10px;
+  margin-bottom: 100px;
+}
+.clinicAddressText img {
+  margin-right: 10px;
+}
+.ratingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  gap: 6.67px;
+  margin-top: 16px;
+  margin-left: 16px;
+  width: 71px;
+  height: 28px;
+  border-radius: 14px;
+  background-color: rgba(58, 116, 210, 0.2);
+}
+
+.doctorItemContainer {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+}
+.doctorNameText {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24.52px;
+  color: #1e2837;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.doctorSpecialityText {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #797a80;
+  margin: 20px 0px 20px 20px;
+  margin-top: 7px;
+}
+.iconsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 90%;
+  border-top: 1px solid #d8d8d8;
+  height: 45px;
+  margin: 10px 10px 10px 10px;
+}
+
+.iconsContainer img {
+  padding-right: 25px;
+  padding-left: 20px;
+  margin-top: 10px;
+  border-right: 1px solid #d8d8d8;
+}
+
+.iconsContainer img:nth-child(3) {
+  border-right: 1px solid #ffff;
+}
+
+.doctorCardList {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+}
+
+/* services */
+
+.serviceContainer {
+}
+.serviceContainerImg {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 33px;
+  margin-top: 93px;
+}
+.serviceContainerContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 103px;
+}
+.leftSideContent {
+  display: flex;
+  flex-direction: column;
+}
+.leftSideContentText {
+  width: 546px;
+  height: 164px;
+  /* margin-left: 139px; */
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  color: #797a80;
+}
+.servicesTitle {
+  margin-top: 103px;
+  margin-bottom: 24px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  color: #3a74d2;
+}
+.ourServicesTitle {
+  margin-bottom: 24px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 28px;
+  color: #1e2837;
+}
+.registrationButton {
+  margin-top: 41px;
+  width: 146px;
+  height: 48px;
+  background-color: #1e2837;
+  color: #ffff;
+  border-radius: 5px;
+}
+.servicesCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 268px;
+  height: 193px;
+  border: 1px solid rgba(30, 40, 55, 0.1);
+  gap: 20px;
+  padding-left: 10px;
+}
+.servicesCard img {
+  width: 40px;
+  height: 40px;
+}
+.rightSideContentCards {
+  display: flex;
+  flex-direction: row;
+  margin-top: 100px;
+}
