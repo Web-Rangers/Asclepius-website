@@ -46,9 +46,11 @@ const Services = () => {
               </div>
             </Link>
             <Link href="/clinics">
-              <div className={s.servicesCard}>
+              <div className={s.servicesCardSecond}>
                 <img src="homeVisitIcon.svg" alt="" />
-                <Text style={s.servicesCardTitle}>Visit to the clinic</Text>
+                <Text style={s.servicesCardTitleActive}>
+                  Visit to the clinic
+                </Text>
                 <Text style={s.servicesCardText}>
                   Get video and audio consultation from doctor
                 </Text>
@@ -58,7 +60,7 @@ const Services = () => {
           <div className={s.rightSideContentCards}>
             <Link href="/homeVisit">
               <div className={s.servicesCard}>
-                <img src="homeVisitIcon.svg" alt="" />
+                <img src="homeVisit.svg" alt="" />
                 <Text style={s.servicesCardTitle}>Doctor at home</Text>
                 <Text style={s.servicesCardText}>
                   Get video and audio consultation from doctor
@@ -67,7 +69,7 @@ const Services = () => {
             </Link>
             <Link href="/Laboratory">
               <div className={s.servicesCard}>
-                <img src="homeVisitIcon.svg" alt="" />
+                <img src="lab.svg" alt="" />
                 <Text style={s.servicesCardTitle}>Laboratory</Text>
                 <Text style={s.servicesCardText}>
                   Get video and audio consultation from doctor

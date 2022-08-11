@@ -215,16 +215,255 @@
   justify-content: center;
   width: 268px;
   height: 193px;
+  gap: 20px;
+  padding-left: 10px;
+  margin-right: 20px;
+  margin-bottom: -80px;
+  border-radius: 5px;
+}
+.servicesCardSecond {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 268px;
+  height: 193px;
   border: 1px solid rgba(30, 40, 55, 0.1);
   gap: 20px;
   padding-left: 10px;
+  margin-right: 20px;
+  margin-bottom: -80px;
+  border-radius: 5px;
+}
+.servicesCardSecond img {
+  width: 40px;
+  height: 40px;
 }
 .servicesCard img {
   width: 40px;
   height: 40px;
 }
+
+.servicesCardTitle {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 29px;
+  color: #1e2837;
+}
+.servicesCardTitleActive {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 29px;
+  color: #3a74d2;
+}
+.servicesCardText {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #797a80;
+}
 .rightSideContentCards {
   display: flex;
   flex-direction: row;
   margin-top: 100px;
+}
+
+/* benefits */
+.benefitsContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  background-color: #f5f5f5;
+}
+.benefits {
+  display: flex;
+  flex-direction: row;
+}
+.benefitsContainerImg {
+  margin: 54.28px 31.29px 10px 77px;
+}
+.benefitMainTitle {
+  display: flex;
+  justify-content: center;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 63px;
+  color: #1e2837;
+}
+.benefitCard {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+.benefitCardLeftSide {
+  margin-top: 50px;
+}
+.benefitCardRightSide {
+  margin-top: 50px;
+}
+.benefitCardLeftSide {
+  margin-right: 100px;
+  margin-left: 100px;
+}
+.benefitCardTitle {
+  display: flex;
+  justify-content: flex-start;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24.52px;
+  color: #1e2837;
+  margin-top: 12px;
+  margin-bottom: 14px;
+}
+.benefitCardText {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #797a80;
+}
+/* card Price */
+.cardPriceContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+  margin-bottom: 90px;
+}
+.cardPriceTitle {
+  margin-top: 36px;
+  margin-bottom: 22px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 28px;
+  color: #1e2837;
+}
+.cardPriceText {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  color: #797a80;
+  margin-bottom: 60px;
+}
+.cardSection {
+  display: flex;
+  flex-direction: row;
+  gap: 44.54px;
+}
+.card {
+  width: 360px;
+  height: 598px;
+  border-radius: 8px;
+  border: 2px solid #dcdddf;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 38px;
+}
+.priceContainer {
+  display: flex;
+  flex-direction: column;
+}
+.cardImg {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 54px;
+}
+.priceContainerTitle {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+  color: #1e2837;
+  margin-top: 34px;
+  margin-bottom: 7px;
+}
+.priceNumber {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 33px;
+  color: #1e67d3;
+  padding-top: 15px;
+}
+.priceContainerText {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #797a80;
+}
+.cardServices {
+  margin-left: 50px;
+  margin-bottom: 42px;
+}
+.servicePackage {
+  margin-bottom: 15px;
+}
+.servicePackage img {
+  margin-right: 10px;
+}
+.orderButton {
+  display: block;
+  margin: 0 auto;
+  width: 280px;
+  height: 48px;
+  border: 2px solid #dcdddf;
+  background-color: #ffffff;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1e2837;
+}
+.orderButtonGold {
+  display: block;
+  margin: 0 auto;
+  width: 280px;
+  height: 48px;
+  border: 2px solid #dcdddf;
+  background-color: #3a74d2;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  color: #ffffff;
+}
+.servicePackageText {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1e2837;
+}
+.recordingTimeText {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: #797a80;
 }

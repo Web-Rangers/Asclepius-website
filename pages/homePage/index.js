@@ -1,10 +1,11 @@
-import Slider from "../contents/Slider";
+import Slider from "../../components/contents/Slider";
 import classes from "../../styles/homePage.module.css";
-import ClinicCardList from "../contents/ClinicCardList";
-import DoctorCardList from "./DoctorCardList";
-import Services from "./Services";
-
-const HomePage = () => {
+import ClinicCardList from "../../components/contents/ClinicCardList";
+import DoctorCardList from "../../components/contents/DoctorCardList";
+import Services from "../../components/contents/Services";
+import Benefits from "../../components/contents/Benefits";
+import CardPrice from "../../components/contents/CardPrice";
+export const HomePage = () => {
   const firstPartImgArray = [
     "firstPartImg1.png",
     "firstPartImg2.png",
@@ -15,7 +16,6 @@ const HomePage = () => {
     <div>
       <div className={classes.firstPart}>
         <Slider />
-
         <div className={classes.firstPartImg}>
           {firstPartImgArray.map((image, index) => (
             <img
@@ -29,6 +29,8 @@ const HomePage = () => {
         <ClinicCardList />
         <DoctorCardList />
         <Services />
+        <Benefits />
+        <CardPrice />
       </div>
     </div>
   );
