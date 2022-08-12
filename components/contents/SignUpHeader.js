@@ -13,45 +13,47 @@ const SignUpHeader = () => {
   console.log(searchInput);
   return (
     <div className={classes.signUpHeaderContainer}>
-      <div>
-        <img src="headerIcon.svg" alt="headerIcon" />
-      </div>
-      <div className={classes.navbarContainer}>
-        <ul className={classes.navbarItems}>
-          <li>
-            <Link href="/MainPage">
-              <a>Main page</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/Cards">
-              <a>Cards</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="Clinics">
-              <a> Clinics</a>
-            </Link>
-          </li>
-        </ul>
-        <div className={classes.searchInput}>
-          <input
-            type="search"
-            placeholder="Search..."
-            value={searchInput}
-            onChange={handleChange}
-          />
-          <img src="Search.svg" alt="Search" />
+      <div className={classes.f_half}>
+        <div>
+          <img src="/headerIcon.svg" alt="headerIcon" />
+        </div>
+        <div className={classes.navbarContainer}>
+          <ul className={classes.navbarItems}>
+            <li>
+              <Link href="/MainPage">
+                <a>Main page</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/Cards">
+                <a>Cards</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="Clinics">
+                <a> Clinics</a>
+              </Link>
+            </li>
+          </ul>
+          <div className={classes.searchInput}>
+            <input
+              type="search"
+              placeholder="Search..."
+              value={searchInput}
+              onChange={handleChange}
+            />
+            <img src="/Search.svg" alt="Search" />
+          </div>
         </div>
       </div>
       <div className={classes.userProfilePart}>
         {messages ? (
-          <img src="notificationwithsms.svg" alt="notificationwithsms" />
+          <img src="/notificationwithsms.svg" alt="notificationwithsms" />
         ) : (
-          <img src="notification.svg" alt="notification" />
+          <img src="/notification.svg" alt="notification" />
         )}
-        <img src="testUser.png" alt="testUSerImage" />
-        <img src="dropDown.svg" alt="Search" />
+        <img src="/testUser.png" alt="testUSerImage" />
+        <img src="/dropDown.svg" alt="Search" />
       </div>
     </div>
   );

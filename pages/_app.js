@@ -5,7 +5,7 @@ import SignUpHeader from "../components/contents/SignUpHeader";
 import Header from "../components/contents/header";
 
 function MyApp({ Component, pageProps }) {
-  const [signUp, setSignUp] = useState(false);
+  const [signUp, setSignUp] = useState(true);
 
   return (
     <>

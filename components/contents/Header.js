@@ -17,7 +17,7 @@ const Header = () => {
     <>
       <div className={classes.headerContainer}>
         <div className={classes.headerIcon}>
-          <img src="headerIcon.svg" alt="headerIcon" />
+          <img src="/headerIcon.svg" alt="headerIcon" />
         </div>
         <ul className={classes.navbar}>
           <li>
