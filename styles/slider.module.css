@@ -1,0 +1,31 @@
+.slideshow {
+  flex-direction: column;
+  margin: 0 auto;
+  overflow: hidden;
+  max-width: 1162px;
+}
+
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+  width: 1162px;
+  height: 494px;
+}
+
+.slide {
+  display: inline-block;
+  height: 494px;
+  width: 100%;
+}
+
+.slideshowDots {
+  text-align: center;
+}
+
+.slideshowDot {
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 44px 7px 44px;
+  background-color: #ffff;
+}

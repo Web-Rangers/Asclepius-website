@@ -13,7 +13,6 @@ const Header = () => {
     router.push("/signInPage");
   };
 
-  console.log(router);
   return (
     <>
       <div className={classes.headerContainer}>
