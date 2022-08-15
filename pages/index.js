@@ -1,7 +1,9 @@
 import { ContactUs } from "../components/contents/ContactUs";
 import HomePage from "./homePage";
-import SignInPage from "./SignInPage";
+import SignInPage from "./signInPage";
 import SignUpPage from "./signUpPage";
+import ClinicsPage from "./clinicsPage";
+
 export default function Home() {
   return (
     <>
@@ -9,6 +11,7 @@ export default function Home() {
       <SignInPage /> */}
       {/* <ContactUs /> */}
       <HomePage />
+      <ClinicsPage />
     </>
   );
 }
