@@ -24,14 +24,15 @@ const Pagination = (props) => {
   }
 
   const onNext = () => {
-    onPageChange(currentPage + 1);
+    paginationRange.length !== currentPage && onPageChange(currentPage + 1);
   };
 
   const onPrevious = () => {
-    onPageChange(currentPage - 1);
+    currentPage > 1 ? onPageChange(currentPage - 1) : onPageChange(currentPage);
   };
 
   let lastPage = paginationRange[paginationRange.length - 1];
+
   return (
     <ul className={s.paginationContainer}>
       <li className={s.paginationItem} onClick={onPrevious}>
@@ -42,14 +43,13 @@ const Pagination = (props) => {
           alt="arrow left"
         />
       </li>
-      {paginationRange.map((pageNumber) => {
+      {paginationRange.map((pageNumber, index) => {
         if (pageNumber === DOTS) {
           return <li className={s.paginationItemDots}>&#8230;</li>;
         }
-
         return (
-          // eslint-disable-next-line react/jsx-key
           <li
+            key={index}
             className={
               pageNumber === currentPage
                 ? s.paginationitemselected

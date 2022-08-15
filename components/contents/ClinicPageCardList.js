@@ -7,8 +7,6 @@ import Button from "../ui/Button";
 import Image from "next/image";
 import Pagination from "../ui/Pagination";
 import Modal from "react-modal";
-import Input from "../ui/Input";
-import DropDown from "../ui/DropDown";
 
 const clinciArray = [
   {
@@ -143,11 +141,6 @@ const ClinicPageCardList = () => {
     setIsOpen(true);
   };
 
-  const afterOpenModal = () => {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
-  };
-
   const closeModal = () => {
     setIsOpen(false);
   };
@@ -184,7 +177,6 @@ const ClinicPageCardList = () => {
         ></Button>
         <Modal
           isOpen={modalIsOpen}
-          // onAfterOpen={afterOpenModal}
           onRequestClose={closeModal}
           style={customStyles}
           contentLabel="Example Modal"
@@ -239,8 +231,8 @@ const ClinicPageCardList = () => {
       </div>
       <div className={s.clinicPageCardListContainer}>
         {currentTableData.map((item, index) => (
-          // eslint-disable-next-line react/jsx-key
           <ClinicPageCardItem
+            key={index}
             alt={item.alt}
             clinicName={item.clinicName}
             workingDay={item.workingDay}

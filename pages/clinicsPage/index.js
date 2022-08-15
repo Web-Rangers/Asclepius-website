@@ -1,10 +1,6 @@
 import ClinicPageCardList from "../../components/contents/ClinicPageCardList";
 function ClinicsPage() {
-  return (
-    <>
-      <ClinicPageCardList />
-    </>
-  );
+  return <ClinicPageCardList />;
 }
 
 export default ClinicsPage;
