@@ -12,6 +12,7 @@ import FilterModal from '../../../components/modals/filterModal';
 export default function UserDetailed() {
     const [isOpen, setOpen] = useState(false);
     const [status, setStatus] = useState('');
+    const [serviceType, setServiceType] = useState('');
 
     const memberList = [
         {
@@ -155,73 +156,105 @@ export default function UserDetailed() {
                                 <Button 
                                     name={<div><img src="/filter.svg" alt=""/><span>Filter</span></div>}
                                     style={styles.filterButton}
-                                    onClick={()=>console.log('heeiii')}
+                                    onClick={()=>setOpen(true)}
                                 />
-                                <FilterModal>
-                                    <div className={classNames(styles.filterContainer, {
-                                        [styles.filterOpen]: isOpen,
-                                    })}>
-                                        <div className={styles.filterSelectors}>
-                                            <DatePicker
-                                                mode="single"
-                                                label="Date"
-                                                className={styles.servInput}
-                                            />
-                                            <Select
-                                                label="Doctor name"
-                                                labelStyle="outside"
-                                                className={styles.servInput}
-                                                options={[
-                                                    {
-                                                        label: "4140 Parker Rd",
-                                                        value: "1",
-                                                    },
-                                                    { label: "Another Branch", value: "2" },
-                                                ]}
-                                                onChange={(value) => {
-                                                    setStatus(value);
-                                                }}
-                                            />
-                                            <Select
-                                                label="Service name"
-                                                labelStyle="outside"
-                                                className={styles.servInput}
-                                                options={[
-                                                    {
-                                                        label: "4140 Parker Rd",
-                                                        value: "1",
-                                                    },
-                                                    { label: "Another Branch", value: "2" },
-                                                ]}
-                                                onChange={(value) => {
-                                                    setStatus(value);
-                                                }}
-                                            />
-                                            <Input 
-                                                label="Service price"
-                                                className={styles.servInput}
-                                            />
-                                            <Input 
-                                                label="Service status"
-                                                className={styles.servInput}
-                                            />
-                                            <Input 
-                                                label="Service review"
-                                                className={styles.servInput}
-                                            />
+                                {
+                                    isOpen && 
+                                    <FilterModal onClose={()=>setOpen(false)}>
+                                        <div className={classNames(styles.filterContainer, {
+                                            [styles.filterOpen]: isOpen,
+                                        })}>
+                                            <div className={styles.filterSelectors}>
+                                                <DatePicker
+                                                    mode="single"
+                                                    label="Date"
+                                                    className={styles.servInput}
+                                                />
+                                                <Select
+                                                    label="Doctor name"
+                                                    labelStyle="outside"
+                                                    className={styles.servInput}
+                                                    options={[
+                                                        {
+                                                            label: "4140 Parker Rd",
+                                                            value: "1",
+                                                        },
+                                                        { label: "Another Branch", value: "2" },
+                                                    ]}
+                                                    onChange={(value) => {
+                                                        setStatus(value);
+                                                    }}
+                                                />
+                                                <Select
+                                                    label="Service name"
+                                                    labelStyle="outside"
+                                                    className={styles.servInput}
+                                                    options={[
+                                                        {
+                                                            label: "4140 Parker Rd",
+                                                            value: "1",
+                                                        },
+                                                        { label: "Another Branch", value: "2" },
+                                                    ]}
+                                                    onChange={(value) => {
+                                                        setStatus(value);
+                                                    }}
+                                                />
+                                                <div className={styles.selects}>
+                                                    <h2>Card</h2>
+                                                    <div>
+                                                        <button
+                                                            className={classNames(styles.selectBtn,{[styles.activeBtn]: serviceType === 'online'})}
+                                                            onClick={() =>
+                                                                setServiceType('online')
+                                                            }
+                                                        >
+                                                            Online
+                                                        </button>
+                                                        <button
+                                                            className={classNames(styles.selectBtn,{[styles.activeBtn]: serviceType === 'at_home'})}
+                                                            onClick={() =>
+                                                                setServiceType('at_home')
+                                                            }
+                                                        >
+                                                            At home
+                                                        </button>
+                                                        <button
+                                                            className={classNames(styles.selectBtn,{[styles.activeBtn]: serviceType === 'clinic'})}
+                                                            onClick={() =>
+                                                                setServiceType('clinic')
+                                                            }
+                                                        >
+                                                            Clinic
+                                                        </button>
+                                                    </div>
+                                                </div>                             
+                                                <Input 
+                                                    label="Service price"
+                                                    className={styles.servInput}
+                                                />
+                                                <Input 
+                                                    label="Service status"
+                                                    className={styles.servInput}
+                                                />
+                                                <Input 
+                                                    label="Service review"
+                                                    className={styles.servInput}
+                                                />
+                                            </div>
+                                            <div className={styles.filterBtns}>
+                                                <Button 
+                                                    name="Clear"
+                                                    style={styles.clearBtn}
+                                                />
+                                                <Button 
+                                                    name="Filter"
+                                                    style={styles.filterBtn}
+                                                />
+                                            </div>
                                         </div>
-                                        <div className={styles.filterBtns}>
-                                            <Button 
-                                                name="Clear"
-                                                className={styles.clearBtn}
-                                            />
-                                            <Button 
-                                                name="Filter"
-                                                className={styles.filterBtn}
-                                            />
-                                        </div>
-                                    </div>
-                                </FilterModal>
+                                    </FilterModal>
+                                }
                             </>
                         }
                         className={styles.tableBlock}
