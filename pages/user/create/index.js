@@ -1,8 +1,18 @@
+import {useState} from 'react';
 import styles from '../../../styles/pages/userDetailed.module.css';
 import Button from '../../../components/ui/Button';
 import Block from '../../../components/block';
+import Table from '../../../components/TableWithSort';
+import classNames from 'classnames';
+import DatePicker from '../../../components/DatePicker';
+import Select from '../../../components/Select';
+import Input from '../../../components/Input';
+import FilterModal from '../../../components/modals/filterModal';
 
 export default function UserDetailed() {
+    const [isOpen, setOpen] = useState(false);
+    const [status, setStatus] = useState('');
+
     const memberList = [
         {
             id:1,
@@ -19,6 +29,102 @@ export default function UserDetailed() {
             image: '/avatar2.png',
         },
     ]
+
+    const columns = [
+        {
+            key: "date",
+            title: "Date",
+            dataIndex: "date",
+            sort: true,
+        },
+        {
+            key: "doctors_name",
+            title: "Doctors name",
+            dataIndex: "doctors_name",
+        },
+        {
+            key: "service_name",
+            title: "Service name",
+            dataIndex: "service_name",
+        },
+        {
+            key: "service_type",
+            title: "Service type",
+            dataIndex: "service_type",
+        },
+        {
+            key: "price",
+            title: "Price",
+            dataIndex: "price",
+        },
+        {
+            key: "status",
+            title: "Status",
+            dataIndex: "status",
+        },
+        {
+            key: "review",
+            title: "Review",
+            dataIndex: "review",
+        },
+    ];
+
+    const data = [
+        {
+            date: '5.05.2022',
+            doctors_name: 'David Smith',
+            service_name: 'Dentist',
+            service_type: 'In Clinic',
+            price: '$23',
+            status: `Completed`,
+            review: '4.7',
+        },
+        {
+            date: '5.05.2015',
+            doctors_name: 'David Smith',
+            service_name: 'Dentist',
+            service_type: 'In Clinic',
+            price: '$23',
+            status: `Completed`,
+            review: '4.7',
+        },
+        {
+            date: '5.05.2012',
+            doctors_name: 'David Smith',
+            service_name: 'Dentist',
+            service_type: 'In Clinic',
+            price: '$23',
+            status: `Completed`,
+            review: '4.7',
+        },
+        {
+            date: '5.05.2025',
+            doctors_name: 'David Smith',
+            service_name: 'Dentist',
+            service_type: 'In Clinic',
+            price: '$23',
+            status: `Completed`,
+            review: '4.7',
+        },
+        {
+            date: '5.05.2022',
+            doctors_name: 'David Smith',
+            service_name: 'Dentist',
+            service_type: 'In Clinic',
+            price: '$23',
+            status: `Completed`,
+            review: '4.7',
+        },
+        {
+            date: '5.05.2022',
+            doctors_name: 'David Smith',
+            service_name: 'Dentist',
+            service_type: 'In Clinic',
+            price: '$23',
+            status: `Completed`,
+            review: '4.7',
+        },
+    ];
 
     return <>
         <div className={styles.detailedPage}>
@@ -39,6 +145,98 @@ export default function UserDetailed() {
                             alt="greeting" 
                         />
                     </div>
+                </div>
+
+                <div className={styles.orders}>
+                    <Block
+                        title='Order History'
+                        actions={
+                            <>
+                                <Button 
+                                    name={<div><img src="/filter.svg" alt=""/><span>Filter</span></div>}
+                                    style={styles.filterButton}
+                                    onClick={()=>console.log('heeiii')}
+                                />
+                                <FilterModal>
+                                    <div className={classNames(styles.filterContainer, {
+                                        [styles.filterOpen]: isOpen,
+                                    })}>
+                                        <div className={styles.filterSelectors}>
+                                            <DatePicker
+                                                mode="single"
+                                                label="Date"
+                                                className={styles.servInput}
+                                            />
+                                            <Select
+                                                label="Doctor name"
+                                                labelStyle="outside"
+                                                className={styles.servInput}
+                                                options={[
+                                                    {
+                                                        label: "4140 Parker Rd",
+                                                        value: "1",
+                                                    },
+                                                    { label: "Another Branch", value: "2" },
+                                                ]}
+                                                onChange={(value) => {
+                                                    setStatus(value);
+                                                }}
+                                            />
+                                            <Select
+                                                label="Service name"
+                                                labelStyle="outside"
+                                                className={styles.servInput}
+                                                options={[
+                                                    {
+                                                        label: "4140 Parker Rd",
+                                                        value: "1",
+                                                    },
+                                                    { label: "Another Branch", value: "2" },
+                                                ]}
+                                                onChange={(value) => {
+                                                    setStatus(value);
+                                                }}
+                                            />
+                                            <Input 
+                                                label="Service price"
+                                                className={styles.servInput}
+                                            />
+                                            <Input 
+                                                label="Service status"
+                                                className={styles.servInput}
+                                            />
+                                            <Input 
+                                                label="Service review"
+                                                className={styles.servInput}
+                                            />
+                                        </div>
+                                        <div className={styles.filterBtns}>
+                                            <Button 
+                                                name="Clear"
+                                                className={styles.clearBtn}
+                                            />
+                                            <Button 
+                                                name="Filter"
+                                                className={styles.filterBtn}
+                                            />
+                                        </div>
+                                    </div>
+                                </FilterModal>
+                            </>
+                        }
+                        className={styles.tableBlock}
+                    >
+                        <Table 
+                            className={styles.table}
+                            columns={columns}
+                            data={data}
+                            rowClassName={styles.tableRow}
+                            cellClassName={styles.tableCell}
+                            headerClassName={styles.tableHeader}
+                            bodyClassName={styles.tableBody}
+                            pagination={{ pageSize: 8, initialPage: 1 }}
+                        />
+                    </Block>
                 </div>
             </div>
             <div className={styles.rightMenu}>

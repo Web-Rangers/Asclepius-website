@@ -165,3 +165,86 @@
     align-items: center;
     gap:13px;
 }
+
+.orders {
+    margin: 0 51px;
+}
+
+.table .tableRow {
+    grid-template-columns: 14% 20% 17% 17% 10% 15% 7%;
+}
+
+.filterButton {
+    padding: 13px 60px;
+    background-color: transparent!important;
+    border: 1px solid #EFEFEF;
+    border-radius:5px;
+    color: #1E2837;
+    font-weight: 500;
+    font-size: 14px;
+    cursor:pointer;
+}
+
+.filterButton div{
+    display: flex;
+    align-items: center;
+    gap:16px;
+}
+
+.tableHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tableHead h2 {
+    margin:0px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.tableBlock {
+    margin-top:40px;
+}
+
+.searchInput div{
+    padding-left:30px;
+    position: relative;
+}
+
+.searchInput div::after {
+    content:'';
+    position: absolute;
+    left:0;
+    top:50%;
+    transform: translateY(-55%);
+    background-image: url('../../public/Search.svg');
+    width: 20px;
+    height: 20px;
+    margin-left:10px;
+}
+
+.servInput {
+    margin-bottom:32px;
+}
+
+.filterContainer {
+    width: 100%;
+    height: 80%;
+    overflow: hidden;
+}
+
+.filterSelectors {
+    overflow-y:auto; 
+    position:relative;
+    height: 85%;
+}
+
+.filterBtns {
+    position: absolute;
+    bottom:0;
+    padding:34px 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+}
