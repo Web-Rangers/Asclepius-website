@@ -1,0 +1,36 @@
+.paginationContainer {
+  display: flex;
+  list-style-type: none;
+  justify-content: flex-end;
+  gap: 30px;
+  margin-right: 141px;
+  margin-bottom: 73px;
+  margin-top: -60px;
+}
+
+.paginationItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  color: #797a80;
+}
+
+.paginationitemselected {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3a74d2;
+  border: 1px solid #3a74d2;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+}
+.paginationItemDots :hover {
+  background-color: transparent;
+  cursor: default;
+}

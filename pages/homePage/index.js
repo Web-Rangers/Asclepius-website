@@ -5,7 +5,8 @@ import DoctorCardList from "../../components/contents/DoctorCardList";
 import Services from "../../components/contents/Services";
 import Benefits from "../../components/contents/Benefits";
 import CardPrice from "../../components/contents/CardPrice";
-export const HomePage = () => {
+
+function HomePage() {
   const firstPartImgArray = [
     "firstPartImg1.png",
     "firstPartImg2.png",
@@ -34,6 +35,6 @@ export const HomePage = () => {
       </div>
     </div>
   );
-};
+}
 
 export default HomePage;

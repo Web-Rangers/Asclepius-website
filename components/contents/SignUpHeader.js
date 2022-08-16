@@ -29,7 +29,7 @@ const SignUpHeader = () => {
             </Link>
           </li>
           <li>
-            <Link href="Clinics">
+            <Link href="clinicsPage">
               <a> Clinics</a>
             </Link>
           </li>
