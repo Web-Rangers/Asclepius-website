@@ -1,0 +1,135 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.headerContainerTitle {
+  display: flex;
+  justify-content: center;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 28px;
+  color: #1e2837;
+  margin-bottom: 100px;
+}
+.buyCardStep {
+  display: flex;
+  flex-direction: column;
+  margin-top: 74px;
+  margin-bottom: 36px;
+}
+.headerContainerNumber {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 33px;
+  color: #3a74d2;
+  margin-right: 24px;
+}
+.headerContainerText {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  color: #797a80;
+}
+.headerContainerRight {
+  margin-bottom: 94px;
+}
+
+/* table  */
+
+.tableTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-bottom: 1px solid #d8dadc;
+  margin-left: 140px;
+  margin-right: 140px;
+  height: 44px;
+  margin-top: 70px;
+}
+.tableDataStyle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  align-self: flex-start;
+  height: 44px;
+  border-bottom: 1px solid #d8dadc;
+  margin-left: 140px;
+  margin-right: 140px;
+}
+.tableFeature {
+  width: 220px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+.tableSilverNum {
+  width: 220px;
+}
+.tableGoldNum {
+  width: 220px;
+}
+.tablePlatinium {
+  width: 220px;
+}
+.tableTitleStyle {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+  color: #1e2837;
+}
+.tableTextStyle {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #797a80;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 100px;
+  margin-top: 32px;
+}
+.button {
+  width: 262px;
+  height: 64px;
+  border-radius: 8px;
+  background-color: #ffff;
+  border: 1px solid #dcdddf;
+
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1e2837;
+}
+.buttonActive {
+  width: 262px;
+  height: 64px;
+  border-radius: 8px;
+  background-color: #3a74d2;
+  border: 1px solid #dcdddf;
+
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  color: #ffff;
+}

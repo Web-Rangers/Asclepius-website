@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import classes from "../../styles/signIn.module.css";
-import Input from "../ui/Input";
-import Button from "../ui/Button";
-import Text from "../ui/Text";
-import Header from "./header";
+import Input from "../../components/ui/Input";
+import Button from "../../components/ui/Button";
+import Text from "../../components/ui/Text";
 
 export const ContactUs = () => {
   const [values, setValues] = useState({
@@ -23,7 +22,6 @@ export const ContactUs = () => {
 
   return (
     <>
-      <Header />
       <div className={classes.container}>
         <div className={classes.singInContainer}>
           <div className={classes.singInTextStyle}>
