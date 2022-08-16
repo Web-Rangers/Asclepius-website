@@ -1,0 +1,25 @@
+.aboutUsContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 140px;
+  margin-right: 140px;
+  margin-bottom: 13px;
+}
+.aboutUsTitle {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  color: #1e2837;
+  margin-bottom: 28px;
+  margin-top: 28px;
+}
+.aboutUsText {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 40px;
+  color: #90959c;
+}
