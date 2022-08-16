@@ -32,6 +32,7 @@ const clinciArray = [
     rating: "4.9",
   },
 ];
+
 const ClinicCardList = () => {
   return (
     <div className={classes.clinicCardContainer}>

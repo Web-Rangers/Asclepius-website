@@ -21,7 +21,7 @@ const Header = () => {
         </div>
         <ul className={classes.navbar}>
           <li>
-            <Link href="/Home">
+            <Link href="/homePage">
               <a>Home</a>
             </Link>
           </li>
