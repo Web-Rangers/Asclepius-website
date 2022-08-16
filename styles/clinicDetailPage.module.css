@@ -1,0 +1,228 @@
+.backButton {
+  display: flex;
+  flex-direction: row;
+  margin-top: 68px;
+  margin-bottom: 80px;
+  margin-left: 150px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21.79px;
+  color: #3a74d2;
+}
+.clinicsTitleTextStyle {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 28px;
+  color: #1e2837;
+  padding-left: 2px;
+  margin-left: 150px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+
+.clinicDetailPageCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.clinicInfo {
+  display: flex;
+  flex-direction: column;
+  width: 732px;
+  margin-top: 25px;
+}
+.servicesContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 67px;
+  margin-bottom: 73px;
+}
+.serviceItem {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  color: #1e2837;
+}
+.offerCardContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 763px;
+  height: 251px;
+  background: #f7f9fb;
+  border-radius: 5px;
+}
+.offerContiner {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardType {
+  display: flex;
+  flex-direction: column;
+}
+.cardImage {
+  margin-bottom: 10px;
+}
+.imageTitleContainer {
+  display: flex;
+  flex-direction: column;
+}
+.imageContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 24px;
+}
+
+.imageSlider {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 130px;
+  margin-top: 37px;
+}
+.cardItemContainer {
+  display: flex;
+  flex-direction: column;
+  width: 368px;
+  height: 618px;
+  border-radius: 5px;
+  border: 1px solid #efefef;
+  margin-bottom: 62px;
+  margin-top: 24px;
+  margin-right: 33px;
+}
+.ratingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  gap: 6.67px;
+  margin-top: 20px;
+  margin-left: 16px;
+  width: 71px;
+  height: 28px;
+  border-radius: 14px;
+  background-color: #ffffff;
+  color: #3a74d2;
+  z-index: 999;
+}
+.clinicNameText {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: #1e2837;
+  margin-left: 22px;
+}
+.clinicWorkingHours {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 221px;
+  height: 28px;
+  background-color: rgba(58, 116, 210, 0.1);
+  border-radius: 14px;
+  margin-left: 22px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #3a74d2;
+  margin-top: 16px;
+}
+.weekendWorkingHours {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 221px;
+  height: 28px;
+  background-color: rgba(152, 227, 125, 0.1);
+  border-radius: 14px;
+  margin-left: 22px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #099672;
+  margin-top: 21px;
+}
+.contactInfoText {
+  display: flex;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #797a80;
+  margin-left: 22px;
+  gap: 8px;
+  margin-top: 21px;
+}
+.clinicInfoTitle {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: #1e2837;
+  margin-bottom: 20px;
+}
+.clinicTitle {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 28px;
+  text-transform: capitalize;
+  color: #1e2837;
+}
+
+.aboutClinicText {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 28px;
+  text-transform: capitalize;
+  color: #1e2837;
+  margin-bottom: 36px;
+}
+.serviceName {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1e2837;
+  margin-top: 14px;
+  margin-bottom: 10px;
+}
+.serviceText {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: #797a80;
+}
