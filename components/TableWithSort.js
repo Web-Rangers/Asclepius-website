@@ -1,8 +1,9 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import styles from '../styles/components/tableWithSort.module.css';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { ReactSVG } from 'react-svg';
+import Pagination from '../components/ui/Pagination';
 
 export default function Table({
     columns = [],
@@ -53,11 +54,10 @@ export default function Table({
                 ).keys()
             ).map((i) => ({ value: i + 1, label: i + 1 }))
         );
+        const firstPageIndex = (currentPage - 1) * pagination.pageSize;
+        const lastPageIndex = firstPageIndex + pagination.pageSize;
         dataCallback(
-            data.slice(
-                (currentPage - 1) * (pagination.pageSize || 10),
-                currentPage * (pagination.pageSize || 10)
-            )
+            data.slice(firstPageIndex, lastPageIndex)
         );
     }, [currentPage, data]);
 
@@ -210,6 +210,13 @@ export default function Table({
             </div>
             {pagination ? (
                 <div className={styles.pagination}>
+                          <Pagination
+                                className={styles.paginationBar}
+                                currentPage={currentPage}
+                                totalCount={data.length}
+                                pageSize={pagination.pageSize}
+                                onPageChange={(page) => setCurrentPage(page)}
+                            />
                 </div>
             ) : null}
         </div>
@@ -270,7 +277,6 @@ const TableRow = ({
                                         className={`${styles.tableCell} ${styles.tableCellTemplate} ${cellClassName}`}
                                         key={`data-${record.key}-${index}`}
                                         style={cellStyle ? cellStyle : null}
-                                        onClick={() => dropDown()}
                                     >
                                         {record[dataIndex]}
                                     </div>

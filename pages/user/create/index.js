@@ -8,8 +8,10 @@ import DatePicker from '../../../components/DatePicker';
 import Select from '../../../components/Select';
 import Input from '../../../components/Input';
 import FilterModal from '../../../components/modals/filterModal';
+import AddFamilyMember from '../../../components/modals/addFamilyMember';
 
 export default function UserDetailed() {
+    const [familyMemberModal, setFamilyMemberModal] = useState(false);
     const [isOpen, setOpen] = useState(false);
     const [status, setStatus] = useState('');
     const [serviceType, setServiceType] = useState('');
@@ -129,6 +131,10 @@ export default function UserDetailed() {
 
     return <>
         <div className={styles.detailedPage}>
+            {
+                familyMemberModal && 
+                <AddFamilyMember onClose={()=>setFamilyMemberModal(false)} />
+            }
             <div className={styles.container}>
                 <div className={styles.greeting}>
                     <div>
@@ -267,7 +273,7 @@ export default function UserDetailed() {
                             cellClassName={styles.tableCell}
                             headerClassName={styles.tableHeader}
                             bodyClassName={styles.tableBody}
-                            pagination={{ pageSize: 8, initialPage: 1 }}
+                            pagination={{ pageSize: 5, initialPage: 1 }}
                         />
                     </Block>
                 </div>
@@ -284,7 +290,10 @@ export default function UserDetailed() {
                     title="Family member"
                     actions={
                         memberList.length > 0 && 
-                        <button className={styles.addFamilyMember}>
+                        <button 
+                            className={styles.addFamilyMember} 
+                            onClick={()=>setFamilyMemberModal(true)}
+                        >
                             <img src="/plus.svg" alt="" />
                             <span>ADD</span>
                         </button>
@@ -323,7 +332,10 @@ export default function UserDetailed() {
                             <Button 
                                 style={styles.membersAdd}
                                 name={
-                                    <div className={styles.memberAddBtn}>
+                                    <div 
+                                        className={styles.memberAddBtn} 
+                                        onClick={()=>setFamilyMemberModal(true)}
+                                    >
                                         <img src="/memberPlus.svg" alt=""/>
                                         <span>Add</span>
                                     </div>
