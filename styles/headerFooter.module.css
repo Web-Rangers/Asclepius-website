@@ -188,3 +188,33 @@
   align-items: center;
   width: 70%;
 }
+
+.dropdown {
+  display: none;
+}
+
+.navbarItems li:hover .dropdown {
+  display: block;
+  position: absolute;
+  padding-top:15px;
+  width: 250px;
+}
+
+.dropdown ul {
+  padding:10px;
+  margin:0;
+  background-color: #fff;
+  box-shadow: 0 3px 9px rgb(231, 231, 231);
+  border-radius:6px;
+}
+
+.dropdown ul li {
+  list-style-type:none;
+}
+
+.dropdown ul li a {
+  display: block;
+  padding:5px;
+  color: #1E2837;
+  font-size:14px;
+}

@@ -31,8 +31,32 @@ const SignUpHeader = () => {
             </li>
             <li>
               <Link href="Clinics">
-                <a> Clinics</a>
+                <a> Services</a>
               </Link>
+              <div className={classes.dropdown}>
+                <ul>
+                  <li>
+                    <Link href="">
+                      <a>Online consultation</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="">
+                      <a>visit to the clinic</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="">
+                      <a>doctor at home</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="">
+                      <a>laboratory</a>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </li>
           </ul>
           <div className={classes.searchInput}>

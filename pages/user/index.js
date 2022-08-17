@@ -1,14 +1,14 @@
 import {useState} from 'react';
-import styles from '../../../styles/pages/userDetailed.module.css';
-import Button from '../../../components/ui/Button';
-import Block from '../../../components/block';
-import Table from '../../../components/TableWithSort';
+import styles from '../../styles/pages/userDetailed.module.css';
+import Button from '../../components/ui/Button';
+import Block from '../../components/block';
+import Table from '../../components/TableWithSort';
 import classNames from 'classnames';
-import DatePicker from '../../../components/DatePicker';
-import Select from '../../../components/Select';
-import Input from '../../../components/Input';
-import FilterModal from '../../../components/modals/filterModal';
-import AddFamilyMember from '../../../components/modals/addFamilyMember';
+import DatePicker from '../../components/DatePicker';
+import Select from '../../components/Select';
+import Input from '../../components/Input';
+import FilterModal from '../../components/modals/filterModal';
+import AddFamilyMember from '../../components/modals/addFamilyMember';
 
 export default function UserDetailed() {
     const [familyMemberModal, setFamilyMemberModal] = useState(false);
