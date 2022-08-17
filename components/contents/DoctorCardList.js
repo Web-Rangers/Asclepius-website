@@ -1,6 +1,7 @@
 import DoctorCardItem from "../contents/DoctorCardItem";
 import classes from "../../styles/homePage.module.css";
 import Text from "../ui/Text";
+import Image from "next/image";
 
 const doctorData = [
   {
@@ -40,14 +41,14 @@ const DoctorCardList = () => {
         <div className={classes.arrows}>
           <Text style={classes.ourClinicTextStyle}>Experienced doctors</Text>
           <div>
-            <img
-              src="Arrow - Left.svg"
+            <Image
+              src="/Arrow - Left.svg"
               alt="arrowLeft"
               width="24px"
               height="24px"
             />
-            <img
-              src="Arrow - Right.svg"
+            <Image
+              src="/Arrow - Right.svg"
               alt="arrowRight"
               width="24px"
               height="24px"
