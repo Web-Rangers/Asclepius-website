@@ -4,6 +4,7 @@ import s from "../../styles/buyCard.module.css";
 import CardPrice from "../../components/contents/CardPrice";
 import buyCardData from "../../fakeData";
 import Button from "../../components/ui/Button";
+import { Tooltip } from "@nextui-org/react";
 
 function BuyCardPage() {
   return (
@@ -44,7 +45,12 @@ function BuyCardPage() {
         </div>
 
         {buyCardData.map((item) => (
-          <div className={s.tableDataStyle} key={item.id}>
+          <div
+            className={
+              item.Gold.length === 0 ? s.tableDataTitleStyles : s.tableDataStyle
+            }
+            key={item.id}
+          >
             <div className={s.tableFeature}>
               <Text
                 style={
@@ -53,7 +59,36 @@ function BuyCardPage() {
                     : s.tableTextStyle
                 }
               >
-                {item.features}
+                {item.src ? (
+                  <>
+                    {item.features}
+                    <Tooltip
+                      css={{
+                        display: "flex",
+                        alignItems: "center",
+                        width: "260px",
+                        height: "80px",
+                        fontSize: "12px",
+                      }}
+                      rounded
+                      color="primary"
+                      content={
+                        "No matter where you are in your journey as a creative entrepreneur, we have a pricing plan for you."
+                      }
+                    >
+                      <Image
+                        src={item.src}
+                        alt="star"
+                        width="24px"
+                        height="24px"
+                        auto
+                        flat
+                      />
+                    </Tooltip>
+                  </>
+                ) : (
+                  item.features
+                )}
               </Text>
             </div>
             <div className={s.tableSilverNum}>
