@@ -1,0 +1,18 @@
+.block {
+    margin: 5px 0 27px;
+}
+
+.blockHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:20px;
+}
+
+.blockHeader h2 {
+    margin:0;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    color: #1E2837;
+}

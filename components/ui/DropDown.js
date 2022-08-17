@@ -73,9 +73,9 @@ export default function DropDown({
               <span className={styles.selected}>{current || ""}</span>
             </div>
             {open ? (
-              <img src="dropUp.svg" className={styles.icon} />
+              <img src="/dropUp.svg" className={styles.icon} />
             ) : (
-              <img src="dropDown.svg" className={styles.icon} />
+              <img src="/dropDown.svg" className={styles.icon} />
             )}
           </>
         )}

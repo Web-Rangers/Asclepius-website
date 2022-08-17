@@ -7,7 +7,7 @@ const Footer = () => {
       <div className={classes.footerContainer}>
         <div className={classes.leftSideContainer}>
           <div className={classes.headerIcon}>
-            <img src="headerIcon.svg" alt="headerIcon" />
+            <img src="/headerIcon.svg" alt="headerIcon" />
             <Text style={classes.leftSideContainerText}>
               Lorem Ipsum is not
             </Text>
@@ -36,12 +36,12 @@ const Footer = () => {
             <Text style={classes.textTitle}>Social networks</Text>
             <div className={classes.iconContainer}>
               <img
-                src="facebook.svg"
+                src="/facebook.svg"
                 alt="facebook"
                 className={classes.iconsStyle}
               />
               <img
-                src="Instagram.svg"
+                src="/Instagram.svg"
                 alt="instagram"
                 className={classes.iconsStyle}
               />
