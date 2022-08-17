@@ -33,8 +33,9 @@ function BuyCardPage() {
           <Image
             src="/homepageslider2.png"
             alt="star"
-            width="400px"
+            width="673px"
             height="372px"
+            objectFit="cover"
           />
         </div>
       </div>
