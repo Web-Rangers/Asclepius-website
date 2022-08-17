@@ -10,95 +10,145 @@ import Modal from "react-modal";
 
 const clinciArray = [
   {
+    id: 1,
     src: "/clinicImage.png",
     alt: "clinic image",
     clinicName: "Union Family Health Center",
     workingDay: " Monday - Friday",
     workingHours: "10:00 - 17:00",
+    weekendWorkingDay: "Saturday - Sunday",
+    weekendWorkingHours: "10:00 - 14:00",
     clinicAddress: "Carymouth , Hallmark Clinic",
-    rating: "4.9",
+    rating: "1.9",
+    clinicPhoneNumber: "+99557799700",
+    clinicEmail: "atcare@optimo.com",
   },
   {
+    id: 2,
     src: "/clinicImage.png",
     alt: "clinic image",
     clinicName: "Progress Medical Clinic",
     workingday: " Monday - Friday",
     workingHours: "10:00 - 17:00",
+    weekendWorkingDay: "Saturday - Sunday",
+    weekendWorkingHours: "10:00 - 14:00",
     clinicAddress: "Tbilisi , Chachava str.1",
     rating: "4.9",
+    clinicPhoneNumber: "+995577997799",
+    clinicEmail: "atcare@gmail.com",
   },
   {
+    id: 3,
     src: "/clinicImage.png",
     alt: "clinic image",
     clinicName: "Progress Medical Clinic",
     workingday: " Monday - Friday",
     workingHours: "10:00 - 17:00",
+    weekendWorkingDay: "Saturday - Sunday",
+    weekendWorkingHours: "10:00 - 14:00",
     clinicAddress: "Tbilisi , Chachava str.1",
     rating: "4.9",
+    clinicPhoneNumber: "+995577997799",
+    clinicEmail: "atcare@gmail.com",
   },
   {
+    id: 4,
     src: "/clinicImage.png",
     alt: "clinic image",
     clinicName: "Progress Medical Clinic",
     workingday: " Monday - Friday",
     workingHours: "10:00 - 17:00",
+    weekendWorkingDay: "Saturday - Sunday",
+    weekendWorkingHours: "10:00 - 14:00",
     clinicAddress: "Tbilisi , Chachava str.1",
     rating: "4.9",
+    clinicPhoneNumber: "+995577997799",
+    clinicEmail: "atcare@gmail.com",
   },
 
   {
+    id: 5,
     src: "/clinicImage.png",
     alt: "clinic image",
     clinicName: "Union Family Health Center",
     workingDay: " Monday - Friday",
     workingHours: "10:00 - 17:00",
+    weekendWorkingDay: "Saturday - Sunday",
+    weekendWorkingHours: "10:00 - 14:00",
     clinicAddress: "Carymouth , Hallmark Clinic",
     rating: "4.9",
+    clinicPhoneNumber: "+995577997799",
+    clinicEmail: "atcare@gmail.com",
   },
   {
+    id: 6,
     src: "/clinicImage.png",
     alt: "clinic image",
     clinicName: "Healing Helpers Medical Group",
     workingDay: " Monday - Friday",
     workingHours: "10:00 - 17:00",
+    weekendWorkingDay: "Saturday - Sunday",
+    weekendWorkingHours: "10:00 - 14:00",
     clinicAddress: "Tbilisi , Chachava str.1",
     rating: "4.9",
+    clinicPhoneNumber: "+995577997799",
+    clinicEmail: "atcare@gmail.com",
   },
   {
+    id: 7,
     src: "/clinicImage.png",
     alt: "clinic image",
     clinicName: "Progress Medical Clinic",
     workingDay: "Monday - Friday",
     workingHours: "10:00 - 17:00",
+    weekendWorkingDay: "Saturday - Sunday",
+    weekendWorkingHours: "10:00 - 14:00",
     clinicAddress: "Carymouth , Hallmark Clinic",
     rating: "4.9",
+    clinicPhoneNumber: "+995577997799",
+    clinicEmail: "atcare@gmail.com",
   },
   {
+    id: 8,
     src: "/clinicImage.png",
     alt: "clinic image",
     clinicName: "Progress Medical Clinic",
     workingday: " Monday - Friday",
     workingHours: "10:00 - 17:00",
+    weekendWorkingDay: "Saturday - Sunday",
+    weekendWorkingHours: "10:00 - 14:00",
     clinicAddress: "Tbilisi , Chachava str.1",
     rating: "4.9",
+    clinicPhoneNumber: "+995577997799",
+    clinicEmail: "atcare@gmail.com",
   },
   {
+    id: 9,
     src: "/clinicImage.png",
     alt: "clinic image",
     clinicName: "Progress Medical Clinic",
     workingday: " Monday - Friday",
     workingHours: "10:00 - 17:00",
+    weekendWorkingDay: "Saturday - Sunday",
+    weekendWorkingHours: "10:00 - 14:00",
     clinicAddress: "Tbilisi , Chachava str.1",
     rating: "4.9",
+    clinicPhoneNumber: "+995577997799",
+    clinicEmail: "atcare@gmail.com",
   },
   {
+    id: 10,
     src: "/clinicImage.png",
     alt: "clinic image",
     clinicName: "Healing Helpers Medical Group",
     workingDay: " Monday - Friday",
     workingHours: "10:00 - 17:00",
+    weekendWorkingDay: "Saturday - Sunday",
+    weekendWorkingHours: "10:00 - 14:00",
     clinicAddress: "Tbilisi , Chachava str.1",
     rating: "4.9",
+    clinicPhoneNumber: "+995577997799",
+    clinicEmail: "atcare@gmail.com",
   },
 ];
 
@@ -144,6 +194,7 @@ function ClinicsPage() {
   const closeModal = () => {
     setIsOpen(false);
   };
+
   return (
     <div>
       <div>
@@ -230,15 +281,16 @@ function ClinicsPage() {
         </Modal>
       </div>
       <div className={s.clinicPageCardListContainer}>
-        {currentTableData.map((item, index) => (
+        {currentTableData.map((item) => (
           <ClinicPageCardItem
-            key={index}
+            key={item.id}
             alt={item.alt}
             clinicName={item.clinicName}
             workingDay={item.workingDay}
             workingHours={item.workingHours}
             clinicAddress={item.clinicAddress}
             rating={item.rating}
+            data={item}
           />
         ))}
       </div>
