@@ -40,7 +40,7 @@ const ClinicCardList = () => {
         <Text style={classes.serviceTextStyle}>Services</Text>
         <div className={classes.arrows}>
           <Text style={classes.ourClinicTextStyle}>OurClinics</Text>
-          <div>
+          <div className={classes.arrows}>
             <img
               src="Arrow - Left.svg"
               alt="arrowLeft"

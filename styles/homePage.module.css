@@ -42,7 +42,9 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: "100%";
 }
+
 .serviceTextStyle {
   font-family: "Noto Sans";
   font-style: normal;
@@ -466,4 +468,65 @@
   font-size: 16px;
   line-height: 22px;
   color: #797a80;
+}
+
+/* mobile version  */
+
+@media only screen and (max-width: 768px) {
+  .clinicCardList {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin-left: 450px;
+  }
+  .clinicCardContainerTitle {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+    width: 375px;
+  }
+  .arrows {
+    display: none;
+  }
+  .cardItemContainer {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+    width: 100%;
+    margin-left: 16px;
+  }
+
+  .cardPriceContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 32px;
+    margin-bottom: 90px;
+
+    width: 768px;
+  }
+  .serviceContainerImg {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .benefits {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 92%;
+  }
+  .benefitsContainerImg {
+    display: none;
+  }
+  .cardSection {
+    display: flex;
+    flex-direction: column;
+    gap: 44.54px;
+  }
+  .headerCardImg {
+    display: none;
+  }
 }

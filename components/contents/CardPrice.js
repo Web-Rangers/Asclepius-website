@@ -7,7 +7,11 @@ const CardPrice = (props) => {
     <div className={s.cardPriceContainer}>
       {props.withoutHeader ? null : (
         <>
-          <img src="headerCardImg.png" alt="headerCardImg" />
+          <img
+            src="headerCardImg.png"
+            alt="headerCardImg"
+            className={s.headerCardImg}
+          />
           <Text style={s.cardPriceTitle}>Card Price</Text>
           <Text style={s.cardPriceText}>
             Contrary to popular belief, Lorem Ipsum is not simply random text.{" "}
