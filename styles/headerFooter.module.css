@@ -191,6 +191,8 @@
 
 .dropdown {
   display: none;
+  position: relative;
+  z-index: 99999;
 }
 
 .navbarItems li:hover .dropdown {
