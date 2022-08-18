@@ -101,6 +101,7 @@
 .cardItemContainer {
   display: flex;
   flex-direction: column;
+  position: relative;
   width: 368px;
   height: 618px;
   border-radius: 5px;
@@ -122,7 +123,6 @@
   border-radius: 14px;
   background-color: #ffffff;
   color: #3a74d2;
-  z-index: 999;
 }
 .clinicNameText {
   font-family: "Noto Sans";
