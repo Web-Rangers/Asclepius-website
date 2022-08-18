@@ -44,6 +44,10 @@
 }
 .headerContainerRight {
   margin-bottom: 94px;
+  margin-right: 130;
+}
+.headerContainerLeft {
+  margin-left: 137px;
 }
 
 /* table  */
@@ -147,4 +151,142 @@
   font-size: 16px;
   line-height: 22px;
   color: #ffff;
+}
+
+/* checkout modal style */
+.cardCheckoutModalContiner {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 30px 25px 20px 25px;
+  width: 300px;
+}
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 41;
+  margin-bottom: 79px;
+}
+.checkoutTitleStyle {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  color: #1e2837;
+}
+.documentLink {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #1e2837;
+  margin-bottom: 7px;
+  margin-top: -33px;
+}
+.documentLinkStyle {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #3a74d2;
+}
+
+.inputStyle {
+  margin-top: 32px;
+  margin-bottom: 8px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1e2837;
+}
+.inputFieldStyle {
+  display: flex;
+  flex-direction: row;
+  height: 44px;
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+  text-align: left;
+  color: #797a80;
+  background-color: #fff;
+}
+.inputFieldStyle input {
+  margin: 0;
+  flex-basis: 70%;
+  flex-grow: 1;
+  flex-shrink: 0;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 18px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+  text-align: left;
+}
+
+.checkoutButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+.checkoutButton {
+  width: 165px;
+  height: 44px;
+  background: #3a74d2;
+  border-radius: 5px;
+  font-family: "Graphik";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 15px;
+  color: #ffffff;
+  border: none;
+}
+.select {
+  border: 1px solid #e5e5e5;
+  position: relative;
+  display: inline-block;
+  height: 44px;
+  justify-content: center;
+  width: 100%;
+  border-radius: 5px;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+  color: #797a80;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.selectBody {
+  display: flex;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  color: #797a80;
+  padding: 10px;
+  padding-left: 20px;
+}
+.datePickerlabelStyle {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1e2837;
 }
