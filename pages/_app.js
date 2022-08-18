@@ -3,15 +3,16 @@ import "../styles/globals.css";
 import Footer from "../components/contents/Footer";
 import SignUpHeader from "../components/contents/SignUpHeader";
 import Header from "../components/contents/header";
+import SignUpFooter from "../components/contents/SignUpFooter";
 
 function MyApp({ Component, pageProps }) {
-  const [signUp, setSignUp] = useState(false);
+  const [signUp, setSignUp] = useState(true);
 
   return (
     <>
       {signUp ? <SignUpHeader /> : <Header />}
       <Component {...pageProps} />
-      <Footer />
+      {signUp ? <SignUpFooter /> : <Footer />}
     </>
   );
 }
