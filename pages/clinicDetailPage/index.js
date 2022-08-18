@@ -117,23 +117,25 @@ const ClinicDetailPage = () => {
                 style={{ paddingRight: "4px" }}
               />
             </div>
-            <div className={s.serviceItem}>
-              <Image
-                alt="SearchIcon"
-                src="/SearchIcon.svg"
-                width="24px"
-                height="24px"
-                style={{ paddingRight: "4px" }}
-              />
-              <Text style={s.serviceTitle}>Analysis</Text>
-              <Image
-                alt="Arrow-Right"
-                src="/Arrow - Right 9.svg"
-                width="24px"
-                height="24px"
-                style={{ paddingRight: "4px" }}
-              />
-            </div>
+            <Link href="clinic/analysis">
+              <div className={s.serviceItem}>
+                <Image
+                  alt="SearchIcon"
+                  src="/SearchIcon.svg"
+                  width="24px"
+                  height="24px"
+                  style={{ paddingRight: "4px" }}
+                />
+                  <Text style={s.serviceTitle}>Analysis</Text>
+                <Image
+                  alt="Arrow-Right"
+                  src="/Arrow - Right 9.svg"
+                  width="24px"
+                  height="24px"
+                  style={{ paddingRight: "4px" }}
+                  />
+              </div>
+            </Link>
             <div className={s.serviceItem}>
               <Image
                 alt="chat"
