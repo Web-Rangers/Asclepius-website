@@ -1,11 +1,24 @@
 import Text from "../ui/Text";
 import s from "../../styles/clinicsPage.module.css";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const ClinicPageCardItem = (props) => {
-  console.log(props.src);
+  const router = useRouter();
+
+  const handleClick = (data) => {
+    router.push({
+      pathname: "/clinicDetailPage",
+      query: data,
+    });
+  };
+
   return (
-    <div className={s.cardItemContainer} key={props.key}>
+    <div
+      className={s.cardItemContainer}
+      key={props.key}
+      onClick={() => handleClick(props.data)}
+    >
       <div className={s.imgPart}>
         <div className={s.ratingContainer}>
           <Image src="/Star.svg" alt="star" width="16.67px" height="15.04" />

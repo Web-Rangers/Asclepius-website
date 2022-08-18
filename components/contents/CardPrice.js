@@ -2,14 +2,18 @@ import s from "../../styles/homePage.module.css";
 import Text from "../ui/Text";
 import Button from "../ui/Button";
 
-const CardPrice = () => {
+const CardPrice = (props) => {
   return (
     <div className={s.cardPriceContainer}>
-      <img src="headerCardImg.png" alt="headerCardImg" />
-      <Text style={s.cardPriceTitle}>Card Price</Text>
-      <Text style={s.cardPriceText}>
-        Contrary to popular belief, Lorem Ipsum is not simply random text.{" "}
-      </Text>
+      {props.withoutHeader ? null : (
+        <>
+          <img src="headerCardImg.png" alt="headerCardImg" />
+          <Text style={s.cardPriceTitle}>Card Price</Text>
+          <Text style={s.cardPriceText}>
+            Contrary to popular belief, Lorem Ipsum is not simply random text.{" "}
+          </Text>
+        </>
+      )}
       <div className={s.cardSection}>
         <div className={s.card}>
           <div className={s.header}>
