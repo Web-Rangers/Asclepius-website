@@ -1,102 +1,101 @@
 .familyMemberModal {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    left:0;
-    top:0;
-    background-color: RGBA(0,0,0, 0.5);
-    z-index: 999999;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: RGBA(0, 0, 0, 0.5);
+  z-index: 999999;
 }
 
 .container {
-    position: fixed;
-    background-color: white;
-    width: 420px;
-    height: 100%;
-    right: 0;
-    padding: 40px 0;
-    top: 0;
-    right: 0;
-    z-index: 9999999;
+  position: fixed;
+  background-color: white;
+  width: 420px;
+  height: 100%;
+  right: 0;
+  padding: 40px 0;
+  top: 0;
+  right: 0;
+  z-index: 9999999;
 }
 
-.fmTool{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15%;
-    height: 6%;
-    padding: 0 40px;
+.fmTool {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15%;
+  height: 6%;
+  padding: 0 40px;
 }
 
 .fmTool h2 {
-    font-size:24px;
+  font-size: 24px;
 }
 
-
 .memberContainer {
-    width: 100%;
-    height: 90%;
-    overflow: hidden;
-    position: relative;
+  width: 100%;
+  height: 90%;
+  overflow: hidden;
+  position: relative;
 }
 
 .memberSelectors {
-    overflow-y:auto; 
-    position:relative;
-    height: 80%;
-    padding:0 20px;
-    margin: 0 20px;
+  overflow-y: auto;
+  position: relative;
+  height: 80%;
+  padding: 0 20px;
+  margin: 0 20px;
 }
 
 .memberSelectors::-webkit-scrollbar {
-    width: 5px;
+  width: 5px;
 }
 
 .memberSelectors::-webkit-scrollbar-track {
-    background: #BFCCFF;
+  background: #bfccff;
 }
 
 .memberSelectors::-webkit-scrollbar-thumb {
-    background: #2751F2; 
-}  
+  background: #2751f2;
+}
 
 .memberSelectors::-webkit-scrollbar-thumb:hover {
-    background: #1641ed; 
-  }
+  background: #1641ed;
+}
 
 .filterBtns {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    height: 20%;
-    padding: 0 40px;
-    gap:20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  height: 20%;
+  padding: 0 40px;
+  gap: 20px;
 }
 
 .clearBtn {
-    width: 100%;
-    height: 44px;
-    font-size: 14px;
-    color: #1E2837;
-    border: 1px solid #EFEFEF;
-    background-color: transparent;
-    border-radius: 5px;
-    cursor: pointer;
+  width: 100%;
+  height: 44px;
+  font-size: 14px;
+  color: #1e2837;
+  border: 1px solid #efefef;
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .filterBtn {
-    width: 100%;
-    height: 44px;
-    font-size: 14px;
-    color: #FFFFFF;
-    border: 1px solid #3A74D2;
-    background-color: #3A74D2;
-    border-radius: 5px;
-    cursor: pointer;
+  width: 100%;
+  height: 44px;
+  font-size: 14px;
+  color: #ffffff;
+  border: 1px solid #3a74d2;
+  background-color: #3a74d2;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .servInput {
-    margin-bottom:32px;
+  margin-bottom: 32px;
 }

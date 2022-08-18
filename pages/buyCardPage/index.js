@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Text from "../../components/ui/Text";
 import Image from "next/image";
 import s from "../../styles/buyCard.module.css";
@@ -5,8 +6,35 @@ import CardPrice from "../../components/contents/CardPrice";
 import buyCardData from "../../fakeData";
 import Button from "../../components/ui/Button";
 import { Tooltip } from "@nextui-org/react";
+import Modal from "react-modal";
+import CardCheckoutModal from "../../components/modals/CardCheckoutModal";
+
+const customStyles = {
+  content: {
+    width: "30%",
+    height: "100%",
+    top: "50%",
+    left: "88%",
+    right: "10px",
+    bottom: "auto",
+    transform: "translate(-50%, -50%)",
+    background: "#ffffff",
+  },
+  overlay: {
+    background: "transparent",
+  },
+};
 
 function BuyCardPage() {
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
   return (
     <div className={s.container}>
       <div className={s.headerContainer}>
@@ -39,7 +67,15 @@ function BuyCardPage() {
           />
         </div>
       </div>
-      <CardPrice withoutHeader />
+      <CardPrice withoutHeader onClick={openModal} />
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <CardCheckoutModal closeModal={closeModal} />
+      </Modal>
       <div className={s.chooseCardContainer}>
         <div className={s.headerContainerTitle}>
           <Text>Choose exactly what you need</Text>

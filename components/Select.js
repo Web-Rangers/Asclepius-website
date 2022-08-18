@@ -9,6 +9,8 @@ export default function Select({
   label,
   value,
   className,
+  style,
+  inputStyle,
   labelStyle = "inside",
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,10 +24,14 @@ export default function Select({
 
   return (
     <div className={classNames(styles.container, className)}>
-      {labelStyle === "outside" && <div className={styles.label}><span>{label}</span></div>}
-      <div className={classNames(styles.select)}>
+      {labelStyle === "outside" && (
+        <div className={styles.label}>
+          <span>{label}</span>
+        </div>
+      )}
+      <div className={classNames(style ? style : styles.select)}>
         <div
-          className={styles.body}
+          className={inputStyle ? inputStyle : styles.body}
           onClick={() => {
             setIsOpen(!isOpen);
           }}

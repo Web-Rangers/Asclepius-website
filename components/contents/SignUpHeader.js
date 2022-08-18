@@ -25,7 +25,7 @@ const SignUpHeader = () => {
               </Link>
             </li>
             <li>
-              <Link href="/Cards">
+              <Link href="/buyCardPage">
                 <a>Cards</a>
               </Link>
             </li>
