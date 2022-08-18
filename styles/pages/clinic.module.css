@@ -272,3 +272,11 @@
     cursor:pointer;
     float:right
 }
+
+.bookingNxt {
+    position: absolute;
+    bottom:0;
+    max-width: 514px;
+    width: 90%;
+    margin: auto;
+}
