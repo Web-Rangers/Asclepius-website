@@ -35,17 +35,18 @@ const Header = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    router.push("/signInPage");
+    router.push("/signUpPage");
+    setIsOpen(false);
   };
 
   return (
     <>
-      <div className={classes.headerContainer}>
-        <div className={classes.headerIcon}>
+      <div className={classes.headerForMobile}>
+        <div className={classes.mobileHeaderContainer}>
           <img src="/headerIcon.svg" alt="headerIcon" />
-          <div className={classes.headerForMobile}>
+          <div className={classes.mobileheader}>
             <Link href="/signInPage">
-              <a>Sign In</a>
+              <a className={classes.signInText}>Sign In</a>
             </Link>
 
             <div onClick={openModal}>
@@ -56,71 +57,88 @@ const Header = () => {
                 height="16px"
               />
             </div>
-
-            <Modal
-              isOpen={modalIsOpen}
-              onRequestClose={closeModal}
-              style={customStyles}
-              contentLabel="Example Modal"
-            >
-              <section className={classes.modalContent}>
-                <div className={classes.closeBtn}>
-                  <Image
-                    alt="closeIcon"
-                    src="/closeBurgerMenu.svg"
-                    width="16px"
-                    height="16px"
-                    onClick={closeModal}
-                  />
-                </div>
-                <ul>
-                  <li>
-                    <Link href="/homePage">
-                      <a>Home</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/buyCardPage">
-                      <a> Cards</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/services">
-                      <a> Services</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/contactUs">
-                      <a> Contact</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#Offers">
-                      <a>Offers</a>
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link href="/signInPage">
-                      <a>Sign in</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Button
-                      name="Registrtion"
-                      style={classes.signInButton}
-                      onClick={handleClick}
-                    />
-                  </li>
-                  <li>
-                    <DropDown />
-                  </li>
-                </ul>
-              </section>
-            </Modal>
           </div>
         </div>
 
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          shouldFocusAfterRender={true}
+          contentLabel="Example Modal"
+        >
+          <section className={classes.modalContent}>
+            <div className={classes.closeBtn} onClick={closeModal}>
+              <Image
+                alt="closeIcon"
+                src="/closeBurgerMenu.svg"
+                width="16px"
+                height="16px"
+              />
+            </div>
+            <ul>
+              <li>
+                <Link href="/homePage">
+                  <a onClick={closeModal}>Home</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/buyCardPage">
+                  <a onClick={closeModal}> Cards</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/onlineConsultation">
+                  <a onClick={closeModal}> Online consultation</a>
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/VisitClinic">
+                  <a onClick={closeModal}> Visit to the clinic</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/Laboratory">
+                  <a onClick={closeModal}> Laboratory</a>
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/contactUs">
+                  <a onClick={closeModal}> Contact</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="#Offers">
+                  <a onClick={closeModal}>Offers</a>
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/signInPage">
+                  <a>Sign in</a>
+                </Link>
+              </li>
+              <li>
+                <Button
+                  name="Registration"
+                  style={classes.registrationButton}
+                  onClick={handleClick}
+                />
+              </li>
+              <li>
+                <DropDown />
+              </li>
+            </ul>
+          </section>
+        </Modal>
+      </div>
+
+      <div className={classes.headerContainer}>
+        <div className={classes.headerIcon}>
+          <img src="/headerIcon.svg" alt="headerIcon" />
+        </div>
         <ul className={classes.navbar}>
           <li>
             <Link href="/homePage">
