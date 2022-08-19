@@ -23,3 +23,10 @@
   line-height: 40px;
   color: #90959c;
 }
+
+@media only screen and (max-width: 600px) {
+  .aboutUsContainer{
+    margin-right:10px;
+    margin-left: 10px;
+  }
+}
