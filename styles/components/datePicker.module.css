@@ -19,7 +19,7 @@
   flex-direction: row;
   min-height: 55px;
   width: 100%;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #E5E5E5;
   border-radius: 4px;
   font-size: 16px;
   font-weight: 400;
@@ -48,7 +48,7 @@
 }
 
 .input input:focus {
-  border: none;
+  border:none;
 }
 
 .input input::placeholder {
@@ -74,7 +74,7 @@
 .iconContainer {
   height: 100%;
   padding: 19px;
-  padding-right: 0;
+  padding-right:0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,8 +107,8 @@
 }
 
 .pickerContainer .pickerHeader,
-.rangePickerContainer,
-.pickerHeader {
+.rangePickerContainer, .pickerHeader
+{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -116,8 +116,7 @@
 }
 
 .pickerContainer .pickerHeader .date,
-.rangePickerContainer,
-.pickerHeader .date {
+.rangePickerContainer, .pickerHeader .date {
   font-size: 18px;
   font-weight: 700;
   line-height: 24px;
@@ -126,29 +125,25 @@
 }
 
 .pickerContainer .pickerHeader .moveBtn,
-.rangePickerContainer,
-.pickerHeader .moveBtn {
+.rangePickerContainer, .pickerHeader .moveBtn {
   cursor: pointer;
   padding: 15px;
-}
+} 
 
 .pickerContainer .pickerHeader .moveBtn .deactive,
-.rangePickerContainer,
-.pickerHeader .moveBtn .deactive {
+.rangePickerContainer, .pickerHeader .moveBtn .deactive {
   opacity: 0;
   pointer-events: none;
 }
 
 .pickerContainer .pickerHeader .moveBtn .iconContainer,
-.rangePickerContainer,
-.pickerHeader .moveBtn .iconContainer {
+.rangePickerContainer, .pickerHeader .moveBtn .iconContainer {
   padding: 0;
 }
 
 .pickerContainer .pickerHeader:after,
-.rangePickerContainer,
-.pickerHeader:after {
-  content: " ";
+.rangePickerContainer, .pickerHeader:after {
+  content: ' ';
   width: 0;
   height: 0;
   position: absolute;
@@ -187,6 +182,8 @@
   display: grid;
   grid-template-columns: repeat(7, 45px);
 }
+
+
 
 .otherDays {
   font-size: 18px;
@@ -230,9 +227,9 @@
   background-color: #bac8ff;
 }
 
-.calendar .day .inRange::after,
+.calendar .day .inRange::after, 
 .calendar .day .inRange::before {
-  content: " ";
+  content: ' ';
   position: absolute;
   height: 100%;
   width: 15px;
@@ -241,7 +238,7 @@
   background-color: #bac8ff;
 }
 
-.calendar .day .inRange::before {
+.calendar .day .inRange::before{
   left: unset;
   right: 100%;
 }
@@ -261,7 +258,7 @@
 
 .disabled::after,
 .disabled::before {
-  content: " ";
+  content: ' ';
   position: absolute;
   height: 100%;
   width: 15px;
@@ -274,6 +271,6 @@
   right: 100%;
 }
 
-.arrowContainer {
-  margin: auto 16px;
+.arrowContainer{
+  margin:auto 16px;
 }
