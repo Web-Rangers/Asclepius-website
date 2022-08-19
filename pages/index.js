@@ -1,10 +1,8 @@
 import HomePage from "./homePage";
 import SignInPage from "./signInPage";
 import SignUpPage from "./signUpPage";
-import ClinicsPage from "./clinicsPage";
 import BuyCardPage from "./buyCardPage";
 import ClinicDetailPage from "../pages/clinicDetailPage/index";
-
 
 export default function Home() {
   return (
@@ -14,7 +12,8 @@ export default function Home() {
       {/* <ContactUs /> */}
       {/* <HomePage /> */}
       {/* <ClinicsPage /> */}
-      <BuyCardPage />
+      {/* <BuyCardPage /> */}
+      <ClinicDetailPage />
     </>
   );
 }
