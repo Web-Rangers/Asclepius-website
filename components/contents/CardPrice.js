@@ -3,6 +3,7 @@ import Text from "../ui/Text";
 import Button from "../ui/Button";
 
 const CardPrice = (props) => {
+  console.log("props", props);
   return (
     <div className={s.cardPriceContainer}>
       {props.withoutHeader ? null : (
@@ -44,7 +45,7 @@ const CardPrice = (props) => {
               <Text style={s.recordingTimeText}>Recording time</Text>
             </div>
           </div>
-          <Button name="Order" style={s.orderButton} />
+          <Button name="Order" style={s.orderButton} onClick={props.onClick} />
         </div>
         <div className={s.card}>
           <div className={s.header}>
@@ -71,7 +72,11 @@ const CardPrice = (props) => {
               <Text style={s.servicePackageText}>Recording time</Text>
             </div>
           </div>
-          <Button name="Order" style={s.orderButtonGold} />
+          <Button
+            name="Order"
+            style={s.orderButtonGold}
+            onClick={props.onClick}
+          />
         </div>
         <div className={s.card}>
           <div className={s.header}>
@@ -96,7 +101,7 @@ const CardPrice = (props) => {
               <Text style={s.servicePackageText}>Recording time</Text>
             </div>
           </div>
-          <Button name="Order" style={s.orderButton} />
+          <Button name="Order" style={s.orderButton} onClick={props.onClick} />
         </div>
       </div>
     </div>

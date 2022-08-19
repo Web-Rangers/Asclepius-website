@@ -194,6 +194,8 @@
 
 .dropdown {
   display: none;
+  position: relative;
+  z-index: 99999;
 }
 
 .navbarItems li:hover .dropdown {
@@ -223,7 +225,6 @@
 }
 
 /* signUp footer style */
-
 .signUpFooterContainner {
   display: flex;
   flex-direction: row;
@@ -255,6 +256,7 @@
   justify-content: space-between;
   width: 60px;
 }
+
 @media only screen and (max-width: 767px) {
   .headerForMobile {
     display: flex;
@@ -377,3 +379,4 @@
     margin-bottom: 20px;
   }
 }
+

@@ -1,0 +1,282 @@
+.clinicBody {
+    max-width: 1920px;
+    width: 100%;
+    margin: auto;
+    padding: 10px 60px 0;
+}
+
+.clinicContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    min-height: 848px;
+}
+
+.clinicLogoContent {
+    width: 50%;
+    background-color: #EBF1FB;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-top-left-radius:5px;
+}
+
+.logo {
+    object-fit: cover;
+    width: 80%;
+}
+
+.clinicAnalyisis {
+    width: 50%;
+    min-height: 100%;
+    background-color: #fff;
+    border-top-right-radius:5px;
+    display: flex;
+    align-items: center;
+    padding-top:140px;
+    flex-direction: column;
+    position: relative;
+}
+
+.analysH {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+    color: #1E2837;
+}
+
+.clinicsList {
+    display: none;
+}
+
+.activeSearch {
+    display: block;
+    background-color:#fff;
+    box-shadow: 0px 10px 34px 8px rgba(191, 196, 202, 0.15);
+    border-radius: 0px 0px 5px 5px;
+}
+
+.searchInput {
+    width: 517px;
+    height: 56px;
+    padding: 17px 24px;
+    background: #FFFFFF;
+    border: 1px solid #EFEFEF;
+    border-radius: 5px;
+    outline:none;
+    box-sizing: border-box;
+}
+
+.listH h2 {
+    margin:0;
+    padding:12px 24px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #797A80;
+}
+
+.clinic {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:14px 24px;
+    cursor: pointer;
+}
+
+.clinic h2 {
+    margin: 0 auto 0 0;
+    color: #797A80;
+    font-weight: 500;
+    font-size: 14px;
+    margin-left:18px;
+}
+
+.listItem:hover .clinic {
+    background-color: #EBF1FB;
+}
+
+.listItem:hover .clinic h2 {
+    color: #3A74D2;
+}
+
+.listItem:hover .clinic .arrow {
+    filter: invert(39%) sepia(95%) saturate(599%) hue-rotate(183deg) brightness(89%) contrast(88%);
+}
+
+.analysis {
+    display: none;
+}
+
+.activeBlock {
+    display: block;
+    width: 517px;
+    margin: 10px 0;
+    background-color:#F7F9FB; 
+    max-height: 230px;
+    overflow-y: auto;
+}
+
+.activeBlock::-webkit-scrollbar {
+    width: 5px;
+}
+
+.activeBlock::-webkit-scrollbar-track {
+    background: #F7F9FB;
+}
+
+.activeBlock::-webkit-scrollbar-thumb {
+    background: #2751F2; 
+}  
+
+.activeBlock::-webkit-scrollbar-thumb:hover {
+    background: #1641ed; 
+  }
+
+.activeAnBlock {
+    border:1px solid #EFEFEF;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.activeClinicBlocks{
+    box-shadow: 0 0 0;
+}
+
+.analist {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:5px 24px;
+    border-bottom:1px solid#E5E5E5;
+}
+
+.analist h2 {
+    margin: 0 auto 0 0;
+    font-weight: 500;
+    font-size: 14px;
+    color: #797A80;
+}
+
+.analist h3 {
+    font-weight: 500;
+    font-size: 14px;
+    color: #797A80;
+}
+
+.nextBtn {
+    position:absolute;
+    bottom: 0;
+    right: 0;
+    margin:26px;
+    background: #3A74D2;
+    border-radius: 5px;
+    border:none;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FFFFFF;
+    width: 170px;
+    height: 48px;
+    cursor:pointer;
+}
+
+.bookingContent {
+    max-width: 514px;
+    width: 90%;
+    border: 1px solid #E5E5E5;
+    display: flex;
+    align-items: center;
+    padding:23px 29px;
+}
+
+.bookingTitle h2{
+    margin:0 29px;
+}
+
+.bookingTitle div {
+    margin: 10px 29px 0;
+    display: flex;
+    align-items: center;
+    gap:5px;
+}
+
+.bookingService{
+    max-width: 514px;
+    width: 90%;
+    margin-top:20px;
+}
+
+.bookingPatient {
+    max-width: 514px;
+    width: 90%;
+}
+
+.bookingPatient h2 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    color: #1E2837;
+}
+
+.datepicker{
+    margin-top:30px;
+}
+
+.datepicker span {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    color: #1E2837;
+}
+
+.bookingService h2 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    color: #1E2837;
+}
+
+.selectBtn {
+    width: 108px;
+    height: 32px;
+    border: 1px solid #EFEFEF;
+    border-radius: 5px;
+    background-color:transparent;
+    margin:28px 28px 0 0;
+    cursor:pointer;
+}
+
+.activeBtn {
+    background: rgba(58, 116, 210, 0.1);
+    border: 1px solid #3A74D2;
+    color: #3A74D2;
+}
+
+.dateList {
+    margin-bottom:30px;
+}
+
+.doneBtn {
+    margin:26px;
+    margin-top:30px;
+    margin-right:0;
+    background: #3A74D2;
+    border-radius: 5px;
+    border:none;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FFFFFF;
+    width: 170px;
+    height: 48px;
+    cursor:pointer;
+    float:right
+}
+
+.bookingNxt {
+    position: absolute;
+    bottom:0;
+    max-width: 514px;
+    width: 90%;
+    margin: auto;
+}
