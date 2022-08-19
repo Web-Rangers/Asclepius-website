@@ -222,9 +222,40 @@
   font-size: 14px;
 }
 
-@media only screen and (max-width: 767px) {
-  /* burgermenu */
+/* signUp footer style */
 
+.signUpFooterContainner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e2837;
+  border-radius: 3px;
+  height: 74px;
+  width: "100%";
+}
+.signUpFooterContainnerRight {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 64px;
+  margin-right: 80px;
+}
+.signUpFooterTextStyle {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ffffff;
+  margin-left: 80px;
+}
+.footerIonContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 60px;
+}
+@media only screen and (max-width: 767px) {
   .headerForMobile {
     display: flex;
     justify-content: center;
@@ -273,7 +304,9 @@
     align-items: center;
     gap: 30px;
   }
-
+  .modalContent ul {
+    padding: 0;
+  }
   .modalContent ul li {
     display: flex;
     align-items: center;
