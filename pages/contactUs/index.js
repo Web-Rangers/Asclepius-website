@@ -3,6 +3,7 @@ import classes from "../../styles/signIn.module.css";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
 import Text from "../../components/ui/Text";
+import Image from "next/image";
 
 export const ContactUs = () => {
   const [values, setValues] = useState({
@@ -22,13 +23,31 @@ export const ContactUs = () => {
 
   return (
     <>
-      <div className={classes.container}>
-        <div className={classes.singInContainer}>
+      <div className={classes.contactUsContainer}>
+        <div className={classes.contactUs}>
           <div className={classes.singInTextStyle}>
             <h1 className={classes.loginText}>Contact us</h1>
             <Text style={classes.accountText}>
               Our friendly team would love to hear from you!
             </Text>
+            <div className={classes.contactInfoForMobile}>
+              <div className={classes.iconContactInfo}>
+                <img src="messages.svg" alt="messages" />
+                <Text style={classes.contactInfoText}>
+                  Medicalgroup@gmail.com
+                </Text>
+              </div>
+              <div className={classes.iconContactInfo}>
+                <img src="location.svg" alt="location" />
+                <Text style={classes.contactInfoText}>
+                  Tbilisi , Ana Antonovskaya str. 9
+                </Text>
+              </div>
+              <div className={classes.iconContactInfo}>
+                <img src="phone.svg" alt="phone" />
+                <Text style={classes.contactInfoText}>+9955575755576</Text>
+              </div>
+            </div>
           </div>
           <div className={classes.nameSurnameContainer}>
             <div>
@@ -100,17 +119,31 @@ export const ContactUs = () => {
           />
           <Button type="submit" name="Send message" />
         </div>
-        <div className={classes.cardsContainer}>
-          <img src="contactUs.png" alt="cards" width="500" height="600" />
+        <div className={classes.contactUsCardContainer}>
+          <img
+            src="/contactUs.png"
+            alt="cards"
+            width="500"
+            height="600"
+            className={classes.cardContainerImg}
+          />
           <div className={classes.contactInfo}>
-            <img src="messages.svg" alt="messages" />
-            <Text style={classes.contactInfoText}>Medicalgroup@gmail.com</Text>
-            <img src="location.svg" alt="location" />
-            <Text style={classes.contactInfoText}>
-              Tbilisi , Ana Antonovskaya str. 9
-            </Text>
-            <img src="phone.svg" alt="phone" />
-            <Text style={classes.contactInfoText}>+9955575755576</Text>
+            <div className={classes.iconContactInfo}>
+              <img src="messages.svg" alt="messages" />
+              <Text style={classes.contactInfoText}>
+                Medicalgroup@gmail.com
+              </Text>
+            </div>
+            <div className={classes.iconContactInfo}>
+              <img src="location.svg" alt="location" />
+              <Text style={classes.contactInfoText}>
+                Tbilisi , Ana Antonovskaya str. 9
+              </Text>
+            </div>
+            <div className={classes.iconContactInfo}>
+              <img src="phone.svg" alt="phone" />
+              <Text style={classes.contactInfoText}>+9955575755576</Text>
+            </div>
           </div>
         </div>
       </div>

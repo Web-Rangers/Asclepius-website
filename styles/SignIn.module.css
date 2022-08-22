@@ -1,7 +1,20 @@
 .container {
   display: flex;
 }
+.contactUsContainer {
+  display: flex;
+}
 .singInContainer {
+  height: 1024px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.contactInfoForMobile {
+  display: none;
+}
+.contactUs {
   flex: 1;
   height: 1024px;
   display: flex;
@@ -19,6 +32,7 @@
   margin-top: -350px;
   margin-bottom: 100px;
 }
+
 .singInTextStyle {
   width: 360px;
 }
@@ -37,6 +51,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 16px;
+  order: 2;
 }
 
 .loginOptionsContainer {
@@ -109,6 +124,26 @@
   background-color: #f7f9fb;
   border: 1px solid #dcdddf;
 }
+.contactUsCardContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  order: 2;
+  justify-content: center;
+  align-items: center;
+  position: "absolute";
+  height: 1024px;
+  left: 694px;
+  border-radius: 8px;
+  background-color: #f7f9fb;
+  border: 1px solid #dcdddf;
+}
+.iconContactInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 .nameSurnameContainer {
   display: flex;
   gap: 29px;
@@ -178,4 +213,57 @@
   color: #1e2837;
   padding-left: 3px;
   padding-right: 15px;
+}
+
+/* mobile version  */
+
+@media only screen and (max-width: 767px) {
+  .cardsContainer {
+    display: none;
+  }
+  .headerIcon {
+    margin-left: 16px;
+  }
+  .headerIconSignIn {
+    margin-left: 16px;
+  }
+  .singInContainer {
+    background-color: #ffffff;
+  }
+  .contactUsContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 60px;
+  }
+  .contactUs {
+    order: 2;
+  }
+  .contactUsCardContainer {
+    order: 1;
+    border: none;
+  }
+  .cardContainerImg {
+    margin-bottom: 10px;
+    width: 100%;
+    background-color: #f3f6f8;
+  }
+  .contactInfoForMobile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  .iconContactInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .contactInfo {
+    display: none;
+  }
 }
