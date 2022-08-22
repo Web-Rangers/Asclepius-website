@@ -47,11 +47,11 @@ export const SignUp = () => {
   return (
     <div className={classes.container}>
       <div className={classes.singInContainer}>
-        {/* <img
+        <img
           src="headerIcon.svg"
           alt="headerIcon"
           className={classes.headerIcon}
-        /> */}
+        />
         <div className={classes.singInTextStyle}>
           <h1 className={classes.loginText}>Sign up</h1>
           <Text style={classes.accountText}>

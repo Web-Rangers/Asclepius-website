@@ -179,3 +179,20 @@
   padding-left: 3px;
   padding-right: 15px;
 }
+
+/* mobile version  */
+
+@media only screen and (max-width: 767px) {
+  .cardsContainer {
+    display: none;
+  }
+  .headerIcon {
+    margin-left: 16px;
+  }
+  .headerIconSignIn {
+    margin-left: 16px;
+  }
+  .singInContainer {
+    background-color: #ffffff;
+  }
+}
