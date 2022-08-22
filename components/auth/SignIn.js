@@ -9,15 +9,15 @@ export const SignIn = () => {
   return (
     <div className={classes.container}>
       <div className={classes.singInContainer}>
-        {/* <img
+        <img
           src="headerIcon.svg"
           alt="headerIcon"
           className={classes.headerIconSignIn}
-        /> */}
+        />
         <div className={classes.singInTextStyle}>
           <h1 className={classes.loginText}>Login</h1>
           <Text style={classes.accountText}>
-            Don't have an account?
+            Do not have an account?
             <Link href="/signUpPage">
               <a className={classes.linkedTitleStyle}> Create one</a>
             </Link>

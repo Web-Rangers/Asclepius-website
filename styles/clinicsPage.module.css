@@ -13,6 +13,9 @@
   gap: 95px;
   margin-bottom: 153px;
 }
+.imgPart {
+  position: relative;
+}
 .ratingContainer {
   display: flex;
   justify-content: center;

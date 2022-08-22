@@ -41,7 +41,7 @@ const SignUpHeader = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="">
+                    <Link href="/branchPage">
                       <a>visit to the clinic</a>
                     </Link>
                   </li>

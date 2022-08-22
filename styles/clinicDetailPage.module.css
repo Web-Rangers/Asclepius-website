@@ -31,6 +31,7 @@
 
 .clinicDetailPageCard {
   display: flex;
+  width: 100%;
   flex-direction: row;
   justify-content: center;
 }
@@ -57,7 +58,7 @@
   font-size: 18px;
   line-height: 25px;
   color: #1e2837;
-  cursor:pointer;
+  cursor: pointer;
 }
 .offerCardContainer {
   display: flex;
@@ -226,4 +227,40 @@
   font-size: 16px;
   line-height: 22px;
   color: #797a80;
+}
+
+/* specific clinic page */
+
+.clinicOfferCardContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 763px;
+  height: 370px;
+  background: #e7eef7;
+  border-radius: 5px;
+  /* border: 1px solid black; */
+}
+.clinicCardImage {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.clinicContainerScroll {
+  display: flex;
+  flex-direction: row;
+  margin-left: 150px;
+  margin-right: 135px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  gap: 50px;
+}
+.clinicTitleArrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
 }
