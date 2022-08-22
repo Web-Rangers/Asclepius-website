@@ -67,6 +67,15 @@
   justify-content: space-around;
   margin-top: 36px;
 }
+.firstRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.secondRow {
+  display: flex;
+  flex-direction: row;
+}
 .companyConatiner {
   display: flex;
   flex-direction: column;
@@ -366,6 +375,10 @@
     justify-content: flex-start;
     padding-left: 60px;
   }
+  .secondRow {
+    display: flex;
+    flex-direction: column;
+  }
   .leftSideContainerText {
     display: none;
   }
@@ -379,4 +392,3 @@
     margin-bottom: 20px;
   }
 }
-
