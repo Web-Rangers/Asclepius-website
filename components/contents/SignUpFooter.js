@@ -14,23 +14,25 @@ const SignUpFooter = () => {
         <Text style={classes.signUpFooterTextStyle}>
           Phone numberი: 2 422 922
         </Text>
-        <Text style={classes.signUpFooterTextStyle}>
-          Adrressი: Tbilisi , Ana Antonovskaya str. 9
-        </Text>
-        <div className={classes.footerIonContainer}>
-          <Image
-            src="/facebook-white.svg"
-            alt="facebook"
-            width="24px"
-            height="24px"
-          />
-          <Image
-            src="/instagram-white.svg"
-            alt="instagram"
-            className={classes.iconsStyle}
-            width="24px"
-            height="24px"
-          />
+        <div className={classes.addressIcon}>
+          <Text style={classes.signUpFooterTextStyle}>
+            Adrressი: Tbilisi , Ana Antonovskaya str. 9
+          </Text>
+          <div className={classes.footerIonContainer}>
+            <Image
+              src="/facebook-white.svg"
+              alt="facebook"
+              width="24px"
+              height="24px"
+            />
+            <Image
+              src="/instagram-white.svg"
+              alt="instagram"
+              className={classes.iconsStyle}
+              width="24px"
+              height="24px"
+            />
+          </div>
         </div>
       </div>
     </div>
