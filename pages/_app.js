@@ -10,9 +10,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      {/* {signUp ? <SignUpHeader /> : <Header />} */}
+      {signUp ? <SignUpHeader /> : <Header />}
       <Component {...pageProps} />
-      {/* {signUp ? <SignUpFooter /> : <Footer />} */}
+      {signUp ? <SignUpFooter /> : <Footer />}
     </>
   );
 }
