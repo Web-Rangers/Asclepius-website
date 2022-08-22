@@ -1,9 +1,15 @@
+import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import classes from "../../styles/slider.module.css";
+import Text from "../ui/Text";
+import Button from "../ui/Button";
 
 const Slider = () => {
-  const sliderImage = ["homepageslider1.png", "homepageslider2.png"];
-  const delay = 5500;
+  const sliderImage = [
+    { src: "/sliderImage.png", text: true },
+    { src: "/homepageslider2.png", text: false },
+  ];
+  const delay = 155000;
 
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef(null);
@@ -35,12 +41,46 @@ const Slider = () => {
         style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
       >
         {sliderImage.map((image, index) => (
-          <img
-            className={classes.slide}
-            key={index}
-            src={image}
-            alt="sliderimg"
-          />
+          <div className={classes.slide} key={index}>
+            {image.text ? (
+              <div className={classes.sliderTextContent}>
+                <div className={classes.content}>
+                  <Text style={classes.medicalCardTitle}>
+                    {" "}
+                    Multifunctional medical{" "}
+                    <a className={classes.linkCard}>Card</a>
+                  </Text>
+                  <div className={classes.medicalCardText}>
+                    <Text>
+                      Contrary to popular belief, Lorem Ipsum is not simply
+                      random text. It has roots in a piece of classical Latin
+                      literature from 45 BC, making it over 2000 years old.
+                    </Text>
+                  </div>
+                  <div className={classes.medicalCardsButtons}>
+                    <Button name="Order a card" style={classes.orderBtn} />
+                    <Button name="Download" style={classes.downloadOrderBtn} />
+                  </div>
+                </div>
+                <Image
+                  key={index}
+                  src={image.src}
+                  alt="sliderimg"
+                  height=" 490px"
+                  width="555px"
+                  style={{ position: "absolute" }}
+                />
+              </div>
+            ) : (
+              <Image
+                key={index}
+                src={image.src}
+                alt="sliderimg"
+                height=" 491px"
+                width="1162px"
+              />
+            )}
+          </div>
         ))}
       </div>
       <div className={classes.slideshowDots}>
@@ -53,15 +93,15 @@ const Slider = () => {
             }}
           >
             {index === idx ? (
-              <img
-                src="sliderdotActive.svg"
+              <Image
+                src="/sliderdotActive.svg"
                 alt="sliderdotActive"
                 height=" 16px"
                 width="16px"
               />
             ) : (
-              <img
-                src="sliderdot.svg"
+              <Image
+                src="/sliderdot.svg"
                 alt="sliderdot"
                 height=" 15px"
                 width="15px"
