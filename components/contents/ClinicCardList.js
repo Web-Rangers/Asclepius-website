@@ -1,35 +1,64 @@
 import ClinicCardItem from "./ClinicCardItem";
 import classes from "../../styles/homePage.module.css";
 import Text from "../ui/Text";
+import Image from "next/image";
 
 const clinciArray = [
   {
-    src: "testClinic.png",
+    id: 1,
+    src: "/testClinic.png",
     alt: "clinic image",
-    clinicName: "Bokhua Cardiovascular Center",
+    clinicName: "Bokhua ",
     clinicAddress: "Tbilisi , Chachava str.1",
     rating: "4.9",
+    workingDay: " Monday - Friday",
+    workingHours: "10:00 - 17:00",
+    weekendWorkingDay: "Saturday - Sunday",
+    weekendWorkingHours: "10:00 - 14:00",
+    clinicPhoneNumber: "+99557799700",
+    clinicEmail: "atcare@optimo.com",
   },
   {
-    src: "testClinic.png",
+    id: 2,
+    src: "/testClinic.png",
     alt: "clinic image",
     clinicName: "Bokhua Cardiovascular Center",
     clinicAddress: "Tbilisi , Chachava str.1",
     rating: "4.9",
+    workingDay: " Monday - Friday",
+    workingHours: "10:00 - 17:00",
+    weekendWorkingDay: "Saturday - Sunday",
+    weekendWorkingHours: "10:00 - 15:00",
+    clinicPhoneNumber: "+99557799700",
+    clinicEmail: "atcare@optimo.com",
   },
   {
-    src: "testClinic.png",
+    id: 3,
+    src: "/testClinic.png",
     alt: "clinic image",
     clinicName: "Bokhua Cardiovascular Center",
     clinicAddress: "Tbilisi , Chachava str.1",
     rating: "4.9",
+    workingDay: " Monday - Friday",
+    workingHours: "10:00 - 17:00",
+    weekendWorkingDay: "Saturday - Sunday",
+    weekendWorkingHours: "10:00 - 14:00",
+    clinicPhoneNumber: "+99557799700",
+    clinicEmail: "atcare@optimo.com",
   },
   {
-    src: "testClinic.png",
+    id: 4,
+    src: "/testClinic.png",
     alt: "clinic image",
     clinicName: "Bokhua Cardiovascular Center",
     clinicAddress: "Tbilisi , Chachava str.1",
     rating: "4.9",
+    workingDay: " Monday - Friday",
+    workingHours: "10:00 - 17:00",
+    weekendWorkingDay: "Saturday - Sunday",
+    weekendWorkingHours: "10:00 - 14:00",
+    clinicPhoneNumber: "+99557799700",
+    clinicEmail: "atcare@optimo.com",
   },
 ];
 
@@ -41,14 +70,14 @@ const ClinicCardList = () => {
         <div className={classes.arrows}>
           <Text style={classes.ourClinicTextStyle}>OurClinics</Text>
           <div className={classes.arrowsIcons}>
-            <img
-              src="Arrow - Left.svg"
+            <Image
+              src="/Arrow - Left.svg"
               alt="arrowLeft"
               width="24px"
               height="24px"
             />
-            <img
-              src="Arrow - Right.svg"
+            <Image
+              src="/Arrow - Right.svg"
               alt="arrowRight"
               width="24px"
               height="24px"
@@ -65,6 +94,7 @@ const ClinicCardList = () => {
               clinicName={item.clinicName}
               clinicAddress={item.clinicAddress}
               rating={item.rating}
+              data={item}
             />
           );
         })}
