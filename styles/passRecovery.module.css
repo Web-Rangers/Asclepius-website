@@ -84,3 +84,16 @@
   line-height: 22px;
   color: #797a80;
 }
+
+@media only screen and (max-width: 767px) {
+  .cardsContainer {
+    display: none;
+  }
+  .headerIcon {
+    margin-left: 16px;
+    margin-top: -350px;
+  }
+  .singInContainer {
+    background-color: #ffffff;
+  }
+}

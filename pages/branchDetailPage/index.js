@@ -3,10 +3,21 @@ import Image from "next/image";
 import Link from "next/link";
 import Text from "../../components/ui/Text";
 import { useRouter } from "next/router";
-import BranchPageCardItem from "../../components/contents/BranchPageCardItem";
-import clinicArrayData from "../../clinicArrayData";
 
-const ClinicDetailPage = () => {
+const clinicImage = [
+  { src: "/clinic1.png" },
+  {
+    src: "/clinic2.png",
+  },
+  {
+    src: "/clinic3.png",
+  },
+  {
+    src: "/clinic4.png",
+  },
+];
+
+const BranchDetailPage = () => {
   const router = useRouter();
   const cardData = router.query;
 
@@ -143,7 +154,7 @@ const ClinicDetailPage = () => {
               />
             </div>
           </div>
-          <div className={s.clinicOfferCardContainer}>
+          <div className={s.offerCardContainer}>
             <div className={s.offerContiner}>
               <Text style={s.clinicInfoTitle}>Offer name</Text>
               <Text style={s.serviceName}>Offer name1</Text>
@@ -156,77 +167,58 @@ const ClinicDetailPage = () => {
                 Here is the offer name Chairman of the Association of
                 Dermatologists{" "}
               </Text>
-              <Text style={s.serviceName}>Offer name3</Text>
-              <Text style={s.serviceText}>
-                Here is the offer name Chairman of the Association of
-                Dermatologists{" "}
-              </Text>
             </div>
             <div className={s.cardType}>
               <Text style={s.clinicInfoTitle}>Card Type</Text>
-              <div className={s.clinicCardImage}>
+              <div className={s.cardImage}>
                 <Image
                   alt="silver card"
                   src="/Card 1.svg"
                   width="117px"
                   height="68.34px"
-                />
-                <Image
-                  alt="silver card"
-                  src="/Card 1.svg"
-                  width="117px"
-                  height="68.34px"
-                />
-
-                <Image
-                  alt="gold card"
-                  src="/Card 2.svg"
-                  width="117px"
-                  height="68.34px"
-                  style={{ paddingRight: "4px" }}
                 />
               </div>
+              <Image
+                alt="gold card"
+                src="/Card 2.svg"
+                width="117px"
+                height="68.34px"
+                style={{ paddingRight: "4px" }}
+              />
             </div>
           </div>
         </div>
       </div>
       <div className={s.imageTitleContainer}>
-        <div className={s.clinicTitleArrow}>
-          <Text style={s.clinicsTitleTextStyle}> List of branch</Text>
-          <div className={s.imageSlider}>
+        <Text style={s.clinicsTitleTextStyle}> Images of the clinic</Text>
+        <div className={s.imageContainer}>
+          {clinicImage.map((img) => (
             <Image
-              src="/Arrow - Left.svg"
-              alt="arrowLeft"
-              width="24px"
-              height="24px"
-            />
-            <Image
-              src="/Arrow - Right.svg"
-              alt="arrowRight"
-              width="24px"
-              height="24px"
-            />
-          </div>
-        </div>
-
-        <div className={s.clinicContainerScroll}>
-          {clinicArrayData.map((item) => (
-            <BranchPageCardItem
-              key={item.id}
-              alt={item.alt}
-              clinicName={item.clinicName}
-              workingDay={item.workingDay}
-              workingHours={item.workingHours}
-              clinicAddress={item.clinicAddress}
-              rating={item.rating}
-              data={item}
-              src={item.src}
+              key={img.key}
+              alt="Clinic image"
+              src={img.src}
+              width="268px"
+              height="228px"
             />
           ))}
+        </div>
+        <div className={s.imageSlider}>
+          <Image
+            src="/Arrow - Left.svg"
+            alt="arrowLeft"
+            width="24px"
+            height="24px"
+          />
+          <Image
+            src="/Arrow - Right.svg"
+            alt="arrowRight"
+            width="24px"
+            height="24px"
+          />
         </div>
       </div>
     </div>
   );
 };
 
-export default ClinicDetailPage;
+export default BranchDetailPage;

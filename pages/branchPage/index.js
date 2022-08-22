@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
-import ClinicPageCardItem from "../../components/contents/ClinicPageCardItem";
+import BranchPageCardItem from "../../components/contents/BranchPageCardItem";
+
 import s from "../../styles/clinicsPage.module.css";
 import Link from "next/link";
 import Text from "../../components/ui/Text";
@@ -7,150 +8,7 @@ import Button from "../../components/ui/Button";
 import Image from "next/image";
 import Pagination from "../../components/ui/Pagination";
 import Modal from "react-modal";
-
-const clinciArray = [
-  {
-    id: 1,
-    src: "/clinicImage.png",
-    alt: "clinic image",
-    clinicName: "Union Family Health Center",
-    workingDay: " Monday - Friday",
-    workingHours: "10:00 - 17:00",
-    weekendWorkingDay: "Saturday - Sunday",
-    weekendWorkingHours: "10:00 - 14:00",
-    clinicAddress: "Carymouth , Hallmark Clinic",
-    rating: "1.9",
-    clinicPhoneNumber: "+99557799700",
-    clinicEmail: "atcare@optimo.com",
-  },
-  {
-    id: 2,
-    src: "/clinicImage.png",
-    alt: "clinic image",
-    clinicName: "Progress Medical Clinic",
-    workingday: " Monday - Friday",
-    workingHours: "10:00 - 17:00",
-    weekendWorkingDay: "Saturday - Sunday",
-    weekendWorkingHours: "10:00 - 14:00",
-    clinicAddress: "Tbilisi , Chachava str.1",
-    rating: "4.9",
-    clinicPhoneNumber: "+995577997799",
-    clinicEmail: "atcare@gmail.com",
-  },
-  {
-    id: 3,
-    src: "/clinicImage.png",
-    alt: "clinic image",
-    clinicName: "Progress Medical Clinic",
-    workingday: " Monday - Friday",
-    workingHours: "10:00 - 17:00",
-    weekendWorkingDay: "Saturday - Sunday",
-    weekendWorkingHours: "10:00 - 14:00",
-    clinicAddress: "Tbilisi , Chachava str.1",
-    rating: "4.9",
-    clinicPhoneNumber: "+995577997799",
-    clinicEmail: "atcare@gmail.com",
-  },
-  {
-    id: 4,
-    src: "/clinicImage.png",
-    alt: "clinic image",
-    clinicName: "Progress Medical Clinic",
-    workingday: " Monday - Friday",
-    workingHours: "10:00 - 17:00",
-    weekendWorkingDay: "Saturday - Sunday",
-    weekendWorkingHours: "10:00 - 14:00",
-    clinicAddress: "Tbilisi , Chachava str.1",
-    rating: "4.9",
-    clinicPhoneNumber: "+995577997799",
-    clinicEmail: "atcare@gmail.com",
-  },
-
-  {
-    id: 5,
-    src: "/clinicImage.png",
-    alt: "clinic image",
-    clinicName: "Union Family Health Center",
-    workingDay: " Monday - Friday",
-    workingHours: "10:00 - 17:00",
-    weekendWorkingDay: "Saturday - Sunday",
-    weekendWorkingHours: "10:00 - 14:00",
-    clinicAddress: "Carymouth , Hallmark Clinic",
-    rating: "4.9",
-    clinicPhoneNumber: "+995577997799",
-    clinicEmail: "atcare@gmail.com",
-  },
-  {
-    id: 6,
-    src: "/clinicImage.png",
-    alt: "clinic image",
-    clinicName: "Healing Helpers Medical Group",
-    workingDay: " Monday - Friday",
-    workingHours: "10:00 - 17:00",
-    weekendWorkingDay: "Saturday - Sunday",
-    weekendWorkingHours: "10:00 - 14:00",
-    clinicAddress: "Tbilisi , Chachava str.1",
-    rating: "4.9",
-    clinicPhoneNumber: "+995577997799",
-    clinicEmail: "atcare@gmail.com",
-  },
-  {
-    id: 7,
-    src: "/clinicImage.png",
-    alt: "clinic image",
-    clinicName: "Progress Medical Clinic",
-    workingDay: "Monday - Friday",
-    workingHours: "10:00 - 17:00",
-    weekendWorkingDay: "Saturday - Sunday",
-    weekendWorkingHours: "10:00 - 14:00",
-    clinicAddress: "Carymouth , Hallmark Clinic",
-    rating: "4.9",
-    clinicPhoneNumber: "+995577997799",
-    clinicEmail: "atcare@gmail.com",
-  },
-  {
-    id: 8,
-    src: "/clinicImage.png",
-    alt: "clinic image",
-    clinicName: "Progress Medical Clinic",
-    workingday: " Monday - Friday",
-    workingHours: "10:00 - 17:00",
-    weekendWorkingDay: "Saturday - Sunday",
-    weekendWorkingHours: "10:00 - 14:00",
-    clinicAddress: "Tbilisi , Chachava str.1",
-    rating: "4.9",
-    clinicPhoneNumber: "+995577997799",
-    clinicEmail: "atcare@gmail.com",
-  },
-  {
-    id: 9,
-    src: "/clinicImage.png",
-    alt: "clinic image",
-    clinicName: "Progress Medical Clinic",
-    workingday: " Monday - Friday",
-    workingHours: "10:00 - 17:00",
-    weekendWorkingDay: "Saturday - Sunday",
-    weekendWorkingHours: "10:00 - 14:00",
-    clinicAddress: "Tbilisi , Chachava str.1",
-    rating: "4.9",
-    clinicPhoneNumber: "+995577997799",
-    clinicEmail: "atcare@gmail.com",
-  },
-  {
-    id: 10,
-    src: "/clinicImage.png",
-    alt: "clinic image",
-    clinicName: "Healing Helpers Medical Group",
-    workingDay: " Monday - Friday",
-    workingHours: "10:00 - 17:00",
-    weekendWorkingDay: "Saturday - Sunday",
-    weekendWorkingHours: "10:00 - 14:00",
-    clinicAddress: "Tbilisi , Chachava str.1",
-    rating: "4.9",
-    clinicPhoneNumber: "+995577997799",
-    clinicEmail: "atcare@gmail.com",
-  },
-];
+import clinicArrayData from "../../clinicArrayData";
 
 let PageSize = 3;
 
@@ -182,7 +40,7 @@ function ClinicsPage() {
   const currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
-    return clinciArray.slice(firstPageIndex, lastPageIndex);
+    return clinicArrayData.slice(firstPageIndex, lastPageIndex);
   }, [currentPage]);
 
   let subtitle;
@@ -282,7 +140,7 @@ function ClinicsPage() {
       </div>
       <div className={s.clinicPageCardListContainer}>
         {currentTableData.map((item) => (
-          <ClinicPageCardItem
+          <BranchPageCardItem
             key={item.id}
             alt={item.alt}
             clinicName={item.clinicName}
@@ -297,7 +155,7 @@ function ClinicsPage() {
       <Pagination
         className="pagination-bar"
         currentPage={currentPage}
-        totalCount={clinciArray.length}
+        totalCount={clinicArrayData.length}
         pageSize={PageSize}
         onPageChange={(page) => setCurrentPage(page)}
       />

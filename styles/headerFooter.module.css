@@ -8,6 +8,9 @@
 .headerIcon {
   margin-top: 15px;
 }
+.headerForMobile {
+  display: none;
+}
 .navbar {
   display: flex;
   flex-direction: row;
@@ -63,6 +66,15 @@
   flex-direction: row;
   justify-content: space-around;
   margin-top: 36px;
+}
+.firstRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.secondRow {
+  display: flex;
+  flex-direction: row;
 }
 .companyConatiner {
   display: flex;
@@ -252,4 +264,131 @@
   display: flex;
   justify-content: space-between;
   width: 60px;
+}
+
+@media only screen and (max-width: 767px) {
+  .headerForMobile {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .mobileHeaderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-left: 20px;
+    margin-top: 10px;
+    height: 50px;
+  }
+  .mobileheader {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    width: 100%;
+    margin-right: 30px;
+  }
+  .signInText {
+    font-family: "Noto Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+  }
+  .headerIcon img {
+    display: none;
+  }
+
+  .closeBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+  }
+  .modalContent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 30px;
+  }
+  .modalContent ul {
+    padding: 0;
+  }
+  .modalContent ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding-bottom: 20px;
+  }
+  .modalContent ul li a {
+    font-family: "Noto Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: #ffffff;
+  }
+
+  .registrationButton {
+    width: 146px;
+    height: 48px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    background: #ffffff;
+    border-radius: 5px;
+    font-family: "Noto Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: #1e2837;
+    border: none;
+  }
+  .navbar {
+    display: none;
+  }
+  .footerContainer {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+  }
+  .rightSideContainer {
+    display: flex;
+    flex-direction: row;
+  }
+  .headerIcon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: -117px;
+    width: 100%;
+  }
+  .firstRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-left: 60px;
+  }
+  .secondRow {
+    display: flex;
+    flex-direction: column;
+  }
+  .leftSideContainerText {
+    display: none;
+  }
+
+  .allRightsText {
+    margin-left: -114px;
+    padding-top: 10px;
+  }
+  .companyConatiner {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }

@@ -6,13 +6,13 @@ import Header from "../components/contents/header";
 import SignUpFooter from "../components/contents/SignUpFooter";
 
 function MyApp({ Component, pageProps }) {
-  const [signUp, setSignUp] = useState(true);
+  const [signUp, setSignUp] = useState(false);
 
   return (
     <>
-      {signUp ? <SignUpHeader /> : <Header />}
+      {/* {signUp ? <SignUpHeader /> : <Header />} */}
       <Component {...pageProps} />
-      {signUp ? <SignUpFooter /> : <Footer />}
+      {/* {signUp ? <SignUpFooter /> : <Footer />} */}
     </>
   );
 }

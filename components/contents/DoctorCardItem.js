@@ -3,7 +3,7 @@ import Text from "../ui/Text";
 
 const DoctorCardItem = (props) => {
   return (
-    <div className={classes.doctorItemContainer} key={props.key}>
+    <div className={classes.doctorItemContainer} key={props.id}>
       <div className={classes.doctorPhotoContainer}>
         <div className={classes.ratingContainer}>
           <img src="Star.svg" alt="star" width="16.67px" height="15.04px" />

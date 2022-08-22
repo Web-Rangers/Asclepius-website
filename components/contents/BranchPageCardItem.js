@@ -3,12 +3,12 @@ import s from "../../styles/clinicsPage.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-const ClinicPageCardItem = (props) => {
+const BranchPageCardItem = (props) => {
   const router = useRouter();
 
   const handleClick = (data) => {
     router.push({
-      pathname: "/clinicDetailPage",
+      pathname: "/branchDetailPage",
       query: data,
     });
   };
@@ -16,7 +16,7 @@ const ClinicPageCardItem = (props) => {
   return (
     <div
       className={s.cardItemContainer}
-      key={props.key}
+      key={props.id}
       onClick={() => handleClick(props.data)}
     >
       <div className={s.imgPart}>
@@ -52,4 +52,4 @@ const ClinicPageCardItem = (props) => {
   );
 };
 
-export default ClinicPageCardItem;
+export default BranchPageCardItem;
