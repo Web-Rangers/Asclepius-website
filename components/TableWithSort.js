@@ -172,15 +172,28 @@ export default function Table({
                                 })}
                             >
                                 <div>
-                                    <TableRow
-                                        columnsDefinition={columns}
-                                        record={record}
-                                        key={`table-row-${index}`}
-                                        rowClassName={rowClassName}
-                                        cellClassName={cellClassName}
-                                        dropDown={() => dropdownFunc(index)}
-                                        detailedUrl={detailedUrl}
-                                    />
+                                    {
+                                        window.innerWidth < 600 ?
+                                        <TableRowResponsive 
+                                            columnsDefinition={columns}
+                                            record={record}
+                                            key={`table-row-${index}`}
+                                            rowClassName={rowClassName}
+                                            cellClassName={cellClassName}
+                                            dropDown={() => dropdownFunc(index)}
+                                            detailedUrl={detailedUrl}
+                                        />
+                                        :
+                                        <TableRow
+                                            columnsDefinition={columns}
+                                            record={record}
+                                            key={`table-row-${index}`}
+                                            rowClassName={rowClassName}
+                                            cellClassName={cellClassName}
+                                            dropDown={() => dropdownFunc(index)}
+                                            detailedUrl={detailedUrl}
+                                        />
+                                    }
                                 </div>
                                 <div className={classNames(styles.dropdown, dropdownClassname,
                                     {
@@ -189,16 +202,20 @@ export default function Table({
                                     }
                                 )}
                                 >
+                                    <button className={styles.closeBtn} onClick={()=> dropdownFunc(index)}>
+                                        <ReactSVG 
+                                            src="/closeTableTab.svg" 
+                                            className={styles.closetab} alt="" 
+                                        />
+                                    </button>
                                     {
                                         columns?.map((item, i) => {
-                                            if (item.dataIndex === 'hidden') {
-                                                return <>
-                                                    <div className={styles.dropdownCol}>
-                                                        <h2>{item.title}</h2>
-                                                        <span>{record[item.key]}</span>
-                                                    </div>
-                                                </>
-                                            }
+                                            return <>
+                                                <div className={styles.dropdownCol}>
+                                                    <h2>{item.title}</h2>
+                                                    <span>{record[item.key]}</span>
+                                                </div>
+                                            </>
                                         })
                                     }
                                 </div>
@@ -295,6 +312,70 @@ const TableRow = ({
                     }
                 }
             )}
+        </div>
+    );
+};
+
+
+const TableRowResponsive = ({
+    record,
+    columnsDefinition,
+    rowClassName,
+    cellClassName,
+    dropDown,
+    detailedUrl
+}) => {
+    return (
+        <div
+            className={classNames(
+                styles.tableRow,
+                styles.tableRowTemplate,
+                rowClassName
+            )}
+        >
+            {columnsDefinition.map(
+                ({ dataIndex, render, cellStyle }, index) => {
+                    let colLenght = columnsDefinition.filter(e=>e.dataIndex !=='hidden').length;
+                    if (render){
+                        return <>
+                        {
+                            index === 0 ? 
+                            <div onClick={()=> dropDown()}>
+                                {
+                                    render(
+                                        record[dataIndex],
+                                        `data-${record.key}-${index}`,
+                                    )
+                                }
+                            </div> 
+                            :
+                            (index !== colLenght - 1) && 
+                                render(
+                                    record[dataIndex],
+                                    `data-${record.key}-${index}`,
+                                )
+                        }
+                        </>
+                    }
+                    
+                    return <>
+                    {
+                        <div
+                            className={`${styles.tableCell} ${styles.tableCellTemplate} ${cellClassName}`}
+                            key={`data-${record.key}-${index}`}
+                            style={cellStyle ? cellStyle : null}
+                            onClick={()=> dropDown()}
+                        >
+                            {record[dataIndex]}
+                        </div>
+                    }
+                    
+                    </>
+                }
+            )}
+            <button onClick={()=>dropDown()} className={styles.dropArrow}>
+                <ReactSVG src="/tableArrow.svg" />
+            </button>
         </div>
     );
 };

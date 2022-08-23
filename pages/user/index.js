@@ -145,13 +145,17 @@ export default function UserDetailed() {
                             name='Read more'
                         />
                     </div>
-                    <div>
+                    <div className={styles.greetingImage}>
                         <img 
                             className={styles.greetingBackground} 
                             src="/greetingBg.png" 
                             alt="greeting" 
                         />
                     </div>
+                    <Button 
+                        style={styles.greetingBtnResp}
+                        name="Read more"
+                    />
                 </div>
 
                 <div className={styles.orders}>

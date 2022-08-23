@@ -37,7 +37,6 @@
 
 .tableBody .columnOpen {
     box-shadow: 0px 4px 6px rgba(190, 187, 203, 0.25);
-    border-left: 3px solid #2751F2;
 }
 
 .tableBody .columnOpen .arrow {
@@ -45,7 +44,7 @@
 }
 
 .tableBody .columnOpen .tableRow {
-    background-color: #F7F9FB;
+    display: none;
 }
 
 .tableBody .columnOpen .dropdown {
@@ -279,4 +278,53 @@
     margin-left:auto;
     margin-top:20px;
     margin-right:10px;
+}
+
+@media only screen and (max-width: 600px){
+    .headerBack {
+        display: none;
+    }
+    .dropdown {
+        display: flex;
+        flex-direction: column;
+    }
+    .dropdownCol {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .tableBody {
+        padding: 0;
+    }
+    .orders {
+        margin: 0 20px;
+    }
+    .tableBody .columnOpen {
+        box-shadow: 0px 0px 0px rgba(190, 187, 203, 0.25);
+    }
+    .tableBody .dropdown .dropdownCol h2 {
+        color:#3A74D2
+    }
+    .tableBody .columnOpen .dropdown {
+        padding:0;
+        padding-top:15px;
+    }
+    .closeBtn {
+        position: absolute;
+        border:none;
+        background-color: transparent;
+        outline:none;
+        border:none;
+        right:0;
+    }
+    .dropArrow {
+        position: absolute;
+        right:0;
+        background-color:#fff;
+        border:none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding:15px;
+    }
 }
