@@ -1,0 +1,173 @@
+.calendarControls {
+    display: flex;
+    align-items: center;
+    margin-left:auto;
+    gap:14px;
+}
+
+.calendarControls span {
+    display: block;
+    border: 1px solid #EFEFEF;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.calendarControls span svg {
+    margin-top:-5px;
+}
+
+.calendarHeader{
+    display: flex;
+    justify-content: space-between;
+    border:1px solid #EFEFEF;
+    border-bottom:0px;
+    overflow: hidden;
+    padding:32px 20px 0;
+}
+
+.dayInWeek {
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    cursor:pointer;
+}
+
+.weekHeader {
+    display: flex;
+    margin-top:28px;
+    gap:15px;
+}
+
+.date {
+    font-weight: 400;
+    font-size: 19.8063px;
+    color: #797A80;
+    text-align: center;
+    padding:5px 6px;
+    border-radius: 8px;
+    margin-top:10px;
+}
+
+.weekDayName {
+    font-weight: 500;
+    font-size: 14px;
+    color: #797B86;
+    text-align: center;
+}
+
+.datePeriod {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 32px;
+    color: #1E2837;
+}
+
+.activeDay {
+    background-color:#3A74D2;
+    color:#fff;
+}
+
+.calWeekDays {
+    border:1px solid #EFEFEF;
+    border-top:0px;
+    overflow: hidden;
+    padding:0 20px 32px;
+}
+
+.weekContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap:5%;
+}
+
+.availableTime {
+    width: 30%;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid #EFEFEF;
+    border-radius: 5px;
+    margin-bottom:22px;
+    cursor:pointer;
+}
+
+.activeTime {
+    background: rgba(58, 116, 210, 0.1);
+    border: 1px solid #3A74D2;
+    color:#3A74D2!important;
+}
+
+.availableTimeHeader {
+    display: flex;
+    align-items: center;
+    gap:12px;
+    margin-bottom:5px;
+}
+
+.availableTimes {
+    margin-top:22px;
+}
+
+.availableTimeHeader h2 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    color: #1E2837;
+}
+
+.showMore {
+    float:right;
+    margin-top:15px;
+    margin-bottom:-20px;
+    background:transparent;
+    border:none;
+    outline:none;
+    cursor: pointer;
+    color: #3A74D2;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration-line: underline;
+}
+
+.timeShowMore {
+    display: block;
+    margin:auto;
+    cursor: pointer;
+    color: #3A74D2;
+    background:transparent;
+    border:none;
+    outline:none;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration-line: underline;
+    margin-top:10px;
+}
+
+.dayHeader {
+    display: flex;
+}
+
+.monthView { 
+    display: grid;
+    grid-template-columns: 80pxrepeat(7,1fr);
+    padding: 20px 0 20px 20px;
+    border:1px solid #EFEFEF;
+    border-top:0px;
+}
+
+.pickDayCover {
+    display: flex;
+    margin:30px auto;
+    justify-content: center;
+    font-size: 34px;
+    color: #ececec;
+    font-weight: 700;
+    user-select: none;
+}
