@@ -9,6 +9,7 @@ import Select from '../../components/Select';
 import Input from '../../components/Input';
 import FilterModal from '../../components/modals/filterModal';
 import AddFamilyMember from '../../components/modals/addFamilyMember';
+import Calendar from '../../components/Calendar';
 
 export default function UserDetailed() {
     const [familyMemberModal, setFamilyMemberModal] = useState(false);
@@ -347,6 +348,14 @@ export default function UserDetailed() {
                             />
                         </div>
                     }
+                </Block>
+                <Block 
+                    title="Calendar"
+                    className={styles.calendar}
+                >
+                    <div className={styles.calendarBlock}>
+                        <Calendar booking={false} />
+                    </div>
                 </Block>
             </div>
         </div>

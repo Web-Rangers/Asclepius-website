@@ -328,6 +328,14 @@
     display: none;
 }
 
+.calendar {
+    margin-top:32px;
+}
+
+.calendarBlock{
+    background-color: #fff;
+}
+
 @media only screen and (max-width: 600px) {
     .container {
         width: 100%;
@@ -380,3 +388,5 @@
         padding:20px 20px;
     }
 }
+
+

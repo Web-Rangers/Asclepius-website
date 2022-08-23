@@ -89,7 +89,7 @@ function opacityColor(color, factor) {
 }
 
 
-export default function Calendar() {
+export default function Calendar({booking}) {
     const [whole, setWhole] = useState(true);
     const [mode, setMode] = useState("week");
     const [date, setDate] = useState(today);
@@ -161,7 +161,7 @@ export default function Calendar() {
                         <MonthView date={date} schedule={_schedule} />
                     )}
                     {mode === "week" && (
-                        <WeekView date={date} schedule={_schedule} active={active} setActive={setActive} />
+                        <WeekView date={date} schedule={_schedule} active={active} setActive={setActive} booking={booking} />
                     )}
                     {mode === "day" && (
                         <DayView date={date} schedule={_schedule} />
@@ -365,7 +365,7 @@ function MonthView({ date, schedule = [] }) {
     );
 }
 
-function WeekView({ date, schedule = [], active, setActive }) {
+function WeekView({ date, schedule = [], active, setActive, booking }) {
     const [hours, setHours] = useState([]);
     const [events, setEvents] = useState([]);
     const [linesV, setLinesV] = useState([]);
@@ -547,21 +547,34 @@ function WeekView({ date, schedule = [], active, setActive }) {
                 </div>
                 <button className={styles.showMore}>Show more</button>
             </div>
-            <div className={styles.availableTimes}>
-                <div className={styles.availableTimeHeader}>
-                    <div className={styles.timeSquare}>
-                        <img src="/timeSquare.svg" alt="" />
+            {booking && 
+                <div className={styles.availableTimes}>
+                    <div className={styles.availableTimeHeader}>
+                        <div className={styles.timeSquare}>
+                            <img src="/timeSquare.svg" alt="" />
+                        </div>
+                        <h2>Available time</h2>
                     </div>
-                    <h2>Available time</h2>
                 </div>
-            </div>
+            }
             {
                 active !== '' ?
                 <>
-                    <div className={styles.weekContainer}>
-                        <AvailableTime available={availableTimes}/>
+                    <div className={classNames(styles.weekContainer, {
+                        [styles.hourList]: !booking 
+                    })}>
+                        {
+                            booking ? <AvailableTime available={availableTimes}/> : <>
+                                {hours}
+                                {events}
+                                {linesV}
+                            </>
+                        }
+                        
                     </div>
-                    <button className={styles.timeShowMore}>Show more</button>
+                    {
+                        booking && <button className={styles.timeShowMore}>Show more</button>
+                    }
                 </> : <span className={styles.pickDayCover}>choose a day</span>
             }
         </>
