@@ -1,414 +1,555 @@
 .doctorBody {
-    padding: 0 60px;
-    max-width: 1920px;
-    width: 100%;
-    margin: auto;
+  padding: 0 60px;
+  max-width: 1920px;
+  width: 100%;
+  margin: auto;
 }
 
 .doctorContainer {
-    background-color:#fff;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    padding:33px 80px 0;
+  background-color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 33px 80px 0;
 }
 
 .back {
-    margin-bottom: 26px;
+  margin-bottom: 26px;
 }
 
 .back img {
-    cursor:pointer;
+  cursor: pointer;
 }
 
 .content {
-    display: flex;
-    gap:28px;
+  display: flex;
+  gap: 28px;
 }
 
 .doctorInfo {
-    background-color: #F7F9FB;
+  background-color: #f7f9fb;
 }
 
 .about {
-    margin-bottom:33px;
-    width: 100%;
+  margin-bottom: 33px;
+  width: 100%;
 }
 
 .aboutTitle {
-    display: flex;
-    align-items: center;
-    margin-bottom:12px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
 }
 
 .aboutTitle h2 {
-    margin:0 12px;
-    font-weight: 500;
-    font-size: 18px;
-    color: #1E2837;
+  margin: 0 12px;
+  font-weight: 500;
+  font-size: 18px;
+  color: #1e2837;
 }
 
 .doctorInfo {
-    padding:32px 50px;
-    width: 100%;
-    min-width: 465px;
+  padding: 32px 50px;
+  width: 100%;
+  min-width: 465px;
 }
 
 .aboutTxt span {
-    display: block;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-    text-transform: capitalize;
-    color: #797A80; 
+  display: block;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  text-transform: capitalize;
+  color: #797a80;
 }
 
 .educationTitle {
-    display: flex;
-    align-items: center;
-    margin-bottom:12px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
 }
 
 .educationTitle h2 {
-    margin:0 12px;
-    font-weight: 500;
-    font-size: 18px;
-    color: #1E2837;
+  margin: 0 12px;
+  font-weight: 500;
+  font-size: 18px;
+  color: #1e2837;
 }
 
-.educationItem{
-    margin-bottom:24px;
+.educationItem {
+  margin-bottom: 24px;
 }
 
 .educationItem .data {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
-    text-transform: capitalize;
-    color: #1E2837;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  text-transform: capitalize;
+  color: #1e2837;
 }
 
 .educationItem h2 {
-    color: #3A74D2;
-    margin:3px 0 10px;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
-    text-transform: capitalize;
+  color: #3a74d2;
+  margin: 3px 0 10px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  text-transform: capitalize;
 }
 
 .educationItem p {
-    margin:0;
-    color:#797A80;
-    font-size: 14px;
+  margin: 0;
+  color: #797a80;
+  font-size: 14px;
 }
 
 .educationContent {
-    margin-top:28px;
+  margin-top: 28px;
 }
 
 .doctor {
-    position: relative;
-    max-width: 270px;
+  position: relative;
+  max-width: 270px;
 }
 
 .poster {
-    position: relative;
-    max-height: 281px;
-    overflow: hidden;
+  position: relative;
+  max-height: 281px;
+  overflow: hidden;
 }
 
 .doctorStar {
-    position: absolute;
-    background-color:#3A74D2;
-    padding: 5px 11px 5px 14px;
-    border-radius: 14px;
-    margin:20px;
-    color:#fff;
-    display: flex;
-    align-items: center;
-    gap:5px;
-    z-index:2;
-    top:0;
+  position: absolute;
+  background-color: #3a74d2;
+  padding: 5px 11px 5px 14px;
+  border-radius: 14px;
+  margin: 20px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 2;
+  top: 0;
 }
 
 .doctorImage {
-    width: 100%;
+  width: 100%;
 }
 
 .doctorContact {
-    position: absolute;
-    left:50%;
-    transform: translateX(-50%);
-    width: 90%;
-    height: 38.16px;
-    background-color:#fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius:5px;
-    box-shadow: 0 3px 9px #eff1f3;
-    padding:8px;
-    margin-top:-19px;
-    align-items: stretch;
-
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 38.16px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0 3px 9px #eff1f3;
+  padding: 8px;
+  margin-top: -19px;
+  align-items: stretch;
 }
 
 .doctorContact div {
-    width: 33%;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    border-right: 1px solid #D8D8D8;
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  border-right: 1px solid #d8d8d8;
 }
 
 .doctorContact div:last-child {
-    border-right:0px;
+  border-right: 0px;
 }
 
 .contact {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .home {
-    width: 16.73px;
+  width: 16.73px;
 }
 .phone {
-    width: 16.73px;
+  width: 16.73px;
 }
 .video {
-    width: 22.73px;
+  width: 22.73px;
 }
 
 .doctorServices {
-    min-width: 369px;
-    overflow: hidden;
+  min-width: 369px;
+  overflow: hidden;
 }
 
-.proffesion{
-    margin:0 0 24px;
-    display: flex;
-    align-items: center;
-    gap:8px;
+.proffesion {
+  margin: 0 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .prof {
-    padding: 4px 12px 6px;
-    border-radius: 14px;
-    background-color:  rgba(58, 116, 210, 0.1);
-    color:#3A74D2;
-    font-weight: 400;
-    font-size: 14px;
+  padding: 4px 12px 6px;
+  border-radius: 14px;
+  background-color: rgba(58, 116, 210, 0.1);
+  color: #3a74d2;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .aboutDoctor {
-    margin-top:34px;
+  margin-top: 34px;
 }
 
 .aboutDoctor h2 {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 25px;
-    color: #1E2837;
-    margin-bottom:24px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: #1e2837;
+  margin-bottom: 24px;
 }
 
 .address {
-    display: flex;
-    gap:4px;
-    align-items: center;
-    margin: 0 18px 24px 0;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin: 0 18px 24px 0;
 }
 
 .address h4 {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-    color: #797A80;
-    margin:0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #797a80;
+  margin: 0;
 }
 
 .language {
-    margin: 0 0 32px;
-    padding:0 0 18px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 2px solid #EFEFEF;
+  margin: 0 0 32px;
+  padding: 0 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #efefef;
 }
 
 .languageList {
-    display: flex;
-    gap:12px;
-    position: relative;
+  display: flex;
+  gap: 12px;
+  position: relative;
 }
 
 .languageList span {
-    display: block;
-    position: relative;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 22px;
-    color: #797A80;
-    cursor:pointer;
+  display: block;
+  position: relative;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #797a80;
+  cursor: pointer;
 }
 
 .languageList span:last-child:after {
-    width: 0px;
+  width: 0px;
 }
 
 .languageList span:after {
-    content:'';
-    position: absolute;
-    top:50%;
-    transform: translateY(-40%);
-    background-color: #BFC4CA;
-    height: 13px;
-    width: 1px;
-    margin-left:6px;
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-40%);
+  background-color: #bfc4ca;
+  height: 13px;
+  width: 1px;
+  margin-left: 6px;
 }
 
-.certTitle{
-    display: flex;
-    gap:12px;
-    margin-bottom:28px;
+.certTitle {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
 }
 
 .certTitle h2 {
-    margin:0;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 25px;
-    color: #1E2837;
-
+  margin: 0;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  color: #1e2837;
 }
 
 .certificate {
-    display: flex;
-    align-items: baseline;
-    gap:14px;
-    margin-bottom:31px;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 31px;
 }
 
 .certificateInfo h2 {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 22px;
-    color: #1E2837;
-    margin:0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1e2837;
+  margin: 0;
 }
 
 .certificateInfo p {
-    color:#797A80;
-    font-size: 14px;
-    margin:10px 0;
+  color: #797a80;
+  font-size: 14px;
+  margin: 10px 0;
 }
 
 .certificateInfo h4 {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-    color: #797A80;
-    margin:0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #797a80;
+  margin: 0;
 }
 
 .certCheckmark img {
-    width: 16px;
-    height: 12px;
+  width: 16px;
+  height: 12px;
 }
 
 .certLink {
-    display: flex;
-    align-items: center;
-    gap:7px;
-    margin-top:9px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 9px;
 }
 
 .certLink a {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-    text-decoration-line: underline;
-    color: #3A74D2;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  text-decoration-line: underline;
+  color: #3a74d2;
 }
 
 .bookingHeader {
-    display: flex;
-    align-items: center;
-    gap:12px;
-    margin-bottom:29px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 29px;
 }
 
 .bookingHeader h2 {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 25px;
-    color: #1E2837;
-    margin:0;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  color: #1e2837;
+  margin: 0;
 }
 
 .bookingTool {
-    margin-bottom:29px;
-    display: flex;
-    gap:2%;
+  margin-bottom: 29px;
+  display: flex;
+  gap: 2%;
 }
 
 .bookingBtn {
-    width: 33%;
-    background-color:transparent;
-    border: 1px solid #EFEFEF;
-    border-radius: 19px;
-    cursor:pointer;
-    padding:7px 22px;
-    display: flex;
-    align-items: center;
-    gap:13px;
+  width: 33%;
+  background-color: transparent;
+  border: 1px solid #efefef;
+  border-radius: 19px;
+  cursor: pointer;
+  padding: 7px 22px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
 }
 
 .bookingBtn span {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 19px;
-    color: #3A74D2;
-    margin-top:3px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #3a74d2;
+  margin-top: 3px;
 }
 
 .activeContact {
-    background: #3A74D2;
+  background: #3a74d2;
 }
 
 .activeContact span {
-    color:#fff;
+  color: #fff;
 }
 
 .activeContact img {
-    filter: invert(100%) sepia(239%) saturate(0%) hue-rotate(233deg) brightness(111%) contrast(180%);
+  filter: invert(100%) sepia(239%) saturate(0%) hue-rotate(233deg)
+    brightness(111%) contrast(180%);
 }
 
 .patient h2 {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 25px;
-    color: #1E2837;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  color: #1e2837;
 }
 
 .familyBtn {
-    display: flex;
-    gap:10px;
-    align-items: center;
-    margin:10px 0;
-    margin-left:auto;
-    background-color: transparent;
-    outline:none;
-    border:none;
-    cursor:pointer;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 10px 0;
+  margin-left: auto;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 
 .familyBtn span {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 16px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #3a74d2;
+}
+
+.languageIcon {
+  display: none;
+}
+.tabForMobile {
+  display: none;
+}
+.bookNowBtn {
+  display: none;
+}
+.bookingPageBtn {
+  display: none;
+}
+.closeBooking {
+  display: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .back {
+    display: none;
+  }
+  .doctorBody {
+    padding: 0px;
+    width: 100%;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+  .doctorContact {
+    margin-left: 50px;
+  }
+  .poster {
+    max-width: 450px;
+    width: 390px;
+    height: 306px;
+  }
+  .aboutDoctor {
+    padding-left: 16px;
+  }
+  .address {
+    padding-left: 16px;
+  }
+  .cetificates {
+    display: none;
+  }
+
+  .doctorInfo {
+    display: none;
+  }
+  .doctorServices {
+    display: none;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 20px;
+    position: absolute;
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+  }
+
+  .tabForMobile {
+    display: inline-block;
+    margin-left: 20px;
+  }
+  .doctorContainer {
+    background-color: #fff;
+    padding: 0;
+  }
+  .language {
     display: flex;
     align-items: center;
-    text-align: center;
-    color: #3A74D2;
+    justify-content: space-around;
+    border-bottom: none;
+  }
+  .languageIcon {
+    display: flex;
+    margin-right: -25px;
+  }
+  .activeTab {
+    border-bottom: 1px solid blue;
+    padding-bottom: 15px;
+  }
+  .tabNav {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-around;
+    margin-top: -40px;
+    border-bottom: 1px solid #efefef;
+    margin-left: -50px;
+    margin-right: 20px;
+  }
+  .tabNav li {
+    font-family: "Noto Sans";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: #1e2837;
+  }
+  .bookNowBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 16px;
+    margin-right: 16px;
+    position: fixed;
+    margin-top: 570px;
+  }
+  .bookNowBtnStyle {
+    font-family: "Noto Sans";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    width: 360px;
+    height: 58px;
+    background: #3a74d2;
+    box-shadow: 0px 10px 34px rgba(191, 196, 202, 0.2);
+    border-radius: 5px;
+    color: #ffffff;
+    border: none;
+  }
+
+  .activeBooking {
+    display: block;
+  }
+  .bookingPageBtn {
+    display: flex;
+    width: 344px;
+    height: 58px;
+    background: #3a74d2;
+    border-radius: 5px;
+    margin-top: 30px;
+  }
+  .closeBooking {
+    display: flex;
+    margin-left: 200px;
+  }
 }
