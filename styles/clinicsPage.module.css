@@ -212,3 +212,68 @@
   line-height: 15px;
   color: #ffffff;
 }
+
+.branchPage {
+  overflow: hidden;
+}
+.filterForResp {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .clinicPageCardListContainer {
+    flex-direction: column;
+    gap:14px;
+    padding:0 20px;
+    margin-bottom: 42px;
+  }
+  .backButton, .clinicFilterContainer {
+    margin:0px;
+  }
+  .clinicFilterContainer {
+    margin:26px 16px 20px;
+  }
+  .filterForResp {
+    display: block;
+    background-color: transparent;
+    border:none;
+    outline:none;
+    cursor:pointer;
+  }
+  .filterButtonStyle {
+    display: none;
+  }
+  .branchTool {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+  }
+  .cardItemContainer {
+    margin:0;
+    width: 100%;
+  }
+  .imgPart > span {
+    width: 100%!important;
+  }
+  .branchPage ul {
+    margin-bottom:0px;
+    margin-top:0;
+    justify-content: flex-start;
+  }
+  .modalPopup {
+    width: 100%!important;
+  }
+  .headerContainer {
+    margin-top:20px;
+    margin-left:20px;
+  }
+  .searchInput {
+    margin-bottom: 32px;
+  }
+  .buttonContainer {
+    position: absolute!important;
+    bottom: 0;
+    margin-bottom: 50px;
+  }
+}
