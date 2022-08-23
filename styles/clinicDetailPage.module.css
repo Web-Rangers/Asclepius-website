@@ -92,6 +92,11 @@
   justify-content: center;
   gap: 30px;
   margin-top: 24px;
+  overflow: hidden;
+}
+
+.imageContainer img {
+  width: 20%;
 }
 
 .imageSlider {
@@ -263,4 +268,91 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  .clinicsTitleTextStyle {
+    margin:0;
+    display: none;
+    margin:0 20px;
+  }
+  .container {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom:0;
+  }
+  .backButton{
+    margin:0;
+    padding:30px 20px;
+  }
+  .clinicDetailPageCard {
+    flex-direction: column;
+  }
+  .cardItemContainer{
+    margin:0 20px;
+  }
+  .clinicNameText {
+    margin: 18px 28px 2px;
+    font-size: 18px;
+  }
+  .clinicInfo {
+    width: 100%;
+  }
+  .clinicInfoTitle {
+    margin: 0 20px 30px;
+  }
+  .clinicTitle {
+    margin: 0 20px;
+  }
+  .servicesContainer {
+    flex-wrap:wrap;
+    margin: 0 20px;
+    gap:40px;
+  }
+  .aboutClinicText {
+    margin:0 20px 30px;
+  }
+  .offerCardContainer {
+    background: #F7F9FB;
+    width: 100%;
+    margin-top:30px;
+    align-items: flex-start;
+    padding: 24px 20px 24px 0px;
+    overflow: hidden;
+    height: auto;
+  }
+  .serviceName, .serviceText {
+    margin-left:20px;
+    margin-right:10px;
+  }
+  .cardImage {
+    margin-top: 20px;
+    margin-bottom: 33px;
+  }
+  .imageContainer {
+    margin:20px;
+    margin-top:40px;
+  }
+  .imageTitle {
+    display: block;
+  }
+  .imageTitleContainer {
+    margin:40px 0;
+  }
+  .imageContainer {
+    color: red;
+    overflow-x:auto;
+    justify-content: flex-start;
+  }
+  .imageContainer img {
+    width: auto;
+    display: inline-block;
+  }
+  .imageSlider {
+    display: none;
+  }
+  .cardType {
+    width: 66%;
+    align-items: flex-end;
+  }
 }

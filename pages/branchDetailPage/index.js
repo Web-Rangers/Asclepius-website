@@ -3,17 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import Text from "../../components/ui/Text";
 import { useRouter } from "next/router";
+import classNames from 'classnames';
 
 const clinicImage = [
-  { src: "/clinic1.png" },
+  { src: "/clinicImage.png" },
   {
-    src: "/clinic2.png",
+    src: "/clinicImage.png",
   },
   {
-    src: "/clinic3.png",
+    src: "/clinicImage.png",
   },
   {
-    src: "/clinic4.png",
+    src: "/clinicImage.png",
   },
 ];
 
@@ -190,16 +191,10 @@ const BranchDetailPage = () => {
         </div>
       </div>
       <div className={s.imageTitleContainer}>
-        <Text style={s.clinicsTitleTextStyle}> Images of the clinic</Text>
+        <Text style={classNames(s.clinicsTitleTextStyle, s.imageTitle)}> Images of the clinic</Text>
         <div className={s.imageContainer}>
           {clinicImage.map((img) => (
-            <Image
-              key={img.key}
-              alt="Clinic image"
-              src={img.src}
-              width="268px"
-              height="228px"
-            />
+            <img src={img.src} alt="clinic image"/>
           ))}
         </div>
         <div className={s.imageSlider}>
