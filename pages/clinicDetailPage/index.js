@@ -10,6 +10,8 @@ const ClinicDetailPage = () => {
   const router = useRouter();
   const cardData = router.query;
 
+  console.log("cardDat dddd", cardData);
+
   return (
     <div className={s.container}>
       <div>
@@ -28,7 +30,7 @@ const ClinicDetailPage = () => {
       </div>
       <Text style={s.clinicsTitleTextStyle}> Atcare clinics</Text>
       <div className={s.clinicDetailPageCard}>
-        <div className={s.cardItemContainer} key={cardData.key}>
+        <div className={s.cardItemContainer} key={cardData.id}>
           <div className={s.imgPart}>
             <div className={s.ratingContainer}>
               <Image
@@ -37,24 +39,24 @@ const ClinicDetailPage = () => {
                 width="16.67px"
                 height="15.04"
               />
-              <Text>{cardData.rating}</Text>
+              <Text>{"4.9"}</Text>
             </div>
             <Image
-              src={cardData.src}
-              alt={cardData.alt}
+              src={cardData.logoUrl || "/clinicImage.png"}
+              alt={""}
               className={s.imgPartImage}
               width="368px"
               height="326px"
             />
           </div>
-          <Text style={s.clinicNameText}>{cardData.clinicName}</Text>
+          <Text style={s.clinicNameText}>{cardData.displayName}</Text>
           <Text style={s.clinicWorkingHours}>
-            {cardData.workingDay}
+            {"here should working day"}
             {cardData.workingHours}
           </Text>
           <Text style={s.weekendWorkingHours}>
-            {cardData.weekendWorkingDay}
-            {cardData.weekendWorkingHours}
+            {" weekend working day"}
+            {"weekend working hours"}
           </Text>
           <Text style={s.contactInfoText}>
             <Image
@@ -63,20 +65,20 @@ const ClinicDetailPage = () => {
               width="24px"
               height="24px"
             />
-            {cardData.clinicPhoneNumber}
+            {cardData.phoneNumber || " +9962167373"}
           </Text>
           <Text style={s.contactInfoText}>
             <Image src="/mailIcon.svg" alt="" width="24px" height="24px" />
-            {cardData.clinicEmail}
+            {cardData.email || "test@gamail.com"}
           </Text>
           <Text style={s.contactInfoText}>
             <Image src="/LocationIcon.svg" alt="" width="24px" height="24px" />
-            {cardData.clinicAddress}
+            {cardData.address || "tbilis, vaja 6"}
           </Text>
         </div>
 
         <div className={s.clinicInfo}>
-          <Text style={s.clinicInfoTitle}>About us</Text>
+          <Text style={s.clinicInfoTitle}>About us </Text>
           <Text style={s.clinicTitle}>Tbilisi State Medical Institute</Text>
           <Text style={s.aboutClinicText}>
             Tbilisi State Medical Institute Higher medical education - Chairman

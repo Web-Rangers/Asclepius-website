@@ -12,11 +12,11 @@ const ClinicCardItem = (props) => {
       query: data,
     });
   };
-  console.log("data", props);
+
   return (
     <div
       className={classes.cardItemContainer}
-      key={props.key}
+      key={props.id}
       onClick={() => handleClick(props.data)}
     >
       <div className={classes.imgPart}>

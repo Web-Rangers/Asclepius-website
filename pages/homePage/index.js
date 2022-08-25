@@ -7,8 +7,21 @@ import Benefits from "../../components/contents/Benefits";
 import CardPrice from "../../components/contents/CardPrice";
 import Text from "../../components/ui/Text";
 import Button from "../../components/ui/Button";
+import axios from "axios";
 
-function HomePage() {
+export const getStaticProps = async () => {
+  const res = await axios.get(
+    "https://asclepius.pirveli.ge/asclepius/v1/api/clinics"
+  );
+
+  const data = res.data;
+
+  return {
+    props: { clinicsData: data },
+  };
+};
+
+function HomePage({ clinicsData }) {
   const firstPartImgArray = [
     "firstPartImg1.png",
     "firstPartImg2.png",
@@ -45,7 +58,7 @@ function HomePage() {
             />
           ))}
         </div>
-        <ClinicCardList />
+        <ClinicCardList clinicsdata={clinicsData} />
         <DoctorCardList />
         <Services />
         <Benefits />
