@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { ReactSVG } from 'react-svg';
 import Pagination from '../components/ui/Pagination';
+import { useWindowSize } from './useWindowSize';
 
 export default function Table({
     columns = [],
@@ -26,6 +27,8 @@ export default function Table({
     const [sorted, setSorted] = useState(false);
 
     const [isSort, setSort] = useState({});
+
+    const windowSize = useWindowSize();
 
     const getStartPage = () => {
         return (currentPage - 1) * (pagination.pageSize || 10) + 1;
@@ -173,7 +176,7 @@ export default function Table({
                             >
                                 <div>
                                     {
-                                        window.innerWidth < 600 ?
+                                        windowSize.width < 600 ?
                                         <TableRowResponsive 
                                             columnsDefinition={columns}
                                             record={record}
