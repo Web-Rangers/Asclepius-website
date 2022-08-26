@@ -171,3 +171,28 @@
     font-weight: 700;
     user-select: none;
 }
+
+.hour {
+    display: flex;
+    z-index: 10;
+    align-items: flex-start;
+}
+
+.event {
+    border-radius: 2px;
+    padding: 5px;
+    z-index: 10;
+}
+
+.hourList {
+    position: relative;
+    overflow-y: scroll;
+    max-height: 350px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 80px repeat(7,1fr);
+    grid-template-rows: repeat(1440,1.2px);
+    z-index: 10;
+    gap:0;
+    padding: 0 20px;
+}
