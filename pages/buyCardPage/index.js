@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Text from "../../components/ui/Text";
 import Image from "next/image";
 import s from "../../styles/buyCard.module.css";
@@ -9,24 +9,9 @@ import { Tooltip } from "@nextui-org/react";
 import Modal from "react-modal";
 import CardCheckoutModal from "../../components/modals/CardCheckoutModal";
 
-const customStyles = {
-  content: {
-    width: "30%",
-    height: "100%",
-    top: "50%",
-    left: "88%",
-    right: "10px",
-    bottom: "auto",
-    transform: "translate(-50%, -50%)",
-    background: "#ffffff",
-  },
-  overlay: {
-    background: "transparent",
-  },
-};
-
 function BuyCardPage() {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [customStyles, setCustomStyles] = useState({});
   const openModal = () => {
     setIsOpen(true);
   };
@@ -34,6 +19,43 @@ function BuyCardPage() {
   const closeModal = () => {
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    if(window.innerWidth < 600){
+      setCustomStyles({
+        content: {
+          width: "100%",
+          height: "100%",
+          top: "50%",
+          left: "0%",
+          right: "10px",
+          bottom: "auto",
+          transform: "translateY(-50%)",
+          background: "#ffffff",
+        },
+        overlay: {
+          background: "transparent",
+        },
+      })
+    }else{
+      setCustomStyles({
+        content: {
+          width: "30%",
+          height: "100%",
+          top: "50%",
+          left: "88%",
+          right: "10px",
+          bottom: "auto",
+          transform: "translate(-50%, -50%)",
+          background: "#ffffff",
+        },
+        overlay: {
+          background: "transparent",
+        },
+      })
+    }
+  }, [])
+  
 
   return (
     <div className={s.container}>

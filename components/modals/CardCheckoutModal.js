@@ -22,7 +22,7 @@ const CardCheckoutModal = (props) => {
 
   return (
     <div className={s.cardCheckoutModalContiner}>
-      <div className={s.headerContainer}>
+      <div className={classNames(s.headerContainer, s.headerTool)}>
         <Text style={s.checkoutTitleStyle}>Checkout</Text>
         <Image
           alt="closeIcon"

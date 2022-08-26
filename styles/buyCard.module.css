@@ -290,3 +290,44 @@
   line-height: 19px;
   color: #1e2837;
 }
+
+@media only screen and (max-width: 767px) {
+  .headerContainer {
+    flex-direction: column;
+    margin-bottom:0px;
+  }
+  .headerContainerLeft {
+    order:2;
+    margin:0 20px 0;
+  }
+  .headerContainerRight {
+    order:1;
+    margin-bottom:37px;
+  }
+  .headerContainerTitle {
+    font-size: 18px;
+    justify-content: flex-start;
+    margin-bottom:30px;
+  }
+  .buyCardStep {
+    margin:0;
+  }
+  .buyCardStep div {
+    margin-bottom:30px;
+  }
+  .chooseCardContainer{
+    display: none;
+  }
+  .checkoutTitleStyle {
+    margin-bottom:20px;
+  }
+  .headerTool {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .documentLink {
+    margin-top:10px;
+  }
+}
