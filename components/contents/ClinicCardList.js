@@ -3,66 +3,16 @@ import classes from "../../styles/homePage.module.css";
 import Text from "../ui/Text";
 import Image from "next/image";
 
-const clinciArray = [
-  {
-    id: 1,
-    src: "/testClinic.png",
-    alt: "clinic image",
-    clinicName: "Bokhua ",
-    clinicAddress: "Tbilisi , Chachava str.1",
-    rating: "4.9",
-    workingDay: " Monday - Friday",
-    workingHours: "10:00 - 17:00",
-    weekendWorkingDay: "Saturday - Sunday",
-    weekendWorkingHours: "10:00 - 14:00",
-    clinicPhoneNumber: "+99557799700",
-    clinicEmail: "atcare@optimo.com",
-  },
-  {
-    id: 2,
-    src: "/testClinic.png",
-    alt: "clinic image",
-    clinicName: "Bokhua Cardiovascular Center",
-    clinicAddress: "Tbilisi , Chachava str.1",
-    rating: "4.9",
-    workingDay: " Monday - Friday",
-    workingHours: "10:00 - 17:00",
-    weekendWorkingDay: "Saturday - Sunday",
-    weekendWorkingHours: "10:00 - 15:00",
-    clinicPhoneNumber: "+99557799700",
-    clinicEmail: "atcare@optimo.com",
-  },
-  {
-    id: 3,
-    src: "/testClinic.png",
-    alt: "clinic image",
-    clinicName: "Bokhua Cardiovascular Center",
-    clinicAddress: "Tbilisi , Chachava str.1",
-    rating: "4.9",
-    workingDay: " Monday - Friday",
-    workingHours: "10:00 - 17:00",
-    weekendWorkingDay: "Saturday - Sunday",
-    weekendWorkingHours: "10:00 - 14:00",
-    clinicPhoneNumber: "+99557799700",
-    clinicEmail: "atcare@optimo.com",
-  },
-  {
-    id: 4,
-    src: "/testClinic.png",
-    alt: "clinic image",
-    clinicName: "Bokhua Cardiovascular Center",
-    clinicAddress: "Tbilisi , Chachava str.1",
-    rating: "4.9",
-    workingDay: " Monday - Friday",
-    workingHours: "10:00 - 17:00",
-    weekendWorkingDay: "Saturday - Sunday",
-    weekendWorkingHours: "10:00 - 14:00",
-    clinicPhoneNumber: "+99557799700",
-    clinicEmail: "atcare@optimo.com",
-  },
-];
+const ClinicCardList = ({ clinicsData }) => {
+  const slideLeft = () => {
+    var slider = document.getElementById("slider");
+    slider.scrollLeft = slider.scrollLeft - 350;
+  };
 
-const ClinicCardList = () => {
+  const slideRight = () => {
+    var slider = document.getElementById("slider");
+    slider.scrollLeft = slider.scrollLeft + 350;
+  };
   return (
     <div className={classes.clinicCardContainer}>
       <div className={classes.clinicCardContainerTitle}>
@@ -75,25 +25,28 @@ const ClinicCardList = () => {
               alt="arrowLeft"
               width="24px"
               height="24px"
+              onClick={slideLeft}
             />
+
             <Image
               src="/Arrow - Right.svg"
               alt="arrowRight"
               width="24px"
               height="24px"
+              onClick={slideRight}
             />
           </div>
         </div>
       </div>
-      <div className={classes.clinicCardList}>
-        {clinciArray.map((item, index) => {
+      <div className={classes.clinicCardList} id="slider">
+        {clinicsData.map((item, index) => {
           return (
             <ClinicCardItem
               key={index}
-              src={item.src}
-              clinicName={item.clinicName}
-              clinicAddress={item.clinicAddress}
-              rating={item.rating}
+              src={item.logoUrl || "/testClinic.png"}
+              clinicName={item.displayName}
+              clinicAddress={item.address.address}
+              rating={"4.9"}
               data={item}
             />
           );

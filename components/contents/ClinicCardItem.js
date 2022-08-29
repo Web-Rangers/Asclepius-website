@@ -20,10 +20,10 @@ const ClinicCardItem = (props) => {
       onClick={() => handleClick(props.data)}
     >
       <div className={classes.imgPart}>
-        <div className={classes.ratingContainer}>
+        {/* <div className={classes.ratingContainer}>
           <Image src="/Star.svg" alt="star" width="16.67px" height="15.04" />
           <Text>{props.rating}</Text>
-        </div>
+        </div> */}
         <Image
           src={props.src}
           alt={"clinic"}

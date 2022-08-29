@@ -50,8 +50,13 @@
 .clinicCardList {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  width: 100%;
+  justify-content: flex-start;
+  padding-left: 16px;
+  align-self: center;
+  width: 82%;
+  height: 100%;
+  overflow-x: hidden;
+  flex-wrap: nowrap;
 }
 
 .serviceTextStyle {
@@ -157,7 +162,13 @@
 .doctorCardList {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-left: 100px;
+  margin-right: 100px;
+  padding-left: 16px;
+  width: 82%;
+  overflow-x: hidden;
+  flex-wrap: nowrap;
   gap: 30px;
 }
 
