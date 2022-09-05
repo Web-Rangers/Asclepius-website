@@ -30,6 +30,9 @@
   margin-bottom: 80px;
   background-color: #fff;
   margin-top:24px;
+  width: calc(100% - 128px);
+  max-width: calc(1920px - 128px);
+  margin: 0 auto;
 }
 
 .clinicDetailPageCard {
