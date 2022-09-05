@@ -10,6 +10,7 @@ import Input from '../../components/Input';
 import FilterModal from '../../components/modals/filterModal';
 import AddFamilyMember from '../../components/modals/addFamilyMember';
 import { Style } from '@mui/icons-material';
+import Calendar from '../../components/Calendar';
 
 export default function Transactions() {
     const [familyMemberModal, setFamilyMemberModal] = useState(false);
@@ -119,29 +120,6 @@ export default function Transactions() {
                             src="/greetingBg.png" 
                             alt="greeting" 
                         />
-                    </div>
-                </div>
-                
-                <div className={styles.transactionBlock}>
-                    <div className={styles.trBlock}>
-                        <img src="/analys.svg" alt="" />
-                        <h2>Analysis</h2>
-                        <p>Have a nice day and don’t forger to take care of your health !</p>
-                    </div>
-                    <div className={styles.trBlock}>
-                        <img src="/tr_chat.svg" alt="" />
-                        <h2>Research answers</h2>
-                        <p>Have a nice day and don’t forger to take care of your health !</p>
-                    </div>
-                    <div className={styles.trBlock}>
-                        <img src="/prescript.svg" alt="" />
-                        <h2>Doctor's prescription</h2>
-                        <p>Have a nice day and don’t forger to take care of your health !</p>
-                    </div>
-                    <div className={styles.trBlock}>
-                        <img src="/orderHistory.svg" alt="" />
-                        <h2>Order history</h2>
-                        <p>Have a nice day and don’t forger to take care of your health !</p>
                     </div>
                 </div>
 
@@ -282,6 +260,14 @@ export default function Transactions() {
                             />
                         </div>
                     }
+                </Block>
+                <Block 
+                    title="Calendar"
+                    className={styles.calendar}
+                >
+                    <div className={styles.calendarBlock}>
+                        <Calendar booking={false} />
+                    </div>
                 </Block>
             </div>
         </div>

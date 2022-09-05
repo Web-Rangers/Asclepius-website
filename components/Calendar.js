@@ -393,10 +393,12 @@ function WeekView({ date, schedule = [], active, setActive, booking }) {
     }
 
     function configureEvents() {
+        console.log(day)
         const events = schedule.map((day) => {
             // destructure like this to prevent variable name conflicts
             const events = day.events;
             const dayDate = day.date
+
             if (((dayDate.getTime() >= date.GetFirstDayOfWeek().getTime()) && (dayDate.getTime() <= date.GetLastDayOfWeek().getTime()))) {
                 const column = (dayDate.getDay() === 0 ? 7 : dayDate.getDay()) + 1;
                 return events.map((event, index) => {
@@ -447,7 +449,7 @@ function WeekView({ date, schedule = [], active, setActive, booking }) {
         configureHours();
         configureEvents();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [date, schedule])
+    }, [date, schedule, day])
 
     const chooseDay = useCallback((dayName)=>{
         setDay(()=>dayName)
