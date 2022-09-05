@@ -463,4 +463,10 @@
         width: 100%;
         padding:20px 20px;
     }
+    .container, .familyBlock, .calendar, .cards {
+        display: none;
+    }
+    .activeTab {
+        display: block;
+    }
 }
