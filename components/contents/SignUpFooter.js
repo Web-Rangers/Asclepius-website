@@ -4,6 +4,7 @@ import Text from "../ui/Text";
 
 const SignUpFooter = () => {
   return (
+    <>
     <div className={classes.signUpFooterContainner}>
       <div className={classes.signUpFooterContainnerLeft}>
         <Text style={classes.signUpFooterTextStyle}>
@@ -36,6 +37,8 @@ const SignUpFooter = () => {
         </div>
       </div>
     </div>
+    <div className={classes.wrapper}></div>
+    </>
   );
 };
 

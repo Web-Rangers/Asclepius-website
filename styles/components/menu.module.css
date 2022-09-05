@@ -1,0 +1,33 @@
+.menu {
+    position: fixed;
+    bottom:0;
+    background-color: #F7F9FB;
+    width: 100%;
+    margin-top:120px;
+    z-index:10;
+    padding:11px 27px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    order:2;
+}
+
+.menu div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:6px;
+}
+
+.menu div img {
+    height: 20px;
+}
+
+.activeMenuItem {
+    color: #3A74D2
+}
+
+.activeMenuItem img {
+    filter: invert(58%) sepia(65%) saturate(5339%) hue-rotate(201deg) brightness(86%) contrast(89%);
+}
