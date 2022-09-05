@@ -295,3 +295,25 @@
     margin-top:18px;
     margin-right:24px;
 }
+
+@media only screen and (max-width: 600px) {
+    .clinicBody {
+        padding: 10px 0;
+    }
+    .clinicContent {
+        flex-direction: column;
+    }
+    .clinicAnalyisis {
+        width: 100%;
+        padding-top:15px
+    }
+    .clinicLogoContent {
+        width: 100%;
+    }
+    .analysH, .searchBlock {
+        width: 90%;
+    }
+    .analysH h2 {
+        font-size:24px;
+    }
+}
