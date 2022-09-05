@@ -37,7 +37,6 @@ const SignUpFooter = () => {
         </div>
       </div>
     </div>
-    <div className={classes.wrapper}></div>
     </>
   );
 };
