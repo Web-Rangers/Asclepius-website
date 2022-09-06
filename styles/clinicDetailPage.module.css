@@ -102,7 +102,7 @@
   gap: 30px;
   margin-top: 24px;
   overflow: hidden;
-  padding: 0 76px;
+  padding: 0 0;
 }
 
 .imageContainer img {
@@ -331,6 +331,9 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .imgArrow{
+    display: none;
+  }
   .clinicsTitleTextStyle {
     margin:0;
     display: none;
@@ -347,9 +350,10 @@
   }
   .clinicDetailPageCard {
     flex-direction: column;
+    padding:0;
   }
   .cardItemContainer{
-    margin:0 20px;
+    margin:0 auto;
   }
   .clinicNameText {
     margin: 18px 28px 2px;
@@ -367,7 +371,8 @@
   .servicesContainer {
     flex-wrap:wrap;
     margin: 0 20px;
-    gap:40px;
+    gap: 15px;
+    justify-content: space-between;
   }
   .aboutClinicText {
     margin:0 20px 30px;
@@ -414,5 +419,8 @@
   .cardType {
     width: 66%;
     align-items: flex-end;
+  }
+  .serviceItem {
+    gap:4px;
   }
 }
