@@ -23,7 +23,7 @@
 .clinicPageCardListContainer {
   display: flex;
   justify-content: center;
-  gap: 95px;
+  gap: 0;
   margin-bottom: 153px;
 }
 .imgPart {
@@ -105,8 +105,7 @@
 .clinicFilterContainer {
   display: flex;
   justify-content: space-between;
-  margin-left: 135px;
-  margin-right: 139px;
+  margin-bottom:20px;
 }
 .clinicsTitleTextStyle {
   font-family: "Noto Sans";
@@ -234,6 +233,11 @@
 
 .branchPage {
   overflow: hidden;
+
+  padding: 0 60px;
+  max-width: 1920px;
+  width: 100%;
+  margin: auto;
 }
 .filterForResp {
   display: none;
