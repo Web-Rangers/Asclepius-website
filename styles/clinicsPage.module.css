@@ -1,10 +1,23 @@
 .cardItemContainer {
-  display: flex;
-  flex-direction: column;
-  width: 323px;
-  height: 486px;
+  display: inline-block;
+  width: 31.5%;
+  height: 577px;
   border: 1px solid #efefef;
-  margin-top: 64px;
+  margin-right:2.5%;
+}
+
+.cardItemContainer:last-child{
+  margin-right:0;
+}
+
+.imgPartImage{
+  min-height: 100%;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  margin-bottom:25px;
+  height: auto;
 }
 
 .clinicPageCardListContainer {
@@ -15,6 +28,9 @@
 }
 .imgPart {
   position: relative;
+  overflow: hidden;
+  height: 290px;
+  margin-bottom:24px;
 }
 .ratingContainer {
   display: flex;
@@ -39,8 +55,9 @@
   line-height: 21.79px;
   color: #1e2837;
   margin-left: 18px;
-  margin-top: 20px;
+  display: block;
   margin-bottom: 29px;
+  text-align: left;
 }
 
 .clinicWorkingHours {
@@ -68,6 +85,8 @@
   line-height: 24px;
   color: #797a80;
   margin-left: 18px;
+  display: flex;
+  gap:8.5px;
 }
 .backButton {
   display: flex;
