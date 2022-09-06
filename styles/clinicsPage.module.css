@@ -11,6 +11,7 @@
 }
 
 .imgPartImage{
+  min-width: 100%;
   min-height: 100%;
   position: absolute;
   top:50%;
@@ -93,7 +94,6 @@
   flex-direction: row;
   margin-top: 68px;
   margin-bottom: 80px;
-  margin-left: 139.25px;
   font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
