@@ -196,3 +196,19 @@
     gap:0;
     padding: 0 20px;
 }
+
+.hourList::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+.hourList::-webkit-scrollbar-track {
+    background: #bfccff;
+}
+
+.hourList::-webkit-scrollbar-thumb {
+    background: #2751f2;
+}
+
+.hourList::-webkit-scrollbar-thumb:hover {   
+    background: #1641ed;
+}

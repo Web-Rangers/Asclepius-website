@@ -1,9 +1,13 @@
 .aboutUsContainer {
   display: flex;
   flex-direction: column;
-  margin-left: 140px;
-  margin-right: 140px;
+  /* margin-left: 140px;
+  margin-right: 140px; */
   margin-bottom: 13px;
+  padding: 0 60px;
+  max-width: 1920px;
+  width: 100%;
+  margin:auto;
 }
 .aboutUsTitle {
   font-family: "Noto Sans";
@@ -24,9 +28,37 @@
   color: #90959c;
 }
 
+.aboutImg {
+  width:100%;
+  overflow: hidden;
+  height:465px;
+  position: relative;
+}
+
+.aboutImg img {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+}
+
 @media only screen and (max-width: 600px) {
+  .aboutUsContainer {
+    padding: 0 16px;
+    margin: 0!important;
+  }
   .aboutUsContainer{
-    margin-right:10px;
-    margin-left: 10px;
+    margin-right:16px;
+    margin-left: 16px;
+  }
+  .aboutUsTitle {
+    margin-top:16px;
+  }
+  .aboutImg {
+    height: 204px;
+  }
+  .aboutImg img {
+    width: 150%;
+    left:50%;
+    transform: translateX(-50%);
   }
 }

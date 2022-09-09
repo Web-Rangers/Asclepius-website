@@ -110,12 +110,13 @@ const BranchDetailPage = () => {
                 style={{ paddingRight: "4px" }}
               />
               <Text style={s.serviceTitle}>Doctors</Text>
-              <Image
+              <img
                 alt="Arrow - Right"
                 src="/Arrow - Right 9.svg"
                 width="24px"
                 height="24px"
                 style={{ paddingRight: "4px" }}
+                className={s.imgArrow}
               />
             </div>
             <Link href="clinic/analysis">
@@ -128,12 +129,13 @@ const BranchDetailPage = () => {
                   style={{ paddingRight: "4px" }}
                 />
                 <Text style={s.serviceTitle}>Analysis</Text>
-                <Image
+                <img
                   alt="Arrow-Right"
                   src="/Arrow - Right 9.svg"
                   width="24px"
                   height="24px"
                   style={{ paddingRight: "4px" }}
+                  className={s.imgArrow}
                 />
               </div>
             </Link>
@@ -146,12 +148,13 @@ const BranchDetailPage = () => {
                 style={{ paddingRight: "4px" }}
               />
               <Text style={s.serviceTitle}>Research</Text>
-              <Image
+              <img
                 alt="Arrow-Right"
                 src="/Arrow - Right 9.svg"
                 width="24px"
                 height="24px"
                 style={{ paddingRight: "4px" }}
+                className={s.imgArrow}
               />
             </div>
           </div>

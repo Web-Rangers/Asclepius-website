@@ -24,12 +24,10 @@ const BranchPageCardItem = (props) => {
           <Image src="/Star.svg" alt="star" width="16.67px" height="15.04" />
           <Text>{props.rating}</Text>
         </div>
-        <Image
+        <img
           src={props.src || "/clinicImage.png"}
           alt={props.alt}
           className={s.imgPartImage}
-          width="323px"
-          height="290"
         />
       </div>
       <Text style={s.clinicNameText}>{props.clinicName}</Text>

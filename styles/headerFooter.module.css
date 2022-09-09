@@ -451,4 +451,13 @@
     margin-right:15px;
     margin-top:6px;
   }
+  .wrapper {
+    position: relative;
+    height: 69px;
+    width: 100%;
+    bottom:0;
+  }
+  .signUpFooterContainner{
+    height: 113px;
+  }
 }

@@ -9,6 +9,8 @@ import Image from "next/image";
 import Pagination from "../../components/ui/Pagination";
 import Modal from "react-modal";
 import clinicArrayData from "../../clinicArrayData";
+import FilterModal from '../../components/modals/filterModal';
+import Select from '../../components/Select';
 
 let PageSize = 3;
 
@@ -18,7 +20,7 @@ function ClinicsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchInput, setSearchInput] = useState("");
   const [customStyles, setCustomStyles] = useState({});
-  
+  const [modalOpen, setOpen] = useState(false);
   useEffect(() => {
     if(window.innerWidth < 600){
       setCustomStyles({
@@ -117,61 +119,47 @@ function ClinicsPage() {
               height="24px"
             />
           }
-          onClick={openModal}
+          onClick={setOpen}
         ></Button>
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel="Example Modal"
-        >
-          <div className={s.headerContainer}>
-            <Text style={s.filterTitleStyle}>Filter</Text>
-            <Image
-              alt="closeIcon"
-              src="/closeIcon.svg"
-              width="30px"
-              height="30px"
-              onClick={closeModal}
-            />
+        {
+          modalOpen && <FilterModal onClose={()=>setOpen(false)}>
+          <div className={classNames(s.filterContainer)}>
+              <div className={s.filterSelectors}>
+                  <div className={s.searchInp}>
+                      <h2>Search</h2>
+                      <div className={s.searchForm}>
+                          <input type="text" placeholder="Search with ID" />
+                      </div>
+                  </div>
+                  <Select
+                      label="Status"
+                      labelStyle="outside"
+                      className={s.servInput}
+                      options={[
+                          {
+                              label: "4140 Parker Rd",
+                              value: "1",
+                          },
+                          { label: "Another Branch", value: "2" },
+                      ]}
+                      onChange={(value) => {
+                          setStatus(value);
+                      }}
+                  />
+              </div>
+              <div className={s.filterBtns}>
+                  <Button 
+                      name="Clear"
+                      style={s.clearBtn}
+                  />
+                  <Button 
+                      name="Filter"
+                      style={s.filterBtn}
+                  />
+              </div>
           </div>
-          <div className={s.searchInput}>
-            <Image src="/Search.svg" alt="Search" width="20px" height="20px" />
-            <input
-              type="search"
-              placeholder="Search..."
-              value={searchInput}
-              onChange={handleChange}
-            />
-          </div>
-          <div className={s.dropDownFilterContainer}>
-            <Text style={s.filterInputTitle}>City</Text>
-            <form>
-              <select className={s.inputStyle}>
-                <option value="Tbilisi">Tbilisi</option>
-                <option value="London">London</option>
-                <option selected value="City">
-                  City
-                </option>
-              </select>
-            </form>
-
-            <Text style={s.filterInputTitle}>Service type</Text>
-            <form>
-              <select className={s.inputStyle}>
-                <option value="Clinic">Clinic</option>
-                <option value="laboratory">laboratory</option>
-                <option selected value="City">
-                  Service type
-                </option>
-              </select>
-            </form>
-          </div>
-          <div className={s.buttonContainer}>
-            <Button name="Clear" style={s.clearButton} />
-            <Button name="Filter" style={s.filterButton} />
-          </div>
-        </Modal>
+          </FilterModal>
+        }
       </div>
       <div className={s.clinicPageCardListContainer}>
         {currentTableData.map((item) => (

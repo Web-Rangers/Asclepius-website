@@ -334,6 +334,7 @@
 
 .calendarBlock{
     background-color: #fff;
+    padding-bottom:10px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -386,6 +387,12 @@
     .rightMenu {
         width: 100%;
         padding:20px 20px;
+    }
+    .container, .familyBlock, .calendar, .cards {
+        display: none;
+    }
+    .activeTab {
+        display: block;
     }
 }
 
