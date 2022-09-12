@@ -79,6 +79,9 @@ const SignUpHeader = () => {
         <img src="/testUser.png" alt="testUSerImage" />
         <img src="/dropDown.svg" alt="Search" />
       </div>
+      <div className={classes.burger}>
+        <img src='/burger.svg' alt="" />
+      </div>
     </div>
   );
 };

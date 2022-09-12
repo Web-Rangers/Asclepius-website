@@ -3,17 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import Text from "../../components/ui/Text";
 import { useRouter } from "next/router";
+import classNames from 'classnames';
 
 const clinicImage = [
-  { src: "/clinic1.png" },
+  { src: "/clinicImage.png" },
   {
-    src: "/clinic2.png",
+    src: "/clinicImage.png",
   },
   {
-    src: "/clinic3.png",
+    src: "/clinicImage.png",
   },
   {
-    src: "/clinic4.png",
+    src: "/clinicImage.png",
   },
 ];
 
@@ -109,12 +110,13 @@ const BranchDetailPage = () => {
                 style={{ paddingRight: "4px" }}
               />
               <Text style={s.serviceTitle}>Doctors</Text>
-              <Image
+              <img
                 alt="Arrow - Right"
                 src="/Arrow - Right 9.svg"
                 width="24px"
                 height="24px"
                 style={{ paddingRight: "4px" }}
+                className={s.imgArrow}
               />
             </div>
             <Link href="clinic/analysis">
@@ -127,12 +129,13 @@ const BranchDetailPage = () => {
                   style={{ paddingRight: "4px" }}
                 />
                 <Text style={s.serviceTitle}>Analysis</Text>
-                <Image
+                <img
                   alt="Arrow-Right"
                   src="/Arrow - Right 9.svg"
                   width="24px"
                   height="24px"
                   style={{ paddingRight: "4px" }}
+                  className={s.imgArrow}
                 />
               </div>
             </Link>
@@ -145,12 +148,13 @@ const BranchDetailPage = () => {
                 style={{ paddingRight: "4px" }}
               />
               <Text style={s.serviceTitle}>Research</Text>
-              <Image
+              <img
                 alt="Arrow-Right"
                 src="/Arrow - Right 9.svg"
                 width="24px"
                 height="24px"
                 style={{ paddingRight: "4px" }}
+                className={s.imgArrow}
               />
             </div>
           </div>
@@ -190,16 +194,10 @@ const BranchDetailPage = () => {
         </div>
       </div>
       <div className={s.imageTitleContainer}>
-        <Text style={s.clinicsTitleTextStyle}> Images of the clinic</Text>
+        <Text style={classNames(s.clinicsTitleTextStyle, s.imageTitle)}> Images of the clinic</Text>
         <div className={s.imageContainer}>
           {clinicImage.map((img) => (
-            <Image
-              key={img.key}
-              alt="Clinic image"
-              src={img.src}
-              width="268px"
-              height="228px"
-            />
+            <img src={img.src} alt="clinic image"/>
           ))}
         </div>
         <div className={s.imageSlider}>

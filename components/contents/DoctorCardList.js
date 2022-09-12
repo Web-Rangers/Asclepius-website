@@ -32,8 +32,38 @@ const doctorData = [
     speciality: "Dermatovenerologist",
     rating: "4.9",
   },
+  {
+    src: "pamela.png",
+    alt: "clinic image",
+    name: "Sanne Husman",
+    speciality: "Neurologist",
+    rating: "4.9",
+  },
+  {
+    src: "maria.png",
+    alt: "clinic image",
+    name: "isabela Santos",
+    speciality: "Pediatrician",
+    rating: "4.9",
+  },
+  {
+    src: "pamela.png",
+    alt: "clinic image",
+    name: "Sofia Richards",
+    speciality: "Dermatovenerologist",
+    rating: "4.9",
+  },
 ];
 const DoctorCardList = () => {
+  const slideLeft = () => {
+    var slider = document.getElementById("slider");
+    slider.scrollLeft = slider.scrollLeft - 300;
+  };
+
+  const slideRight = () => {
+    var slider = document.getElementById("slider");
+    slider.scrollLeft = slider.scrollLeft + 300;
+  };
   return (
     <div className={classes.doctorCardContainer}>
       <div className={classes.clinicCardContainerTitle}>
@@ -46,17 +76,19 @@ const DoctorCardList = () => {
               alt="arrowLeft"
               width="24px"
               height="24px"
+              onClick={slideLeft}
             />
             <Image
               src="/Arrow - Right.svg"
               alt="arrowRight"
               width="24px"
               height="24px"
+              onClick={slideRight}
             />
           </div>
         </div>
       </div>
-      <div className={classes.doctorCardList}>
+      <div className={classes.doctorCardList} id="slider">
         {doctorData.map((item, index) => {
           return (
             <DoctorCardItem

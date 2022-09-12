@@ -10,12 +10,16 @@ import Input from '../../components/Input';
 import FilterModal from '../../components/modals/filterModal';
 import AddFamilyMember from '../../components/modals/addFamilyMember';
 import { Style } from '@mui/icons-material';
+import Calendar from '../../components/Calendar';
+import {useWindowSize} from '../../components/useWindowSize';
+import Menu from '../../components/ui/menu';
 
 export default function Transactions() {
     const [familyMemberModal, setFamilyMemberModal] = useState(false);
     const [isOpen, setOpen] = useState(false);
     const [status, setStatus] = useState('');
     const [serviceType, setServiceType] = useState('');
+    const [menuItem, setMenuItem] = useState('main');
 
     const memberList = [
         {
@@ -103,7 +107,9 @@ export default function Transactions() {
                 familyMemberModal && 
                 <AddFamilyMember onClose={()=>setFamilyMemberModal(false)} />
             }
-            <div className={styles.container}>
+            <div className={classNames(styles.container, {
+                [styles.activeTab]: menuItem == 'main'
+            })}>
                 <div className={styles.greeting}>
                     <div>
                         <h2>Hello <span>Mary Fowler</span></h2>
@@ -121,30 +127,6 @@ export default function Transactions() {
                         />
                     </div>
                 </div>
-                
-                <div className={styles.transactionBlock}>
-                    <div className={styles.trBlock}>
-                        <img src="/analys.svg" alt="" />
-                        <h2>Analysis</h2>
-                        <p>Have a nice day and don’t forger to take care of your health !</p>
-                    </div>
-                    <div className={styles.trBlock}>
-                        <img src="/tr_chat.svg" alt="" />
-                        <h2>Research answers</h2>
-                        <p>Have a nice day and don’t forger to take care of your health !</p>
-                    </div>
-                    <div className={styles.trBlock}>
-                        <img src="/prescript.svg" alt="" />
-                        <h2>Doctors prescription</h2>
-                        <p>Have a nice day and dont forger to take care of your health !</p>
-                    </div>
-                    <div className={styles.trBlock}>
-                        <img src="/orderHistory.svg" alt="" />
-                        <h2>Order history</h2>
-                        <p>Have a nice day and don’t forger to take care of your health !</p>
-                    </div>
-                </div>
-
                 <div className={styles.orders}>
                     <Block
                         title='Transactions'
@@ -221,6 +203,7 @@ export default function Transactions() {
                 <Block
                     title="My card"
                     actions={<button className={styles.upgradeBtn}>Upgrade</button>}
+                    className={styles.cards}
                 >
                     <img className={styles.cardImage} src="/card.png" alt="" />
                 </Block>
@@ -237,7 +220,9 @@ export default function Transactions() {
                             <span>ADD</span>
                         </button>
                     }
-                    className={styles.familyBlock}
+                    className={classNames(styles.familyBlock, {
+                        [styles.activeTab]: menuItem == 'family'
+                    })}
                 >
                     {
                         memberList?.length > 0 ?
@@ -283,7 +268,20 @@ export default function Transactions() {
                         </div>
                     }
                 </Block>
+                <Block 
+                    title="Calendar"
+                    className={classNames(styles.calendar, {
+                        [styles.activeTab]: menuItem == 'calendar'
+                    })}
+                >
+                    <div className={styles.calendarBlock}>
+                        <Calendar booking={false} />
+                    </div>
+                </Block>
             </div>
         </div>
+        {
+            useWindowSize().width < 600 && <Menu active={menuItem} onClick={(active)=> setMenuItem(active)} />
+        }
     </>
 }

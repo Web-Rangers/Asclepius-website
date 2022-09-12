@@ -5,10 +5,25 @@ import Text from "../../components/ui/Text";
 import { useRouter } from "next/router";
 import BranchPageCardItem from "../../components/contents/BranchPageCardItem";
 import clinicArrayData from "../../clinicArrayData";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 const ClinicDetailPage = () => {
   const router = useRouter();
   const cardData = router.query;
+
+  function sliceIntoChunks(arr, chunkSize) {
+    const res = [];
+    for (let i = 0; i < arr.length; i += chunkSize) {
+        const chunk = arr.slice(i, i + chunkSize);
+        res.push(chunk);
+    }
+    return res;
+  }
+
+  const clinicData = sliceIntoChunks(clinicArrayData, 3);
+
+  console.log(clinicData)
 
   return (
     <div className={s.container}>
@@ -194,35 +209,35 @@ const ClinicDetailPage = () => {
         <div className={s.clinicTitleArrow}>
           <Text style={s.clinicsTitleTextStyle}> List of branch</Text>
           <div className={s.imageSlider}>
-            <Image
-              src="/Arrow - Left.svg"
-              alt="arrowLeft"
-              width="24px"
-              height="24px"
-            />
-            <Image
-              src="/Arrow - Right.svg"
-              alt="arrowRight"
-              width="24px"
-              height="24px"
-            />
           </div>
         </div>
 
         <div className={s.clinicContainerScroll}>
-          {clinicArrayData.map((item) => (
-            <BranchPageCardItem
-              key={item.id}
-              alt={item.alt}
-              clinicName={item.clinicName}
-              workingDay={item.workingDay}
-              workingHours={item.workingHours}
-              clinicAddress={item.clinicAddress}
-              rating={item.rating}
-              data={item}
-              src={item.src}
-            />
-          ))}
+          <Carousel 
+            className={s.carousel}
+            showStatus={false}
+            showIndicators={false}
+          >
+            {clinicData.map((chunk) => (
+              <div>
+                {
+                  chunk.map((item)=> {
+                    return <BranchPageCardItem
+                      key={item.id}
+                      alt={item.alt}
+                      clinicName={item.clinicName}
+                      workingDay={item.workingDay}
+                      workingHours={item.workingHours}
+                      clinicAddress={item.clinicAddress}
+                      rating={item.rating}
+                      data={item}
+                      src={item.src}
+                    />
+                  })
+                }
+              </div>
+            ))}
+          </Carousel>
         </div>
       </div>
     </div>

@@ -4,14 +4,14 @@ import s from "../../styles/aboutUsPage.module.css";
 function AboutUsPage() {
   return (
     <div className={s.aboutUsContainer}>
-      <Text style={s.aboutUsTitle}>AboutUs</Text>
-      <Image
-        alt="aboutUS image"
-        src="/aboutUsImg.png"
-        width="1160px"
-        height="465px"
-        style={{ borderRadius: "3px" }}
-      />
+      <Text style={s.aboutUsTitle}>About Us</Text>
+      <div className={s.aboutImg}>
+        <img
+          alt="aboutUS image"
+          src="/aboutUsImg.png"
+          style={{ borderRadius: "3px" }}
+        />
+      </div>
       <Text style={s.aboutUsTitle}>Our story</Text>
       <Text style={s.aboutUsText}> Welcome to the Mississauga Foot Clinic</Text>
       <Text style={s.aboutUsText}>

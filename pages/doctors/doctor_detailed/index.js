@@ -219,7 +219,7 @@ export default function DoctorDetailed() {
                                 </button>
                             </div>
                         </div>
-                        <Calendar />
+                        <Calendar booking={true} />
 
                         <div className={styles.patient}>
                             <h2>Patient</h2>

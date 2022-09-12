@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { ReactSVG } from 'react-svg';
 import Pagination from '../components/ui/Pagination';
+import { useWindowSize } from './useWindowSize';
 
 export default function Table({
     columns = [],
@@ -26,6 +27,8 @@ export default function Table({
     const [sorted, setSorted] = useState(false);
 
     const [isSort, setSort] = useState({});
+
+    const windowSize = useWindowSize();
 
     const getStartPage = () => {
         return (currentPage - 1) * (pagination.pageSize || 10) + 1;
@@ -145,15 +148,28 @@ export default function Table({
                                 })}
                             >
                                 <div>
-                                    <TableRow
-                                        columnsDefinition={columns}
-                                        record={record}
-                                        key={`table-row-${index}`}
-                                        rowClassName={rowClassName}
-                                        cellClassName={cellClassName}
-                                        dropDown={() => dropdownFunc(index)}
-                                        detailedUrl={detailedUrl}
-                                    />
+                                    {
+                                        windowSize.width < 600 ?
+                                        <TableRowResponsive 
+                                            columnsDefinition={columns}
+                                            record={record}
+                                            key={`table-row-${index}`}
+                                            rowClassName={rowClassName}
+                                            cellClassName={cellClassName}
+                                            dropDown={() => dropdownFunc(index)}
+                                            detailedUrl={detailedUrl}
+                                        />
+                                        :
+                                        <TableRow
+                                            columnsDefinition={columns}
+                                            record={record}
+                                            key={`table-row-${index}`}
+                                            rowClassName={rowClassName}
+                                            cellClassName={cellClassName}
+                                            dropDown={() => dropdownFunc(index)}
+                                            detailedUrl={detailedUrl}
+                                        />
+                                    }
                                 </div>
                                 <div className={classNames(styles.dropdown, dropdownClassname,
                                     {
@@ -162,16 +178,20 @@ export default function Table({
                                     }
                                 )}
                                 >
+                                    <button className={styles.closeBtn} onClick={()=> dropdownFunc(index)}>
+                                        <ReactSVG 
+                                            src="/closeTableTab.svg" 
+                                            className={styles.closetab} alt="" 
+                                        />
+                                    </button>
                                     {
                                         columns?.map((item, i) => {
-                                            if (item.dataIndex === 'hidden') {
-                                                return <>
-                                                    <div className={styles.dropdownCol}>
-                                                        <h2>{item.title}</h2>
-                                                        <span>{record[item.key]}</span>
-                                                    </div>
-                                                </>
-                                            }
+                                            return <>
+                                                <div className={styles.dropdownCol}>
+                                                    <h2>{item.title}</h2>
+                                                    <span>{record[item.key]}</span>
+                                                </div>
+                                            </>
                                         })
                                     }
                                 </div>

@@ -37,9 +37,9 @@ const Pagination = (props) => {
     <ul className={s.paginationContainer}>
       <li className={s.paginationItem} onClick={onPrevious}>
         <Image
-          src="/Arrow - Left.svg"
-          width="17px"
-          height="17px"
+          src="/arrowLeft.svg"
+          width="15px"
+          height="12px"
           alt="arrow left"
         />
       </li>
@@ -63,9 +63,9 @@ const Pagination = (props) => {
       })}
       <li className={s.paginationItem} onClick={onNext}>
         <Image
-          src="/Arrow - Right.svg"
-          width="17px"
-          height="17px"
+          src="/arrowRight.svg"
+          width="15px"
+          height="12px"
           alt="arrow left"
         />
       </li>
