@@ -322,3 +322,67 @@ export function Columns({key, title, headerStyle, dataIndex, sort}) {
     }
     </>
 }
+
+
+const TableRowResponsive = ({
+                                record,
+                                columnsDefinition,
+                                rowClassName,
+                                cellClassName,
+                                dropDown,
+                                detailedUrl
+                            }) => {
+    return (
+        <div
+            className={classNames(
+                styles.tableRow,
+                styles.tableRowTemplate,
+                rowClassName
+            )}
+        >
+            {columnsDefinition.map(
+                ({ dataIndex, render, cellStyle }, index) => {
+                    let colLenght = columnsDefinition.filter(e=>e.dataIndex !=='hidden').length;
+                    if (render){
+                        return <>
+                            {
+                                index === 0 ?
+                                    <div onClick={()=> dropDown()}>
+                                        {
+                                            render(
+                                                record[dataIndex],
+                                                `data-${record.key}-${index}`,
+                                            )
+                                        }
+                                    </div>
+                                    :
+                                    (index !== colLenght - 1) &&
+                                    render(
+                                        record[dataIndex],
+                                        `data-${record.key}-${index}`,
+                                    )
+                            }
+                        </>
+                    }
+
+                    return <>
+                        {
+                            <div
+                                className={`${styles.tableCell} ${styles.tableCellTemplate} ${cellClassName}`}
+                                key={`data-${record.key}-${index}`}
+                                style={cellStyle ? cellStyle : null}
+                                onClick={()=> dropDown()}
+                            >
+                                {record[dataIndex]}
+                            </div>
+                        }
+
+                    </>
+                }
+            )}
+            <button onClick={()=>dropDown()} className={styles.dropArrow}>
+                <ReactSVG src="/tableArrow.svg" />
+            </button>
+        </div>
+    );
+};
