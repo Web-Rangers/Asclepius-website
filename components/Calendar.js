@@ -164,7 +164,8 @@ export default function Calendar({booking}) {
                         <WeekView date={date} schedule={_schedule} active={active} setActive={setActive} booking={booking} />
                     )}
                     {mode === "day" && (
-                        <DayView date={date} schedule={_schedule} />
+                        // <DayView date={date} schedule={_schedule} />
+                        'day view'
                     )}
                 </div>
             ) : (
@@ -587,8 +588,8 @@ function AvailableTime({day, available}) {
     const [active, setActive] = useState('');
     return (
         <>
-            {available?.map((time)=>{
-                return <div className={classNames(styles.availableTime,  {
+            {available?.map((time), key=>{
+                return <div key={key} className={classNames(styles.availableTime,  {
                     [styles.activeTime]: active === time
                 })}
                     onClick={()=> setActive(time)}

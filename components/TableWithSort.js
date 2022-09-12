@@ -93,8 +93,8 @@ export default function Table({
                 const header = target.parentNode.querySelector(
                     `.${styles.tableBody}`
                 );
-                if (target.scrollLeft !== header.scrollLeft)
-                    header.scrollTo(target.scrollLeft, 0);
+                // if (target.scrollLeft !== header.scrollLeft)
+                //     header.scrollTo(target.scrollLeft, 0);
             }}
         >
             <div
@@ -106,34 +106,7 @@ export default function Table({
                 )}
             >
                 {columns?.map(({ key, title, headerStyle, dataIndex, sort }) => {
-                    const [sorted, setSorted] = useState(false);
-
-                    if (dataIndex !== 'hidden') {
-                        return (
-                            <div
-                                className={`${styles.tableHeaderCell} ${styles.tableCellTemplate} ${cellClassName}`}
-                                style={headerStyle ? headerStyle : null}
-                                key={key}
-                            >
-                                {title}
-                                {
-                                    sort && <>
-                                        <button
-                                            className={styles.sortIcons}
-                                            onClick={() => {
-                                                setSorted(!sorted);
-                                                setSort((prevState) => ({ ...prevState, [dataIndex]: !sorted }));
-                                                sortData(dataIndex)
-                                            }
-                                            }
-                                        >
-                                            <ReactSVG src="/sortArrow.svg" className={sorted? styles.sort : styles.sorted} alt="" />
-                                        </button>
-                                    </>
-                                }
-                            </div>
-                        );
-                    }
+                    return <Columns key title headerStyle dataIndex sort />
                 })}
             </div>
         </div>
@@ -243,7 +216,7 @@ export default function Table({
     );
 }
 
-const TableRow = ({
+export const TableRow = ({
     record,
     columnsDefinition,
     rowClassName,
@@ -319,66 +292,33 @@ const TableRow = ({
     );
 };
 
-
-const TableRowResponsive = ({
-    record,
-    columnsDefinition,
-    rowClassName,
-    cellClassName,
-    dropDown,
-    detailedUrl
-}) => {
-    return (
-        <div
-            className={classNames(
-                styles.tableRow,
-                styles.tableRowTemplate,
-                rowClassName
-            )}
-        >
-            {columnsDefinition.map(
-                ({ dataIndex, render, cellStyle }, index) => {
-                    let colLenght = columnsDefinition.filter(e=>e.dataIndex !=='hidden').length;
-                    if (render){
-                        return <>
+export function Columns({key, title, headerStyle, dataIndex, sort}) {
+    const [sorted, setSorted] = useState(false);
+    return <>
+        {dataIndex !== 'hidden' && <>
+            <div
+                        className={`${styles.tableHeaderCell} ${styles.tableCellTemplate} ${cellClassName}`}
+                        style={headerStyle ? headerStyle : null}
+                        key={key}
+                    >
+                        {title}
                         {
-                            index === 0 ? 
-                            <div onClick={()=> dropDown()}>
-                                {
-                                    render(
-                                        record[dataIndex],
-                                        `data-${record.key}-${index}`,
-                                    )
-                                }
-                            </div> 
-                            :
-                            (index !== colLenght - 1) && 
-                                render(
-                                    record[dataIndex],
-                                    `data-${record.key}-${index}`,
-                                )
+                            sort && <>
+                                <button
+                                    className={styles.sortIcons}
+                                    onClick={() => {
+                                        setSorted(!sorted);
+                                        setSort((prevState) => ({ ...prevState, [dataIndex]: !sorted }));
+                                        sortData(dataIndex)
+                                    }
+                                    }
+                                >
+                                    <ReactSVG src="/sortArrow.svg" className={sorted? styles.sort : styles.sorted} alt="" />
+                                </button>
+                            </>
                         }
-                        </>
-                    }
-                    
-                    return <>
-                    {
-                        <div
-                            className={`${styles.tableCell} ${styles.tableCellTemplate} ${cellClassName}`}
-                            key={`data-${record.key}-${index}`}
-                            style={cellStyle ? cellStyle : null}
-                            onClick={()=> dropDown()}
-                        >
-                            {record[dataIndex]}
-                        </div>
-                    }
-                    
-                    </>
-                }
-            )}
-            <button onClick={()=>dropDown()} className={styles.dropArrow}>
-                <ReactSVG src="/tableArrow.svg" />
-            </button>
-        </div>
-    );
-};
+            </div>      
+        </>
+    }
+    </>
+}

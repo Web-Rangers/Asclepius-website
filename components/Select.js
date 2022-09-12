@@ -51,8 +51,9 @@ export default function Select({
         <div
           className={classNames(styles.wrapper, { [styles.active]: isOpen })}
         >
-          {options.map((option) => (
+          {options.map((option, i) => (
             <div
+              key={i}
               className={classNames(styles.option, {
                 [styles.active]: option === selected,
               })}

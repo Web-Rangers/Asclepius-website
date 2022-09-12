@@ -127,7 +127,6 @@ export default function Transactions() {
                         />
                     </div>
                 </div>
-
                 <div className={styles.orders}>
                     <Block
                         title='Transactions'
