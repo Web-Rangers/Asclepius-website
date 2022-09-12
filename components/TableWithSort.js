@@ -90,8 +90,8 @@ export default function Table({
                 const header = target.parentNode.querySelector(
                     `.${styles.tableBody}`
                 );
-                if (target.scrollLeft !== header.scrollLeft)
-                    header.scrollTo(target.scrollLeft, 0);
+                // if (target.scrollLeft !== header.scrollLeft)
+                //     header.scrollTo(target.scrollLeft, 0);
             }}
         >
             <div
@@ -103,34 +103,7 @@ export default function Table({
                 )}
             >
                 {columns?.map(({ key, title, headerStyle, dataIndex, sort }) => {
-                    const [sorted, setSorted] = useState(false);
-
-                    if (dataIndex !== 'hidden') {
-                        return (
-                            <div
-                                className={`${styles.tableHeaderCell} ${styles.tableCellTemplate} ${cellClassName}`}
-                                style={headerStyle ? headerStyle : null}
-                                key={key}
-                            >
-                                {title}
-                                {
-                                    sort && <>
-                                        <button
-                                            className={styles.sortIcons}
-                                            onClick={() => {
-                                                setSorted(!sorted);
-                                                setSort((prevState) => ({ ...prevState, [dataIndex]: !sorted }));
-                                                sortData(dataIndex)
-                                            }
-                                            }
-                                        >
-                                            <ReactSVG src="/sortArrow.svg" className={sorted? styles.sort : styles.sorted} alt="" />
-                                        </button>
-                                    </>
-                                }
-                            </div>
-                        );
-                    }
+                    return <Columns key title headerStyle dataIndex sort />
                 })}
             </div>
         </div>
@@ -223,7 +196,7 @@ export default function Table({
     );
 }
 
-const TableRow = ({
+export const TableRow = ({
     record,
     columnsDefinition,
     rowClassName,
@@ -298,3 +271,34 @@ const TableRow = ({
         </div>
     );
 };
+
+export function Columns({key, title, headerStyle, dataIndex, sort}) {
+    const [sorted, setSorted] = useState(false);
+    return <>
+        {dataIndex !== 'hidden' && <>
+            <div
+                        className={`${styles.tableHeaderCell} ${styles.tableCellTemplate} ${cellClassName}`}
+                        style={headerStyle ? headerStyle : null}
+                        key={key}
+                    >
+                        {title}
+                        {
+                            sort && <>
+                                <button
+                                    className={styles.sortIcons}
+                                    onClick={() => {
+                                        setSorted(!sorted);
+                                        setSort((prevState) => ({ ...prevState, [dataIndex]: !sorted }));
+                                        sortData(dataIndex)
+                                    }
+                                    }
+                                >
+                                    <ReactSVG src="/sortArrow.svg" className={sorted? styles.sort : styles.sorted} alt="" />
+                                </button>
+                            </>
+                        }
+            </div>      
+        </>
+    }
+    </>
+}

@@ -135,8 +135,8 @@ export default function Transactions() {
                     </div>
                     <div className={styles.trBlock}>
                         <img src="/prescript.svg" alt="" />
-                        <h2>Doctor's prescription</h2>
-                        <p>Have a nice day and don’t forger to take care of your health !</p>
+                        <h2>Doctors prescription</h2>
+                        <p>Have a nice day and dont forger to take care of your health !</p>
                     </div>
                     <div className={styles.trBlock}>
                         <img src="/orderHistory.svg" alt="" />
