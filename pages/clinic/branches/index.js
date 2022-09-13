@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Button from '../../../components/ui/Button';
 import ConfirmedModal from '../../../components/modals/confrimedModal';
 import Link from 'next/link';
+import Image from "next/image";
 
 export default function Branches() {
     const [blockId, setBlockId] = useState('');
@@ -13,7 +14,7 @@ export default function Branches() {
         <div className={styles.clinicBody}>
             <div className={styles.clinicContent}>
                 <div className={styles.clinicLogoContent}>
-                    <img src="/clinicDocLogo.svg" className={styles.logo} alt="" />
+                    <Image src="/clinicDocLogo.svg" className={styles.logo} alt="" />
                 </div>
                 <div className={styles.clinicAnalyisis}>
                     <div className={styles.analysH}>
@@ -45,9 +46,9 @@ export default function Branches() {
                                             [styles.activeAnBlock]: blockId !== '' && true 
                                         })}
                                     >
-                                        <img src="/iconPlaceholder.svg" alt="" />
+                                        <Image src="/iconPlaceholder.svg" alt="" />
                                         <h2>Blood analysis</h2>
-                                        <img className={styles.arrow} src="/clinArrow.svg" alt="" />
+                                        <Image className={styles.arrow} src="/clinArrow.svg" alt="" />
                                     </div>
                                 </div>
                             </Link>
@@ -57,9 +58,9 @@ export default function Branches() {
                                         [styles.activeAnBlock]: blockId !== '' && true 
                                     })}
                                 >
-                                    <img src="/iconPlaceholder.svg" alt="" />
+                                    <Image src="/iconPlaceholder.svg" alt="" />
                                     <h2>Blood analysis</h2>
-                                    <img className={styles.arrow} src="/clinArrow.svg" alt="" />
+                                    <Image className={styles.arrow} src="/clinArrow.svg" alt="" />
                                 </div>
                             </div>
                             <div className={styles.listItem}>
@@ -68,9 +69,9 @@ export default function Branches() {
                                         [styles.activeAnBlock]: blockId !== '' && true 
                                     })}
                                 >
-                                    <img src="/iconPlaceholder.svg" alt="" />
+                                    <Image src="/iconPlaceholder.svg" alt="" />
                                     <h2>Blood analysis</h2>
-                                    <img className={styles.arrow} src="/clinArrow.svg" alt="" />
+                                    <Image className={styles.arrow} src="/clinArrow.svg" alt="" />
                                 </div>
                             </div>
                         </div>

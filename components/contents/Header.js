@@ -43,7 +43,11 @@ const Header = () => {
     <>
       <div className={classes.headerForMobile}>
         <div className={classes.mobileHeaderContainer}>
-          <img src="/headerIcon.svg" alt="headerIcon" />
+          <Image 
+            layout="fill"
+            src="/headerIcon.svg" 
+            alt="headerIcon" 
+          />
           <div className={classes.mobileheader}>
             <Link href="/signInPage">
               <a className={classes.signInText}>Sign In</a>
@@ -137,7 +141,11 @@ const Header = () => {
 
       <div className={classes.headerContainer}>
         <div className={classes.headerIcon}>
-          <img src="/headerIcon.svg" alt="headerIcon" />
+          <Image 
+            layout="fill"  
+            src="/headerIcon.svg" 
+            alt="headerIcon" 
+          />
         </div>
         <ul className={classes.navbar}>
           <li>

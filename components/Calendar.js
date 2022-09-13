@@ -3,6 +3,7 @@ import { ReactSVG } from "react-svg";
 import styles from "../styles/components/calendar.module.css";
 // import { Button } from "components";
 import classNames from "classnames";
+import Image from "next/image";
 
 const today = new Date();
 
@@ -357,6 +358,7 @@ function MonthView({ date, schedule = [] }) {
 
     const setday = useCallback(()=>{
         configureDays()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[chooseDay])
 
     return (
@@ -454,6 +456,7 @@ function WeekView({ date, schedule = [], active, setActive, booking }) {
 
     const chooseDay = useCallback((dayName)=>{
         setDay(()=>dayName)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[day, setDay])
 
     return (
@@ -554,7 +557,7 @@ function WeekView({ date, schedule = [], active, setActive, booking }) {
                 <div className={styles.availableTimes}>
                     <div className={styles.availableTimeHeader}>
                         <div className={styles.timeSquare}>
-                            <img src="/timeSquare.svg" alt="" />
+                            <Image layout="fill" src="/timeSquare.svg" alt="" />
                         </div>
                         <h2>Available time</h2>
                     </div>

@@ -110,7 +110,7 @@ const BranchDetailPage = () => {
                 style={{ paddingRight: "4px" }}
               />
               <Text style={s.serviceTitle}>Doctors</Text>
-              <img
+              <Image
                 alt="Arrow - Right"
                 src="/Arrow - Right 9.svg"
                 width="24px"
@@ -129,7 +129,7 @@ const BranchDetailPage = () => {
                   style={{ paddingRight: "4px" }}
                 />
                 <Text style={s.serviceTitle}>Analysis</Text>
-                <img
+                <Image
                   alt="Arrow-Right"
                   src="/Arrow - Right 9.svg"
                   width="24px"
@@ -148,7 +148,7 @@ const BranchDetailPage = () => {
                 style={{ paddingRight: "4px" }}
               />
               <Text style={s.serviceTitle}>Research</Text>
-              <img
+              <Image
                 alt="Arrow-Right"
                 src="/Arrow - Right 9.svg"
                 width="24px"
@@ -196,8 +196,8 @@ const BranchDetailPage = () => {
       <div className={s.imageTitleContainer}>
         <Text style={classNames(s.clinicsTitleTextStyle, s.imageTitle)}> Images of the clinic</Text>
         <div className={s.imageContainer}>
-          {clinicImage.map((img) => (
-            <img src={img.src} alt="clinic image"/>
+          {clinicImage.map((img, i) => (
+            <Image key={i} src={img.src} alt="clinic image"/>
           ))}
         </div>
         <div className={s.imageSlider}>

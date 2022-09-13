@@ -5,6 +5,7 @@ import CheckBox from '../../components/ui/CheckBox';
 import Button from '../../components/ui/Button';
 import ConfirmedModal from '../../components/modals/confrimedModal';
 import Link from 'next/link';
+import Image from "next/image";
 
 export default function Clinic() {
     const [blockId, setBlockId] = useState('');
@@ -14,7 +15,7 @@ export default function Clinic() {
         <div className={styles.clinicBody}>
             <div className={styles.clinicContent}>
                 <div className={styles.clinicLogoContent}>
-                    <img src="/clinicDocLogo.svg" className={styles.logo} alt="" />
+                    <Image layout="fill" src="/clinicDocLogo.svg" className={styles.logo} alt="" />
                 </div>
                 <div className={styles.clinicAnalyisis}>
                     <div className={styles.analysH}>
@@ -46,9 +47,9 @@ export default function Clinic() {
                                             [styles.activeAnBlock]: blockId !== '' && true 
                                         })}
                                     >
-                                        <img src="/clniicLogo1.svg" alt="" />
+                                        <Image layout="fill" src="/clniicLogo1.svg" alt="" />
                                         <h2>Blood analysis</h2>
-                                        <img className={styles.arrow} src="/clinArrow.svg" alt="" />
+                                        <Image layout="fill" className={styles.arrow} src="/clinArrow.svg" alt="" />
                                     </div>
                                 </div>
                             </Link>
@@ -59,9 +60,9 @@ export default function Clinic() {
                                             [styles.activeAnBlock]: blockId !== '' && true 
                                         })}
                                     >
-                                        <img src="/clniicLogo2.svg" alt="" />
+                                        <Image src="/clniicLogo2.svg" alt="" />
                                         <h2>Blood analysis</h2>
-                                        <img className={styles.arrow} src="/clinArrow.svg" alt="" />
+                                        <Image layout="fill" className={styles.arrow} src="/clinArrow.svg" alt="" />
                                     </div>
                                 </div>
                             </Link>
@@ -72,9 +73,9 @@ export default function Clinic() {
                                             [styles.activeAnBlock]: blockId !== '' && true 
                                         })}
                                     >
-                                        <img src="/clniicLogo3.svg" alt="" />
+                                        <Image src="/clniicLogo3.svg" alt="" />
                                         <h2>Blood analysis</h2>
-                                        <img className={styles.arrow} src="/clinArrow.svg" alt="" />
+                                        <Image layout="fill" className={styles.arrow} src="/clinArrow.svg" alt="" />
                                     </div>
                                 </div>
                             </Link>
@@ -85,9 +86,9 @@ export default function Clinic() {
                                             [styles.activeAnBlock]: blockId !== '' && true 
                                         })}
                                     >
-                                        <img src="/clniicLogo4.svg" alt="" />
+                                        <Image layout="fill" src="/clniicLogo4.svg" alt="" />
                                         <h2>Blood analysis</h2>
-                                        <img className={styles.arrow} src="/clinArrow.svg" alt="" />
+                                        <Image layout="fill" className={styles.arrow} src="/clinArrow.svg" alt="" />
                                     </div>
                                 </div>
                             </Link>

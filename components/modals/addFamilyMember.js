@@ -4,6 +4,7 @@ import classNames from "classnames";
 import Select from "../../components/Select";
 import Input from "../../components/Input";
 import Button from "../../components/ui/Button";
+import Image from "next/image";
 import DatePicker from "../../components/DatePicker";
 
 export default function AddFamilyMember({ onClose, children }) {
@@ -20,7 +21,7 @@ export default function AddFamilyMember({ onClose, children }) {
       <div className={styles.container}>
         <div className={styles.fmTool}>
           <h2>Add Family Member</h2>
-          <img src="/closeFilter.svg" onClick={() => onClose()} alt="" />
+          <Image layout="fill" src="/closeFilter.svg" onClick={() => onClose()} alt="" />
         </div>
         <div className={classNames(styles.memberContainer)}>
           <div className={styles.memberSelectors}>

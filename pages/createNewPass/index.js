@@ -9,6 +9,7 @@ import classes from "../../styles/passRecovery.module.css";
 import { useRouter } from "next/router";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
+import Image from "next/image";
 
 export const CreateNewPass = () => {
   const router = useRouter();
@@ -50,7 +51,8 @@ export const CreateNewPass = () => {
       </Head>
       <div className={classes.container}>
         <div className={classes.singInContainer}>
-          <img
+          <Image
+            layout='fill' 
             src="headerIcon.svg"
             alt="headerIcon"
             className={classes.headerIcon}
@@ -111,7 +113,7 @@ export const CreateNewPass = () => {
           </div>
         </div>
         <div className={classes.cardsContainer}>
-          <img src="cards.png" alt="cards" />
+          <Image src="cards.png" alt="cards" />
         </div>
       </div>
     </>

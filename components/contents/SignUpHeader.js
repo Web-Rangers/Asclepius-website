@@ -1,5 +1,6 @@
 import { useState } from "react";
 import classes from "../../styles/headerFooter.module.css";
+import Image from "next/image";
 import Link from "next/link";
 
 const SignUpHeader = () => {
@@ -15,7 +16,11 @@ const SignUpHeader = () => {
     <div className={classes.signUpHeaderContainer}>
       <div className={classes.f_half}>
         <div>
-          <img src="/headerIcon.svg" alt="headerIcon" />
+          <Image 
+            layout="fill"  
+            src="/headerIcon.svg" 
+            alt="headerIcon" 
+          />
         </div>
         <div className={classes.navbarContainer}>
           <ul className={classes.navbarItems}>
@@ -66,21 +71,21 @@ const SignUpHeader = () => {
               value={searchInput}
               onChange={handleChange}
             />
-            <img src="/Search.svg" alt="Search" />
+            <Image src="/Search.svg" layout='fill' alt="Search" />
           </div>
         </div>
       </div>
       <div className={classes.userProfilePart}>
         {messages ? (
-          <img src="/notificationwithsms.svg" alt="notificationwithsms" />
+          <Image src="/notificationwithsms.svg" layout='fill' alt="notificationwithsms" />
         ) : (
-          <img src="/notification.svg" alt="notification" />
+          <Image layout="fill" src="/notification.svg" alt="notification" />
         )}
-        <img src="/testUser.png" alt="testUSerImage" />
-        <img src="/dropDown.svg" alt="Search" />
+        <Image layout="fill" src="/testUser.png" alt="testUSerImage" />
+        <Image layout="fill" src="/dropDown.svg" alt="Search" />
       </div>
       <div className={classes.burger}>
-        <img src='/burger.svg' alt="" />
+        <Image layout="fill" src='/burger.svg' alt="" />
       </div>
     </div>
   );

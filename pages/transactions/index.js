@@ -6,13 +6,12 @@ import Table from '../../components/TableWithSort';
 import classNames from 'classnames';
 import DatePicker from '../../components/DatePicker';
 import Select from '../../components/Select';
-import Input from '../../components/Input';
 import FilterModal from '../../components/modals/filterModal';
 import AddFamilyMember from '../../components/modals/addFamilyMember';
-import { Style } from '@mui/icons-material';
 import Calendar from '../../components/Calendar';
 import {useWindowSize} from '../../components/useWindowSize';
 import Menu from '../../components/ui/menu';
+import Image from "next/image";
 
 export default function Transactions() {
     const [familyMemberModal, setFamilyMemberModal] = useState(false);
@@ -120,7 +119,7 @@ export default function Transactions() {
                         />
                     </div>
                     <div>
-                        <img 
+                        <Image 
                             className={styles.greetingBackground} 
                             src="/greetingBg.png" 
                             alt="greeting" 
@@ -133,7 +132,7 @@ export default function Transactions() {
                         actions={
                             <>
                                 <Button 
-                                    name={<div><img src="/filter.svg" alt=""/><span>Filter</span></div>}
+                                    name={<div><Image src="/filter.svg" alt=""/><span>Filter</span></div>}
                                     style={styles.filterButton}
                                     onClick={()=>setOpen(true)}
                                 />
@@ -205,7 +204,7 @@ export default function Transactions() {
                     actions={<button className={styles.upgradeBtn}>Upgrade</button>}
                     className={styles.cards}
                 >
-                    <img className={styles.cardImage} src="/card.png" alt="" />
+                    <Image className={styles.cardImage} src="/card.png" alt="" />
                 </Block>
 
                 <Block
@@ -216,7 +215,7 @@ export default function Transactions() {
                             className={styles.addFamilyMember} 
                             onClick={()=>setFamilyMemberModal(true)}
                         >
-                            <img src="/plus.svg" alt="" />
+                            <Image src="/plus.svg" alt="" />
                             <span>ADD</span>
                         </button>
                     }
@@ -231,7 +230,7 @@ export default function Transactions() {
                                 return <>
                                     <div className={styles.familyMember}>
                                         <div className={styles.memberInfo}>
-                                            <img src={member.image} alt="" />
+                                            <Image src={member.image} alt="" />
                                             <div>
                                                 <h2>{member.name}</h2>
                                                 <h3>{member.email}</h3>
@@ -240,9 +239,9 @@ export default function Transactions() {
                                         <div>
                                             {
                                                 member.age === 'Under 18' ? 
-                                                <img src="/eye.svg" alt="" />
+                                                <Image src="/eye.svg" alt="" />
                                                 :
-                                                <img src="/disabledEye.svg" alt="" />
+                                                <Image src="/disabledEye.svg" alt="" />
                                             }
                                         </div>
                                     </div>
@@ -251,7 +250,7 @@ export default function Transactions() {
                         </div> 
                              : 
                         <div className={styles.membersBlock}>
-                            <img src="/users.svg" alt="" />
+                            <Image src="/users.svg" alt="" />
                             <h2>Family members are not added</h2>
                             <Button 
                                 style={styles.membersAdd}
@@ -260,7 +259,7 @@ export default function Transactions() {
                                         className={styles.memberAddBtn} 
                                         onClick={()=>setFamilyMemberModal(true)}
                                     >
-                                        <img src="/memberPlus.svg" alt=""/>
+                                        <Image src="/memberPlus.svg" alt=""/>
                                         <span>Add</span>
                                     </div>
                                 }

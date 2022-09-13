@@ -4,12 +4,14 @@ import Link from "next/link";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
 import Text from "../ui/Text";
+import Image from "next/image";
 
 export const SignIn = () => {
   return (
     <div className={classes.container}>
       <div className={classes.singInContainer}>
-        <img
+        <Image
+          layout="fill"
           src="headerIcon.svg"
           alt="headerIcon"
           className={classes.headerIconSignIn}
@@ -25,11 +27,12 @@ export const SignIn = () => {
         </div>
         <div className={classes.loginOptionsContainer}>
           <button type="button" className={classes.loginOptionsStyle}>
-            <img src="google.svg" alt="google" className={classes.iconsStyle} />
+            <Image layout="fill" src="google.svg" alt="google" className={classes.iconsStyle} />
             Google
           </button>
           <button type="button" className={classes.loginOptionsStyle}>
-            <img
+            <Image
+              layout="fill"
               src="facebook.svg"
               alt="facebook"
               className={classes.iconsStyle}
@@ -66,7 +69,7 @@ export const SignIn = () => {
         <Button type="submit" name="Login" />
       </div>
       <div className={classes.cardsContainer}>
-        <img src="cards.png" alt="cards" />
+        <Image src="cards.png" alt="cards" />
       </div>
     </div>
   );

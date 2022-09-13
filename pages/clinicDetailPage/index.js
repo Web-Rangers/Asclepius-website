@@ -219,6 +219,7 @@ const ClinicDetailPage = () => {
             showIndicators={false}
           >
             {clinicData.map((chunk) => (
+              // eslint-disable-next-line react/jsx-key
               <div>
                 {
                   chunk.map((item)=> {

@@ -1,19 +1,21 @@
 import s from "../../styles/homePage.module.css";
 import Text from "../ui/Text";
+import Image from "next/image";
 
 const Benefits = () => {
   return (
     <div className={s.benefitsContainer}>
       <Text style={s.benefitMainTitle}>Our benefits</Text>
       <div className={s.benefits}>
-        <img
+        <Image
+          layout="fill"
           src="benefitImg.png"
           alt="benefitImg"
           className={s.benefitsContainerImg}
         />
         <div className={s.benefitCardLeftSide}>
           <div className={s.benefitCard}>
-            <img
+            <Image
               src="checkboxIcon.svg"
               alt="checkboxIcon"
               width="24px"
@@ -25,7 +27,7 @@ const Benefits = () => {
             </Text>
           </div>
           <div className={s.benefitCard}>
-            <img
+            <Image
               src="checkboxIcon.svg"
               alt="checkboxIcon"
               width="24px"
@@ -37,7 +39,7 @@ const Benefits = () => {
             </Text>
           </div>
           <div className={s.benefitCard}>
-            <img
+            <Image
               src="checkboxIcon.svg"
               alt="checkboxIcon"
               width="24px"
@@ -51,7 +53,7 @@ const Benefits = () => {
         </div>
         <div className={s.benefitCardRightSide}>
           <div className={s.benefitCard}>
-            <img
+            <Image
               src="checkboxIcon.svg"
               alt="checkboxIcon"
               width="24px"
@@ -63,7 +65,7 @@ const Benefits = () => {
             </Text>
           </div>
           <div className={s.benefitCard}>
-            <img
+            <Image
               src="checkboxIcon.svg"
               alt="checkboxIcon"
               width="24px"
@@ -75,7 +77,7 @@ const Benefits = () => {
             </Text>
           </div>
           <div className={s.benefitCard}>
-            <img
+            <Image
               src="checkboxIcon.svg"
               alt="checkboxIcon"
               width="24px"

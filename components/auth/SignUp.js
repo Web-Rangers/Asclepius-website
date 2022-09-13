@@ -8,6 +8,7 @@ import Input from "../ui/Input";
 import Button from "../ui/Button";
 import Text from "../ui/Text";
 import Link from "next/link";
+import Image from "next/image";
 
 export const SignUp = () => {
   const [values, setValues] = useState({
@@ -47,7 +48,8 @@ export const SignUp = () => {
   return (
     <div className={classes.container}>
       <div className={classes.singInContainer}>
-        <img
+        <Image
+          layout="fill"
           src="headerIcon.svg"
           alt="headerIcon"
           className={classes.headerIcon}
@@ -63,11 +65,12 @@ export const SignUp = () => {
         </div>
         <div className={classes.loginOptionsContainer}>
           <button type="button" className={classes.loginOptionsStyle}>
-            <img src="google.svg" alt="google" className={classes.iconsStyle} />
+            <Image layout="fill" src="google.svg" alt="google" className={classes.iconsStyle} />
             Google
           </button>
           <button type="button" className={classes.loginOptionsStyle}>
-            <img
+            <Image
+              layout="fill"
               src="facebook.svg"
               alt="facebook"
               className={classes.iconsStyle}
@@ -181,7 +184,7 @@ export const SignUp = () => {
         <Button type="submit" name="Login" />
       </div>
       <div className={classes.cardsContainer}>
-        <img src="cards.png" alt="cards" />
+        <Image layout="fill" src="cards.png" alt="cards" />
       </div>
     </div>
   );

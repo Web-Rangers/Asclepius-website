@@ -3,6 +3,7 @@ import Input from "../ui/Input";
 import classes from "../../styles/passRecovery.module.css";
 import Button from "../ui/Button";
 import Text from "../ui/Text";
+import Image from "next/image";
 
 export const PasswordConfirm = () => {
   const [enterCode, setEnterCode] = useState("");
@@ -15,12 +16,14 @@ export const PasswordConfirm = () => {
   return (
     <div className={classes.container}>
       <div className={classes.singInContainer}>
-        <img
+        <Image
+          layout="fill"
           src="headerIcon.svg"
           alt="headerIcon"
           className={classes.headerIcon}
         />
-        <img
+        <Image
+          layout="fill"
           src="confirm.svg"
           alt="Confirm Icon"
           // className={classes.headerIcon}
@@ -43,7 +46,7 @@ export const PasswordConfirm = () => {
         <Button type="submit" name={"Confirm"} />
       </div>
       <div className={classes.cardsContainer}>
-        <img src="cards.png" alt="cards" />
+        <Image layout="fill" src="cards.png" alt="cards" />
       </div>
     </div>
   );

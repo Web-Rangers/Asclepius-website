@@ -255,6 +255,7 @@ const Picker = ({ isOpen, onChange, onClose }) => {
     }
     useEffect(() => {
         configureDays();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [date, selected]);
     return (
         <div
@@ -579,6 +580,7 @@ const RangePicker = ({
     useEffect(() => {
         configureNextDays();
         configureDays();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [date, nextDate, dateStart, dateEnd]);
 
     useEffect(() => {
@@ -588,6 +590,7 @@ const RangePicker = ({
         }
         if (dateStart === undefined) return;
         dateStartChange?.call(null, dateStart.toLocaleDateString());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dateStart]);
 
     useEffect(() => {
@@ -601,6 +604,7 @@ const RangePicker = ({
             dateStart.toLocaleDateString(),
             dateEnd.toLocaleDateString()
         );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dateEnd]);
 
     return (

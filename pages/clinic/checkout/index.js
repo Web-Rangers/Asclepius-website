@@ -6,6 +6,7 @@ import Button from '../../../components/ui/Button';
 import Select from '../../../components/Select';
 import DatePicker from '../../../components/DatePicker';
 import ConfirmedModal from '../../../components/modals/confrimedModal';
+import Image from "next/image";
 
 export default function Checkout() {
     const [patient, setPatient] = useState('');
@@ -18,18 +19,18 @@ export default function Checkout() {
         <div className={styles.clinicBody}>
             <div className={styles.clinicContent}>
                 <div className={styles.clinicLogoContent}>
-                    <img src="/clinicDocLogo.svg" className={styles.logo} alt="" />
+                    <Image src="/clinicDocLogo.svg" className={styles.logo} alt="" />
                 </div>
                 <div className={styles.clinicAnalyisis}>
                     <div className={styles.analysH}>
                         <h2>Booking page</h2>
                     </div>
                     <div className={styles.bookingContent}>
-                        <img src="/companyLogo.png" alt=""/>
+                        <Image src="/companyLogo.png" alt=""/>
                         <div className={styles.bookingTitle}>
                             <h2>Atcare Clinic</h2>
                             <div>
-                                <img src="/location_comp.svg" alt=""/>
+                                <Image src="/location_comp.svg" alt=""/>
                                 <span>Carymouth , Hallmark Clinic</span>
                             </div>
                         </div>
@@ -129,9 +130,9 @@ export default function Checkout() {
 //         })} 
 //         onClick={()=> blockId == '1' ? setBlockId('') : setBlockId('1')}
 //     >
-//         <img src="/iconPlaceholder.svg" alt="" />
+//         <Image src="/iconPlaceholder.svg" alt="" />
 //         <h2>Blood analysis</h2>
-//         <img className={styles.arrow} src="/clinArrow.svg" alt="" />
+//         <Image className={styles.arrow} src="/clinArrow.svg" alt="" />
 //     </div>
 //     <div className={classNames(styles.analysis, {
 //         [styles.activeBlock]: blockId === '1' && true 

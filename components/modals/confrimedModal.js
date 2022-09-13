@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import styles from '../../styles/components/modals/confirmedModal.module.css';
 import Button from '../../components/ui/Button';
+import Image from "next/image";
 
 export default function OrderConfirmed({onClose}) {
     return <>
         <div className={styles.body}></div>
         <div className={styles.content}>
             <div className={styles.img}>
-                <img src="/checkMark.svg" alt='' />
+                <Image layout="fill" src="/checkMark.svg" alt='' />
             </div>
 
             <h2>Order confirmed</h2>

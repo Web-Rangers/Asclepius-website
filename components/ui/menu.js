@@ -1,5 +1,6 @@
 import styles from '../../styles/components/menu.module.css';
 import classNames from 'classnames';
+import Image from "next/image";
 
 export default function Menu({
     active,
@@ -15,7 +16,7 @@ export default function Menu({
                     onClick('main')
                 }}
             >
-                <img src="mainIcon.svg" alt="" />
+                <Image layout="fill" src="mainIcon.svg" alt="" />
                 <span>
                     Main
                 </span>
@@ -28,7 +29,7 @@ export default function Menu({
                     onClick('family')
                 }}
             >
-                <img src="family.svg" alt="" />
+                <Image layout="fill" src="family.svg" alt="" />
                 <span>
                     Family
                 </span>
@@ -41,7 +42,7 @@ export default function Menu({
                     onClick('calendar')
                 }}
             >
-                <img src="calendar.svg" alt="" />
+                <Image layout="fill" src="calendar.svg" alt="" />
                 <span>
                     Calendar
                 </span>
@@ -54,7 +55,7 @@ export default function Menu({
                     onClick('notification')
                 }}
             >
-                <img src="notificationIcon.svg" alt="" />
+                <Image layout="fill" src="notificationIcon.svg" alt="" />
                 <span>
                     Notification
                 </span>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Text from "../ui/Text";
 import Button from "../ui/Button";
+import Image from "next/image";
 import s from "../../styles/homePage.module.css";
 import { useRouter } from "next/router";
 
@@ -14,8 +15,8 @@ const Services = () => {
   return (
     <div className={s.serviceContainer}>
       <div className={s.serviceContainerImg}>
-        <img src="servicesImg1.png" alt="servicesImg1" />
-        <img src="servicesImg2.png" alt="servicesImg2" />
+        <Image layout="fill" src="servicesImg1.png" alt="servicesImg1" />
+        <Image layout="fill" src="servicesImg2.png" alt="servicesImg2" />
       </div>
       <div className={s.serviceContainerContent}>
         <div className={s.leftSideContent}>
@@ -38,7 +39,7 @@ const Services = () => {
           <div className={s.rightSideContentCards}>
             <Link href="/onlineconsultation">
               <div className={s.servicesCard}>
-                <img src="videoCallIcon.svg" alt="" />
+                <Image layout="fill" src="videoCallIcon.svg" alt="" />
                 <Text style={s.servicesCardTitle}>Online consultation</Text>
                 <Text style={s.servicesCardText}>
                   Get video and audio consultation from doctor
@@ -47,7 +48,7 @@ const Services = () => {
             </Link>
             <Link href="/clinics">
               <div className={s.servicesCardSecond}>
-                <img src="homeVisitIcon.svg" alt="" />
+                <Image layout="fill" src="homeVisitIcon.svg" alt="" />
                 <Text style={s.servicesCardTitleActive}>
                   Visit to the clinic
                 </Text>
@@ -60,7 +61,7 @@ const Services = () => {
           <div className={s.rightSideContentCards}>
             <Link href="/homeVisit">
               <div className={s.servicesCard}>
-                <img src="homeVisit.svg" alt="" />
+                <Image layout="fill" src="homeVisit.svg" alt="" />
                 <Text style={s.servicesCardTitle}>Doctor at home</Text>
                 <Text style={s.servicesCardText}>
                   Get video and audio consultation from doctor
@@ -69,7 +70,7 @@ const Services = () => {
             </Link>
             <Link href="/Laboratory">
               <div className={s.servicesCard}>
-                <img src="lab.svg" alt="" />
+                <Image layout="fill" src="lab.svg" alt="" />
                 <Text style={s.servicesCardTitle}>Laboratory</Text>
                 <Text style={s.servicesCardText}>
                   Get video and audio consultation from doctor

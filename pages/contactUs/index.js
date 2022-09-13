@@ -32,19 +32,19 @@ export const ContactUs = () => {
             </Text>
             <div className={classes.contactInfoForMobile}>
               <div className={classes.iconContactInfo}>
-                <img src="messages.svg" alt="messages" />
+                <Image src="messages.svg" alt="messages" />
                 <Text style={classes.contactInfoText}>
                   Medicalgroup@gmail.com
                 </Text>
               </div>
               <div className={classes.iconContactInfo}>
-                <img src="location.svg" alt="location" />
+                <Image src="location.svg" alt="location" />
                 <Text style={classes.contactInfoText}>
                   Tbilisi , Ana Antonovskaya str. 9
                 </Text>
               </div>
               <div className={classes.iconContactInfo}>
-                <img src="phone.svg" alt="phone" />
+                <Image src="phone.svg" alt="phone" />
                 <Text style={classes.contactInfoText}>+9955575755576</Text>
               </div>
             </div>
@@ -120,7 +120,7 @@ export const ContactUs = () => {
           <Button type="submit" name="Send message" />
         </div>
         <div className={classes.contactUsCardContainer}>
-          <img
+          <Image
             src="/contactUs.png"
             alt="cards"
             width="500"
@@ -129,19 +129,19 @@ export const ContactUs = () => {
           />
           <div className={classes.contactInfo}>
             <div className={classes.iconContactInfo}>
-              <img src="messages.svg" alt="messages" />
+              <Image src="messages.svg" alt="messages" />
               <Text style={classes.contactInfoText}>
                 Medicalgroup@gmail.com
               </Text>
             </div>
             <div className={classes.iconContactInfo}>
-              <img src="location.svg" alt="location" />
+              <Image src="location.svg" alt="location" />
               <Text style={classes.contactInfoText}>
                 Tbilisi , Ana Antonovskaya str. 9
               </Text>
             </div>
             <div className={classes.iconContactInfo}>
-              <img src="phone.svg" alt="phone" />
+              <Image src="phone.svg" alt="phone" />
               <Text style={classes.contactInfoText}>+9955575755576</Text>
             </div>
           </div>

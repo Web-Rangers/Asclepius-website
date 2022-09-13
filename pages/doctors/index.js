@@ -6,6 +6,7 @@ import classNames from "classnames";
 import Select from "../../components/Select";
 import Input from "../../components/Input";
 import Pagination from "../../components/ui/Pagination";
+import Image from "next/image";
 
 const doctorsArray = [
   {
@@ -163,7 +164,7 @@ export default function Doctors() {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
     return doctorsArray.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage]);
+  }, [PageSize, currentPage]);
 
   return (
     <>
@@ -248,14 +249,14 @@ export default function Doctors() {
       <div className={styles.doctorsPage}>
         <div className={styles.doctorsContainer}>
           <div className={styles.back}>
-            <img src="/backBtn.svg" alt="" />
+            <Image src="/backBtn.svg" alt="" />
           </div>
           <div className={styles.doctorslistContainer}>
             <h2>Experienced doctors</h2>
             <Button
               name={
                 <div>
-                  <img src="/filter.svg" alt="" />
+                  <Image src="/filter.svg" alt="" />
                   <span>Filter</span>
                 </div>
               }
@@ -266,7 +267,7 @@ export default function Doctors() {
               className={styles.filterForMobile}
               onClick={() => setOpen(true)}
             >
-              <img src="/filter.svg" alt="" />
+              <Image src="/filter.svg" alt="" />
             </div>
           </div>
 
@@ -276,10 +277,10 @@ export default function Doctors() {
                 <div className={styles.doctor} key={doctor.id}>
                   <div className={styles.poster}>
                     <div className={styles.doctorStar}>
-                      <img src="/whiteStar.svg" alt="" />
+                      <Image src="/whiteStar.svg" alt="" />
                       <span>4.9</span>
                     </div>
-                    <img
+                    <Image
                       className={styles.doctorImage}
                       src="/doctor10.png"
                       alt=""
@@ -287,21 +288,21 @@ export default function Doctors() {
                   </div>
                   <div className={styles.doctorContact}>
                     <div className={styles.contact}>
-                      <img
+                      <Image
                         className={styles.video}
                         src="/videoIcon.svg"
                         alt=""
                       />
                     </div>
                     <div className={styles.contact}>
-                      <img
+                      <Image
                         className={styles.phone}
                         src="/phoneContact.svg"
                         alt=""
                       />
                     </div>
                     <div className={styles.contact}>
-                      <img className={styles.home} src="/home.svg" alt="" />
+                      <Image className={styles.home} src="/home.svg" alt="" />
                     </div>
                   </div>
                   <div className={styles.doctorInfo}>
@@ -314,7 +315,7 @@ export default function Doctors() {
                       <div className={styles.prof}>Family doctor</div>
                     </div>
                     <div className={styles.address}>
-                      <img src="/doctorLocation.svg" alt="" />
+                      <Image src="/doctorLocation.svg" alt="" />
                       <h4>Carymouth , Hallmark Clinic</h4>
                     </div>
                     <div className={styles.language}>

@@ -5,6 +5,7 @@ import Calendar from '../../../components/Calendar';
 import classNames from 'classnames';
 import Select from '../../../components/Select';
 import AddFamilyMember from '../../../components/modals/addFamilyMember';
+import Image from "next/image";
 
 export default function DoctorDetailed() {
     const [contact, setContact] = useState('');
@@ -21,16 +22,16 @@ export default function DoctorDetailed() {
         <div className={styles.doctorBody}>
             <div className={styles.doctorContainer}>
                 <div className={styles.back}>
-                    <img src="/backBtn.svg" alt="" />
+                    <Image src="/backBtn.svg" alt="" />
                 </div>
                 <div className={styles.content}>
                     <div className={styles.doctor}>
                         <div className={styles.poster}>
                             <div className={styles.doctorStar}>
-                                <img src="/whiteStar.svg" alt="" />
+                                <Image src="/whiteStar.svg" alt="" />
                                 <span>4.9</span>
                             </div>
-                            <img 
+                            <Image 
                                 className={styles.doctorImage} 
                                 src="/doctor10.png" 
                                 alt="" 
@@ -38,13 +39,13 @@ export default function DoctorDetailed() {
                         </div>
                         <div className={styles.doctorContact}>
                             <div className={styles.contact}>
-                                <img className={styles.video} src="/videoIcon.svg" alt="" />
+                                <Image className={styles.video} src="/videoIcon.svg" alt="" />
                             </div>
                             <div className={styles.contact}>
-                                <img className={styles.phone} src="/phoneContact.svg" alt="" />
+                                <Image className={styles.phone} src="/phoneContact.svg" alt="" />
                             </div>
                             <div className={styles.contact}>
-                                <img className={styles.home} src="/home.svg" alt="" />
+                                <Image className={styles.home} src="/home.svg" alt="" />
                             </div>
                         </div>
                         <div className={styles.aboutDoctor}>
@@ -59,7 +60,7 @@ export default function DoctorDetailed() {
                             </div>
                         </div>
                         <div className={styles.address}>
-                            <img src="/doctorLocation.svg" alt="" />
+                            <Image src="/doctorLocation.svg" alt="" />
                             <h4>Carymouth , Hallmark Clinic</h4>
                         </div>
                         <div className={styles.language}>
@@ -72,19 +73,19 @@ export default function DoctorDetailed() {
                         </div>
                         <div className={styles.cetificates}>
                             <div className={styles.certTitle}>
-                                <img src="/certificates.svg" alt="" />
+                                <Image src="/certificates.svg" alt="" />
                                 <h2>Certificates</h2>
                             </div>
                             <div className={styles.certificate}>
                                 <div className={styles.certCheckmark}>
-                                    <img src="/checkMark.svg" alt="" />
+                                    <Image src="/checkMark.svg" alt="" />
                                 </div>
                                 <div className={styles.certificateInfo}>
                                     <h2>Phoenix healthcare center</h2>
                                     <p>Carymouth , Hallmark Clinic</p>
                                     <h4>June 22 / 2022</h4>
                                     <div className={styles.certLink}>
-                                        <img src="/disabledEye.svg" alt="" />
+                                        <Image src="/disabledEye.svg" alt="" />
                                         <Link href="/">
                                             <a>https://thenounproject.com</a>
                                         </Link>
@@ -93,14 +94,14 @@ export default function DoctorDetailed() {
                             </div>
                             <div className={styles.certificate}>
                                 <div className={styles.certCheckmark}>
-                                    <img src="/checkMark.svg" alt="" />
+                                    <Image src="/checkMark.svg" alt="" />
                                 </div>
                                 <div className={styles.certificateInfo}>
                                     <h2>Phoenix healthcare center</h2>
                                     <p>Carymouth , Hallmark Clinic</p>
                                     <h4>June 22 / 2022</h4>
                                     <div className={styles.certLink}>
-                                        <img src="/disabledEye.svg" alt="" />
+                                        <Image src="/disabledEye.svg" alt="" />
                                         <Link href="/">
                                             <a>https://thenounproject.com</a>
                                         </Link>
@@ -113,7 +114,7 @@ export default function DoctorDetailed() {
                     <div className={styles.doctorInfo}>
                         <div className={styles.about}>
                             <div className={styles.aboutTitle}>
-                                <img src="/aboutMe.svg" alt="" />
+                                <Image src="/aboutMe.svg" alt="" />
                                 <h2>About me</h2>
                             </div>
                             <div className={styles.aboutTxt}>
@@ -136,7 +137,7 @@ export default function DoctorDetailed() {
                         </div>
                         <div className={styles.education}>
                             <div className={styles.educationTitle}>
-                                <img src="/education.svg" alt="" />
+                                <Image src="/education.svg" alt="" />
                                 <h2>Education</h2>
                             </div>
                             <div className={styles.educationContent}>
@@ -180,7 +181,7 @@ export default function DoctorDetailed() {
                     <div className={styles.doctorServices}>
                         <div className={styles.booking}>
                             <div className={styles.bookingHeader}>
-                                <img src='/booking.svg' alt="" />
+                                <Image src='/booking.svg' alt="" />
                                 <h2>Booking</h2>
                             </div>
                             <div className={styles.bookingTool}>
@@ -192,7 +193,7 @@ export default function DoctorDetailed() {
                                         setContact('online')
                                     }}
                                 >
-                                    <img src="/video.svg" alt="" />
+                                    <Image src="/video.svg" alt="" />
                                     <span>Online</span>
                                 </button>
                                 <button
@@ -203,7 +204,7 @@ export default function DoctorDetailed() {
                                         setContact('audio')
                                     }}
                                 >
-                                    <img src="/phoneContact.svg" alt="" />
+                                    <Image src="/phoneContact.svg" alt="" />
                                     <span>Audio</span>
                                 </button>
                                 <button 
@@ -214,7 +215,7 @@ export default function DoctorDetailed() {
                                         setContact('home')
                                     }}
                                 > 
-                                    <img src="/home.svg" alt="" />
+                                    <Image src="/home.svg" alt="" />
                                     <span>Home</span>
                                 </button>
                             </div>
@@ -242,7 +243,7 @@ export default function DoctorDetailed() {
                                 className={styles.familyBtn}
                                 onClick={()=> setModalOpen(true)}
                             >
-                                <img src="/plus.svg" alt="" />
+                                <Image src="/plus.svg" alt="" />
                                 <span>Add family member</span>
                             </button>
                         </div>

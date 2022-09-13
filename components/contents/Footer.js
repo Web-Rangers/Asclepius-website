@@ -1,5 +1,6 @@
 import classes from "../../styles/headerFooter.module.css";
 import Text from "../ui/Text";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -7,7 +8,11 @@ const Footer = () => {
       <div className={classes.footerContainer}>
         <div className={classes.leftSideContainer}>
           <div className={classes.headerIcon}>
-            <img src="/headerIcon.svg" alt="headerIcon" />
+            <Image 
+              layout="fill"
+              src="/headerIcon.svg" 
+              alt="headerIcon" 
+            />
             <Text style={classes.leftSideContainerText}>
               Lorem Ipsum is not
             </Text>
@@ -38,12 +43,14 @@ const Footer = () => {
             <div className={classes.companyConatiner}>
               <Text style={classes.textTitle}>Social networks</Text>
               <div className={classes.iconContainer}>
-                <img
+                <Image
+                  layout="fill"
                   src="/facebook.svg"
                   alt="facebook"
                   className={classes.iconsStyle}
                 />
-                <img
+                <Image
+                  layout="fill"
                   src="/Instagram.svg"
                   alt="instagram"
                   className={classes.iconsStyle}

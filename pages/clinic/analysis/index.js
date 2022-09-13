@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import CheckBox from '../../../components/ui/CheckBox';
 import Button from '../../../components/ui/Button';
 import Link from 'next/link';
+import Image from "next/image";
 
 export default function Branches() {
     const [blockId, setBlockId] = useState('');
@@ -13,7 +14,7 @@ export default function Branches() {
         <div className={styles.clinicBody}>
             <div className={styles.clinicContent}>
                 <div className={styles.clinicLogoContent}>
-                    <img src="/clinicDocLogo.svg" className={styles.logo} alt="" />
+                    <Image layout="fill" src="/clinicDocLogo.svg" className={styles.logo} alt="" />
                 </div>
                 <div className={styles.clinicAnalyisis}>
                     <div className={styles.analysH}>
@@ -45,9 +46,9 @@ export default function Branches() {
                                     })} 
                                     onClick={()=> blockId == '1' ? setBlockId('') : setBlockId('1')}
                                 >
-                                    <img src="/iconPlaceholder.svg" alt="" />
+                                    <Image layout="fill" src="/iconPlaceholder.svg" alt="" />
                                     <h2>Blood analysis</h2>
-                                    <img className={styles.arrow} src="/clinArrow.svg" alt="" />
+                                    <Image layout="fill" className={styles.arrow} src="/clinArrow.svg" alt="" />
                                 </div>
                                 <div className={classNames(styles.analysis, {
                                     [styles.activeBlock]: blockId === '1' && true 

@@ -7,6 +7,7 @@ import Benefits from "../../components/contents/Benefits";
 import CardPrice from "../../components/contents/CardPrice";
 import Text from "../../components/ui/Text";
 import Button from "../../components/ui/Button";
+import Image from "next/image";
 import axios from "axios";
 
 export const getStaticProps = async () => {
@@ -50,7 +51,7 @@ function HomePage({ clinicsData }) {
         </div>
         <div className={classes.firstPartImg}>
           {firstPartImgArray.map((image, index) => (
-            <img
+            <Image
               className={classes.slide}
               key={index}
               src={image}

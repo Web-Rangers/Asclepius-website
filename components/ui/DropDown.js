@@ -1,4 +1,5 @@
 import styles from "../../styles/dropDown.module.css";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const language = [
@@ -46,6 +47,7 @@ export default function DropDown({
   useEffect(() => {
     defaultSelected &&
       setCurrent(items.find((item) => item.id === defaultSelected));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items]);
 
   useEffect(() => {
@@ -73,9 +75,9 @@ export default function DropDown({
               <span className={styles.selected}>{current || ""}</span>
             </div>
             {open ? (
-              <img src="/dropUp.svg" className={styles.icon} />
+              <Image layout="fill" alt="" src="/dropUp.svg" className={styles.icon} />
             ) : (
-              <img src="/dropDown.svg" className={styles.icon} />
+              <Image layout="fill" alt="" src="/dropDown.svg" className={styles.icon} />
             )}
           </>
         )}

@@ -20,6 +20,7 @@ export default function Select({
 
   useEffect(() => {
     setSelected(options.find((option) => option.value === value));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   return (

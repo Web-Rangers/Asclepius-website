@@ -6,7 +6,8 @@ function AboutUsPage() {
     <div className={s.aboutUsContainer}>
       <Text style={s.aboutUsTitle}>About Us</Text>
       <div className={s.aboutImg}>
-        <img
+        <Image
+          layout="fill"
           alt="aboutUS image"
           src="/aboutUsImg.png"
           style={{ borderRadius: "3px" }}

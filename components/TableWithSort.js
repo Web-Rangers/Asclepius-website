@@ -40,6 +40,7 @@ export default function Table({
 
     const dataCallback = useCallback((data) => {
         setDisplayedData(data);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data])
 
     const selectPage = (selectedOption) => {
@@ -62,6 +63,7 @@ export default function Table({
         dataCallback(
             data.slice(firstPageIndex, lastPageIndex)
         );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentPage, data]);
 
     useEffect(() => {
@@ -70,6 +72,7 @@ export default function Table({
             dropdown: false,
         }))
         setDropdown(getDataKeys)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const sortData = useCallback((value) => {
