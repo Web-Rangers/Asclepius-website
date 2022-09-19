@@ -32,19 +32,19 @@ export const ContactUs = () => {
             </Text>
             <div className={classes.contactInfoForMobile}>
               <div className={classes.iconContactInfo}>
-                <Image src="messages.svg" alt="messages" />
+                <Image layout="fill" src="messages.svg" alt="messages" />
                 <Text style={classes.contactInfoText}>
                   Medicalgroup@gmail.com
                 </Text>
               </div>
               <div className={classes.iconContactInfo}>
-                <Image src="location.svg" alt="location" />
+                <Image layout="fill" src="location.svg" alt="location" />
                 <Text style={classes.contactInfoText}>
                   Tbilisi , Ana Antonovskaya str. 9
                 </Text>
               </div>
               <div className={classes.iconContactInfo}>
-                <Image src="phone.svg" alt="phone" />
+                <Image layout="fill" src="phone.svg" alt="phone" />
                 <Text style={classes.contactInfoText}>+9955575755576</Text>
               </div>
             </div>
@@ -129,19 +129,19 @@ export const ContactUs = () => {
           />
           <div className={classes.contactInfo}>
             <div className={classes.iconContactInfo}>
-              <Image src="messages.svg" alt="messages" />
+              <Image layout="fill" src="messages.svg" alt="messages" />
               <Text style={classes.contactInfoText}>
                 Medicalgroup@gmail.com
               </Text>
             </div>
             <div className={classes.iconContactInfo}>
-              <Image src="location.svg" alt="location" />
+              <Image layout="fill" src="location.svg" alt="location" />
               <Text style={classes.contactInfoText}>
                 Tbilisi , Ana Antonovskaya str. 9
               </Text>
             </div>
             <div className={classes.iconContactInfo}>
-              <Image src="phone.svg" alt="phone" />
+              <Image layout="fill" src="phone.svg" alt="phone" />
               <Text style={classes.contactInfoText}>+9955575755576</Text>
             </div>
           </div>

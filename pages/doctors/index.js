@@ -249,14 +249,14 @@ export default function Doctors() {
       <div className={styles.doctorsPage}>
         <div className={styles.doctorsContainer}>
           <div className={styles.back}>
-            <Image src="/backBtn.svg" alt="" />
+            <Image layout="fill" src="/backBtn.svg" alt="" />
           </div>
           <div className={styles.doctorslistContainer}>
             <h2>Experienced doctors</h2>
             <Button
               name={
                 <div>
-                  <Image src="/filter.svg" alt="" />
+                  <Image layout="fill" src="/filter.svg" alt="" />
                   <span>Filter</span>
                 </div>
               }
@@ -267,7 +267,7 @@ export default function Doctors() {
               className={styles.filterForMobile}
               onClick={() => setOpen(true)}
             >
-              <Image src="/filter.svg" alt="" />
+              <Image layout="fill" src="/filter.svg" alt="" />
             </div>
           </div>
 
@@ -277,10 +277,10 @@ export default function Doctors() {
                 <div className={styles.doctor} key={doctor.id}>
                   <div className={styles.poster}>
                     <div className={styles.doctorStar}>
-                      <Image src="/whiteStar.svg" alt="" />
+                      <Image layout="fill" src="/whiteStar.svg" alt="" />
                       <span>4.9</span>
                     </div>
-                    <Image
+                    <Image layout="fill"
                       className={styles.doctorImage}
                       src="/doctor10.png"
                       alt=""
@@ -288,21 +288,21 @@ export default function Doctors() {
                   </div>
                   <div className={styles.doctorContact}>
                     <div className={styles.contact}>
-                      <Image
+                      <Image layout="fill"
                         className={styles.video}
                         src="/videoIcon.svg"
                         alt=""
                       />
                     </div>
                     <div className={styles.contact}>
-                      <Image
+                      <Image layout="fill"
                         className={styles.phone}
                         src="/phoneContact.svg"
                         alt=""
                       />
                     </div>
                     <div className={styles.contact}>
-                      <Image className={styles.home} src="/home.svg" alt="" />
+                      <Image layout="fill" className={styles.home} src="/home.svg" alt="" />
                     </div>
                   </div>
                   <div className={styles.doctorInfo}>
@@ -315,7 +315,7 @@ export default function Doctors() {
                       <div className={styles.prof}>Family doctor</div>
                     </div>
                     <div className={styles.address}>
-                      <Image src="/doctorLocation.svg" alt="" />
+                      <Image layout="fill" src="/doctorLocation.svg" alt="" />
                       <h4>Carymouth , Hallmark Clinic</h4>
                     </div>
                     <div className={styles.language}>

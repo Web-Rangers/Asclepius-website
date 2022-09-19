@@ -53,7 +53,7 @@ export const PasswordRecoveryPage = () => {
           </div>
         </div>
         <div className={classes.cardsContainer}>
-          <Image src="cards.png" alt="cards" />
+          <Image layout="fill" src="cards.png" alt="cards" />
         </div>
       </div>
     </>

@@ -14,7 +14,7 @@ export default function Branches() {
         <div className={styles.clinicBody}>
             <div className={styles.clinicContent}>
                 <div className={styles.clinicLogoContent}>
-                    <Image src="/clinicDocLogo.svg" className={styles.logo} alt="" />
+                    <Image layout="fill" src="/clinicDocLogo.svg" className={styles.logo} alt="" />
                 </div>
                 <div className={styles.clinicAnalyisis}>
                     <div className={styles.analysH}>
@@ -46,9 +46,9 @@ export default function Branches() {
                                             [styles.activeAnBlock]: blockId !== '' && true 
                                         })}
                                     >
-                                        <Image src="/iconPlaceholder.svg" alt="" />
+                                        <Image layout="fill" src="/iconPlaceholder.svg" alt="" />
                                         <h2>Blood analysis</h2>
-                                        <Image className={styles.arrow} src="/clinArrow.svg" alt="" />
+                                        <Image layout="fill" className={styles.arrow} src="/clinArrow.svg" alt="" />
                                     </div>
                                 </div>
                             </Link>
@@ -58,9 +58,9 @@ export default function Branches() {
                                         [styles.activeAnBlock]: blockId !== '' && true 
                                     })}
                                 >
-                                    <Image src="/iconPlaceholder.svg" alt="" />
+                                    <Image layout="fill" src="/iconPlaceholder.svg" alt="" />
                                     <h2>Blood analysis</h2>
-                                    <Image className={styles.arrow} src="/clinArrow.svg" alt="" />
+                                    <Image layout="fill" className={styles.arrow} src="/clinArrow.svg" alt="" />
                                 </div>
                             </div>
                             <div className={styles.listItem}>
@@ -69,9 +69,9 @@ export default function Branches() {
                                         [styles.activeAnBlock]: blockId !== '' && true 
                                     })}
                                 >
-                                    <Image src="/iconPlaceholder.svg" alt="" />
+                                    <Image layout="fill" src="/iconPlaceholder.svg" alt="" />
                                     <h2>Blood analysis</h2>
-                                    <Image className={styles.arrow} src="/clinArrow.svg" alt="" />
+                                    <Image layout="fill" className={styles.arrow} src="/clinArrow.svg" alt="" />
                                 </div>
                             </div>
                         </div>

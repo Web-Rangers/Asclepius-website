@@ -52,6 +52,7 @@ function HomePage({ clinicsData }) {
         <div className={classes.firstPartImg}>
           {firstPartImgArray.map((image, index) => (
             <Image
+              layout="fill"
               className={classes.slide}
               key={index}
               src={image}
