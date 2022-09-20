@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../styles/globals.css";
 import Footer from "../components/contents/Footer";
 import SignUpHeader from "../components/contents/SignUpHeader";
-import Header from "../components/contents/header";
+import Header from "../components/contents/Header";
 import SignUpFooter from "../components/contents/SignUpFooter";
 
 function MyApp({ Component, pageProps }) {

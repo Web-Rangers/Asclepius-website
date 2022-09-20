@@ -106,7 +106,7 @@ export default function Table({
                 )}
             >
                 {columns?.map(({ key, title, headerStyle, dataIndex, sort }) => {
-                    return <Columns key title headerStyle dataIndex sort />
+                    return <Columns key={key} title headerStyle dataIndex sort />
                 })}
             </div>
         </div>
@@ -297,26 +297,26 @@ export function Columns({key, title, headerStyle, dataIndex, sort}) {
     return <>
         {dataIndex !== 'hidden' && <>
             <div
-                        className={`${styles.tableHeaderCell} ${styles.tableCellTemplate} ${cellClassName}`}
-                        style={headerStyle ? headerStyle : null}
-                        key={key}
+                        // className={`${styles.tableHeaderCell} ${styles.tableCellTemplate} ${cellClassName}`}
+                        // style={headerStyle ? headerStyle : null}
+                        // key={key}
                     >
-                        {title}
-                        {
-                            sort && <>
-                                <button
-                                    className={styles.sortIcons}
-                                    onClick={() => {
-                                        setSorted(!sorted);
-                                        setSort((prevState) => ({ ...prevState, [dataIndex]: !sorted }));
-                                        sortData(dataIndex)
-                                    }
-                                    }
-                                >
-                                    <ReactSVG src="/sortArrow.svg" className={sorted? styles.sort : styles.sorted} alt="" />
-                                </button>
-                            </>
-                        }
+                        {/*{title}*/}
+                        {/*{*/}
+                        {/*    sort && <>*/}
+                        {/*        <button*/}
+                        {/*            className={styles.sortIcons}*/}
+                        {/*            onClick={() => {*/}
+                        {/*                setSorted(!sorted);*/}
+                        {/*                // setSort((prevState) => ({ ...prevState, [dataIndex]: !sorted }));*/}
+                        {/*                // sortData(dataIndex)*/}
+                        {/*            }*/}
+                        {/*            }*/}
+                        {/*        >*/}
+                        {/*            <ReactSVG src="/sortArrow.svg" className={sorted? styles.sort : styles.sorted} alt="" />*/}
+                        {/*        </button>*/}
+                        {/*    </>*/}
+                        {/*}*/}
             </div>      
         </>
     }

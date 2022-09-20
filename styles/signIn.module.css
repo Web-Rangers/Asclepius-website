@@ -132,7 +132,7 @@
     flex: 1;
     justify-content: center;
     align-items: center;
-    position: "absolute";
+    /*position: "absolute";*/
     height: 1024px;
     left: 694px;
     border-radius: 8px;
@@ -147,7 +147,7 @@
     order: 2;
     justify-content: center;
     align-items: center;
-    position: "absolute";
+    /*position: "absolute";*/
     height: 1024px;
     left: 694px;
     border-radius: 8px;

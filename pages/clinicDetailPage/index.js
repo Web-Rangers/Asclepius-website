@@ -9,21 +9,21 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 
 const ClinicDetailPage = () => {
-  const router = useRouter();
-  const cardData = router.query;
-
-  function sliceIntoChunks(arr, chunkSize) {
-    const res = [];
-    for (let i = 0; i < arr.length; i += chunkSize) {
-        const chunk = arr.slice(i, i + chunkSize);
-        res.push(chunk);
-    }
-    return res;
-  }
-
-  const clinicData = sliceIntoChunks(clinicArrayData, 3);
-
-  console.log(clinicData)
+  // const router = useRouter();
+  // const cardData = router.query;
+  //
+  // function sliceIntoChunks(arr, chunkSize) {
+  //   const res = [];
+  //   for (let i = 0; i < arr.length; i += chunkSize) {
+  //       const chunk = arr.slice(i, i + chunkSize);
+  //       res.push(chunk);
+  //   }
+  //   return res;
+  // }
+  //
+  // const clinicData = sliceIntoChunks(clinicArrayData, 3);
+  //
+  // console.log(clinicData)
 
   return (
       <h1></h1>
