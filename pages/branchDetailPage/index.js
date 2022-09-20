@@ -196,9 +196,12 @@ const BranchDetailPage = () => {
       <div className={s.imageTitleContainer}>
         <Text style={classNames(s.clinicsTitleTextStyle, s.imageTitle)}> Images of the clinic</Text>
         <div className={s.imageContainer}>
-          {clinicImage.map((img) => (
-            <img src={img.src} alt="clinic image"/>
-          ))}
+          {clinicImage.map((img) => {
+            <>
+              <img src={img.src} alt="clinic image"/>
+            </>
+          }
+            )}
         </div>
         <div className={s.imageSlider}>
           <Image
