@@ -218,25 +218,27 @@ const ClinicDetailPage = () => {
             showStatus={false}
             showIndicators={false}
           >
-            {clinicData.map((chunk) => (
-              <div>
-                {
-                  chunk.map((item)=> {
-                    return <BranchPageCardItem
-                      key={item.id}
-                      alt={item.alt}
-                      clinicName={item.clinicName}
-                      workingDay={item.workingDay}
-                      workingHours={item.workingHours}
-                      clinicAddress={item.clinicAddress}
-                      rating={item.rating}
-                      data={item}
-                      src={item.src}
-                    />
-                  })
-                }
+            {clinicData.map((chunk) => {
+              return <>
+                <div>
+                  {
+                    chunk.map((item)=> {
+                      return <BranchPageCardItem
+                        key={item.id}
+                        alt={item.alt}
+                        clinicName={item.clinicName}
+                        workingDay={item.workingDay}
+                        workingHours={item.workingHours}
+                        clinicAddress={item.clinicAddress}
+                        rating={item.rating}
+                        data={item}
+                        src={item.src}
+                      />
+                    })
+                  }
               </div>
-            ))}
+              </>
+            })}
           </Carousel>
         </div>
       </div>
