@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       {signUp ? <SignUpHeader /> : <Header />}
-      <Component {...pageProps} />
+        <Component {...pageProps} />
       {signUp ? <SignUpFooter /> : <Footer />}
     </>
   );
