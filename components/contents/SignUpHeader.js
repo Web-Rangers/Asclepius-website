@@ -2,33 +2,30 @@ import { useState } from 'react';
 import classes from '../../styles/headerFooter.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 
 const SignUpHeader = () => {
 	const [messages, setMessages] = useState(true);
 	const [searchInput, setSearchInput] = useState('');
-	const router = useRouter();
 
 	const handleChange = (e) => {
 		setSearchInput(e.target.value);
 	};
 
-	const handleClick = (e) => {
-		e.preventDefault();
-		router.push('/');
-	};
 	console.log(searchInput);
 	return (
 		<div className={classes.signUpHeaderContainer}>
 			<div className={classes.f_half}>
 				<div>
-					<Image
-						src='/headerIcon.svg'
-						alt='headerIcon'
-						onClick={handleClick}
-						width='47px'
-						height='40px'
-					/>
+					<Link href='/'>
+						<a>
+							<Image
+								src='/headerIcon.svg'
+								alt='headerIcon'
+								width='47px'
+								height='40px'
+							/>
+						</a>
+					</Link>
 				</div>
 				<div className={classes.navbarContainer}>
 					<div className={classes.searchInput}>
