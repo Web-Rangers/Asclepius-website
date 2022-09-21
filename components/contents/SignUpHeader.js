@@ -30,7 +30,7 @@ const SignUpHeader = () => {
               </Link>
             </li>
             <li>
-              <Link href="Clinics">
+              <Link href="/branchPage">
                 <a> Services</a>
               </Link>
               <div className={classes.dropdown}>
