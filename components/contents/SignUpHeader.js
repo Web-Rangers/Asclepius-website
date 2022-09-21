@@ -1,6 +1,7 @@
 import { useState } from "react";
 import classes from "../../styles/headerFooter.module.css";
 import Link from "next/link";
+import DropDown from "../ui/DropDown";
 
 const SignUpHeader = () => {
   const [messages, setMessages] = useState(true);
@@ -21,7 +22,7 @@ const SignUpHeader = () => {
           <ul className={classes.navbarItems}>
             <li>
               <Link href="/MainPage">
-                <a>Main page</a>
+                <a>Home</a>
               </Link>
             </li>
             <li>
@@ -78,9 +79,10 @@ const SignUpHeader = () => {
         )}
         <img src="/testUser.png" alt="testUSerImage" />
         <img src="/dropDown.svg" alt="Search" />
+        <DropDown />
       </div>
       <div className={classes.burger}>
-        <img src='/burger.svg' alt="" />
+        <img src="/burger.svg" alt="" />
       </div>
     </div>
   );
