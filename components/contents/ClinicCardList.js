@@ -39,7 +39,7 @@ const ClinicCardList = ({ clinicsData }) => {
         </div>
       </div>
       <div className={classes.clinicCardList} id="slider">
-        {clinicsData.map((item, index) => {
+        {clinicsData?.map((item, index) => {
           return (
             <ClinicCardItem
               key={index}
