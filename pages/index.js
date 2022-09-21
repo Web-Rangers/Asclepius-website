@@ -10,10 +10,10 @@ export default function Home() {
       {/* <SignUpPage />
       <SignInPage /> */}
       {/* <ContactUs /> */}
-      {/* <HomePage /> */}
+      <HomePage />
       {/* <ClinicsPage /> */}
       {/* <BuyCardPage /> */}
-      <ClinicDetailPage />
+      {/* <ClinicDetailPage /> */}
     </>
   );
 }
