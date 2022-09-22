@@ -43,7 +43,7 @@ const Lobby = ({ handleSubmit }) => {
     )
 }
 
-Lobby.PropTypes = {
+Lobby.propTypes = {
     handleSubmit: PropTypes.func
 }
 

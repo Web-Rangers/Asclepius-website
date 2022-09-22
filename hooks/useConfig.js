@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const API_URL = `/vide/token`
+const API_URL = `http://localhost:3001/video/token`
 
 const INITIAL_STATE = {
     isLoading: false,
