@@ -16,6 +16,29 @@ export default function HomePage({ clinicsData }) {
 		'firstPartImg3.png',
 	];
 
+	const fakeData = [
+		{
+			displayName: 'fake clinic', 
+			logoUrl:"/testClinic.png",
+			address: {address:'fake address'}
+		},
+		{
+			displayName: 'fake clinic', 
+			logoUrl:"/testClinic.png",
+			address: {address:'fake address'}
+		},
+		{
+			displayName: 'fake clinic', 
+			logoUrl:"/testClinic.png",
+			address: {address:'fake address'}
+		},
+		{
+			displayName: 'fake clinic', 
+			logoUrl:"/testClinic.png",
+			address: {address:'fake address'}
+		},
+	]
+
 	// if(!clinicsData) {
 	//   return 'loading..'
 	// }
@@ -68,7 +91,7 @@ export default function HomePage({ clinicsData }) {
 					</div>
 				</div>
 			</div>
-			<ClinicCardList clinicsData={clinicsData} />
+			<ClinicCardList clinicsData={fakeData} />
 			<DoctorCardList />
 			<Services />
 			<Benefits />
