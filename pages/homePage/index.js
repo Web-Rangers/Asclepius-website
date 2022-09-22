@@ -8,6 +8,7 @@ import CardPrice from '../../components/contents/CardPrice';
 import Text from '../../components/ui/Text';
 import Button from '../../components/ui/Button';
 import axios from 'axios';
+import ResponsiveSlider from '../../components/contents/responsiveCarousel';
 
 export default function HomePage({ clinicsData }) {
 	const firstPartImgArray = [
@@ -56,13 +57,9 @@ export default function HomePage({ clinicsData }) {
 			<div className={classes.showSliderForMobile}>
 				<div className={classes.firstPart}>
 					<div className={classes.showSliderForMobile}>
+						<ResponsiveSlider />
 						<Text style={classes.medicalCardTitle}>
-							{' '}
 							Multifunctional medical <a>Card</a>
-						</Text>
-						<Text style={classes.medicalCardText}>
-							Contrary to popular belief, Lorem Ipsum is not simply random text.
-							It has roots in a pie
 						</Text>
 						<div className={classes.medicalCardsButtons}>
 							<Button

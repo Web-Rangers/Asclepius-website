@@ -72,6 +72,11 @@ const Services = () => {
               </div>
             </Link>
           </div>
+          <Button
+              style={s.registrationButtonResp}
+              onClick={handleClick}
+              name="Registration"
+            />
         </div>
       </div>
     </div>
