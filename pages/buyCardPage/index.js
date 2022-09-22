@@ -86,6 +86,7 @@ function BuyCardPage() {
           </div>
         </div>
       </div>
+      {/* <CardPrice withoutHeader onClick={openModal} /> */}
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
