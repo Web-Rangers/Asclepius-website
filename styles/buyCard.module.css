@@ -1,7 +1,13 @@
 .container {
   display: flex;
   flex-direction: column;
-  margin-top: 71px;
+  padding-top: 42px;
+  background-color: #fff;
+}
+.firstPart {
+  margin:auto;
+  width: calc(100% - 264px);
+  max-width: calc(1920px - 264px);
 }
 .headerContainer {
   display: flex;
@@ -17,7 +23,7 @@
   font-size: 46px;
   line-height: 28px;
   color: #1e2837;
-  margin-bottom: 100px;
+  margin-bottom: 72px;
 }
 .buyCardStep {
   display: flex;
@@ -44,12 +50,7 @@
 }
 .headerContainerRight {
   margin-bottom: 94px;
-  margin-right: 130;
 }
-.headerContainerLeft {
-  margin-left: 137px;
-}
-
 /* table  */
 
 .tableTitle {
@@ -289,6 +290,34 @@
   font-size: 14px;
   line-height: 19px;
   color: #1e2837;
+}
+
+.headerBg{
+  position: relative;
+  background-color: #F7F9FB;
+  width: 60vh;
+  height: 349px;
+}
+
+.doc {
+  position: absolute;
+  top:0;
+  right: 60%;
+  background-repeat:no-repeat;
+  background-size: contain;
+  width: 357px;
+  height: 372px;
+  margin-top:-23px;
+}
+
+.wdoc {
+  position: absolute;
+  top:0;
+  background-repeat:no-repeat;
+  background-size: contain;
+  width: 465px;
+  height: 349px;
+  right: 0;
 }
 
 @media only screen and (max-width: 767px) {

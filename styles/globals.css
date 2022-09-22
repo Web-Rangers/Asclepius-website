@@ -34,3 +34,40 @@ a {
     background: black;
   }
 } */
+
+.dot {
+  background-color: #D9D9D9!important;
+  opacity: 1
+}
+
+.carousel .control-dots {
+  bottom: -35px!important;
+}
+
+.carousel .control-dots .dot.selected {
+  position: relative;
+  background-color: #3A74D2!important;
+  box-shadow: 0 0 0!important;
+}
+
+.carousel .control-dots .dot {opacity: 1!important; box-shadow: 0 0 0 !important}
+
+.carousel .control-dots .dot.selected:after {
+  content:'';
+  left:0;
+  position: absolute;
+  border:1px solid #3A74D2;
+  width: 10px;
+  height: 10px;
+  border-radius:50%;
+  margin-top:-2px;
+  margin-left:-2px;
+}
+
+.carousel.carousel-slider {
+  overflow: unset!important;
+}
+
+.carousel-root {
+  margin-bottom:40px;
+}

@@ -59,37 +59,35 @@ function BuyCardPage() {
 
   return (
     <div className={s.container}>
-      <div className={s.headerContainer}>
-        <div className={s.headerContainerLeft}>
-          <Text style={s.headerContainerTitle}>How to buy a card ?</Text>
-          <div className={s.buyCardStep}>
-            <div>
-              <Text style={s.headerContainerNumber}>01</Text>
-              <Text style={s.headerContainerText}>Choose the desired card</Text>
+      <div className={s.firstPart}>
+        <div className={s.headerContainer}>
+          <div className={s.headerContainerLeft}>
+            <Text style={s.headerContainerTitle}>How to buy a card ?</Text>
+            <div className={s.buyCardStep}>
+              <div>
+                <Text style={s.headerContainerNumber}>01</Text>
+                <Text style={s.headerContainerText}>Choose the desired card</Text>
+              </div>
+              <div>
+                <Text style={s.headerContainerNumber}>02</Text>
+                <Text style={s.headerContainerText}>Add your personal data</Text>
+              </div>
+              <div>
+                <Text style={s.headerContainerNumber}>03</Text>
+                <Text style={s.headerContainerText}>
+                  Add your personal card and pay
+                </Text>
+              </div>
             </div>
-            <div>
-              <Text style={s.headerContainerNumber}>02</Text>
-              <Text style={s.headerContainerText}>Add your personal data</Text>
-            </div>
-            <div>
-              <Text style={s.headerContainerNumber}>03</Text>
-              <Text style={s.headerContainerText}>
-                Add your personal card and pay
-              </Text>
+          </div>
+          <div className={s.headerContainerRight}>
+            <div className={s.headerBg}>
+              <img src="/pose_6.svg" className={s.doc} />
+              <img src="/08.svg" className={s.wdoc} />
             </div>
           </div>
         </div>
-        <div className={s.headerContainerRight}>
-          <Image
-            src="/homepageslider2.png"
-            alt="star"
-            width="673px"
-            height="372px"
-            objectFit="cover"
-          />
-        </div>
       </div>
-      <CardPrice withoutHeader onClick={openModal} />
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
