@@ -1,20 +1,21 @@
-import { useState } from "react";
-import "../styles/globals.css";
-import Footer from "../components/contents/Footer";
-import SignUpHeader from "../components/contents/SignUpHeader";
-import Header from "../components/contents/Header";
-import SignUpFooter from "../components/contents/SignUpFooter";
+import { useState } from 'react';
+import '../styles/globals.css';
+import Footer from '../components/contents/Footer';
+import SignUpHeader from '../components/contents/SignUpHeader';
+import Header from '../components/contents/Header';
+import SignUpFooter from '../components/contents/SignUpFooter';
+import classes from '../styles/headerFooter.module.css';
 
 function MyApp({ Component, pageProps }) {
-  const [signUp, setSignUp] = useState(true);
+	const [signUp, setSignUp] = useState(false);
 
-  return (
-    <>
-      {signUp ? <SignUpHeader /> : <Header />}
-        <Component {...pageProps} />
-      {signUp ? <SignUpFooter /> : <Footer />}
-    </>
-  );
+	return (
+		<div className={classes.body}>
+			{signUp ? <SignUpHeader /> : <Header />}
+			<Component {...pageProps} />
+			{signUp ? <SignUpFooter /> : <Footer />}
+		</div>
+	);
 }
 
 export default MyApp;

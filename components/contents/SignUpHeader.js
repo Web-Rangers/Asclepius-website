@@ -2,6 +2,7 @@ import { useState } from 'react';
 import classes from '../../styles/headerFooter.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
+import DropDown from '../ui/DropDown';
 
 const SignUpHeader = () => {
 	const [messages, setMessages] = useState(true);
@@ -109,6 +110,9 @@ const SignUpHeader = () => {
 					src='/burger.svg'
 					alt=''
 				/>
+			</div>
+			<div className={classes.languages}>
+				<DropDown />
 			</div>
 		</div>
 	);

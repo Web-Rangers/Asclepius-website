@@ -1,301 +1,310 @@
 .container {
-    display: flex;
+	display: flex;
+	width: 100%;
 }
 
 .contactUsContainer {
-    display: flex;
+	display: flex;
+	margin-left: 210px;
+	margin-right: 210px;
 }
 
 .singInContainer {
-    height: 1024px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	height: 1024px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .contactInfoForMobile {
-    display: none;
+	display: none;
 }
 
 .contactUs {
-    flex: 1;
-    height: 1024px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	flex: 1;
+	height: 770px;
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	/* align-items: center; */
 }
 
 .headerIcon {
-    margin-right: 360px;
-    margin-top: -127px;
-    margin-bottom: 100px;
+	margin-right: 360px;
+	margin-top: -127px;
+	margin-bottom: 100px;
 }
 
 .headerIconSignIn {
-    margin-right: 360px;
-    margin-top: -350px;
-    margin-bottom: 100px;
+	margin-right: 360px;
+	margin-top: -350px;
+	margin-bottom: 100px;
 }
 
 .singInTextStyle {
-    width: 360px;
+	width: 360px;
 }
 
 .loginText {
-    color: #1e2837;
-    font-family: "Graphik";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 32px;
+	color: #1e2837;
+	font-family: 'Graphik';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 30px;
+	line-height: 32px;
 }
 
 .accountText {
-    color: #90959c;
-    font-family: "Graphik";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 16px;
-    order: 2;
+	color: #90959c;
+	font-family: 'Graphik';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 16px;
+	order: 2;
 }
 
 .loginOptionsContainer {
-    display: flex;
-    flex-direction: row;
-    gap: 32px;
-    color: #1e2837;
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 25px;
+	display: flex;
+	flex-direction: row;
+	gap: 32px;
+	color: #1e2837;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 25px;
 }
 
 .loginOptionsStyle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    border: 1px solid #e5e5e5;
-    width: 164px;
-    height: 50px;
-    border-radius: 5px;
-    margin-top: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #ffffff;
+	border: 1px solid #e5e5e5;
+	width: 164px;
+	height: 50px;
+	border-radius: 5px;
+	margin-top: 30px;
 }
 
 .inputStyle {
-    padding-left: 8px;
-    background-color: #ffffff;
-    border-top: 1px solid #d5d8de;
-    border-left: 1px solid #d5d8de;
-    border-right: 1px solid #d5d8de;
-    width: 360px;
+	/* padding-left: 8px; */
+	background-color: #ffffff;
+	border-top: 1px solid #e5e5e5;
+	border-left: 1px solid #e5e5e5;
+	border-right: 1px solid #e5e5e5;
+	width: 360px;
 }
 
 .linkedTitle {
-    display: flex;
-    justify-content: flex-end;
-    width: 360px;
-    margin-top: 18px;
+	display: flex;
+	justify-content: flex-end;
+	width: 360px;
+	margin-top: 18px;
 }
 
 .linkedTitleStyle {
-    color: #3a74d2;
-    font-family: "Graphik";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 16px;
-    padding-left: 3px;
+	color: #3a74d2;
+	font-family: 'Graphik';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 16px;
+	padding-left: 3px;
 }
 
 .loginButton {
-    width: 360px;
-    height: 52px;
-    border-radius: 5px;
-    background-color: #3a74d2;
-    color: #fff;
-    margin-top: 20px;
-    cursor: pointer;
+	width: 360px;
+	height: 52px;
+	border-radius: 5px;
+	background-color: #3a74d2;
+	color: #fff;
+	margin-top: 20px;
+	cursor: pointer;
+	border: none;
 }
 
 .iconsStyle {
-    padding-right: 8px;
+	padding-right: 8px;
 }
 
 .cardsContainer {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    height: 1024px;
-    left: 694px;
-    border-radius: 8px;
-    background-color: #f7f9fb;
-    border: 1px solid #dcdddf;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	height: 770px;
+	left: 694px;
+	border-radius: 8px;
+	background-color: #f7f9fb;
+	border: 1px solid #dcdddf;
 }
 
 .contactUsCardContainer {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    order: 2;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    height: 1024px;
-    left: 694px;
-    border-radius: 8px;
-    background-color: #f7f9fb;
-    border: 1px solid #dcdddf;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	order: 2;
+	justify-content: center;
+	align-items: center;
+	height: 770px;
+	right: 220px;
+	border-radius: 8px;
+	background-color: #ffffff;
+}
+.cardContainerImg {
+	/* margin-bottom: 10px; */
+	width: 100%;
+	background-color: #f7f9fb;
 }
 
 .iconContactInfo {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
 
 .nameSurnameContainer {
-    display: flex;
-    gap: 29px;
-    width: 360px;
+	display: flex;
+	gap: 29px;
+	width: 360px;
 }
 
 .nameSurnameStyle {
-    width: 164px;
-    border-top: 1px solid #d5d8de;
-    border-left: 1px solid #d5d8de;
-    border-right: 1px solid #d5d8de;
-    background-color: #ffffff;
-    padding-left: 8px;
+	width: 164px;
+	border-top: 1px solid #d5d8de;
+	border-left: 1px solid #d5d8de;
+	border-right: 1px solid #d5d8de;
+	background-color: #ffffff;
+	padding-left: 8px;
 }
 
 .lineContainer {
-    display: flex;
-    gap: 32px;
-    width: 360px;
+	display: flex;
+	gap: 32px;
+	width: 360px;
 }
 
 .line {
-    width: 164px;
-    height: 1px;
-    background-color: #e5e5e5;
-    margin-top: 22px;
+	width: 164px;
+	height: 1px;
+	background-color: #e5e5e5;
+	margin-top: 22px;
 }
 
 .lineTextStyle {
-    font-family: "Noto Sans";
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 16px;
-    color: #c4c4c4;
-    margin-top: 10px;
+	font-family: 'Noto Sans';
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 16px;
+	color: #c4c4c4;
+	margin-top: 10px;
 }
 
 .contactUsInputText {
-    display: flex;
-    justify-content: flex-start;
-    font-family: "Noto Sans";
-    width: 360px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 16px;
-    color: #1e2837;
-    margin-top: 20px;
-    margin-bottom: -10px;
+	display: flex;
+	justify-content: flex-start;
+	font-family: 'Noto Sans';
+	width: 360px;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 16px;
+	color: #1e2837;
+	margin-top: 20px;
+	margin-bottom: -10px;
 }
 
 .contactUsNameText {
-    display: flex;
-    justify-content: flex-start;
-    font-family: "Noto Sans";
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 16px;
-    color: #1e2837;
-    margin-top: 20px;
-    margin-bottom: -10px;
+	display: flex;
+	justify-content: flex-start;
+	font-family: 'Noto Sans';
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 16px;
+	color: #1e2837;
+	margin-top: 20px;
+	margin-bottom: -10px;
 }
 
 .contactInfo {
-    display: flex;
-    align-items: center;
-    margin-top: 32px;
+	display: flex;
+	align-items: center;
+	margin-top: 32px;
 }
 
 .contactInfoText {
-    font-family: "Noto Sans";
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 16px;
-    color: #1e2837;
-    padding-left: 3px;
-    padding-right: 15px;
+	font-family: 'Noto Sans';
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+	color: #1e2837;
+	padding-left: 3px;
+	padding-right: 15px;
 }
 
 /* mobile version  */
 
 @media only screen and (max-width: 767px) {
-  .contactUsContainer {
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px;
-    margin-bottom: 60px;
-  }
+	.contactUsContainer {
+		display: flex;
+		flex-direction: column;
+		margin-top: 50px;
+		margin-bottom: 60px;
+		margin: 50px 0px 60px 10px;
+	}
 
+	.contactUs {
+		order: 2;
+	}
 
-    .contactUs {
-        order: 2;
-    }
+	.contactUsCardContainer {
+		order: 1;
+		border: none;
+	}
 
-    .contactUsCardContainer {
-        order: 1;
-        border: none;
-    }
+	.cardContainerImg {
+		/* margin-bottom: 10px;
+		width: 100%;
+		background-color: #f3f6f8; */
+		display: none;
+	}
 
-    .cardContainerImg {
-        margin-bottom: 10px;
-        width: 100%;
-        background-color: #f3f6f8;
-    }
+	.contactInfoForMobile {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+		gap: 20px;
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
 
-    .contactInfoForMobile {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        gap: 20px;
-        margin-top: 40px;
-        margin-bottom: 40px;
-    }
+	.iconContactInfo {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
 
-    .iconContactInfo {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
-
-  .contactInfo {
-    display: none;
-  }
-  .cardsContainer {
-    display: none;
-  }
-  .headerIcon {
-    margin-left: 16px;
-  }
-  .headerIconSignIn {
-    margin-left: 16px;
-  }
-  .singInContainer {
-    background-color: #ffffff;
-  }
+	.contactInfo {
+		display: none;
+	}
+	.cardsContainer {
+		display: none;
+	}
+	.headerIcon {
+		margin-left: 16px;
+	}
+	.headerIconSignIn {
+		margin-left: 16px;
+	}
+	.singInContainer {
+		background-color: #ffffff;
+	}
 }
