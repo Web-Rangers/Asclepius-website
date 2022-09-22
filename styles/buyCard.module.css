@@ -168,6 +168,7 @@
   justify-content: space-between;
   margin-top: 41;
   margin-bottom: 79px;
+  height: 372px;
 }
 .checkoutTitleStyle {
   font-family: "Noto Sans";
@@ -294,9 +295,12 @@
 
 .headerBg{
   position: relative;
-  background-color: #F7F9FB;
-  width: 60vh;
-  height: 349px;
+  width: 595px;
+  height: 374px;
+  background-image: url('/doctors.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-left:50px;
 }
 
 .doc {
@@ -318,6 +322,13 @@
   width: 465px;
   height: 349px;
   right: 0;
+}
+.headerContainerLeft {
+  margin-top: 52px;
+}
+
+.buyCardStep div {
+  margin-bottom:36px;
 }
 
 @media only screen and (max-width: 767px) {
