@@ -5,7 +5,7 @@ import Link from 'next/link';
 const DoctorCardItem = (props) => {
 	return (
 		<Link href='/doctors/doctor_detailed'>
-			<a>
+			<a className={classes.doctorItem}>
 				<div
 					className={classes.doctorItemContainer}
 					key={props.id}
@@ -21,6 +21,7 @@ const DoctorCardItem = (props) => {
 							<Text>{props.rating}</Text>
 						</div>
 						<img
+							className={classes.docImage}
 							src={props.src}
 							alt={'doctor'}
 							width='267px'

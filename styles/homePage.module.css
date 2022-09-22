@@ -1,12 +1,12 @@
 .homePageContainer {
   width: 100%;
+  background-color: #fff;
 }
 .showSliderForMobile {
   display: none;
 }
 .firstPart {
   margin:auto;
-  margin-bottom: 64px;
   width: calc(100% - 280px);
   max-width: calc(1920px - 280px);
 }
@@ -38,12 +38,24 @@
   position: relative;
   overflow: hidden;
 }
-
+.doctorCardContainer{
+  padding:40px 0;
+}
+.doctorPhotoContainer {
+  position: relative;
+}
+.doctorItem {
+  width: 24%;
+}
+.docImage {
+  width: 100%;
+}
 .clinicCardContainer {
   display: flex;
   flex-direction: column;
   margin-top: 100px;
   background-color: #f7f9fb;
+  padding:  77px 0 ;
 }
 .clinicCardContainerTitle {
   display: flex;
@@ -193,7 +205,6 @@
   display: flex;
   flex-direction: row;
   gap: 33px;
-  margin-top: 93px;
 }
 
 .serviceContainer {
@@ -337,14 +348,18 @@
   display: flex;
   flex-direction: column;
   margin-top: 25px;
-  background-color: #f5f5f5;
+  padding: 70px 0;
+}
+.benefit {
+  background-color: #F7F9FB;
 }
 .benefits {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 .benefitsContainerImg {
-  margin: 54.28px 31.29px 10px 77px;
+  margin: 54.28px 31.29px 37px 0;
 }
 .benefitMainTitle {
   display: flex;
@@ -394,9 +409,8 @@
 .cardPriceContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin-top: 32px;
-  margin-bottom: 90px;
+  padding-bottom:90px;
 }
 .cardOffersTitles {
   display: flex;
@@ -404,7 +418,7 @@
   align-items: center;
 }
 .cardPriceTitle {
-  margin-top: 36px;
+  margin-top: 56px;
   margin-bottom: 22px;
   font-family: "Noto Sans";
   font-style: normal;
@@ -428,7 +442,7 @@
   gap: 44.54px;
 }
 .card {
-  width: 360px;
+  width: 31%;
   height: 598px;
   border-radius: 8px;
   border: 2px solid #dcdddf;
@@ -552,6 +566,10 @@
   color: #3A74D2;
 }
 
+.headerCardImg {
+  width: 100%;
+}
+
 @media only screen and (min-width: 1460px) {
   .imgPart {
     height: 60%;
@@ -561,7 +579,6 @@
 @media only screen and (max-width: 1366px) {
   .firstPart {
     margin:auto;
-    margin-bottom: 64px;
     width: calc(100% - 100px);
   }
 }
@@ -707,7 +724,6 @@
     flex-direction: column;
     align-items: center;
     margin-top: 32px;
-    margin-bottom: 90px;
   }
   .card {
     width: 99%;
