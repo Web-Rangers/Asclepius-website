@@ -2,9 +2,13 @@ import classes from "../../styles/homePage.module.css";
 import Text from "../ui/Text";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import {useWindowSize} from '../useWindowSize';
+import { ReactSVG } from "react-svg";
 
 const ClinicCardItem = (props) => {
   const router = useRouter();
+
+  const size = useWindowSize();
 
   const handleClick = (data) => {
     router.push({
@@ -19,17 +23,17 @@ const ClinicCardItem = (props) => {
       key={props.key}
       onClick={() => handleClick(props.data)}
     >
+      <div className={classes.cardRating}>
+        <ReactSVG src="/clinicStar.svg" />
+        <span>4.9</span>
+      </div>
       <div className={classes.imgPart}>
-        {/* <div className={classes.ratingContainer}>
-          <Image src="/Star.svg" alt="star" width="16.67px" height="15.04" />
-          <Text>{props.rating}</Text>
-        </div> */}
         <Image
           src={props.src}
           alt={"clinic"}
           className={classes.imgPartImage}
-          width="268px"
-          height="167px"
+          width="398px"
+          height="290px"
         />
       </div>
       <Text style={classes.clinicNameText}>{props.clinicName}</Text>

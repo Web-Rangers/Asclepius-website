@@ -5,17 +5,20 @@
   display: none;
 }
 .firstPart {
+  margin:auto;
   margin-bottom: 64px;
+  width: calc(100% - 280px);
+  max-width: calc(1920px - 280px);
 }
 
 .firstPartImg {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 30px;
+  overflow: hidden;
 }
 .firstPartImg img {
-  max-width: 367px;
-  width: 100%;
+  width: 30%;
   height: 228px;
   border-radius: 5px;
 }
@@ -23,15 +26,19 @@
 .cardItemContainer {
   display: flex;
   flex-direction: column;
-  margin-right: 30px;
+  width: 24%;
+  overflow: hidden;
+  position: relative;
 }
 
 .imgPart {
-  width: 268px;
+  width: 100%;
   height: 167px;
   border-radius: 5px;
   position: relative;
+  overflow: hidden;
 }
+
 .clinicCardContainer {
   display: flex;
   flex-direction: column;
@@ -41,22 +48,27 @@
 .clinicCardContainerTitle {
   display: flex;
   flex-direction: column;
-  margin: 77px 165px 39px 125px;
+  /* margin: 77px 165px 39px 125px; */
 }
 .arrows {
   display: flex;
   justify-content: space-between;
+  margin-bottom:39px;
+}
+.arrowsIcons {
+  display: flex;
+  gap:24px;
 }
 .clinicCardList {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  padding-left: 16px;
   align-self: center;
-  width: 82%;
+  width: 100%;
   height: 100%;
   overflow-x: hidden;
   flex-wrap: nowrap;
+  gap:30px;
 }
 
 .serviceTextStyle {
@@ -94,6 +106,9 @@
   color: #797a80;
   margin-top: 10px;
   margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .clinicAddressText img {
   margin-right: 10px;
@@ -163,10 +178,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin-left: 100px;
-  margin-right: 100px;
-  padding-left: 16px;
-  width: 82%;
+  width: 100%;
   overflow-x: hidden;
   flex-wrap: nowrap;
   gap: 30px;
@@ -492,7 +504,32 @@
   color: #797a80;
 }
 
-/* mobile version  */
+.cardRating {
+  position: absolute;
+  top:0;
+  z-index:3;
+  background-color: #3A74D233;
+  right:0;
+  margin: 16px 11px;
+  border-radius: 14px;
+  padding:5px 11px;
+  display: flex;
+  align-items: center;
+  gap:6px;
+}
+
+.cardRating span {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 14px;
+  color: #3A74D2;
+}
+
+@media only screen and (min-width: 1460px) {
+  .imgPart {
+    height: 60%;
+  }
+}
 
 @media only screen and (max-width: 767px) {
   .homePageContainer {
@@ -627,9 +664,7 @@
   .cardItemContainer {
     display: flex;
     flex-direction: column;
-    margin-right: 30px;
     width: 100%;
-    margin-left: 16px;
   }
 
   .cardPriceContainer {
