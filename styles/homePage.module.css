@@ -443,15 +443,16 @@
 }
 .card {
   width: 31%;
-  height: 598px;
   border-radius: 8px;
-  border: 2px solid #dcdddf;
+  border: 1px solid #DCDDDF;
+  padding-bottom: 44px;
 }
 .header {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  margin: 0 30px;
   margin-bottom: 38px;
 }
 .priceContainer {
@@ -462,9 +463,9 @@
   display: block;
   margin: 0 auto;
   margin-bottom: 54px;
+  width: calc(100% - 52px);
 }
 .priceContainerTitle {
-  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -474,7 +475,6 @@
   margin-bottom: 7px;
 }
 .priceNumber {
-  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -505,7 +505,7 @@
   margin: 0 auto;
   width: 280px;
   height: 48px;
-  border: 2px solid #dcdddf;
+  border: 1px solid #DCDDDF;
   background-color: #ffffff;
   font-family: "Noto Sans";
   font-style: normal;
