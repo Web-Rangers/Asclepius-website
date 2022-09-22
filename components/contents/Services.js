@@ -35,48 +35,41 @@ const Services = () => {
           />
         </div>
         <div className={s.rightSideContent}>
-          <div className={s.rightSideContentCards}>
-            <Link href="/onlineconsultation">
-              <div className={s.servicesCard}>
-                <img src="videoCallIcon.svg" alt="" />
+          <Link href="/onlineconsultation">
+            <div className={s.servicesCard}>
+              <img src="videoCallIcon.svg" alt="" />
+              <div className={s.servicesInfo}>
                 <Text style={s.servicesCardTitle}>Online consultation</Text>
                 <Text style={s.servicesCardText}>
                   Get video and audio consultation from doctor
                 </Text>
               </div>
-            </Link>
-            <Link href="/clinics">
-              <div className={s.servicesCardSecond}>
-                <img src="homeVisitIcon.svg" alt="" />
-                <Text style={s.servicesCardTitleActive}>
+            </div>
+          </Link>
+          <Link href="/clinics">
+            <div className={s.servicesCard}>
+              <img src="homeVisitIcon.svg" alt="" />
+              <div className={s.servicesInfo}>
+                <Text style={s.servicesCardTitle}>
                   Visit to the clinic
                 </Text>
                 <Text style={s.servicesCardText}>
                   Get video and audio consultation from doctor
                 </Text>
               </div>
-            </Link>
-          </div>
-          <div className={s.rightSideContentCards}>
-            <Link href="/homeVisit">
-              <div className={s.servicesCard}>
-                <img src="homeVisit.svg" alt="" />
-                <Text style={s.servicesCardTitle}>Doctor at home</Text>
-                <Text style={s.servicesCardText}>
-                  Get video and audio consultation from doctor
-                </Text>
-              </div>
-            </Link>
-            <Link href="/Laboratory">
-              <div className={s.servicesCard}>
-                <img src="lab.svg" alt="" />
+            </div>
+          </Link>
+          <Link href="/Laboratory">
+            <div className={s.servicesCard}>
+              <img src="lab.svg" alt="" />
+              <div className={s.servicesInfo}>
                 <Text style={s.servicesCardTitle}>Laboratory</Text>
                 <Text style={s.servicesCardText}>
                   Get video and audio consultation from doctor
                 </Text>
               </div>
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

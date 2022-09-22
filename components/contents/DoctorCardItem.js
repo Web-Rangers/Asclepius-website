@@ -39,10 +39,6 @@ const DoctorCardItem = (props) => {
 							src='phoneIcon.svg'
 							alt='phoneCall'
 						/>
-						<img
-							src='Home.svg'
-							alt='visitHome'
-						/>
 					</div>
 				</div>
 			</a>
