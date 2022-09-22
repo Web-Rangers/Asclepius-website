@@ -2,13 +2,13 @@
   flex-direction: column;
   margin: 0 auto;
   overflow: hidden;
-  max-width: 1162px;
+  max-width: 100%;
 }
 
 .slideshowSlider {
   white-space: nowrap;
   transition: ease 1000ms;
-  width: 1162px;
+  width: 100%;
   height: 494px;
   margin-top: 30px;
   padding-left: 30px;
@@ -37,6 +37,7 @@
   display: inline-block;
   position: relative;
   width: 100%;
+  overflow: hidden;
 }
 .content {
   display: inline-block;
@@ -100,4 +101,22 @@
 }
 .linkCard {
   color: #3a74d2;
+}
+
+.sliderImg {
+  position: absolute;
+  right:0;
+  top:0;
+}
+
+.sliderImage {
+  position: absolute;
+  right:0;
+  top:0;
+}
+
+.sliderCoverImage {
+  position: absolute;
+  right:0;
+  bottom:0;
 }

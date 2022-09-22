@@ -62,23 +62,29 @@ const Slider = () => {
                     <Button name="Download" style={classes.downloadOrderBtn} />
                   </div>
                 </div>
-                <Image
-                  key={index}
-                  src={image.src}
-                  alt="sliderimg"
-                  height=" 490px"
-                  width="555px"
-                  style={{ position: "absolute" }}
-                />
+                <div className={classes.sliderImage}>
+                  <Image
+                    key={index}
+                    src={image.src}
+                    alt="sliderimg"
+                    height=" 490px"
+                    width="555px"
+                    style={{ position: "absolute" }}
+                  />
+                </div>
               </div>
             ) : (
-              <Image
-                key={index}
-                src={image.src}
-                alt="sliderimg"
-                height=" 491px"
-                width="1162px"
-              />
+                <div className={classes.sliderCoverImage}>
+                  <Image
+                    key={index}
+                    src={image.src}
+                    alt="sliderimg"
+                    height=" 490px"
+                    width="1000px"
+                    style={{ position: "absolute" }}
+                    objectFit="cover"
+                  />
+              </div>
             )}
           </div>
         ))}

@@ -18,7 +18,7 @@ const ClinicCardList = ({ clinicsData }) => {
       <div className={classes.clinicCardContainerTitle}>
         <Text style={classes.serviceTextStyle}>Services</Text>
         <div className={classes.arrows}>
-          <Text style={classes.ourClinicTextStyle}>OurClinics</Text>
+          <Text style={classes.ourClinicTextStyle}>Our Clinics</Text>
           <div className={classes.arrowsIcons}>
             <Image
               src="/Arrow - Left.svg"
