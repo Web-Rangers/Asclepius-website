@@ -469,4 +469,7 @@
     .activeTab {
         display: block;
     }
+    .orders {
+        margin: 0 16px;
+    }
 }

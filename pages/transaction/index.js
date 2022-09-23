@@ -67,37 +67,37 @@ export default function Transactions() {
             date: '5.05.2022',
             price: '$23',
             status: `Completed`,
-            id_transactions: '1079098823455',
+            id_transactions: '10793455',
         },
         {
             date: '5.05.2015',
             price: '$23',
             status: `Completed`,
-            id_transactions: '1079098823455',
+            id_transactions: '1073455',
         },
         {
             date: '5.05.2012',
             price: '$23',
             status: `Completed`,
-            id_transactions: '1079098823455',
+            id_transactions: '13455',
         },
         {
             date: '5.05.2025',
             price: '$23',
             status: `Completed`,
-            id_transactions: '1079098823455',
+            id_transactions: '1455',
         },
         {
             date: '5.05.2022',
             price: '$23',
             status: `Completed`,
-            id_transactions: '1079098823455',
+            id_transactions: '1079055',
         },
         {
             date: '5.05.2022',
             price: '$23',
             status: `Completed`,
-            id_transactions: '1079098823455',
+            id_transactions: '103455',
         },
     ];
 
