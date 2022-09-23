@@ -8,6 +8,7 @@ import CardPrice from '../../components/contents/CardPrice';
 import Text from '../../components/ui/Text';
 import Button from '../../components/ui/Button';
 import axios from 'axios';
+import ResponsiveSlider from '../../components/contents/responsiveCarousel';
 
 export default function HomePage({ clinicsData }) {
 	const firstPartImgArray = [
@@ -16,52 +17,83 @@ export default function HomePage({ clinicsData }) {
 		'firstPartImg3.png',
 	];
 
+	const fakeData = [
+		{
+			displayName: 'fake clinic', 
+			logoUrl:"/testClinic.png",
+			address: {address:'fake address'}
+		},
+		{
+			displayName: 'fake clinic', 
+			logoUrl:"/testClinic.png",
+			address: {address:'fake address'}
+		},
+		{
+			displayName: 'fake clinic', 
+			logoUrl:"/testClinic.png",
+			address: {address:'fake address'}
+		},
+		{
+			displayName: 'fake clinic', 
+			logoUrl:"/testClinic.png",
+			address: {address:'fake address'}
+		},
+	]
+
 	// if(!clinicsData) {
 	//   return 'loading..'
 	// }
 
 	return (
 		<div className={classes.homePageContainer}>
-			<div className={classes.firstPart}>
-				<div className={classes.showSlider}>
-					<Slider />
-				</div>
-				<div className={classes.showSliderForMobile}>
-					<Text style={classes.medicalCardTitle}>
-						{' '}
-						Multifunctional medical <a>Card</a>
-					</Text>
-					<Text style={classes.medicalCardText}>
-						Contrary to popular belief, Lorem Ipsum is not simply random text.
-						It has roots in a pie
-					</Text>
-					<div className={classes.medicalCardsButtons}>
-						<Button
-							name='Order a card'
-							style={classes.orderBtn}
-						/>
-						<Button
-							name='Download'
-							style={classes.downloadOrderBtn}
-						/>
+			
+			<div>
+				<div className={classes.firstPart}>
+					<div className={classes.showSlider}>
+						<Slider />
 					</div>
 				</div>
-				<div className={classes.firstPartImg}>
-					{firstPartImgArray.map((image, index) => (
-						<img
-							className={classes.slide}
-							key={index}
-							src={image}
-							alt='firstPartimg'
-						/>
-					))}
-				</div>
-				<ClinicCardList clinicsData={clinicsData} />
-				<DoctorCardList />
-				<Services />
-				<Benefits />
-				<CardPrice />
 			</div>
+			<div className={classes.showSliderForMobile}>
+				<div className={classes.firstPart}>
+					<div className={classes.showSliderForMobile}>
+						<ResponsiveSlider />
+						<Text style={classes.medicalCardTitle}>
+							<span>Multifunctional medical</span> 
+							<a>Card</a>
+						</Text>
+						<div className={classes.medicalCardsButtons}>
+							<Button
+								name='Order a card'
+								style={classes.orderBtn}
+							/>
+							<Button
+								name='Download'
+								style={classes.downloadOrderBtn}
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div className={classes.firstPart}>
+					<div className={classes.firstPartImg}>
+						{firstPartImgArray.map((image, index) => (
+							<img
+								className={classes.slide}
+								key={index}
+								src={image}
+								alt='firstPartimg'
+							/>
+						))}
+					</div>
+				</div>
+			</div>
+			<ClinicCardList clinicsData={fakeData} />
+			<DoctorCardList />
+			<Services />
+			<Benefits />
+			<CardPrice />
 		</div>
 	);
 }

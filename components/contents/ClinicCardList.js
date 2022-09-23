@@ -15,42 +15,44 @@ const ClinicCardList = ({ clinicsData }) => {
   };
   return (
     <div className={classes.clinicCardContainer}>
-      <div className={classes.clinicCardContainerTitle}>
-        <Text style={classes.serviceTextStyle}>Services</Text>
-        <div className={classes.arrows}>
-          <Text style={classes.ourClinicTextStyle}>OurClinics</Text>
-          <div className={classes.arrowsIcons}>
-            <Image
-              src="/Arrow - Left.svg"
-              alt="arrowLeft"
-              width="24px"
-              height="24px"
-              onClick={slideLeft}
-            />
+      <div className={classes.firstPart}>
+        <div className={classes.clinicCardContainerTitle}>
+          <Text style={classes.serviceTextStyle}>Services</Text>
+          <div className={classes.arrows}>
+            <Text style={classes.ourClinicTextStyle}>Our Clinics</Text>
+            <div className={classes.arrowsIcons}>
+              <Image
+                src="/Arrow - Left.svg"
+                alt="arrowLeft"
+                width="24px"
+                height="24px"
+                onClick={slideLeft}
+              />
 
-            <Image
-              src="/Arrow - Right.svg"
-              alt="arrowRight"
-              width="24px"
-              height="24px"
-              onClick={slideRight}
-            />
+              <Image
+                src="/Arrow - Right.svg"
+                alt="arrowRight"
+                width="24px"
+                height="24px"
+                onClick={slideRight}
+              />
+            </div>
           </div>
         </div>
-      </div>
-      <div className={classes.clinicCardList} id="slider">
-        {clinicsData?.map((item, index) => {
-          return (
-            <ClinicCardItem
-              key={index}
-              src={item.logoUrl || "/testClinic.png"}
-              clinicName={item.displayName}
-              clinicAddress={item.address.address}
-              rating={"4.9"}
-              data={item}
-            />
-          );
-        })}
+        <div className={classes.clinicCardList} id="slider">
+          {clinicsData?.map((item, index) => {
+            return (
+              <ClinicCardItem
+                key={index}
+                src={item.logoUrl || "/testClinic.png"}
+                clinicName={item.displayName}
+                clinicAddress={item.address.address}
+                rating={"4.9"}
+                data={item}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );

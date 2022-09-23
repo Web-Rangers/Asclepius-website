@@ -8,6 +8,8 @@ import Button from "../../components/ui/Button";
 import { Tooltip } from "@nextui-org/react";
 import Modal from "react-modal";
 import CardCheckoutModal from "../../components/modals/CardCheckoutModal";
+import classNames from 'classnames';
+import {ReactSVG} from 'react-svg';
 
 function BuyCardPage() {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -55,41 +57,43 @@ function BuyCardPage() {
       })
     }
   }, [])
-  
+
+  const [selectPack, setSelectPack] = useState('1 months');
+  const [open, setOpen] = useState(false);
+  const packs = ['1 months', '3 months', '6 months'];
 
   return (
     <div className={s.container}>
-      <div className={s.headerContainer}>
-        <div className={s.headerContainerLeft}>
-          <Text style={s.headerContainerTitle}>How to buy a card ?</Text>
-          <div className={s.buyCardStep}>
-            <div>
-              <Text style={s.headerContainerNumber}>01</Text>
-              <Text style={s.headerContainerText}>Choose the desired card</Text>
+      <div className={s.firstPart}>
+        <div className={s.headerContainer}>
+          <div className={s.headerContainerLeft}>
+            <Text style={s.headerContainerTitle}>How to buy a card ?</Text>
+            <div className={s.buyCardStep}>
+              <div>
+                <Text style={s.headerContainerNumber}>01</Text>
+                <Text style={s.headerContainerText}>Choose the desired card</Text>
+              </div>
+              <div>
+                <Text style={s.headerContainerNumber}>02</Text>
+                <Text style={s.headerContainerText}>Add your personal data</Text>
+              </div>
+              <div>
+                <Text style={s.headerContainerNumber}>03</Text>
+                <Text style={s.headerContainerText}>
+                  Add your personal card and pay
+                </Text>
+              </div>
             </div>
-            <div>
-              <Text style={s.headerContainerNumber}>02</Text>
-              <Text style={s.headerContainerText}>Add your personal data</Text>
-            </div>
-            <div>
-              <Text style={s.headerContainerNumber}>03</Text>
-              <Text style={s.headerContainerText}>
-                Add your personal card and pay
-              </Text>
+          </div>
+          <div className={s.headerContainerRight}>
+            <div className={s.headerBg}>
             </div>
           </div>
         </div>
-        <div className={s.headerContainerRight}>
-          <Image
-            src="/homepageslider2.png"
-            alt="star"
-            width="673px"
-            height="372px"
-            objectFit="cover"
-          />
-        </div>
       </div>
-      <CardPrice withoutHeader onClick={openModal} />
+      <div className={s.forMobile}>
+        <CardPrice withoutHeader onClick={openModal} />
+      </div>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -106,7 +110,11 @@ function BuyCardPage() {
         {buyCardData.map((item) => (
           <div
             className={
-              item.Gold.length === 0 ? s.tableDataTitleStyles : s.tableDataStyle
+              classNames({
+                [s.tableDataTitleStyles]: item.Gold.length === 0,
+                [s.tableDataStyle]: item.Gold.length !== 0,
+                [s.diffTab]: item.key == 'header'
+              })
             }
             key={item.id}
           >
@@ -172,9 +180,12 @@ function BuyCardPage() {
                     width="20px"
                     height="20px"
                   />
-                ) : (
-                  item.silver
-                )}
+                ) : item.key == 'header' ? <div>
+                  <span>{item.price}</span>
+                  <br />
+                  <span>{item.silver}</span>
+                </div> : item.silver
+                }
               </Text>
             </div>
             <div className={s.tableGoldNum}>
@@ -200,7 +211,11 @@ function BuyCardPage() {
                     height="20px"
                   />
                 ) : (
-                  item.Gold
+                  item.key == 'header' ? <div>
+                  <span>{item.priceGold}</span>
+                  <br />
+                  <span>{item.Gold}</span>
+                </div> : item.Gold
                 )}
               </Text>
             </div>
@@ -227,16 +242,46 @@ function BuyCardPage() {
                     height="20px"
                   />
                 ) : (
-                  item.platinium
+                  item.key == 'header' ? <div>
+                  <span>{item.pricePlatinum}</span>
+                  <br />
+                  <span>{item.platinium}</span>
+                </div> : item.platinium
                 )}
               </Text>
             </div>
           </div>
         ))}
         <div className={s.buttonContainer}>
-          <Button style={s.button} name="Buy now" />
+          {
+            selectPack === '1 months' && <div className={s.price}>50$</div>
+          }
+          {
+            selectPack === '3 months' && <div className={s.price}>100$</div>
+          }
+          {
+            selectPack === '6 months' && <div className={s.price}>150$</div>
+          }
+          <div className={s.customDropdown}>
+            <div className={s.customOpt} onClick={()=> setOpen(!open)}>
+              <span>
+                {selectPack}
+              </span>
+              <ReactSVG className={classNames({
+                [s.arrowTransform]: open
+              })} src="/dropArrow.svg" />
+            </div>
+            <div className={classNames(s.customOptList, {
+              [s.customoptions]: open
+            })}>
+              {
+                packs.filter(e=> e !== selectPack).map((e)=>{
+                  return <div onClick={()=> {setSelectPack(e); setOpen(false)}}>{e}</div>
+                })
+              }
+            </div>
+          </div>
           <Button style={s.buttonActive} name="Buy now" />
-          <Button style={s.button} name="Buy now" />
         </div>
       </div>
     </div>

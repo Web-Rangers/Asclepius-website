@@ -1,105 +1,130 @@
 .slideshow {
-	flex-direction: column;
-	margin: 0 auto;
-	overflow: hidden;
-	max-width: 1162px;
+  flex-direction: column;
+  margin: 0 auto;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .slideshowSlider {
-	white-space: nowrap;
-	transition: ease 1000ms;
-	width: 1162px;
-	height: 494px;
-	margin-top: 30px;
-	background-color: #ffffff;
+  white-space: nowrap;
+  transition: ease 1000ms;
+  width: 100%;
+  height: 494px;
+  margin-top: 30px;
+  padding-left: 30px;
+  background: #f7f9fb;;
+}
+
+.headerCardImg {
+  width: 100%;
 }
 
 .slide {
-	display: inline-block;
-	position: relative;
-	height: 494px;
-	width: 100%;
+  display: inline-block;
+  position: relative;
+  height: 494px;
+  width: 100%;
 }
 
 .slideshowDots {
-	text-align: center;
+  text-align: center;
 }
 
 .slideshowDot {
-	display: inline-block;
-	border-radius: 50%;
-	cursor: pointer;
-	margin: 44px 7px 44px;
-	background-color: #ffff;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 44px 7px 44px;
+  background-color: #ffff;
 }
 .sliderTextContent {
-	display: inline-block;
-	position: relative;
-	width: 100%;
-	background-color: #f7f9fb;
-	max-width: 1160px;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 .content {
-	display: inline-block;
-	vertical-align: top;
-	width: 508px;
-	height: 494px;
-	margin-right: 100px;
-	padding-top: 20px;
-	margin-left: 41px;
+  display: inline-block;
+  vertical-align: top;
+  width: 508px;
+  height: 494px;
+  margin-right: 100px;
+  padding-top: 40px;
 }
 .medicalCardTitle {
-	font-family: 'Noto Sans';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 64px;
-	line-height: 84px;
-	color: #1e2837;
-	white-space: pre-line;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 84px;
+  color: #1e2837;
+  white-space: pre-line;
 }
 .medicalCardText {
-	font-family: 'Noto Sans';
-	font-style: normal;
-	font-weight: 500;
-	font-size: 18px;
-	line-height: 30px;
-	color: #797a80;
-	white-space: pre-line;
-	width: 455px;
-	margin-top: 20px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 30px;
+  color: #797a80;
+  white-space: pre-line;
+  width: 455px;
+  margin-top: 20px;
 }
 .medicalCardsButtons {
-	display: flex;
-	justify-content: flex-start;
-	margin-top: 38px;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 38px;
 }
 .orderBtn {
-	width: 146px;
-	height: 48px;
-	background: #3a74d2;
-	border-radius: 5px;
-	font-family: 'Noto Sans';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 16px;
-	line-height: 22px;
-	color: #ffffff;
-	border: none;
-	margin-right: 30px;
+  width: 146px;
+  height: 48px;
+  background: #3a74d2;
+  border-radius: 5px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  color: #ffffff;
+  border: none;
+  margin-right: 30px;
 }
 .downloadOrderBtn {
-	width: 146px;
-	height: 48px;
-	background: #ffffff;
-	font-family: 'Noto Sans';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 16px;
-	line-height: 22px;
-	color: #182372;
-	border: none;
-	border-radius: 5px;
+  width: 146px;
+  height: 48px;
+  background: #ffffff;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  color: #182372;
+  border: none;
+  border-radius: 5px;
 }
 .linkCard {
-	color: #3a74d2;
+  color: #3a74d2;
+}
+
+.sliderImg {
+  position: absolute;
+  right:0;
+  top:0;
+}
+
+.sliderImage {
+  position: absolute;
+  right:0;
+  top:0;
+}
+
+.sliderCoverImage {
+  position: absolute;
+  right:0;
+  bottom:0;
+}
+
+.slide {
+  vertical-align: top;
 }

@@ -5,7 +5,7 @@ import Link from 'next/link';
 const DoctorCardItem = (props) => {
 	return (
 		<Link href='/doctors/doctor_detailed'>
-			<a>
+			<a className={classes.doctorItem}>
 				<div
 					className={classes.doctorItemContainer}
 					key={props.id}
@@ -13,7 +13,7 @@ const DoctorCardItem = (props) => {
 					<div className={classes.doctorPhotoContainer}>
 						<div className={classes.ratingContainer}>
 							<img
-								src='Star.svg'
+								src='whitestar.svg'
 								alt='star'
 								width='16.67px'
 								height='15.04px'
@@ -21,6 +21,7 @@ const DoctorCardItem = (props) => {
 							<Text>{props.rating}</Text>
 						</div>
 						<img
+							className={classes.docImage}
 							src={props.src}
 							alt={'doctor'}
 							width='267px'
@@ -38,10 +39,6 @@ const DoctorCardItem = (props) => {
 						<img
 							src='phoneIcon.svg'
 							alt='phoneCall'
-						/>
-						<img
-							src='Home.svg'
-							alt='visitHome'
 						/>
 					</div>
 				</div>
