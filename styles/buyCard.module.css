@@ -31,6 +31,9 @@
   margin-top: 74px;
   margin-bottom: 36px;
 }
+.itemPriceAndLength {
+  margin-top:-35px;
+}
 .headerContainerNumber {
   font-family: "Noto Sans";
   font-style: normal;
@@ -108,7 +111,15 @@
   line-height: 27px;
   color: #1e2837;
 }
-
+.tableTitleStyle div {
+  margin-top:-30px;
+}
+.tableTitleStyle div span:nth-child(1){
+  color: #3A74D2;
+}
+.diffTab {
+  margin-top:55px;
+}
 .tableTextStyle {
   display: flex;
   font-family: "Noto Sans";
@@ -152,6 +163,7 @@
   font-size: 16px;
   line-height: 22px;
   color: #ffff;
+  cursor:pointer;
 }
 
 /* checkout modal style */
@@ -331,6 +343,45 @@
   margin-bottom:36px;
 }
 
+.customOptList {
+  display: none;
+}
+.customoptions{
+  display: block;
+  position: absolute;
+  background-color:#F7F9FB;
+  margin-top:2px;
+  width: 204px;
+}
+.customoptions div {
+  padding:10px;
+  cursor:pointer;
+  border-bottom:1px solid#fff;
+}
+.customOpt {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color:#F7F9FB;
+  border-radius: 5px;
+  width: 204px;
+  height: 64px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #1E2837;
+  cursor:pointer;
+}
+.arrowTransform {
+  margin-top:10px;
+  transform: rotate(180deg);
+}
+.customDropdown {
+  position: relative;
+}
+.price {
+  color:#3A74D2;
+  margin-top:18px;
+}
 @media only screen and (max-width: 767px) {
   .headerContainer {
     flex-direction: column;
