@@ -382,8 +382,15 @@
   color:#3A74D2;
   margin-top:18px;
 }
+.forMobile{
+  display: none;
+}
 @media only screen and (max-width: 767px) {
+  .forMobile {
+    display: block;
+  }
   .headerContainer {
+    display: block;
     flex-direction: column;
     margin-bottom:0px;
   }

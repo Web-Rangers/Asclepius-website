@@ -13,7 +13,7 @@ const DoctorCardItem = (props) => {
 					<div className={classes.doctorPhotoContainer}>
 						<div className={classes.ratingContainer}>
 							<img
-								src='Star.svg'
+								src='whitestar.svg'
 								alt='star'
 								width='16.67px'
 								height='15.04px'

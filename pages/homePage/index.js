@@ -59,7 +59,8 @@ export default function HomePage({ clinicsData }) {
 					<div className={classes.showSliderForMobile}>
 						<ResponsiveSlider />
 						<Text style={classes.medicalCardTitle}>
-							Multifunctional medical <a>Card</a>
+							<span>Multifunctional medical</span> 
+							<a>Card</a>
 						</Text>
 						<div className={classes.medicalCardsButtons}>
 							<Button

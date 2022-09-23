@@ -137,6 +137,9 @@
   border-radius: 14px;
   background-color: rgba(58, 116, 210, 0.2);
 }
+.ratingContainer span {
+  color:#fff;
+}
 .doctorItemContainer {
   display: flex;
   flex-direction: column;
@@ -522,7 +525,6 @@
   margin: 0 auto;
   width: 280px;
   height: 48px;
-  border: 2px solid #dcdddf;
   background-color: #3a74d2;
   font-family: "Noto Sans";
   font-style: normal;
@@ -530,6 +532,8 @@
   font-size: 16px;
   line-height: 22px;
   color: #ffffff;
+  border:none;
+  border-radius:5px;
 }
 .servicePackageText {
   font-family: "Noto Sans";
@@ -613,6 +617,9 @@
     line-height: 44px;
     color: #1e2837;
   }
+  .medicalCardTitle span{
+    display: block;
+  }
   .medicalCardTitle a {
     color: #3a74d2;
     margin-bottom: 25px;
@@ -682,6 +689,17 @@
     overflow-x: scroll;
     overflow-y: hidden;
     gap: 0;
+  }
+  .clinicCardList::-webkit-scrollbar,
+  .doctorCardList::-webkit-scrollbar
+  {
+      width: 0px;
+  }
+  .clinicCardList::-webkit-scrollbar-track-piece,
+  .doctorCardList::-webkit-scrollbar-track-piece
+  {
+      background-color: transparent;
+      border-radius: 6px;
   }
   .cardItemContainer {
     display: flex;
@@ -828,6 +846,7 @@
   }
   .imgPart{
     width: 285px;
+    height: 207px;
   }
   .doctorCardContainer {
     padding: 20px 0;
