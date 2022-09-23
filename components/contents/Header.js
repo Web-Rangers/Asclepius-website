@@ -40,7 +40,7 @@ const Header = () => {
 
 	const handleClick = (e) => {
 		e.preventDefault();
-		router.push('/signUpPage');
+		router.push('/signInPage');
 		setIsOpen(false);
 	};
 
@@ -147,11 +147,15 @@ const Header = () => {
 			</div>
 
 			<div className={classes.headerContainer}>
-				<img
-					src='/headerIcon.svg'
-					alt='headerIcon'
-					className={classes.mobileIcon}
-				/>
+				<Link href={'/homePage'}>
+					<a>
+						<img
+							src='/headerIcon.svg'
+							alt='headerIcon'
+							className={classes.mobileIcon}
+						/>
+					</a>
+				</Link>
 
 				<div className={classes.searchInput}>
 					<input
