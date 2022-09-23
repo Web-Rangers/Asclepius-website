@@ -4,9 +4,8 @@
   /* margin-left: 140px;
   margin-right: 140px; */
   margin-bottom: 13px;
-  padding: 0 60px;
-  max-width: 1920px;
-  width: 100%;
+  width: calc(100% - 280px);
+  max-width: calc(1920px - 280px);
   margin:auto;
 }
 .aboutUsTitle {
@@ -45,16 +44,28 @@
   .aboutUsContainer {
     padding: 0 16px;
     margin: 0!important;
+    width: 100%!important;
   }
   .aboutUsContainer{
     margin-right:16px;
     margin-left: 16px;
   }
-  .aboutUsTitle {
+  .aboutUsTitle:nth-child(1) {
     margin-top:0;
+    display: none;
+  }
+  .aboutUsTitle {
+    margin:0;
+    font-size: 16px;
+  }
+  .aboutUsText {
+    font-size: 14px;
+    line-height: 30px;
+    margin-bottom:24px;
   }
   .aboutImg {
     height: 204px;
+    margin-bottom:20px;
   }
   .aboutImg img {
     width: 150%;
