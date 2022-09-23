@@ -8,6 +8,8 @@ import Button from "../../components/ui/Button";
 import { Tooltip } from "@nextui-org/react";
 import Modal from "react-modal";
 import CardCheckoutModal from "../../components/modals/CardCheckoutModal";
+import classNames from 'classnames';
+import {ReactSVG} from 'react-svg';
 
 function BuyCardPage() {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -55,7 +57,10 @@ function BuyCardPage() {
       })
     }
   }, [])
-  
+
+  const [selectPack, setSelectPack] = useState('1 months');
+  const [open, setOpen] = useState(false);
+  const packs = ['1 months', '3 months', '6 months'];
 
   return (
     <div className={s.container}>
@@ -103,7 +108,11 @@ function BuyCardPage() {
         {buyCardData.map((item) => (
           <div
             className={
-              item.Gold.length === 0 ? s.tableDataTitleStyles : s.tableDataStyle
+              classNames({
+                [s.tableDataTitleStyles]: item.Gold.length === 0,
+                [s.tableDataStyle]: item.Gold.length !== 0,
+                [s.diffTab]: item.key == 'header'
+              })
             }
             key={item.id}
           >
@@ -169,9 +178,12 @@ function BuyCardPage() {
                     width="20px"
                     height="20px"
                   />
-                ) : (
-                  item.silver
-                )}
+                ) : item.key == 'header' ? <div>
+                  <span>{item.price}</span>
+                  <br />
+                  <span>{item.silver}</span>
+                </div> : item.silver
+                }
               </Text>
             </div>
             <div className={s.tableGoldNum}>
@@ -197,7 +209,11 @@ function BuyCardPage() {
                     height="20px"
                   />
                 ) : (
-                  item.Gold 
+                  item.key == 'header' ? <div>
+                  <span>{item.priceGold}</span>
+                  <br />
+                  <span>{item.Gold}</span>
+                </div> : item.Gold
                 )}
               </Text>
             </div>
@@ -224,16 +240,46 @@ function BuyCardPage() {
                     height="20px"
                   />
                 ) : (
-                  item.platinium
+                  item.key == 'header' ? <div>
+                  <span>{item.pricePlatinum}</span>
+                  <br />
+                  <span>{item.platinium}</span>
+                </div> : item.platinium
                 )}
               </Text>
             </div>
           </div>
         ))}
         <div className={s.buttonContainer}>
-          <Button style={s.button} name="Buy now" />
+          {
+            selectPack === '1 months' && <div className={s.price}>50$</div>
+          }
+          {
+            selectPack === '3 months' && <div className={s.price}>100$</div>
+          }
+          {
+            selectPack === '6 months' && <div className={s.price}>150$</div>
+          }
+          <div className={s.customDropdown}>
+            <div className={s.customOpt} onClick={()=> setOpen(!open)}>
+              <span>
+                {selectPack}
+              </span>
+              <ReactSVG className={classNames({
+                [s.arrowTransform]: open
+              })} src="/dropArrow.svg" />
+            </div>
+            <div className={classNames(s.customOptList, {
+              [s.customoptions]: open
+            })}>
+              {
+                packs.filter(e=> e !== selectPack).map((e)=>{
+                  return <div onClick={()=> {setSelectPack(e); setOpen(false)}}>{e}</div>
+                })
+              }
+            </div>
+          </div>
           <Button style={s.buttonActive} name="Buy now" />
-          <Button style={s.button} name="Buy now" />
         </div>
       </div>
     </div>
