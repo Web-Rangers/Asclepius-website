@@ -61,7 +61,7 @@ const ClinicDetailPage = () => {
               <Text>{cardData?.rating}</Text>
             </div>
             <Image
-              src={cardData?.src}
+              src='/clinicImage.png'
               alt={cardData?.alt}
               className={s.imgPartImage}
               width="368px"
@@ -71,11 +71,11 @@ const ClinicDetailPage = () => {
           <Text style={s.clinicNameText}>{cardData?.clinicName}</Text>
           <Text style={s.clinicWorkingHours}>
             {cardData?.workingDay}
-            {cardData?.workingHours}
+            Monday - friday 10:00-17:00
           </Text>
           <Text style={s.weekendWorkingHours}>
             {cardData?.weekendWorkingDay}
-            {cardData?.weekendWorkingHours}
+            Saturday - Sunday 10:00-14:00
           </Text>
           <Text style={s.contactInfoText}>
             <Image
@@ -84,15 +84,15 @@ const ClinicDetailPage = () => {
               width="24px"
               height="24px"
             />
-            {cardData?.clinicPhoneNumber}
+            +995577997799
           </Text>
           <Text style={s.contactInfoText}>
             <Image src="/mailIcon.svg" alt="" width="24px" height="24px" />
-            {cardData?.clinicEmail}
+            Atcare@gmail.com
           </Text>
           <Text style={s.contactInfoText}>
             <Image src="/LocationIcon.svg" alt="" width="24px" height="24px" />
-            {cardData?.clinicAddress}
+            Carymouth , Hallmark Clinic
           </Text>
         </div>
     
@@ -177,11 +177,6 @@ const ClinicDetailPage = () => {
                 Here is the offer name Chairman of the Association of
                 Dermatologists{" "}
               </Text>
-              <Text style={s.serviceName}>Offer name3</Text>
-              <Text style={s.serviceText}>
-                Here is the offer name Chairman of the Association of
-                Dermatologists{" "}
-              </Text>
             </div>
             <div className={s.cardType}>
               <Text style={s.clinicInfoTitle}>Card Type</Text>
@@ -197,14 +192,6 @@ const ClinicDetailPage = () => {
                   src="/Card 1.svg"
                   width="117px"
                   height="68.34px"
-                />
-    
-                <Image
-                  alt="gold card"
-                  src="/Card 2.svg"
-                  width="117px"
-                  height="68.34px"
-                  style={{ paddingRight: "4px" }}
                 />
               </div>
             </div>
