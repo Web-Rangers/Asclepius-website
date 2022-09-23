@@ -98,11 +98,10 @@
 .imageContainer {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   gap: 30px;
   margin-top: 24px;
   overflow: hidden;
-  padding: 0 0;
+  padding: 0 76px;
 }
 
 .imageContainer img {
@@ -398,6 +397,7 @@
   .imageContainer {
     margin:20px;
     margin-top:40px;
+    padding:0;
   }
   .imageTitle {
     display: block;
