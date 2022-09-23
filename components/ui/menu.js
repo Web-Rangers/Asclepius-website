@@ -48,10 +48,10 @@ export default function Menu({
             </div>
             <div
                 className={classNames(styles.menuItem, {
-                    [styles.activeMenuItem]: active === 'notification'
+                    [styles.activeMenuItem]: active === 'notifications'
                 })}
                 onClick={()=>{
-                    onClick('notification')
+                    onClick('notifications')
                 }}
             >
                 <img src="notificationIcon.svg" alt="" />
