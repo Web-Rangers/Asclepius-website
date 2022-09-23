@@ -4,6 +4,7 @@ import Input from '../../components/ui/Input';
 import Button from '../../components/ui/Button';
 import Text from '../../components/ui/Text';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const ContactUs = () => {
 	const [values, setValues] = useState({
@@ -25,6 +26,18 @@ export const ContactUs = () => {
 		<>
 			<div className={classes.contactUsContainer}>
 				<div className={classes.contactUs}>
+					<div className={classes.imgForMobile}>
+						<Link href={'/homePage'}>
+							<a>
+								<Image
+									src='/contactUs.png'
+									alt='cards'
+									width='333px'
+									height='441'
+								/>
+							</a>
+						</Link>
+					</div>
 					<div className={classes.singInTextStyle}>
 						<h1 className={classes.loginText}>Contact us</h1>
 						<Text style={classes.accountText}>

@@ -235,19 +235,24 @@
 	padding-left: 3px;
 	padding-right: 15px;
 }
-
+.imgForMobile {
+	display: none;
+}
 /* mobile version  */
 
 @media only screen and (max-width: 767px) {
+	.container {
+		padding: 0;
+	}
 	.contactUsContainer {
 		display: flex;
 		flex-direction: column;
-		margin-top: 50px;
-		margin-bottom: 60px;
 		margin: 50px 0px 60px 10px;
 	}
-
 	.contactUs {
+		display: flex;
+		align-items: center;
+		width: 100%;
 		order: 2;
 	}
 
@@ -261,6 +266,12 @@
 		width: 100%;
 		background-color: #f3f6f8; */
 		display: none;
+	}
+	.imgForMobile {
+		display: flex;
+		justify-content: flex-end;
+		width: 400px;
+		margin-top: -150px;
 	}
 
 	.contactInfoForMobile {
@@ -293,6 +304,8 @@
 		margin-left: 16px;
 	}
 	.singInContainer {
-		background-color: #ffffff;
+		display: flex;
+		align-items: center;
+		background-color: #ffff;
 	}
 }

@@ -4,7 +4,6 @@ import classes from '../../styles/headerFooter.module.css';
 import DropDown from '../ui/DropDown';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import SignUpHeader from './SignUpHeader';
 import Image from 'next/image';
 import Modal from 'react-modal';
 
@@ -54,10 +53,18 @@ const Header = () => {
 					/>
 
 					<div className={classes.mobileheader}>
-						<Link href='/signInPage'>
-							<a className={classes.signInText}>Sign In</a>
-						</Link>
-
+						<div className={classes.searchInputMobile}>
+							<input
+								type='search'
+								placeholder='Search...'
+								value={searchInput}
+								onChange={handleChange}
+							/>
+							<img
+								src='/Search.svg'
+								alt='Search'
+							/>
+						</div>
 						<div onClick={openModal}>
 							<Image
 								src='/burgerIcon.svg'

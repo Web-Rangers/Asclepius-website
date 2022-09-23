@@ -95,14 +95,19 @@
 }
 
 @media only screen and (max-width: 767px) {
+	.container {
+		display: flex;
+		margin: 0px;
+	}
 	.cardsContainer {
 		display: none;
 	}
 	.headerIcon {
 		margin-left: 16px;
-		margin-top: -350px;
 	}
 	.singInContainer {
-		background-color: #ffffff;
+		display: flex;
+		align-items: center;
+		background-color: #ffff;
 	}
 }

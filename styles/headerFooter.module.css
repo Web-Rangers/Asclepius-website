@@ -288,7 +288,13 @@
 	.headerForMobile {
 		display: flex;
 		justify-content: center;
+		align-items: center;
 		width: 100%;
+		height: 116px;
+		background-color: #f7f9fb;
+	}
+	.headerContainer {
+		display: none;
 	}
 	.mobileHeaderContainer {
 		display: flex;
@@ -303,6 +309,7 @@
 	.mobileheader {
 		display: flex;
 		justify-content: flex-end;
+		align-items: center;
 		gap: 20px;
 		width: 100%;
 		margin-right: 30px;
@@ -445,6 +452,33 @@
 	.navbarItems {
 		display: none;
 	}
+
+	.searchInputMobile {
+		display: flex;
+		justify-content: space-around;
+		align-items: 'center';
+		background-color: #f7f9fb;
+		margin-left: 32px;
+		padding-right: 14px;
+		width: 252px;
+		height: 44px;
+		border-radius: 5px;
+	}
+	.searchInputMobile input {
+		border: none;
+		width: 200px;
+		padding-left: 24px;
+		background-color: #f7f9fb;
+	}
+	.searchInputMobile input:focus {
+		outline: none;
+	}
+	.searchInputMobile img {
+		display: flex;
+		align-items: center;
+		width: 24px;
+	}
+
 	.searchInput {
 		/* width: 140px;
 		justify-content: flex-end;
