@@ -52,6 +52,7 @@ const Header = () => {
 						src='/headerIcon.svg'
 						alt='headerIcon'
 					/>
+
 					<div className={classes.mobileheader}>
 						<Link href='/signInPage'>
 							<a className={classes.signInText}>Sign In</a>
@@ -147,7 +148,7 @@ const Header = () => {
 			</div>
 
 			<div className={classes.headerContainer}>
-				<Link href={'/homePage'}>
+				<Link href={'/'}>
 					<a>
 						<img
 							src='/headerIcon.svg'
@@ -164,6 +165,7 @@ const Header = () => {
 						value={searchInput}
 						onChange={handleChange}
 					/>
+
 					<img
 						src='/Search.svg'
 						alt='Search'

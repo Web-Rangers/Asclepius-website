@@ -27,30 +27,33 @@ export const PasswordConfirm = () => {
 				</Link>
 
 				<div className={classes.singInContainer}>
-					<img
-						src='confirm.svg'
-						alt='Confirm Icon'
-						// className={classes.headerIcon}
-					/>
-					<h1 className={classes.checkEmailText}>Please check your E-mail</h1>
-					<Text style={classes.codeText}>
-						A one time code will be sent to your e-mail{' '}
-					</Text>
-					<Input
-						id='filled-basic'
-						label='Enter code'
-						variant='filled'
-						type='text'
-						value={enterCode}
-						onChange={handleChange}
-						inputProps={{
-							className: classes.inputStyle,
-						}}
-					/>
-					<Button
-						type='submit'
-						name={'Confirm'}
-					/>
+					<div className={classes.confirmIcon}>
+						<img
+							src='confirm.svg'
+							alt='Confirm Icon'
+						/>
+					</div>
+					<div className={classes.confirmCodeConatiner}>
+						<h1 className={classes.checkEmailText}>Please check your E-mail</h1>
+						<Text style={classes.codeText}>
+							A one time code will be sent to your e-mail{' '}
+						</Text>
+						<Input
+							id='filled-basic'
+							label='Enter code'
+							variant='filled'
+							type='text'
+							value={enterCode}
+							onChange={handleChange}
+							inputProps={{
+								className: classes.inputStyle,
+							}}
+						/>
+						<Button
+							type='submit'
+							name={'Confirm'}
+						/>
+					</div>
 				</div>
 			</div>
 
@@ -58,6 +61,8 @@ export const PasswordConfirm = () => {
 				<img
 					src='cards.png'
 					alt='cards'
+					width='650px'
+					height='500px'
 				/>
 			</div>
 		</div>

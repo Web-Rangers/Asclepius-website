@@ -1,6 +1,5 @@
 .container {
 	display: flex;
-	width: 100%;
 	margin-left: 166px;
 }
 .singInContainer {
@@ -9,10 +8,24 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+.confirmCodeConatiner {
+	display: flex;
+	flex-direction: column;
 	align-items: center;
+	width: 368px;
+}
+.confirmIcon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 368px;
 }
 .headerIcon {
 	margin-top: 32px;
+}
+.leftSideContainer {
+	flex: 1;
 }
 .passwordRecoveryText {
 	display: flex;
@@ -63,18 +76,14 @@
 	line-height: 16px;
 	color: #1e2837;
 }
+
 .cardsContainer {
 	display: flex;
-	flex-direction: column;
+	border: 1px solid #dcdddf;
+	background-color: #f7f9fb;
+	flex: 1;
 	justify-content: center;
 	align-items: center;
-	position: absolute;
-	height: 1024px;
-	right: 0px;
-	width: 50%;
-	border-radius: 8px;
-	background-color: #f7f9fb;
-	border: 1px solid #dcdddf;
 }
 .codeText {
 	justify-content: center;
