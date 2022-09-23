@@ -82,12 +82,11 @@ function BuyCardPage() {
           </div>
           <div className={s.headerContainerRight}>
             <div className={s.headerBg}>
-              <img src="/pose_6.svg" className={s.doc} />
-              <img src="/08.svg" className={s.wdoc} />
             </div>
           </div>
         </div>
       </div>
+      {/* <CardPrice withoutHeader onClick={openModal} /> */}
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -198,7 +197,7 @@ function BuyCardPage() {
                     height="20px"
                   />
                 ) : (
-                  item.Gold
+                  item.Gold 
                 )}
               </Text>
             </div>
