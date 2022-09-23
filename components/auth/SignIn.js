@@ -78,6 +78,8 @@ export const SignIn = () => {
 				<img
 					src='cards.png'
 					alt='cards'
+					width='650px'
+					height='500px'
 				/>
 			</div>
 		</div>
