@@ -2,6 +2,7 @@ import ClinicCardItem from "./ClinicCardItem";
 import classes from "../../styles/homePage.module.css";
 import Text from "../ui/Text";
 import Image from "next/image";
+import { Carousel } from 'react-responsive-carousel';
 
 const ClinicCardList = ({ clinicsData }) => {
   const slideLeft = () => {
@@ -20,38 +21,33 @@ const ClinicCardList = ({ clinicsData }) => {
           <Text style={classes.serviceTextStyle}>Services</Text>
           <div className={classes.arrows}>
             <Text style={classes.ourClinicTextStyle}>Our Clinics</Text>
-            <div className={classes.arrowsIcons}>
-              <Image
-                src="/Arrow - Left.svg"
-                alt="arrowLeft"
-                width="24px"
-                height="24px"
-                onClick={slideLeft}
-              />
-
-              <Image
-                src="/Arrow - Right.svg"
-                alt="arrowRight"
-                width="24px"
-                height="24px"
-                onClick={slideRight}
-              />
-            </div>
           </div>
         </div>
         <div className={classes.clinicCardList} id="slider">
-          {clinicsData?.map((item, index) => {
-            return (
-              <ClinicCardItem
-                key={index}
-                src={item.logoUrl || "/testClinic.png"}
-                clinicName={item.displayName}
-                clinicAddress={item.address.address}
-                rating={"4.9"}
-                data={item}
-              />
-            );
-          })}
+          <Carousel
+            className={classes.carousel}
+            showStatus={false}
+            showIndicators={false}
+          >
+            {clinicsData?.map((chunk) => {
+              return <>
+                <div className={classes.clinicCardItem}>
+                  {
+                    chunk.map((item, index)=> {
+                      return <ClinicCardItem
+                        key={index}
+                        src={item.logoUrl || "/testClinic.png"}
+                        clinicName={item.displayName}
+                        clinicAddress={item.address.address}
+                        rating={"4.9"}
+                        data={item}
+                      />
+                    })
+                  }
+              </div>
+              </>
+            })}
+          </Carousel>
         </div>
       </div>
     </div>

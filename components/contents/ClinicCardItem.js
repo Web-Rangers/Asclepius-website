@@ -16,7 +16,7 @@ const ClinicCardItem = (props) => {
       query: data,
     });
   };
-  console.log("data", props);
+
   return (
     <div
       className={classes.cardItemContainer}
@@ -36,7 +36,7 @@ const ClinicCardItem = (props) => {
           height="290px"
         />
       </div>
-      <Text style={classes.clinicNameText}>{props.clinicName}</Text>
+      <h2 className={classes.clinicNameText}>{props.clinicName}</h2>
 
       <Text style={classes.clinicAddressText}>
         <Image src="/map-pin 1.svg" alt="" width="16.67px" height="15.04" />

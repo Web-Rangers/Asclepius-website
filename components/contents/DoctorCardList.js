@@ -2,6 +2,7 @@ import DoctorCardItem from '../contents/DoctorCardItem';
 import classes from '../../styles/homePage.module.css';
 import Text from '../ui/Text';
 import Image from 'next/image';
+import { Carousel } from 'react-responsive-carousel';
 
 const doctorData = [
 	{
@@ -33,7 +34,7 @@ const doctorData = [
 		rating: '4.9',
 	}
 ];
-const DoctorCardList = () => {
+const DoctorCardList = ({doctorsData}) => {
 	const slideLeft = () => {
 		var slider = document.getElementById('slider');
 		slider.scrollLeft = slider.scrollLeft - 300;
@@ -46,45 +47,39 @@ const DoctorCardList = () => {
 	return (
 		<div className={classes.doctorCardContainer}>
 			<div className={classes.firstPart}>
-				<div className={classes.doctorCardContainer}>
-					<div className={classes.clinicCardContainerTitle}>
-						<Text style={classes.serviceTextStyle}>Popular</Text>
-						<div className={classes.arrows}>
-							<Text style={classes.ourClinicTextStyle}>Experienced doctors</Text>
-							<div className={classes.arrowsIcons}>
-								<Image
-									src='/Arrow - Left.svg'
-									alt='arrowLeft'
-									width='24px'
-									height='24px'
-									onClick={slideLeft}
-								/>
-								<Image
-									src='/Arrow - Right.svg'
-									alt='arrowRight'
-									width='24px'
-									height='24px'
-									onClick={slideRight}
-								/>
-							</div>
-						</div>
+				<div className={classes.clinicCardContainerTitle}>
+					<Text style={classes.serviceTextStyle}>Popular</Text>
+					<div className={classes.arrows}>
+						<Text style={classes.ourClinicTextStyle}>Experienced doctors</Text>
 					</div>
-					<div
-						className={classes.doctorCardList}
-						id='slider'
+				</div>
+				<div
+					className={classes.doctorCardList}
+					id='slider'
+				>
+					<Carousel
+						className={classes.carousel}
+						showStatus={false}
+						showIndicators={false}
 					>
-						{doctorData.map((item, index) => {
-							return (
-								<DoctorCardItem
-									key={index}
-									rating={item.rating}
-									src={item.src}
-									doctorName={item.name}
-									speciality={item.speciality}
-								/>
-							);
+						{doctorsData?.map((chunk) => {
+							return <>
+								<div className={classes.clinicCardItem}>
+								{
+									chunk.map((item, index)=> {
+										return <DoctorCardItem
+											key={index}
+											rating={item.rating}
+											src={item.pictureUrl}
+											doctorName={item.firstName}
+											speciality={item?.professions[0]?.name}
+										/>
+								})
+							}
+						</div>
+						</>
 						})}
-					</div>
+					</Carousel>
 				</div>
 			</div>
 		</div>
