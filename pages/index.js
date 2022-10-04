@@ -11,6 +11,7 @@ import Button from '../components/ui/Button';
 import axios from 'axios';
 import ResponsiveSlider from '../components/contents/responsiveCarousel';
 import {useWindowSize} from '../components/useWindowSize';
+import {getData} from '../components/request';
 
 function Home({ clinics, doctors }) {
 	const [clinicData, setClinicData] = useState([]);
@@ -25,17 +26,16 @@ function Home({ clinics, doctors }) {
 	];
 
 	function sliceIntoChunks(arr, chunkSize) {
-	  const res = [];
-	  for (let i = 0; i < arr.length; i += chunkSize) {
-		  const chunk = arr.slice(i, i + chunkSize);
-		  res.push(chunk);
-	  }
-	  return res;
+	  	const res = [];
+	  	for(let i = 0; i < arr.length; i += chunkSize) {
+			const chunk = arr.slice(i, i + chunkSize);
+			res.push(chunk);
+		}
+		return res;
 	}
   
 	useEffect(()=> {
 		if(windowSize.width > 600){
-			console.log(windowSize.width)
 			setClinicData(sliceIntoChunks(clinics, 4))
 		}else {
 			setClinicData(sliceIntoChunks(clinics, 1))
@@ -52,7 +52,6 @@ function Home({ clinics, doctors }) {
 
 	return (
 		<div className={classes.homePageContainer}>
-			
 			<div>
 				<div className={classes.firstPart}>
 					<div className={classes.showSlider}>
@@ -102,17 +101,6 @@ function Home({ clinics, doctors }) {
 			<CardPrice />
 		</div>
 	);
-}
-
-async function getData(url) {
-	try {
-		const res = await fetch(url)
-		const response = res.json();
-
-		return response
-	}catch(error){
-		console.log(error)
-	}
 }
 
 export const getStaticProps = async () => {
