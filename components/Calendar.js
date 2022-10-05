@@ -371,7 +371,7 @@ function WeekView({ date, schedule = [], active, setActive, booking }) {
     const [events, setEvents] = useState([]);
     const [linesV, setLinesV] = useState([]);
     const [day, setDay] = useState('');
-    const [availableTimes, setAvailableTimes] = useState();
+    const [availableTimes, setAvailableTimes] = useState([]);
 
     function configureHours() {
         const hours = [];
@@ -586,9 +586,14 @@ function WeekView({ date, schedule = [], active, setActive, booking }) {
 
 function AvailableTime({day, available}) {
     const [active, setActive] = useState('');
+    
+    useEffect(()=>{
+        setActive('')
+    },[available])
+
     return (
         <>
-            {available?.map((time), key=>{
+            {available?.map((time,key) => {
                 return <div key={key} className={classNames(styles.availableTime,  {
                     [styles.activeTime]: active === time
                 })}

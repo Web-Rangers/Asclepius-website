@@ -151,7 +151,7 @@ const doctorsArray = [
   },
 ];
 
-export default function Doctors() {
+export default function Doctors({doctors}) {
   const [isOpen, setOpen] = useState();
   const [status, setStatus] = useState("");
   const [serviceType, setServiceType] = useState("");
@@ -162,8 +162,10 @@ export default function Doctors() {
   const currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
+    console.log(doctors)
     return doctorsArray.slice(firstPageIndex, lastPageIndex);
   }, [currentPage]);
+
 
   return (
     <>
