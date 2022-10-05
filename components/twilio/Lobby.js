@@ -7,9 +7,6 @@ const Lobby = ({ handleSubmit }) => {
 
     const onSubmit = e => {
         e.preventDefault();
-        console.log('username', username)
-        console.log('roomname', roomName)
-
         handleSubmit && handleSubmit({ username, roomName })
     }
 
