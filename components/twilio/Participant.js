@@ -6,8 +6,6 @@ import UserInfo from "../ui/UserInfo"
 function Participant({ toggleMicrophone, isMicrophoneOn, participant, type }) {
     const { videoOn, audioOn, videoTrack, audioTrack } = useTrack({ participant })
 
-    console.log(participant, 'remote')
-
     return (
         <>
             {videoOn ? <> <VideoTrack track={videoTrack} /> <UserInfo toggleMicrophone={toggleMicrophone} isMicrophoneOn={isMicrophoneOn} name={participant} /> </> : 'video off'}
