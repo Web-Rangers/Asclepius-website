@@ -61,7 +61,7 @@ export default function DoctorDetailed({doctor, educations, certificates}) {
                             <h2>{firstName}</h2>
                             <div className={styles.proffesion}>
                                 {professions?.map((prof)=>{
-                                    return <div className={styles.prof}>
+                                    return <div key={prof.id} className={styles.prof}>
                                         {prof?.name}
                                     </div>
                                 })}
