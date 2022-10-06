@@ -418,8 +418,12 @@
   .imgPart > span {
     width: 100%!important;
   }
+  .branchPage {
+    padding: 0 0px;
+  }
   .branchPage ul {
-    margin-bottom:0px;
+    width: 100%;
+    margin-bottom:30px;
     margin-top:0;
     justify-content: flex-start;
   }

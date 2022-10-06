@@ -1,7 +1,13 @@
 .container {
   display: flex;
   flex-direction: column;
-  margin-top: 71px;
+  padding-top: 42px;
+  background-color: #fff;
+}
+.firstPart {
+  margin:auto;
+  width: calc(100% - 264px);
+  max-width: calc(1920px - 264px);
 }
 .headerContainer {
   display: flex;
@@ -17,13 +23,16 @@
   font-size: 46px;
   line-height: 28px;
   color: #1e2837;
-  margin-bottom: 100px;
+  margin-bottom: 72px;
 }
 .buyCardStep {
   display: flex;
   flex-direction: column;
   margin-top: 74px;
   margin-bottom: 36px;
+}
+.itemPriceAndLength {
+  margin-top:-35px;
 }
 .headerContainerNumber {
   font-family: "Noto Sans";
@@ -44,12 +53,7 @@
 }
 .headerContainerRight {
   margin-bottom: 94px;
-  margin-right: 130;
 }
-.headerContainerLeft {
-  margin-left: 137px;
-}
-
 /* table  */
 
 .tableTitle {
@@ -107,7 +111,15 @@
   line-height: 27px;
   color: #1e2837;
 }
-
+.tableTitleStyle div {
+  margin-top:-30px;
+}
+.tableTitleStyle div span:nth-child(1){
+  color: #3A74D2;
+}
+.diffTab {
+  margin-top:55px;
+}
 .tableTextStyle {
   display: flex;
   font-family: "Noto Sans";
@@ -151,6 +163,7 @@
   font-size: 16px;
   line-height: 22px;
   color: #ffff;
+  cursor:pointer;
 }
 
 /* checkout modal style */
@@ -167,6 +180,7 @@
   justify-content: space-between;
   margin-top: 41;
   margin-bottom: 79px;
+  height: 372px;
 }
 .checkoutTitleStyle {
   font-family: "Noto Sans";
@@ -291,14 +305,110 @@
   color: #1e2837;
 }
 
+.headerBg{
+  position: relative;
+  width: 595px;
+  height: 374px;
+  background-image: url('/doctors.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-left:50px;
+}
+
+.doc {
+  position: absolute;
+  top:0;
+  right: 60%;
+  background-repeat:no-repeat;
+  background-size: contain;
+  width: 357px;
+  height: 372px;
+  margin-top:-23px;
+}
+
+.wdoc {
+  position: absolute;
+  top:0;
+  background-repeat:no-repeat;
+  background-size: contain;
+  width: 465px;
+  height: 349px;
+  right: 0;
+}
+.headerContainerLeft {
+  margin-top: 52px;
+}
+
+.buyCardStep div {
+  margin-bottom:36px;
+}
+
+.customOptList {
+  display: none;
+}
+.customoptions{
+  display: block;
+  position: absolute;
+  background-color:#F7F9FB;
+  margin-top:2px;
+  width: 204px;
+}
+.customoptions div {
+  padding:10px;
+  cursor:pointer;
+  border-bottom:1px solid#fff;
+}
+.customOpt {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color:#F7F9FB;
+  border-radius: 5px;
+  width: 204px;
+  height: 64px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #1E2837;
+  cursor:pointer;
+}
+.arrowTransform {
+  margin-top:10px;
+  transform: rotate(180deg);
+}
+.customDropdown {
+  position: relative;
+}
+.price {
+  color:#3A74D2;
+  margin-top:18px;
+}
+.forMobile{
+  display: none;
+}
 @media only screen and (max-width: 767px) {
+  .forMobile {
+    display: block;
+  }
+  .firstPart {
+    width: calc(100% - 32px);
+  }
+  .headerBg {
+    margin:0;
+    width: 100%;
+    height: 238px;
+  }
   .headerContainer {
+    display: block;
     flex-direction: column;
     margin-bottom:0px;
+    overflow: hidden;
+    display: table;
+    width: 100%;
   }
   .headerContainerLeft {
     order:2;
     margin:0 20px 0;
+    display: table-footer-group; 
   }
   .headerContainerRight {
     order:1;

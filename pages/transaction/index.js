@@ -13,6 +13,7 @@ import { Style } from '@mui/icons-material';
 import Calendar from '../../components/Calendar';
 import {useWindowSize} from '../../components/useWindowSize';
 import Menu from '../../components/ui/menu';
+import { ClassNames } from '@emotion/react';
 
 export default function Transactions() {
     const [familyMemberModal, setFamilyMemberModal] = useState(false);
@@ -20,6 +21,8 @@ export default function Transactions() {
     const [status, setStatus] = useState('');
     const [serviceType, setServiceType] = useState('');
     const [menuItem, setMenuItem] = useState('main');
+
+    const [activeCheck, setActvieCheck] = useState('');
 
     const memberList = [
         {
@@ -67,37 +70,37 @@ export default function Transactions() {
             date: '5.05.2022',
             price: '$23',
             status: `Completed`,
-            id_transactions: '1079098823455',
+            id_transactions: '10793455',
         },
         {
             date: '5.05.2015',
             price: '$23',
             status: `Completed`,
-            id_transactions: '1079098823455',
+            id_transactions: '1073455',
         },
         {
             date: '5.05.2012',
             price: '$23',
             status: `Completed`,
-            id_transactions: '1079098823455',
+            id_transactions: '13455',
         },
         {
             date: '5.05.2025',
             price: '$23',
             status: `Completed`,
-            id_transactions: '1079098823455',
+            id_transactions: '1455',
         },
         {
             date: '5.05.2022',
             price: '$23',
             status: `Completed`,
-            id_transactions: '1079098823455',
+            id_transactions: '1079055',
         },
         {
             date: '5.05.2022',
             price: '$23',
             status: `Completed`,
-            id_transactions: '1079098823455',
+            id_transactions: '103455',
         },
     ];
 
@@ -199,7 +202,9 @@ export default function Transactions() {
                     </Block>
                 </div>
             </div>
-            <div className={styles.rightMenu}>
+            <div className={classNames(styles.rightMenu, {
+                [styles.disableTab]: menuItem == 'notifications'
+            })}>
                 <Block
                     title="My card"
                     actions={<button className={styles.upgradeBtn}>Upgrade</button>}
@@ -207,7 +212,6 @@ export default function Transactions() {
                 >
                     <img className={styles.cardImage} src="/card.png" alt="" />
                 </Block>
-
                 <Block
                     title="Family member"
                     actions={
@@ -279,6 +283,74 @@ export default function Transactions() {
                     </div>
                 </Block>
             </div>
+            <Block 
+                    className={classNames(styles.notifications, {
+                        [styles.activeTab]: menuItem == 'notifications'
+                    })}
+                >
+                    <div className={styles.notificationBlocks}>
+                        <div className={styles.notificationHeader}>
+                            <div className={styles.notificationCheck}>
+                                <li 
+                                    className={classNames({
+                                        [styles.activeCheck]: activeCheck == 'all' 
+                                    })}
+                                    onClick={()=> setActvieCheck('all')}
+                                >
+                                    All 
+                                    <span>8</span>
+                                </li>
+                                <li 
+                                    className={classNames({
+                                        [styles.activeCheck]: activeCheck == 'unread' 
+                                    })}
+                                    onClick={()=> setActvieCheck('unread')}
+                                >
+                                    Unread
+                                </li>
+                            </div>
+                            <div className={styles.markAll}>Mark all as read</div>
+                        </div>
+                        <div className={styles.notificationBody}>
+                            <div className={classNames(styles.notification, styles.activeNotification)}>
+                                <div>
+                                    <span>You have to pay the amount until 20.02.23</span>
+                                    <span>2 min ago</span>
+                                </div>
+                            </div>
+                            <div className={styles.notification}>
+                                <div>
+                                    <span>You have to pay the amount until 20.02.23</span>
+                                    <span>2 min ago</span>
+                                </div>
+                            </div>
+                            <div className={styles.notification}>
+                                <div>
+                                    <span>You have to pay the amount until 20.02.23</span>
+                                    <span>2 min ago</span>
+                                </div>
+                            </div>
+                            <div className={styles.notification}>
+                                <div>
+                                    <span>You have to pay the amount until 20.02.23</span>
+                                    <span>2 min ago</span>
+                                </div>
+                            </div>
+                            <div className={styles.notification}>
+                                <div>
+                                    <span>You have to pay the amount until 20.02.23</span>
+                                    <span>2 min ago</span>
+                                </div>
+                            </div>
+                            <div className={styles.notification}>
+                                <div>
+                                    <span>You have to pay the amount until 20.02.23</span>
+                                    <span>2 min ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Block>
         </div>
         {
             useWindowSize().width < 600 && <Menu active={menuItem} onClick={(active)=> setMenuItem(active)} />

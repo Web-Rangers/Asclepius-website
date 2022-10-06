@@ -22,6 +22,10 @@ const BranchDetailPage = () => {
   const router = useRouter();
   const cardData = router.query;
 
+  if(!router.isReady) {
+    return 'loading...'
+  }
+
   return (
     <div className={s.container}>
       <div>
@@ -86,7 +90,7 @@ const BranchDetailPage = () => {
             {cardData.clinicAddress}
           </Text>
         </div>
-
+    
         <div className={s.clinicInfo}>
           <Text style={s.clinicInfoTitle}>About us</Text>
           <Text style={s.clinicTitle}>Tbilisi State Medical Institute</Text>
@@ -196,9 +200,12 @@ const BranchDetailPage = () => {
       <div className={s.imageTitleContainer}>
         <Text style={classNames(s.clinicsTitleTextStyle, s.imageTitle)}> Images of the clinic</Text>
         <div className={s.imageContainer}>
-          {clinicImage.map((img) => (
-            <img src={img.src} alt="clinic image"/>
-          ))}
+          {clinicImage?.map((img) => {
+            return <>
+              <img src={img.src} alt="clinic image"/>
+            </>
+          }
+            )}
         </div>
         <div className={s.imageSlider}>
           <Image

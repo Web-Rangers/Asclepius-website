@@ -1,99 +1,113 @@
 .container {
-  display: flex;
+	display: flex;
+	margin-left: 166px;
 }
 .singInContainer {
-  flex: 1;
-  height: 1024px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	flex: 1;
+	height: 1024px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.confirmCodeConatiner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 368px;
+}
+.confirmIcon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 368px;
 }
 .headerIcon {
-  position: relative;
-  margin-right: 360px;
-  margin-top: -400px;
-  margin-bottom: 250px;
+	margin-top: 32px;
+}
+.leftSideContainer {
+	flex: 1;
 }
 .passwordRecoveryText {
-  display: flex;
-  justify-content: flex-start;
-  width: 368px;
-  height: 32px;
-  font-family: "Noto Sans";
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 32px;
-  color: #1e2837;
+	display: flex;
+	justify-content: flex-start;
+	width: 368px;
+	height: 32px;
+	font-family: 'Noto Sans';
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 32px;
+	color: #1e2837;
 }
 .checkEmailText {
-  display: flex;
-  justify-content: center;
-  width: 368px;
-  height: 32px;
-  font-family: "Noto Sans";
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 32px;
-  color: #1e2837;
+	display: flex;
+	justify-content: center;
+	width: 368px;
+	height: 32px;
+	font-family: 'Noto Sans';
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 32px;
+	color: #1e2837;
 }
 .inputStyle {
-  padding-left: 8px;
-  background-color: #ffffff;
-  border-top: 1px solid #d5d8de;
-  border-left: 1px solid #d5d8de;
-  border-right: 1px solid #d5d8de;
-  width: 360px;
+	padding-left: 8px;
+	background-color: #ffffff;
+	border-top: 1px solid #d5d8de;
+	border-left: 1px solid #d5d8de;
+	border-right: 1px solid #d5d8de;
+	width: 360px;
 }
 .loginButton {
-  width: 360px;
-  height: 52px;
-  border-radius: 5px;
-  background-color: #3a74d2;
-  color: #fff;
-  margin-top: 18px;
+	width: 360px;
+	height: 52px;
+	border-radius: 5px;
+	background-color: #3a74d2;
+	color: #fff;
+	margin-top: 18px;
 }
 .returnTextStyle {
-  display: flex;
-  justify-content: center;
-  margin-top: 18px;
-  width: 368px;
-  font-family: "Noto Sans";
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 16px;
-  color: #1e2837;
+	display: flex;
+	justify-content: center;
+	margin-top: 18px;
+	width: 368px;
+	font-family: 'Noto Sans';
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 16px;
+	color: #1e2837;
 }
+
 .cardsContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  position: "absolute";
-  height: 1024px;
-  left: 694px;
-  border-radius: 8px;
-  background-color: #f7f9fb;
-  border: 1px solid #dcdddf;
+	display: flex;
+	border: 1px solid #dcdddf;
+	background-color: #f7f9fb;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
 }
 .codeText {
-  justify-content: center;
-  font-family: "Noto Sans";
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 22px;
-  color: #797a80;
+	justify-content: center;
+	font-family: 'Noto Sans';
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 22px;
+	color: #797a80;
 }
 
 @media only screen and (max-width: 767px) {
-  .cardsContainer {
-    display: none;
-  }
-  .headerIcon {
-    margin-left: 16px;
-    margin-top: -350px;
-  }
-  .singInContainer {
-    background-color: #ffffff;
-  }
+	.container {
+		display: flex;
+		margin: 0px;
+	}
+	.cardsContainer {
+		display: none;
+	}
+	.headerIcon {
+		margin-left: 16px;
+	}
+	.singInContainer {
+		display: flex;
+		align-items: center;
+		background-color: #ffff;
+	}
 }

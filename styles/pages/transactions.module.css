@@ -410,6 +410,9 @@
     background-color: #fff;
     padding-bottom:10px;
 }
+.notifications {
+    display: none;
+}
 
 @media only screen and (max-width: 600px) {
     .container {
@@ -466,7 +469,94 @@
     .container, .familyBlock, .calendar, .cards {
         display: none;
     }
+    .calendar {
+        margin-top:0;
+    }
     .activeTab {
         display: block;
+    }
+    .orders {
+        margin: 0 16px;
+    }
+    .notificationBlocks {
+        background-color: #fff;
+    }
+    .disableTab {
+        display: none;
+    }
+    .notificationHeader {
+        display: flex;
+        justify-content: space-between;
+        padding: 24px 16px 0;
+        border-bottom:1px solid#E5E5E5;
+    }
+    .notificationCheck {
+        display: flex;
+        gap:16px;
+    }
+    .notificationCheck li {
+        list-style-type:none;
+        padding-bottom:6px;
+        display: flex;
+        align-items: center;
+        gap:5px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 19px;
+        color: #797A80;
+        border-bottom:3px solid transparent
+    }
+    .notificationCheck li span {
+        background-color:#3A74D2;
+        padding:3px 8px;
+        border-radius: 3px;
+        color:#FFFFFF;
+    }
+    .activeCheck {
+        border-bottom:3px solid #1E2837!important;
+        color: #1E2837!important;
+    }
+    .markAll {
+        color: #3A74D2;
+        text-decoration: underline;
+    }
+    .notification{
+        overflow: hidden;
+    }
+    .notification div{
+        margin:11px 21px 0;
+        padding-bottom:11px;
+        border-bottom:1px solid#E5E5E5;
+    }
+    .notification div span {
+        display: block;
+    }
+    .notification div span:nth-child(1) {
+        color:#3A74D2;
+        font-weight: 500;
+        font-size: 14px;
+        margin-bottom:6px;
+    }
+    .notification div span:nth-child(2) {
+        color:#797A80;
+        font-weight: 500;
+        font-size: 12px;
+    }
+    .activeNotification {
+        position: relative;
+        background-color: #F7F9FB;
+    }
+    .activeNotification:after {
+        content:'';
+        position: absolute;
+        top:50%;
+        right: 0;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        background-color: red;
+        margin-right:40px;
     }
 }

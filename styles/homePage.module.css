@@ -1,21 +1,24 @@
 .homePageContainer {
   width: 100%;
+  background-color: #fff;
 }
 .showSliderForMobile {
   display: none;
 }
 .firstPart {
-  margin-bottom: 64px;
+  margin:auto;
+  width: calc(100% - 280px);
+  max-width: calc(1920px - 280px);
 }
 
 .firstPartImg {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 30px;
+  overflow: hidden;
 }
 .firstPartImg img {
-  max-width: 367px;
-  width: 100%;
+  width: 30%;
   height: 228px;
   border-radius: 5px;
 }
@@ -23,40 +26,61 @@
 .cardItemContainer {
   display: flex;
   flex-direction: column;
-  margin-right: 30px;
+  width: 24%;
+  overflow: hidden;
+  position: relative;
 }
 
 .imgPart {
-  width: 268px;
+  width: 100%;
   height: 167px;
   border-radius: 5px;
   position: relative;
+  overflow: hidden;
+}
+.doctorCardContainer{
+  padding:40px 0;
+}
+.doctorPhotoContainer {
+  position: relative;
+}
+.doctorItem {
+  width: 24%;
+}
+.docImage {
+  width: 100%;
 }
 .clinicCardContainer {
   display: flex;
   flex-direction: column;
   margin-top: 100px;
   background-color: #f7f9fb;
+  padding:  77px 0 ;
 }
 .clinicCardContainerTitle {
   display: flex;
   flex-direction: column;
-  margin: 77px 165px 39px 125px;
+  /* margin: 77px 165px 39px 125px; */
 }
 .arrows {
   display: flex;
   justify-content: space-between;
+  margin-bottom:39px;
+}
+.arrowsIcons {
+  display: flex;
+  gap:24px;
 }
 .clinicCardList {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  padding-left: 16px;
   align-self: center;
-  width: 82%;
+  width: 100%;
   height: 100%;
   overflow-x: hidden;
   flex-wrap: nowrap;
+  gap:30px;
 }
 
 .serviceTextStyle {
@@ -77,10 +101,10 @@
   color: #1e2837;
 }
 .clinicNameText {
-  font-family: "Noto Sans";
-  font-style: normal;
   font-weight: 500;
   font-size: 16px;
+  line-height: 22px;
+  color: #1E2837;
   line-height: 21.79px;
   color: #1e2837;
   margin-top: 18px;
@@ -93,7 +117,9 @@
   line-height: 24px;
   color: #797a80;
   margin-top: 10px;
-  margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .clinicAddressText img {
   margin-right: 10px;
@@ -110,6 +136,9 @@
   height: 28px;
   border-radius: 14px;
   background-color: rgba(58, 116, 210, 0.2);
+}
+.ratingContainer span {
+  color:#fff;
 }
 .doctorItemContainer {
   display: flex;
@@ -141,7 +170,7 @@
 .iconsContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   width: 90%;
   border-top: 1px solid #d8d8d8;
   height: 45px;
@@ -149,11 +178,14 @@
 }
 
 .iconsContainer img {
-  padding-right: 25px;
-  padding-left: 20px;
+  padding-right: 35px;
+  padding-left: 36px;
   margin-top: 10px;
   border-right: 1px solid #d8d8d8;
 }
+.iconsContainer img:nth-child(2) {
+  border-right:0px!important;
+} 
 
 .iconsContainer img:nth-child(3) {
   border-right: 1px solid #ffff;
@@ -163,10 +195,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin-left: 100px;
-  margin-right: 100px;
-  padding-left: 16px;
-  width: 82%;
+  width: 100%;
   overflow-x: hidden;
   flex-wrap: nowrap;
   gap: 30px;
@@ -177,22 +206,32 @@
 .serviceContainerImg {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   gap: 33px;
-  margin-top: 93px;
 }
+
+.serviceContainer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.serviceContainerImg img{
+  width: 50%;
+}
+
 .serviceContainerContent {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   gap: 103px;
+  margin: 80px 0;
 }
 .leftSideContent {
   display: flex;
   flex-direction: column;
+  width: 55%;
 }
 .leftSideContentText {
-  width: 546px;
   height: 164px;
   /* margin-left: 139px; */
   font-family: "Noto Sans";
@@ -203,7 +242,6 @@
   color: #797a80;
 }
 .servicesTitle {
-  margin-top: 103px;
   margin-bottom: 24px;
   font-family: "Noto Sans";
   font-style: normal;
@@ -229,24 +267,40 @@
   color: #ffff;
   border-radius: 5px;
 }
+.registrationButtonResp{
+  display: none;
+}
+.rightSideContent {
+  display: flex;
+  flex-direction: column;
+  gap:24px;
+  width: 40%;
+}
 .servicesCard {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 268px;
-  height: 193px;
   gap: 20px;
-  padding-left: 10px;
-  margin-right: 20px;
-  margin-bottom: -80px;
   border-radius: 5px;
+  padding: 18px;
+  cursor:pointer;
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+.servicesCard:hover {
+  border:1px solid rgba(30, 40, 55, 0.1);
+}
+.servicesCard:hover .servicesCardTitle {
+  color: #3A74D2;
+}
+.servicesInfo {
+  display: flex;
+  flex-direction: column;
 }
 .servicesCardSecond {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 268px;
-  height: 193px;
   border: 1px solid rgba(30, 40, 55, 0.1);
   gap: 20px;
   padding-left: 10px;
@@ -291,21 +345,26 @@
   display: flex;
   flex-direction: row;
   margin-top: 100px;
+  flex-direction: column;
 }
 
 /* benefits */
 .benefitsContainer {
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
-  background-color: #f5f5f5;
+  margin-top: 25px;
+  padding: 70px 0;
+}
+.benefit {
+  background-color: #F7F9FB;
 }
 .benefits {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 .benefitsContainerImg {
-  margin: 54.28px 31.29px 10px 77px;
+  margin: 54.28px 31.29px 37px 0;
 }
 .benefitMainTitle {
   display: flex;
@@ -355,9 +414,8 @@
 .cardPriceContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin-top: 32px;
-  margin-bottom: 90px;
+  padding-bottom:90px;
 }
 .cardOffersTitles {
   display: flex;
@@ -365,7 +423,7 @@
   align-items: center;
 }
 .cardPriceTitle {
-  margin-top: 36px;
+  margin-top: 56px;
   margin-bottom: 22px;
   font-family: "Noto Sans";
   font-style: normal;
@@ -389,16 +447,17 @@
   gap: 44.54px;
 }
 .card {
-  width: 360px;
-  height: 598px;
+  width: 31%;
   border-radius: 8px;
-  border: 2px solid #dcdddf;
+  border: 1px solid #DCDDDF;
+  padding-bottom: 44px;
 }
 .header {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  margin: 0 30px;
   margin-bottom: 38px;
 }
 .priceContainer {
@@ -409,9 +468,9 @@
   display: block;
   margin: 0 auto;
   margin-bottom: 54px;
+  width: calc(100% - 52px);
 }
 .priceContainerTitle {
-  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -421,7 +480,6 @@
   margin-bottom: 7px;
 }
 .priceNumber {
-  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -452,7 +510,7 @@
   margin: 0 auto;
   width: 280px;
   height: 48px;
-  border: 2px solid #dcdddf;
+  border: 1px solid #DCDDDF;
   background-color: #ffffff;
   font-family: "Noto Sans";
   font-style: normal;
@@ -460,13 +518,13 @@
   font-size: 16px;
   line-height: 22px;
   color: #1e2837;
+  border-radius: 5px;
 }
 .orderButtonGold {
   display: block;
   margin: 0 auto;
   width: 280px;
   height: 48px;
-  border: 2px solid #dcdddf;
   background-color: #3a74d2;
   font-family: "Noto Sans";
   font-style: normal;
@@ -474,6 +532,8 @@
   font-size: 16px;
   line-height: 22px;
   color: #ffffff;
+  border:none;
+  border-radius:5px;
 }
 .servicePackageText {
   font-family: "Noto Sans";
@@ -492,7 +552,43 @@
   color: #797a80;
 }
 
-/* mobile version  */
+.cardRating {
+  position: absolute;
+  top:0;
+  z-index:3;
+  background-color: #3A74D233;
+  left:0;
+  margin: 16px 11px;
+  border-radius: 14px;
+  padding:5px 11px;
+  display: flex;
+  align-items: center;
+  gap:6px;
+}
+
+.cardRating span {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 14px;
+  color: #3A74D2;
+}
+
+.headerCardImg {
+  width: 100%;
+}
+
+@media only screen and (min-width: 1460px) {
+  .imgPart {
+    height: 60%;
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  .firstPart {
+    margin:auto;
+    width: calc(100% - 100px);
+  }
+}
 
 @media only screen and (max-width: 767px) {
   .homePageContainer {
@@ -510,8 +606,6 @@
     flex-direction: column;
     width: 100%;
     margin-top: 19px;
-    padding-left: 16px;
-    padding-right: 30px;
   }
   .medicalCardTitle {
     width: 300px;
@@ -522,6 +616,9 @@
     font-size: 24px;
     line-height: 44px;
     color: #1e2837;
+  }
+  .medicalCardTitle span{
+    display: block;
   }
   .medicalCardTitle a {
     color: #3a74d2;
@@ -542,6 +639,7 @@
     gap: 8px;
     border-bottom: 1px solid rgba(30, 40, 55, 0.1);
     padding-bottom: 30px;
+    margin-top:10px;
   }
   .orderBtn {
     display: flex;
@@ -576,9 +674,13 @@
     border: 1px solid #efefef;
   }
   .firstPartImg {
-    display: none;
+    overflow-x: scroll;
+    margin-top:26px;
   }
-
+  .firstPartImg img {
+    width: 279px;
+    height: 174px;
+  }
   /* clinics services */
   .clinicCardList {
     display: flex;
@@ -587,6 +689,17 @@
     overflow-x: scroll;
     overflow-y: hidden;
     gap: 0;
+  }
+  .clinicCardList::-webkit-scrollbar,
+  .doctorCardList::-webkit-scrollbar
+  {
+      width: 0px;
+  }
+  .clinicCardList::-webkit-scrollbar-track-piece,
+  .doctorCardList::-webkit-scrollbar-track-piece
+  {
+      background-color: transparent;
+      border-radius: 6px;
   }
   .cardItemContainer {
     display: flex;
@@ -627,17 +740,22 @@
   .cardItemContainer {
     display: flex;
     flex-direction: column;
-    margin-right: 30px;
-    width: 100%;
-    margin-left: 16px;
+    width:285px;
+    margin-right:10px;
+    overflow: unset!important;
   }
-
+  .firstPart{
+    width: calc(100% - 16px);
+  }
+  .clinicCardContainer {
+    margin-top:44px;
+    padding: 36px 0;
+  }
   .cardPriceContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 32px;
-    margin-bottom: 90px;
   }
   .card {
     width: 99%;
@@ -690,11 +808,14 @@
     font-size: 26px;
     line-height: 35px;
     color: #1e2837;
+    margin-right: auto;
+    margin-top:20px;
   }
   .cardSection {
     display: flex;
     flex-direction: column;
     gap: 44.54px;
+    width: calc(100% - 32px);
   }
   .headerCardImg {
     display: none;
@@ -722,5 +843,54 @@
   }
   .servicesCard {
     border: 1px solid rgba(30, 40, 55, 0.1);
+  }
+  .imgPart{
+    width: 285px;
+    height: 207px;
+  }
+  .doctorCardContainer {
+    padding: 20px 0;
+  }
+  .doctorItem {
+    width: 75%;
+  }
+  .serviceContainerImg img {
+    width: 100%;
+  }
+  .leftSideContent {
+    width: 100%;
+  }
+  .benefitsContainer {
+    padding: 44px 0;
+  }
+  .rightSideContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 2;
+    width: 100%;
+    height: auto;
+    margin-top:30px;
+  }
+  .servicesCardTitle {
+    width: 200px;
+  }
+  .registrationButton {
+    display: none;
+  }
+  .registrationButtonResp{
+    display: block;
+    margin-top: 41px;
+    width: 100%;
+    height: 48px;
+    background-color: #1e2837;
+    color: #ffff;
+    border-radius: 5px;
+    margin-right:auto;
+  }
+  .serviceContainerContent {
+    margin: 44px 0;
   }
 }

@@ -7,10 +7,14 @@ import BranchPageCardItem from "../../components/contents/BranchPageCardItem";
 import clinicArrayData from "../../clinicArrayData";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import { useState, useEffect } from "react";
 
 const ClinicDetailPage = () => {
   const router = useRouter();
-  const cardData = router.query;
+
+  const [cardData, setCardData] = useState(null);
+  
+  const [clinicData, setClinicData] = useState(null);
 
   function sliceIntoChunks(arr, chunkSize) {
     const res = [];
@@ -21,9 +25,11 @@ const ClinicDetailPage = () => {
     return res;
   }
 
-  const clinicData = sliceIntoChunks(clinicArrayData, 3);
+  useEffect(()=> {
+    setClinicData(sliceIntoChunks(clinicArrayData, 3))
+    setCardData(router.query)
+  },[router.isReady])
 
-  console.log(clinicData)
 
   return (
     <div className={s.container}>
@@ -43,7 +49,7 @@ const ClinicDetailPage = () => {
       </div>
       <Text style={s.clinicsTitleTextStyle}> Atcare clinics</Text>
       <div className={s.clinicDetailPageCard}>
-        <div className={s.cardItemContainer} key={cardData.key}>
+        <div className={s.cardItemContainer} key={cardData?.key}>
           <div className={s.imgPart}>
             <div className={s.ratingContainer}>
               <Image
@@ -52,24 +58,24 @@ const ClinicDetailPage = () => {
                 width="16.67px"
                 height="15.04"
               />
-              <Text>{cardData.rating}</Text>
+              <Text>{cardData?.rating}</Text>
             </div>
             <Image
-              src={cardData.src}
-              alt={cardData.alt}
+              src='/clinicImage.png'
+              alt={cardData?.alt}
               className={s.imgPartImage}
               width="368px"
               height="326px"
             />
           </div>
-          <Text style={s.clinicNameText}>{cardData.clinicName}</Text>
+          <Text style={s.clinicNameText}>{cardData?.clinicName}</Text>
           <Text style={s.clinicWorkingHours}>
-            {cardData.workingDay}
-            {cardData.workingHours}
+            {cardData?.workingDay}
+            Monday - friday 10:00-17:00
           </Text>
           <Text style={s.weekendWorkingHours}>
-            {cardData.weekendWorkingDay}
-            {cardData.weekendWorkingHours}
+            {cardData?.weekendWorkingDay}
+            Saturday - Sunday 10:00-14:00
           </Text>
           <Text style={s.contactInfoText}>
             <Image
@@ -78,18 +84,18 @@ const ClinicDetailPage = () => {
               width="24px"
               height="24px"
             />
-            {cardData.clinicPhoneNumber}
+            +995577997799
           </Text>
           <Text style={s.contactInfoText}>
             <Image src="/mailIcon.svg" alt="" width="24px" height="24px" />
-            {cardData.clinicEmail}
+            Atcare@gmail.com
           </Text>
           <Text style={s.contactInfoText}>
             <Image src="/LocationIcon.svg" alt="" width="24px" height="24px" />
-            {cardData.clinicAddress}
+            Carymouth , Hallmark Clinic
           </Text>
         </div>
-
+    
         <div className={s.clinicInfo}>
           <Text style={s.clinicInfoTitle}>About us</Text>
           <Text style={s.clinicTitle}>Tbilisi State Medical Institute</Text>
@@ -171,11 +177,6 @@ const ClinicDetailPage = () => {
                 Here is the offer name Chairman of the Association of
                 Dermatologists{" "}
               </Text>
-              <Text style={s.serviceName}>Offer name3</Text>
-              <Text style={s.serviceText}>
-                Here is the offer name Chairman of the Association of
-                Dermatologists{" "}
-              </Text>
             </div>
             <div className={s.cardType}>
               <Text style={s.clinicInfoTitle}>Card Type</Text>
@@ -192,14 +193,6 @@ const ClinicDetailPage = () => {
                   width="117px"
                   height="68.34px"
                 />
-
-                <Image
-                  alt="gold card"
-                  src="/Card 2.svg"
-                  width="117px"
-                  height="68.34px"
-                  style={{ paddingRight: "4px" }}
-                />
               </div>
             </div>
           </div>
@@ -211,32 +204,34 @@ const ClinicDetailPage = () => {
           <div className={s.imageSlider}>
           </div>
         </div>
-
+    
         <div className={s.clinicContainerScroll}>
-          <Carousel 
+          <Carousel
             className={s.carousel}
             showStatus={false}
             showIndicators={false}
           >
-            {clinicData.map((chunk) => (
-              <div>
-                {
-                  chunk.map((item)=> {
-                    return <BranchPageCardItem
-                      key={item.id}
-                      alt={item.alt}
-                      clinicName={item.clinicName}
-                      workingDay={item.workingDay}
-                      workingHours={item.workingHours}
-                      clinicAddress={item.clinicAddress}
-                      rating={item.rating}
-                      data={item}
-                      src={item.src}
-                    />
-                  })
-                }
+            {clinicData?.map((chunk) => {
+              return <>
+                <div>
+                  {
+                    chunk.map((item)=> {
+                      return <BranchPageCardItem
+                        key={item.id}
+                        alt={item.alt}
+                        clinicName={item.clinicName}
+                        workingDay={item.workingDay}
+                        workingHours={item.workingHours}
+                        clinicAddress={item.clinicAddress}
+                        rating={item.rating}
+                        data={item}
+                        src={item.src}
+                      />
+                    })
+                  }
               </div>
-            ))}
+              </>
+            })}
           </Carousel>
         </div>
       </div>
