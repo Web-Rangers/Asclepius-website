@@ -1,15 +1,16 @@
 import AudioTrack from "./AudioTrack"
 import VideoTrack from "./VideoTrack"
 import { useTrack } from "use-twilio-video"
+import UserInfo from "../ui/UserInfo"
 
-function Participant ({ participant }) {
+function Participant({ toggleMicrophone, isMicrophoneOn, participant, type }) {
     const { videoOn, audioOn, videoTrack, audioTrack } = useTrack({ participant })
 
     return (
         <>
-            {videoOn ? <VideoTrack track={videoTrack} /> : 'video off'}
+            {videoOn ? <> <VideoTrack track={videoTrack} /> <UserInfo toggleMicrophone={toggleMicrophone} isMicrophoneOn={isMicrophoneOn} name={participant} /> </> : 'video off'}
             <br />
-            {audioOn ? <AudioTrack track={audioTrack} /> : "audio off"}
+            {audioOn ? <AudioTrack track={audioTrack} /> : ""}
         </>
     )
 }
