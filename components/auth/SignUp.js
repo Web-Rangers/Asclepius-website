@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import InputAdornment from '@mui/material/InputAdornment';
-import IconButton from '@mui/material/IconButton';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import classes from '../../styles/signIn.module.css';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
 import Text from '../ui/Text';
 import Link from 'next/link';
+import { ReactSVG } from 'react-svg';
+import classNames from 'classnames';
+import styles from '../../styles/components/datePicker.module.css';
 
 export const SignUp = () => {
 	const [values, setValues] = useState({
@@ -19,17 +18,14 @@ export const SignUp = () => {
 		repeatPassword: '',
 		showPassword: false,
 		showRepeatPassword: false,
+		type: 'password',
 	});
-
-	const handleChange = (prop) => (event) => {
-		setValues({ ...values, [prop]: event.target.value });
-		console.log(prop);
-	};
 
 	const handleClickShowPassword = () => {
 		setValues({
 			...values,
 			showPassword: !values.showPassword,
+			type: values.type === 'password' ? 'text' : 'password',
 		});
 	};
 
@@ -37,11 +33,8 @@ export const SignUp = () => {
 		setValues({
 			...values,
 			showRepeatPassword: !values.showRepeatPassword,
+			type: values.type === 'password' ? 'text' : 'password',
 		});
-	};
-
-	const handleMouseDownPassword = (event) => {
-		event.preventDefault();
 	};
 
 	return (
@@ -86,107 +79,89 @@ export const SignUp = () => {
 					</div>
 					<div className={classes.nameSurnameContainer}>
 						<Input
-							id='filled-basic'
 							label='Name'
-							variant='filled'
 							type='text'
 							value={values.name}
-							onChange={handleChange('name')}
-							inputProps={{
-								className: classes.nameSurnameStyle,
-							}}
+							onChange={(value) =>
+								setValues((prev) => ({ ...prev, name: value }))
+							}
 						/>
 						<Input
-							id='filled-basic'
 							label='Surname'
-							variant='filled'
 							type='text'
 							value={values.surname}
-							onChange={handleChange('surname')}
-							inputProps={{
-								className: classes.nameSurnameStyle,
-							}}
+							onChange={(value) =>
+								setValues((prev) => ({ ...prev, surname: value }))
+							}
 						/>
 					</div>
 					<Input
-						id='filled-basic'
 						label='E-mail'
-						variant='filled'
-						type='email'
+						type='text'
 						value={values.email}
-						onChange={handleChange('email')}
-						inputProps={{
-							className: classes.inputStyle,
-						}}
+						onChange={(value) =>
+							setValues((prev) => ({ ...prev, email: value }))
+						}
 					/>
 					<Input
-						id='filled-basic'
 						label='Phone number'
 						variant='filled'
 						type='text'
 						value={values.phoneNumber}
-						onChange={handleChange('phoneNumber')}
-						inputProps={{
-							className: classes.inputStyle,
-						}}
+						onChange={(value) =>
+							setValues((prev) => ({ ...prev, phoneNumber: value }))
+						}
 					/>
 					<Input
-						id='filled-basic'
 						label='Password'
 						variant='filled'
-						type={values.showPassword ? 'text' : 'password'}
+						type={values.showPassword}
 						value={values.password}
-						onChange={handleChange('password')}
-						autoComplete='current-password'
-						inputProps={{
-							className: classes.inputStyle,
-							endAdornment: (
-								<InputAdornment position='end'>
-									<IconButton
-										aria-label='toggle password visibility'
-										onClick={handleClickShowPassword}
-										onMouseDown={handleMouseDownPassword}
-										edge='end'
-									>
-										{values.showPassword ? <VisibilityOff /> : <Visibility />}
-									</IconButton>
-								</InputAdornment>
-							),
-						}}
+						onChange={(value) =>
+							setValues((prev) => ({ ...prev, password: value }))
+						}
+						onClick={handleClickShowPassword}
 					/>
+					{values.type === 'password' ? (
+						<ReactSVG
+							src={'eye-off.svg'}
+							className={classNames(styles.passIcon)}
+							onClick={handleClickShowPassword}
+						/>
+					) : (
+						<ReactSVG
+							src={'eye.svg'}
+							className={classNames(styles.passIcon)}
+							onClick={handleClickShowPassword}
+						/>
+					)}
+
 					<Input
-						id='filled-basic'
 						label='Repeat password'
-						variant='filled'
-						autoComplete='current-password'
-						type={values.showRepeatPassword ? 'text' : 'password'}
+						type={values.type}
 						value={values.repeatPassword}
-						onChange={handleChange('repeatPassword')}
-						inputProps={{
-							className: classes.inputStyle,
-							endAdornment: (
-								<InputAdornment position='end'>
-									<IconButton
-										aria-label='toggle password visibility'
-										onClick={handleClickShowRepeatPassword}
-										onMouseDown={handleMouseDownPassword}
-										edge='end'
-									>
-										{values.showRepeatPassword ? (
-											<VisibilityOff />
-										) : (
-											<Visibility />
-										)}
-									</IconButton>
-								</InputAdornment>
-							),
-						}}
+						onChange={(value) =>
+							setValues((prev) => ({ ...prev, repeatPassword: value }))
+						}
 					/>
-					<Button
-						type='submit'
-						name='Login'
-					/>
+					{values.type === 'password' ? (
+						<ReactSVG
+							src={'eye-off.svg'}
+							className={classNames(styles.passIcon)}
+							onClick={handleClickShowRepeatPassword}
+						/>
+					) : (
+						<ReactSVG
+							src={'eye.svg'}
+							className={classNames(styles.passIcon)}
+							onClick={handleClickShowRepeatPassword}
+						/>
+					)}
 				</div>
+				<Button
+					type='submit'
+					name='Login'
+				/>
 			</div>
 			<div className={classes.cardsContainer}>
 				<img
