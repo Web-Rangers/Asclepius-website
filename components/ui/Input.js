@@ -2,6 +2,7 @@ import { ReactSVG } from 'react-svg';
 import classes from '../../styles/signIn.module.css';
 import classNames from 'classnames';
 import styles from '../../styles/components/datePicker.module.css';
+import React, { useState } from 'react';
 
 const Input = ({
 	children,
@@ -14,31 +15,45 @@ const Input = ({
 	onChange,
 	style,
 	onClick,
+	withIcon,
 	...props
 }) => {
+	const [isVisible, setVisible] = useState(false);
+
+	const toggle = () => {
+		setVisible(!isVisible);
+	};
 	return (
 		<div className={classes.inputConainer}>
-			{/* {type === 'password' ? (
-				<ReactSVG
-					src={'eye-off.svg'}
-					className={classNames(styles.passIcon)}
-					onClick={onClick}
-				/>
-			) : (
-				<ReactSVG
-					src={'eye.svg'}
-					className={classNames(styles.passIcon)}
-					onClick={onClick}
-				/>
-			)} */}
 			<input
+				withIcon={false}
 				required
 				value={value}
 				placeholder={placeholder}
-				type={type}
+				type={!isVisible && withIcon ? 'password' : 'text'}
 				onChange={(event) => onChange?.call(null, event.target.value)}
 			/>
 			<label>{label}</label>
+			{withIcon ? (
+				<span
+					className='icon'
+					onClick={toggle}
+				>
+					{!isVisible ? (
+						<ReactSVG
+							src={'eye-off.svg'}
+							className={classNames(styles.passIcon)}
+							onClick={onClick}
+						/>
+					) : (
+						<ReactSVG
+							src={'eye.svg'}
+							className={classNames(styles.passIcon)}
+							onClick={onClick}
+						/>
+					)}
+				</span>
+			) : null}
 		</div>
 
 		// <Box

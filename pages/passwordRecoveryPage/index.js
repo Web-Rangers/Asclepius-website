@@ -5,13 +5,14 @@ import { useRouter } from 'next/router';
 import Input from '../../components/ui/Input';
 import classes from '../../styles/passRecovery.module.css';
 import Button from '../../components/ui/Button';
+import Image from 'next/image';
 
 export const PasswordRecoveryPage = () => {
 	const router = useRouter();
 	const [email, setEmail] = useState('');
 
-	const handleChange = (event) => {
-		setEmail(event.target.value);
+	const handleChange = (value) => {
+		setEmail(value);
 		console.log(event.target.value);
 	};
 	const handleClick = (e) => {
@@ -39,15 +40,10 @@ export const PasswordRecoveryPage = () => {
 					<div className={classes.singInContainer}>
 						<h1 className={classes.passwordRecoveryText}>Password recovery</h1>
 						<Input
-							id='filled-basic'
 							label='E-mail'
-							variant='filled'
 							type='email'
 							value={email}
-							onChange={handleChange}
-							inputProps={{
-								className: classes.inputStyle,
-							}}
+							onChange={(value) => handleChange(value)}
 						/>
 						<Button
 							type='submit'
@@ -62,8 +58,8 @@ export const PasswordRecoveryPage = () => {
 					</div>
 				</div>
 				<div className={classes.cardsContainer}>
-					<img
-						src='cards.png'
+					<Image
+						src='/cards.png'
 						alt='cards'
 						width='650px'
 						height='500px'

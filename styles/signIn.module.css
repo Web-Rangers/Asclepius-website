@@ -299,6 +299,7 @@
 .imgForMobile {
 	display: none;
 }
+
 /* mobile version  */
 
 @media only screen and (max-width: 767px) {
@@ -368,5 +369,9 @@
 		display: flex;
 		align-items: center;
 		background-color: #ffff;
+	}
+	.btnContainer {
+		display: flex;
+		justify-content: center;
 	}
 }

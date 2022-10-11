@@ -4,9 +4,6 @@ import Input from '../ui/Input';
 import Button from '../ui/Button';
 import Text from '../ui/Text';
 import Link from 'next/link';
-import { ReactSVG } from 'react-svg';
-import classNames from 'classnames';
-import styles from '../../styles/components/datePicker.module.css';
 
 export const SignUp = () => {
 	const [values, setValues] = useState({
@@ -16,26 +13,9 @@ export const SignUp = () => {
 		phoneNumber: '',
 		password: '',
 		repeatPassword: '',
-		showPassword: false,
-		showRepeatPassword: false,
+
 		type: 'password',
 	});
-
-	const handleClickShowPassword = () => {
-		setValues({
-			...values,
-			showPassword: !values.showPassword,
-			type: values.type === 'password' ? 'text' : 'password',
-		});
-	};
-
-	const handleClickShowRepeatPassword = () => {
-		setValues({
-			...values,
-			showRepeatPassword: !values.showRepeatPassword,
-			type: values.type === 'password' ? 'text' : 'password',
-		});
-	};
 
 	return (
 		<div className={classes.container}>
@@ -113,30 +93,18 @@ export const SignUp = () => {
 						}
 					/>
 					<Input
+						withIcon={true}
 						label='Password'
 						variant='filled'
-						type={values.showPassword}
+						type={values.type}
 						value={values.password}
 						onChange={(value) =>
 							setValues((prev) => ({ ...prev, password: value }))
 						}
-						onClick={handleClickShowPassword}
 					/>
-					{values.type === 'password' ? (
-						<ReactSVG
-							src={'eye-off.svg'}
-							className={classNames(styles.passIcon)}
-							onClick={handleClickShowPassword}
-						/>
-					) : (
-						<ReactSVG
-							src={'eye.svg'}
-							className={classNames(styles.passIcon)}
-							onClick={handleClickShowPassword}
-						/>
-					)}
 
 					<Input
+						withIcon={true}
 						label='Repeat password'
 						type={values.type}
 						value={values.repeatPassword}
@@ -144,24 +112,13 @@ export const SignUp = () => {
 							setValues((prev) => ({ ...prev, repeatPassword: value }))
 						}
 					/>
-					{values.type === 'password' ? (
-						<ReactSVG
-							src={'eye-off.svg'}
-							className={classNames(styles.passIcon)}
-							onClick={handleClickShowRepeatPassword}
-						/>
-					) : (
-						<ReactSVG
-							src={'eye.svg'}
-							className={classNames(styles.passIcon)}
-							onClick={handleClickShowRepeatPassword}
-						/>
-					)}
 				</div>
-				<Button
-					type='submit'
-					name='Login'
-				/>
+				<div className={classes.btnContainer}>
+					<Button
+						type='submit'
+						name='Login'
+					/>
+				</div>
 			</div>
 			<div className={classes.cardsContainer}>
 				<img
