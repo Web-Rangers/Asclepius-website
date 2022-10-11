@@ -26,6 +26,7 @@ const Input = ({
 	return (
 		<div className={classes.inputConainer}>
 			<input
+				className={className}
 				withIcon={false}
 				required
 				value={value}

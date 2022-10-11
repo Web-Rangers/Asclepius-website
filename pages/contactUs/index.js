@@ -71,73 +71,59 @@ export const ContactUs = () => {
 							</div>
 						</div>
 					</div>
-					<div className={classes.nameSurnameContainer}>
-						<div>
-							<Text style={classes.contactUsNameText}>First name</Text>
-							<Input
-								id='filled-basic'
-								label='Name'
-								variant='filled'
-								type='text'
-								value={values.name}
-								onChange={handleChange('name')}
-								inputProps={{
-									className: classes.nameSurnameStyle,
-								}}
-							/>
-						</div>
-						<div>
-							<Text style={classes.contactUsNameText}>Last name</Text>
-							<Input
-								id='filled-basic'
-								label='Surname'
-								variant='filled'
-								type='text'
-								value={values.surname}
-								onChange={handleChange('surname')}
-								inputProps={{
-									className: classes.nameSurnameStyle,
-								}}
-							/>
-						</div>
+
+					<div>
+						<Text style={classes.contactUsNameText}>First name</Text>
+						<Input
+							placeholder='Name'
+							type='text'
+							value={values.name}
+							onChange={(value) =>
+								setValues((prev) => ({ ...prev, name: value }))
+							}
+						/>
 					</div>
+					<div>
+						<Text style={classes.contactUsNameText}>Last name</Text>
+						<Input
+							placeholder='Surname'
+							type='text'
+							value={values.surname}
+							onChange={(value) =>
+								setValues((prev) => ({ ...prev, surname: value }))
+							}
+						/>
+					</div>
+
+					{/* </div> */}
 
 					<Text style={classes.contactUsInputText}>E-mail</Text>
 					<Input
-						id='filled-basic'
-						label='E-mail'
-						variant='filled'
+						placeholder='E-mail'
 						type='email'
 						value={values.email}
-						onChange={handleChange('email')}
-						inputProps={{
-							className: classes.inputStyle,
-						}}
+						onChange={(value) =>
+							setValues((prev) => ({ ...prev, email: value }))
+						}
 					/>
 					<Text style={classes.contactUsInputText}>Phone number</Text>
 					<Input
-						id='filled-basic'
-						label='Phone number'
-						variant='filled'
+						placeholder='Phone number'
 						type='text'
 						value={values.phoneNumber}
-						onChange={handleChange('phoneNumber')}
-						inputProps={{
-							className: classes.inputStyle,
-						}}
+						onChange={(value) =>
+							setValues((prev) => ({ ...prev, phoneNumber: value }))
+						}
 					/>
 					<Text style={classes.contactUsInputText}>Message</Text>
 					<Input
-						id='filled-basic'
-						label='Message'
-						variant='filled'
+						placeholder='Message'
 						autoComplete='current-password'
 						type='text'
 						value={values.repeatPassword}
-						onChange={handleChange('repeatPassword')}
-						inputProps={{
-							className: classes.inputStyle,
-						}}
+						onChange={(value) =>
+							setValues((prev) => ({ ...prev, repeatPassword: value }))
+						}
 					/>
 					<Button
 						type='submit'

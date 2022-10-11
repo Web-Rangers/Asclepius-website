@@ -239,6 +239,12 @@
 	box-shadow: none;
 	background-position: 0 0;
 }
+.nameSurnameInput {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: #3a74d2;
+}
 
 .line {
 	width: 164px;
