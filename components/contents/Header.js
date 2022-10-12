@@ -180,7 +180,7 @@ const Header = () => {
 				</div>
 				<ul className={classes.navbar}>
 					<li>
-						<Link href='/homePage'>
+						<Link href='/'>
 							<a>Home </a>
 						</Link>
 					</li>

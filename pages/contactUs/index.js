@@ -18,10 +18,6 @@ export const ContactUs = () => {
 		showRepeatPassword: false,
 	});
 
-	const handleChange = (prop) => (event) => {
-		setValues({ ...values, [prop]: event.target.value });
-	};
-
 	return (
 		<>
 			<div className={classes.contactUsContainer}>
@@ -72,31 +68,31 @@ export const ContactUs = () => {
 						</div>
 					</div>
 
-					<div>
-						<Text style={classes.contactUsNameText}>First name</Text>
-						<Input
-							placeholder='Name'
-							type='text'
-							value={values.name}
-							onChange={(value) =>
-								setValues((prev) => ({ ...prev, name: value }))
-							}
-						/>
+					<div className={classes.nameSurnameContainer}>
+						<div className={classes.inputField}>
+							<Text style={classes.contactUsNameText}>First name</Text>
+							<Input
+								className={classes.inputField}
+								placeholder='Name'
+								type='text'
+								value={values.name}
+								onChange={(value) =>
+									setValues((prev) => ({ ...prev, name: value }))
+								}
+							/>
+						</div>
+						<div className={classes.inputField}>
+							<Text style={classes.contactUsNameText}>Last name</Text>
+							<Input
+								placeholder='Surname'
+								type='text'
+								value={values.surname}
+								onChange={(value) =>
+									setValues((prev) => ({ ...prev, surname: value }))
+								}
+							/>
+						</div>
 					</div>
-					<div>
-						<Text style={classes.contactUsNameText}>Last name</Text>
-						<Input
-							placeholder='Surname'
-							type='text'
-							value={values.surname}
-							onChange={(value) =>
-								setValues((prev) => ({ ...prev, surname: value }))
-							}
-						/>
-					</div>
-
-					{/* </div> */}
-
 					<Text style={classes.contactUsInputText}>E-mail</Text>
 					<Input
 						placeholder='E-mail'

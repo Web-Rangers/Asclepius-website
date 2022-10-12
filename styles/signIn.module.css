@@ -163,7 +163,18 @@
 	gap: 29px;
 	width: 360px;
 }
-
+.inputField {
+	display: flex;
+	flex-direction: column;
+	width: 30%;
+	margin-right: 60px;
+}
+.inputField input {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: 45%;
+}
 .nameSurnameStyle {
 	width: 164px;
 	border-top: 1px solid #d5d8de;
@@ -190,7 +201,7 @@
 	padding-left: 10px;
 	transition: all 0.3s ease-in-out;
 }
-.inputConainer input {
+.inputConainerInput {
 	position: relative;
 	z-index: 1;
 	width: 100%;
@@ -238,12 +249,6 @@
 .inputConainer input:valid {
 	box-shadow: none;
 	background-position: 0 0;
-}
-.nameSurnameInput {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	background-color: #3a74d2;
 }
 
 .line {

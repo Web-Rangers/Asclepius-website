@@ -16,7 +16,7 @@ export const PasswordConfirm = () => {
 	return (
 		<div className={classes.container}>
 			<div className={classes.leftSideContainer}>
-				<Link href={'/homePage'}>
+				<Link href={'/'}>
 					<a>
 						<img
 							src='headerIcon.svg'
