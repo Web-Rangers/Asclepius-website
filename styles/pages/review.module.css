@@ -1,5 +1,7 @@
 .reviewPage {
-    padding: 26px 16px;
+    padding: 26px 0;
+    width: calc(100% - 100px);
+    margin:auto;
 }
 
 .reviewHeader {
@@ -96,4 +98,16 @@
     border: none;
     padding: 0 43px;
     margin-bottom:35px;
+}
+
+.ratingForm {
+    display: flex;
+    gap:16px;
+}
+
+@media only screen and (max-width: 600px) {
+    .reviewPage{
+        width: 100%;
+        padding: 26px 16px;
+    }
 }
