@@ -20,7 +20,8 @@ export default function DoctorDetailed({doctor, educations, certificates}) {
         professions,
         aboutMe
     } = doctor;
-    
+    console.log(certificates)
+
     return <>
         {
             modalIsOpen &&
