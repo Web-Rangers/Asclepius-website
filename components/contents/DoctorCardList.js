@@ -72,7 +72,7 @@ const DoctorCardList = ({doctorsData}) => {
 											rating={item.rating}
 											src={item.pictureUrl}
 											doctorName={item.firstName}
-											speciality={item?.professions[0]?.name}
+											speciality={item?.professions && item?.professions[0]?.name}
 										/>
 								})
 							}
