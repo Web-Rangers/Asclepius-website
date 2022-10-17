@@ -20,7 +20,7 @@ export default function DoctorDetailed({doctor, educations, certificates}) {
         professions,
         aboutMe
     } = doctor;
-
+    
     return <>
         {
             modalIsOpen &&
