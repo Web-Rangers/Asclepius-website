@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import {useWindowSize} from '../useWindowSize';
 import { ReactSVG } from "react-svg";
+import Link from 'next/link';
 
 const ClinicCardItem = (props) => {
   const router = useRouter();
@@ -18,10 +19,9 @@ const ClinicCardItem = (props) => {
   };
 
   return (
+    <Link href={`/clinicDetailPage/${props?.id}`} key={props.key}>
     <div
       className={classes.cardItemContainer}
-      key={props.key}
-      onClick={() => handleClick(props.data)}
     >
       <div className={classes.cardRating}>
         <ReactSVG src="/clinicStar.svg" />
@@ -43,6 +43,7 @@ const ClinicCardItem = (props) => {
         {props.clinicAddress}
       </Text>
     </div>
+    </Link>
   );
 };
 

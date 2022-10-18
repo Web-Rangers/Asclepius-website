@@ -7,6 +7,16 @@ import SignUpFooter from '../components/contents/SignUpFooter';
 import classes from '../styles/headerFooter.module.css';
 import { useRouter } from 'next/router';
 
+import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+const queryClient = new QueryClient({
+	defaultOptions: {
+		queries: {
+			staleTime: 60000,
+		},
+	},
+})
+
 function MyApp({ Component, pageProps }) {
 	const [signUp, setSignUp] = useState(false);
 	const router = useRouter();
@@ -20,13 +30,23 @@ function MyApp({ Component, pageProps }) {
 			? false
 			: true;
 
-	return (
-		<div className={classes.body}>
+	// return (
+	// 	<div className={classes.body}>
+	// 		{hideHeader ? signUp ? <SignUpHeader /> : <Header /> : null}
+	// 		<Component {...pageProps} />
+	// 		{hideHeader ? signUp ? <SignUpFooter /> : <Footer /> : null}
+	// 	</div>
+	// );
+
+	const getLayout = Component.getLayout || ((page) => page);
+
+	return <QueryClientProvider client={queryClient}>
+		<Hydrate state={pageProps.dehidratedState}>
 			{hideHeader ? signUp ? <SignUpHeader /> : <Header /> : null}
-			<Component {...pageProps} />
+			{getLayout(<Component {...pageProps} />)}
 			{hideHeader ? signUp ? <SignUpFooter /> : <Footer /> : null}
-		</div>
-	);
+		</Hydrate>
+	</QueryClientProvider>
 }
 
 export default MyApp;

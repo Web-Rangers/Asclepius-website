@@ -6,6 +6,9 @@ import classNames from "classnames";
 import Select from "../../components/Select";
 import Input from "../../components/Input";
 import Pagination from "../../components/ui/Pagination";
+import fetchAPI from '../../fetchAPI';
+import { getData } from '../../components/request';
+import Link from "next/link";
 
 const doctorsArray = [
   {
@@ -152,6 +155,7 @@ const doctorsArray = [
 ];
 
 export default function Doctors({doctors}) {
+  
   const [isOpen, setOpen] = useState();
   const [status, setStatus] = useState("");
   const [serviceType, setServiceType] = useState("");
@@ -162,8 +166,7 @@ export default function Doctors({doctors}) {
   const currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
-    console.log(doctors)
-    return doctorsArray.slice(firstPageIndex, lastPageIndex);
+    return doctors?.content?.slice(firstPageIndex, lastPageIndex);
   }, [currentPage]);
 
 
@@ -275,7 +278,8 @@ export default function Doctors({doctors}) {
           <div className={styles.doctorsList}>
             {currentTableData.map((doctor) => {
               return (
-                <div className={styles.doctor} key={doctor.id}>
+                <Link href={`/doctors/${doctor.id}`} key={doctor.id}>
+                <div className={styles.doctor}>
                   <div className={styles.poster}>
                     <div className={styles.doctorStar}>
                       <img src="/whiteStar.svg" alt="" />
@@ -283,7 +287,7 @@ export default function Doctors({doctors}) {
                     </div>
                     <img
                       className={styles.doctorImage}
-                      src="/doctor10.png"
+                      src={doctor?.pictureUrl}
                       alt=""
                     />
                   </div>
@@ -308,12 +312,13 @@ export default function Doctors({doctors}) {
                   </div>
                   <div className={styles.doctorInfo}>
                     <div className={styles.doctorName}>
-                      <h2>Pamela Martínez</h2>
+                      <h2>{`${doctor?.firstName} ${doctor?.lastName}`}</h2>
                       <span className={classNames(styles.doctorStatus)}></span>
                     </div>
                     <div className={styles.proffesion}>
-                      <div className={styles.prof}>Therapist</div>
-                      <div className={styles.prof}>Family doctor</div>
+                      {doctor?.professions && doctor?.professions?.map((item, index) => (
+                        <div key={index} className={styles.prof}>{item?.name}</div>
+                      ))}
                     </div>
                     <div className={styles.address}>
                       <img src="/doctorLocation.svg" alt="" />
@@ -329,6 +334,7 @@ export default function Doctors({doctors}) {
                     </div>
                   </div>
                 </div>
+                </Link>
               );
             })}
           </div>
@@ -336,7 +342,7 @@ export default function Doctors({doctors}) {
             <Pagination
               className={styles.pagination}
               currentPage={currentPage}
-              totalCount={doctorsArray.length}
+              totalCount={doctors?.totalElements}
               pageSize={PageSize}
               onPageChange={(page) => setCurrentPage(page)}
             />
@@ -345,4 +351,21 @@ export default function Doctors({doctors}) {
       </div>
     </>
   );
+}
+
+export const getStaticProps = async () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  // const { data } = fetchAPI(
+  //   "GET",
+  //   "https://asclepius.pirveli.ge/asclepius/v1/api/clinics/doctors?page=0&size=10",
+  //   {}
+  // );
+  const getDoctors = await getData('https://asclepius.pirveli.ge/asclepius/v1/api/clinics/doctors?page=0&size=100')
+  // const getDoctorsListData = await getDoctorsList('https://asclepius.pirveli.ge/asclepius/v1/api/clinics/doctors?page=0&size=10')
+
+  return {
+    props: {
+      doctors: getDoctors
+    },
+  }
 }

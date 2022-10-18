@@ -2,8 +2,10 @@ import Text from "../ui/Text";
 import s from "../../styles/clinicsPage.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
-const BranchPageCardItem = (props) => {
+const BranchPageCardItem = ({props}) => {
+  const { address, contactInfos, description, displayName, eligibleForVAT, id, isActive, logoBody, logoUrl, parentId, workingHours, rating = '0' } = props
   const router = useRouter();
 
   const handleClick = (data) => {
@@ -14,26 +16,27 @@ const BranchPageCardItem = (props) => {
   };
 
   return (
+    <Link href={`/branchDetailPage/${id}`} key={id}>
     <div
       className={s.cardItemContainer}
-      key={props.id}
-      onClick={() => handleClick(props.data)}
+      key={id}
+      // onClick={() => handleClick(props.data)}
     >
       <div className={s.imgPart}>
         <div className={s.ratingContainer}>
           <Image src="/Star.svg" alt="star" width="16.67px" height="15.04" />
-          <Text>{props.rating}</Text>
+          <Text>{props?.rating}</Text>
         </div>
         <img
-          src={props.src || "/clinicImage.png"}
-          alt={props.alt}
+          src={logoUrl || "/clinicImage.png"}
+          alt={displayName}
           className={s.imgPartImage}
         />
       </div>
-      <Text style={s.clinicNameText}>{props.clinicName}</Text>
+      <Text style={s.clinicNameText}>{displayName}</Text>
       <Text style={s.clinicWorkingHours}>
-        {props.workingDay}
-        {props.workingHours}
+        {/* {props.workingDay} */}
+        {workingHours[0]?.startHour} {workingHours[0]?.endHour}
       </Text>
 
       <Text style={s.clinicAddressText}>
@@ -44,9 +47,10 @@ const BranchPageCardItem = (props) => {
           height="15.04"
           style={{ marginRight: "2px" }}
         />
-        {props.clinicAddress} Tbilis
+        {address?.address}
       </Text>
     </div>
+    </Link>
   );
 };
 

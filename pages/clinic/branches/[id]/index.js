@@ -1,17 +1,15 @@
 import {useState} from 'react';
-import styles from '../../styles/pages/clinic.module.css';
+import styles from '../../../../styles/pages/clinic.module.css';
 import classNames from 'classnames';
-import CheckBox from '../../components/ui/CheckBox';
-import Button from '../../components/ui/Button';
-import ConfirmedModal from '../../components/modals/confrimedModal';
 import Link from 'next/link';
-import { getData } from '../../components/request';
+import { getData } from '../../../../components/request';
 import Image from 'next/image';
 
-export default function Clinic({clinics}) {
-    console.log(clinics, 'clinics')
+export default function Branches({branches}) {
     const [blockId, setBlockId] = useState('');
     const [done, setDone] = useState(false);
+
+    console.log(branches, 'branches')
     
     return <>
         <div className={styles.clinicBody}>
@@ -21,7 +19,7 @@ export default function Clinic({clinics}) {
                 </div>
                 <div className={styles.clinicAnalyisis}>
                     <div className={styles.analysH}>
-                        <h2>Choose Clinic</h2>
+                        <h2>Choose branches</h2>
                     </div>
                     <div className={styles.searchBlock}>
                         {
@@ -39,14 +37,12 @@ export default function Clinic({clinics}) {
                             {
                                 blockId == '' && 
                                 <div className={styles.listH}>
-                                    <h2>Clinics</h2>
+                                    <h2>Branches</h2>
                                 </div>
                             }
-                           
-                           
-                            {clinics?.content && 
-                                clinics?.content?.map((item, index) => (
-                                    <Link href={`clinic/branches/${item?.id}`} key={index}>
+                            {branches &&
+                                branches?.map((item, index) => (
+                                    <Link href={`clinic/analysis/${item?.id}`} key={index}>
                                         <div className={styles.listItem}>
                                             <div
                                                 className={classNames(styles.clinic, {
@@ -59,6 +55,7 @@ export default function Clinic({clinics}) {
                                             </div>
                                         </div>
                                     </Link>
+                                    
                                 ))
                             }
                         </div>
@@ -69,12 +66,14 @@ export default function Clinic({clinics}) {
     </>
 }
 
-export const getStaticProps = async () => {
-    const getClinics = await getData('https://asclepius.pirveli.ge/asclepius/v1/api/clinics/?page=0&size=10')
+export const getServerSideProps = async (ctx) => {
+    const { params } = ctx;
+    const userId = params.id;
+    const getBranches = await getData(`https://asclepius.pirveli.ge/asclepius/v1/api/clinics/${userId}/branches`)
 
     return {
         props: {
-            clinics: getClinics
+            branches: getBranches
         },
     }
 }
