@@ -49,6 +49,7 @@ export const PasswordConfirm = () => {
 						<Button
 							type='submit'
 							name={'Confirm'}
+							style={s.viewClinicBtn}
 						/>
 					</div>
 				</div>

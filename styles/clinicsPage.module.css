@@ -1,449 +1,521 @@
 .cardItemContainer {
-  display: inline-block;
-  width: 31.5%;
-  height: 577px;
-  border: 1px solid #efefef;
-  margin-right:2.5%;
+	display: inline-block;
+	width: 25.5%;
+	height: 577px;
+	border: 1px solid #efefef;
+	margin-right: 2.5%;
 }
 
-.cardItemContainer:last-child{
-  margin-right:0;
+.cardItemContainer:last-child {
+	margin-right: 0;
 }
 
-.imgPartImage{
-  min-width: 100%;
-  min-height: 100%;
-  position: absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-50%, -50%);
-  margin-bottom:25px;
-  height: auto;
+.imgPartImage {
+	min-width: 100%;
+	min-height: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin-bottom: 25px;
+	height: auto;
 }
 
 .clinicPageCardListContainer {
-  display: flex;
-  justify-content: center;
-  gap: 0;
-  margin-bottom: 153px;
+	display: flex;
+	justify-content: center;
+	gap: 0;
+	margin-bottom: 153px;
 }
 .imgPart {
-  position: relative;
-  overflow: hidden;
-  height: 290px;
-  margin-bottom:24px;
+	display: flex;
+	justify-content: flex-end;
+	position: relative;
+	overflow: hidden;
+	height: 290px;
+	margin-bottom: 24px;
 }
 .ratingContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  gap: 6.67px;
-  margin-top: 20px;
-  margin-left: 16px;
-  width: 71px;
-  height: 28px;
-  border-radius: 14px;
-  background-color: #ffffff;
-  color: #3a74d2;
-  z-index: 999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	gap: 6.67px;
+	margin-top: 20px;
+	margin-right: 24px;
+	width: 71px;
+	height: 28px;
+	border-radius: 14px;
+	background-color: #ffffff;
+	color: #3a74d2;
+	z-index: 999;
+}
+.salePercent {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	z-index: 999;
+	width: 71px;
+	height: 28px;
+	background-color: #ff5954;
+	border-radius: 0px 14px 14px 0px;
+	margin-right: 305px;
+	margin-top: 224px;
+	color: #ffffff;
+}
+.viewClinicBtn {
+	display: block;
+	margin-left: 20px;
+	margin-right: auto;
+	margin-top: 37px;
+	width: 262px;
+	height: 52px;
+	background: #3a74d2;
+	border: 1px solid #3a74d2;
+	border-radius: 5px;
+	color: #ffffff;
+}
+
+.rangeContainer {
+	display: block;
+	margin-left: auto;
+	margin-right: 140px;
+	margin-bottom: 120px;
+	width: 211px;
+	height: 14px;
+}
+.percentBox {
+	display: flex;
+	justify-content: space-between;
+	margin-left: -8px;
+	width: 219px;
+}
+.percentBoxStyle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	width: 66px;
+	height: 28px;
+	left: 1034px;
+	top: 223px;
+	border: 1px solid #eee2e2;
+	border-radius: 3px;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 19px;
+	color: #1e2837;
+}
+.discountTextStyle {
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 19px;
+	color: #1e2837;
+	margin-left: -10px;
 }
 .clinicNameText {
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 21.79px;
-  color: #1e2837;
-  margin-left: 18px;
-  display: block;
-  margin-bottom: 29px;
-  text-align: left;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 21.79px;
+	color: #1e2837;
+	margin-left: 18px;
+	display: block;
+	margin-bottom: 29px;
+	text-align: left;
 }
 
 .clinicWorkingHours {
-  display: flex;
-  justify-content: center;
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-  color: #3a74d2;
-  width: 221px;
-  height: 28px;
-  background-color: rgba(58, 116, 210, 0.1);
-  border-radius: 14px;
-  margin-left: 18px;
-  margin-bottom: 28px;
+	display: flex;
+	justify-content: center;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 24px;
+	color: #3a74d2;
+	width: 221px;
+	height: 28px;
+	background-color: rgba(58, 116, 210, 0.1);
+	border-radius: 14px;
+	margin-left: 18px;
+	margin-bottom: 28px;
 }
 
 .clinicAddressText {
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-  color: #797a80;
-  margin-left: 18px;
-  display: flex;
-  gap:8.5px;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 24px;
+	color: #797a80;
+	margin-left: 18px;
+	display: flex;
+	gap: 8.5px;
 }
 .backButton {
-  display: flex;
-  flex-direction: row;
-  margin-top: 68px;
-  margin-bottom: 80px;
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 21.79px;
-  color: #3a74d2;
+	display: flex;
+	flex-direction: row;
+	margin-top: 68px;
+	margin-bottom: 80px;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 21.79px;
+	color: #3a74d2;
+	margin-left: 130px;
 }
 
 .clinicFilterContainer {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom:20px;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
 }
 .clinicsTitleTextStyle {
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 28px;
-  color: #1e2837;
-  padding-left: 2px;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 26px;
+	line-height: 28px;
+	color: #1e2837;
+	padding-left: 2px;
+	margin-left: 130px;
 }
 .filterButtonStyle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 188px;
-  height: 44px;
-  border-radius: 5px;
-  border: 1px solid #efefef;
-  background-color: #ffffff;
-  gap: 14px;
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1e2837;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 188px;
+	height: 44px;
+	border-radius: 5px;
+	border: 1px solid #efefef;
+	background-color: #ffffff;
+	gap: 14px;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 19px;
+	color: #1e2837;
 }
 
 .headerContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 41;
-  margin-bottom: 79px;
-  margin-right: 45px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: 41;
+	margin-bottom: 79px;
+	margin-right: 45px;
 }
 
 .filterTitleStyle {
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 24px;
-  color: #1e2837;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 24px;
+	color: #1e2837;
 }
 .searchInput {
-  display: flex;
-  justify-content: space-around;
-  align-items: "center";
-  background-color: #ffffff;
-  padding-left: 14px;
-  width: 340px;
-  height: 44px;
-  border-radius: 5px;
-  border: 1px solid #e5e5e5;
-  margin-bottom: 59px;
+	display: flex;
+	justify-content: space-around;
+	align-items: 'center';
+	background-color: #ffffff;
+	padding-left: 14px;
+	width: 340px;
+	height: 44px;
+	border-radius: 5px;
+	border: 1px solid #e5e5e5;
+	margin-bottom: 59px;
 }
 .searchInput input {
-  border: none;
-  width: 270px;
+	border: none;
+	width: 270px;
 }
 .searchInput input:focus {
-  outline: none;
+	outline: none;
 }
 .searchInput img {
-  display: flex;
-  align-items: center;
-  width: 24px;
-  margin-right: 10px;
+	display: flex;
+	align-items: center;
+	width: 24px;
+	margin-right: 10px;
 }
 .filterInputTitle {
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 19.07px;
-  color: #1e2837;
-  margin-bottom: 8px;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 19.07px;
+	color: #1e2837;
+	margin-bottom: 8px;
 }
 .dropDownFilterContainer {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 .inputStyle {
-  width: 340px;
-  height: 44px;
-  border-radius: 10px;
-  border: 1px solid #e5e5e5;
-  padding-left: 14px;
-  margin-bottom: 32px;
+	width: 340px;
+	height: 44px;
+	border-radius: 10px;
+	border: 1px solid #e5e5e5;
+	padding-left: 14px;
+	margin-bottom: 32px;
 }
 .buttonContainer {
-  display: flex;
-  flex-direction: row;
-  gap: 14px;
+	display: flex;
+	flex-direction: row;
+	gap: 14px;
 }
 .clearButton {
-  width: 163px;
-  height: 44px;
-  border-radius: 5px;
-  border: 1px solid #efefef;
-  margin-top: 150px;
-  background-color: #ffffff;
-  font-family: "Graphik";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 15px;
-  color: #1e2837;
+	width: 163px;
+	height: 44px;
+	border-radius: 5px;
+	border: 1px solid #efefef;
+	margin-top: 150px;
+	background-color: #ffffff;
+	font-family: 'Graphik';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 15px;
+	color: #1e2837;
 }
 .filterButton {
-  width: 163px;
-  height: 44px;
-  border-radius: 5px;
-  border: 1px solid #efefef;
-  margin-top: 150px;
-  background-color: #3a74d2;
-  font-family: "Graphik";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 15px;
-  color: #ffffff;
+	width: 163px;
+	height: 44px;
+	border-radius: 5px;
+	border: 1px solid #efefef;
+	margin-top: 150px;
+	background-color: #3a74d2;
+	font-family: 'Graphik';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 15px;
+	color: #ffffff;
 }
 
 .branchPage {
-  overflow: hidden;
+	overflow: hidden;
 
-  padding: 0 60px;
-  max-width: 1920px;
-  width: 100%;
-  margin: auto;
+	padding: 0 60px;
+	max-width: 1920px;
+	width: 100%;
+	margin: auto;
 }
 .filterForResp {
-  display: none;
+	display: none;
 }
 
-
 .filterContainer {
-  width: 100%;
-  height: 90%;
-  overflow: hidden;
-  position: relative;
+	width: 100%;
+	height: 90%;
+	overflow: hidden;
+	position: relative;
 }
 
 .filterSelectors {
-  overflow-y:auto; 
-  position:relative;
-  height: 80%;
-  padding:0 20px;
-  margin: 0 20px;
+	overflow-y: auto;
+	position: relative;
+	height: 80%;
+	padding: 0 20px;
+	margin: 0 20px;
 }
 
 .filterSelectors div h2 {
-  font-size:18px;
-  font-weight: normal;
+	font-size: 18px;
+	font-weight: normal;
 }
 
 .filterSelectors::-webkit-scrollbar {
-  width: 5px;
+	width: 5px;
 }
 
 .filterSelectors::-webkit-scrollbar-track {
-  background: #BFCCFF;
+	background: #bfccff;
 }
 
 .filterSelectors::-webkit-scrollbar-thumb {
-  background: #2751F2; 
-}  
+	background: #2751f2;
+}
 
 .filterSelectors::-webkit-scrollbar-thumb:hover {
-  background: #1641ed; 
+	background: #1641ed;
 }
 
 .filterBtns {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
-  height: 20%;
-  padding: 0 40px;
-  gap:20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #fff;
+	height: 20%;
+	padding: 0 40px;
+	gap: 20px;
 }
 
 .clearBtn {
-  width: 100%;
-  height: 44px;
-  font-size: 14px;
-  color: #1E2837;
-  border: 1px solid #EFEFEF;
-  background-color: transparent;
-  border-radius: 5px;
-  cursor: pointer;
+	width: 100%;
+	height: 44px;
+	font-size: 14px;
+	color: #1e2837;
+	border: 1px solid #efefef;
+	background-color: transparent;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
 .filterBtn {
-  width: 100%;
-  height: 44px;
-  font-size: 14px;
-  color: #FFFFFF;
-  border: 1px solid #3A74D2;
-  background-color: #3A74D2;
-  border-radius: 5px;
-  cursor: pointer;
+	width: 100%;
+	height: 44px;
+	font-size: 14px;
+	color: #ffffff;
+	border: 1px solid #3a74d2;
+	background-color: #3a74d2;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
 .selectBtn {
-  width: 100%;
-  padding:12px;
-  color: #797A80;
-  font-size: 14px;
-  background: transparent;
-  border: 1px solid #D9D9D9;
-  border-radius: 5px;
-  cursor:pointer;
+	width: 100%;
+	padding: 12px;
+	color: #797a80;
+	font-size: 14px;
+	background: transparent;
+	border: 1px solid #d9d9d9;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
 .selects div {
-  display: flex;
-  justify-content: space-between;
-  gap:10px;
-  margin:20px 0 30px;
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+	margin: 20px 0 30px;
 }
 
 .selects h2 {
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 21px;
-  letter-spacing: 0.04em;
-  text-align: left;
-  color: #312e45;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 21px;
+	letter-spacing: 0.04em;
+	text-align: left;
+	color: #312e45;
 }
 
 .activeBtn {
-  color: #3A74D2;
-  background: rgba(58, 116, 210, 0.2);
-  border: 1px solid #3A74D2;
+	color: #3a74d2;
+	background: rgba(58, 116, 210, 0.2);
+	border: 1px solid #3a74d2;
 }
 
 .searchForm {
-  position: relative;
-  width: 340px;
-  height: 55px;
-  border: 1px solid #E5E5E5;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  padding-left:50px;
-  margin-bottom:25px;
+	position: relative;
+	width: 340px;
+	height: 55px;
+	border: 1px solid #e5e5e5;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	padding-left: 50px;
+	margin-bottom: 25px;
 }
 
 .searchForm input {
-  border:none;
-  outline:none;
-  font-weight: 500;
-  font-size: 14px;
-  color: #BFC4CA;
+	border: none;
+	outline: none;
+	font-weight: 500;
+	font-size: 14px;
+	color: #bfc4ca;
 }
 
 .searchForm input::placeholder {
-  color:#BFC4CA
+	color: #bfc4ca;
 }
 
 .searchForm:before {
-  content:'';
-  position: absolute;
-  left:0;
-  top:50%;
-  background-image: url('../public/Search.svg');
-  background-repeat: no-repeat;
-  width: 24px;
-  height: 24px;
-  transform: translateY(-50%);
-  margin-left:14px;
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	background-image: url('../public/Search.svg');
+	background-repeat: no-repeat;
+	width: 24px;
+	height: 24px;
+	transform: translateY(-50%);
+	margin-left: 14px;
 }
 
 @media only screen and (max-width: 600px) {
-  .clinicPageCardListContainer {
-    flex-direction: column;
-    gap:14px;
-    padding:0 20px;
-    margin-bottom: 42px;
-  }
-  .backButton, .clinicFilterContainer {
-    margin:0px;
-  }
-  .clinicFilterContainer {
-    margin:26px 16px 20px;
-  }
-  .filterForResp {
-    display: block;
-    background-color: transparent;
-    border:none;
-    outline:none;
-    cursor:pointer;
-  }
-  .filterButtonStyle {
-    display: none;
-  }
-  .branchTool {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 16px;
-  }
-  .cardItemContainer {
-    margin:0;
-    width: 100%;
-  }
-  .imgPart > span {
-    width: 100%!important;
-  }
-  .branchPage {
-    padding: 0 0px;
-  }
-  .branchPage ul {
-    width: 100%;
-    margin-bottom:30px;
-    margin-top:0;
-    justify-content: flex-start;
-  }
-  .modalPopup {
-    width: 100%!important;
-  }
-  .headerContainer {
-    margin-top:20px;
-    margin-left:20px;
-  }
-  .searchInput {
-    margin-bottom: 32px;
-  }
-  .buttonContainer {
-    position: absolute!important;
-    bottom: 0;
-    margin-bottom: 50px;
-  }
-  .clinicAddressText {
-    display: flex;
-    gap:8.5px;
-  }
+	.clinicPageCardListContainer {
+		flex-direction: column;
+		gap: 14px;
+		padding: 0 20px;
+		margin-bottom: 42px;
+	}
+	.backButton,
+	.clinicFilterContainer {
+		margin: 0px;
+	}
+	.clinicFilterContainer {
+		margin: 26px 16px 20px;
+	}
+	.filterForResp {
+		display: block;
+		background-color: transparent;
+		border: none;
+		outline: none;
+		cursor: pointer;
+	}
+	.filterButtonStyle {
+		display: none;
+	}
+	.branchTool {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 16px;
+	}
+	.cardItemContainer {
+		margin: 0;
+		width: 100%;
+	}
+	.imgPart > span {
+		width: 100% !important;
+	}
+	.branchPage {
+		padding: 0 0px;
+	}
+	.branchPage ul {
+		width: 100%;
+		margin-bottom: 30px;
+		margin-top: 0;
+		justify-content: flex-start;
+	}
+	.modalPopup {
+		width: 100% !important;
+	}
+	.headerContainer {
+		margin-top: 20px;
+		margin-left: 20px;
+	}
+	.searchInput {
+		margin-bottom: 32px;
+	}
+	.buttonContainer {
+		position: absolute !important;
+		bottom: 0;
+		margin-bottom: 50px;
+	}
+	.clinicAddressText {
+		display: flex;
+		gap: 8.5px;
+	}
 }
