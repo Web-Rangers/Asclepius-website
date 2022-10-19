@@ -24,21 +24,6 @@ export const CreateNewPass = () => {
 		console.log(prop);
 	};
 
-	const handleClickShowPassword = () => {
-		setValues({
-			...values,
-			showPassword: !values.showPassword,
-		});
-	};
-	const handleClickShowRepeatPassword = () => {
-		setValues({
-			...values,
-			showRepeatPassword: !values.showRepeatPassword,
-		});
-	};
-	const handleMouseDownPassword = (event) => {
-		event.preventDefault();
-	};
 	const handleClick = (e) => {
 		e.preventDefault();
 		router.push('/confirmPasswordPage');
@@ -62,52 +47,25 @@ export const CreateNewPass = () => {
 					<div className={classes.singInContainer}>
 						<h1 className={classes.passwordRecoveryText}>Password recovery</h1>
 						<Input
+							withIcon={true}
 							label='Enter new password'
-							type={values.showPassword ? 'text' : 'password'}
+							type={'password'}
 							value={values.password}
-							onChange={handleChange('password')}
-							inputProps={{
-								className: classes.inputStyle,
-								endAdornment: (
-									<InputAdornment position='end'>
-										<IconButton
-											aria-label='toggle password visibility'
-											onClick={handleClickShowPassword}
-											onMouseDown={handleMouseDownPassword}
-											edge='end'
-										>
-											{values.showPassword ? <VisibilityOff /> : <Visibility />}
-										</IconButton>
-									</InputAdornment>
-								),
-							}}
+							onChange={(value) =>
+								setValues((prev) => ({ ...prev, password: value }))
+							}
 						/>
+
 						<Input
+							withIcon={true}
 							label='Repeat password'
-							variant='filled'
-							type={values.showRepeatPassword ? 'text' : 'password'}
+							type={'text'}
 							value={values.repeatPassword}
-							onChange={handleChange('repeatPassword')}
-							inputProps={{
-								className: classes.inputStyle,
-								endAdornment: (
-									<InputAdornment position='end'>
-										<IconButton
-											aria-label='toggle password visibility'
-											onClick={handleClickShowRepeatPassword}
-											onMouseDown={handleMouseDownPassword}
-											edge='end'
-										>
-											{values.showRepeatPassword ? (
-												<VisibilityOff />
-											) : (
-												<Visibility />
-											)}
-										</IconButton>
-									</InputAdornment>
-								),
-							}}
+							onChange={(value) =>
+								setValues((prev) => ({ ...prev, repeatPassword: value }))
+							}
 						/>
+
 						<Button
 							type='submit'
 							onClick={handleClick}
