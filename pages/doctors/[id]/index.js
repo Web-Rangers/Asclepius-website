@@ -5,11 +5,22 @@ import Calendar from '../../../components/Calendar';
 import classNames from 'classnames';
 import Select from '../../../components/Select';
 import AddFamilyMember from '../../../components/modals/addFamilyMember';
+import {getData} from '../../../components/request'
 
-export default function DoctorDetailed() {
+const API_URL = `https://asclepius.pirveli.ge/asclepius/v1/api`;
+
+export default function DoctorDetailed({doctor, educations, certificates}) {
     const [contact, setContact] = useState('');
     const [patient, setPatient] = useState('');
     const [modalIsOpen, setModalOpen] = useState(false);
+
+    const {
+        firstName,
+        pictureUrl,
+        professions,
+        aboutMe
+    } = doctor;
+    console.log(certificates)
 
     return <>
         {
@@ -32,7 +43,7 @@ export default function DoctorDetailed() {
                             </div>
                             <img 
                                 className={styles.doctorImage} 
-                                src="/doctor10.png" 
+                                src={pictureUrl} 
                                 alt="" 
                             />
                         </div>
@@ -48,14 +59,13 @@ export default function DoctorDetailed() {
                             </div>
                         </div>
                         <div className={styles.aboutDoctor}>
-                            <h2>Pamela Martínez</h2>
+                            <h2>{firstName}</h2>
                             <div className={styles.proffesion}>
-                                <div className={styles.prof}>
-                                    Therapist
-                                </div>
-                                <div className={styles.prof}>
-                                    Family doctor
-                                </div>
+                                {professions?.map((prof)=>{
+                                    return <div key={prof.id} className={styles.prof}>
+                                        {prof?.name}
+                                    </div>
+                                })}
                             </div>
                         </div>
                         <div className={styles.address}>
@@ -75,38 +85,33 @@ export default function DoctorDetailed() {
                                 <img src="/certificates.svg" alt="" />
                                 <h2>Certificates</h2>
                             </div>
-                            <div className={styles.certificate}>
-                                <div className={styles.certCheckmark}>
-                                    <img src="/checkMark.svg" alt="" />
-                                </div>
-                                <div className={styles.certificateInfo}>
-                                    <h2>Phoenix healthcare center</h2>
-                                    <p>Carymouth , Hallmark Clinic</p>
-                                    <h4>June 22 / 2022</h4>
-                                    <div className={styles.certLink}>
-                                        <img src="/disabledEye.svg" alt="" />
-                                        <Link href="/">
-                                            <a>https://thenounproject.com</a>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={styles.certificate}>
-                                <div className={styles.certCheckmark}>
-                                    <img src="/checkMark.svg" alt="" />
-                                </div>
-                                <div className={styles.certificateInfo}>
-                                    <h2>Phoenix healthcare center</h2>
-                                    <p>Carymouth , Hallmark Clinic</p>
-                                    <h4>June 22 / 2022</h4>
-                                    <div className={styles.certLink}>
-                                        <img src="/disabledEye.svg" alt="" />
-                                        <Link href="/">
-                                            <a>https://thenounproject.com</a>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
+                            {
+                                certificates?.map(({
+                                    galleryList, 
+                                    school, 
+                                    degree,
+                                    dateStart
+                                })=> {
+                                    return <>
+                                        <div className={styles.certificate}>
+                                            <div className={styles.certCheckmark}>
+                                                <img src={galleryList[0].url} alt="" />
+                                            </div>
+                                            <div className={styles.certificateInfo}>
+                                                <h2>{degree}</h2>
+                                                <p>{school}</p>
+                                                <h4>{dateStart}</h4>
+                                                <div className={styles.certLink}>
+                                                    <img src="/disabledEye.svg" alt="" />
+                                                    <Link href="/">
+                                                        <a>https://thenounproject.com</a>
+                                                    </Link>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </>
+                                })
+                            }
                         </div>
                     </div>
 
@@ -118,19 +123,7 @@ export default function DoctorDetailed() {
                             </div>
                             <div className={styles.aboutTxt}>
                                 <span>
-                                    - Board member of the International Association of Sexually Transmitted Diseases
-                                </span>
-                                <span>
-                                    - Full member of the European Academy of Dermatology and Venereology
-                                </span>
-                                <span>
-                                    - Chairman of the Tbilisi Association of Dermatologists and Venereologists
-                                </span>
-                                <span>
-                                    - Vice President of the Pediatric Dermatology Association of Georgia
-                                </span>
-                                <span>
-                                    - Chairman of the Association of Dermatologists and Venereologists
+                                    {aboutMe}
                                 </span>
                             </div>
                         </div>
@@ -140,39 +133,26 @@ export default function DoctorDetailed() {
                                 <h2>Education</h2>
                             </div>
                             <div className={styles.educationContent}>
-                                <div className={styles.educationItem}>
-                                    <div className={styles.data}>
-                                        9/2003 - 6/2006 yr.
-                                    </div>
-                                    <h2>Tbilisi State Medical Institute</h2>
-                                    <p>
-                                        Higher medical education - Chairman 
-                                        of the Association of Dermatologists 
-                                        and Venereologists
-                                    </p>
-                                </div>
-                                <div className={styles.educationItem}>
-                                    <div className={styles.data}>
-                                        9/2003 - 6/2006 yr.
-                                    </div>
-                                    <h2>Tbilisi State Medical Institute</h2>
-                                    <p>
-                                        Higher medical education - Chairman 
-                                        of the Association of Dermatologists 
-                                        and Venereologists
-                                    </p>
-                                </div>
-                                <div className={styles.educationItem}>
-                                    <div className={styles.data}>
-                                        9/2003 - 6/2006 yr.
-                                    </div>
-                                    <h2>Tbilisi State Medical Institute</h2>
-                                    <p>
-                                        Higher medical education - Chairman 
-                                        of the Association of Dermatologists 
-                                        and Venereologists
-                                    </p>
-                                </div>
+                                {
+                                    educations?.map(({
+                                        dateEnd,
+                                        dateStart,
+                                        degree,
+                                        school
+                                    })=> {
+                                        return <>
+                                             <div className={styles.educationItem}>
+                                                <div className={styles.data}>
+                                                    {dateEnd} - {dateStart} yr.
+                                                </div>
+                                                <h2>{degree}</h2>
+                                                <p>
+                                                    {school}
+                                                </p>
+                                            </div>
+                                        </>
+                                    })
+                                }
                             </div>
                         </div>
                     </div>
@@ -251,4 +231,32 @@ export default function DoctorDetailed() {
             </div>
         </div>
     </>
+}
+
+export const getStaticProps = async (context) => {
+    const getDoctor = await getData(`${API_URL}/clinics/doctors/${context.params.id}`)
+    const getDocEducations = await getData(`${API_URL}/doctors/${context.params.id}/educations`)
+    const getDocCertificates = await getData(`${API_URL}/doctors/${context.params.id}/educations`)
+
+    return {
+        props:{
+          doctor: getDoctor,
+          educations: getDocEducations,
+          certificates: getDocCertificates
+        },
+        revalidate: 10
+    }
+}
+
+export const getStaticPaths = async () => {
+    const getDoctors = await getData(`${API_URL}/clinics/doctors?page=0&size=99999999`)
+    
+    const paths = getDoctors?.content?.map((doc) => ({
+        params: { id: doc.id.toString() },
+    }))
+
+    return {
+        paths,
+        fallback: 'blocking' 
+    }
 }

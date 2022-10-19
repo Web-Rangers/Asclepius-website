@@ -276,7 +276,7 @@ function BuyCardPage() {
             })}>
               {
                 packs.filter(e=> e !== selectPack).map((e)=>{
-                  return <div onClick={()=> {setSelectPack(e); setOpen(false)}}>{e}</div>
+                  return <div key={e} onClick={()=> {setSelectPack(e); setOpen(false)}}>{e}</div>
                 })
               }
             </div>

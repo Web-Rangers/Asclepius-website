@@ -270,7 +270,7 @@
   /* flex-direction: row; */
   margin-left: 76px;
   margin-right: 76px;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
   overflow-y: hidden;
   white-space: nowrap;
   gap: 30px;

@@ -179,6 +179,73 @@
 	width: 360px;
 }
 
+/* input style */
+.inputConainer {
+	width: 360px;
+}
+
+.inputConainer label {
+	position: absolute;
+	margin-top: -3.7em;
+	padding-left: 10px;
+	transition: all 0.3s ease-in-out;
+}
+.inputConainer input {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	height: 58px;
+	display: block;
+	padding-left: 10px;
+	padding-top: 15px;
+	margin: 18px 0 18px 0;
+	border: solid 1px #d5d8de;
+	transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	background: linear-gradient(to top, rgba(255, 255, 255, 0) 99%, #d5d8de 1%);
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 99%, #d5d8de 1%)
+		rgba(255, 255, 255, 0.4);
+	background-position: -1000px 0;
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+	color: #323941;
+	font-size: 16px;
+}
+.inputConainer input:focus {
+	padding-top: 10px;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 22px;
+	color: #323941;
+	opacity: 0.8;
+}
+.inputConainer input:valid + label {
+	color: #323941;
+	z-index: 1;
+	font-size: 12px;
+	transform: translateY(-2em);
+}
+.inputConainer input:focus + label,
+.inputConainer input:active + label {
+	font-size: 12px;
+	color: #323941;
+	transform: translateY(-2em);
+}
+
+.inputConainer input:focus,
+.inputConainer input:valid {
+	box-shadow: none;
+	background-position: 0 0;
+}
+.nameSurnameInput {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: #3a74d2;
+}
+
 .line {
 	width: 164px;
 	height: 1px;
@@ -307,5 +374,9 @@
 		display: flex;
 		align-items: center;
 		background-color: #ffff;
+	}
+	.btnContainer {
+		display: flex;
+		justify-content: center;
 	}
 }

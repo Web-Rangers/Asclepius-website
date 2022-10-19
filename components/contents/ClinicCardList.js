@@ -2,6 +2,7 @@ import ClinicCardItem from "./ClinicCardItem";
 import classes from "../../styles/homePage.module.css";
 import Text from "../ui/Text";
 import Image from "next/image";
+import { Carousel } from 'react-responsive-carousel';
 
 const ClinicCardList = ({ clinicsData }) => {
   const slideLeft = () => {
