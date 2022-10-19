@@ -11,8 +11,8 @@ export const PasswordRecoveryPage = () => {
 	const router = useRouter();
 	const [email, setEmail] = useState('');
 
-	const handleChange = (value) => {
-		setEmail(value);
+	const handleChange = (event) => {
+		setEmail(event.target.value);
 		console.log(event.target.value);
 	};
 	const handleClick = (e) => {
@@ -40,10 +40,15 @@ export const PasswordRecoveryPage = () => {
 					<div className={classes.singInContainer}>
 						<h1 className={classes.passwordRecoveryText}>Password recovery</h1>
 						<Input
+							id='filled-basic'
 							label='E-mail'
+							variant='filled'
 							type='email'
 							value={email}
-							onChange={(value) => handleChange(value)}
+							onChange={handleChange}
+							inputProps={{
+								className: classes.inputStyle,
+							}}
 						/>
 						<Button
 							type='submit'
