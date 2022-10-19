@@ -21,6 +21,23 @@ const ClinicCardList = ({ clinicsData }) => {
           <Text style={classes.serviceTextStyle}>Services</Text>
           <div className={classes.arrows}>
             <Text style={classes.ourClinicTextStyle}>Our Clinics</Text>
+            <div className={classes.arrowsIcons}>
+              <Image
+                src="/Arrow - Left.svg"
+                alt="arrowLeft"
+                width="24px"
+                height="24px"
+                onClick={slideLeft}
+              />
+
+              <Image
+                src="/Arrow - Right.svg"
+                alt="arrowRight"
+                width="24px"
+                height="24px"
+                onClick={slideRight}
+              />
+            </div>
           </div>
         </div>
         <div className={classes.clinicCardList} id="slider">
@@ -35,6 +52,7 @@ const ClinicCardList = ({ clinicsData }) => {
                   {
                     chunk.map((item, index)=> {
                       return <ClinicCardItem
+                        id={item?.id}
                         key={index}
                         src={item.logoUrl || "/testClinic.png"}
                         clinicName={item.displayName}
