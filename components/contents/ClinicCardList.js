@@ -41,18 +41,31 @@ const ClinicCardList = ({ clinicsData }) => {
           </div>
         </div>
         <div className={classes.clinicCardList} id="slider">
-          {clinicsData?.map((item, index) => {
-            return (
-              <ClinicCardItem
-                key={index}
-                src={item.logoUrl || "/testClinic.png"}
-                clinicName={item.displayName}
-                clinicAddress={item.address.address}
-                rating={"4.9"}
-                data={item}
-              />
-            );
-          })}
+          <Carousel
+            className={classes.carousel}
+            showStatus={false}
+            showIndicators={false}
+          >
+            {clinicsData?.map((chunk) => {
+              return <>
+                <div className={classes.clinicCardItem}>
+                  {
+                    chunk.map((item, index)=> {
+                      return <ClinicCardItem
+                        id={item?.id}
+                        key={index}
+                        src={item.logoUrl || "/testClinic.png"}
+                        clinicName={item.displayName}
+                        clinicAddress={item.address.address}
+                        rating={"4.9"}
+                        data={item}
+                      />
+                    })
+                  }
+              </div>
+              </>
+            })}
+          </Carousel>
         </div>
       </div>
     </div>

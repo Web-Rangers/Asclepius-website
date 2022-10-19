@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const DoctorCardItem = ({id, ...props}) => {
 	return (
-		<Link href={`/doctors/${id}`}>
+		<Link href={`/doctors/${props?.id}`}>
 			<a className={classes.doctorItem}>
 				<div
 					className={classes.doctorItemContainer}
