@@ -15,7 +15,7 @@ const Input = ({
 	onChange,
 	style,
 	onClick,
-	withIcon,
+	withIcon = false,
 	...props
 }) => {
 	const [isVisible, setVisible] = useState(false);
