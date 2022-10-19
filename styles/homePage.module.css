@@ -802,11 +802,7 @@
   .cardItemContainer {
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
-    width:285px;
-=======
     width:100%;
->>>>>>> dev
     margin-right:10px;
     overflow: unset!important;
   }
@@ -911,22 +907,14 @@
     border: 1px solid rgba(30, 40, 55, 0.1);
   }
   .imgPart{
-<<<<<<< HEAD
-    width: 285px;
-=======
     width: 100%;
->>>>>>> dev
     height: 207px;
   }
   .doctorCardContainer {
     padding: 20px 0;
   }
   .doctorItem {
-<<<<<<< HEAD
-    width: 75%;
-=======
     width: 92%;
->>>>>>> dev
   }
   .serviceContainerImg img {
     width: 100%;
