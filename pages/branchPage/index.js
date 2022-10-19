@@ -15,7 +15,7 @@ import Select from '../../components/Select';
 let PageSize = 3;
 
 
-function ClinicsPage() {
+function BranchPage() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchInput, setSearchInput] = useState("");
@@ -186,4 +186,4 @@ function ClinicsPage() {
   );
 }
 
-export default ClinicsPage;
+export default BranchPage;
