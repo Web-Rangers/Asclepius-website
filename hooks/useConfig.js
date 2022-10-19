@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const API_URL = `http://localhost:3001/video/token`
+const API_URL = `http://accounting.pirveli.ge/api/racoon-transactions/twilio/accessToken`
 
 const INITIAL_STATE = {
     isLoading: false,
