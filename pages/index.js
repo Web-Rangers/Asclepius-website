@@ -12,6 +12,7 @@ import axios from 'axios';
 import ResponsiveSlider from '../components/contents/responsiveCarousel';
 import {useWindowSize} from '../components/useWindowSize';
 import {getData} from '../components/request';
+import { CommentsDisabledOutlined } from '@mui/icons-material';
 
 function Home({ clinics, doctors }) {
 	const [clinicData, setClinicData] = useState([]);
@@ -104,8 +105,10 @@ function Home({ clinics, doctors }) {
 }
 
 export const getStaticProps = async () => {
-    const getClinics = await getData('https://asclepius.pirveli.ge/asclepius/v1/api/clinics/search?name=')
-	const getDoctors = await getData('https://asclepius.pirveli.ge/asclepius/v1/api/clinics/doctors?page=0&size=10')
+	let API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/';
+
+    const getClinics = await getData(`${API_URL}/asclepius/v1/api/clinics/search?name=`)
+	const getDoctors = await getData(`${API_URL}/asclepius/v1/api/clinics/doctors/?page=0&size=10`)
 	
     return {
         props:{

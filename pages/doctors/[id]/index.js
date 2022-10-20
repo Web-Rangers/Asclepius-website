@@ -7,7 +7,7 @@ import Select from '../../../components/Select';
 import AddFamilyMember from '../../../components/modals/addFamilyMember';
 import {getData} from '../../../components/request'
 
-const API_URL = `https://asclepius.pirveli.ge/asclepius/v1/api`;
+let API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/';
 
 export default function DoctorDetailed({doctor, educations, certificates}) {
     const [contact, setContact] = useState('');
@@ -20,7 +20,7 @@ export default function DoctorDetailed({doctor, educations, certificates}) {
         professions,
         aboutMe
     } = doctor;
-    console.log(certificates)
+    console.log(doctor)
 
     return <>
         {
@@ -86,7 +86,7 @@ export default function DoctorDetailed({doctor, educations, certificates}) {
                                 <h2>Certificates</h2>
                             </div>
                             {
-                                certificates?.map(({
+                                certificates.length && certificates?.map(({
                                     galleryList, 
                                     school, 
                                     degree,
@@ -134,7 +134,7 @@ export default function DoctorDetailed({doctor, educations, certificates}) {
                             </div>
                             <div className={styles.educationContent}>
                                 {
-                                    educations?.map(({
+                                    educations.length && educations?.map(({
                                         dateEnd,
                                         dateStart,
                                         degree,
@@ -234,9 +234,9 @@ export default function DoctorDetailed({doctor, educations, certificates}) {
 }
 
 export const getStaticProps = async (context) => {
-    const getDoctor = await getData(`${API_URL}/clinics/doctors/${context.params.id}`)
-    const getDocEducations = await getData(`${API_URL}/doctors/${context.params.id}/educations`)
-    const getDocCertificates = await getData(`${API_URL}/doctors/${context.params.id}/educations`)
+    const getDoctor = await getData(`${API_URL}/asclepius/v1/api/clinics/doctors/${context.params.id}`)
+    const getDocEducations = await getData(`${API_URL}/asclepius/v1/api/doctors/${context.params.id}/educations`)
+    const getDocCertificates = await getData(`${API_URL}/asclepius/v1/api/doctors/${context.params.id}/educations`)
 
     return {
         props:{
@@ -249,7 +249,7 @@ export const getStaticProps = async (context) => {
 }
 
 export const getStaticPaths = async () => {
-    const getDoctors = await getData(`${API_URL}/clinics/doctors?page=0&size=99999999`)
+    const getDoctors = await getData(`${API_URL}/asclepius/v1/api/clinics/doctors?page=0&size=9999`)
     
     const paths = getDoctors?.content?.map((doc) => ({
         params: { id: doc.id.toString() },

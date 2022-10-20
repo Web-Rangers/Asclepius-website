@@ -2,7 +2,7 @@
     padding: 26px 0;
     width: calc(100% - 100px);
     margin:26px auto 55px;
-    padding: 0 67px;
+    padding: 1px 67px 40px;
     background: #FFFFFF;
     border-radius: 5px;
 }
@@ -125,8 +125,9 @@
 
 @media only screen and (max-width: 800px) {
     .faqPage {
-        padding: 0 16px;
+        padding: 1px 16px 40px;
         width: 100%;
+        margin: 26px auto 5px;
     }
     .faqHeader h4 { 
         width: 100%;
