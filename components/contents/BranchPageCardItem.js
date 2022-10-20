@@ -1,49 +1,70 @@
-import Text from "../ui/Text";
-import s from "../../styles/clinicsPage.module.css";
-import Image from "next/image";
-import { useRouter } from "next/router";
-import Link from "next/link";
+import Text from '../ui/Text';
+import s from '../../styles/clinicsPage.module.css';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import Button from '../ui/Button';
 
-const BranchPageCardItem = ({data}) => {
-  const { address, contactInfos, description, displayName, eligibleForVAT, id, isActive, logoBody, logoUrl, parentId, workingHours, rating = '0' } = data
+const BranchPageCardItem = (props) => {
+	const router = useRouter();
 
-  return (
-    <Link href={`/branchDetailPage/${id}`} key={id}>
-      <div
-        className={s.cardItemContainer}
-        key={id}
-        // onClick={() => handleClick(props.data)}
-      >
-        <div className={s.imgPart}>
-          <div className={s.ratingContainer}>
-            <Image src="/Star.svg" alt="star" width="16.67px" height="15.04" />
-            <Text>{data?.rating}</Text>
-          </div>
-          <img
-            src={logoUrl || "/clinicImage.png"}
-            alt={displayName}
-            className={s.imgPartImage}
-          />
-        </div>
-        <Text style={s.clinicNameText}>{displayName}</Text>
-        <Text style={s.clinicWorkingHours}>
-          {/* {props.workingDay} */}
-          {workingHours[0]?.startHour} {workingHours[0]?.endHour}
-        </Text>
+	const handleClick = (data) => {
+		router.push({
+			pathname: '/branchDetailPage',
+			query: data,
+		});
+	};
 
-        <Text style={s.clinicAddressText}>
-          <Image
-            alt="locationIcon"
-            src="/map-pin 1.svg"
-            width="16.67px"
-            height="15.04"
-            style={{ marginRight: "2px" }}
-          />
-          {address?.address}
-        </Text>
-      </div>
-    </Link>
-  );
+	return (
+		<div
+			className={s.cardItemContainer}
+			key={props.id}
+		>
+			<div className={s.imgPart}>
+				<div className={s.ratingContainer}>
+					<Image
+						src='/Star.svg'
+						alt='star'
+						width='16.67px'
+						height='15.04'
+					/>
+					<Text>{props.rating}</Text>
+				</div>
+				<div className={s.salePercent}>
+					<Text>{'-' + props.sale + '%'}</Text>
+				</div>
+				<img
+					src={props.src || '/clinicImage.png'}
+					alt={props.alt}
+					className={s.imgPartImage}
+				/>
+			</div>
+
+			<Text style={s.clinicNameText}>{props.clinicName}</Text>
+			<Text style={s.clinicWorkingHours}>
+				{props.workingDay}
+				{props.workingHours}
+			</Text>
+
+			<Text style={s.clinicAddressText}>
+				<Image
+					alt='locationIcon'
+					src='/map-pin 1.svg'
+					width='16.67px'
+					height='15.04'
+					style={{ marginRight: '2px' }}
+				/>
+				{props.clinicAddress} Tbilis
+			</Text>
+			<div>
+				<Button
+					type='submit'
+					name='View Clinic'
+					style={s.viewClinicBtn}
+					onClick={() => handleClick(props.data)}
+				/>
+			</div>
+		</div>
+	);
 };
 
 export default BranchPageCardItem;
