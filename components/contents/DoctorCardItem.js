@@ -3,8 +3,9 @@ import Text from '../ui/Text';
 import Link from 'next/link';
 
 const DoctorCardItem = ({id, ...props}) => {
+	console.log(id)
 	return (
-		<Link href={`/doctors/${props?.id}`}>
+		<Link href={`/doctors/${id}`}>
 			<a className={classes.doctorItem}>
 				<div
 					className={classes.doctorItemContainer}
