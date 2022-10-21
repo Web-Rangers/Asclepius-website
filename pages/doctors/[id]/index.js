@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import Select from '../../../components/Select';
 import AddFamilyMember from '../../../components/modals/addFamilyMember';
 import { getData } from '../../../components/request';
+import { useRouter } from 'next/router';
 
 let API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/';
 
@@ -18,6 +19,7 @@ export default function DoctorDetailed({
 	const [contact, setContact] = useState('');
 	const [patient, setPatient] = useState('');
 	const [modalIsOpen, setModalOpen] = useState(false);
+	const router = useRouter();
 
 	const { firstName, pictureUrl, professions, aboutMe } = doctor;
 
@@ -30,6 +32,7 @@ export default function DoctorDetailed({
 						<img
 							src='/backBtn.svg'
 							alt=''
+							onClick={() => router.push('/doctors')}
 						/>
 					</div>
 					<div className={styles.content}>
@@ -230,20 +233,6 @@ export default function DoctorDetailed({
 											alt=''
 										/>
 										<span>Audio</span>
-									</button>
-									<button
-										className={classNames(styles.bookingBtn, {
-											[styles.activeContact]: contact === 'home',
-										})}
-										onClick={() => {
-											setContact('home');
-										}}
-									>
-										<img
-											src='/home.svg'
-											alt=''
-										/>
-										<span>Clinic</span>
 									</button>
 								</div>
 							</div>

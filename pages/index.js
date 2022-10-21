@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import Slider from '../components/contents/Slider';
 import classes from '../styles/homePage.module.css';
 import ClinicCardList from '../components/contents/ClinicCardList';
@@ -10,13 +10,15 @@ import Text from '../components/ui/Text';
 import Button from '../components/ui/Button';
 import axios from 'axios';
 import ResponsiveSlider from '../components/contents/responsiveCarousel';
-import {useWindowSize} from '../components/useWindowSize';
-import {getData} from '../components/request';
+import { useWindowSize } from '../components/useWindowSize';
+import { getData } from '../components/request';
 import { CommentsDisabledOutlined } from '@mui/icons-material';
 
-function Home({ clinics, doctors }) {
+function Home({ clinics, doctors, frelancers }) {
 	const [clinicData, setClinicData] = useState([]);
 	const [doctorsData, setDoctorsData] = useState([]);
+
+	const allData = frelancers?.concat(doctors);
 
 	const windowSize = useWindowSize();
 
@@ -27,29 +29,29 @@ function Home({ clinics, doctors }) {
 	];
 
 	function sliceIntoChunks(arr, chunkSize) {
-	  	const res = [];
-	  	for(let i = 0; i < arr.length; i += chunkSize) {
+		const res = [];
+		for (let i = 0; i < arr.length; i += chunkSize) {
 			const chunk = arr.slice(i, i + chunkSize);
 			res.push(chunk);
 		}
 		return res;
 	}
-  
-	useEffect(()=> {
-		if(windowSize.width > 600){
-			setClinicData(sliceIntoChunks(clinics, 4))
-		}else {
-			setClinicData(sliceIntoChunks(clinics, 1))
-		}
-	},[clinics, windowSize.width])
 
 	useEffect(() => {
-		if(windowSize.width > 600){
-			setDoctorsData(sliceIntoChunks(doctors, 4))
-		}else {
-			setDoctorsData(sliceIntoChunks(doctors, 1))
+		if (windowSize.width > 600) {
+			setClinicData(sliceIntoChunks(clinics, 4));
+		} else {
+			setClinicData(sliceIntoChunks(clinics, 1));
 		}
-	}, [doctors, windowSize.width])
+	}, [clinics, windowSize.width]);
+
+	useEffect(() => {
+		if (windowSize.width > 600) {
+			setDoctorsData(sliceIntoChunks(allData, 4));
+		} else {
+			setDoctorsData(sliceIntoChunks(allData, 1));
+		}
+	}, [doctors, windowSize.width]);
 
 	return (
 		<div className={classes.homePageContainer}>
@@ -65,7 +67,7 @@ function Home({ clinics, doctors }) {
 					<div className={classes.showSliderForMobile}>
 						<ResponsiveSlider />
 						<Text style={classes.medicalCardTitle}>
-							<span>Multifunctional medical</span> 
+							<span>Multifunctional medical</span>
 							<a>Card</a>
 						</Text>
 						<div className={classes.medicalCardsButtons}>
@@ -107,15 +109,23 @@ function Home({ clinics, doctors }) {
 export const getStaticProps = async () => {
 	let API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/';
 
-    const getClinics = await getData(`${API_URL}/asclepius/v1/api/clinics/search?name=`)
-	const getDoctors = await getData(`${API_URL}/asclepius/v1/api/clinics/doctors/?page=0&size=10`)
-	
-    return {
-        props:{
-            clinics: getClinics,
-			doctors: getDoctors?.content
-        },
-    }
-}
+	const getClinics = await getData(
+		`${API_URL}/asclepius/v1/api/clinics/search?name=`
+	);
+	const getDoctors = await getData(
+		`${API_URL}/asclepius/v1/api/clinics/doctors/?page=0&size=10`
+	);
+	const getFreelancerDoc = await getData(
+		`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
+	);
 
-export default Home
+	return {
+		props: {
+			clinics: getClinics,
+			doctors: getDoctors?.content,
+			frelancers: getFreelancerDoc?.content,
+		},
+	};
+};
+
+export default Home;
