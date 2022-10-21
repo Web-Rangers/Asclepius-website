@@ -24,7 +24,7 @@ const ClinicCardItem = (props) => {
       className={classes.cardItemContainer}
     >
       <div className={classes.cardRating}>
-        <ReactSVG src="/clinicStar.svg" />
+        <ReactSVG src="/clinicStar.svg" className={classes.cardRatingStar} />
         <span>4.9</span>
       </div>
       <div className={classes.imgPart}>
