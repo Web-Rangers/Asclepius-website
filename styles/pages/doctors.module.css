@@ -1,399 +1,401 @@
 .doctorsPage {
-  max-width: 1920px;
-  width: 100%;
-  margin: auto;
-  padding: 10px 60px 0;
+	max-width: 1920px;
+	width: 100%;
+	margin: auto;
+	padding: 10px 60px 0;
 }
 
 .doctorsContainer {
-  overflow: hidden;
-  background-color: #fff;
+	overflow: hidden;
+	background-color: #fff;
 }
 
 .filterButton {
-  padding: 13px 60px;
-  background-color: transparent !important;
-  border: 1px solid #efefef;
-  border-radius: 5px;
-  color: #1e2837;
-  font-weight: 500;
-  font-size: 14px;
-  cursor: pointer;
-  height: 44px;
+	padding: 13px 60px;
+	background-color: transparent !important;
+	border: 1px solid #efefef;
+	border-radius: 5px;
+	color: #1e2837;
+	font-weight: 500;
+	font-size: 14px;
+	cursor: pointer;
+	height: 44px;
 }
 
 .filterButton div {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+	display: flex;
+	align-items: center;
+	gap: 16px;
 }
 
 .filterContainer {
-  width: 100%;
-  height: 90%;
-  overflow: hidden;
-  position: relative;
+	width: 100%;
+	height: 90%;
+	overflow: hidden;
+	position: relative;
 }
 
 .filterSelectors {
-  overflow-y: auto;
-  position: relative;
-  height: 80%;
-  padding: 0 20px;
-  margin: 0 20px;
+	overflow-y: auto;
+	position: relative;
+	height: 80%;
+	padding: 0 20px;
+	margin: 0 20px;
 }
 
 .filterSelectors::-webkit-scrollbar {
-  width: 5px;
+	width: 5px;
 }
 
 .filterSelectors::-webkit-scrollbar-track {
-  background: #bfccff;
+	background: #bfccff;
 }
 
 .filterSelectors::-webkit-scrollbar-thumb {
-  background: #2751f2;
+	background: #2751f2;
 }
 
 .filterSelectors::-webkit-scrollbar-thumb:hover {
-  background: #1641ed;
+	background: #1641ed;
 }
 
 .filterBtns {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
-  height: 20%;
-  padding: 0 40px;
-  gap: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #fff;
+	height: 20%;
+	padding: 0 40px;
+	gap: 20px;
 }
 
 .clearBtn {
-  width: 100%;
-  height: 44px;
-  font-size: 14px;
-  color: #1e2837;
-  border: 1px solid #efefef;
-  background-color: transparent;
-  border-radius: 5px;
-  cursor: pointer;
+	width: 100%;
+	height: 44px;
+	font-size: 14px;
+	color: #1e2837;
+	border: 1px solid #efefef;
+	background-color: transparent;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
 .filterBtn {
-  width: 100%;
-  height: 44px;
-  font-size: 14px;
-  color: #ffffff;
-  border: 1px solid #3a74d2;
-  background-color: #3a74d2;
-  border-radius: 5px;
-  cursor: pointer;
+	width: 100%;
+	height: 44px;
+	font-size: 14px;
+	color: #ffffff;
+	border: 1px solid #3a74d2;
+	background-color: #3a74d2;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
 .selectBtn {
-  width: 100%;
-  padding: 12px;
-  color: #797a80;
-  font-size: 14px;
-  background: transparent;
-  border: 1px solid #d9d9d9;
-  border-radius: 5px;
-  cursor: pointer;
+	width: 100%;
+	padding: 12px;
+	color: #797a80;
+	font-size: 14px;
+	background: transparent;
+	border: 1px solid #d9d9d9;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
 .selects div {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin: 20px 0 30px;
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+	margin: 20px 0 30px;
 }
 
 .selects h2 {
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 21px;
-  letter-spacing: 0.04em;
-  text-align: left;
-  color: #312e45;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 21px;
+	letter-spacing: 0.04em;
+	text-align: left;
+	color: #312e45;
 }
 
 .activeBtn {
-  color: #3a74d2;
-  background: rgba(58, 116, 210, 0.2);
-  border: 1px solid #3a74d2;
+	color: #3a74d2;
+	background: rgba(58, 116, 210, 0.2);
+	border: 1px solid #3a74d2;
 }
 
 .doctorslistContainer {
-  margin: 0 80px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	margin: 0 80px 24px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .doctorslistContainer h2 {
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 28px;
-  color: #1e2837;
+	font-weight: 700;
+	font-size: 26px;
+	line-height: 28px;
+	color: #1e2837;
 }
 
 .back {
-  margin: 68px 80px 22px;
+	margin: 68px 80px 22px;
 }
 
 .back img {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .servInput {
-  margin-bottom: 33px;
+	margin-bottom: 33px;
 }
 
 .doctorsList {
-  padding: 0 80px;
-  margin-bottom: 60px;
-  display: flex;
-  gap: 2%;
+	padding: 0 80px;
+	margin-bottom: 60px;
+	display: flex;
+	gap: 2%;
 }
 
 .doctor {
-  width: 24%;
-  border: 1px solid #efefef;
-  border-radius: 5px;
-  position: relative;
+	width: 24%;
+	border: 1px solid #efefef;
+	border-radius: 5px;
+	position: relative;
 }
 
 .poster {
-  position: relative;
-  max-height: 281px;
-  overflow: hidden;
+	position: relative;
+	max-height: 281px;
+	overflow: hidden;
 }
 
 .doctorStar {
-  position: absolute;
-  background-color: #3a74d2;
-  padding: 5px 11px 5px 14px;
-  border-radius: 14px;
-  margin: 20px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  z-index: 2;
-  top: 0;
+	position: absolute;
+	background-color: #3a74d2;
+	padding: 5px 11px 5px 14px;
+	border-radius: 14px;
+	margin: 20px;
+	margin-left: 220px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	z-index: 2;
+	top: 0;
 }
 
 .doctorImage {
-  width: 100%;
+	width: 100%;
+	height: 267px;
 }
 
 .doctorContact {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  height: 38.16px;
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  box-shadow: 0 3px 9px #eff1f3;
-  padding: 8px;
-  margin-top: -19px;
-  align-items: stretch;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 60%;
+	height: 50px;
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	box-shadow: 0 3px 9px #eff1f3;
+	padding: 8px;
+	margin-top: -19px;
+	align-items: stretch;
 }
 
 .doctorContact div {
-  width: 33%;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  border-right: 1px solid #d8d8d8;
+	width: 60%;
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+	border-right: 1px solid #d8d8d8;
 }
 
 .doctorContact div:last-child {
-  border-right: 0px;
+	border-right: 0px;
 }
 
 .contact {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .home {
-  width: 16.73px;
+	width: 16.73px;
 }
 .phone {
-  width: 16.73px;
+	width: 16.73px;
 }
 .video {
-  width: 22.73px;
+	width: 22.73px;
 }
 
 .doctorName {
-  display: flex;
-  align-items: center;
-  margin: 28px 18px 18px;
+	display: flex;
+	align-items: center;
+	margin: 28px 18px 18px;
 }
 
 .doctorName h2 {
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 25px;
-  color: #1e2837;
-  margin: 0;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 25px;
+	color: #1e2837;
+	margin-top: 30px;
 }
 
 .doctorStatus {
-  background-color: #98e37d;
-  width: 6px;
-  height: 6px;
-  margin: -8px 5px 0;
-  border-radius: 50%;
+	background-color: #98e37d;
+	width: 6px;
+	height: 6px;
+	margin: -8px 5px 0;
+	border-radius: 50%;
 }
 
 .address {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  margin: 0 18px 24px;
+	display: flex;
+	gap: 4px;
+	align-items: center;
+	margin: 0 18px 24px;
 }
 
 .address h4 {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-  color: #797a80;
-  margin: 0;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 24px;
+	color: #797a80;
+	margin: 0;
 }
 
 .proffesion {
-  margin: 0 18px 24px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+	margin: 0 18px 24px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
 }
 
 .language {
-  margin: 0 24px 36px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+	margin: 0 24px 36px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .languageList {
-  display: flex;
-  gap: 12px;
-  position: relative;
+	display: flex;
+	gap: 12px;
+	position: relative;
 }
 
 .languageList span {
-  display: block;
-  position: relative;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  color: #797a80;
-  cursor: pointer;
+	display: block;
+	position: relative;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 22px;
+	color: #797a80;
+	cursor: pointer;
 }
 
 .languageList span:last-child:after {
-  width: 0px;
+	width: 0px;
 }
 
 .languageList span:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  transform: translateY(-40%);
-  background-color: #bfc4ca;
-  height: 13px;
-  width: 1px;
-  margin-left: 6px;
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translateY(-40%);
+	background-color: #bfc4ca;
+	height: 13px;
+	width: 1px;
+	margin-left: 6px;
 }
 
 .prof {
-  padding: 2px 12px 4px;
-  border-radius: 14px;
-  background-color: rgba(58, 116, 210, 0.1);
-  color: #3a74d2;
-  font-weight: 400;
-  font-size: 14px;
+	padding: 2px 12px 4px;
+	border-radius: 14px;
+	background-color: rgba(58, 116, 210, 0.1);
+	color: #3a74d2;
+	font-weight: 400;
+	font-size: 14px;
 }
 
 .pagination ul {
-  margin-top: 0 !important;
+	margin-top: 0 !important;
 }
 
 .familyDoctor {
-  background: rgba(244, 225, 44, 0.2);
-  color: #3a74d2;
+	background: rgba(244, 225, 44, 0.2);
+	color: #3a74d2;
 }
 
 .pediatrican {
-  color: #98e37d33;
-  background: rgba(152, 227, 125, 0.2);
+	color: #98e37d33;
+	background: rgba(152, 227, 125, 0.2);
 }
 .filterForMobile {
-  display: none;
+	display: none;
 }
 
 /* mobile version  */
 
 @media only screen and (max-width: 767px) {
-  .doctorsPage {
-    padding: 0px;
-  }
-  .doctorslistContainer {
-    display: flex;
-    justify-content: space-between;
-    margin-left: 16px;
-    width: 100%;
-  }
-  .filterButton {
-    display: none;
-  }
-  .back {
-    display: none;
-  }
-  .doctorsList {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid #efefef;
-    border-radius: 5px;
-    position: relative;
-    gap: 34px;
-  }
-  .doctor {
-    width: 350px;
-  }
-  .doctorImage {
-    width: 100%;
-  }
-  .doctorContact {
-    width: 200px;
-  }
-  .pagination {
-    display: none;
-  }
-  .language {
-    margin: 0 24px 36px;
-    display: flex;
-    justify-content: flex-start;
-  }
-  .languageTitle {
-    margin-right: 28px;
-  }
-  .filterForMobile {
-    display: flex;
-    margin-right: 30px;
-  }
-  .filterContainer {
-    width: 100%;
-    height: 90%;
-    overflow: hidden;
-    position: relative;
-  }
+	.doctorsPage {
+		padding: 0px;
+	}
+	.doctorslistContainer {
+		display: flex;
+		justify-content: space-between;
+		margin-left: 16px;
+		width: 100%;
+	}
+	.filterButton {
+		display: none;
+	}
+	.back {
+		display: none;
+	}
+	.doctorsList {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		border: 1px solid #efefef;
+		border-radius: 5px;
+		position: relative;
+		gap: 34px;
+	}
+	.doctor {
+		width: 350px;
+	}
+	.doctorImage {
+		width: 100%;
+	}
+	.doctorContact {
+		width: 200px;
+	}
+	.pagination {
+		display: none;
+	}
+	.language {
+		margin: 0 24px 36px;
+		display: flex;
+		justify-content: flex-start;
+	}
+	.languageTitle {
+		margin-right: 28px;
+	}
+	.filterForMobile {
+		display: flex;
+		margin-right: 30px;
+	}
+	.filterContainer {
+		width: 100%;
+		height: 90%;
+		overflow: hidden;
+		position: relative;
+	}
 }

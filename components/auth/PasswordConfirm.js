@@ -8,9 +8,9 @@ import Link from 'next/link';
 export const PasswordConfirm = () => {
 	const [enterCode, setEnterCode] = useState('');
 
-	const handleChange = (value) => {
-		setEnterCode(value);
-		console.log(value);
+	const handleChange = (event) => {
+		setEnterCode(event.target.value);
+		console.log(event.target.value);
 	};
 
 	return (
@@ -44,11 +44,15 @@ export const PasswordConfirm = () => {
 							variant='filled'
 							type='text'
 							value={enterCode}
-							onChange={(value) => handleChange(value)}
+							onChange={handleChange}
+							inputProps={{
+								className: classes.inputStyle,
+							}}
 						/>
 						<Button
 							type='submit'
 							name={'Confirm'}
+							style={s.viewClinicBtn}
 						/>
 					</div>
 				</div>

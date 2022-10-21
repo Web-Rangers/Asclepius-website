@@ -1,261 +1,318 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import styles from '../../../styles/pages/doctorDetailed.module.css';
-import Link from "next/link";
+import Link from 'next/link';
 import Calendar from '../../../components/Calendar';
 import classNames from 'classnames';
 import Select from '../../../components/Select';
 import AddFamilyMember from '../../../components/modals/addFamilyMember';
-import {getData} from '../../../components/request'
+import { getData } from '../../../components/request';
+import { useRouter } from 'next/router';
 
-const API_URL = `https://asclepius.pirveli.ge/asclepius/v1/api`;
+let API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/';
 
-export default function DoctorDetailed({doctor, educations, certificates}) {
-    const [contact, setContact] = useState('');
-    const [patient, setPatient] = useState('');
-    const [modalIsOpen, setModalOpen] = useState(false);
+export default function DoctorDetailed({
+	doctor,
+	educations,
+	certificates,
+	workingDays,
+}) {
+	const [contact, setContact] = useState('');
+	const [patient, setPatient] = useState('');
+	const [modalIsOpen, setModalOpen] = useState(false);
+	const router = useRouter();
 
-    const {
-        firstName,
-        pictureUrl,
-        professions,
-        aboutMe
-    } = doctor;
+	const { firstName, pictureUrl, professions, aboutMe } = doctor;
 
-    return <>
-        {
-            modalIsOpen &&
-            <AddFamilyMember 
-                onClose={()=> setModalOpen(false)}
-            />
-        }
-        <div className={styles.doctorBody}>
-            <div className={styles.doctorContainer}>
-                <div className={styles.back}>
-                    <img src="/backBtn.svg" alt="" />
-                </div>
-                <div className={styles.content}>
-                    <div className={styles.doctor}>
-                        <div className={styles.poster}>
-                            <div className={styles.doctorStar}>
-                                <img src="/whiteStar.svg" alt="" />
-                                <span>4.9</span>
-                            </div>
-                            <img 
-                                className={styles.doctorImage} 
-                                src={pictureUrl} 
-                                alt="" 
-                            />
-                        </div>
-                        <div className={styles.doctorContact}>
-                            <div className={styles.contact}>
-                                <img className={styles.video} src="/videoIcon.svg" alt="" />
-                            </div>
-                            <div className={styles.contact}>
-                                <img className={styles.phone} src="/phoneContact.svg" alt="" />
-                            </div>
-                            <div className={styles.contact}>
-                                <img className={styles.home} src="/home.svg" alt="" />
-                            </div>
-                        </div>
-                        <div className={styles.aboutDoctor}>
-                            <h2>{firstName}</h2>
-                            <div className={styles.proffesion}>
-                                {professions?.map((prof)=>{
-                                    return <div key={prof.id} className={styles.prof}>
-                                        {prof?.name}
-                                    </div>
-                                })}
-                            </div>
-                        </div>
-                        <div className={styles.address}>
-                            <img src="/doctorLocation.svg" alt="" />
-                            <h4>Carymouth , Hallmark Clinic</h4>
-                        </div>
-                        <div className={styles.language}>
-                            <span className={styles.languageTitle}>Language</span>
-                            <div className={styles.languageList}>
-                                <span>Geo</span>
-                                <span>Eng</span>
-                                <span>Rus</span>
-                            </div>
-                        </div>
-                        <div className={styles.cetificates}>
-                            <div className={styles.certTitle}>
-                                <img src="/certificates.svg" alt="" />
-                                <h2>Certificates</h2>
-                            </div>
-                            {
-                                certificates?.map(({
-                                    galleryList, 
-                                    school, 
-                                    degree,
-                                    dateStart
-                                })=> {
-                                    return <>
-                                        <div className={styles.certificate}>
-                                            <div className={styles.certCheckmark}>
-                                                <img src={galleryList[0].url} alt="" />
-                                            </div>
-                                            <div className={styles.certificateInfo}>
-                                                <h2>{degree}</h2>
-                                                <p>{school}</p>
-                                                <h4>{dateStart}</h4>
-                                                <div className={styles.certLink}>
-                                                    <img src="/disabledEye.svg" alt="" />
-                                                    <Link href="/">
-                                                        <a>https://thenounproject.com</a>
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </>
-                                })
-                            }
-                        </div>
-                    </div>
+	return (
+		<>
+			{modalIsOpen && <AddFamilyMember onClose={() => setModalOpen(false)} />}
+			<div className={styles.doctorBody}>
+				<div className={styles.doctorContainer}>
+					<div className={styles.back}>
+						<img
+							src='/backBtn.svg'
+							alt=''
+							onClick={() => router.push('/doctors')}
+						/>
+					</div>
+					<div className={styles.content}>
+						<div className={styles.doctor}>
+							<div className={styles.poster}>
+								<div className={styles.doctorStar}>
+									<img
+										src='/whiteStar.svg'
+										alt=''
+									/>
+									<span>4.9</span>
+								</div>
+								<img
+									className={styles.doctorImage}
+									src={pictureUrl}
+									alt=''
+								/>
+							</div>
+							{/* <div className={styles.doctorContact}>
+								<div className={styles.contact}>
+									<img
+										className={styles.video}
+										src='/videoIcon.svg'
+										alt=''
+									/>
+								</div>
+								<div className={styles.contact}>
+									<img
+										className={styles.phone}
+										src='/phoneContact.svg'
+										alt=''
+									/>
+								</div>
+								<div className={styles.contact}>
+									<img
+										className={styles.home}
+										src='/home.svg'
+										alt=''
+									/>
+								</div>
+							</div> */}
+							<div className={styles.aboutDoctor}>
+								<h2>{firstName}</h2>
+								<div className={styles.proffesion}>
+									{professions?.map((prof) => {
+										return (
+											<div
+												key={prof.id}
+												className={styles.prof}
+											>
+												{prof?.name}
+											</div>
+										);
+									})}
+								</div>
+							</div>
+							<div className={styles.address}>
+								<img
+									src='/doctorLocation.svg'
+									alt=''
+								/>
+								<h4>Carymouth , Hallmark Clinic</h4>
+							</div>
+							<div className={styles.language}>
+								<span className={styles.languageTitle}>Language</span>
+								<div className={styles.languageList}>
+									<span>Geo</span>
+									<span>Eng</span>
+									<span>Rus</span>
+								</div>
+							</div>
+							<div className={styles.cetificates}>
+								<div className={styles.certTitle}>
+									<img
+										src='/certificates.svg'
+										alt=''
+									/>
+									<h2>Certificates</h2>
+								</div>
+								{certificates.length &&
+									certificates?.map(
+										({
+											galleryList,
+											issueDate,
+											expirationDate,
+											title,
+											issuer,
+											credentialId,
+										}) => {
+											return (
+												<>
+													<div className={styles.certificate}>
+														<div className={styles.certCheckmark}>
+															<img
+																src={galleryList[0].url}
+																alt=''
+															/>
+														</div>
+														<div className={styles.certificateInfo}>
+															<h2>{title}</h2>
+															<p>{issuer}</p>
+															<h4>{[issueDate, ' - ', expirationDate]}</h4>
+															<div className={styles.certLink}>
+																<img
+																	src='/disabledEye.svg'
+																	alt=''
+																/>
+																<Link href='/'>
+																	<a>https://thenounproject.com</a>
+																</Link>
+															</div>
+															<p> ID:{credentialId}</p>
+														</div>
+													</div>
+												</>
+											);
+										}
+									)}
+							</div>
+						</div>
 
-                    <div className={styles.doctorInfo}>
-                        <div className={styles.about}>
-                            <div className={styles.aboutTitle}>
-                                <img src="/aboutMe.svg" alt="" />
-                                <h2>About me</h2>
-                            </div>
-                            <div className={styles.aboutTxt}>
-                                <span>
-                                    {aboutMe}
-                                </span>
-                            </div>
-                        </div>
-                        <div className={styles.education}>
-                            <div className={styles.educationTitle}>
-                                <img src="/education.svg" alt="" />
-                                <h2>Education</h2>
-                            </div>
-                            <div className={styles.educationContent}>
-                                {
-                                    educations?.map(({
-                                        dateEnd,
-                                        dateStart,
-                                        degree,
-                                        school
-                                    })=> {
-                                        return <>
-                                             <div className={styles.educationItem}>
-                                                <div className={styles.data}>
-                                                    {dateEnd} - {dateStart} yr.
-                                                </div>
-                                                <h2>{degree}</h2>
-                                                <p>
-                                                    {school}
-                                                </p>
-                                            </div>
-                                        </>
-                                    })
-                                }
-                            </div>
-                        </div>
-                    </div>
+						<div className={styles.doctorInfo}>
+							<div className={styles.about}>
+								<div className={styles.aboutTitle}>
+									<img
+										src='/aboutMe.svg'
+										alt=''
+									/>
+									<h2>About me</h2>
+								</div>
+								<div className={styles.aboutTxt}>
+									<span>{aboutMe}</span>
+								</div>
+							</div>
+							<div className={styles.education}>
+								<div className={styles.educationTitle}>
+									<img
+										src='/education.svg'
+										alt=''
+									/>
+									<h2>Education</h2>
+								</div>
+								<div className={styles.educationContent}>
+									{educations.length &&
+										educations?.map(
+											({ dateEnd, dateStart, degree, school }) => {
+												return (
+													<>
+														<div className={styles.educationItem}>
+															<div className={styles.data}>
+																{dateEnd} - {dateStart} yr.
+															</div>
+															<h2>{degree}</h2>
+															<p>{school}</p>
+														</div>
+													</>
+												);
+											}
+										)}
+								</div>
+							</div>
+						</div>
 
-                    <div className={styles.doctorServices}>
-                        <div className={styles.booking}>
-                            <div className={styles.bookingHeader}>
-                                <img src='/booking.svg' alt="" />
-                                <h2>Booking</h2>
-                            </div>
-                            <div className={styles.bookingTool}>
-                                <button 
-                                    className={classNames(styles.bookingBtn, {
-                                        [styles.activeContact]: contact === 'online'
-                                    })}
-                                    onClick={()=>{
-                                        setContact('online')
-                                    }}
-                                >
-                                    <img src="/video.svg" alt="" />
-                                    <span>Online</span>
-                                </button>
-                                <button
-                                    className={classNames(styles.bookingBtn, {
-                                        [styles.activeContact]: contact === 'audio'
-                                    })}
-                                    onClick={()=>{
-                                        setContact('audio')
-                                    }}
-                                >
-                                    <img src="/phoneContact.svg" alt="" />
-                                    <span>Audio</span>
-                                </button>
-                                <button 
-                                    className={classNames(styles.bookingBtn, {
-                                        [styles.activeContact]: contact === 'home'
-                                    })}
-                                    onClick={()=>{
-                                        setContact('home')
-                                    }}
-                                > 
-                                    <img src="/home.svg" alt="" />
-                                    <span>Home</span>
-                                </button>
-                            </div>
-                        </div>
-                        <Calendar booking={true} />
+						<div className={styles.doctorServices}>
+							<div className={styles.booking}>
+								<div className={styles.bookingHeader}>
+									<img
+										src='/booking.svg'
+										alt=''
+									/>
+									<h2>Booking</h2>
+								</div>
+								<div className={styles.bookingTool}>
+									<button
+										className={classNames(styles.bookingBtn, {
+											[styles.activeContact]: contact === 'online',
+										})}
+										onClick={() => {
+											setContact('online');
+										}}
+									>
+										<img
+											src='/video.svg'
+											alt=''
+										/>
+										<span>Online</span>
+									</button>
+									<button
+										className={classNames(styles.bookingBtn, {
+											[styles.activeContact]: contact === 'audio',
+										})}
+										onClick={() => {
+											setContact('audio');
+										}}
+									>
+										<img
+											src='/phoneContact.svg'
+											alt=''
+										/>
+										<span>Audio</span>
+									</button>
+								</div>
+							</div>
+							<Calendar
+								booking={true}
+								workingDaysData={workingDays}
+							/>
 
-                        <div className={styles.patient}>
-                            <h2>Patient</h2>
-                            <Select
-                                label="Choose patient"
-                                labelStyle="inside"
-                                className={styles.servInput}
-                                options={[
-                                    {
-                                        label: "4140 Parker Rd",
-                                        value: "1",
-                                    },
-                                    { label: "Another Branch", value: "2" },
-                                ]}
-                                onChange={(value) => {
-                                    setPatient(value);
-                                }}
-                            />
-                            <button 
-                                className={styles.familyBtn}
-                                onClick={()=> setModalOpen(true)}
-                            >
-                                <img src="/plus.svg" alt="" />
-                                <span>Add family member</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </>
+							<div className={styles.patient}>
+								<h2>Patient</h2>
+								<Select
+									label='Choose patient'
+									labelStyle='inside'
+									className={styles.servInput}
+									options={[
+										{
+											label: '4140 Parker Rd',
+											value: '1',
+										},
+										{ label: 'Another Branch', value: '2' },
+									]}
+									onChange={(value) => {
+										setPatient(value);
+									}}
+								/>
+								<button
+									className={styles.familyBtn}
+									onClick={() => setModalOpen(true)}
+								>
+									<img
+										src='/plus.svg'
+										alt=''
+									/>
+									<span>Add family member</span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</>
+	);
 }
 
 export const getStaticProps = async (context) => {
-    const getDoctor = await getData(`${API_URL}/clinics/doctors/${context.params.id}`)
-    const getDocEducations = await getData(`${API_URL}/doctors/${context.params.id}/educations`)
-    const getDocCertificates = await getData(`${API_URL}/doctors/${context.params.id}/educations`)
+	const getDoctor = await getData(
+		`${API_URL}/asclepius/v1/api/clinics/doctors/${context.params.id}`
+	);
+	const getDocEducations = await getData(
+		`${API_URL}/asclepius/v1/api/doctors/${context.params.id}/educations`
+	);
+	const getDocCertificates = await getData(
+		`${API_URL}/asclepius/v1/api/doctors/${context.params.id}/certificates`
+	);
+	const getDocWorkingDay = await getData(
+		`${API_URL}/asclepius/v1/api/doctors/freelancers/${context.params.id}/days`
+	);
 
-    return {
-        props:{
-          doctor: getDoctor,
-          educations: getDocEducations,
-          certificates: getDocCertificates
-        },
-        revalidate: 10
-    }
-}
+	return {
+		props: {
+			doctor: getDoctor,
+			educations: getDocEducations,
+			certificates: getDocCertificates,
+			workingDays: getDocWorkingDay,
+		},
+		revalidate: 10,
+	};
+};
 
 export const getStaticPaths = async () => {
-    const getDoctors = await getData(`${API_URL}/clinics/doctors?page=0&size=99999999`)
-    
-    const paths = getDoctors?.content?.map((doc) => ({
-        params: { id: doc.id.toString() },
-    }))
+	const getDoctors = await getData(
+		`${API_URL}/asclepius/v1/api/clinics/doctors?page=0&size=9999`
+	);
 
-    return {
-        paths,
-        fallback: 'blocking' 
-    }
-}
+	const paths = getDoctors?.content?.map((doc) => ({
+		params: { id: doc.id.toString() },
+	}));
+
+	return {
+		paths,
+		fallback: 'blocking',
+	};
+};

@@ -50,15 +50,19 @@ export const SignIn = () => {
 					<Input
 						label='Name'
 						type='text'
-						onChange={() => {}}
+						inputProps={{
+							className: classes.inputStyle,
+						}}
 					/>
 					<Input
 						label='Password'
 						variant='filled'
 						type='password'
-						onChange={() => {}}
+						autoComplete='current-password'
+						inputProps={{
+							className: classes.inputStyle,
+						}}
 					/>
-
 					<div className={classes.linkedTitle}>
 						<Link href='/passwordRecoveryPage'>
 							<a className={classes.linkedTitleStyle}>Forget password?</a>

@@ -68,11 +68,12 @@ const DoctorCardList = ({doctorsData}) => {
 								{
 									chunk.map((item, index)=> {
 										return <DoctorCardItem
+											id={item?.id}
 											key={index}
 											rating={item.rating}
 											src={item.pictureUrl}
 											doctorName={item.firstName}
-											speciality={item?.professions[0]?.name}
+											speciality={item?.professions && item?.professions[0]?.name}
 										/>
 								})
 							}

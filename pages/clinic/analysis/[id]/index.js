@@ -1,13 +1,16 @@
 import {useState} from 'react';
-import styles from '../../../styles/pages/clinic.module.css';
+import styles from '../../../../styles/pages/clinic.module.css';
 import classNames from 'classnames';
-import CheckBox from '../../../components/ui/CheckBox';
-import Button from '../../../components/ui/Button';
+import CheckBox from '../../../../components/ui/CheckBox';
+import Button from '../../../../components/ui/Button';
 import Link from 'next/link';
+import { getData } from '../../../../components/request';
 
-export default function Branches() {
+export default function Analysis({ analysis }) {
     const [blockId, setBlockId] = useState('');
     const [done, setDone] = useState(false);
+
+    console.log(analysis, 'analysis')
     
     return <>
         <div className={styles.clinicBody}>
@@ -89,4 +92,16 @@ export default function Branches() {
             </div>
         </div>
     </>
+}
+
+export const getServerSideProps = async (ctx) => {
+    const { params } = ctx;
+    const userId = params.id;
+    const getAnalysis = await getData(`https://asclepius.pirveli.ge/asclepius/v1/api/clinics/get-products?contractId=${userId}`)
+
+    return {
+        props: {
+            branches: getAnalysis
+        },
+    }
 }

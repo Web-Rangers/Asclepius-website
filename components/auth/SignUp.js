@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import classes from '../../styles/signIn.module.css';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
@@ -13,9 +17,32 @@ export const SignUp = () => {
 		phoneNumber: '',
 		password: '',
 		repeatPassword: '',
-
-		type: 'password',
+		showPassword: false,
+		showRepeatPassword: false,
 	});
+
+	const handleChange = (prop) => (event) => {
+		setValues({ ...values, [prop]: event.target.value });
+		console.log(prop);
+	};
+
+	const handleClickShowPassword = () => {
+		setValues({
+			...values,
+			showPassword: !values.showPassword,
+		});
+	};
+
+	const handleClickShowRepeatPassword = () => {
+		setValues({
+			...values,
+			showRepeatPassword: !values.showRepeatPassword,
+		});
+	};
+
+	const handleMouseDownPassword = (event) => {
+		event.preventDefault();
+	};
 
 	return (
 		<div className={classes.container}>
@@ -59,61 +86,102 @@ export const SignUp = () => {
 					</div>
 					<div className={classes.nameSurnameContainer}>
 						<Input
+							id='filled-basic'
 							label='Name'
+							variant='filled'
 							type='text'
 							value={values.name}
-							onChange={(value) =>
-								setValues((prev) => ({ ...prev, name: value }))
-							}
+							onChange={handleChange('name')}
+							inputProps={{
+								className: classes.nameSurnameStyle,
+							}}
 						/>
 						<Input
+							id='filled-basic'
 							label='Surname'
+							variant='filled'
 							type='text'
 							value={values.surname}
-							onChange={(value) =>
-								setValues((prev) => ({ ...prev, surname: value }))
-							}
+							onChange={handleChange('surname')}
+							inputProps={{
+								className: classes.nameSurnameStyle,
+							}}
 						/>
 					</div>
 					<Input
+						id='filled-basic'
 						label='E-mail'
-						type='text'
+						variant='filled'
+						type='email'
 						value={values.email}
-						onChange={(value) =>
-							setValues((prev) => ({ ...prev, email: value }))
-						}
+						onChange={handleChange('email')}
+						inputProps={{
+							className: classes.inputStyle,
+						}}
 					/>
 					<Input
+						id='filled-basic'
 						label='Phone number'
 						variant='filled'
 						type='text'
 						value={values.phoneNumber}
-						onChange={(value) =>
-							setValues((prev) => ({ ...prev, phoneNumber: value }))
-						}
+						onChange={handleChange('phoneNumber')}
+						inputProps={{
+							className: classes.inputStyle,
+						}}
 					/>
 					<Input
-						withIcon={true}
+						id='filled-basic'
 						label='Password'
 						variant='filled'
-						type={values.type}
+						type={values.showPassword ? 'text' : 'password'}
 						value={values.password}
-						onChange={(value) =>
-							setValues((prev) => ({ ...prev, password: value }))
-						}
+						onChange={handleChange('password')}
+						autoComplete='current-password'
+						inputProps={{
+							className: classes.inputStyle,
+							endAdornment: (
+								<InputAdornment position='end'>
+									<IconButton
+										aria-label='toggle password visibility'
+										onClick={handleClickShowPassword}
+										onMouseDown={handleMouseDownPassword}
+										edge='end'
+									>
+										{values.showPassword ? <VisibilityOff /> : <Visibility />}
+									</IconButton>
+								</InputAdornment>
+							),
+						}}
 					/>
-
 					<Input
-						withIcon={true}
+						id='filled-basic'
 						label='Repeat password'
-						type={values.type}
+						variant='filled'
+						autoComplete='current-password'
+						type={values.showRepeatPassword ? 'text' : 'password'}
 						value={values.repeatPassword}
-						onChange={(value) =>
-							setValues((prev) => ({ ...prev, repeatPassword: value }))
-						}
+						onChange={handleChange('repeatPassword')}
+						inputProps={{
+							className: classes.inputStyle,
+							endAdornment: (
+								<InputAdornment position='end'>
+									<IconButton
+										aria-label='toggle password visibility'
+										onClick={handleClickShowRepeatPassword}
+										onMouseDown={handleMouseDownPassword}
+										edge='end'
+									>
+										{values.showRepeatPassword ? (
+											<VisibilityOff />
+										) : (
+											<Visibility />
+										)}
+									</IconButton>
+								</InputAdornment>
+							),
+						}}
 					/>
-				</div>
-				<div className={classes.btnContainer}>
 					<Button
 						type='submit'
 						name='Login'

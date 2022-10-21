@@ -24,6 +24,21 @@ export const CreateNewPass = () => {
 		console.log(prop);
 	};
 
+	const handleClickShowPassword = () => {
+		setValues({
+			...values,
+			showPassword: !values.showPassword,
+		});
+	};
+	const handleClickShowRepeatPassword = () => {
+		setValues({
+			...values,
+			showRepeatPassword: !values.showRepeatPassword,
+		});
+	};
+	const handleMouseDownPassword = (event) => {
+		event.preventDefault();
+	};
 	const handleClick = (e) => {
 		e.preventDefault();
 		router.push('/confirmPasswordPage');
@@ -47,25 +62,52 @@ export const CreateNewPass = () => {
 					<div className={classes.singInContainer}>
 						<h1 className={classes.passwordRecoveryText}>Password recovery</h1>
 						<Input
-							withIcon={true}
 							label='Enter new password'
-							type={'password'}
+							type={values.showPassword ? 'text' : 'password'}
 							value={values.password}
-							onChange={(value) =>
-								setValues((prev) => ({ ...prev, password: value }))
-							}
+							onChange={handleChange('password')}
+							inputProps={{
+								className: classes.inputStyle,
+								endAdornment: (
+									<InputAdornment position='end'>
+										<IconButton
+											aria-label='toggle password visibility'
+											onClick={handleClickShowPassword}
+											onMouseDown={handleMouseDownPassword}
+											edge='end'
+										>
+											{values.showPassword ? <VisibilityOff /> : <Visibility />}
+										</IconButton>
+									</InputAdornment>
+								),
+							}}
 						/>
-
 						<Input
-							withIcon={true}
 							label='Repeat password'
-							type={'text'}
+							variant='filled'
+							type={values.showRepeatPassword ? 'text' : 'password'}
 							value={values.repeatPassword}
-							onChange={(value) =>
-								setValues((prev) => ({ ...prev, repeatPassword: value }))
-							}
+							onChange={handleChange('repeatPassword')}
+							inputProps={{
+								className: classes.inputStyle,
+								endAdornment: (
+									<InputAdornment position='end'>
+										<IconButton
+											aria-label='toggle password visibility'
+											onClick={handleClickShowRepeatPassword}
+											onMouseDown={handleMouseDownPassword}
+											edge='end'
+										>
+											{values.showRepeatPassword ? (
+												<VisibilityOff />
+											) : (
+												<Visibility />
+											)}
+										</IconButton>
+									</InputAdornment>
+								),
+							}}
 						/>
-
 						<Button
 							type='submit'
 							onClick={handleClick}

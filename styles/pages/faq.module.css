@@ -1,0 +1,145 @@
+.faqPage {
+    padding: 26px 0;
+    width: calc(100% - 100px);
+    margin:26px auto 55px;
+    padding: 1px 67px 40px;
+    background: #FFFFFF;
+    border-radius: 5px;
+}
+
+.faqHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 78px 0 52px;
+}
+
+.faqHeader h3 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 24px;
+    color: #1E2837;
+    margin:0;
+    margin-bottom:42px;
+}
+
+.faqHeader h4 {
+    margin:0;
+    max-width: 741px;
+    width: 80%;
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 34px;
+    text-align: center;
+    color: #797A80;
+}
+
+.faqCats {
+    display: flex;
+    gap:30px;
+    margin-bottom:54px;
+}
+
+.faqCat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+    background-color: #F7F9FB;
+    padding: 34px 0;
+    /* max-width: 268px; */
+    width: 25%;
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    color: #1E2837;
+}
+
+.topics {
+    column-count: 2;
+}
+
+.topic {
+    /* width: calc(100%); */
+    border: 1px solid #E5E5E5;
+    border-radius: 3px;
+    break-inside: avoid-column;
+    page-break-inside: avoid;
+    margin-bottom: 16px;
+}
+
+.topicTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 33px;
+}
+
+.topicTitle h2{
+    margin:0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    color: #1E2837;
+}
+
+.topicDescription {
+    display: none;
+}
+
+.activeDescription {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 24px;
+    color: #37373A;
+    padding: 0 33px 28px;
+}
+
+.rotateArrow {
+    transform: rotate(270deg);
+}
+
+.activeTopic {
+    border: 1px solid #3A74D2;
+}
+
+@media only screen and (max-width: 1200px) {
+    .topics {
+        column-count:1;
+    }
+    .faqCats {
+        gap: 8px;
+    }
+    .faqCat {
+        width: calc(50% - 8px);
+        flex-direction: column;
+        gap:14px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .faqPage {
+        padding: 1px 16px 40px;
+        width: 100%;
+        margin: 26px auto 5px;
+    }
+    .faqHeader h4 { 
+        width: 100%;
+    }
+    .faqCats {
+        flex-wrap: wrap;
+        gap:8px;
+    }
+    .faqCat {
+        width: calc(50% - 8px);
+        flex-direction: column;
+        gap:14px;
+        padding: 20px 0;
+    }
+}

@@ -5,8 +5,11 @@ import CheckBox from '../../components/ui/CheckBox';
 import Button from '../../components/ui/Button';
 import ConfirmedModal from '../../components/modals/confrimedModal';
 import Link from 'next/link';
+import { getData } from '../../components/request';
+import Image from 'next/image';
 
-export default function Clinic() {
+export default function Clinic({clinics}) {
+    console.log(clinics, 'clinics')
     const [blockId, setBlockId] = useState('');
     const [done, setDone] = useState(false);
     
@@ -39,62 +42,39 @@ export default function Clinic() {
                                     <h2>Clinics</h2>
                                 </div>
                             }
-                            <Link href="clinic/branches">
-                                <div className={styles.listItem}>
-                                    <div 
-                                        className={classNames(styles.clinic, {
-                                            [styles.activeAnBlock]: blockId !== '' && true 
-                                        })}
-                                    >
-                                        <img src="/clniicLogo1.svg" alt="" />
-                                        <h2>Blood analysis</h2>
-                                        <img className={styles.arrow} src="/clinArrow.svg" alt="" />
-                                    </div>
-                                </div>
-                            </Link>
-                            <Link href="clinic/branches">
-                                <div className={styles.listItem}>
-                                    <div 
-                                        className={classNames(styles.clinic, {
-                                            [styles.activeAnBlock]: blockId !== '' && true 
-                                        })}
-                                    >
-                                        <img src="/clniicLogo2.svg" alt="" />
-                                        <h2>Blood analysis</h2>
-                                        <img className={styles.arrow} src="/clinArrow.svg" alt="" />
-                                    </div>
-                                </div>
-                            </Link>
-                            <Link href="clinic/branches">
-                                <div className={styles.listItem}>
-                                    <div 
-                                        className={classNames(styles.clinic, {
-                                            [styles.activeAnBlock]: blockId !== '' && true 
-                                        })}
-                                    >
-                                        <img src="/clniicLogo3.svg" alt="" />
-                                        <h2>Blood analysis</h2>
-                                        <img className={styles.arrow} src="/clinArrow.svg" alt="" />
-                                    </div>
-                                </div>
-                            </Link>
-                            <Link href="clinic/branches">
-                                <div className={styles.listItem}>
-                                    <div 
-                                        className={classNames(styles.clinic, {
-                                            [styles.activeAnBlock]: blockId !== '' && true 
-                                        })}
-                                    >
-                                        <img src="/clniicLogo4.svg" alt="" />
-                                        <h2>Blood analysis</h2>
-                                        <img className={styles.arrow} src="/clinArrow.svg" alt="" />
-                                    </div>
-                                </div>
-                            </Link>
+                           
+                           
+                            {clinics?.content && 
+                                clinics?.content?.map((item, index) => (
+                                    <Link href={`clinic/branches/${item?.id}`} key={index}>
+                                        <div className={styles.listItem}>
+                                            <div
+                                                className={classNames(styles.clinic, {
+                                                    [styles.activeAnBlock]: blockId !== '' && true
+                                                })}
+                                            >
+                                                <Image src={item?.logoUrl} width={40} height={40} alt="" />
+                                                <h2>{item?.displayName}</h2>
+                                                <img className={styles.arrow} src="/clinArrow.svg" alt="" />
+                                            </div>
+                                        </div>
+                                    </Link>
+                                ))
+                            }
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </>
+}
+
+export const getStaticProps = async () => {
+    const getClinics = await getData('https://asclepius.pirveli.ge/asclepius/v1/api/clinics/?page=0&size=10')
+
+    return {
+        props: {
+            clinics: getClinics
+        },
+    }
 }
