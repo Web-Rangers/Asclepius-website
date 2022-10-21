@@ -25,8 +25,6 @@ const DoctorCardItem = ({id, ...props}) => {
 							className={classes.docImage}
 							src={props.src}
 							alt={'doctor'}
-							width='267px'
-							height='286px'
 						/>
 					</div>
 					<Text style={classes.doctorNameText}>{props.doctorName}</Text>
