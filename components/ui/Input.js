@@ -24,10 +24,10 @@ const Input = ({
 		setVisible(!isVisible);
 	};
 	return (
-		<div className={classes.inputConainer}>
+		<div className={classNames([classes.inputConainer, className])}>
 			<input
-				className={className}
 				withIcon={false}
+				className={classNames([classes.inputConainerInput, className])}
 				required
 				value={value}
 				placeholder={placeholder}
