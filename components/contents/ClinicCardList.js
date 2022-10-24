@@ -36,6 +36,7 @@ const ClinicCardList = ({ clinicsData }) => {
                     chunk.map((item, index)=> {
                       return <ClinicCardItem
                         key={index}
+                        id={item.id}
                         src={item.logoUrl || "/testClinic.png"}
                         clinicName={item.displayName}
                         clinicAddress={item.address.address}
