@@ -649,7 +649,7 @@ function AvailableTime({ day, available }) {
 
 	return (
 		<>
-			{available.map((time, key) => {
+			{available?.map((time, key) => {
 				return (
 					time.day === moment(day).utc().format('YYYY-MM-DD') &&
 					time.hours.map((item) => (
