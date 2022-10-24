@@ -18,6 +18,8 @@ function Home({ clinics, doctors, frelancers }) {
 	const [clinicData, setClinicData] = useState([]);
 	const [doctorsData, setDoctorsData] = useState([]);
 
+	console.log('sf', frelancers);
+
 	const allData = frelancers?.concat(doctors);
 
 	const windowSize = useWindowSize();

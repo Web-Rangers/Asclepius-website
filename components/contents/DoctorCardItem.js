@@ -2,8 +2,7 @@ import classes from '../../styles/homePage.module.css';
 import Text from '../ui/Text';
 import Link from 'next/link';
 
-const DoctorCardItem = ({id, ...props}) => {
-	console.log(id)
+const DoctorCardItem = ({ id, ...props }) => {
 	return (
 		<Link href={`/doctors/${id}`}>
 			<a className={classes.doctorItem}>
