@@ -393,20 +393,13 @@ export default function Doctors({ frelancers }) {
 }
 
 export const getStaticProps = async () => {
-	let API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/';
-	// eslint-disable-next-line react-hooks/rules-of-hooks
-	// const { data } = fetchAPI(
-	//   "GET",
-	//   "https://asclepius.pirveli.ge/asclepius/v1/api/clinics/doctors?page=0&size=10",
-	//   {}
-	// );
+	let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
 	const getDoctors = await getData(
-		'https://asclepius.pirveli.ge/asclepius/v1/api/clinics/doctors?page=0&size=100'
+		`${API_URL}/asclepius/v1/api/clinics/doctors?page=0&size=100`
 	);
 	const getFreelancerDoc = await getData(
 		`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
 	);
-	// const getDoctorsListData = await getDoctorsList('https://asclepius.pirveli.ge/asclepius/v1/api/clinics/doctors?page=0&size=10')
 
 	return {
 		props: {

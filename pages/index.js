@@ -106,8 +106,8 @@ function Home({ clinics, doctors, frelancers }) {
 	);
 }
 
-export const getStaticProps = async () => {
-	let API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/';
+export const getServerSideProps = async () => {
+	let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 	const getClinics = await getData(
 		`${API_URL}/asclepius/v1/api/clinics/search?name=`
@@ -121,7 +121,7 @@ export const getStaticProps = async () => {
 
 	return {
 		props: {
-			clinics: getClinics,
+			clinics: getClinics?.length == 0 ? null : getClinics,
 			doctors: getDoctors?.content,
 			frelancers: getFreelancerDoc?.content,
 		},
