@@ -340,7 +340,7 @@ export default function Doctors({ frelancers }) {
 										</div>
 										<div className={styles.doctorInfo}>
 											<div className={styles.doctorName}>
-												<h2>{`${frelancers?.firstName} ${frelancers?.lastName}`}</h2>
+												<h2>{`${doctor?.firstName} ${doctor?.lastName}`}</h2>
 												{/* <span
 													className={classNames(styles.doctorStatus)}
 												></span> */}
