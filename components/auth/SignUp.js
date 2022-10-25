@@ -23,7 +23,6 @@ export const SignUp = () => {
 
 	const handleChange = (prop) => (event) => {
 		setValues({ ...values, [prop]: event.target.value });
-		console.log(prop);
 	};
 
 	const handleClickShowPassword = () => {

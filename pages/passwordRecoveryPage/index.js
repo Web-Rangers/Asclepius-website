@@ -13,12 +13,10 @@ export const PasswordRecoveryPage = () => {
 
 	const handleChange = (event) => {
 		setEmail(event.target.value);
-		console.log(event.target.value);
 	};
 	const handleClick = (e) => {
 		e.preventDefault();
 		router.push('/createNewPass');
-		console.log('ddd');
 	};
 	return (
 		<>

@@ -12,7 +12,6 @@ const SignUpHeader = () => {
 		setSearchInput(e.target.value);
 	};
 
-	console.log(searchInput);
 	return (
 		<div className={classes.signUpHeaderContainer}>
 			<div className={classes.f_half}>
