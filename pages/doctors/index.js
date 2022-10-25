@@ -155,19 +155,21 @@ const doctorsArray = [
 	},
 ];
 
-export default function Doctors({ frelancers }) {
+export default function Doctors({ frelancers, doctors }) {
 	const [isOpen, setOpen] = useState();
 	const [status, setStatus] = useState('');
 	const [serviceType, setServiceType] = useState('');
 	const [currentPage, setCurrentPage] = useState(1);
 	const router = useRouter();
 
+	const concatData = frelancers?.content.concat(doctors?.content);
+
 	let PageSize = 4;
 
 	const currentTableData = useMemo(() => {
 		const firstPageIndex = (currentPage - 1) * PageSize;
 		const lastPageIndex = firstPageIndex + PageSize;
-		return frelancers?.content?.slice(firstPageIndex, lastPageIndex);
+		return concatData?.slice(firstPageIndex, lastPageIndex);
 	}, [currentPage]);
 
 	return (
@@ -340,14 +342,14 @@ export default function Doctors({ frelancers }) {
 										</div>
 										<div className={styles.doctorInfo}>
 											<div className={styles.doctorName}>
-												<h2>{`${doctor?.firstName} ${doctor?.lastName}`}</h2>
+												<h2>{`${doctor?.firstName}`}</h2>
 												{/* <span
 													className={classNames(styles.doctorStatus)}
 												></span> */}
 											</div>
 											<div className={styles.proffesion}>
-												{frelancers?.professions &&
-													frelancers?.professions?.map((item, index) => (
+												{concatData?.professions &&
+													concatData?.professions?.map((item, index) => (
 														<div
 															key={index}
 															className={styles.prof}
@@ -381,7 +383,7 @@ export default function Doctors({ frelancers }) {
 						<Pagination
 							className={styles.pagination}
 							currentPage={currentPage}
-							totalCount={frelancers?.totalElements}
+							totalCount={concatData?.length}
 							pageSize={PageSize}
 							onPageChange={(page) => setCurrentPage(page)}
 						/>
