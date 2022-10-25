@@ -23,8 +23,6 @@ export default function DoctorDetailed({
 
 	const { firstName, pictureUrl, professions, aboutMe } = doctor;
 
-	console.log(doctor,educations,certificates,workingDays)
-
 	return (
 		<>
 			{modalIsOpen && <AddFamilyMember onClose={() => setModalOpen(false)} />}
@@ -116,17 +114,23 @@ export default function DoctorDetailed({
 								</div>
 								{certificates !== null &&
 									certificates?.map(
-										({
-											galleryList,
-											issueDate,
-											expirationDate,
-											title,
-											issuer,
-											credentialId,
-										}, i) => {
+										(
+											{
+												galleryList,
+												issueDate,
+												expirationDate,
+												title,
+												issuer,
+												credentialId,
+											},
+											i
+										) => {
 											return (
 												<>
-													<div key={i} className={styles.certificate}>
+													<div
+														key={i}
+														className={styles.certificate}
+													>
 														<div className={styles.certCheckmark}>
 															<img
 																src={galleryList && galleryList[0].url}
@@ -183,7 +187,10 @@ export default function DoctorDetailed({
 											({ dateEnd, dateStart, degree, school }, i) => {
 												return (
 													<>
-														<div key={i} className={styles.educationItem}>
+														<div
+															key={i}
+															className={styles.educationItem}
+														>
 															<div className={styles.data}>
 																{dateEnd} - {dateStart} yr.
 															</div>
@@ -282,7 +289,7 @@ export default function DoctorDetailed({
 export const getStaticProps = async (context) => {
 	const getDoctor = await getData(
 		`${API_URL}/asclepius/v1/api/clinics/doctors/${context.params.id}`
-		); 
+	);
 	const getDocEducations = await getData(
 		`${API_URL}/asclepius/v1/api/doctors/${context.params.id}/educations`
 	);
@@ -293,7 +300,6 @@ export const getStaticProps = async (context) => {
 		`${API_URL}/asclepius/v1/api/doctors/freelancers/${context.params.id}/days`
 	);
 
-
 	return {
 		props: {
 			doctor: getDoctor,
@@ -303,7 +309,6 @@ export const getStaticProps = async (context) => {
 		},
 		revalidate: 10,
 	};
-
 };
 
 export const getStaticPaths = async () => {
@@ -315,7 +320,10 @@ export const getStaticPaths = async () => {
 		`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
 	);
 
-	const concatDoctors = [].concat(getDoctors?.content, getFreelancerDoc?.content)
+	const concatDoctors = [].concat(
+		getDoctors?.content,
+		getFreelancerDoc?.content
+	);
 
 	const paths = concatDoctors?.map((doc) => ({
 		params: { id: doc.id.toString() },

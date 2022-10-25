@@ -9,7 +9,6 @@ const Services = () => {
 	const handleClick = (e) => {
 		e.preventDefault();
 		router.push('/signInPage');
-		console.log('ddd');
 	};
 	return (
 		<div className={s.serviceContainer}>
