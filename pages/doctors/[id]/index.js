@@ -10,13 +10,13 @@ import { useRouter } from 'next/router';
 import Input from '../../../components/Input';
 import Button from '../../../components/ui/Button';
 
-let API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/';
+let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export default function DoctorDetailed({
 	doctor,
-	educations,
-	certificates,
-	workingDays,
+	educations = [],
+	certificates = [],
+	workingDays = [],
 }) {
 	const [contact, setContact] = useState('');
 	const [patient, setPatient] = useState('');
@@ -79,10 +79,10 @@ export default function DoctorDetailed({
 							<div className={styles.aboutDoctor}>
 								<h2>{firstName}</h2>
 								<div className={styles.proffesion}>
-									{professions?.map((prof) => {
+									{professions?.map((prof, i) => {
 										return (
 											<div
-												key={prof.id}
+												key={i}
 												className={styles.prof}
 											>
 												{prof?.name}
@@ -114,22 +114,28 @@ export default function DoctorDetailed({
 									/>
 									<h2>Certificates</h2>
 								</div>
-								{certificates.length &&
+								{certificates !== null &&
 									certificates?.map(
-										({
-											galleryList,
-											issueDate,
-											expirationDate,
-											title,
-											issuer,
-											credentialId,
-										}) => {
+										(
+											{
+												galleryList,
+												issueDate,
+												expirationDate,
+												title,
+												issuer,
+												credentialId,
+											},
+											i
+										) => {
 											return (
 												<>
-													<div className={styles.certificate}>
+													<div
+														key={i}
+														className={styles.certificate}
+													>
 														<div className={styles.certCheckmark}>
 															<img
-																src={galleryList[0].url}
+																src={galleryList && galleryList[0].url}
 																alt=''
 															/>
 														</div>
@@ -178,12 +184,15 @@ export default function DoctorDetailed({
 									<h2>Education</h2>
 								</div>
 								<div className={styles.educationContent}>
-									{educations.length &&
+									{educations !== null &&
 										educations?.map(
-											({ dateEnd, dateStart, degree, school }) => {
+											({ dateEnd, dateStart, degree, school }, i) => {
 												return (
 													<>
-														<div className={styles.educationItem}>
+														<div
+															key={i}
+															className={styles.educationItem}
+														>
 															<div className={styles.data}>
 																{dateEnd} - {dateStart} yr.
 															</div>
@@ -324,9 +333,9 @@ export const getStaticProps = async (context) => {
 	return {
 		props: {
 			doctor: getDoctor,
-			educations: getDocEducations,
-			certificates: getDocCertificates,
-			workingDays: getDocWorkingDay,
+			educations: getDocEducations?.length == 0 ? null : getDocEducations,
+			certificates: getDocCertificates?.length == 0 ? null : getDocCertificates,
+			workingDays: getDocWorkingDay?.length == 0 ? null : getDocWorkingDay,
 		},
 		revalidate: 10,
 	};
@@ -337,7 +346,16 @@ export const getStaticPaths = async () => {
 		`${API_URL}/asclepius/v1/api/clinics/doctors?page=0&size=9999`
 	);
 
-	const paths = getDoctors?.content?.map((doc) => ({
+	const getFreelancerDoc = await getData(
+		`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
+	);
+
+	const concatDoctors = [].concat(
+		getDoctors?.content,
+		getFreelancerDoc?.content
+	);
+
+	const paths = concatDoctors?.map((doc) => ({
 		params: { id: doc.id.toString() },
 	}));
 
