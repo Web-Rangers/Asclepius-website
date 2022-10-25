@@ -7,6 +7,8 @@ import Select from '../../../components/Select';
 import AddFamilyMember from '../../../components/modals/addFamilyMember';
 import { getData } from '../../../components/request';
 import { useRouter } from 'next/router';
+import Input from '../../../components/Input';
+import Button from '../../../components/ui/Button';
 
 let API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/';
 
@@ -268,6 +270,34 @@ export default function DoctorDetailed({
 									/>
 									<span>Add family member</span>
 								</button>
+							</div>
+							<div className={styles.patient}>
+								<Input
+									placeholder={'Add note'}
+									label='Note'
+									className={styles.servInput}
+									type='text'
+									// multiline={true}
+								/>
+
+								<button
+									className={styles.familyBtn}
+									onClick={() => {}}
+								>
+									<img
+										src='/plus.svg'
+										alt=''
+									/>
+									<span>Add media</span>
+								</button>
+							</div>
+
+							<div className={styles.bookBtn}>
+								<Button
+									style={styles.bookBtnStyle}
+									type='submit'
+									name='Book now'
+								/>
 							</div>
 						</div>
 					</div>

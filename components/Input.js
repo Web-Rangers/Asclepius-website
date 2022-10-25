@@ -15,7 +15,7 @@ export default function Input({
   ...props
 }) {
   if (type === "text" && multiline) {
-    console.log("style", style);
+
     return (
       <div
         className={className ? className : classNames([styles.inputContainer])}
@@ -27,6 +27,7 @@ export default function Input({
             placeholder={placeholder}
             style={style}
             onChange={(event) => onChange?.call(null, event.target.value)}
+
           />
         </div>
       </div>

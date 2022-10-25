@@ -413,3 +413,36 @@
 	text-align: center;
 	color: #3a74d2;
 }
+.bookBtn{
+	margin-bottom: 30px;
+}
+.bookBtnStyle{
+	width: 370px;
+	height: 52px;
+	border-radius: 5px;
+	background-color: #3a74d2;
+	color: #fff;
+	margin-top: 20px;
+	cursor: pointer;
+	border: none;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 22px;
+}
+
+.noteInput{
+	width: 365px;
+	min-height: 110px;
+	border-radius: 5px;
+	border: 1px solid #921b1b;
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 24px;
+color: #8d8a8a;
+
+}
+
