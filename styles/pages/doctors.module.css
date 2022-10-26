@@ -168,6 +168,10 @@
 	position: relative;
 	max-height: 281px;
 	overflow: hidden;
+	width: 100%;
+	height: 267px;
+	display: flex;
+	justify-content: flex-end;
 }
 
 .doctorStar {
@@ -176,13 +180,11 @@
 	padding: 5px 11px 5px 14px;
 	border-radius: 14px;
 	margin: 20px;
-	/* margin-left: 220px; */
 	color: #fff;
 	display: flex;
 	align-items: center;
 	gap: 5px;
 	z-index: 2;
-	right:0;
 	top: 0;
 }
 
