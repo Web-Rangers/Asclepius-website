@@ -14,6 +14,7 @@ export default function Input({
 	style,
 	...props
 }) {
+
 	if (type === 'text' && multiline) {
 		return (
 			<div
@@ -56,4 +57,5 @@ export default function Input({
 			</div>
 		</div>
 	);
+
 }
