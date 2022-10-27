@@ -10,8 +10,9 @@ import Modal from "react-modal";
 import CardCheckoutModal from "../../components/modals/CardCheckoutModal";
 import classNames from 'classnames';
 import {ReactSVG} from 'react-svg';
+import { getData } from '../../components/request';
 
-function BuyCardPage() {
+function BuyCardPage({cards}) {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [customStyles, setCustomStyles] = useState({});
   const openModal = () => {
@@ -58,9 +59,64 @@ function BuyCardPage() {
     }
   }, [])
 
-  const [selectPack, setSelectPack] = useState('1 months');
+  function conMili(mSecVal){
+    //get the milliseconds value
+    return (new Date(mSecVal)).toString();
+  }
+
+  const [selectPack, setSelectPack] = useState('');
+  const [card, setCard] = useState({
+    id: '',
+    amount: '',
+  });
   const [open, setOpen] = useState(false);
   const packs = ['1 months', '3 months', '6 months'];
+  const lastThreeItem = cards.slice(-3);
+
+  const sendRequest = async (id, amount) => {
+		try {
+      const request = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/payment/bog/checkout/orders`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          "user_id": 1,
+          "contract_id": 21,
+          "party_id": 1,
+          "bog_order_request_dto": {
+              "intent": "AUTHORIZE",
+              "items": [
+                  {
+                      "amount": `${amount}`,
+                      "description": "test",
+                      "quantity": "1",
+                      "product_id": `${id}`,
+                  }
+              ],
+              "locale": "ka",
+              "shop_order_id": "123456",
+              "redirect_url": "https://bog-banking.pirveli.ge/callback/statusChange",
+              "show_shop_order_id_on_extract": true,
+              "capture_method": "AUTOMATIC",
+              "purchase_units": [
+                  {
+                      "amount": {
+                          "currency_code": "GEL",
+                          "value": "0.01"
+                      }
+                  }
+              ]
+          }
+      })
+      });
+      const response = await request.json()
+
+      return response
+    }catch(error) {
+      throw error
+    }
+	};
 
   return (
     <div className={s.container}>
@@ -253,7 +309,7 @@ function BuyCardPage() {
           </div>
         ))}
         <div className={s.buttonContainer}>
-          {
+          {/* {
             selectPack === '1 months' && <div className={s.price}>50$</div>
           }
           {
@@ -261,7 +317,7 @@ function BuyCardPage() {
           }
           {
             selectPack === '6 months' && <div className={s.price}>150$</div>
-          }
+          } */}
           <div className={s.customDropdown}>
             <div className={s.customOpt} onClick={()=> setOpen(!open)}>
               <span>
@@ -275,17 +331,32 @@ function BuyCardPage() {
               [s.customoptions]: open
             })}>
               {
-                packs.filter(e=> e !== selectPack).map((e)=>{
-                  return <div key={e} onClick={()=> {setSelectPack(e); setOpen(false)}}>{e}</div>
+                lastThreeItem.map((e)=>{
+                  return <div key={e.id} onClick={()=> {setSelectPack(e.title); setCard({id: e.genericTransactionTypeId, amount: e.entries[0].entryAmount}); setOpen(false)}}>{e.title}</div>
                 })
               }
             </div>
           </div>
-          <Button style={s.buttonActive} name="Buy now" />
+          <Button style={s.buttonActive} name="Buy now" onClick={()=> {
+            sendRequest(card.id, card.amount)
+              .then((response)=> console.log(response))
+          }} />
         </div>
       </div>
     </div>
   );
+}
+
+export const getStaticProps = async() => {
+  const getDoctors = await getData(
+		`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/transactions/cards/get-products?contractId=572`
+	); 
+
+  return {
+    props: {
+      cards: getDoctors
+    }
+  }
 }
 
 export default BuyCardPage;
