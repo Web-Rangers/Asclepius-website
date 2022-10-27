@@ -19,10 +19,10 @@ export default function useConfig() {
             fetch(`${API_URL}?identity=${identity}&room=${roomName}`)
                 .then(res => res.json())
                 .then(result => {
-                    if(result.token) {
+                    if(result.accessToken) {
                         setConfig({
                             isLoading: false,
-                            token: result.token,
+                            token: result.accessToken,
                             identity,
                             roomName
                         })
