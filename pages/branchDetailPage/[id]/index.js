@@ -1,56 +1,59 @@
-import s from "../../../styles/clinicDetailPage.module.css";
-import Image from "next/image";
-import Link from "next/link";
-import Text from "../../../components/ui/Text";
-import { useRouter } from "next/router";
+import s from '../../../styles/clinicDetailPage.module.css';
+import Image from 'next/image';
+import Link from 'next/link';
+import Text from '../../../components/ui/Text';
+import { useRouter } from 'next/router';
 import classNames from 'classnames';
-import { getData } from '../../../components/request'
+import { getData } from '../../../components/request';
 
 const clinicImage = [
-  { src: "/clinicImage.png" },
-  {
-    src: "/clinicImage.png",
-  },
-  {
-    src: "/clinicImage.png",
-  },
-  {
-    src: "/clinicImage.png",
-  },
+	{ src: '/clinicImage.png' },
+	{
+		src: '/clinicImage.png',
+	},
+	{
+		src: '/clinicImage.png',
+	},
+	{
+		src: '/clinicImage.png',
+	},
 ];
 
 const BranchDetailPage = ({ cardData, address, gallery }) => {
-  const router = useRouter();
+	const router = useRouter();
 
-  console.log(cardData[0], 'cardData[0]')
-  console.log(address, 'address')
-  console.log(gallery, 'gallery')
+	console.log(cardData[0], 'cardData[0]');
+	console.log(address, 'address');
+	console.log(gallery, 'gallery');
 
-  if(!router.isReady) {
-    return 'loading...'
-  }
+	if (!router.isReady) {
+		return 'loading...';
+	}
 
-  return (
-    <div className={s.container}>
-      <div>
-        <Link href="/branchPage">
-          <a className={s.backButton}>
-            <Image
-              alt="Arrow-LeftActive"
-              src="/Arrow - LeftActive.svg"
-              width="24px"
-              height="24px"
-              style={{ paddingRight: "4px" }}
-            />
-            Back
-          </a>
-        </Link>
-      </div>
-      <Text style={s.clinicsTitleTextStyle}> {cardData[0]?.displayName}</Text>
-      <div className={s.clinicDetailPageCard}>
-        <div className={s.cardItemContainer} key={cardData[0].id}>
-          <div className={s.imgPart}>
-            <div className={s.ratingContainer}>
+	return (
+		<div className={s.container}>
+			<div>
+				<Link href='/branchPage'>
+					<a className={s.backButton}>
+						<Image
+							alt='Arrow-LeftActive'
+							src='/Arrow - LeftActive.svg'
+							width='24px'
+							height='24px'
+							style={{ paddingRight: '4px' }}
+						/>
+						Back
+					</a>
+				</Link>
+			</div>
+			<Text style={s.clinicsTitleTextStyle}> {cardData[0]?.displayName}</Text>
+			<div className={s.clinicDetailPageCard}>
+				<div
+					className={s.cardItemContainer}
+					key={cardData[0].id}
+				>
+					<div className={s.imgPart}>
+						{/* <div className={s.ratingContainer}>
               <Image
                 src="/Star.svg"
                 alt="star"
@@ -58,177 +61,209 @@ const BranchDetailPage = ({ cardData, address, gallery }) => {
                 height="15.04"
               />
               <Text>{cardData[0]?.rating || '0'}</Text>
-            </div>
-            <Image
-              src={cardData[0]?.logoUrl}
-              alt={cardData[0]?.displayName}
-              className={s.imgPartImage}
-              width="368px"
-              height="326px"
-            />
-          </div>
-          <Text style={s.clinicNameText}>{cardData[0].displayName}</Text>
-          <Text style={s.clinicWorkingHours}>
-            {cardData[0].workingDay}
-            Saturday - Sunday 10:00-14:00
-          </Text>
-          <Text style={s.weekendWorkingHours}>
-            {cardData[0].weekendWorkingDay}
-            Saturday - Sunday 10:00-14:00
-          </Text>
-          {cardData[0]?.contactInfos && cardData[0]?.contactInfos?.map((item, index) => (
-            <Text style={s.contactInfoText} key={index}>
-              <Image src={item?.type?.value === 'mobile' ? '/phoneNonActiveIcon.svg' : '/mailIcon.svg'} alt="" width="24px" height="24px" />
-              {item?.value}
-            </Text>
-          ))}
-          <Text style={s.contactInfoText}>
-            <Image src="/LocationIcon.svg" alt="" width="24px" height="24px" />
-            {address?.address}
-          </Text>
-        </div>
-    
-        <div className={s.clinicInfo}>
-          <Text style={s.clinicInfoTitle}>About us</Text>
-          <Text style={s.clinicTitle}>{cardData[0]?.displayName}</Text>
-          <Text style={s.aboutClinicText}>{cardData[0]?.description}</Text>
-          <Text style={s.clinicInfoTitle}>Services</Text>
-          <div className={s.servicesContainer}>
-            <div className={s.serviceItem}>
-              <Image
-                alt="profile"
-                src="/Profile.svg"
-                width="24px"
-                height="24px"
-                style={{ paddingRight: "4px" }}
-              />
-              <Text style={s.serviceTitle}>Doctors</Text>
-              <img
-                alt="Arrow - Right"
-                src="/Arrow - Right 9.svg"
-                width="24px"
-                height="24px"
-                style={{ paddingRight: "4px" }}
-                className={s.imgArrow}
-              />
-            </div>
-            <Link href="clinic/analysis">
-              <div className={s.serviceItem}>
-                <Image
-                  alt="SearchIcon"
-                  src="/SearchIcon.svg"
-                  width="24px"
-                  height="24px"
-                  style={{ paddingRight: "4px" }}
-                />
-                <Text style={s.serviceTitle}>Analysis</Text>
-                <img
-                  alt="Arrow-Right"
-                  src="/Arrow - Right 9.svg"
-                  width="24px"
-                  height="24px"
-                  style={{ paddingRight: "4px" }}
-                  className={s.imgArrow}
-                />
-              </div>
-            </Link>
-            <div className={s.serviceItem}>
-              <Image
-                alt="chat"
-                src="/Chat.svg"
-                width="24px"
-                height="24px"
-                style={{ paddingRight: "4px" }}
-              />
-              <Text style={s.serviceTitle}>Research</Text>
-              <img
-                alt="Arrow-Right"
-                src="/Arrow - Right 9.svg"
-                width="24px"
-                height="24px"
-                style={{ paddingRight: "4px" }}
-                className={s.imgArrow}
-              />
-            </div>
-          </div>
-          <div className={s.offerCardContainer}>
-            <div className={s.offerContiner}>
-              <Text style={s.clinicInfoTitle}>Offer name</Text>
-              <Text style={s.serviceName}>Offer name1</Text>
-              <Text style={s.serviceText}>
-                Here is the offer name Chairman of the Association of
-                Dermatologists{" "}
-              </Text>
-              <Text style={s.serviceName}>Offer name2</Text>
-              <Text style={s.serviceText}>
-                Here is the offer name Chairman of the Association of
-                Dermatologists{" "}
-              </Text>
-            </div>
-            <div className={s.cardType}>
-              <Text style={s.clinicInfoTitle}>Card Type</Text>
-              <div className={s.cardImage}>
-                <Image
-                  alt="silver card"
-                  src="/Card 1.svg"
-                  width="117px"
-                  height="68.34px"
-                />
-              </div>
-              <Image
-                alt="gold card"
-                src="/Card 2.svg"
-                width="117px"
-                height="68.34px"
-                style={{ paddingRight: "4px" }}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={s.imageTitleContainer}>
-        <Text style={classNames(s.clinicsTitleTextStyle, s.imageTitle)}> Images of the clinic</Text>
-        <div className={s.imageContainer}>
-          {gallery && gallery?.map((img) => {
-            return <>
-              <img src={img?.url} alt="clinic image"/>
-            </>
-          }
-            )}
-        </div>
-        <div className={s.imageSlider}>
-          <Image
-            src="/Arrow - Left.svg"
-            alt="arrowLeft"
-            width="24px"
-            height="24px"
-          />
-          <Image
-            src="/Arrow - Right.svg"
-            alt="arrowRight"
-            width="24px"
-            height="24px"
-          />
-        </div>
-      </div>
-    </div>
-  );
+            </div> */}
+						<Image
+							src={cardData[0]?.logoUrl}
+							alt={cardData[0]?.displayName}
+							className={s.imgPartImage}
+							width='368px'
+							height='326px'
+						/>
+					</div>
+					<Text style={s.clinicNameText}>{cardData[0].displayName}</Text>
+					<Text style={s.clinicWorkingHours}>
+						{cardData[0].workingDay}
+						Saturday - Sunday 10:00-14:00
+					</Text>
+					<Text style={s.weekendWorkingHours}>
+						{cardData[0].weekendWorkingDay}
+						Saturday - Sunday 10:00-14:00
+					</Text>
+					{cardData[0]?.contactInfos &&
+						cardData[0]?.contactInfos?.map((item, index) => (
+							<Text
+								style={s.contactInfoText}
+								key={index}
+							>
+								<Image
+									src={
+										item?.type?.value === 'mobile'
+											? '/phoneNonActiveIcon.svg'
+											: '/mailIcon.svg'
+									}
+									alt=''
+									width='24px'
+									height='24px'
+								/>
+								{item?.value}
+							</Text>
+						))}
+					<Text style={s.contactInfoText}>
+						<Image
+							src='/LocationIcon.svg'
+							alt=''
+							width='24px'
+							height='24px'
+						/>
+						{address?.address}
+					</Text>
+				</div>
+
+				<div className={s.clinicInfo}>
+					<Text style={s.clinicInfoTitle}>About us</Text>
+					<Text style={s.clinicTitle}>{cardData[0]?.displayName}</Text>
+					<Text style={s.aboutClinicText}>{cardData[0]?.description}</Text>
+					<Text style={s.clinicInfoTitle}>Services</Text>
+					<div className={s.servicesContainer}>
+						<div className={s.serviceItem}>
+							<Image
+								alt='profile'
+								src='/Profile.svg'
+								width='24px'
+								height='24px'
+								style={{ paddingRight: '4px' }}
+							/>
+							<Text style={s.serviceTitle}>Doctors</Text>
+							<img
+								alt='Arrow - Right'
+								src='/Arrow - Right 9.svg'
+								width='24px'
+								height='24px'
+								style={{ paddingRight: '4px' }}
+								className={s.imgArrow}
+							/>
+						</div>
+						<Link href='clinic/analysis'>
+							<div className={s.serviceItem}>
+								<Image
+									alt='SearchIcon'
+									src='/SearchIcon.svg'
+									width='24px'
+									height='24px'
+									style={{ paddingRight: '4px' }}
+								/>
+								<Text style={s.serviceTitle}>Analysis</Text>
+								<img
+									alt='Arrow-Right'
+									src='/Arrow - Right 9.svg'
+									width='24px'
+									height='24px'
+									style={{ paddingRight: '4px' }}
+									className={s.imgArrow}
+								/>
+							</div>
+						</Link>
+						<div className={s.serviceItem}>
+							<Image
+								alt='chat'
+								src='/Chat.svg'
+								width='24px'
+								height='24px'
+								style={{ paddingRight: '4px' }}
+							/>
+							<Text style={s.serviceTitle}>Research</Text>
+							<img
+								alt='Arrow-Right'
+								src='/Arrow - Right 9.svg'
+								width='24px'
+								height='24px'
+								style={{ paddingRight: '4px' }}
+								className={s.imgArrow}
+							/>
+						</div>
+					</div>
+					<div className={s.offerCardContainer}>
+						<div className={s.offerContiner}>
+							<Text style={s.clinicInfoTitle}>Offer name</Text>
+							<Text style={s.serviceName}>Offer name1</Text>
+							<Text style={s.serviceText}>
+								Here is the offer name Chairman of the Association of
+								Dermatologists{' '}
+							</Text>
+							<Text style={s.serviceName}>Offer name2</Text>
+							<Text style={s.serviceText}>
+								Here is the offer name Chairman of the Association of
+								Dermatologists{' '}
+							</Text>
+						</div>
+						<div className={s.cardType}>
+							<Text style={s.clinicInfoTitle}>Card Type</Text>
+							<div className={s.cardImage}>
+								<Image
+									alt='silver card'
+									src='/Card 1.svg'
+									width='117px'
+									height='68.34px'
+								/>
+							</div>
+							<Image
+								alt='gold card'
+								src='/Card 2.svg'
+								width='117px'
+								height='68.34px'
+								style={{ paddingRight: '4px' }}
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className={s.imageTitleContainer}>
+				<Text style={classNames(s.clinicsTitleTextStyle, s.imageTitle)}>
+					{' '}
+					Images of the clinic
+				</Text>
+				<div className={s.imageContainer}>
+					{gallery &&
+						gallery?.map((img) => {
+							return (
+								<>
+									<img
+										src={img?.url}
+										alt='clinic image'
+									/>
+								</>
+							);
+						})}
+				</div>
+				<div className={s.imageSlider}>
+					<Image
+						src='/Arrow - Left.svg'
+						alt='arrowLeft'
+						width='24px'
+						height='24px'
+					/>
+					<Image
+						src='/Arrow - Right.svg'
+						alt='arrowRight'
+						width='24px'
+						height='24px'
+					/>
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default BranchDetailPage;
 
 export const getServerSideProps = async (ctx) => {
-  const { params } = ctx;
-  const userId = params.id;
-  const getClinicById = await getData(`https://asclepius.pirveli.ge/asclepius/v1/api/clinics/${userId}/branches`)
-  const getClinicAddress = await getData(`https://asclepius.pirveli.ge/asclepius/v1/api/clinics/${userId}/address`)
-  const getClinicGallery = await getData(`https://asclepius.pirveli.ge/asclepius/v1/api/gallery/clinic/${userId}`)
+	const { params } = ctx;
+	const userId = params.id;
+	const getClinicById = await getData(
+		`https://asclepius.pirveli.ge/asclepius/v1/api/clinics/${userId}/branches`
+	);
+	const getClinicAddress = await getData(
+		`https://asclepius.pirveli.ge/asclepius/v1/api/clinics/${userId}/address`
+	);
+	const getClinicGallery = await getData(
+		`https://asclepius.pirveli.ge/asclepius/v1/api/gallery/clinic/${userId}`
+	);
 
-  return {
-    props: {
-      cardData: getClinicById,
-      address: getClinicAddress,
-      gallery: getClinicGallery
-    },
-  }
-}
+	return {
+		props: {
+			cardData: getClinicById,
+			address: getClinicAddress,
+			gallery: getClinicGallery,
+		},
+	};
+};
