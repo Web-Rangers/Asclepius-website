@@ -227,3 +227,13 @@
 .hourList::-webkit-scrollbar-thumb:hover {
 	background: #1641ed;
 }
+
+
+@media only screen and (max-width: 980px) {
+	.dayInWeek {
+        width: 13%;
+    }
+    .dayHeader {
+        justify-content: center;
+    }
+}
