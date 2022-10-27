@@ -1,9 +1,9 @@
+import {useState, useEffect, useCallback} from 'react';
 import DoctorCardItem from '../contents/DoctorCardItem';
 import classes from '../../styles/homePage.module.css';
 import Text from '../ui/Text';
 import Image from 'next/image';
 import { Carousel } from 'react-responsive-carousel';
-
 const doctorData = [
 	{
 		src: 'maria.png',
@@ -35,15 +35,20 @@ const doctorData = [
 	}
 ];
 const DoctorCardList = ({doctorsData}) => {
-	const slideLeft = () => {
-		var slider = document.getElementById('slider');
-		slider.scrollLeft = slider.scrollLeft - 300;
-	};
+	const [data, setData] = useState([]);
+	const [state, setState] = useState(false);
+	
+	const showMoreFunc = useCallback(
+		() => {
+			if(!state) setData(doctorsData.filter((e, i)=> i < 12))
+			else setData(doctorsData.filter((e, i)=> i < 4))
+		},[data]
+	)
 
-	const slideRight = () => {
-		var slider = document.getElementById('slider');
-		slider.scrollLeft = slider.scrollLeft + 300;
-	};
+	useEffect(()=> {
+		setData(doctorsData.filter((e, i)=> i < 4))
+	}, [doctorsData])
+
 	return (
 		<div className={classes.doctorCardContainer}>
 			<div className={classes.firstPart}>
@@ -57,31 +62,25 @@ const DoctorCardList = ({doctorsData}) => {
 					className={classes.doctorCardList}
 					id='slider'
 				>
-					<Carousel
-						className={classes.carousel}
-						showStatus={false}
-						showIndicators={false}
-					>
-						{doctorsData?.map((chunk) => {
+					{data?.map((item, index) => {
 							return <>
-								<div className={classes.clinicCardItem}>
-								{
-									chunk.map((item, index)=> {
-										return <DoctorCardItem
-											id={item?.id}
-											key={index}
-											rating={item.rating}
-											src={item.pictureUrl}
-											doctorName={item.firstName}
-											speciality={item?.professions && item?.professions[0]?.name}
-										/>
-								})
-							}
-						</div>
+								<DoctorCardItem
+									id={item?.id}
+									key={index}
+									rating={item.rating}
+									src={item.pictureUrl}
+									doctorName={item.firstName}
+									speciality={item?.professions && item?.professions[0]?.name}
+								/>
 						</>
-						})}
-					</Carousel>
+					})}		
 				</div>
+				<div 
+					className={classes.showBtn}
+					onClick={()=>{setState(!state); showMoreFunc()}}
+				>
+					{!state ? "show more" : "show less"}
+				</div>				
 			</div>
 		</div>
 	);
