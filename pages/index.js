@@ -49,9 +49,9 @@ function Home({ clinics, doctors, frelancers }) {
 
 	useEffect(() => {
 		if (windowSize.width > 600) {
-			setDoctorsData(sliceIntoChunks(allData, 4));
+			setDoctorsData(allData);
 		} else {
-			setDoctorsData(sliceIntoChunks(allData, 1));
+			setDoctorsData(allData)
 		}
 	}, [doctors, windowSize.width]);
 
