@@ -296,18 +296,40 @@
     margin-right:24px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1260px) {
+    .clinicLogoContent {
+        width: 50%;
+    }
+    .clinicAnalyisis {
+        width: 50%;
+    }
+    .searchBlock {
+        width: 90%
+    }
+    .searchInput {
+        width: 100%;
+    }
+    .clinicContent {
+        min-height: 700px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
     .clinicBody {
         padding: 10px 0;
     }
     .clinicContent {
         flex-direction: column;
+        min-height: auto;
+        padding-bottom:60px;
+        background-color: #fff;
     }
     .clinicAnalyisis {
         width: 100%;
         padding-top:15px
     }
     .clinicLogoContent {
+        background-color: #fff;
         width: 100%;
     }
     .analysH, .searchBlock {
