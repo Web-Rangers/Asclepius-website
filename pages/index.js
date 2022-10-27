@@ -30,20 +30,20 @@ function Home({ clinics, doctors, frelancers }) {
 		'firstPartImg3.png',
 	];
 
-	function sliceIntoChunks(arr, chunkSize) {
-		const res = [];
-		for (let i = 0; i < arr.length; i += chunkSize) {
-			const chunk = arr.slice(i, i + chunkSize);
-			res.push(chunk);
-		}
-		return res;
-	}
+	// function sliceIntoChunks(arr, chunkSize) {
+	// 	const res = [];
+	// 	for (let i = 0; i < arr.length; i += chunkSize) {
+	// 		const chunk = arr.slice(i, i + chunkSize);
+	// 		res.push(chunk);
+	// 	}
+	// 	return res;
+	// }
 
 	useEffect(() => {
 		if (windowSize.width > 600) {
-			setClinicData(sliceIntoChunks(clinics, 4));
+			setClinicData(clinics);
 		} else {
-			setClinicData(sliceIntoChunks(clinics, 1));
+			setClinicData(clinics);
 		}
 	}, [clinics, windowSize.width]);
 
@@ -51,7 +51,7 @@ function Home({ clinics, doctors, frelancers }) {
 		if (windowSize.width > 600) {
 			setDoctorsData(allData);
 		} else {
-			setDoctorsData(allData)
+			setDoctorsData(allData);
 		}
 	}, [doctors, windowSize.width]);
 

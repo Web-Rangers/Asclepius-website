@@ -1,4 +1,4 @@
-import {useState, useEffect, useCallback} from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import DoctorCardItem from '../contents/DoctorCardItem';
 import classes from '../../styles/homePage.module.css';
 import Text from '../ui/Text';
@@ -32,22 +32,22 @@ const doctorData = [
 		name: 'Sofia Richards',
 		speciality: 'Dermatovenerologist',
 		rating: '4.9',
-	}
+	},
 ];
-const DoctorCardList = ({doctorsData}) => {
+const DoctorCardList = ({ doctorsData }) => {
 	const [data, setData] = useState([]);
 	const [state, setState] = useState(false);
-	
-	const showMoreFunc = useCallback(
-		() => {
-			if(!state) setData(doctorsData.filter((e, i)=> i < 12))
-			else setData(doctorsData.filter((e, i)=> i < 4))
-		},[data]
-	)
 
-	useEffect(()=> {
-		setData(doctorsData.filter((e, i)=> i < 4))
-	}, [doctorsData])
+	const showMoreFunc = useCallback(() => {
+		if (!state) setData(doctorsData.filter((e, i) => i < 12));
+		else setData(doctorsData.filter((e, i) => i < 4));
+	}, [data]);
+
+	useEffect(() => {
+		setData(doctorsData.filter((e, i) => i < 4));
+	}, [doctorsData]);
+
+	console.log('doc', data);
 
 	return (
 		<div className={classes.doctorCardContainer}>
@@ -63,7 +63,8 @@ const DoctorCardList = ({doctorsData}) => {
 					id='slider'
 				>
 					{data?.map((item, index) => {
-							return <>
+						return (
+							<>
 								<DoctorCardItem
 									id={item?.id}
 									key={index}
@@ -72,15 +73,19 @@ const DoctorCardList = ({doctorsData}) => {
 									doctorName={item.firstName}
 									speciality={item?.professions && item?.professions[0]?.name}
 								/>
-						</>
-					})}		
+							</>
+						);
+					})}
 				</div>
-				<div 
+				<div
 					className={classes.showBtn}
-					onClick={()=>{setState(!state); showMoreFunc()}}
+					onClick={() => {
+						setState(!state);
+						showMoreFunc();
+					}}
 				>
-					{!state ? "show more" : "show less"}
-				</div>				
+					{!state ? 'show more' : 'show less'}
+				</div>
 			</div>
 		</div>
 	);

@@ -54,7 +54,7 @@ const ClinicDetailPage = ({ cardData, address, branches }) => {
 					key={cardData?.id}
 				>
 					<div className={s.imgPart}>
-						<div className={s.ratingContainer}>
+						{/* <div className={s.ratingContainer}>
 							<Image
 								src='/Star.svg'
 								alt='star'
@@ -62,7 +62,7 @@ const ClinicDetailPage = ({ cardData, address, branches }) => {
 								height='15.04'
 							/>
 							<Text>{cardData?.rating}</Text>
-						</div>
+						</div> */}
 						<Image
 							src={cardData?.logoUrl}
 							alt={cardData?.displayName}
