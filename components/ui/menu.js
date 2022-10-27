@@ -15,7 +15,7 @@ export default function Menu({
                     onClick('main')
                 }}
             >
-                <img src="mainIcon.svg" alt="" />
+                <img src="/mainIcon.svg" alt="" />
                 <span>
                     Main
                 </span>
@@ -28,7 +28,7 @@ export default function Menu({
                     onClick('family')
                 }}
             >
-                <img src="family.svg" alt="" />
+                <img src="/family.svg" alt="" />
                 <span>
                     Family
                 </span>
@@ -41,7 +41,7 @@ export default function Menu({
                     onClick('calendar')
                 }}
             >
-                <img src="calendar.svg" alt="" />
+                <img src="/calendar.svg" alt="" />
                 <span>
                     Calendar
                 </span>
@@ -54,7 +54,7 @@ export default function Menu({
                     onClick('notifications')
                 }}
             >
-                <img src="notificationIcon.svg" alt="" />
+                <img src="/notificationIcon.svg" alt="" />
                 <span>
                     Notification
                 </span>

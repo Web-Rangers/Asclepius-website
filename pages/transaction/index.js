@@ -353,7 +353,7 @@ export default function Transactions() {
                 </Block>
         </div>
         {
-            useWindowSize().width < 600 && <Menu active={menuItem} onClick={(active)=> setMenuItem(active)} />
+            useWindowSize().width < 980 && <Menu active={menuItem} onClick={(active)=> setMenuItem(active)} />
         }
     </>
 }
