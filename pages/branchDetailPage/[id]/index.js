@@ -33,7 +33,7 @@ const BranchDetailPage = ({ cardData, address, gallery }) => {
 	return (
 		<div className={s.container}>
 			<div>
-				<Link href='/branchPage'>
+				<Link href='/clinicPage'>
 					<a className={s.backButton}>
 						<Image
 							alt='Arrow-LeftActive'

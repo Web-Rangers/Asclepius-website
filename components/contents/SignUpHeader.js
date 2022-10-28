@@ -52,7 +52,7 @@ const SignUpHeader = () => {
 							</Link>
 						</li>
 						<li>
-							<Link href='/branchPage'>
+							<Link href='/clinicPage'>
 								<a> Services</a>
 							</Link>
 							<div className={classes.dropdown}>
@@ -63,7 +63,7 @@ const SignUpHeader = () => {
 										</Link>
 									</li>
 									<li>
-										<Link href='/branchPage'>
+										<Link href='/clinicPage'>
 											<a>visit to the clinic</a>
 										</Link>
 									</li>

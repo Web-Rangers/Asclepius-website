@@ -30,15 +30,6 @@ function Home({ clinics, doctors, frelancers }) {
 		'firstPartImg3.png',
 	];
 
-	// function sliceIntoChunks(arr, chunkSize) {
-	// 	const res = [];
-	// 	for (let i = 0; i < arr.length; i += chunkSize) {
-	// 		const chunk = arr.slice(i, i + chunkSize);
-	// 		res.push(chunk);
-	// 	}
-	// 	return res;
-	// }
-
 	useEffect(() => {
 		if (windowSize.width > 600) {
 			setClinicData(clinics);

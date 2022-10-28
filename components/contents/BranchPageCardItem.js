@@ -20,7 +20,7 @@ const BranchPageCardItem = (props) => {
 			key={props.id}
 		>
 			<div className={s.imgPart}>
-				<div className={s.ratingContainer}>
+				{/* <div className={s.ratingContainer}>
 					<Image
 						src='/Star.svg'
 						alt='star'
@@ -28,7 +28,7 @@ const BranchPageCardItem = (props) => {
 						height='15.04'
 					/>
 					<Text>{props.rating}</Text>
-				</div>
+				</div> */}
 				<div className={s.salePercent}>
 					<Text>{'-' + props.sale + '%'}</Text>
 				</div>

@@ -2,14 +2,20 @@ import { useState, useEffect, useCallback } from 'react';
 import ClinicCardItem from './ClinicCardItem';
 import classes from '../../styles/homePage.module.css';
 import Text from '../ui/Text';
+import { useRouter } from 'next/router';
 
 const ClinicCardList = ({ clinicsData }) => {
+	const router = useRouter();
 	const [data, setData] = useState([]);
 	const [state, setState] = useState(false);
 
 	const showMoreFunc = useCallback(() => {
-		if (!state) setData(clinicsData.filter((e, i) => i < 12));
-		else setData(clinicsData.filter((e, i) => i < 4));
+		if (!state) {
+			setData(clinicsData.filter((e, i) => i < 12));
+		} else setData(clinicsData.filter((e, i) => i < 4));
+		if (data.length === 12) {
+			router.push('/clinicPage');
+		}
 	}, [data]);
 
 	useEffect(() => {

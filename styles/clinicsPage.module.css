@@ -63,7 +63,7 @@
 	margin-right: 305px;
 	margin-top: 224px;
 	color: #ffffff;
-	left:0;
+	left: 0;
 }
 .viewClinicBtn {
 	display: block;
@@ -71,10 +71,15 @@
 	margin-top: 37px;
 	width: 90%;
 	height: 52px;
-	background: #3a74d2;
-	border: 1px solid #3a74d2;
+	background: #ffbbb6;
 	border-radius: 5px;
-	color: #ffffff;
+	color: #1e2837;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 19px;
+	border: none;
 }
 
 .rangeContainer {
@@ -90,6 +95,7 @@
 	justify-content: space-between;
 	margin-left: -8px;
 	width: 219px;
+	margin-top: 14px;
 }
 .percentBoxStyle {
 	display: flex;
@@ -185,6 +191,10 @@
 	line-height: 28px;
 	color: #1e2837;
 	padding-left: 2px;
+}
+.btnContainer {
+	margin-top: 32px;
+	margin-left: 40px;
 }
 .filterButtonStyle {
 	display: flex;
@@ -304,7 +314,7 @@
 .branchPage {
 	overflow: hidden;
 	width: calc(100% - 280px);
-    max-width: calc(1920px - 280px);
+	max-width: calc(1920px - 280px);
 	margin: auto;
 }
 .filterForResp {

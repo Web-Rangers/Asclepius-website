@@ -124,71 +124,90 @@ function ClinicsPage() {
 				<Text style={s.clinicsTitleTextStyle}>Clinics</Text>
 				<div className={s.rangeContainer}>
 					<span className={s.discountTextStyle}>% Discount</span>
+					<div className={s.percentBox}>
+						<span className={s.percentBoxStyle}>{value[0] + '%'}</span>
+						<span className={s.percentBoxStyle}>{value[1] + '%'}</span>
+					</div>
 					<Slider
 						getAriaLabel={() => 'Temperature range'}
 						value={value}
 						onChange={handleChangeRange}
 					/>
-					<div className={s.percentBox}>
-						<span className={s.percentBoxStyle}>{value[0] + '%'}</span>
-						<span className={s.percentBoxStyle}>{value[1] + '%'}</span>
-					</div>
 				</div>
-				{/* <Button
-					style={s.filterButtonStyle}
-					name='Filter'
-					icon={
-						<Image
-							alt='Arrow-LeftActive'
-							src='/Filter.svg'
-							width='24px'
-							height='24px'
-						/>
-					}
-					onClick={setOpen}
-				></Button>
-				{modalOpen && (
-					<FilterModal onClose={() => setOpen(false)}>
-						<div className={classNames(s.filterContainer)}>
-							<div className={s.filterSelectors}>
-								<div className={s.searchInp}>
-									<h2>Search</h2>
-									<div className={s.searchForm}>
-										<input
-											type='text'
-											placeholder='Search with ID'
-										/>
+				<div className={s.btnContainer}>
+					<Button
+						style={s.filterButtonStyle}
+						name='Filter'
+						icon={
+							<Image
+								alt='Arrow-LeftActive'
+								src='/Filter.svg'
+								width='24px'
+								height='24px'
+							/>
+						}
+						onClick={setOpen}
+					></Button>
+					{modalOpen && (
+						<FilterModal onClose={() => setOpen(false)}>
+							<div className={classNames(s.filterContainer)}>
+								<div className={s.filterSelectors}>
+									<div className={s.searchInp}>
+										<h2>Search</h2>
+										<div className={s.searchForm}>
+											<input
+												type='text'
+												placeholder='Search with ID'
+											/>
+										</div>
 									</div>
+									<Select
+										placeholder='City'
+										label='City'
+										labelStyle='outside'
+										className={s.servInput}
+										options={[
+											{
+												label: '4140 Parker Rd',
+												value: '1',
+											},
+											{ label: 'Another Branch', value: '2' },
+										]}
+										onChange={(value) => {
+											setStatus(value);
+										}}
+									/>
+									<Select
+										placeholder='Service Type'
+										label='Service Type'
+										labelStyle='outside'
+										className={s.servInput}
+										options={[
+											{
+												label: '4140 Parker Rd',
+												value: '1',
+											},
+											{ label: 'Another Branch', value: '2' },
+										]}
+										onChange={(value) => {
+											setStatus(value);
+										}}
+									/>
 								</div>
-								<Select
-									label='Status'
-									labelStyle='outside'
-									className={s.servInput}
-									options={[
-										{
-											label: '4140 Parker Rd',
-											value: '1',
-										},
-										{ label: 'Another Branch', value: '2' },
-									]}
-									onChange={(value) => {
-										setStatus(value);
-									}}
-								/>
+								<div className={s.filterBtns}>
+									<Button
+										name='Clear'
+										style={s.clearBtn}
+									/>
+									<Button
+										name='Filter'
+										style={s.filterBtn}
+									/>
+								</div>
 							</div>
-							<div className={s.filterBtns}>
-								<Button
-									name='Clear'
-									style={s.clearBtn}
-								/>
-								<Button
-									name='Filter'
-									style={s.filterBtn}
-								/>
-							</div>
-						</div>
-					</FilterModal>
-				)} */}
+						</FilterModal>
+					)}
+				</div>
 			</div>
 			<div className={s.clinicPageCardListContainer}>
 				{currentTableData.map((item) => (
