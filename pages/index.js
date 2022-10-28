@@ -22,11 +22,21 @@ function Home({ clinics, doctors, frelancers }) {
 
 	const allData = frelancers?.concat(doctors);
 
+	const catalogData = [
+		{ name: 'ყველა კატეგორია' },
+		{ name: 'სტომატოლოგია' },
+		{ name: 'ესთეტიკა და სილამაზე' },
+		{ name: 'სამედიცინო დაწესებულებები' },
+		{ name: 'რეპროდუქტოლოგია' },
+		{ name: 'ლაბორატორია და დიაგნოსტიკა' },
+	];
+
 	const windowSize = useWindowSize();
 
 	const firstPartImgArray = [
 		'firstPartImg1.png',
 		'firstPartImg2.png',
+		'firstPartImg3.png',
 		'firstPartImg3.png',
 	];
 
@@ -48,6 +58,11 @@ function Home({ clinics, doctors, frelancers }) {
 
 	return (
 		<div className={classes.homePageContainer}>
+			<div className={classes.catalogContainer}>
+				{catalogData.map((item) => (
+					<span className={classes.catalogTextStyle}>{item.name}</span>
+				))}
+			</div>
 			<div>
 				<div className={classes.firstPart}>
 					<div className={classes.showSlider}>
@@ -92,8 +107,8 @@ function Home({ clinics, doctors, frelancers }) {
 			</div>
 			<ClinicCardList clinicsData={clinicData} />
 			<DoctorCardList doctorsData={doctorsData} />
-			<Services />
-			<Benefits />
+			{/* <Services />
+			<Benefits /> */}
 			<CardPrice />
 		</div>
 	);

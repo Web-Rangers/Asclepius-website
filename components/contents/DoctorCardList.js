@@ -52,10 +52,24 @@ const DoctorCardList = ({ doctorsData }) => {
 	return (
 		<div className={classes.doctorCardContainer}>
 			<div className={classes.firstPart}>
+				<div className={classes.serviceContainerImg}>
+					<img
+						src='doctorImg1.png'
+						alt='doctorImg1'
+						height='210px'
+						width='684px'
+					/>
+					<img
+						src='doctorImg2.png'
+						alt='doctorImg2'
+						height='210px'
+						width='684px'
+					/>
+				</div>
 				<div className={classes.clinicCardContainerTitle}>
-					<Text style={classes.serviceTextStyle}>Popular</Text>
+					{/* <Text style={classes.serviceTextStyle}>Popular</Text> */}
 					<div className={classes.arrows}>
-						<Text style={classes.ourClinicTextStyle}>Experienced doctors</Text>
+						<Text style={classes.ourClinicTextStyle}>ექიმები</Text>
 					</div>
 				</div>
 				<div
