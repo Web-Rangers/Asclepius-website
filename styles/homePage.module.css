@@ -16,7 +16,7 @@
 	font-family: 'Avenir Next Georgian';
 	font-style: normal;
 	font-weight: 300;
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 23px;
 	color: #01261c;
 }
@@ -36,7 +36,7 @@
 	overflow: hidden;
 }
 .firstPartImg img {
-	width: 313px;
+	width: 100%;
 	height: 228px;
 	border-radius: 5px;
 }
@@ -44,6 +44,7 @@
 .cardItemContainer {
 	display: inline-block;
 	flex-direction: column;
+	margin: auto;
 	width: 24%;
 	overflow: hidden;
 	position: relative;
@@ -231,7 +232,7 @@
 	width: 100%;
 	overflow: unset;
 	flex-wrap: wrap;
-	gap: 1%;
+	gap: 1.3%;
 }
 
 /*carousel*/

@@ -13,8 +13,8 @@
 	background-color: transparent;
 	height: 80px;
 	margin: auto;
-    width: calc(100% - 280px);
-    max-width: calc(1920px - 280px);
+	width: calc(100% - 100px);
+	max-width: calc(1920px - 100px);
 }
 .headerIcon {
 	margin-top: 15px;
@@ -143,8 +143,7 @@
 	flex-wrap: nowrap;
 	background-color: transparent;
 	height: 80px;
-	/* padding: 0 30px 0px 5px; */
-	max-width: 1160px;
+	/* max-width: 1160px; */
 	width: 100%;
 	margin: auto;
 	background-color: #ffffff;
@@ -177,14 +176,14 @@
 	background-color: #f7f9fb;
 	margin-left: 32px;
 	padding-right: 14px;
-	width: 252px;
+	width: 458px;
 	height: 44px;
 	border-radius: 5px;
 }
 .searchInput input {
 	border: none;
-	width: 200px;
-	padding-left: 24px;
+	width: 400px;
+	padding-left: 21px;
 	background-color: #f7f9fb;
 }
 .searchInput input:focus {
@@ -194,8 +193,36 @@
 	display: flex;
 	align-items: center;
 	width: 24px;
+	margin-right: 14px;
 }
-
+.contactBtnStyle {
+	width: 174px;
+	height: 48px;
+	background: #ff766c;
+	border-radius: 5px;
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 900;
+	font-size: 16px;
+	line-height: 23px;
+	color: #ffffff;
+	border: none;
+	margin-right: 18px;
+	margin-left: 200px;
+}
+.buyCardBtnStyle {
+	width: 196px;
+	height: 48px;
+	background: #ffbbb6;
+	border-radius: 5px;
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 900;
+	font-size: 16px;
+	line-height: 23px;
+	color: #1e2837;
+	border: none;
+}
 .userProfilePart {
 	display: flex;
 	align-items: center;

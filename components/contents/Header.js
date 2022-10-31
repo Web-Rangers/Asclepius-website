@@ -158,9 +158,10 @@ const Header = () => {
 				<Link href={'/'}>
 					<a>
 						<img
-							src='/headerIcon.svg'
+							src='MedicalLogo.png'
 							alt='headerIcon'
-							className={classes.mobileIcon}
+							height='50px'
+							// className={classes.mobileIcon}
 						/>
 					</a>
 				</Link>
