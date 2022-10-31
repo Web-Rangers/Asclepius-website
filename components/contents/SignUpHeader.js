@@ -17,7 +17,7 @@ const SignUpHeader = () => {
 		<div className={classes.headerContainer}>
 			<div className={classes.signUpHeaderContainer}>
 				<div className={classes.f_half}>
-					<div>
+					<div className={classes.navbarContainer}>
 						<Link href='/'>
 							<a>
 								<img
@@ -27,8 +27,6 @@ const SignUpHeader = () => {
 								/>
 							</a>
 						</Link>
-					</div>
-					<div className={classes.navbarContainer}>
 						<div className={classes.searchInput}>
 							<input
 								type='search'
@@ -41,14 +39,7 @@ const SignUpHeader = () => {
 								alt='Search'
 							/>
 						</div>
-						<Button
-							name='დაგვიკავშირდი'
-							style={classes.contactBtnStyle}
-						/>
-						<Button
-							name='ბარათის შეძენა'
-							style={classes.buyCardBtnStyle}
-						/>
+
 						{/* <ul className={classes.navbarItems}>
 							<li>
 								<Link href='/'>
@@ -93,25 +84,36 @@ const SignUpHeader = () => {
 					</div>
 				</div>
 				<div className={classes.userProfilePart}>
-					{messages ? (
-						<img
-							src='/notificationwithsms.svg'
-							alt='notificationwithsms'
-						/>
-					) : (
-						<img
-							src='/notification.svg'
-							alt='notification'
-						/>
-					)}
-					<img
-						src='/testUser.png'
-						alt='testUSerImage'
+					<Button
+						name='დაგვიკავშირდი'
+						style={classes.contactBtnStyle}
 					/>
-					{/* <img
+					<Button
+						name='ბარათის შეძენა'
+						style={classes.buyCardBtnStyle}
+					/>
+
+					<div className={classes.user}>
+						{messages ? (
+							<img
+								src='/notificationwithsms.svg'
+								alt='notificationwithsms'
+							/>
+						) : (
+							<img
+								src='/notification.svg'
+								alt='notification'
+							/>
+						)}
+						<img
+							src='/testUser.png'
+							alt='testUSerImage'
+						/>
+						{/* <img
 						src='/dropDown.svg'
 						alt='Search'
 					/> */}
+					</div>
 				</div>
 				<div className={classes.burger}>
 					<img
