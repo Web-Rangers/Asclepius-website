@@ -3,6 +3,7 @@ import ClinicCardItem from './ClinicCardItem';
 import classes from '../../styles/homePage.module.css';
 import Text from '../ui/Text';
 import { useRouter } from 'next/router';
+import Card from './Card';
 
 const ClinicCardList = ({ clinicsData }) => {
 	const router = useRouter();
@@ -22,14 +23,16 @@ const ClinicCardList = ({ clinicsData }) => {
 		setData(clinicsData.filter((e, i) => i < 4));
 	}, [clinicsData]);
 
-	console.log('Da', data);
 	return (
 		<div className={classes.clinicCardContainer}>
 			<div className={classes.firstPart}>
+				<Card />
 				<div className={classes.clinicCardContainerTitle}>
-					<Text style={classes.serviceTextStyle}>Services</Text>
+					{/* <Text style={classes.serviceTextStyle}>Services</Text> */}
 					<div className={classes.arrows}>
-						<Text style={classes.ourClinicTextStyle}>Our Clinics</Text>
+						<Text style={classes.ourClinicTextStyle}>
+							პარტნიორი ორგანიზაციები
+						</Text>
 					</div>
 				</div>
 				<div

@@ -2,13 +2,31 @@
 	width: 100%;
 	background-color: #fff;
 }
+.catalogContainer {
+	height: 80px;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	align-items: center;
+	padding: 0px;
+	gap: 80px;
+	width: 100%;
+}
+.catalogTextStyle {
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 23px;
+	color: #01261c;
+}
 .showSliderForMobile {
 	display: none;
 }
 .firstPart {
 	margin: auto;
-	width: calc(100% - 280px);
-	max-width: calc(1920px - 280px);
+	width: calc(100% - 100px);
+	max-width: calc(1920px - 100px);
 }
 
 .firstPartImg {
@@ -18,7 +36,7 @@
 	overflow: hidden;
 }
 .firstPartImg img {
-	width: 30%;
+	width: 100%;
 	height: 228px;
 	border-radius: 5px;
 }
@@ -26,6 +44,7 @@
 .cardItemContainer {
 	display: inline-block;
 	flex-direction: column;
+	margin: auto;
 	width: 24%;
 	overflow: hidden;
 	position: relative;
@@ -102,12 +121,13 @@
 	margin-bottom: 20px;
 }
 .ourClinicTextStyle {
-	font-family: 'Noto Sans';
+	/* font-family: 'Avenir Next Georgian'; */
 	font-style: normal;
-	font-weight: 700;
+	font-weight: 300;
 	font-size: 26px;
 	line-height: 28px;
 	color: #1e2837;
+	margin-top: 74px;
 }
 .clinicNameText {
 	font-weight: 500;
@@ -212,7 +232,7 @@
 	width: 100%;
 	overflow: unset;
 	flex-wrap: wrap;
-	gap: 1%;
+	gap: 1.3%;
 }
 
 /*carousel*/

@@ -32,8 +32,7 @@ const ClinicCardItem = (props) => {
 					<Image
 						src={props.src}
 						alt={'clinic'}
-						className={classes.imgPartImage}
-						width='398px'
+						width='435px'
 						height='290px'
 					/>
 				</div>
