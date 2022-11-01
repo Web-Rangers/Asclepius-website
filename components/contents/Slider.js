@@ -98,9 +98,8 @@ const Slider = ({ type = 'desktop' }) => {
 												src={image.src}
 												alt='sliderimg'
 												height=' 525px'
-												width='650px'
+												width='742px'
 												style={{ position: 'absolute' }}
-												objectFit='cover'
 											/>
 										</div>
 									</div>
