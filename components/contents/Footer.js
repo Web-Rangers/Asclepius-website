@@ -17,6 +17,11 @@ const Footer = () => {
 						<Text style={classes.leftSideContainerText}>
 							simply random text. it has roots
 						</Text>
+						<div className={classes.allRightsText}>
+							<Text style={classes.allRightTextStyle}>
+								C 2022 All right reservered
+							</Text>
+						</div>
 					</div>
 				</div>
 				<div className={classes.rightSideContainer}>
@@ -55,9 +60,6 @@ const Footer = () => {
 						</div>
 					</div>
 				</div>
-			</div>
-			<div className={classes.allRightsText}>
-				<Text style={classes.textStyle}>C 2022 All right reservered</Text>
 			</div>
 		</>
 	);

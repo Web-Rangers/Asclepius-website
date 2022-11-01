@@ -1,5 +1,5 @@
 .body {
-	background-color: #ffffff;
+	background-color: #df6868;
 	margin: auto;
 	width: calc(100% - 0px);
 	max-width: calc(1440px - 100px);
@@ -52,8 +52,8 @@
 
 .footerContainer {
 	display: flex;
-	justify-content: flex-end;
-	height: 222px;
+	margin: auto;
+	justify-content: center;
 	width: calc(100% - 0px);
 	max-width: calc(1440px - 0px);
 }
@@ -72,7 +72,6 @@
 	flex-direction: row;
 	padding-left: 140px;
 	width: 448px;
-	margin-top: 30px;
 }
 .rightSideContainer {
 	display: flex;
@@ -114,13 +113,17 @@
 	line-height: 16px;
 	color: #797a80;
 }
+.allRightTextStyle {
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 16px;
+	color: #1e2837;
+}
 .allRightsText {
-	display: flex;
-	justify-content: flex-start;
+	padding-top: 36px;
 	padding-bottom: 20px;
-	width: calc(100% - 0px);
-	max-width: calc(1440px - 0px);
-	background-color: #1e2837;
 }
 .iconContainer {
 	display: flex;
