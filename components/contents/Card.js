@@ -143,8 +143,6 @@ const Card = () => {
 						<img
 							src={'tooltip.svg'}
 							alt='star'
-							// auto
-							// flat
 							className={style.tooltip}
 						/>
 					</Tooltip>
@@ -156,6 +154,7 @@ const Card = () => {
 
 					{featuresData.map((item, index) => (
 						<span
+							key={index}
 							className={
 								index % 2 === 0
 									? style.featuresTextStyle
