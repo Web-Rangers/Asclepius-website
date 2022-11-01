@@ -19,8 +19,9 @@ export const PasswordConfirm = () => {
 				<Link href={'/'}>
 					<a>
 						<img
-							src='headerIcon.svg'
+							src='/MedicalLogo.png'
 							alt='headerIcon'
+							height='50px'
 							className={classes.headerIcon}
 						/>
 					</a>
@@ -29,7 +30,7 @@ export const PasswordConfirm = () => {
 				<div className={classes.singInContainer}>
 					<div className={classes.confirmIcon}>
 						<img
-							src='confirm.svg'
+							src='/confirm.svg'
 							alt='Confirm Icon'
 						/>
 					</div>
@@ -60,7 +61,7 @@ export const PasswordConfirm = () => {
 
 			<div className={classes.cardsContainer}>
 				<img
-					src='cards.png'
+					src='/cards.png'
 					alt='cards'
 					width='650px'
 					height='500px'

@@ -50,11 +50,12 @@ export const CreateNewPass = () => {
 			</Head>
 			<div className={classes.container}>
 				<div className={classes.leftSideContainer}>
-					<Link href={'/homePage'}>
+					<Link href={'/'}>
 						<a>
 							<img
-								src='headerIcon.svg'
+								src='/MedicalLogo.png'
 								alt='headerIcon'
+								height='50px'
 								className={classes.headerIcon}
 							/>
 						</a>
@@ -122,7 +123,7 @@ export const CreateNewPass = () => {
 				</div>
 				<div className={classes.cardsContainer}>
 					<img
-						src='cards.png'
+						src='/cards.png'
 						alt='cards'
 						width='650px'
 						height='500px'

@@ -1,427 +1,426 @@
 .backButton {
-  display: flex;
-  flex-direction: row;
-  margin-top: 68px;
-  margin-bottom: 20px;
-  margin-left: 76px;
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 21.79px;
-  color: #3a74d2;
+	display: flex;
+	flex-direction: row;
+	margin-top: 68px;
+	margin-bottom: 20px;
+	/* margin-left: 76px; */
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 21.79px;
+	color: #3a74d2;
 }
 .clinicsTitleTextStyle {
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 28px;
-  color: #1e2837;
-  padding-left: 2px;
-  margin-left: 76px;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 26px;
+	line-height: 28px;
+	color: #1e2837;
+	padding-left: 2px;
+	/* margin-left: 76px; */
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 64px;
-  margin-bottom: 80px;
-  background-color: #fff;
-  margin-top:24px;
-  width: calc(100% - 128px);
-  max-width: calc(1920px - 128px);
-  margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-bottom: 80px;
+	background-color: #ffffff;
+	margin-top: 24px;
+	width: calc(100% - 0px);
+	max-width: calc(1420px - 100px);
+	margin: auto;
 }
 
 .clinicDetailPageCard {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  justify-content: center;
-  padding: 0 76px;
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	justify-content: center;
 }
 
 .clinicInfo {
-  display: flex;
-  flex-direction: column;
-  width: calc(100% - 368px);
-  margin-top: 25px;
+	display: flex;
+	flex-direction: column;
+	width: calc(100% - 368px);
+	margin-top: 25px;
 }
 .servicesContainer {
-  display: flex;
-  flex-direction: row;
-  gap: 67px;
-  margin-bottom: 35px;
+	display: flex;
+	flex-direction: row;
+	gap: 67px;
+	margin-bottom: 35px;
 }
 .serviceItem {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 25px;
-  color: #1e2837;
-  cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 25px;
+	color: #1e2837;
+	cursor: pointer;
 }
 .offerCardContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 251px;
-  background: #f7f9fb;
-  border-radius: 5px;
-  padding: 0 25px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 251px;
+	background: #f7f9fb;
+	border-radius: 5px;
+	padding: 0 25px;
 }
 .offerContiner {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .cardType {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 .cardImage {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 .imageTitleContainer {
-  display: flex;
-  position: relative;
-  flex-direction: column;
+	display: flex;
+	position: relative;
+	flex-direction: column;
 }
 .imageContainer {
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-  margin-top: 24px;
-  overflow: hidden;
-  padding: 0 76px;
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+	margin-top: 24px;
+	overflow: hidden;
+	padding: 0 76px;
 }
 
 .imageContainer img {
-  width: 24%;
+	width: 24%;
 }
 
 .imageSlider {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 76px 50px;
-  margin-top: 37px;
+	display: flex;
+	justify-content: flex-end;
+	padding: 0 76px 50px;
+	margin-top: 37px;
 }
 .cardItemContainer {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 368px;
-  height: 618px;
-  border-radius: 5px;
-  border: 1px solid #efefef;
-  margin-bottom: 62px;
-  margin-top: 24px;
-  margin-right: 33px;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: 368px;
+	height: 618px;
+	border-radius: 5px;
+	border: 1px solid #efefef;
+	margin-bottom: 62px;
+	margin-top: 24px;
+	margin-right: 33px;
 }
 .ratingContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  gap: 6.67px;
-  margin-top: 20px;
-  margin-left: 16px;
-  width: 71px;
-  height: 28px;
-  border-radius: 14px;
-  background-color: #ffffff;
-  color: #3a74d2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	gap: 6.67px;
+	margin-top: 20px;
+	margin-left: 16px;
+	width: 71px;
+	height: 28px;
+	border-radius: 14px;
+	background-color: #ffffff;
+	color: #3a74d2;
 }
 .clinicNameText {
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 25px;
-  color: #1e2837;
-  margin-left: 22px;
-  margin-top:22px;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 25px;
+	color: #1e2837;
+	margin-left: 22px;
+	margin-top: 22px;
 }
 .clinicWorkingHours {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 221px;
-  height: 28px;
-  background-color: rgba(58, 116, 210, 0.1);
-  border-radius: 14px;
-  margin-left: 22px;
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-  color: #3a74d2;
-  margin-top: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 221px;
+	height: 28px;
+	background-color: rgba(58, 116, 210, 0.1);
+	border-radius: 14px;
+	margin-left: 22px;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 24px;
+	color: #3a74d2;
+	margin-top: 16px;
 }
 .weekendWorkingHours {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 221px;
-  height: 28px;
-  background-color: rgba(152, 227, 125, 0.1);
-  border-radius: 14px;
-  margin-left: 22px;
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-  color: #099672;
-  margin-top: 21px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 221px;
+	height: 28px;
+	background-color: rgba(152, 227, 125, 0.1);
+	border-radius: 14px;
+	margin-left: 22px;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 24px;
+	color: #099672;
+	margin-top: 21px;
 }
 .contactInfoText {
-  display: flex;
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-  color: #797a80;
-  margin-left: 22px;
-  gap: 8px;
-  margin-top: 21px;
+	display: flex;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 24px;
+	color: #797a80;
+	margin-left: 22px;
+	gap: 8px;
+	margin-top: 21px;
 }
 .clinicInfoTitle {
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 25px;
-  color: #1e2837;
-  margin-bottom: 20px;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 25px;
+	color: #1e2837;
+	margin-bottom: 20px;
 }
 .clinicTitle {
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 28px;
-  text-transform: capitalize;
-  color: #1e2837;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 28px;
+	text-transform: capitalize;
+	color: #1e2837;
 }
 
 .aboutClinicText {
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 28px;
-  text-transform: capitalize;
-  color: #1e2837;
-  margin-bottom: 36px;
-  min-height:113px;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 28px;
+	text-transform: capitalize;
+	color: #1e2837;
+	margin-bottom: 36px;
+	min-height: 113px;
 }
 .serviceName {
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 22px;
-  color: #1e2837;
-  margin-top: 14px;
-  margin-bottom: 10px;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 22px;
+	color: #1e2837;
+	margin-top: 14px;
+	margin-bottom: 10px;
 }
 .serviceText {
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 22px;
-  color: #797a80;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 22px;
+	color: #797a80;
 }
 
 /* specific clinic page */
 
 .clinicOfferCardContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 0 24px;
-  align-items: center;
-  width: 100%;
-  height: 288px;
-  background: #f7f9f8;
-  border-radius: 5px;
-  /* border: 1px solid black; */
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 0 24px;
+	align-items: center;
+	width: 100%;
+	height: 288px;
+	background: #f7f9f8;
+	border-radius: 5px;
+	/* border: 1px solid black; */
 }
 .clinicCardImage {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 
 .clinicContainerScroll {
-  /* display: flex; */
-  /* flex-direction: row; */
-  margin-left: 76px;
-  margin-right: 76px;
-  /* overflow-x: scroll; */
-  overflow-y: hidden;
-  white-space: nowrap;
-  gap: 30px;
+	/* display: flex; */
+	/* flex-direction: row; */
+	margin-left: 76px;
+	margin-right: 76px;
+	/* overflow-x: scroll; */
+	overflow-y: hidden;
+	white-space: nowrap;
+	gap: 30px;
 }
 .clinicTitleArrow {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 30px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 30px;
 }
 
 .carousel > div {
-  position: unset!important;
-  text-align: left;
+	position: unset !important;
+	text-align: left;
 }
 
 .carousel button:nth-child(3) {
-  position: absolute!important;
-  top:0!important;
-  right:0!important;
-  margin-right:70px;
-  margin-top:60px!important;
-  background: transparent !important;
-  opacity: 1!important;
-  height: 43px!important;
-  width: 47px!important;
+	position: absolute !important;
+	top: 0 !important;
+	right: 0 !important;
+	margin-right: 70px;
+	margin-top: 60px !important;
+	background: transparent !important;
+	opacity: 1 !important;
+	height: 43px !important;
+	width: 47px !important;
 }
 
 .carousel button:nth-child(3):before {
-  background-image: url('../public/arrowRightSlider.svg');
-  background-repeat: no-repeat;
-  width: 21px;
-  height: 19px;
-  border:none!important;
+	background-image: url('../public/arrowRightSlider.svg');
+	background-repeat: no-repeat;
+	width: 21px;
+	height: 19px;
+	border: none !important;
 }
 
 .carousel button:nth-child(1) {
-  position: absolute!important;
-  top:0!important;
-  right:0!important;
-  left: unset!important;
-  margin-right:112px;
-  margin-top:60px!important;
-  background: transparent !important;
-  opacity: 1!important;
-  height: 43px!important;
-  width: 47px!important;
-  border:none!important;
+	position: absolute !important;
+	top: 0 !important;
+	right: 0 !important;
+	left: unset !important;
+	margin-right: 112px;
+	margin-top: 60px !important;
+	background: transparent !important;
+	opacity: 1 !important;
+	height: 43px !important;
+	width: 47px !important;
+	border: none !important;
 }
 
 .carousel button:nth-child(1):before {
-  background-image: url('../public/arrowLeftSlider.svg');
-  background-repeat: no-repeat;
-  width: 21px;
-  height: 19px;
-  border:none!important;
+	background-image: url('../public/arrowLeftSlider.svg');
+	background-repeat: no-repeat;
+	width: 21px;
+	height: 19px;
+	border: none !important;
 }
 
 @media only screen and (max-width: 600px) {
-  .imgArrow{
-    display: none;
-  }
-  .clinicsTitleTextStyle {
-    margin:0;
-    display: none;
-    margin:0 20px;
-  }
-  .container {
-    width: 100%;
-    overflow: hidden;
-    margin-bottom:0;
-  }
-  .backButton{
-    margin:0;
-    padding:30px 20px;
-  }
-  .clinicDetailPageCard {
-    flex-direction: column;
-    padding:0;
-  }
-  .cardItemContainer{
-    margin:0 auto;
-  }
-  .clinicNameText {
-    margin: 18px 28px 2px;
-    font-size: 18px;
-  }
-  .clinicInfo {
-    width: 100%;
-  }
-  .clinicInfoTitle {
-    margin: 0 20px 30px;
-  }
-  .clinicTitle {
-    margin: 0 20px;
-  }
-  .servicesContainer {
-    flex-wrap:wrap;
-    margin: 0 20px;
-    gap: 15px;
-    justify-content: space-between;
-  }
-  .aboutClinicText {
-    margin:0 20px 30px;
-  }
-  .offerCardContainer {
-    background: #F7F9FB;
-    width: 100%;
-    margin-top:30px;
-    align-items: flex-start;
-    padding: 24px 20px 24px 0px;
-    overflow: hidden;
-    height: auto;
-  }
-  .serviceName, .serviceText {
-    margin-left:20px;
-    margin-right:10px;
-  }
-  .cardImage {
-    margin-top: 20px;
-    margin-bottom: 33px;
-  }
-  .imageContainer {
-    margin:20px;
-    margin-top:40px;
-    padding:0;
-  }
-  .imageTitle {
-    display: block;
-  }
-  .imageTitleContainer {
-    margin:40px 0;
-  }
-  .imageContainer {
-    color: red;
-    overflow-x:auto;
-    justify-content: flex-start;
-  }
-  .imageContainer img {
-    width: auto;
-    display: inline-block;
-  }
-  .imageSlider {
-    display: none;
-  }
-  .cardType {
-    width: 66%;
-    align-items: flex-end;
-  }
-  .serviceItem {
-    gap:4px;
-  }
+	.imgArrow {
+		display: none;
+	}
+	.clinicsTitleTextStyle {
+		margin: 0;
+		display: none;
+		margin: 0 20px;
+	}
+	.container {
+		width: 100%;
+		overflow: hidden;
+		margin-bottom: 0;
+	}
+	.backButton {
+		margin: 0;
+		padding: 30px 20px;
+	}
+	.clinicDetailPageCard {
+		flex-direction: column;
+		padding: 0;
+	}
+	.cardItemContainer {
+		margin: 0 auto;
+	}
+	.clinicNameText {
+		margin: 18px 28px 2px;
+		font-size: 18px;
+	}
+	.clinicInfo {
+		width: 100%;
+	}
+	.clinicInfoTitle {
+		margin: 0 20px 30px;
+	}
+	.clinicTitle {
+		margin: 0 20px;
+	}
+	.servicesContainer {
+		flex-wrap: wrap;
+		margin: 0 20px;
+		gap: 15px;
+		justify-content: space-between;
+	}
+	.aboutClinicText {
+		margin: 0 20px 30px;
+	}
+	.offerCardContainer {
+		background: #f7f9fb;
+		width: 100%;
+		margin-top: 30px;
+		align-items: flex-start;
+		padding: 24px 20px 24px 0px;
+		overflow: hidden;
+		height: auto;
+	}
+	.serviceName,
+	.serviceText {
+		margin-left: 20px;
+		margin-right: 10px;
+	}
+	.cardImage {
+		margin-top: 20px;
+		margin-bottom: 33px;
+	}
+	.imageContainer {
+		margin: 20px;
+		margin-top: 40px;
+		padding: 0;
+	}
+	.imageTitle {
+		display: block;
+	}
+	.imageTitleContainer {
+		margin: 40px 0;
+	}
+	.imageContainer {
+		color: red;
+		overflow-x: auto;
+		justify-content: flex-start;
+	}
+	.imageContainer img {
+		width: auto;
+		display: inline-block;
+	}
+	.imageSlider {
+		display: none;
+	}
+	.cardType {
+		width: 66%;
+		align-items: flex-end;
+	}
+	.serviceItem {
+		gap: 4px;
+	}
 }
