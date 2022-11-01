@@ -26,7 +26,7 @@ a {
 }
 @font-face {
 	font-family: 'Avenir Next Georgian';
-	src: url('../components/fonts/AvenirNext/AvenirNextGeorgian-Thin.otf');
+	src: url('../components/fonts/AvenirNext/AvenirNextGeorgian-Regular.otf');
 }
 
 /* @media (prefers-color-scheme: dark) {
