@@ -45,13 +45,15 @@ function MyApp({ Component, pageProps }) {
 	const getLayout = Component.getLayout || ((page) => page);
 
 	return (
-		<QueryClientProvider client={queryClient}>
-			<Hydrate state={pageProps.dehidratedState}>
-				{hideHeader ? signUp ? <SignUpHeader /> : <SignUpHeader /> : null}
-				{getLayout(<Component {...pageProps} />)}
-				{hideHeader ? signUp ? <SignUpFooter /> : <Footer /> : null}
-			</Hydrate>
-		</QueryClientProvider>
+		<div className={{ backgroundColor: 'lightblue' }}>
+			<QueryClientProvider client={queryClient}>
+				<Hydrate state={pageProps.dehidratedState}>
+					{hideHeader ? signUp ? <SignUpHeader /> : <SignUpHeader /> : null}
+					{getLayout(<Component {...pageProps} />)}
+					{hideHeader ? signUp ? <SignUpFooter /> : <Footer /> : null}
+				</Hydrate>
+			</QueryClientProvider>
+		</div>
 	);
 }
 

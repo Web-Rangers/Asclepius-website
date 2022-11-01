@@ -1,13 +1,16 @@
 .doctorsPage {
-	max-width: 1920px;
-	width: 100%;
+	width: calc(100% - 0px);
+	max-width: calc(1440px - 0px);
 	margin: auto;
-	padding: 10px 60px 0;
+	/* padding: 10px 60px 0; */
 }
 
 .doctorsContainer {
 	overflow: hidden;
 	background-color: #fff;
+	width: calc(100% - 0px);
+	max-width: calc(1440px - 100px);
+	margin: auto;
 }
 
 .filterButton {
@@ -125,7 +128,7 @@
 }
 
 .doctorslistContainer {
-	margin: 0 80px 24px;
+	margin: 0 0px 24px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -139,7 +142,7 @@
 }
 
 .back {
-	margin: 68px 80px 22px;
+	margin: 68px 0px 22px 0px;
 }
 
 .back img {
@@ -151,7 +154,6 @@
 }
 
 .doctorsList {
-	padding: 0 80px;
 	margin-bottom: 60px;
 	display: flex;
 	gap: 2%;

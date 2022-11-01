@@ -4,8 +4,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import DropDown from '../ui/DropDown';
 import Button from '../ui/Button';
+import { useRouter } from 'next/router';
 
 const SignUpHeader = () => {
+	const router = useRouter();
 	const [messages, setMessages] = useState(true);
 	const [searchInput, setSearchInput] = useState('');
 
@@ -87,10 +89,13 @@ const SignUpHeader = () => {
 					<Button
 						name='დაგვიკავშირდი'
 						style={classes.contactBtnStyle}
+						onClick={() => router.push('/contactUs')}
 					/>
+
 					<Button
 						name='ბარათის შეძენა'
 						style={classes.buyCardBtnStyle}
+						onClick={() => router.push('/buyCardPage')}
 					/>
 
 					<div className={classes.user}>

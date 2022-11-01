@@ -46,11 +46,12 @@ export const SignUp = () => {
 	return (
 		<div className={classes.container}>
 			<div className={classes.leftSideContainer}>
-				<Link href={'/homePage'}>
+				<Link href={'/'}>
 					<a>
 						<img
-							src='headerIcon.svg'
+							src='/MedicalLogo.png'
 							alt='headerIcon'
+							height='50px'
 							className={classes.headerIcon}
 						/>
 					</a>
@@ -71,7 +72,7 @@ export const SignUp = () => {
 							className={classes.loginOptionsStyle}
 						>
 							<img
-								src='google.svg'
+								src='/google.svg'
 								alt='google'
 								className={classes.iconsStyle}
 							/>
@@ -189,7 +190,7 @@ export const SignUp = () => {
 			</div>
 			<div className={classes.cardsContainer}>
 				<img
-					src='cards.png'
+					src='/cards.png'
 					alt='cards'
 					width='650px'
 					height='500px'

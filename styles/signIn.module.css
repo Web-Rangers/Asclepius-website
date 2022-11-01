@@ -7,8 +7,10 @@
 }
 .contactUsContainer {
 	display: flex;
-	margin-left: 140px;
-	margin-right: 140px;
+	margin: auto;
+	width: calc(100% - 0px);
+	max-width: calc(1440px - 100px);
+	background-color: #fff;
 }
 
 .singInContainer {
@@ -25,7 +27,6 @@
 .contactUs {
 	flex: 1;
 	height: 1024px;
-	width: 80%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -125,7 +126,6 @@
 .cardsContainer {
 	display: flex;
 	border: 1px solid #dcdddf;
-	background-color: #f7f9fb;
 	flex: 1;
 	justify-content: center;
 	align-items: center;
@@ -146,9 +146,11 @@
 	background-color: #f7f9fb;
 }
 .cardContainerImg {
-	/* margin-bottom: 10px; */
-	width: 100%;
-	background-color: #f7f9fb;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 663px;
+	height: 770px;
 }
 
 .iconContactInfo {
@@ -295,7 +297,7 @@
 .contactInfo {
 	display: flex;
 	align-items: center;
-	margin-top: 32px;
+	margin-top: 64px;
 }
 
 .contactInfoText {

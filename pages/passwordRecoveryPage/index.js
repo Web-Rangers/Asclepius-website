@@ -25,11 +25,12 @@ export const PasswordRecoveryPage = () => {
 			</Head>
 			<div className={classes.container}>
 				<div className={classes.leftSideContainer}>
-					<Link href={'/homePage'}>
+					<Link href={'/'}>
 						<a>
 							<img
-								src='headerIcon.svg'
+								src='/MedicalLogo.png'
 								alt='headerIcon'
+								height='50px'
 								className={classes.headerIcon}
 							/>
 						</a>

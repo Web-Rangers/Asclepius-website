@@ -128,17 +128,18 @@ export const ContactUs = () => {
 					/>
 				</div>
 				<div className={classes.contactUsCardContainer}>
-					<img
-						src='/contactUs.png'
-						alt='cards'
-						width='500'
-						height='600'
-						className={classes.cardContainerImg}
-					/>
+					<div className={classes.cardContainerImg}>
+						<img
+							src='/contactUs.png'
+							alt='cards'
+							width='582'
+							height='770'
+						/>
+					</div>
 					<div className={classes.contactInfo}>
 						<div className={classes.iconContactInfo}>
 							<img
-								src='messages.svg'
+								src='/messages.svg'
 								alt='messages'
 							/>
 							<Text style={classes.contactInfoText}>
@@ -147,7 +148,7 @@ export const ContactUs = () => {
 						</div>
 						<div className={classes.iconContactInfo}>
 							<img
-								src='location.svg'
+								src='/location.svg'
 								alt='location'
 							/>
 							<Text style={classes.contactInfoText}>
@@ -156,7 +157,7 @@ export const ContactUs = () => {
 						</div>
 						<div className={classes.iconContactInfo}>
 							<img
-								src='phone.svg'
+								src='/phone.svg'
 								alt='phone'
 							/>
 							<Text style={classes.contactInfoText}>+9955575755576</Text>
