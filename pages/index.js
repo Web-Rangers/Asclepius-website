@@ -59,10 +59,13 @@ function Home({ clinics, doctors, frelancers }) {
 	return (
 		<div className={classes.homePageContainer}>
 			<div className={classes.catalogContainer}>
-				{catalogData.map((item,index) => (
+				{catalogData.map((item, index) => (
 					<span
 						key={index}
-						className={classes.catalogTextStyle}>{item.name}</span>
+						className={classes.catalogTextStyle}
+					>
+						{item.name}
+					</span>
 				))}
 			</div>
 			<div>
@@ -77,8 +80,7 @@ function Home({ clinics, doctors, frelancers }) {
 					<div className={classes.showSliderForMobile}>
 						<ResponsiveSlider />
 						<Text style={classes.medicalCardTitle}>
-							<span>Multifunctional medical</span>
-							<a>Card</a>
+							<span>Multifunctional medical Card</span>
 						</Text>
 						<div className={classes.medicalCardsButtons}>
 							<Button
@@ -86,7 +88,7 @@ function Home({ clinics, doctors, frelancers }) {
 								style={classes.orderBtn}
 							/>
 							<Button
-								name='Download'
+								name='Learn more'
 								style={classes.downloadOrderBtn}
 							/>
 						</div>

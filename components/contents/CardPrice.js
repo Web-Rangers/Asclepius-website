@@ -158,6 +158,14 @@ const CardPrice = (props) => {
 					src='/bottomImg.png'
 					alt=''
 					height='311px'
+					className={s.bottomImg}
+				/>
+
+				<img
+					src='/bottomMobileImg.png'
+					alt=''
+					height='311px'
+					className={s.bottomImgMobile}
 				/>
 			</div>
 		</div>

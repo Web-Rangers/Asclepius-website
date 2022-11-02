@@ -24,43 +24,54 @@ const Footer = () => {
 						</div>
 					</div>
 				</div>
-				<div className={classes.rightSideContainer}>
-					<div className={classes.firstRow}>
-						<div className={classes.companyConatiner}>
-							<Text style={classes.textTitle}>Company</Text>
-							<Text style={classes.textStyle}>Privacy policy</Text>
-							<Text style={classes.textStyle}>Terms of service</Text>
-						</div>
-						<div className={classes.companyConatiner}>
-							<Text style={classes.textTitle}>Company</Text>
-							<Text style={classes.textStyle}>Privacy policy</Text>
-							<Text style={classes.textStyle}>Terms of service</Text>
-						</div>
+				<div>
+					<div className={classes.footerLogo}>
+						<img
+							src='/footerIcon.png'
+							alt='headerIcon'
+						/>
 					</div>
-					<div className={classes.secondRow}>
-						<div className={classes.companyConatiner}>
-							<Text style={classes.textTitle}>Contact</Text>
-							<Text style={classes.textStyle}>Adsress</Text>
-							<Text style={classes.textStyle}>+747837478483</Text>
+
+					<div className={classes.rightSideContainer}>
+						<div className={classes.firstRow}>
+							<div className={classes.companyConatiner}>
+								<Text style={classes.textTitle}>Company</Text>
+								<Text style={classes.textStyle}>Privacy policy</Text>
+								<Text style={classes.textStyle}>Terms of service</Text>
+							</div>
+							<div className={classes.companyConatiner}>
+								<Text style={classes.textTitle}>Company</Text>
+								<Text style={classes.textStyle}>Privacy policy</Text>
+								<Text style={classes.textStyle}>Terms of service</Text>
+							</div>
 						</div>
-						<div className={classes.companyConatiner}>
-							<Text style={classes.textTitle}>Social networks</Text>
-							<div className={classes.iconContainer}>
-								<img
-									src='/facebook.svg'
-									alt='facebook'
-									className={classes.iconsStyle}
-								/>
-								<img
-									src='/Instagram.svg'
-									alt='instagram'
-									className={classes.iconsStyle}
-								/>
+
+						<div className={classes.secondRow}>
+							<div className={classes.companyConatiner}>
+								<Text style={classes.textTitle}>Contact</Text>
+								<Text style={classes.textStyle}>Adsress</Text>
+								<Text style={classes.textStyle}>+747837478483</Text>
+							</div>
+							<div className={classes.companyConatiner}>
+								<Text style={classes.textTitle}>Social networks</Text>
+								<div className={classes.iconContainer}>
+									<img
+										src='/facebook.svg'
+										alt='facebook'
+										className={classes.iconsStyle}
+									/>
+									<img
+										src='/Instagram.svg'
+										alt='instagram'
+										className={classes.iconsStyle}
+									/>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			<Text style={classes.allRightStyle}>C 2022 All right reservered</Text>
 		</>
 	);
 };

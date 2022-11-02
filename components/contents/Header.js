@@ -48,8 +48,10 @@ const Header = () => {
 			<div className={classes.headerForMobile}>
 				<div className={classes.mobileHeaderContainer}>
 					<img
-						src='/headerIcon.svg'
+						src='/footerIcon.png'
 						alt='headerIcon'
+						width='44px'
+						height='40px'
 					/>
 
 					<div className={classes.mobileheader}>

@@ -48,7 +48,7 @@ function MyApp({ Component, pageProps }) {
 		<div className={{ backgroundColor: 'lightblue' }}>
 			<QueryClientProvider client={queryClient}>
 				<Hydrate state={pageProps.dehidratedState}>
-					{hideHeader ? signUp ? <SignUpHeader /> : <SignUpHeader /> : null}
+					{hideHeader ? signUp ? <SignUpHeader /> : <Header /> : null}
 					{getLayout(<Component {...pageProps} />)}
 					{hideHeader ? signUp ? <SignUpFooter /> : <Footer /> : null}
 				</Hydrate>

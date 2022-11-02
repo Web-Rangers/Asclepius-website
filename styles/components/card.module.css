@@ -40,7 +40,7 @@
 	display: flex;
 	flex-direction: column;
 	/* width: 24%; */
-	background-color: #ffd7d4;
+	background-color: #f8eff0;
 	border-radius: 6px;
 	margin-right: 50px;
 	height: 679px;
@@ -114,7 +114,7 @@
 	font-size: 16px;
 	line-height: 22px;
 	color: #1e2837;
-	background-color: #ee7e78;
+	background-color: #ffd7d4;
 	margin-left: 20px;
 	display: flex;
 	align-items: center;
