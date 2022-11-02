@@ -12,8 +12,8 @@
 	background-color: transparent;
 	height: 80px;
 	margin: auto;
-	width: calc(100% - 50px);
-	max-width: calc(1440px - 0px);
+	width: calc(100% - 0px);
+	max-width: calc(1440px - 100px);
 }
 .headerIcon {
 	margin-top: 15px;
@@ -158,7 +158,7 @@
 	flex-direction: row;
 	align-items: center;
 	height: 30px;
-	margin-left: 50px;
+	/* margin-left: 50px; */
 }
 .navbarItems {
 	display: flex;
@@ -202,26 +202,41 @@
 	margin-right: 14px;
 }
 .contactBtnStyle {
-	width: 174px;
-	height: 48px;
-	background: #ff766c;
+	width: 142px;
+	height: 23px;
+	background: #ffffff;
 	border-radius: 5px;
-	font-family: 'Avenir Next Georgian';
+	font-family: 'Avenir Next Bold';
 	font-style: normal;
 	font-weight: 900;
 	font-size: 16px;
 	line-height: 23px;
-	color: #ffffff;
+	color: #1e2837;
 	border: none;
-	margin-right: 18px;
-	margin-left: 130px;
+	margin-right: 31px;
+	margin-left: 81px;
+}
+.contactBtn {
+	width: 142px;
+	height: 23px;
+	background: #ffffff;
+	border-radius: 5px;
+	font-family: 'Avenir Next Bold';
+	font-style: normal;
+	font-weight: 900;
+	font-size: 16px;
+	line-height: 23px;
+	color: #1e2837;
+	border: none;
+	margin-right: 31px;
+	margin-left: 160px;
 }
 .buyCardBtnStyle {
 	width: 196px;
 	height: 48px;
 	background: #ffbbb6;
 	border-radius: 5px;
-	font-family: 'Avenir Next Georgian';
+	font-family: 'Avenir Next Bold';
 	font-style: normal;
 	font-weight: 900;
 	font-size: 16px;
@@ -229,6 +244,20 @@
 	color: #1e2837;
 	border: none;
 	margin-right: 37.5px;
+}
+.signInBtnStyle {
+	width: 174px;
+	height: 48px;
+	background: #ff766c;
+	border-radius: 5px;
+	font-family: 'Avenir Next Bold';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 23px;
+	color: #1e2837;
+	border: none;
+	margin-right: 18px;
 }
 .userProfilePart {
 	display: flex;
@@ -320,6 +349,12 @@
 
 .burger {
 	display: none;
+}
+.rightSideContainer {
+	display: flex;
+	align-items: center;
+	height: 80px;
+	margin: auto;
 }
 
 @media only screen and (max-width: 1290px) {

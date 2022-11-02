@@ -29,6 +29,11 @@ a {
 	src: url('../components/fonts/Avenir Georgian/AvenirNextGeorgian-Regular.otf');
 }
 
+@font-face {
+	font-family: 'Avenir Next Bold';
+	src: url('../components/fonts/Avenir Georgian/AvenirNextGeorgian-Bold.otf');
+}
+
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

@@ -179,7 +179,27 @@ const Header = () => {
 						alt='Search'
 					/>
 				</div>
-				<ul className={classes.navbar}>
+
+				<div className={classes.rightSideContainer}>
+					<Button
+						name='დაგვიკავშირდი'
+						style={classes.contactBtnStyle}
+						onClick={() => router.push('/contactUs')}
+					/>
+					<Button
+						name='შესვლა'
+						style={classes.signInBtnStyle}
+						onClick={() => router.push('/SignInPage')}
+					/>
+
+					<Button
+						name='ბარათის შეძენა'
+						style={classes.buyCardBtnStyle}
+						onClick={() => router.push('/buyCardPage')}
+					/>
+				</div>
+
+				{/* <ul className={classes.navbar}>
 					<li>
 						<Link href='/'>
 							<a>Home </a>
@@ -215,7 +235,7 @@ const Header = () => {
 					<li>
 						<DropDown />
 					</li>
-				</ul>
+				</ul> */}
 			</div>
 		</>
 	);
