@@ -143,8 +143,6 @@ const Card = () => {
 						<img
 							src={'tooltip.svg'}
 							alt='star'
-							auto
-							flat
 							className={style.tooltip}
 						/>
 					</Tooltip>
@@ -156,6 +154,7 @@ const Card = () => {
 
 					{featuresData.map((item, index) => (
 						<span
+							key={index}
 							className={
 								index % 2 === 0
 									? style.featuresTextStyle
@@ -173,6 +172,7 @@ const Card = () => {
 					</div>
 					{featuresData.map((item, index) => (
 						<span
+							key={index}
 							className={
 								index % 2 === 0 ? style.tableValue : style.tableValueSec
 							}
@@ -196,6 +196,7 @@ const Card = () => {
 					</div>
 					{featuresData.map((item, index) => (
 						<span
+							key={index}
 							className={
 								index % 2 === 0 ? style.proTextStyle : style.proTextStyleSec
 							}
@@ -219,6 +220,7 @@ const Card = () => {
 					</div>
 					{featuresData.map((item, index) => (
 						<span
+							key={index}
 							className={
 								index % 2 === 0 ? style.tableValue : style.tableValueSec
 							}

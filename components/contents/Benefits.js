@@ -19,7 +19,7 @@ const Benefits = () => {
                   src="checkboxIcon.svg"
                   alt="checkboxIcon"
                   width="24px"
-                  heigh="24px"
+                  height="24px"
                 />
                 <Text style={s.benefitCardTitle}>Our team</Text>
                 <Text style={s.benefitCardText}>
@@ -31,7 +31,7 @@ const Benefits = () => {
                   src="checkboxIcon.svg"
                   alt="checkboxIcon"
                   width="24px"
-                  heigh="24px"
+                  height="24px"
                 />
                 <Text style={s.benefitCardTitle}>Fast</Text>
                 <Text style={s.benefitCardText}>
@@ -43,7 +43,7 @@ const Benefits = () => {
                   src="checkboxIcon.svg"
                   alt="checkboxIcon"
                   width="24px"
-                  heigh="24px"
+                  height="24px"
                 />
                 <Text style={s.benefitCardTitle}>Comfortable</Text>
                 <Text style={s.benefitCardText}>
@@ -57,7 +57,7 @@ const Benefits = () => {
                   src="checkboxIcon.svg"
                   alt="checkboxIcon"
                   width="24px"
-                  heigh="24px"
+                  height="24px"
                 />
                 <Text style={s.benefitCardTitle}>Our team</Text>
                 <Text style={s.benefitCardText}>
@@ -69,7 +69,7 @@ const Benefits = () => {
                   src="checkboxIcon.svg"
                   alt="checkboxIcon"
                   width="24px"
-                  heigh="24px"
+                  height="24px"
                 />
                 <Text style={s.benefitCardTitle}>Fast</Text>
                 <Text style={s.benefitCardText}>
@@ -81,7 +81,7 @@ const Benefits = () => {
                   src="checkboxIcon.svg"
                   alt="checkboxIcon"
                   width="24px"
-                  heigh="24px"
+                  height="24px"
                 />
                 <Text style={s.benefitCardTitle}>Comfortable</Text>
                 <Text style={s.benefitCardText}>

@@ -59,8 +59,10 @@ function Home({ clinics, doctors, frelancers }) {
 	return (
 		<div className={classes.homePageContainer}>
 			<div className={classes.catalogContainer}>
-				{catalogData.map((item) => (
-					<span className={classes.catalogTextStyle}>{item.name}</span>
+				{catalogData.map((item,index) => (
+					<span
+						key={index}
+						className={classes.catalogTextStyle}>{item.name}</span>
 				))}
 			</div>
 			<div>
