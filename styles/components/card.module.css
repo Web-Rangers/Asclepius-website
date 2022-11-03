@@ -40,7 +40,7 @@
 	display: flex;
 	flex-direction: column;
 	/* width: 24%; */
-	background-color: #ffd7d4;
+	background-color: #f8eff0;
 	border-radius: 6px;
 	margin-right: 50px;
 	height: 679px;
@@ -114,7 +114,7 @@
 	font-size: 16px;
 	line-height: 22px;
 	color: #1e2837;
-	background-color: #ee7e78;
+	background-color: #ffd7d4;
 	margin-left: 20px;
 	display: flex;
 	align-items: center;
@@ -248,4 +248,241 @@
 	width: 18px;
 	margin-bottom: 20px;
 	margin-left: 4px;
+}
+.cardTableMobile {
+	display: none;
+}
+.tootltipText {
+	display: none;
+}
+
+@media only screen and (max-width: 767px) {
+	.tooltip {
+		display: none;
+	}
+	.tootltipText {
+		display: flex;
+		width: 275px;
+		height: 48px;
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 24px;
+		text-align: center;
+		color: #797a80;
+		margin-top: 15px;
+	}
+
+	.switcher {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 56px;
+	}
+	.headerTitle {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 27px;
+		font-family: 'Avenir Next Bold';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 18px;
+		line-height: 26px;
+		color: #1e2837;
+	}
+	.cardTableMobile {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		width: 97%;
+		overflow-x: scroll;
+	}
+	.Starter {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 332px;
+		background: #ffffff;
+		border-radius: 6px;
+		height: 679px;
+	}
+	.pro {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 332px;
+		background: #ffbbb6;
+		border-radius: 6px;
+		height: 778px;
+	}
+	.plus {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 332px;
+		background: #ffffff;
+		border-radius: 6px;
+		height: 679px;
+	}
+	.tableValuesContainer {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
+		background: #f7f8fa;
+		border-radius: 5px;
+	}
+	.tableValuesContainerSec {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
+		border-radius: 5px;
+	}
+	.proTextContainer {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 96%;
+		border-radius: 5px;
+		background: #ffd7d5;
+		height: 52px;
+	}
+	.proTextContainerSec {
+		display: flex;
+		flex-direction: row;
+		border-radius: 5px;
+		justify-content: space-between;
+		width: 96%;
+		padding: 5px;
+		height: 52px;
+	}
+	.proTextStyle {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 22px;
+		color: #180126;
+		background: #ffd7d5;
+		border-radius: 8px;
+		width: 293px;
+		height: 52px;
+		padding-left: 12px;
+	}
+	.proTextStyleSec {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 22px;
+		color: #180126;
+		border-radius: 8px;
+		padding-left: 5px;
+		height: 46px;
+	}
+	.cardTable {
+		display: none;
+	}
+	.tableValueMobile {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 52px;
+		border-radius: 8px;
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 22px;
+		color: #180126;
+		background: #f7f8fa;
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+	.tableValueSecMobile {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-left: 12px;
+		padding-right: 12px;
+		height: 52px;
+		border-radius: 8px;
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 22px;
+		color: #180126;
+	}
+	.proTextStylePercent {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 22px;
+		color: #180126;
+		border-radius: 8px;
+		padding-left: 12px;
+		height: 50px;
+		width: 30%;
+	}
+	.proTextStyleSecPercent {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 22px;
+		color: #180126;
+		border-radius: 8px;
+		padding-left: 12px;
+		height: 46px;
+		width: 30%;
+	}
+	.tableValueFrom {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		width: 52%;
+		height: 52px;
+		border-radius: 8px;
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 22px;
+		color: #180126;
+		padding-right: 12px;
+	}
+	.tableValueSecFrom {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		width: 52%;
+		padding-left: 12px;
+		padding-right: 12px;
+		height: 52px;
+		border-radius: 8px;
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 22px;
+		color: #180126;
+	}
 }

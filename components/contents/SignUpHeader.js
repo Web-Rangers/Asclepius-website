@@ -88,7 +88,7 @@ const SignUpHeader = () => {
 				<div className={classes.userProfilePart}>
 					<Button
 						name='დაგვიკავშირდი'
-						style={classes.contactBtnStyle}
+						style={classes.contactBtn}
 						onClick={() => router.push('/contactUs')}
 					/>
 

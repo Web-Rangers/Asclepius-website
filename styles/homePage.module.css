@@ -677,7 +677,9 @@
 	color: #1e2837;
 	cursor: pointer;
 }
-
+.bottomImgMobile {
+	display: none;
+}
 @media only screen and (min-width: 1460px) {
 	.imgPart {
 		height: 60%;
@@ -697,7 +699,9 @@
 		overflow: hidden;
 		background-color: #ffffff;
 	}
-
+	.catalogContainer {
+		display: none;
+	}
 	/* slider */
 	.showSlider {
 		display: none;
@@ -752,14 +756,14 @@
 		align-items: center;
 		width: 167px;
 		height: 48px;
-		background: #3a74d2;
+		background: #ffbbb6;
 		border-radius: 5px;
 		font-family: 'Noto Sans';
 		font-style: normal;
 		font-weight: 700;
 		font-size: 16px;
 		line-height: 22px;
-		color: #ffffff;
+		color: #1e2837;
 		border: none;
 	}
 	.downloadOrderBtn {
@@ -995,5 +999,11 @@
 	}
 	.serviceContainerContent {
 		margin: 44px 0;
+	}
+	.bottomImg {
+		display: none;
+	}
+	.bottomImgMobile {
+		display: flex;
 	}
 }

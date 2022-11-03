@@ -55,7 +55,7 @@ const Card = () => {
 		},
 		{
 			name: 'Family doctor telephone consultation',
-			starter: 'once a month',
+			starter: 'Once/ MTH',
 			pro: 'Twice a month',
 			plus: 'Three times a month',
 		},
@@ -130,15 +130,17 @@ const Card = () => {
 					</FormGroup>
 					<Tooltip
 						css={{
-							display: 'flex',
-							alignItems: 'center',
-							width: '160px',
-							height: '40px',
+							display: 'block',
+							margin: 'auto',
+							width: '260px',
+							height: '50px',
 							fontSize: '12px',
 							backgroundColor: '#FFBBB6',
 						}}
 						rounded
-						content={'რას ვწერ აქ?'}
+						content={
+							'	Family package includes mother, father and 2 minor children'
+						}
 					>
 						<img
 							src={'tooltip.svg'}
@@ -146,6 +148,136 @@ const Card = () => {
 							className={style.tooltip}
 						/>
 					</Tooltip>
+					<span className={style.tootltipText}>
+						Family package includes mother, father and 2 minor children
+					</span>
+				</div>
+			</div>
+			<div className={style.cardTableMobile}>
+				<div className={style.Starter}>
+					<div className={style.cardTitles}>
+						<span className={style.cardTitleText}>Starter</span>
+						<span className={style.tableValueSec}>Billed Individually</span>
+					</div>
+					{featuresData.map((item, index) => (
+						<div
+							className={
+								index % 2 === 0
+									? style.tableValuesContainer
+									: style.tableValuesContainerSec
+							}
+						>
+							<span
+								key={index}
+								className={
+									index % 2 === 0
+										? style.tableValueMobile
+										: style.tableValueSecMobile
+								}
+							>
+								{item.name}
+							</span>
+							<span
+								className={
+									index % 2 === 0
+										? style.tableValueMobile
+										: style.tableValueSecMobile
+								}
+							>
+								{item.starter}
+							</span>
+						</div>
+					))}
+					<Button
+						name='Get Started'
+						style={style.getStartedBtn}
+					/>
+				</div>
+				<div className={style.pro}>
+					<div className={style.proCardTitles}>
+						<span className={style.recommendedStyle}>Recommended</span>
+						<span className={style.cardTitleText}>Pro</span>
+						<span className={style.tableValueSec}>
+							{' '}
+							<span>{cardType ? '$15' : '$10'}</span> Billed Individually
+						</span>
+					</div>
+					{featuresData.map((item, index) => (
+						<div
+							className={
+								index % 2 === 0
+									? style.proTextContainer
+									: style.proTextContainerSec
+							}
+						>
+							<span
+								key={index}
+								className={
+									index % 2 === 0 ? style.proTextStyle : style.proTextStyleSec
+								}
+							>
+								{item.name}
+							</span>
+							<span
+								key={index}
+								className={
+									index % 2 === 0
+										? style.proTextStylePercent
+										: style.proTextStyleSecPercent
+								}
+							>
+								{item.pro}
+							</span>
+						</div>
+					))}
+					<Button
+						name='Get Started'
+						style={style.getStartedBtn}
+					/>
+				</div>
+				<div className={style.plus}>
+					<div className={style.cardTitles}>
+						<span className={style.cardTitleText}>Plus</span>
+
+						<span className={style.tableValueSec}>
+							{' '}
+							<span>{cardType ? '$30' : '$15'}</span>Billed Individually
+						</span>
+					</div>
+					{featuresData.map((item, index) => (
+						<div
+							className={
+								index % 2 === 0
+									? style.tableValuesContainer
+									: style.tableValuesContainerSec
+							}
+						>
+							<span
+								key={index}
+								className={
+									index % 2 === 0
+										? style.tableValueMobile
+										: style.tableValueSecMobile
+								}
+							>
+								{item.name}
+							</span>
+							<span
+								key={index}
+								className={
+									index % 2 === 0
+										? style.tableValueFrom
+										: style.tableValueSecFrom
+								}
+							>
+								{item.plus}
+							</span>
+						</div>
+					))}
+					<Button
+						name='Get Started'
+						style={style.getStartedBtn}
+					/>
 				</div>
 			</div>
 			<div className={style.cardTable}>
