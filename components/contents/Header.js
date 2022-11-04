@@ -160,7 +160,7 @@ const Header = () => {
 				<Link href={'/'}>
 					<a>
 						<img
-							src='MedicalLogo.png'
+							src='/MedicalLogo.png'
 							alt='headerIcon'
 							height='50px'
 							// className={classes.mobileIcon}
@@ -182,7 +182,7 @@ const Header = () => {
 					/>
 				</div>
 
-				<div className={classes.rightSideContainer}>
+				<div className={classes.rightSideContainerStyle}>
 					<Button
 						name='დაგვიკავშირდი'
 						style={classes.contactBtnStyle}

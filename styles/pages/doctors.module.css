@@ -156,7 +156,7 @@
 .doctorsList {
 	margin-bottom: 60px;
 	display: flex;
-	gap: 2%;
+	gap: 1.3%;
 }
 
 .doctor {
@@ -170,8 +170,8 @@
 	position: relative;
 	max-height: 281px;
 	overflow: hidden;
-	width: 100%;
-	height: 267px;
+	width: 320px;
+	height: 280px;
 	display: flex;
 	justify-content: flex-end;
 }
@@ -191,8 +191,8 @@
 }
 
 .doctorImage {
-	width: 100%;
-	height: 267px;
+	width: 320px;
+	height: 280px;
 }
 
 .doctorContact {

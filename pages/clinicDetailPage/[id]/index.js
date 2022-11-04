@@ -63,12 +63,10 @@ const ClinicDetailPage = ({ cardData, address, branches }) => {
 							/>
 							<Text>{cardData?.rating}</Text>
 						</div> */}
-						<Image
+						<img
 							src={cardData?.logoUrl}
 							alt={cardData?.displayName}
 							className={s.imgPartImage}
-							width='368px'
-							height='326px'
 						/>
 					</div>
 					<Text style={s.clinicNameText}>{cardData?.displayName}</Text>

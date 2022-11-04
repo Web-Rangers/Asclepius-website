@@ -111,13 +111,16 @@
 
 .doctor {
 	position: relative;
-	max-width: 270px;
+	width: 320px;
+	height: 280px;
 }
 
 .poster {
 	position: relative;
 	max-height: 281px;
 	overflow: hidden;
+	width: 320px;
+	height: 280px;
 }
 
 .doctorStar {
@@ -126,7 +129,7 @@
 	padding: 5px 11px 5px 14px;
 	border-radius: 14px;
 	margin: 20px;
-	margin-left: 180px;
+	margin-left: 230px;
 	color: #fff;
 	display: flex;
 	align-items: center;
@@ -136,8 +139,8 @@
 }
 
 .doctorImage {
-	width: 270px;
-	height: 290px;
+	width: 320px;
+	height: 280px;
 }
 
 .doctorContact {

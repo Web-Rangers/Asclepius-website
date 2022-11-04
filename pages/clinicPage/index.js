@@ -14,7 +14,7 @@ import Select from '../../components/Select';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 
-let PageSize = 3;
+let PageSize = 4;
 
 function ClinicsPage() {
 	const [modalIsOpen, setIsOpen] = useState(false);
@@ -94,7 +94,7 @@ function ClinicsPage() {
 	return (
 		<div className={s.branchPage}>
 			<div className={s.branchTool}>
-				<Link href='/homePage'>
+				<Link href='/'>
 					<a className={s.backButton}>
 						<Image
 							alt='Arrow-LeftActive'
