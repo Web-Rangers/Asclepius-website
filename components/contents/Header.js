@@ -10,12 +10,13 @@ import Modal from 'react-modal';
 const customStyles = {
 	content: {
 		position: 'absolute',
-		background: '#3A74D2',
+		background: '#FFBBB6',
 		width: '100%',
 		height: '100%',
 		top: 0,
 		margin: 0,
 		inset: '0px 0px 0px',
+		zIndex: 1,
 		// border: "none",
 	},
 };
@@ -34,12 +35,6 @@ const Header = () => {
 	};
 
 	const closeModal = () => {
-		setIsOpen(false);
-	};
-
-	const handleClick = (e) => {
-		e.preventDefault();
-		router.push('/signInPage');
 		setIsOpen(false);
 	};
 
@@ -104,53 +99,48 @@ const Header = () => {
 								</Link>
 							</li>
 							<li>
+								<Link href='/clinicPage'>
+									<a onClick={closeModal}> Clinics</a>
+								</Link>
+							</li>
+							<li>
 								<Link href='/buyCardPage'>
 									<a onClick={closeModal}> Cards</a>
 								</Link>
 							</li>
-							<li>
-								<Link href='/onlineConsultation'>
-									<a onClick={closeModal}> Online consultation</a>
-								</Link>
-							</li>
-
-							<li>
-								<Link href='/VisitClinic'>
-									<a onClick={closeModal}> Visit to the clinic</a>
-								</Link>
-							</li>
-							<li>
-								<Link href='/Laboratory'>
-									<a onClick={closeModal}> Laboratory</a>
-								</Link>
-							</li>
-
-							<li>
-								<Link href='/contactUs'>
-									<a onClick={closeModal}> Contact</a>
-								</Link>
-							</li>
-							<li>
-								<Link href='#Offers'>
-									<a onClick={closeModal}>Offers</a>
-								</Link>
-							</li>
-
-							<li>
-								<Link href='/signInPage'>
-									<a>Sign in</a>
-								</Link>
-							</li>
-							<li>
-								<Button
+							<div className={classes.burgerMenuAuth}>
+								<li>
+									<Link href='/signInPage'>
+										<a>Sign in</a>
+									</Link>
+								</li>
+								<li>
+									<Link href='/signUpPage'>
+										<a>Registration</a>
+									</Link>
+									{/* <Button
 									name='Registration'
 									style={classes.registrationButton}
 									onClick={handleClick}
-								/>
-							</li>
-							<li>
-								<DropDown />
-							</li>
+								/> */}
+								</li>
+
+								<li>
+									<DropDown />
+								</li>
+								<div className={classes.iconContainer}>
+									<img
+										src='/facebook.svg'
+										alt='facebook'
+										className={classes.iconsStyle}
+									/>
+									<img
+										src='/Instagram.svg'
+										alt='instagram'
+										className={classes.iconsStyle}
+									/>
+								</div>
+							</div>
 						</ul>
 					</section>
 				</Modal>

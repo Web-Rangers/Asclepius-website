@@ -517,6 +517,9 @@
 		width: 100%;
 		bottom: 0;
 	}
+	.burgerMenuAuth {
+		margin-top: 77px;
+	}
 }
 
 @media only screen and (max-width: 767px) {
@@ -836,5 +839,8 @@
 		padding-left: 53px;
 		padding-top: -20px;
 		padding-bottom: 44px;
+	}
+	.burgerMenuAuth {
+		margin-top: 77px;
 	}
 }
