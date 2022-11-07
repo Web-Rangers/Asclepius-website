@@ -39,11 +39,11 @@
 .features {
 	display: flex;
 	flex-direction: column;
-	/* width: 24%; */
+	width: 347px;
 	background-color: #f8eff0;
 	border-radius: 6px;
 	margin-right: 50px;
-	height: 679px;
+	padding: 39px 14px 93px 14px;
 }
 .Starter {
 	display: flex;
@@ -51,9 +51,9 @@
 	align-items: center;
 	width: 24%;
 	background: #ffffff;
-	/* opacity: 0.2; */
+	padding: 34px 14px 30px 14px;
 	border-radius: 6px;
-	height: 679px;
+	/* height: 679px; */
 }
 .pro {
 	display: flex;
@@ -61,9 +61,8 @@
 	align-items: center;
 	width: 24%;
 	background: #ffbbb6;
-	/* opacity: 0.2; */
+	padding: 37px 14px 30px 14px;
 	border-radius: 6px;
-	height: 778px;
 }
 .proTextStyle {
 	display: flex;
@@ -77,7 +76,7 @@
 	color: #180126;
 	background: #ffd7d5;
 	border-radius: 8px;
-	width: 293px;
+	width: 100%;
 	height: 52px;
 }
 .proTextStyleSec {
@@ -91,7 +90,7 @@
 	line-height: 22px;
 	color: #180126;
 	border-radius: 8px;
-	width: 293px;
+	width: 100%;
 	height: 52px;
 }
 
@@ -101,12 +100,12 @@
 	align-items: center;
 	width: 24%;
 	background: #ffffff;
-	/* opacity: 0.2; */
+	padding: 34px 14px 30px 14px;
 	border-radius: 6px;
-	height: 679px;
+	/* height: 679px; */
 }
 .featuresTextStyle {
-	width: 90%;
+	width: 91%;
 	height: 51px;
 	font-family: 'Noto Sans';
 	font-style: normal;
@@ -115,11 +114,12 @@
 	line-height: 22px;
 	color: #1e2837;
 	background-color: #ffd7d4;
-	margin-left: 20px;
+	margin-left: 14px;
+	margin-right: 14px;
 	display: flex;
 	align-items: center;
 	border-radius: 8px;
-	padding-left: 10px;
+	padding-left: 14px;
 }
 .featuresTextStyleSec {
 	width: 319px;
@@ -130,16 +130,16 @@
 	font-size: 16px;
 	line-height: 22px;
 	color: #1e2837;
-	margin-left: 20px;
+	margin-left: 14px;
+	margin-right: 14px;
 	display: flex;
 	align-items: center;
 	border-radius: 8px;
-	padding-left: 10px;
+	padding-left: 14px;
 }
 .titleTextStyle {
 	margin-left: 34px;
-	margin-top: 20px;
-	margin-bottom: 110px;
+	padding-bottom: 78px;
 	font-family: 'TBC Sailec';
 	font-style: normal;
 	font-weight: 700;
@@ -150,7 +150,7 @@
 .getStartedBtn {
 	display: block;
 	margin: auto;
-	width: 293px;
+	width: 100%;
 	height: 48px;
 	border: 1px solid #dcdddf;
 	border-radius: 5px;
@@ -162,11 +162,36 @@
 	color: #180126;
 	background-color: #ffffff;
 }
+.getStartedBtnPro {
+	display: block;
+	margin: auto;
+	width: 100%;
+	height: 48px;
+	border: 1px solid #dcdddf;
+	border-radius: 5px;
+	font-family: 'TBC Sailec';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 16px;
+	color: #180126;
+	background-color: #ffffff;
+}
+.getStartedBtnContainerPro {
+	margin-top: 66px;
+	width: 100%;
+	height: 48px;
+}
+.getStartedBtnContainer {
+	margin-top: 40px;
+	width: 100%;
+	height: 48px;
+}
 .tableValue {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 293px;
+	width: 100%;
 	height: 52px;
 	border-radius: 8px;
 	font-family: 'Noto Sans';
@@ -181,7 +206,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 293px;
+	width: 80%;
 	height: 52px;
 	border-radius: 8px;
 	font-family: 'Noto Sans';
@@ -191,24 +216,34 @@
 	line-height: 22px;
 	color: #180126;
 }
-.tableValueSec span {
+.price {
 	font-family: 'Noto Sans';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 34px;
 	line-height: 46px;
 	color: #1e2837;
-	padding-right: 20px;
+	height: 46px;
 }
 .cardTitles {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 	height: 20.5%;
-	margin-bottom: 15px;
+	margin-bottom: 30px;
+	padding-left: 20px;
 }
 .cardTitleText {
-	margin-left: 40px;
+	margin-top: 20px;
+	margin-bottom: 14px;
+	font-family: 'TBC Sailec';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 24px;
+	color: #1e2837;
+}
+.cardTitleTextPro {
 	margin-top: 20px;
 	margin-bottom: 14px;
 	font-family: 'TBC Sailec';
@@ -222,9 +257,8 @@
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	height: 18.5%;
-	margin-top: 30px;
-	margin-bottom: 30px;
+	padding-left: 20px;
+	margin-bottom: 29px;
 }
 .recommendedStyle {
 	display: flex;
@@ -239,9 +273,16 @@
 	font-weight: 700;
 	font-size: 12px;
 	line-height: 16px;
-	margin-top: 20px;
 	color: #ffffff;
-	margin-left: 40px;
+}
+.spanText {
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 22px;
+	color: #180126;
+	padding-left: 20px;
 }
 .tooltip {
 	height: 18px;
@@ -255,7 +296,11 @@
 .tootltipText {
 	display: none;
 }
-
+@media only screen and (max-width: 1300px) {
+	.spanText {
+		display: none;
+	}
+}
 @media only screen and (max-width: 767px) {
 	.tooltip {
 		display: none;

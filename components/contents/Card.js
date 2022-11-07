@@ -157,7 +157,7 @@ const Card = () => {
 				<div className={style.Starter}>
 					<div className={style.cardTitles}>
 						<span className={style.cardTitleText}>Starter</span>
-						<span className={style.tableValueSec}>Billed Individually</span>
+						<span className={style.tableValueSec}> Billed Individually</span>
 					</div>
 					{featuresData.map((item, index) => (
 						<div
@@ -300,7 +300,11 @@ const Card = () => {
 				<div className={style.Starter}>
 					<div className={style.cardTitles}>
 						<span className={style.cardTitleText}>Starter</span>
-						<span className={style.tableValueSec}>Billed Individually</span>
+						<span className={style.price}>
+							{' '}
+							<span>{cardType ? '$5' : '$15'}</span>
+							<span className={style.spanText}>Billed Individually</span>
+						</span>
 					</div>
 					{featuresData.map((item, index) => (
 						<span
@@ -312,18 +316,22 @@ const Card = () => {
 							{item.starter}
 						</span>
 					))}
-					<Button
-						name='Get Started'
-						style={style.getStartedBtn}
-					/>
+
+					<div className={style.getStartedBtnContainer}>
+						<Button
+							name='Get Started'
+							style={style.getStartedBtn}
+						/>
+					</div>
 				</div>
 				<div className={style.pro}>
 					<div className={style.proCardTitles}>
 						<span className={style.recommendedStyle}>Recommended</span>
-						<span className={style.cardTitleText}>Pro</span>
-						<span className={style.tableValueSec}>
+						<span className={style.cardTitleTextPro}>Pro</span>
+						<span className={style.price}>
 							{' '}
-							<span>{cardType ? '$15' : '$10'}</span> Billed Individually
+							<span>{cardType ? '$15' : '$10'}</span>
+							<span className={style.spanText}>Billed Individually</span>
 						</span>
 					</div>
 					{featuresData.map((item, index) => (
@@ -336,18 +344,21 @@ const Card = () => {
 							{item.pro}
 						</span>
 					))}
-					<Button
-						name='Get Started'
-						style={style.getStartedBtn}
-					/>
+					<div className={style.getStartedBtnContainerPro}>
+						<Button
+							name='Get Started'
+							style={style.getStartedBtnPro}
+						/>
+					</div>
 				</div>
 				<div className={style.plus}>
 					<div className={style.cardTitles}>
 						<span className={style.cardTitleText}>Plus</span>
 
-						<span className={style.tableValueSec}>
+						<span className={style.price}>
 							{' '}
-							<span>{cardType ? '$30' : '$15'}</span>Billed Individually
+							<span>{cardType ? '$30' : '$15'}</span>
+							<span className={style.spanText}>Billed Individually</span>
 						</span>
 					</div>
 					{featuresData.map((item, index) => (
@@ -360,10 +371,12 @@ const Card = () => {
 							{item.plus}
 						</span>
 					))}
-					<Button
-						name='Get Started'
-						style={style.getStartedBtn}
-					/>
+					<div className={style.getStartedBtnContainer}>
+						<Button
+							name='Get Started'
+							style={style.getStartedBtn}
+						/>
+					</div>
 				</div>
 			</div>
 		</div>

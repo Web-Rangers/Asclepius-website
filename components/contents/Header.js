@@ -145,7 +145,24 @@ const Header = () => {
 					</section>
 				</Modal>
 			</div>
-
+			<div className={classes.smallheaderContainer}>
+				<div className={classes.smallheaderLeft}>
+					<span className={classes.smallheaderLeftText}>E-commerce</span>
+					<span className={classes.smallheaderLeftTextMedical}>
+						Medical Card
+					</span>
+					<span className={classes.smallheaderLeftText}>Discount</span>
+					<span className={classes.smallheaderLeftText}>Lotto</span>
+				</div>
+				<div className={classes.smallheaderRight}>
+					<img
+						src='/coin.svg'
+						alt='headerIcon'
+					/>
+					<span className={classes.coinStyle}>40.076</span>
+					<DropDown />
+				</div>
+			</div>
 			<div className={classes.headerContainer}>
 				<Link href={'/'}>
 					<a>
