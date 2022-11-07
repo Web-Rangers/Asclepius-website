@@ -39,10 +39,10 @@ const ClinicCardList = ({ clinicsData }) => {
 					className={classes.clinicCardList}
 					id='slider'
 				>
-					{data.map((item, index) => {
+					{data.map((item) => {
 						return (
 							<ClinicCardItem
-								key={index}
+								key={item?.id}
 								id={item.id}
 								src={item.logoUrl || '/testClinic.png'}
 								clinicName={item.displayName}

@@ -3,8 +3,8 @@ import { Carousel } from 'react-responsive-carousel';
 
 export default function ResponsiveSlider() {
 	const sliderImage = [
-		{ src: '/mobileSlide.png', text: true },
-		{ src: '/mobileSlide.png', text: false },
+		{ src: '/mobileSlide.png', text: true, id: '1' },
+		{ src: '/mobileSlide.png', text: false, id: '2' },
 	];
 
 	return (
@@ -13,10 +13,10 @@ export default function ResponsiveSlider() {
 			showStatus={false}
 			showThumbs={false}
 		>
-			{sliderImage.map(({ src }) => {
+			{sliderImage.map(({ src, id }) => {
 				return (
 					<>
-						<div>
+						<div key={id}>
 							<img src={src} />
 						</div>
 					</>

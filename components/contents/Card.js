@@ -12,48 +12,56 @@ const Card = () => {
 	const [cardType, setCardType] = useState(false);
 	const featuresData = [
 		{
+			id: '1',
 			name: 'Medical assistance',
 			starter: '24/7',
 			pro: '24/7',
 			plus: '24/7',
 		},
 		{
+			id: '2',
 			name: 'Outpatient services',
 			starter: '15%',
 			pro: '15-20 %',
 			plus: 'From 20%',
 		},
 		{
+			id: '3',
 			name: 'Hospital services',
 			starter: '15%',
 			pro: '15-20 %',
 			plus: 'From 20%',
 		},
 		{
+			id: '4',
 			name: 'Dental services',
 			starter: '15%',
 			pro: '15-20 %',
 			plus: 'From 20%',
 		},
 		{
+			id: '5',
 			name: 'Laboratory and high-tech diagnostics',
 			starter: '15%',
 			pro: '15-20 %',
 			plus: 'From 20%',
 		},
 		{
+			id: '6',
 			name: 'Aesthetics and beauty',
 			starter: '15%',
 			pro: '15-20 %',
 			plus: 'From 20%',
 		},
 		{
+			id: '7',
 			name: 'Rehabilitation and wellness services',
 			starter: '15%',
 			pro: '15-20 %',
 			plus: 'From 20%',
 		},
 		{
+			id: '8',
 			name: 'Family doctor telephone consultation',
 			starter: 'Once/ MTH',
 			pro: 'Twice a month',
@@ -168,7 +176,7 @@ const Card = () => {
 							}
 						>
 							<span
-								key={index}
+								key={item.id}
 								className={
 									index % 2 === 0
 										? style.tableValueMobile
@@ -211,7 +219,7 @@ const Card = () => {
 							}
 						>
 							<span
-								key={index}
+								key={item.id}
 								className={
 									index % 2 === 0 ? style.proTextStyle : style.proTextStyleSec
 								}
@@ -219,7 +227,7 @@ const Card = () => {
 								{item.name}
 							</span>
 							<span
-								key={index}
+								key={item.id}
 								className={
 									index % 2 === 0
 										? style.proTextStylePercent
@@ -253,7 +261,7 @@ const Card = () => {
 							}
 						>
 							<span
-								key={index}
+								key={item.id}
 								className={
 									index % 2 === 0
 										? style.tableValueMobile
@@ -263,7 +271,7 @@ const Card = () => {
 								{item.name}
 							</span>
 							<span
-								key={index}
+								key={item.id}
 								className={
 									index % 2 === 0
 										? style.tableValueFrom
@@ -286,7 +294,7 @@ const Card = () => {
 
 					{featuresData.map((item, index) => (
 						<span
-							key={index}
+							key={item.id}
 							className={
 								index % 2 === 0
 									? style.featuresTextStyle
@@ -308,7 +316,7 @@ const Card = () => {
 					</div>
 					{featuresData.map((item, index) => (
 						<span
-							key={index}
+							key={item.id}
 							className={
 								index % 2 === 0 ? style.tableValue : style.tableValueSec
 							}
@@ -336,7 +344,7 @@ const Card = () => {
 					</div>
 					{featuresData.map((item, index) => (
 						<span
-							key={index}
+							key={item.id}
 							className={
 								index % 2 === 0 ? style.proTextStyle : style.proTextStyleSec
 							}
@@ -363,7 +371,7 @@ const Card = () => {
 					</div>
 					{featuresData.map((item, index) => (
 						<span
-							key={index}
+							key={item.id}
 							className={
 								index % 2 === 0 ? style.tableValue : style.tableValueSec
 							}
