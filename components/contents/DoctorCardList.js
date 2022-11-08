@@ -55,13 +55,13 @@ const DoctorCardList = ({ doctorsData }) => {
 						src='doctorImg1.png'
 						alt='doctorImg1'
 						height='210px'
-						width='684px'
+						width='655px'
 					/>
 					<img
 						src='doctorImg2.png'
 						alt='doctorImg2'
 						height='210px'
-						width='684px'
+						width='655px'
 					/>
 				</div>
 				<div className={classes.clinicCardContainerTitle}>
