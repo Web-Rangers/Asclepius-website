@@ -169,6 +169,7 @@ const Card = () => {
 					</div>
 					{featuresData.map((item, index) => (
 						<div
+							key={item.id}
 							className={
 								index % 2 === 0
 									? style.tableValuesContainer
@@ -176,7 +177,6 @@ const Card = () => {
 							}
 						>
 							<span
-								key={item.id}
 								className={
 									index % 2 === 0
 										? style.tableValueMobile
@@ -212,6 +212,7 @@ const Card = () => {
 					</div>
 					{featuresData.map((item, index) => (
 						<div
+							key={item.id}
 							className={
 								index % 2 === 0
 									? style.proTextContainer
@@ -219,7 +220,6 @@ const Card = () => {
 							}
 						>
 							<span
-								key={item.id}
 								className={
 									index % 2 === 0 ? style.proTextStyle : style.proTextStyleSec
 								}
@@ -227,7 +227,6 @@ const Card = () => {
 								{item.name}
 							</span>
 							<span
-								key={item.id}
 								className={
 									index % 2 === 0
 										? style.proTextStylePercent
@@ -254,6 +253,7 @@ const Card = () => {
 					</div>
 					{featuresData.map((item, index) => (
 						<div
+							key={item.id}
 							className={
 								index % 2 === 0
 									? style.tableValuesContainer
@@ -261,7 +261,6 @@ const Card = () => {
 							}
 						>
 							<span
-								key={item.id}
 								className={
 									index % 2 === 0
 										? style.tableValueMobile
@@ -271,7 +270,6 @@ const Card = () => {
 								{item.name}
 							</span>
 							<span
-								key={item.id}
 								className={
 									index % 2 === 0
 										? style.tableValueFrom

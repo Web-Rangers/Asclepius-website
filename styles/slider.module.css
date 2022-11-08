@@ -133,3 +133,16 @@
 .slide {
 	vertical-align: top;
 }
+
+.slideImgResp {
+	background: #f7f9fb;
+}
+
+@media only screen and (max-width: 1200px) {
+	.sliderImage {
+		display: none;
+	}
+	.sliderTextContent {
+		width: 1200px;
+	}
+}

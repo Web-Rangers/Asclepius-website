@@ -8,8 +8,8 @@ import Link from 'next/link';
 export const PasswordConfirm = () => {
 	const [enterCode, setEnterCode] = useState('');
 
-	const handleChange = (event) => {
-		setEnterCode(event.target.value);
+	const handleChange = (value) => {
+		setEnterCode(value);
 		console.log(event.target.value);
 	};
 

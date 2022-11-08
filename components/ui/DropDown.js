@@ -5,14 +5,17 @@ const language = [
 	{
 		id: '1',
 		language: 'eng.svg',
+		name: 'eng',
 	},
 	{
 		id: '2',
 		language: 'geo.svg',
+		name: 'geo',
 	},
 	{
 		id: '3',
 		language: 'rus.svg',
+		name: 'rus',
 	},
 ];
 
@@ -22,13 +25,16 @@ export default function DropDown({
 	defaultSelected,
 	bordered = true,
 	withHeader = true,
+	withName = false,
 }) {
 	const [current, setCurrent] = useState(items[0].language);
+	const [name, setName] = useState(items[0].name);
 	const [open, setOpen] = useState(false);
 	const dropdownRef = useRef();
 
 	const selectItem = (item) => {
-		setCurrent(item);
+		setCurrent(item.language);
+		setName(item.name);
 		onChange && onChange(item);
 		setOpen(false);
 	};
@@ -55,13 +61,14 @@ export default function DropDown({
 		};
 	}, []);
 
+	console.log('dd', name);
 	return (
 		<div
 			className={`${styles.container} ${!bordered && styles.noBorder}`}
 			ref={dropdownRef}
 		>
 			<div
-				className={styles.header}
+				className={withName ? styles.header : styles.headerMobile}
 				onClick={() => setOpen(!open)}
 				style={
 					open ? { borderRadius: '0px 0px 0px 0px' } : { borderRadius: '8px' }
@@ -74,7 +81,9 @@ export default function DropDown({
 								src={current || ''}
 								alt=''
 							/>
-							{/* <span className={styles.selected}>{current || ''}</span> */}
+							{withName ? (
+								<span className={styles.selected}>{name || ''}</span>
+							) : null}
 						</div>
 						{open ? (
 							<img
@@ -107,13 +116,15 @@ export default function DropDown({
 						<div
 							key={item.id}
 							className={styles.item}
-							onClick={() => selectItem(item.language)}
+							onClick={() => selectItem(item)}
 						>
 							<img
 								src={item.language}
 								alt='flag'
 							/>
-							{/* <span className={styles.itemText}>{item.language}</span> */}
+							{withName ? (
+								<span className={styles.itemText}>{item.name}</span>
+							) : null}
 						</div>
 					))}
 				</div>

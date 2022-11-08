@@ -93,21 +93,23 @@ const Header = () => {
 							/>
 						</div>
 						<ul>
-							<li>
-								<Link href='/homePage'>
-									<a onClick={closeModal}>Home</a>
-								</Link>
-							</li>
-							<li>
-								<Link href='/clinicPage'>
-									<a onClick={closeModal}> Clinics</a>
-								</Link>
-							</li>
-							<li>
-								<Link href='/buyCardPage'>
-									<a onClick={closeModal}> Cards</a>
-								</Link>
-							</li>
+							<div className={classes.burgerMeneFirstPart}>
+								<li>
+									<Link href='/'>
+										<a onClick={closeModal}>Home</a>
+									</Link>
+								</li>
+								<li>
+									<Link href='/clinicPage'>
+										<a onClick={closeModal}> Clinics</a>
+									</Link>
+								</li>
+								<li>
+									<Link href='/buyCardPage'>
+										<a onClick={closeModal}> Cards</a>
+									</Link>
+								</li>
+							</div>
 							<div className={classes.burgerMenuAuth}>
 								<li>
 									<Link href='/signInPage'>
@@ -126,7 +128,7 @@ const Header = () => {
 								</li>
 
 								<li>
-									<DropDown />
+									<DropDown withName={true} />
 								</li>
 								<div className={classes.iconContainer}>
 									<img
@@ -140,6 +142,9 @@ const Header = () => {
 										className={classes.iconsStyle}
 									/>
 								</div>
+								<span className={classes.allRightText}>
+									© 2022 All right reserved.
+								</span>
 							</div>
 						</ul>
 					</section>
@@ -198,7 +203,7 @@ const Header = () => {
 					<Button
 						name='შესვლა'
 						style={classes.signInBtnStyle}
-						onClick={() => router.push('/SignInPage')}
+						onClick={() => router.push('/signInPage')}
 					/>
 
 					<Button

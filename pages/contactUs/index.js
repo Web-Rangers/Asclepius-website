@@ -23,7 +23,7 @@ export const ContactUs = () => {
 			<div className={classes.contactUsContainer}>
 				<div className={classes.contactUs}>
 					<div className={classes.imgForMobile}>
-						<Link href={'/homePage'}>
+						<Link href={'/'}>
 							<a>
 								<Image
 									src='/contactUs.png'

@@ -104,12 +104,13 @@
 	margin: auto;
 	justify-content: center;
 	background-color: #f7f9fb;
+	padding-top: 30px;
+	padding-left: 140px;
 }
 .headerIcon {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	margin-top: 25px;
 }
 .headerIcon img {
 	width: 47px;
@@ -118,14 +119,13 @@
 .leftSideContainer {
 	display: flex;
 	flex-direction: row;
-	padding-left: 140px;
 	width: 448px;
 }
 .rightSideContainer {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	margin-top: 36px;
+	margin-top: 6px;
 }
 .rightSideContainerStyle {
 	display: flex;
@@ -181,6 +181,7 @@
 .iconContainer {
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
 }
 .iconContainer img {
 	width: 24px;
@@ -417,6 +418,9 @@
 }
 
 @media only screen and (max-width: 1290px) {
+	.leftSideContainer {
+		display: none;
+	}
 	.headerForMobile {
 		display: flex;
 		justify-content: center;
@@ -424,6 +428,8 @@
 		width: 100%;
 		height: 116px;
 		background-color: #f7f9fb;
+		padding-left: 16.5px;
+		padding-top: 7px;
 	}
 	.headerContainer {
 		display: none;
@@ -434,8 +440,6 @@
 		align-items: center;
 		height: 100%;
 		width: 100%;
-		margin-left: 20px;
-		margin-top: 10px;
 		height: 50px;
 	}
 	.mobileheader {
@@ -488,7 +492,9 @@
 		font-weight: 700;
 		font-size: 16px;
 		line-height: 22px;
-		color: #ffffff;
+		display: flex;
+		align-items: flex-end;
+		color: #1e2837;
 	}
 
 	.registrationButton {
@@ -572,6 +578,23 @@
 	}
 	.burgerMenuAuth {
 		margin-top: 77px;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+	.burgerMeneFirstPart {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+	.allRightText {
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 16px;
+		color: #1e2837;
+		padding-top: 191px;
 	}
 }
 
@@ -593,8 +616,6 @@
 		align-items: center;
 		height: 100%;
 		width: 100%;
-		margin-left: 20px;
-		margin-top: 10px;
 		height: 50px;
 	}
 	.mobileheader {
@@ -640,7 +661,7 @@
 		align-items: center;
 		justify-content: center;
 		list-style: none;
-		padding-bottom: 20px;
+		padding-bottom: 24px;
 	}
 	.modalContent ul li a {
 		font-family: 'Noto Sans';
@@ -648,7 +669,9 @@
 		font-weight: 700;
 		font-size: 16px;
 		line-height: 22px;
-		color: #ffffff;
+		display: flex;
+		align-items: flex-end;
+		color: #1e2837;
 	}
 
 	.registrationButton {
@@ -674,6 +697,10 @@
 		overflow: hidden;
 		margin: auto;
 		height: 375px;
+		padding-top: 24px;
+		padding-left: 20px;
+		margin-left: 16px;
+		margin-right: 16px;
 	}
 	.rightSideContainer {
 		display: flex;
@@ -883,7 +910,7 @@
 		display: flex;
 		width: 40%;
 		height: 60px;
-		margin-left: 30px;
+		margin-left: 12px;
 		margin-bottom: 90px;
 	}
 	.allRightStyle {
@@ -894,6 +921,23 @@
 		padding-bottom: 44px;
 	}
 	.burgerMenuAuth {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
 		margin-top: 77px;
+	}
+	.burgerMeneFirstPart {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+	.allRightText {
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 16px;
+		color: #1e2837;
+		padding-top: 191px;
 	}
 }

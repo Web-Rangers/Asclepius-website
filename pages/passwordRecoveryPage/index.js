@@ -11,8 +11,8 @@ export const PasswordRecoveryPage = () => {
 	const router = useRouter();
 	const [email, setEmail] = useState('');
 
-	const handleChange = (event) => {
-		setEmail(event.target.value);
+	const handleChange = (e) => {
+		setEmail(e);
 	};
 	const handleClick = (e) => {
 		e.preventDefault();
@@ -44,7 +44,7 @@ export const PasswordRecoveryPage = () => {
 							variant='filled'
 							type='email'
 							value={email}
-							onChange={handleChange}
+							onChange={(e) => handleChange(e)}
 							inputProps={{
 								className: classes.inputStyle,
 							}}

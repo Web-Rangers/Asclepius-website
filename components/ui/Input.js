@@ -41,13 +41,13 @@ const Input = ({
 				>
 					{!isVisible ? (
 						<ReactSVG
-							src={'eye-off.svg'}
+							src={'/eye-off.svg'}
 							className={classNames(styles.passIcon)}
 							onClick={onClick}
 						/>
 					) : (
 						<ReactSVG
-							src={'eye.svg'}
+							src={'/eye.svg'}
 							className={classNames(styles.passIcon)}
 							onClick={onClick}
 						/>

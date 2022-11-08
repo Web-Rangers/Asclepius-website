@@ -1,5 +1,6 @@
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import classes from '../../styles/slider.module.css';
 
 export default function ResponsiveSlider() {
 	const sliderImage = [
@@ -16,7 +17,10 @@ export default function ResponsiveSlider() {
 			{sliderImage.map(({ src, id }) => {
 				return (
 					<>
-						<div key={id}>
+						<div
+							className={classes.slideImgResp}
+							key={id}
+						>
 							<img src={src} />
 						</div>
 					</>

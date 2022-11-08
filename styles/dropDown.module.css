@@ -6,27 +6,40 @@
 .header {
 	display: flex;
 	align-items: center;
+	justify-content: center;
+	width: 146px;
+	height: 48px;
+	gap: 16px;
+	border: none;
+	border-radius: 30px;
+	padding: 2px;
+	background: #f7f9fb;
+	border-radius: 5px;
+}
+.headerMobile {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 80px;
 	height: 45px;
 	gap: 16px;
-	/* background: #f7f9fb 0% 0% no-repeat padding-box; */
 	border: none;
 	border-radius: 30px;
 	padding: 2px;
 }
-
 .textInfo {
 	display: flex;
-	flex-direction: column;
-	gap: 4px;
+	gap: 17px;
 	font-family: 'Noto Sans';
 	font-size: 14px;
 }
 .selected {
 	font-family: 'Noto Sans';
-	font-size: 14px;
-	letter-spacing: 0px;
-	color: #4b4453;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 22px;
+	color: #1e2837;
 }
 .itemsContainer {
 	width: 100%;
@@ -51,7 +64,9 @@
 	gap: 16px;
 	padding-top: 8px;
 	padding-bottom: 8px;
-	padding-left: 15px;
+	padding-left: 21px;
+	background: #f7f9fb;
+	display: flex;
 }
 .itemText {
 	font-family: 'Noto Sans';
