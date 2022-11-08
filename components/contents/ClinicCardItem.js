@@ -29,11 +29,11 @@ const ClinicCardItem = (props) => {
         <span>4.9</span>
       </div> */}
 				<div className={classes.imgPart}>
-					<Image
+					<img
 						src={props.src}
 						alt={'clinic'}
-						width='435px'
-						height='290px'
+						width='320px'
+						height='280px'
 					/>
 				</div>
 				<h2 className={classes.clinicNameText}>{props.clinicName}</h2>

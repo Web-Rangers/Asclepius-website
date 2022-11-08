@@ -10,6 +10,7 @@
 	font-size: 16px;
 	line-height: 21.79px;
 	color: #3a74d2;
+	padding-left: 7px;
 }
 .clinicsTitleTextStyle {
 	font-family: 'Noto Sans';
@@ -18,7 +19,7 @@
 	font-size: 26px;
 	line-height: 28px;
 	color: #1e2837;
-	padding-left: 2px;
+	padding-left: 7px;
 	/* margin-left: 76px; */
 }
 
@@ -105,6 +106,14 @@
 .imageContainer img {
 	width: 24%;
 }
+.imgPartImage {
+	width: 320px;
+	height: 280px;
+}
+.imgPart {
+	width: 320px;
+	height: 280px;
+}
 
 .imageSlider {
 	display: flex;
@@ -116,7 +125,7 @@
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	width: 368px;
+	width: 320px;
 	height: 618px;
 	border-radius: 5px;
 	border: 1px solid #efefef;

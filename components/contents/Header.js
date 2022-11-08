@@ -10,12 +10,13 @@ import Modal from 'react-modal';
 const customStyles = {
 	content: {
 		position: 'absolute',
-		background: '#3A74D2',
+		background: '#FFBBB6',
 		width: '100%',
 		height: '100%',
 		top: 0,
 		margin: 0,
 		inset: '0px 0px 0px',
+		zIndex: 1,
 		// border: "none",
 	},
 };
@@ -34,12 +35,6 @@ const Header = () => {
 	};
 
 	const closeModal = () => {
-		setIsOpen(false);
-	};
-
-	const handleClick = (e) => {
-		e.preventDefault();
-		router.push('/signInPage');
 		setIsOpen(false);
 	};
 
@@ -98,69 +93,86 @@ const Header = () => {
 							/>
 						</div>
 						<ul>
-							<li>
-								<Link href='/homePage'>
-									<a onClick={closeModal}>Home</a>
-								</Link>
-							</li>
-							<li>
-								<Link href='/buyCardPage'>
-									<a onClick={closeModal}> Cards</a>
-								</Link>
-							</li>
-							<li>
-								<Link href='/onlineConsultation'>
-									<a onClick={closeModal}> Online consultation</a>
-								</Link>
-							</li>
-
-							<li>
-								<Link href='/VisitClinic'>
-									<a onClick={closeModal}> Visit to the clinic</a>
-								</Link>
-							</li>
-							<li>
-								<Link href='/Laboratory'>
-									<a onClick={closeModal}> Laboratory</a>
-								</Link>
-							</li>
-
-							<li>
-								<Link href='/contactUs'>
-									<a onClick={closeModal}> Contact</a>
-								</Link>
-							</li>
-							<li>
-								<Link href='#Offers'>
-									<a onClick={closeModal}>Offers</a>
-								</Link>
-							</li>
-
-							<li>
-								<Link href='/signInPage'>
-									<a>Sign in</a>
-								</Link>
-							</li>
-							<li>
-								<Button
+							<div className={classes.burgerMeneFirstPart}>
+								<li>
+									<Link href='/'>
+										<a onClick={closeModal}>Home</a>
+									</Link>
+								</li>
+								<li>
+									<Link href='/clinicPage'>
+										<a onClick={closeModal}> Clinics</a>
+									</Link>
+								</li>
+								<li>
+									<Link href='/buyCardPage'>
+										<a onClick={closeModal}> Cards</a>
+									</Link>
+								</li>
+							</div>
+							<div className={classes.burgerMenuAuth}>
+								<li>
+									<Link href='/signInPage'>
+										<a>Sign in</a>
+									</Link>
+								</li>
+								<li>
+									<Link href='/signUpPage'>
+										<a>Registration</a>
+									</Link>
+									{/* <Button
 									name='Registration'
 									style={classes.registrationButton}
 									onClick={handleClick}
-								/>
-							</li>
-							<li>
-								<DropDown />
-							</li>
+								/> */}
+								</li>
+
+								<li>
+									<DropDown withName={true} />
+								</li>
+								<div className={classes.iconContainer}>
+									<img
+										src='/facebook.svg'
+										alt='facebook'
+										className={classes.iconsStyle}
+									/>
+									<img
+										src='/Instagram.svg'
+										alt='instagram'
+										className={classes.iconsStyle}
+									/>
+								</div>
+								<span className={classes.allRightText}>
+									© 2022 All right reserved.
+								</span>
+							</div>
 						</ul>
 					</section>
 				</Modal>
 			</div>
-
+			<div className={classes.smallheaderContainer}>
+				<div className={classes.smallheaderLeft}>
+					<span className={classes.smallheaderLeftText}>E-commerce</span>
+					<span className={classes.smallheaderLeftTextMedical}>
+						Medical Card
+					</span>
+					<span className={classes.smallheaderLeftText}>Discount</span>
+					<span className={classes.smallheaderLeftText}>Lotto</span>
+				</div>
+				<div className={classes.smallheaderRight}>
+					<img
+						src='/coin.svg'
+						alt='headerIcon'
+					/>
+					<span className={classes.coinStyle}>40.076</span>
+					<DropDown />
+				</div>
+			</div>
 			<div className={classes.headerContainer}>
 				<Link href={'/'}>
 					<a>
 						<img
-							src='MedicalLogo.png'
+							src='/MedicalLogo.png'
 							alt='headerIcon'
 							height='50px'
 							// className={classes.mobileIcon}
@@ -182,7 +194,7 @@ const Header = () => {
 					/>
 				</div>
 
-				<div className={classes.rightSideContainer}>
+				<div className={classes.rightSideContainerStyle}>
 					<Button
 						name='დაგვიკავშირდი'
 						style={classes.contactBtnStyle}
@@ -191,7 +203,7 @@ const Header = () => {
 					<Button
 						name='შესვლა'
 						style={classes.signInBtnStyle}
-						onClick={() => router.push('/SignInPage')}
+						onClick={() => router.push('/signInPage')}
 					/>
 
 					<Button

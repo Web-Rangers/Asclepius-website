@@ -51,6 +51,7 @@ a {
 
 .carousel .control-dots {
 	bottom: -35px !important;
+	z-index: -1;
 }
 
 .carousel .control-dots .dot.selected {

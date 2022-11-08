@@ -47,8 +47,6 @@ const DoctorCardList = ({ doctorsData }) => {
 		setData(doctorsData.filter((e, i) => i < 4));
 	}, [doctorsData]);
 
-	console.log('doc', data);
-
 	return (
 		<div className={classes.doctorCardContainer}>
 			<div className={classes.firstPart}>
@@ -76,12 +74,12 @@ const DoctorCardList = ({ doctorsData }) => {
 					className={classes.doctorCardList}
 					id='slider'
 				>
-					{data?.map((item, index) => {
+					{data?.map((item) => {
 						return (
 							<>
 								<DoctorCardItem
 									id={item?.id}
-									key={index}
+									key={item?.id}
 									rating={item.rating}
 									src={item.pictureUrl}
 									doctorName={item.firstName}

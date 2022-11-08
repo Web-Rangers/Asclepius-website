@@ -12,48 +12,56 @@ const Card = () => {
 	const [cardType, setCardType] = useState(false);
 	const featuresData = [
 		{
+			id: '1',
 			name: 'Medical assistance',
 			starter: '24/7',
 			pro: '24/7',
 			plus: '24/7',
 		},
 		{
+			id: '2',
 			name: 'Outpatient services',
 			starter: '15%',
 			pro: '15-20 %',
 			plus: 'From 20%',
 		},
 		{
+			id: '3',
 			name: 'Hospital services',
 			starter: '15%',
 			pro: '15-20 %',
 			plus: 'From 20%',
 		},
 		{
+			id: '4',
 			name: 'Dental services',
 			starter: '15%',
 			pro: '15-20 %',
 			plus: 'From 20%',
 		},
 		{
+			id: '5',
 			name: 'Laboratory and high-tech diagnostics',
 			starter: '15%',
 			pro: '15-20 %',
 			plus: 'From 20%',
 		},
 		{
+			id: '6',
 			name: 'Aesthetics and beauty',
 			starter: '15%',
 			pro: '15-20 %',
 			plus: 'From 20%',
 		},
 		{
+			id: '7',
 			name: 'Rehabilitation and wellness services',
 			starter: '15%',
 			pro: '15-20 %',
 			plus: 'From 20%',
 		},
 		{
+			id: '8',
 			name: 'Family doctor telephone consultation',
 			starter: 'Once/ MTH',
 			pro: 'Twice a month',
@@ -157,11 +165,15 @@ const Card = () => {
 				<div className={style.Starter}>
 					<div className={style.cardTitles}>
 						<span className={style.cardTitleText}>Starter</span>
-						<span className={style.tableValueSec}>Billed Individually</span>
+						<span className={style.tableValueSec}> Billed Individually</span>
 					</div>
 					{featuresData.map((item, index) => (
 						<div
+
+							key={item.id}
+
 							key={index}
+
 							className={
 								index % 2 === 0
 									? style.tableValuesContainer
@@ -204,7 +216,10 @@ const Card = () => {
 					</div>
 					{featuresData.map((item, index) => (
 						<div
-							key={index}
+
+							key={item.id}
+
+
 							className={
 								index % 2 === 0
 									? style.proTextContainer
@@ -219,7 +234,6 @@ const Card = () => {
 								{item.name}
 							</span>
 							<span
-								key={index}
 								className={
 									index % 2 === 0
 										? style.proTextStylePercent
@@ -246,7 +260,9 @@ const Card = () => {
 					</div>
 					{featuresData.map((item, index) => (
 						<div
-							key={index}
+
+							key={item.id}
+
 							className={
 								index % 2 === 0
 									? style.tableValuesContainer
@@ -263,7 +279,6 @@ const Card = () => {
 								{item.name}
 							</span>
 							<span
-								key={index}
 								className={
 									index % 2 === 0
 										? style.tableValueFrom
@@ -286,7 +301,7 @@ const Card = () => {
 
 					{featuresData.map((item, index) => (
 						<span
-							key={index}
+							key={item.id}
 							className={
 								index % 2 === 0
 									? style.featuresTextStyle
@@ -300,11 +315,15 @@ const Card = () => {
 				<div className={style.Starter}>
 					<div className={style.cardTitles}>
 						<span className={style.cardTitleText}>Starter</span>
-						<span className={style.tableValueSec}>Billed Individually</span>
+						<span className={style.price}>
+							{' '}
+							<span>{cardType ? '$5' : '$15'}</span>
+							<span className={style.spanText}>Billed Individually</span>
+						</span>
 					</div>
 					{featuresData.map((item, index) => (
 						<span
-							key={index}
+							key={item.id}
 							className={
 								index % 2 === 0 ? style.tableValue : style.tableValueSec
 							}
@@ -312,23 +331,27 @@ const Card = () => {
 							{item.starter}
 						</span>
 					))}
-					<Button
-						name='Get Started'
-						style={style.getStartedBtn}
-					/>
+
+					<div className={style.getStartedBtnContainer}>
+						<Button
+							name='Get Started'
+							style={style.getStartedBtn}
+						/>
+					</div>
 				</div>
 				<div className={style.pro}>
 					<div className={style.proCardTitles}>
 						<span className={style.recommendedStyle}>Recommended</span>
-						<span className={style.cardTitleText}>Pro</span>
-						<span className={style.tableValueSec}>
+						<span className={style.cardTitleTextPro}>Pro</span>
+						<span className={style.price}>
 							{' '}
-							<span>{cardType ? '$15' : '$10'}</span> Billed Individually
+							<span>{cardType ? '$15' : '$10'}</span>
+							<span className={style.spanText}>Billed Individually</span>
 						</span>
 					</div>
 					{featuresData.map((item, index) => (
 						<span
-							key={index}
+							key={item.id}
 							className={
 								index % 2 === 0 ? style.proTextStyle : style.proTextStyleSec
 							}
@@ -336,23 +359,26 @@ const Card = () => {
 							{item.pro}
 						</span>
 					))}
-					<Button
-						name='Get Started'
-						style={style.getStartedBtn}
-					/>
+					<div className={style.getStartedBtnContainerPro}>
+						<Button
+							name='Get Started'
+							style={style.getStartedBtnPro}
+						/>
+					</div>
 				</div>
 				<div className={style.plus}>
 					<div className={style.cardTitles}>
 						<span className={style.cardTitleText}>Plus</span>
 
-						<span className={style.tableValueSec}>
+						<span className={style.price}>
 							{' '}
-							<span>{cardType ? '$30' : '$15'}</span>Billed Individually
+							<span>{cardType ? '$30' : '$15'}</span>
+							<span className={style.spanText}>Billed Individually</span>
 						</span>
 					</div>
 					{featuresData.map((item, index) => (
 						<span
-							key={index}
+							key={item.id}
 							className={
 								index % 2 === 0 ? style.tableValue : style.tableValueSec
 							}
@@ -360,10 +386,12 @@ const Card = () => {
 							{item.plus}
 						</span>
 					))}
-					<Button
-						name='Get Started'
-						style={style.getStartedBtn}
-					/>
+					<div className={style.getStartedBtnContainer}>
+						<Button
+							name='Get Started'
+							style={style.getStartedBtn}
+						/>
+					</div>
 				</div>
 			</div>
 		</div>

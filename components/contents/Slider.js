@@ -7,7 +7,7 @@ import Button from '../ui/Button';
 const Slider = ({ type = 'desktop' }) => {
 	const sliderImage = [
 		{ src: '/slider1.png', text: true },
-		{ src: '/homepageslider2.png', text: false },
+		{ src: '/SliderBackground.png', text: true },
 	];
 	const delay = 155000;
 
