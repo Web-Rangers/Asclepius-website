@@ -169,11 +169,7 @@ const Card = () => {
 					</div>
 					{featuresData.map((item, index) => (
 						<div
-
 							key={item.id}
-
-							key={index}
-
 							className={
 								index % 2 === 0
 									? style.tableValuesContainer
@@ -216,10 +212,7 @@ const Card = () => {
 					</div>
 					{featuresData.map((item, index) => (
 						<div
-
 							key={item.id}
-
-
 							className={
 								index % 2 === 0
 									? style.proTextContainer
@@ -260,9 +253,7 @@ const Card = () => {
 					</div>
 					{featuresData.map((item, index) => (
 						<div
-
 							key={item.id}
-
 							className={
 								index % 2 === 0
 									? style.tableValuesContainer
