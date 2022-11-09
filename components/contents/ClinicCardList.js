@@ -17,7 +17,7 @@ const ClinicCardList = ({ clinicsData }) => {
 		if (data.length === 12) {
 			router.push('/clinicPage');
 		}
-	}, [data]);
+	});
 
 	useEffect(() => {
 		setData(clinicsData?.filter((e, i) => i < 4));

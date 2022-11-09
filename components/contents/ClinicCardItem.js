@@ -7,47 +7,43 @@ import { ReactSVG } from 'react-svg';
 import Link from 'next/link';
 
 const ClinicCardItem = (props) => {
-	const router = useRouter();
-
 	const size = useWindowSize();
-
-	const handleClick = (data) => {
-		router.push({
-			pathname: '/clinicDetailPage',
-			query: data,
-		});
-	};
 
 	return (
 		<Link
-			href={`/clinicDetailPage/${props?.id}`}
+			// href={`/clinicDetailPage/${props?.id}`}
 			key={props.key}
+			href='/clinicDetailPage/clinicId'
+			as={`/clinicDetailPage/${props?.id}`}
 		>
-			<div className={classes.cardItemContainer}>
-				{/* <div className={classes.cardRating}>
+			<a>
+				<div className={classes.cardItemContainer}>
+					{/* <div className={classes.cardRating}>
         <ReactSVG src="/clinicStar.svg" className={classes.cardRatingStar} />
         <span>4.9</span>
       </div> */}
-				<div className={classes.imgPart}>
-					<img
-						src={props.src}
-						alt={'clinic'}
-						width='320px'
-						height='280px'
-					/>
-				</div>
-				<h2 className={classes.clinicNameText}>{props.clinicName}</h2>
+					<div className={classes.imgPart}>
+						<img
+							src={props.src}
+							alt={'clinic'}
+							width='313px'
+							height='194px'
+							background-size='contains'
+						/>
+					</div>
+					<h2 className={classes.clinicNameText}>{props.clinicName}</h2>
 
-				<Text style={classes.clinicAddressText}>
-					<Image
-						src='/map-pin 1.svg'
-						alt=''
-						width='16.67px'
-						height='15.04'
-					/>
-					{props.clinicAddress}
-				</Text>
-			</div>
+					<Text style={classes.clinicAddressText}>
+						<Image
+							src='/map-pin 1.svg'
+							alt=''
+							width='16.67px'
+							height='15.04'
+						/>
+						{props.clinicAddress}
+					</Text>
+				</div>
+			</a>
 		</Link>
 	);
 };

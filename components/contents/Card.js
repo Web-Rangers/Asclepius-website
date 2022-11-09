@@ -8,8 +8,10 @@ import style from '../../styles/components/card.module.css';
 import Button from '../ui/Button';
 import { Tooltip } from '@nextui-org/react';
 import Image from 'next/image';
+
 const Card = () => {
 	const [cardType, setCardType] = useState(false);
+
 	const featuresData = [
 		{
 			id: '1',
@@ -94,24 +96,28 @@ const Card = () => {
 				},
 			},
 		},
-		'& .MuiSwitch-thumb': {
-			boxShadow: '0 2px 4px 0 rgb(0 35 11 / 20%)',
-			width: 25,
-			height: 25,
-			borderRadius: 12,
-			transition: theme.transitions.create(['width'], {
-				duration: 200,
-			}),
-		},
-		'& .MuiSwitch-track': {
-			borderRadius: 16,
-			opacity: 1,
-			backgroundColor:
-				theme.palette.mode === 'dark' ? '#FF766C' : 'rgba(0,0,0,.25)',
-			boxSizing: 'border-box',
-		},
+		// '& .MuiSwitch-thumb': {
+		// 	boxShadow: '0 2px 4px 0 rgb(0 35 11 / 20%)',
+		// 	width: 25,
+		// 	height: 25,
+		// 	borderRadius: 12,
+		// 	transition: theme.transitions.create(['width'], {
+		// 		duration: 200,
+		// 	}),
+		// },
+		// '& .MuiSwitch-track': {
+		// 	borderRadius: 16,
+		// 	opacity: 1,
+		// 	backgroundColor:
+		// 		theme.palette.mode === 'dark' ? '#FF766C' : 'rgba(0,0,0,.25)',
+		// 	boxSizing: 'border-box',
+		// },
 	}));
 
+	const handleChange = (e) => {
+		setCardType(e.target.checked);
+		console.log('Sad', e.target.checked);
+	};
 	return (
 		<div className={style.cardTableContainer}>
 			<div className={style.cardTableContainerHeader}>
@@ -129,7 +135,7 @@ const Card = () => {
 
 							<AntSwitch
 								checked={cardType}
-								onChange={() => setCardType(!cardType)}
+								onChange={handleChange}
 								defaultChecked
 								inputProps={{ 'aria-label': 'ant design' }}
 							/>

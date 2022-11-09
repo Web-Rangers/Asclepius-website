@@ -4,7 +4,6 @@ import Button from '../ui/Button';
 import Image from 'next/image';
 
 const CardPrice = (props) => {
-	console.log('props', props);
 	return (
 		<div className={s.firstPart}>
 			<div className={s.cardPriceContainer}>
