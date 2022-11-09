@@ -12,11 +12,12 @@ import axios from 'axios';
 import ResponsiveSlider from '../components/contents/responsiveCarousel';
 import { useWindowSize } from '../components/useWindowSize';
 import { getData } from '../components/request';
-import { CommentsDisabledOutlined } from '@mui/icons-material';
+import { Carousel } from 'react-responsive-carousel';
 
 function Home({ clinics, doctors, frelancers }) {
 	const [clinicData, setClinicData] = useState([]);
 	const [doctorsData, setDoctorsData] = useState([]);
+	const [imgData, setImgData] = useState([]);
 
 	console.log('sf', frelancers);
 
@@ -38,7 +39,28 @@ function Home({ clinics, doctors, frelancers }) {
 		'firstPartImg2.png',
 		'firstPartImg3.png',
 		'firstPartImg3.png',
+		'firstPartImg3.png',
+		'firstPartImg3.png',
+		'firstPartImg1.png',
+		'firstPartImg2.png',
 	];
+
+	function sliceIntoChunks(arr, chunkSize) {
+		const res = [];
+		for (let i = 0; i < arr.length; i += chunkSize) {
+			const chunk = arr.slice(i, i + chunkSize);
+			res.push(chunk);
+		}
+		return res;
+	}
+
+	useEffect(() => {
+		if (windowSize.width > 600) {
+			setImgData(sliceIntoChunks(firstPartImgArray, 4));
+		} else {
+			setImgData(sliceIntoChunks(firstPartImgArray, 1));
+		}
+	}, [firstPartImgArray, windowSize.width]);
 
 	useEffect(() => {
 		if (windowSize.width > 600) {
@@ -97,6 +119,33 @@ function Home({ clinics, doctors, frelancers }) {
 			</div>
 			<div>
 				<div className={classes.firstPart}>
+					<Carousel
+						className={classes.carousel}
+						showStatus={false}
+						showIndicators={false}
+						showArrows={true}
+					>
+						{imgData?.map((chunk) => {
+							return (
+								<>
+									<div className={classes.firstPartImg}>
+										{chunk.map((item, index) => {
+											return (
+												<img
+													className={classes.slide}
+													key={index}
+													src={item}
+													alt='firstPartimg'
+												/>
+											);
+										})}
+									</div>
+								</>
+							);
+						})}
+					</Carousel>
+				</div>
+				<div className={classes.firstPartImgForMobile}>
 					<div className={classes.firstPartImg}>
 						{firstPartImgArray.map((image, index) => (
 							<img

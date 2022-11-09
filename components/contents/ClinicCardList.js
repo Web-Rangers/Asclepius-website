@@ -20,7 +20,7 @@ const ClinicCardList = ({ clinicsData }) => {
 	}, [data]);
 
 	useEffect(() => {
-		setData(clinicsData.filter((e, i) => i < 4));
+		setData(clinicsData?.filter((e, i) => i < 4));
 	}, [clinicsData]);
 
 	return (
@@ -39,7 +39,7 @@ const ClinicCardList = ({ clinicsData }) => {
 					className={classes.clinicCardList}
 					id='slider'
 				>
-					{data.map((item) => {
+					{data?.map((item) => {
 						return (
 							<ClinicCardItem
 								key={item?.id}
