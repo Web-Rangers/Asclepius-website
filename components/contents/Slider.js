@@ -141,8 +141,9 @@ const Slider = ({ type = 'desktop' }) => {
 							<Image
 								src='/sliderdot.svg'
 								alt='sliderdot'
-								height=' 15px'
-								width='15px'
+								height=' 16px'
+								width='16px'
+								className={classes.dot}
 							/>
 						)}
 					</div>
