@@ -12,7 +12,6 @@
 	align-items: center;
 	padding: 0px;
 	gap: 34px;
-	width: 100%;
 }
 .catalogTextStyle {
 	font-family: 'Avenir Next Georgian';
@@ -21,6 +20,7 @@
 	font-size: 16px;
 	line-height: 23px;
 	color: #01261c;
+	cursor: pointer;
 }
 .showSliderForMobile {
 	display: none;
@@ -75,7 +75,7 @@
 	height: 97px;
 }
 .doctorItem {
-	width: 24%;
+	/* width: 24%; */
 	margin-bottom: 15px;
 }
 .docImage {
@@ -186,6 +186,7 @@
 	position: relative;
 	overflow: hidden;
 	width: 313px;
+	height: 383px;
 }
 .doctorNameText {
 	font-family: 'Noto Sans';
@@ -242,7 +243,7 @@
 	width: 100%;
 	overflow: unset;
 	flex-wrap: wrap;
-	gap: 1.3%;
+	gap: 29px;
 }
 
 /*carousel*/
@@ -256,12 +257,13 @@
 	position: absolute !important;
 	top: 0 !important;
 	right: 0 !important;
-	margin-right: 10px;
+	/* margin-right: 10px; */
 	margin-top: -45px !important;
 	background: transparent !important;
 	opacity: 1 !important;
-	height: 24px !important;
-	width: 24px !important;
+	/* height: 24px !important;
+	width: 24px !important; */
+	border: none;
 }
 
 .carousel button:nth-child(3):before {
@@ -277,12 +279,12 @@
 	top: 0 !important;
 	right: 0 !important;
 	left: unset !important;
-	margin-right: 38px;
-	margin-top: -45px !important;
+	margin-right: 33px;
+	margin-top: -44.5px !important;
 	background: transparent !important;
 	opacity: 1 !important;
-	height: 24px !important;
-	width: 24px !important;
+	/* height: 24px !important;
+	width: 24px !important; */
 	border: none !important;
 }
 

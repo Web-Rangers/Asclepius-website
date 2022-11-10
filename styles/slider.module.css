@@ -58,7 +58,7 @@
 	padding-left: 40px;
 }
 .medicalCardTitle {
-	font-family: 'Noto Sans';
+	font-family: 'Avenir Next Bold';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 48px;
@@ -83,6 +83,9 @@
 	margin-top: 38px;
 }
 .orderBtn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 177px;
 	height: 48px;
 	background: #ffbbb6;

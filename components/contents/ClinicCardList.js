@@ -23,6 +23,7 @@ const ClinicCardList = ({ clinicsData }) => {
 		setData(clinicsData?.filter((e, i) => i < 4));
 	}, [clinicsData]);
 
+	console.log('clinics data', clinicsData);
 	return (
 		<div className={classes.clinicCardContainer}>
 			<div className={classes.firstPart}>
@@ -60,7 +61,7 @@ const ClinicCardList = ({ clinicsData }) => {
 						showMoreFunc();
 					}}
 				>
-					{!state ? 'show more' : 'show less'}
+					{!state ? 'მეტი' : 'ნაკლები'}
 				</div>
 			</div>
 		</div>

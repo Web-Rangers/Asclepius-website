@@ -153,12 +153,22 @@ const Header = () => {
 			<div className={classes.smallheaderContainer}>
 				<div className={classes.content}>
 					<div className={classes.smallheaderLeft}>
-						<span className={classes.smallheaderLeftText}>E-commerce</span>
-						<span className={classes.smallheaderLeftTextMedical}>
-							Medical Card
-						</span>
-						<span className={classes.smallheaderLeftText}>Discount</span>
-						<span className={classes.smallheaderLeftText}>Lotto</span>
+						<Link href='/'>
+							<a className={classes.smallheaderLeftText}>E-commerce</a>
+						</Link>
+
+						<Link href='/'>
+							<a className={classes.smallheaderLeftTextMedical}>
+								{' '}
+								Medical Card
+							</a>
+						</Link>
+						<Link href='/'>
+							<a className={classes.smallheaderLeftText}>Discount</a>
+						</Link>
+						<Link href='/'>
+							<a className={classes.smallheaderLeftText}>Lotto</a>
+						</Link>
 					</div>
 					<div className={classes.smallheaderRight}>
 						<img
@@ -176,7 +186,8 @@ const Header = () => {
 						<img
 							src='/MedicalLogo.png'
 							alt='headerIcon'
-							height='50px'
+							width='164px'
+							height='45px'
 							// className={classes.mobileIcon}
 						/>
 					</a>
@@ -197,22 +208,15 @@ const Header = () => {
 				</div>
 
 				<div className={classes.rightSideContainerStyle}>
-					<Button
-						name='დაგვიკავშირდი'
-						style={classes.contactBtnStyle}
-						onClick={() => router.push('/contactUs')}
-					/>
-					<Button
-						name='შესვლა'
-						style={classes.signInBtnStyle}
-						onClick={() => router.push('/signInPage')}
-					/>
-
-					<Button
-						name='ბარათის შეძენა'
-						style={classes.buyCardBtnStyle}
-						onClick={() => router.push('/buyCardPage')}
-					/>
+					<Link href='/contactUs'>
+						<a className={classes.contactBtnStyle}>დაგვიკავშირდი</a>
+					</Link>
+					<Link href='/signInPage'>
+						<a className={classes.signInBtnStyle}>შესვლა</a>
+					</Link>
+					<Link href='/buyCardPage'>
+						<a className={classes.buyCardBtnStyle}>ბარათის შეძენა</a>
+					</Link>
 				</div>
 
 				{/* <ul className={classes.navbar}>

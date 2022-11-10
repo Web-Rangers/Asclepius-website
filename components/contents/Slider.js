@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
 import classes from '../../styles/slider.module.css';
 import Text from '../ui/Text';
-import Button from '../ui/Button';
+import Link from 'next/link';
 
 const Slider = ({ type = 'desktop' }) => {
 	const sliderImage = [
@@ -74,22 +74,26 @@ const Slider = ({ type = 'desktop' }) => {
 												</Text>
 											</div>
 											<div className={classes.medicalCardsButtons}>
-												<Button
-													name='ბარათის შეძენა'
-													style={classes.orderBtn}
-												/>
+												<Link href='/buyCardPage'>
+													<a className={classes.orderBtn}>ბარათის შეძენა</a>
+												</Link>
 
 												{/* <Button name="Download" style={classes.downloadOrderBtn} /> */}
 											</div>
 											<Text style={classes.medicalCardText}>
 												For more information
-												<a className={classes.linkCard}> Learn more</a>
-												<img
-													src='/Vector.svg'
-													alt=''
-													height='11px'
-													width='6px'
-												/>
+												<Link href='/buyCardPage'>
+													<a className={classes.linkCard}>
+														{' '}
+														Learn more{' '}
+														<img
+															src='/Vector.svg'
+															alt=''
+															height='11px'
+															width='6px'
+														/>
+													</a>
+												</Link>
 											</Text>
 										</div>
 										<div className={classes.sliderImage}>

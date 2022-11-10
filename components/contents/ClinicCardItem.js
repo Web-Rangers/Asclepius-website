@@ -24,7 +24,11 @@ const ClinicCardItem = (props) => {
       </div> */}
 					<div className={classes.imgPart}>
 						<img
-							src={props.src}
+							src={
+								props.src === 'https://s3.pirveli.ge/v1/api/getFile?id=null'
+									? '/Profile.svg'
+									: props.src
+							}
 							alt={'clinic'}
 							width='313px'
 							height='194px'
