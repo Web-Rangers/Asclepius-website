@@ -4,14 +4,15 @@ import { useEffect, useRef, useState } from 'react';
 const language = [
 	{
 		id: '1',
-		language: 'eng.svg',
-		name: 'eng',
-	},
-	{
-		id: '2',
 		language: 'geo.svg',
 		name: 'geo',
 	},
+	{
+		id: '2',
+		language: 'eng.svg',
+		name: 'eng',
+	},
+
 	{
 		id: '3',
 		language: 'rus.svg',

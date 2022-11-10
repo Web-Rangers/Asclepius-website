@@ -96,7 +96,7 @@ const DoctorCardList = ({ doctorsData }) => {
 						showMoreFunc();
 					}}
 				>
-					{!state ? 'show more' : 'show less'}
+					{!state ? 'მეტი' : 'ნაკლები'}
 				</div>
 			</div>
 		</div>

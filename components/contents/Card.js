@@ -137,8 +137,8 @@ const Card = () => {
 								</Typography>
 
 								<AntSwitch
-									// checked={cardType}
-									// onChange={handleChange}
+									checked={cardType}
+									onChange={handleChange}
 									defaultChecked
 									inputProps={{ 'aria-label': 'ant design' }}
 								/>

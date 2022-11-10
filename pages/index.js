@@ -58,7 +58,7 @@ function Home({ clinics, doctors, frelancers }) {
 		} else {
 			setImgData(sliceIntoChunks(firstPartImgArray, 1));
 		}
-	}, [firstPartImgArray, windowSize.width]);
+	}, [windowSize.width]);
 
 	useEffect(() => {
 		if (windowSize.width > 600) {
@@ -121,8 +121,23 @@ function Home({ clinics, doctors, frelancers }) {
 						className={classes.carousel}
 						showStatus={false}
 						showIndicators={false}
-						showArrows={true}
-						showThumbs={false}
+						showArrows={false}
+						renderArrowPrev={(clickHandler) => (
+							<button onClick={clickHandler}>
+								<img
+									style={{ height: '15px', width: '12.05px' }}
+									src={`Arrow - Left.svg`}
+								/>
+							</button>
+						)}
+						renderArrowNext={(clickHandler) => (
+							<button onClick={clickHandler}>
+								<img
+									style={{ height: '15px', width: '12.05px' }}
+									src={`Arrow - Right.svg`}
+								/>
+							</button>
+						)}
 					>
 						{imgData?.map((chunk) => {
 							return (
