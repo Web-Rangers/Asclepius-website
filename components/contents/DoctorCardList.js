@@ -34,6 +34,7 @@ const doctorData = [
 		rating: '4.9',
 	},
 ];
+
 const DoctorCardList = ({ doctorsData }) => {
 	const [data, setData] = useState([]);
 	const [state, setState] = useState(false);

@@ -32,7 +32,6 @@ const ClinicCardItem = (props) => {
 							alt={'clinic'}
 							width='313px'
 							height='194px'
-							background-size='contains'
 						/>
 					</div>
 					<h2 className={classes.clinicNameText}>{props.clinicName}</h2>
