@@ -7,9 +7,61 @@ import Typography from '@mui/material/Typography';
 import style from '../../styles/components/card.module.css';
 import Button from '../ui/Button';
 import { Tooltip } from '@nextui-org/react';
+import FormControlLabel from '@mui/material/FormControlLabel';
+
 import Image from 'next/image';
+
 const Card = () => {
+	const AntSwitch = styled(Switch)(({ theme }) => ({
+		width: 60,
+		height: 32,
+		padding: 0,
+		display: 'flex',
+		'&:active': {
+			'& .MuiSwitch-thumb': {
+				width: 15,
+			},
+			'& .MuiSwitch-switchBase.Mui-checked': {
+				transform: 'translateX(9px)',
+			},
+		},
+		'& .MuiSwitch-switchBase': {
+			padding: 3,
+			'&.Mui-checked': {
+				transform: 'translateX(30px)',
+				color: '#fff',
+				'& + .MuiSwitch-track': {
+					opacity: 1,
+					backgroundColor:
+						theme.palette.mode === 'dark' ? '#FF766C' : '#FF766C',
+				},
+			},
+		},
+		'& .MuiSwitch-thumb': {
+			boxShadow: '0 2px 4px 0 rgb(0 35 11 / 20%)',
+			width: 25,
+			height: 25,
+			borderRadius: 12,
+			transition: theme.transitions.create(['width'], {
+				duration: 25,
+			}),
+		},
+		'& .MuiSwitch-track': {
+			borderRadius: 16,
+			opacity: 1,
+			backgroundColor:
+				theme.palette.mode === '#FF766C' ? '#FF766C' : 'rgba(0,0,0,.25)',
+			boxSizing: 'border-box',
+		},
+	}));
+
+	const handleChange = (e) => {
+		setCardType(e.target.checked);
+		console.log('Sad', e.target.checked);
+	};
+
 	const [cardType, setCardType] = useState(false);
+
 	const featuresData = [
 		{
 			id: '1',
@@ -68,74 +120,33 @@ const Card = () => {
 			plus: 'Three times a month',
 		},
 	];
-
-	const AntSwitch = styled(Switch)(({ theme }) => ({
-		width: 60,
-		height: 32,
-		padding: 0,
-		display: 'flex',
-		'&:active': {
-			'& .MuiSwitch-thumb': {
-				width: 15,
-			},
-			'& .MuiSwitch-switchBase.Mui-checked': {
-				transform: 'translateX(9px)',
-			},
-		},
-		'& .MuiSwitch-switchBase': {
-			padding: 3,
-			'&.Mui-checked': {
-				transform: 'translateX(30px)',
-				color: '#fff',
-				'& + .MuiSwitch-track': {
-					opacity: 1,
-					backgroundColor:
-						theme.palette.mode === 'dark' ? '#FF766C' : '#FF766C',
-				},
-			},
-		},
-		'& .MuiSwitch-thumb': {
-			boxShadow: '0 2px 4px 0 rgb(0 35 11 / 20%)',
-			width: 25,
-			height: 25,
-			borderRadius: 12,
-			transition: theme.transitions.create(['width'], {
-				duration: 200,
-			}),
-		},
-		'& .MuiSwitch-track': {
-			borderRadius: 16,
-			opacity: 1,
-			backgroundColor:
-				theme.palette.mode === 'dark' ? '#FF766C' : 'rgba(0,0,0,.25)',
-			boxSizing: 'border-box',
-		},
-	}));
-
 	return (
 		<div className={style.cardTableContainer}>
 			<div className={style.cardTableContainerHeader}>
 				<span className={style.headerTitle}>ბარათის ფასი</span>
 				<div className={style.switcher}>
-					<FormGroup>
-						<Stack
-							direction='row'
-							spacing={1}
-							alignItems='center'
-						>
-							<Typography className={style.switcherLabel}>
-								ინდივიდუალური
-							</Typography>
+					<div>
+						<FormGroup>
+							<Stack
+								direction='row'
+								spacing={1}
+								alignItems='center'
+							>
+								<Typography className={style.switcherLabel}>
+									ინდივიდუალური
+								</Typography>
 
-							<AntSwitch
-								checked={cardType}
-								onChange={() => setCardType(!cardType)}
-								defaultChecked
-								inputProps={{ 'aria-label': 'ant design' }}
-							/>
-							<Typography className={style.switcherLabel}>საოჯახო</Typography>
-						</Stack>
-					</FormGroup>
+								<AntSwitch
+									// checked={cardType}
+									// onChange={handleChange}
+									defaultChecked
+									inputProps={{ 'aria-label': 'ant design' }}
+								/>
+								<Typography className={style.switcherLabel}>საოჯახო</Typography>
+							</Stack>
+						</FormGroup>
+					</div>
+
 					<Tooltip
 						css={{
 							display: 'block',

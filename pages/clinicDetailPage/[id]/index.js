@@ -31,6 +31,7 @@ const ClinicDetailPage = ({ cardData, address, branches }) => {
 		// setCardData(router.query)
 	}, [router.isReady]);
 
+	console.log('sdf', cardData);
 	return (
 		<div className={s.container}>
 			<div>

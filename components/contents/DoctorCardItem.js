@@ -22,10 +22,15 @@ const DoctorCardItem = ({ id, ...props }) => {
 						</div> */}
 					<img
 						className={classes.docImage}
-						src={props.src}
+						src={
+							props.src === 'https://s3.pirveli.ge/v1/api/getFile?id=null'
+								? '/Profile.svg'
+								: props.src
+						}
 						alt={'doctor'}
 					/>
 				</div>
+
 				<Text style={classes.doctorNameText}>{props.doctorName}</Text>
 				<Text style={classes.doctorSpecialityText}>{props.speciality}</Text>
 

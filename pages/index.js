@@ -19,8 +19,6 @@ function Home({ clinics, doctors, frelancers }) {
 	const [doctorsData, setDoctorsData] = useState([]);
 	const [imgData, setImgData] = useState([]);
 
-	console.log('sf', frelancers);
-
 	const allData = frelancers?.concat(doctors);
 
 	const catalogData = [
@@ -124,6 +122,7 @@ function Home({ clinics, doctors, frelancers }) {
 						showStatus={false}
 						showIndicators={false}
 						showArrows={true}
+						showThumbs={false}
 					>
 						{imgData?.map((chunk) => {
 							return (
