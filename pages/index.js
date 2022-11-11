@@ -19,7 +19,9 @@ function Home({ clinics, doctors, frelancers }) {
 	const [doctorsData, setDoctorsData] = useState([]);
 	const [imgData, setImgData] = useState([]);
 
-	const allData = frelancers?.concat(doctors);
+	const allData = frelancers?.content?.concat(doctors?.content);
+
+	console.log('free'.frelancers);
 
 	const catalogData = [
 		{ name: 'ყველა კატეგორია' },
@@ -196,9 +198,9 @@ export const getServerSideProps = async () => {
 
 	return {
 		props: {
-			clinics: getClinics?.length == 0 ? null : getClinics,
-			doctors: getDoctors?.content,
-			frelancers: getFreelancerDoc?.content,
+			clinics: getClinics?.length === 0 ? null : getClinics,
+			doctors: getDoctors.length === 0 ? null : getDoctors,
+			frelancers: getFreelancerDoc.length === 0 ? null : getFreelancerDoc,
 		},
 	};
 };

@@ -55,6 +55,112 @@
 	margin-bottom: 94px;
 }
 /* table  */
+
+.table {
+	display: flex;
+	flex-direction: row;
+	width: 1159px;
+	border-bottom: 1px solid #d8dadc;
+	padding-bottom: 19px;
+	margin: auto;
+}
+.tableHeader {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.tableColumnTitle {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	margin-left: 125px;
+	gap: 203px;
+}
+.columnTitleContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.clinicTitleStyles {
+	font-family: 'Avenir Next Bold';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 28px;
+	color: #1e2837;
+}
+.tablePriceTitleStyles {
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 27px;
+	color: #5e70da;
+	padding-bottom: 14px;
+}
+.tableDataTitleStyles {
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 27px;
+	color: #797a80;
+}
+.tableContentContainer {
+	display: flex;
+	flex-direction: row;
+	width: 1159px;
+	border-bottom: 1px solid #d8dadc;
+	padding-bottom: 21px;
+	padding-top: 21px;
+	margin: auto;
+}
+.customOptContainer {
+	display: flex;
+	flex-direction: row;
+	gap: 12.17px;
+}
+.titleArrowTransform {
+	transform: rotate(180deg);
+}
+
+.serviceCustomOptList {
+	display: none;
+}
+.serviceCustomoptions {
+	display: block;
+	position: absolute;
+	background-color: #f7f9fb;
+	margin-top: 2px;
+	width: 204px;
+}
+.serviceCustomoptions div {
+	padding: 10px;
+	cursor: pointer;
+	border-bottom: 1px solid#fff;
+}
+.serviceCustomOpt {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	background-color: #f7f9fb;
+	border-radius: 5px;
+	width: 204px;
+	height: 64px;
+	font-weight: 500;
+	font-size: 16px;
+	color: #1e2837;
+	cursor: pointer;
+}
+
+.serviesOptions {
+	display: flex;
+	flex-direction: column;
+	background-color: blueviolet;
+}
+
+/* ahvd */
 .chooseCardContainer {
 	display: block;
 	margin: auto;
