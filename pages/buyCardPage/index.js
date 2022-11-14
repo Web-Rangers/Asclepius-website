@@ -283,9 +283,11 @@ function BuyCardPage({ cards, clinics }) {
 					</div>
 				</div>
 				{clinics.map((item) => (
-					<div className={s.tableContentContainer}>
+					<div
+						className={s.tableContentContainer}
+						key={item.id}
+					>
 						<DropDown
-							key={item.id}
 							item={item}
 							services={services}
 						/>
