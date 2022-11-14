@@ -61,6 +61,28 @@
 	padding-right: 16px;
 	padding-left: 5px;
 }
+.logoContainer {
+	display: flex;
+	flex-direction: row;
+}
+.logoTextOne {
+	font-family: 'Avenir Next Bold';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 26px;
+	line-height: 26px;
+	color: #383838;
+	margin-left: 8px;
+}
+.logoTextTwo {
+	font-family: 'Sofia Pro';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 16px;
+	color: #ffbbb6;
+	margin-top: 4px;
+}
 .headerContainer {
 	display: flex;
 	flex-direction: row;

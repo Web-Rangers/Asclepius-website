@@ -8,8 +8,8 @@ const Button = (props) => {
 			type={props.type}
 			onClick={props.onClick}
 		>
-			{props.icon ? props.icon : null}
 			{props.name}
+			{props.icon ? props.icon : null}
 		</button>
 	);
 };

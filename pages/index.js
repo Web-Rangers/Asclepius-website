@@ -187,26 +187,26 @@ function Home({ clinics, doctors, frelancers }) {
 	);
 }
 
-export const getServerSideProps = async () => {
-	let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
+// export const getServerSideProps = async () => {
+// 	let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-	const getClinics = await getData(
-		`${API_URL}/asclepius/v1/api/clinics/search?name=`
-	);
-	const getDoctors = await getData(
-		`${API_URL}/asclepius/v1/api/clinics/doctors/?page=0&size=10`
-	);
-	const getFreelancerDoc = await getData(
-		`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
-	);
+// 	const getClinics = await getData(
+// 		`${API_URL}/asclepius/v1/api/clinics/search?name=`
+// 	);
+// 	const getDoctors = await getData(
+// 		`${API_URL}/asclepius/v1/api/clinics/doctors/?page=0&size=10`
+// 	);
+// 	const getFreelancerDoc = await getData(
+// 		`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
+// 	);
 
-	return {
-		props: {
-			clinics: getClinics?.length === 0 ? null : getClinics,
-			doctors: getDoctors.length === 0 ? null : getDoctors,
-			frelancers: getFreelancerDoc.length === 0 ? null : getFreelancerDoc,
-		},
-	};
-};
+// 	return {
+// 		props: {
+// 			clinics: getClinics?.length === 0 ? null : getClinics,
+// 			doctors: getDoctors.length === 0 ? null : getDoctors,
+// 			frelancers: getFreelancerDoc.length === 0 ? null : getFreelancerDoc,
+// 		},
+// 	};
+// };
 
 export default Home;
