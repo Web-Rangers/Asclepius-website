@@ -199,12 +199,13 @@ export default function Table({
 									</button>
 									{columns?.map((item, i) => {
 										return (
-
-											<div className={styles.dropdownCol}>
+											<div
+												className={styles.dropdownCol}
+												key={i}
+											>
 												<h2>{item.title}</h2>
 												<span>{record[item.key]}</span>
 											</div>
-
 										);
 									})}
 								</div>
@@ -307,19 +308,24 @@ export function Columns({ key, title, headerStyle, dataIndex, sort }) {
 						key={key}
 					>
 						{title}
-						{sort && <>
-							<button
-								className={styles.sortIcons}
-								onClick={() => {
-						       	     setSorted(!sorted);
-						               // setSort((prevState) => ({ ...prevState, [dataIndex]: !sorted }));*/}
-						               // sortData(dataIndex)*/}
-						           }
-						           }
-					        >
-					            <ReactSVG src="/sortArrow.svg" className={sorted? styles.sort : styles.sorted} alt="" />
-							</button>
-						</> }
+						{sort && (
+							<>
+								<button
+									className={styles.sortIcons}
+									onClick={() => {
+										setSorted(!sorted);
+										// setSort((prevState) => ({ ...prevState, [dataIndex]: !sorted }));*/}
+										// sortData(dataIndex)*/}
+									}}
+								>
+									<ReactSVG
+										src='/sortArrow.svg'
+										className={sorted ? styles.sort : styles.sorted}
+										alt=''
+									/>
+								</button>
+							</>
+						)}
 					</div>
 				</>
 			)}
