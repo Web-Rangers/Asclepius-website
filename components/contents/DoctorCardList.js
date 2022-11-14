@@ -4,48 +4,18 @@ import classes from '../../styles/homePage.module.css';
 import Text from '../ui/Text';
 import Image from 'next/image';
 import { Carousel } from 'react-responsive-carousel';
-const doctorData = [
-	{
-		src: 'maria.png',
-		alt: 'clinic image',
-		name: 'Pamela Martinez',
-		speciality: 'Therapist, family doctor',
-		rating: '4.9',
-	},
-	{
-		src: 'pamela.png',
-		alt: 'clinic image',
-		name: 'Sanne Husman',
-		speciality: 'Neurologist',
-		rating: '4.9',
-	},
-	{
-		src: 'maria.png',
-		alt: 'clinic image',
-		name: 'isabela Santos',
-		speciality: 'Pediatrician',
-		rating: '4.9',
-	},
-	{
-		src: 'pamela.png',
-		alt: 'clinic image',
-		name: 'Sofia Richards',
-		speciality: 'Dermatovenerologist',
-		rating: '4.9',
-	},
-];
 
 const DoctorCardList = ({ doctorsData }) => {
 	const [data, setData] = useState([]);
 	const [state, setState] = useState(false);
 
 	const showMoreFunc = useCallback(() => {
-		if (!state) setData(doctorsData.filter((e, i) => i < 12));
-		else setData(doctorsData.filter((e, i) => i < 4));
+		if (!state) setData(doctorsData?.filter((e, i) => i < 12));
+		else setData(doctorsData?.filter((e, i) => i < 4));
 	}, [data]);
 
 	useEffect(() => {
-		setData(doctorsData.filter((e, i) => i < 4));
+		setData(doctorsData?.filter((e, i) => i < 4));
 	}, [doctorsData]);
 
 	return (

@@ -199,12 +199,12 @@ export default function Table({
 									</button>
 									{columns?.map((item, i) => {
 										return (
-											<>
-												<div className={styles.dropdownCol}>
-													<h2>{item.title} rame</h2>
-													<span>{record[item.key]}</span>
-												</div>
-											</>
+
+											<div className={styles.dropdownCol}>
+												<h2>{item.title}</h2>
+												<span>{record[item.key]}</span>
+											</div>
+
 										);
 									})}
 								</div>

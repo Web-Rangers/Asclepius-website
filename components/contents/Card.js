@@ -7,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import style from '../../styles/components/card.module.css';
 import Button from '../ui/Button';
 import { Tooltip } from '@nextui-org/react';
-import FormControlLabel from '@mui/material/FormControlLabel';
 
 import Image from 'next/image';
 
@@ -54,11 +53,6 @@ const Card = () => {
 			boxSizing: 'border-box',
 		},
 	}));
-
-	const handleChange = (e) => {
-		setCardType(e.target.checked);
-		console.log('Sad', e.target.checked);
-	};
 
 	const [cardType, setCardType] = useState(false);
 
@@ -138,7 +132,7 @@ const Card = () => {
 
 								<AntSwitch
 									checked={cardType}
-									onChange={handleChange}
+									onChange={(e) => setCardType(e.target.checked)}
 									defaultChecked
 									inputProps={{ 'aria-label': 'ant design' }}
 								/>
@@ -208,7 +202,7 @@ const Card = () => {
 						</div>
 					))}
 					<Button
-						name='Get Started'
+						name='დეტალურად'
 						style={style.getStartedBtn}
 					/>
 				</div>
@@ -249,7 +243,7 @@ const Card = () => {
 						</div>
 					))}
 					<Button
-						name='Get Started'
+						name='დეტალურად'
 						style={style.getStartedBtn}
 					/>
 				</div>
@@ -292,7 +286,7 @@ const Card = () => {
 						</div>
 					))}
 					<Button
-						name='Get Started'
+						name='დეტალურად'
 						style={style.getStartedBtn}
 					/>
 				</div>
@@ -336,7 +330,7 @@ const Card = () => {
 
 					<div className={style.getStartedBtnContainer}>
 						<Button
-							name='Get Started'
+							name='დეტალურად'
 							style={style.getStartedBtn}
 						/>
 					</div>
@@ -363,7 +357,7 @@ const Card = () => {
 					))}
 					<div className={style.getStartedBtnContainerPro}>
 						<Button
-							name='Get Started'
+							name='დეტალურად'
 							style={style.getStartedBtnPro}
 						/>
 					</div>
@@ -390,7 +384,7 @@ const Card = () => {
 					))}
 					<div className={style.getStartedBtnContainer}>
 						<Button
-							name='Get Started'
+							name='დეტალურად'
 							style={style.getStartedBtn}
 						/>
 					</div>

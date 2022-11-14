@@ -182,14 +182,16 @@ const Header = () => {
 			</div>
 			<div className={classes.headerContainer}>
 				<Link href={'/'}>
-					<a>
+					<a className={classes.logoContainer}>
 						<img
-							src='/MedicalLogo.png'
+							src='/footerIcon.png'
 							alt='headerIcon'
-							width='164px'
-							height='45px'
+							width='44px'
+							height='40px'
 							// className={classes.mobileIcon}
 						/>
+						<span className={classes.logoTextOne}>Pirveli</span>
+						<span className={classes.logoTextTwo}>.com </span>
 					</a>
 				</Link>
 

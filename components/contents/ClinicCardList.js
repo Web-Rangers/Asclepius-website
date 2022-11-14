@@ -12,8 +12,8 @@ const ClinicCardList = ({ clinicsData }) => {
 
 	const showMoreFunc = useCallback(() => {
 		if (!state) {
-			setData(clinicsData.filter((e, i) => i < 12));
-		} else setData(clinicsData.filter((e, i) => i < 4));
+			setData(clinicsData?.filter((e, i) => i < 12));
+		} else setData(clinicsData?.filter((e, i) => i < 4));
 		if (data.length === 12) {
 			router.push('/clinicPage');
 		}

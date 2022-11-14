@@ -10,6 +10,7 @@ const Footer = () => {
 						<img
 							src='/footerIcon.png'
 							alt='headerIcon'
+							className={classes.iconsStyle}
 						/>
 						<Text style={classes.leftSideContainerText}>
 							Lorem Ipsum is not
@@ -19,7 +20,7 @@ const Footer = () => {
 						</Text>
 						<div className={classes.allRightsText}>
 							<Text style={classes.allRightTextStyle}>
-								C 2022 All right reservered
+								ⓒ 2022 All right reservered
 							</Text>
 						</div>
 					</div>

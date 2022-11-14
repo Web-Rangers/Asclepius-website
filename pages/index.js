@@ -19,7 +19,9 @@ function Home({ clinics, doctors, frelancers }) {
 	const [doctorsData, setDoctorsData] = useState([]);
 	const [imgData, setImgData] = useState([]);
 
-	const allData = frelancers?.concat(doctors);
+	const allData = frelancers?.content?.concat(doctors?.content);
+
+	console.log('free'.frelancers);
 
 	const catalogData = [
 		{ name: 'ყველა კატეგორია' },
@@ -118,14 +120,22 @@ function Home({ clinics, doctors, frelancers }) {
 			<div>
 				<div className={classes.firstPart}>
 					<Carousel
+						swipeable={true}
+						emulateTouch={true}
 						className={classes.carousel}
 						showStatus={false}
 						showIndicators={false}
 						showArrows={false}
+						centerMode={true}
+						centerSlidePercentage={25.5}
 						renderArrowPrev={(clickHandler) => (
 							<button onClick={clickHandler}>
 								<img
-									style={{ height: '15px', width: '12.05px' }}
+									style={{
+										height: '15px',
+										width: '12.05px',
+										cursor: 'pointer',
+									}}
 									src={`Arrow - Left.svg`}
 								/>
 							</button>
@@ -133,28 +143,24 @@ function Home({ clinics, doctors, frelancers }) {
 						renderArrowNext={(clickHandler) => (
 							<button onClick={clickHandler}>
 								<img
-									style={{ height: '15px', width: '12.05px' }}
+									style={{
+										height: '15px',
+										width: '12.05px',
+										cursor: 'pointer',
+									}}
 									src={`Arrow - Right.svg`}
 								/>
 							</button>
 						)}
 					>
-						{imgData?.map((chunk) => {
+						{firstPartImgArray.map((e, index) => {
 							return (
-								<>
-									<div className={classes.firstPartImg}>
-										{chunk.map((item, index) => {
-											return (
-												<img
-													className={classes.slide}
-													key={index}
-													src={item}
-													alt='firstPartimg'
-												/>
-											);
-										})}
-									</div>
-								</>
+								<img
+									src={e}
+									className={classes.slide}
+									key={index}
+									alt='firstPartimg'
+								/>
 							);
 						})}
 					</Carousel>
@@ -196,9 +202,9 @@ export const getServerSideProps = async () => {
 
 	return {
 		props: {
-			clinics: getClinics?.length == 0 ? null : getClinics,
-			doctors: getDoctors?.content,
-			frelancers: getFreelancerDoc?.content,
+			clinics: getClinics?.length === 0 ? null : getClinics,
+			doctors: getDoctors.length === 0 ? null : getDoctors,
+			frelancers: getFreelancerDoc.length === 0 ? null : getFreelancerDoc,
 		},
 	};
 };

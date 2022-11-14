@@ -1,18 +1,19 @@
 .block {
-    margin: 5px 0 27px;
+	/* margin: 5px 0 27px; */
 }
 
 .blockHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom:20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+	margin-top: 50px;
 }
 
 .blockHeader h2 {
-    margin:0;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    color: #1E2837;
+	margin: 0;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	color: #1e2837;
 }

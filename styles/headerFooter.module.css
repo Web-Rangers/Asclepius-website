@@ -61,6 +61,28 @@
 	padding-right: 16px;
 	padding-left: 5px;
 }
+.logoContainer {
+	display: flex;
+	flex-direction: row;
+}
+.logoTextOne {
+	font-family: 'Avenir Next Bold';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 26px;
+	line-height: 26px;
+	color: #383838;
+	margin-left: 8px;
+}
+.logoTextTwo {
+	font-family: 'Sofia Pro';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 16px;
+	color: #ffbbb6;
+	margin-top: 4px;
+}
 .headerContainer {
 	display: flex;
 	flex-direction: row;
@@ -123,6 +145,7 @@
 .headerIcon img {
 	width: 47px;
 	height: 40px;
+	margin-bottom: 14px;
 }
 .leftSideContainer {
 	display: flex;
@@ -153,7 +176,7 @@
 .companyConatiner {
 	display: flex;
 	flex-direction: column;
-	gap: 15px;
+	gap: 20px;
 	margin-right: 100px;
 }
 .companyConatiner img {
@@ -166,6 +189,7 @@
 	font-size: 14px;
 	line-height: 16px;
 	color: #1e2837;
+	cursor: pointer;
 }
 .textStyle {
 	font-family: 'Noto Sans';
@@ -174,6 +198,10 @@
 	font-size: 14px;
 	line-height: 16px;
 	color: #797a80;
+	cursor: pointer;
+}
+.iconsStyle {
+	cursor: pointer;
 }
 .allRightTextStyle {
 	font-family: 'Noto Sans';
@@ -301,14 +329,14 @@
 	justify-content: center;
 	width: 196px;
 	height: 48px;
-	background: #ffbbb6;
+	background: #ff1c00;
 	border-radius: 5px;
 	font-family: 'Avenir Next Bold';
 	font-style: normal;
 	font-weight: 900;
 	font-size: 16px;
 	line-height: 23px;
-	color: #1e2837;
+	color: #ffffff;
 	border: none;
 	margin-right: 37.5px;
 }
@@ -318,7 +346,7 @@
 	justify-content: center;
 	width: 174px;
 	height: 48px;
-	background: #ff766c;
+	background: #fdc7c4;
 	border-radius: 5px;
 	font-family: 'Avenir Next Bold';
 	font-style: normal;
