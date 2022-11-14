@@ -5,13 +5,17 @@ import s from '../../styles/buyCard.module.css';
 import CardPrice from '../../components/contents/CardPrice';
 import buyCardData from '../../fakeData';
 import Button from '../../components/ui/Button';
-import { Tooltip } from '@nextui-org/react';
 import Modal from 'react-modal';
 import CardCheckoutModal from '../../components/modals/CardCheckoutModal';
 import classNames from 'classnames';
 import { ReactSVG } from 'react-svg';
 import { getData } from '../../components/request';
-import { display } from '@mui/system';
+import FormGroup from '@mui/material/FormGroup';
+import Switch from '@mui/material/Switch';
+import { styled } from '@mui/material/styles';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+import style from '../../styles/components/card.module.css';
 
 function BuyCardPage({ cards, clinics }) {
 	const [modalIsOpen, setIsOpen] = useState(false);
@@ -66,11 +70,13 @@ function BuyCardPage({ cards, clinics }) {
 	}
 
 	const [selectPack, setSelectPack] = useState('');
+	const [cardType, setCardType] = useState(false);
 	const [card, setCard] = useState({
 		id: '',
 		amount: '',
 	});
 	const [open, setOpen] = useState(false);
+	const [show, setShow] = useState(false);
 	const packs = ['1 months', '3 months', '6 months'];
 	const lastThreeItem = cards.slice(-3);
 
@@ -127,13 +133,61 @@ function BuyCardPage({ cards, clinics }) {
 		{
 			id: '1',
 			name: 'service 1',
+			percent1: '20%',
+			percent3: '20%',
+			percent6: '20%',
 		},
 		{
 			id: '2',
 			name: 'service 2',
+			percent1: '20%',
+			percent3: '20%',
+			percent6: '20%',
 		},
 	];
 
+	const AntSwitch = styled(Switch)(({ theme }) => ({
+		width: 60,
+		height: 32,
+		padding: 0,
+		display: 'flex',
+		'&:active': {
+			'& .MuiSwitch-thumb': {
+				width: 15,
+			},
+			'& .MuiSwitch-switchBase.Mui-checked': {
+				transform: 'translateX(9px)',
+			},
+		},
+		'& .MuiSwitch-switchBase': {
+			padding: 3,
+			'&.Mui-checked': {
+				transform: 'translateX(30px)',
+				color: '#fff',
+				'& + .MuiSwitch-track': {
+					opacity: 1,
+					backgroundColor:
+						theme.palette.mode === 'dark' ? '#FF766C' : '#FF766C',
+				},
+			},
+		},
+		'& .MuiSwitch-thumb': {
+			boxShadow: '0 2px 4px 0 rgb(0 35 11 / 20%)',
+			width: 25,
+			height: 25,
+			borderRadius: 12,
+			transition: theme.transitions.create(['width'], {
+				duration: 25,
+			}),
+		},
+		'& .MuiSwitch-track': {
+			borderRadius: 16,
+			opacity: 1,
+			backgroundColor:
+				theme.palette.mode === '#FF766C' ? '#FF766C' : 'rgba(0,0,0,.25)',
+			boxSizing: 'border-box',
+		},
+	}));
 	return (
 		<div className={s.container}>
 			<div className={s.firstPart}>
@@ -185,6 +239,30 @@ function BuyCardPage({ cards, clinics }) {
 					<Text>Choose exactly what you need</Text>
 				</div>
 
+				<div className={s.switcher}>
+					<div>
+						<FormGroup>
+							<Stack
+								direction='row'
+								spacing={1}
+								alignItems='center'
+							>
+								<Typography className={style.switcherLabel}>
+									ინდივიდუალური
+								</Typography>
+
+								<AntSwitch
+									checked={cardType}
+									onChange={(e) => setCardType(e.target.checked)}
+									defaultChecked
+									inputProps={{ 'aria-label': 'ant design' }}
+								/>
+								<Typography className={style.switcherLabel}>საოჯახო</Typography>
+							</Stack>
+						</FormGroup>
+					</div>
+				</div>
+
 				<div className={s.table}>
 					<div className={s.tableHeader}>
 						<span className={s.clinicTitleStyles}>პარტნიორები</span>
@@ -204,170 +282,14 @@ function BuyCardPage({ cards, clinics }) {
 						</div>
 					</div>
 				</div>
-
-				{/* {buyCardData.map((item) => (
-					<div
-						className={classNames({
-							[s.tableDataTitleStyles]: item.Gold.length === 0,
-							[s.tableDataStyle]: item.Gold.length !== 0,
-							[s.diffTab]: item.key == 'header',
-						})}
-						key={item.id}
-					>
-						<div className={s.tableFeature}>
-							<Text
-								style={
-									item.features.length === 0 || item.features === 'Feature'
-										? s.tableTitleStyle
-										: s.tableTextStyle
-								}
-							>
-								{item.src ? (
-									<>
-										{item.features}
-										<Tooltip
-											css={{
-												display: 'flex',
-												alignItems: 'center',
-												width: '260px',
-												height: '80px',
-												fontSize: '12px',
-											}}
-											rounded
-											color='primary'
-											content={
-												'No matter where you are in your journey as a creative entrepreneur, we have a pricing plan for you.'
-											}
-										>
-											<Image
-												src={item.src}
-												alt='star'
-												width='24px'
-												height='24px'
-												auto
-												flat
-											/>
-										</Tooltip>
-									</>
-								) : (
-									item.features
-								)}
-							</Text>
-						</div>
-						<div className={s.tableSilverNum}>
-							<Text
-								style={
-									item.features.length === 0 || item.features === 'Feature'
-										? s.tableTitleStyle
-										: s.tableTextStyle
-								}
-							>
-								{item.silver === 'icon' ? (
-									<Image
-										src='/activeOval.svg'
-										alt='star'
-										width='20px'
-										height='20px'
-									/>
-								) : item.silver === 'emptyIcon' ? (
-									<Image
-										src='/Oval.svg'
-										alt='star'
-										width='20px'
-										height='20px'
-									/>
-								) : item.key == 'header' ? (
-									<div>
-										<span>{item.price}</span>
-										<br />
-										<span>{item.silver}</span>
-									</div>
-								) : (
-									item.silver
-								)}
-							</Text>
-						</div>
-						<div className={s.tableGoldNum}>
-							<Text
-								style={
-									item.features.length === 0 || item.features === 'Feature'
-										? s.tableTitleStyle
-										: s.tableTextStyle
-								}
-							>
-								{item.Gold === 'icon' ? (
-									<Image
-										src='/activeOval.svg'
-										alt='star'
-										width='20px'
-										height='20px'
-									/>
-								) : item.silver === 'emptyIcon' ? (
-									<Image
-										src='/Oval.svg'
-										alt='star'
-										width='20px'
-										height='20px'
-									/>
-								) : item.key == 'header' ? (
-									<div>
-										<span>{item.priceGold}</span>
-										<br />
-										<span>{item.Gold}</span>
-									</div>
-								) : (
-									item.Gold
-								)}
-							</Text>
-						</div>
-						<div className={s.tablePlatinium}>
-							<Text
-								style={
-									item.features.length === 0 || item.features === 'Feature'
-										? s.tableTitleStyle
-										: s.tableTextStyle
-								}
-							>
-								{item.platinium === 'icon' ? (
-									<Image
-										src='/activeOval.svg'
-										alt='star'
-										width='20px'
-										height='20px'
-									/>
-								) : item.silver === 'emptyIcon' ? (
-									<Image
-										src='/Oval.svg'
-										alt='star'
-										width='20px'
-										height='20px'
-									/>
-								) : item.key == 'header' ? (
-									<div>
-										<span>{item.pricePlatinum}</span>
-										<br />
-										<span>{item.platinium}</span>
-									</div>
-								) : (
-									item.platinium
-								)}
-							</Text>
-						</div>
-					</div>
-				))} */}
 				{clinics.map((item) => (
 					<div className={s.tableContentContainer}>
-						<div className={s.customOptContainer}>
-							<span>{item.displayName}</span>
-							<DropDown
-								services={services}
-								open={open}
-								setOpen={setOpen}
-							/>
-						</div>
+						<DropDown
+							item={item}
+							services={services}
+						/>
 					</div>
 				))}
-
 				<div className={s.buttonContainer}>
 					{/* {
             selectPack === '1 months' && <div className={s.price}>50$</div>
@@ -379,6 +301,7 @@ function BuyCardPage({ cards, clinics }) {
             selectPack === '6 months' && <div className={s.price}>150$</div>
           } */}
 					<div className={s.customDropdown}>
+						<span className={s.tablePriceTitleStyles}>50$</span>
 						<div
 							className={s.customOpt}
 							onClick={() => setOpen(!open)}
@@ -430,42 +353,51 @@ function BuyCardPage({ cards, clinics }) {
 	);
 }
 
-const DropDown = ({ services }) => {
+const DropDown = ({ services, item }) => {
 	const [dropDown, setDropDown] = useState(false);
 	return (
-		<>
-			<ReactSVG
-				className={classNames({
-					[s.titleArrowTransform]: dropDown,
-				})}
-				src='/dropArrow.svg'
-				onClick={() => setDropDown(!dropDown)}
-			/>
-			{dropDown
-				? services.map((item) => (
-						<div
-							className={classNames(s.serviceCustomOptList, {
-								[s.serviceCustomoptions]: dropDown,
-							})}
-						>
-							<div
-								key={item.id}
-								className={s.serviesOptions}
-								onClick={() => {
-									// setSelectPack(e.name);
-									// setCard({
-									// 	id: e.genericTransactionTypeId,
-									// 	amount: e.entries[0].entryAmount,
-									// });
-									setDropDown(false);
-								}}
-							>
-								{item.name}
-							</div>
-						</div>
-				  ))
-				: null}
-		</>
+		<div className={s.customOptContainer}>
+			<span className={s.clinicNameStyle}>
+				{item.displayName}
+				<ReactSVG
+					className={classNames({
+						[s.titleArrowTransform]: dropDown,
+					})}
+					src='/dropArrow.svg'
+					onClick={() => setDropDown(!dropDown)}
+				/>
+			</span>
+
+			<div className={s.serviceOptionListStyle}>
+				<div className={s.serviceOptionListStyle}>
+					{dropDown
+						? services.map((item) => (
+								<div className={s.serviceRow}>
+									<div
+										key={item.id}
+										className={s.serviesOptions}
+										onClick={() => {
+											// setSelectPack(e.name);
+											// setCard({
+											// 	id: e.genericTransactionTypeId,
+											// 	amount: e.entries[0].entryAmount,
+											// });
+											setDropDown(false);
+										}}
+									>
+										{item.name}
+									</div>
+									<div className={s.tableColumnTitle}>
+										<span className={s.serviesOptions}>{item.percent1}</span>
+										<span className={s.serviesOptions}>{item.percent3}</span>
+										<span className={s.serviesOptions}>{item.percent6}</span>
+									</div>
+								</div>
+						  ))
+						: null}
+				</div>
+			</div>
+		</div>
 	);
 };
 

@@ -1,8 +1,8 @@
 .homePageContainer {
 	background-color: #ffffff;
-	margin: auto;
+	/* margin: auto;
 	width: calc(100% - 0px);
-	max-width: calc(1440px - 0px);
+	max-width: calc(1440px - 0px); */
 }
 .catalogContainer {
 	height: 80px;
@@ -12,6 +12,9 @@
 	align-items: center;
 	padding: 0px;
 	gap: 34px;
+	margin: auto;
+	width: calc(100% - 0px);
+	max-width: calc(1440px - 0px);
 }
 .catalogTextStyle {
 	font-family: 'Avenir Next Georgian';
@@ -21,6 +24,11 @@
 	line-height: 23px;
 	color: #01261c;
 	cursor: pointer;
+}
+.showSlider {
+	margin: auto;
+	width: calc(100% - 100px);
+	max-width: calc(1440px - 0px);
 }
 .showSliderForMobile {
 	display: none;
@@ -58,7 +66,7 @@
 
 .imgPart {
 	width: 313px;
-	height: 280px;
+	height: 194px;
 	border-radius: 5px;
 	position: relative;
 	overflow: hidden;
@@ -100,6 +108,9 @@
 	display: flex;
 	justify-content: space-between;
 	padding-bottom: 14px;
+	margin: auto;
+	width: calc(100% - 0px);
+	max-width: calc(1440px - 100px);
 }
 .arrowsIcons {
 	display: flex;
@@ -112,6 +123,9 @@
 	overflow: unset;
 	flex-wrap: wrap;
 	gap: 29px;
+	margin: auto;
+	width: calc(100% - 0px);
+	max-width: calc(1440px - 100px);
 }
 .cardRatingStar {
 	filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(25deg)
@@ -135,6 +149,7 @@
 	line-height: 28px;
 	color: #1e2837;
 	margin-top: 72px;
+	height: 38px;
 }
 .clinicNameText {
 	font-weight: 500;
@@ -244,6 +259,9 @@
 	overflow: unset;
 	flex-wrap: wrap;
 	gap: 29px;
+	margin: auto;
+	width: calc(100% - 0px);
+	max-width: calc(1440px - 100px);
 }
 
 /*carousel*/
@@ -251,19 +269,21 @@
 	width: 100% !important;
 	height: 97px;
 	margin-bottom: 72px;
+	margin: auto;
+	width: calc(100% - 0px);
+	max-width: calc(1440px - 100px);
 }
 
 .carousel button:nth-child(3) {
 	position: absolute !important;
 	top: 0 !important;
 	right: 0 !important;
-	/* margin-right: 10px; */
 	margin-top: -45px !important;
 	background: transparent !important;
 	opacity: 1 !important;
-	/* height: 24px !important;
-	width: 24px !important; */
+
 	border: none;
+	cursor: pointer;
 }
 
 .carousel button:nth-child(3):before {
@@ -283,9 +303,9 @@
 	margin-top: -44.5px !important;
 	background: transparent !important;
 	opacity: 1 !important;
-	/* height: 24px !important;
-	width: 24px !important; */
+
 	border: none !important;
+	cursor: pointer;
 }
 
 .carousel button:nth-child(1):before {
@@ -302,7 +322,10 @@
 	display: flex;
 	flex-direction: row;
 	gap: 30px;
-	margin-top: 72px;
+	padding-top: 72px;
+	margin: auto;
+	width: calc(100% - 0px);
+	max-width: calc(1440px - 100px);
 }
 
 .serviceContainer {
@@ -512,6 +535,9 @@
 	flex-direction: column;
 	margin-top: 32px;
 	padding-bottom: 72px;
+	margin: auto;
+	width: calc(100% - 0px);
+	max-width: calc(1440px - 100px);
 }
 .cardOffersTitles {
 	display: flex;

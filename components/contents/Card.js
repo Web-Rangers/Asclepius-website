@@ -54,11 +54,6 @@ const Card = () => {
 		},
 	}));
 
-	const handleChange = (e) => {
-		setCardType(e.target.checked);
-		console.log('Sad', e.target.checked);
-	};
-
 	const [cardType, setCardType] = useState(false);
 
 	const featuresData = [

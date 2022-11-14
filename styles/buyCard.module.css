@@ -13,6 +13,11 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
+	background-color: #f7f9fb;
+	padding-top: 94px;
+	padding-left: 92px;
+	height: 495px;
+	margin-bottom: 72px;
 }
 .headerContainerTitle {
 	display: flex;
@@ -23,7 +28,7 @@
 	font-size: 46px;
 	line-height: 28px;
 	color: #1e2837;
-	margin-bottom: 72px;
+	margin-bottom: 20px;
 }
 .buyCardStep {
 	display: flex;
@@ -53,6 +58,13 @@
 }
 .headerContainerRight {
 	margin-bottom: 94px;
+}
+.switcher {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 48px;
 }
 /* table  */
 
@@ -118,25 +130,39 @@
 }
 .customOptContainer {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	gap: 12.17px;
 }
 .titleArrowTransform {
 	transform: rotate(180deg);
 }
-
+.clinicNameStyle {
+	display: flex;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 19px;
+	color: #1e2837;
+	gap: 5px;
+}
 .serviceCustomOptList {
 	display: none;
 }
 .serviceCustomoptions {
-	display: block;
-	position: absolute;
-	background-color: #f7f9fb;
-	margin-top: 2px;
-	width: 204px;
+	display: flex;
+	/* position: absolute; */
+	/* margin-top: 2px; */
+	/* width: 204px; */
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 19px;
+	color: #797a80;
 }
 .serviceCustomoptions div {
-	padding: 10px;
+	padding: 12px 0px 12px 28px;
 	cursor: pointer;
 	border-bottom: 1px solid#fff;
 }
@@ -157,9 +183,29 @@
 .serviesOptions {
 	display: flex;
 	flex-direction: column;
-	background-color: blueviolet;
+	margin-right: 50px;
+	margin-top: 24px;
+	padding-left: 28px;
+	cursor: pointer;
+	border-bottom: 1px solid#fff;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 19px;
+	color: #797a80;
+}
+.serviceOptionListStyle {
+	/* margin-left: -180px; */
 }
 
+.serviceRow {
+	display: flex;
+	flex-direction: row;
+	width: 1159px;
+
+	margin: auto;
+}
 /* ahvd */
 .chooseCardContainer {
 	display: block;
@@ -267,14 +313,14 @@
 	width: 262px;
 	height: 64px;
 	border-radius: 8px;
-	background-color: #3a74d2;
+	background-color: #ffbbb6;
 	border: 1px solid #dcdddf;
 	font-family: 'Noto Sans';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 16px;
 	line-height: 22px;
-	color: #ffff;
+	color: #1e2837;
 	cursor: pointer;
 }
 
@@ -286,14 +332,14 @@
 	margin: 30px 25px 20px 25px;
 	width: 300px;
 }
-.headerContainer {
+/* .headerContainer {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	margin-top: 41;
 	margin-bottom: 79px;
 	height: 372px;
-}
+} */
 .checkoutTitleStyle {
 	font-family: 'Noto Sans';
 	font-style: normal;
@@ -488,7 +534,11 @@
 	transform: rotate(180deg);
 }
 .customDropdown {
+	display: flex;
+	flex-direction: row;
 	position: relative;
+	align-items: center;
+	gap: 15px;
 }
 .price {
 	color: #3a74d2;

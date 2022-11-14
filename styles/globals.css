@@ -80,3 +80,18 @@ a {
 .carousel.carousel-slider {
 	overflow: unset !important;
 }
+
+.carousel .thumbs-wrapper {
+	display: none;
+}
+
+.carousel .slider-wrapper.axis-horizontal .slider .slide {
+	flex-direction: column;
+	flex-flow: column;
+	padding-right: 29px;
+}
+.carousel .slide img {
+	vertical-align: top;
+	border: 0;
+	height: 100%;
+}

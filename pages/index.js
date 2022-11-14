@@ -120,14 +120,22 @@ function Home({ clinics, doctors, frelancers }) {
 			<div>
 				<div className={classes.firstPart}>
 					<Carousel
+						swipeable={true}
+						emulateTouch={true}
 						className={classes.carousel}
 						showStatus={false}
 						showIndicators={false}
 						showArrows={false}
+						centerMode={true}
+						centerSlidePercentage={25.5}
 						renderArrowPrev={(clickHandler) => (
 							<button onClick={clickHandler}>
 								<img
-									style={{ height: '15px', width: '12.05px' }}
+									style={{
+										height: '15px',
+										width: '12.05px',
+										cursor: 'pointer',
+									}}
 									src={`Arrow - Left.svg`}
 								/>
 							</button>
@@ -135,28 +143,24 @@ function Home({ clinics, doctors, frelancers }) {
 						renderArrowNext={(clickHandler) => (
 							<button onClick={clickHandler}>
 								<img
-									style={{ height: '15px', width: '12.05px' }}
+									style={{
+										height: '15px',
+										width: '12.05px',
+										cursor: 'pointer',
+									}}
 									src={`Arrow - Right.svg`}
 								/>
 							</button>
 						)}
 					>
-						{imgData?.map((chunk) => {
+						{firstPartImgArray.map((e, index) => {
 							return (
-								<>
-									<div className={classes.firstPartImg}>
-										{chunk.map((item, index) => {
-											return (
-												<img
-													className={classes.slide}
-													key={index}
-													src={item}
-													alt='firstPartimg'
-												/>
-											);
-										})}
-									</div>
-								</>
+								<img
+									src={e}
+									className={classes.slide}
+									key={index}
+									alt='firstPartimg'
+								/>
 							);
 						})}
 					</Carousel>
