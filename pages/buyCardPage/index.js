@@ -285,6 +285,7 @@ function BuyCardPage({ cards, clinics }) {
 				{clinics.map((item) => (
 					<div className={s.tableContentContainer}>
 						<DropDown
+							key={item.id}
 							item={item}
 							services={services}
 						/>
@@ -372,9 +373,11 @@ const DropDown = ({ services, item }) => {
 				<div className={s.serviceOptionListStyle}>
 					{dropDown
 						? services.map((item) => (
-								<div className={s.serviceRow}>
+								<div
+									className={s.serviceRow}
+									key={item.id}
+								>
 									<div
-										key={item.id}
 										className={s.serviesOptions}
 										onClick={() => {
 											// setSelectPack(e.name);
