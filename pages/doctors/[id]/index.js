@@ -40,13 +40,13 @@ export default function DoctorDetailed({
 					<div className={styles.content}>
 						<div className={styles.doctor}>
 							<div className={styles.poster}>
-								<div className={styles.doctorStar}>
+								{/* <div className={styles.doctorStar}>
 									<img
 										src='/whiteStar.svg'
 										alt=''
 									/>
 									<span>4.9</span>
-								</div>
+								</div> */}
 								<img
 									className={styles.doctorImage}
 									src={pictureUrl}
@@ -135,7 +135,7 @@ export default function DoctorDetailed({
 													>
 														<div className={styles.certCheckmark}>
 															<img
-																src={galleryList && galleryList[0].url}
+																src={galleryList && '/Mask.svg'}
 																alt=''
 															/>
 														</div>
@@ -207,7 +207,7 @@ export default function DoctorDetailed({
 							</div>
 						</div>
 
-						<div className={styles.doctorServices}>
+						{/* <div className={styles.doctorServices}>
 							<div className={styles.booking}>
 								<div className={styles.bookingHeader}>
 									<img
@@ -308,7 +308,7 @@ export default function DoctorDetailed({
 									name='Book now'
 								/>
 							</div>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</div>

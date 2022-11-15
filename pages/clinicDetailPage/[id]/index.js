@@ -10,7 +10,7 @@ import { Carousel } from 'react-responsive-carousel';
 import { useState, useEffect } from 'react';
 import { getData } from '../../../components/request';
 
-const ClinicDetailPage = ({ cardData, address, branches }) => {
+const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 	const router = useRouter();
 
 	// const [cardData, setCardData] = useState(null);
@@ -31,7 +31,18 @@ const ClinicDetailPage = ({ cardData, address, branches }) => {
 		// setCardData(router.query)
 	}, [router.isReady]);
 
-	console.log('sdf', cardData);
+	console.log('sdf', gallery);
+
+	const weekday = [
+		'',
+		'Monday',
+		'Tuesday',
+		'Wednesday',
+		'Thursday',
+		'Friday',
+		'Saturday',
+		'Sunday ',
+	];
 	return (
 		<div className={s.container}>
 			<div>
@@ -71,14 +82,28 @@ const ClinicDetailPage = ({ cardData, address, branches }) => {
 						/>
 					</div>
 					<Text style={s.clinicNameText}>{cardData?.displayName}</Text>
-					<Text style={s.clinicWorkingHours}>
-						{cardData?.workingDay}
-						Monday - friday 10:00-17:00
-					</Text>
-					<Text style={s.weekendWorkingHours}>
-						{cardData?.weekendWorkingDay}
-						Saturday - Sunday 10:00-14:00
-					</Text>
+					{cardData?.workingHours
+						.sort((a, b) => a.dayId - b.dayId)
+						.map(
+							(item) => (
+								<div
+									key={item.id}
+									className={
+										item.dayId === 6 || item.dayId === 7
+											? s.clinicWorkingHours
+											: s.weekendWorkingHours
+									}
+								>
+									<Text> {weekday[item.dayId]} </Text>
+									<Text> {[item.startHour, '-', item.endHour]} </Text>
+								</div>
+							)
+
+							// <Text style={s.clinicWorkingHours}>
+							// 	Monday - Friday {[item.startHour, '-', item.endHour]}
+							// </Text>
+						)}
+
 					{cardData?.contactInfos &&
 						cardData?.contactInfos?.map((item, index) => (
 							<Text
@@ -132,7 +157,7 @@ const ClinicDetailPage = ({ cardData, address, branches }) => {
 								style={{ paddingRight: '4px' }}
 							/>
 						</div>
-						<Link href='clinic/analysis'>
+						{/* <Link href='clinic/analysis'>
 							<div className={s.serviceItem}>
 								<Image
 									alt='SearchIcon'
@@ -167,7 +192,7 @@ const ClinicDetailPage = ({ cardData, address, branches }) => {
 								height='24px'
 								style={{ paddingRight: '4px' }}
 							/>
-						</div>
+						</div> */}
 					</div>
 					<div className={s.clinicOfferCardContainer}>
 						<div className={s.offerContiner}>
@@ -205,8 +230,8 @@ const ClinicDetailPage = ({ cardData, address, branches }) => {
 			</div>
 			<div className={s.imageTitleContainer}>
 				<div className={s.clinicTitleArrow}>
-					<Text style={s.clinicsTitleTextStyle}> List of branch</Text>
-					<div className={s.imageSlider}></div>
+					<Text style={s.clinicsTitleTextStyle}> Images of the clinic</Text>
+					<div className={s.imageSlider}> </div>
 				</div>
 
 				<div className={s.clinicContainerScroll}>
@@ -214,16 +239,25 @@ const ClinicDetailPage = ({ cardData, address, branches }) => {
 						className={s.carousel}
 						showStatus={false}
 						showIndicators={false}
+						centerMode={true}
+						centerSlidePercentage={25.5}
+						// swipeable={true}
+						// emulateTouch={true}
 					>
-						{branches &&
-							branches?.map((item) => {
-								return (
-									<BranchPageCardItem
-										key={item?.id}
-										props={item}
-									/>
-								);
-							})}
+						{gallery?.map((item) => {
+							return (
+								// <BranchPageCardItem
+								// 	key={item?.id}
+								// 	props={item}
+								// />
+								<img
+									key={item.id}
+									src={item.url}
+									height='228px'
+									width='28px'
+								/>
+							);
+						})}
 					</Carousel>
 				</div>
 			</div>
@@ -246,11 +280,16 @@ export const getServerSideProps = async (ctx) => {
 		`https://asclepius.pirveli.ge/asclepius/v1/api/clinics/${userId}/branches`
 	);
 
+	const getClinicGallery = await getData(
+		`https://asclepius.pirveli.ge/asclepius/v1/api/gallery/clinic/${userId}`
+	);
+
 	return {
 		props: {
 			cardData: getClinicById,
 			address: getClinicAddress,
 			branches: getClinicBranches,
+			gallery: getClinicGallery,
 		},
 	};
 };

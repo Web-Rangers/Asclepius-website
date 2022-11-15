@@ -25,6 +25,14 @@
 	color: #01261c;
 	cursor: pointer;
 }
+
+.dropDownContainer {
+	height: 200px;
+	background-color: rgb(213, 164, 188);
+	margin: auto;
+	width: calc(100% - 100px);
+	max-width: calc(1440px - 100px);
+}
 .showSlider {
 	margin: auto;
 	width: calc(100% - 100px);
