@@ -18,7 +18,7 @@ const Card = () => {
 		display: 'flex',
 		'&:active': {
 			'& .MuiSwitch-thumb': {
-				width: 15,
+				width: 26,
 			},
 			'& .MuiSwitch-switchBase.Mui-checked': {
 				transform: 'translateX(9px)',

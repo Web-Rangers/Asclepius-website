@@ -16,14 +16,12 @@ export default function ResponsiveSlider() {
 		>
 			{sliderImage.map(({ src, id }) => {
 				return (
-					<>
-						<div
-							className={classes.slideImgResp}
-							key={id}
-						>
-							<img src={src} />
-						</div>
-					</>
+					<div
+						className={classes.slideImgResp}
+						key={id}
+					>
+						<img src={src} />
+					</div>
 				);
 			})}
 		</Carousel>

@@ -547,6 +547,43 @@
 .forMobile {
 	display: none;
 }
+
+@media only screen and (max-width: 1180px) {
+	.forMobile {
+		display: block;
+	}
+	.firstPart {
+		/* width: calc(100% - 32px); */
+	}
+	.headerBg {
+		margin: 0;
+		width: 100%;
+		/* height: 238px; */
+	}
+	.headerContainer {
+		display: block;
+		flex-direction: column;
+		margin-bottom: 0px;
+		overflow: hidden;
+		display: table;
+		width: 100%;
+	}
+	.headerContainerLeft {
+		order: 2;
+		margin: 0 20px 0;
+		display: table-footer-group;
+	}
+	.headerContainerRight {
+		order: 1;
+		margin-bottom: 37px;
+	}
+	.headerContainerTitle {
+		font-size: 18px;
+		justify-content: flex-start;
+		margin-bottom: 30px;
+	}
+}
+
 @media only screen and (max-width: 767px) {
 	.forMobile {
 		display: block;

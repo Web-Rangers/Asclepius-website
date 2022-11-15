@@ -11,7 +11,6 @@ const ClinicCardItem = (props) => {
 
 	return (
 		<Link
-			// href={`/clinicDetailPage/${props?.id}`}
 			key={props.key}
 			href='/clinicDetailPage/clinicId'
 			as={`/clinicDetailPage/${props?.id}`}
