@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import classes from '../../styles/slider.module.css';
 import Text from '../ui/Text';
 import Link from 'next/link';
+import { Carousel } from 'react-responsive-carousel';
 
 const Slider = ({ type = 'desktop' }) => {
 	const sliderImage = [

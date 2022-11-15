@@ -126,10 +126,11 @@
 	flex-direction: column;
 	position: relative;
 	width: 320px;
-	height: 618px;
+	height: 100%;
 	border-radius: 5px;
 	border: 1px solid #efefef;
 	margin-bottom: 62px;
+	padding-bottom: 40px;
 	margin-top: 24px;
 	margin-right: 33px;
 }
@@ -159,7 +160,7 @@
 }
 .clinicWorkingHours {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	width: 221px;
 	height: 28px;
@@ -173,10 +174,11 @@
 	line-height: 24px;
 	color: #3a74d2;
 	margin-top: 16px;
+	padding: 0px 20px;
 }
 .weekendWorkingHours {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	width: 221px;
 	height: 28px;
@@ -190,6 +192,7 @@
 	line-height: 24px;
 	color: #099672;
 	margin-top: 21px;
+	padding: 0px 20px;
 }
 .contactInfoText {
 	display: flex;
@@ -275,12 +278,13 @@
 .clinicContainerScroll {
 	/* display: flex; */
 	/* flex-direction: row; */
-	margin-left: 76px;
-	margin-right: 76px;
+	/* margin-left: 76px;/ */
+	/* margin-right: 76px; */
 	/* overflow-x: scroll; */
 	overflow-y: hidden;
 	white-space: nowrap;
 	gap: 30px;
+	min-height: 300px;
 }
 .clinicTitleArrow {
 	display: flex;
@@ -313,6 +317,7 @@
 	width: 21px;
 	height: 19px;
 	border: none !important;
+	margin: 0 84px !important;
 }
 
 .carousel button:nth-child(1) {
@@ -335,6 +340,7 @@
 	width: 21px;
 	height: 19px;
 	border: none !important;
+	margin: 0 74px !important;
 }
 
 @media only screen and (max-width: 600px) {

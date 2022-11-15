@@ -4,14 +4,14 @@ import Link from 'next/link';
 
 const DoctorCardItem = ({ id, ...props }) => {
 	return (
-		// <Link href={`/doctors/${id}`}>
-		<a className={classes.doctorItem}>
-			<div
-				className={classes.doctorItemContainer}
-				key={props.id}
-			>
-				<div className={classes.doctorPhotoContainer}>
-					{/* <div className={classes.ratingContainer}>
+		<Link href={`/doctors/${id}`}>
+			<a className={classes.doctorItem}>
+				<div
+					className={classes.doctorItemContainer}
+					key={props.id}
+				>
+					<div className={classes.doctorPhotoContainer}>
+						{/* <div className={classes.ratingContainer}>
 							<img
 								src='/whitestar.svg'
 								alt='star'
@@ -20,21 +20,21 @@ const DoctorCardItem = ({ id, ...props }) => {
 							/>
 							<Text>{props.rating}</Text>
 						</div> */}
-					<img
-						className={classes.docImage}
-						src={
-							props.src === 'https://s3.pirveli.ge/v1/api/getFile?id=null'
-								? '/Profile.svg'
-								: props.src
-						}
-						alt={'doctor'}
-					/>
-				</div>
+						<img
+							className={classes.docImage}
+							src={
+								props.src === 'https://s3.pirveli.ge/v1/api/getFile?id=null'
+									? '/Profile.svg'
+									: props.src
+							}
+							alt={'doctor'}
+						/>
+					</div>
 
-				<Text style={classes.doctorNameText}>{props.doctorName}</Text>
-				<Text style={classes.doctorSpecialityText}>{props.speciality}</Text>
+					<Text style={classes.doctorNameText}>{props.doctorName}</Text>
+					<Text style={classes.doctorSpecialityText}>{props.speciality}</Text>
 
-				{/* <div className={classes.iconsContainer}>
+					{/* <div className={classes.iconsContainer}>
 					<img
 						src='Video.svg'
 						alt='videoCall'
@@ -44,9 +44,9 @@ const DoctorCardItem = ({ id, ...props }) => {
 						alt='phoneCall'
 					/>
 				</div> */}
-			</div>
-		</a>
-		// </Link>
+				</div>
+			</a>
+		</Link>
 	);
 };
 

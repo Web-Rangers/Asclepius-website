@@ -9,10 +9,11 @@ import CardPrice from '../components/contents/CardPrice';
 import Text from '../components/ui/Text';
 import Button from '../components/ui/Button';
 import axios from 'axios';
-import ResponsiveSlider from '../components/contents/responsiveCarousel';
+import ResponsiveSlider from '../components/contents/ResponsiveCarousel';
 import { useWindowSize } from '../components/useWindowSize';
 import { getData } from '../components/request';
 import { Carousel } from 'react-responsive-carousel';
+import MainSlider from '../components/contents/mainSlider';
 
 function Home({ clinics, doctors, frelancers }) {
 	const [clinicData, setClinicData] = useState([]);
@@ -90,10 +91,14 @@ function Home({ clinics, doctors, frelancers }) {
 					</span>
 				))}
 			</div>
+			{/* <div className={classes.dropDownContainer}>
+				<span>hello</span>
+			</div> */}
 			<div>
 				<div className={classes.firstPart}>
 					<div className={classes.showSlider}>
 						<Slider />
+						{/* <MainSlider /> */}
 					</div>
 				</div>
 			</div>

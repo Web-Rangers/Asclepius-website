@@ -25,7 +25,7 @@
 
 .content {
 	display: flex;
-	gap: 28px;
+	gap: 25px;
 }
 
 .doctorInfo {
@@ -54,6 +54,7 @@
 	padding: 32px 50px;
 	width: 100%;
 	min-width: 465px;
+	min-height: 1200px;
 }
 
 .aboutTxt span {
@@ -111,16 +112,16 @@
 
 .doctor {
 	position: relative;
-	width: 320px;
-	height: 280px;
+	width: 301px;
+	height: 290px;
 }
 
 .poster {
 	position: relative;
 	max-height: 281px;
 	overflow: hidden;
-	width: 320px;
-	height: 280px;
+	width: 301px;
+	height: 290px;
 }
 
 .doctorStar {
@@ -139,8 +140,9 @@
 }
 
 .doctorImage {
-	width: 320px;
-	height: 280px;
+	width: 301px;
+	height: 290px;
+	object-fit: cover;
 }
 
 .doctorContact {
@@ -201,8 +203,8 @@
 .prof {
 	padding: 4px 12px 6px;
 	border-radius: 14px;
-	background-color: rgba(58, 116, 210, 0.1);
-	color: #3a74d2;
+	background-color: #ffbbb6;
+	color: #ff1c00;
 	font-weight: 400;
 	font-size: 14px;
 }
@@ -241,6 +243,7 @@
 	align-items: center;
 	justify-content: space-between;
 	border-bottom: 2px solid #efefef;
+	width: 273px;
 }
 
 .languageList {
