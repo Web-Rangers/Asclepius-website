@@ -34,11 +34,18 @@ const Slider = ({ type = 'desktop' }) => {
 		};
 	}, [index]);
 
+	const druggable = () => {
+		setIndex((prevIndex) =>
+			prevIndex === sliderImage.length - 1 ? 0 : prevIndex + 1
+		);
+	};
+
 	return (
 		<div className={classes.slideshow}>
 			<div
 				className={classes.slideshowSlider}
 				style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
+				onClick={() => druggable()}
 			>
 				{sliderImage.map((image, index) => (
 					<div
@@ -101,9 +108,10 @@ const Slider = ({ type = 'desktop' }) => {
 												key={index}
 												src={image.src}
 												alt='sliderimg'
-												height=' 525px'
+												height=' 494px'
 												width='742px'
 												style={{ position: 'absolute' }}
+												onDragStart={(e) => (e.preventDefault(), druggable())}
 											/>
 										</div>
 									</div>
@@ -113,7 +121,7 @@ const Slider = ({ type = 'desktop' }) => {
 											key={index}
 											src={image.src}
 											alt='sliderimg'
-											height=' 525px'
+											height=' 494px'
 											width='1000px'
 											style={{ position: 'absolute' }}
 											objectFit='cover'
