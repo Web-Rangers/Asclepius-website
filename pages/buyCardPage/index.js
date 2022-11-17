@@ -16,10 +16,12 @@ import { styled } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import style from '../../styles/components/card.module.css';
+import Checkout from '../../components/modals/checkout';
 
 function BuyCardPage({ cards, clinics }) {
 	const [modalIsOpen, setIsOpen] = useState(false);
 	const [customStyles, setCustomStyles] = useState({});
+	const [checkout, setCheckout] = useState(false);
 	const openModal = () => {
 		setIsOpen(true);
 	};
@@ -27,6 +29,17 @@ function BuyCardPage({ cards, clinics }) {
 	const closeModal = () => {
 		setIsOpen(false);
 	};
+
+	const [users, setUsers] = useState([
+		{
+			id: 0, 
+			name: 'George Fowler',
+			mail: 'georgefowler@gmail.com',
+			phone: '+995 599 99 99 63',
+			date: '11.03.2000',
+			idNumber: '012111099283'
+		}
+	])
 
 	useEffect(() => {
 		if (window.innerWidth < 600) {
@@ -233,7 +246,8 @@ function BuyCardPage({ cards, clinics }) {
 	// 		boxSizing: 'border-box',
 	// 	},
 	// }));
-	return (
+	return <>
+		{checkout && <Checkout users={users} onClose={()=> setCheckout(false)} setUsers={(e)=> setUsers(e)} />}
 		<div className={s.container}>
 			<div className={s.firstPart}>
 				<div className={s.headerContainer}>
@@ -390,15 +404,16 @@ function BuyCardPage({ cards, clinics }) {
 						style={s.buttonActive}
 						name='Buy now'
 						onClick={() => {
-							sendRequest(card.id, card.amount).then((response) =>
-								console.log(response)
-							);
+							// sendRequest(card.id, card.amount).then((response) =>
+							// 	console.log(response)
+							// );
+							setCheckout(!checkout)
 						}}
 					/>
 				</div>
 			</div>
 		</div>
-	);
+	</>
 }
 
 const DropDown = ({ services, item }) => {
