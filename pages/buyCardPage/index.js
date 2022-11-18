@@ -213,7 +213,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 	}));
 
 	return <>
-		{checkout && <Checkout users={users} onClose={()=> setCheckout(false)} setUsers={(e)=> setUsers(e)} />}
+		{checkout && <Checkout cards={cards} cardType={cardType} users={users} onClose={()=> setCheckout(false)} setUsers={(e)=> setUsers(e)} />}
 		<div className={s.container}>
 			<div className={s.firstPart}>
 				<div className={s.headerContainer}>
@@ -319,55 +319,6 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 					</div>
 				))}
 				<div className={s.buttonContainer}>
-					{/* {
-            selectPack === '1 months' && <div className={s.price}>50$</div>
-          }
-          {
-            selectPack === '3 months' && <div className={s.price}>100$</div>
-          }
-          {
-            selectPack === '6 months' && <div className={s.price}>150$</div>
-          } */}
-					{/* <div className={s.customDropdown}>
-						<div
-							className={s.customOpt}
-							onClick={() => setOpen(!open)}
-						>
-							<span>{selectPack}</span>
-							<ReactSVG
-								className={classNames({
-									[s.arrowTransform]: open,
-								})}
-								src='/dropArrow.svg'
-							/>
-						</div>
-						<div
-							className={classNames(s.customOptList, {
-								[s.customoptions]: open,
-							})}
-						>
-							{lastThreeItem.map((e) => {
-								return (
-									<div
-										key={e.id}
-										onClick={() => {
-											setSelectPack(e.title);
-											setCard({
-												id: e.genericTransactionTypeId,
-												amount: e.entries[0].entryAmount,
-											});
-											setOpen(false);
-										}}
-									>
-										{'ragaca'}
-									</div>
-								);
-							})}
-						</div>
-					</div> */}
-					{/* {products.map((item) =>(
-						
-					)} */}
 					<Select
 						placeholder='Month'
 						label='Month'
@@ -391,7 +342,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 						className={s.buyDropDown}
 						options={products.map((item) => ({
 							label: item.cardName,
-							value: item.cardName,
+							value: item.genericTransactionTypeId,
 						}))}
 						value={cardType}
 						onChange={(options) => {
@@ -411,7 +362,8 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 						]}
 						onChange={(value) => {
 							setSelectPack(value);
-					</div>
+						}}
+					/>
 					<Button
 						style={s.buttonActive}
 						name='Buy now'
@@ -423,15 +375,6 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 						}}
 					/>
 				</div>
-				<Button
-					style={s.buttonActive}
-					name='Buy now'
-					onClick={() => {
-						sendRequest(card.id, card.amount).then((response) =>
-							console.log(response)
-						);
-					}}
-				/>
 			</div>
 		</div>
 	</>
