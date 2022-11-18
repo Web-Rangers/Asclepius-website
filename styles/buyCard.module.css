@@ -443,6 +443,10 @@
 	-moz-appearance: none;
 	appearance: none;
 }
+.buyDropDown {
+	width: 198px;
+	height: 52px;
+}
 .selectBody {
 	display: flex;
 	font-family: 'Noto Sans';

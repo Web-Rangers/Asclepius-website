@@ -1,34 +1,31 @@
 import s from '../../../styles/clinicDetailPage.module.css';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import Text from '../../../components/ui/Text';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { getData } from '../../../components/request';
-
-const clinicImage = [
-	{ src: '/clinicImage.png' },
-	{
-		src: '/clinicImage.png',
-	},
-	{
-		src: '/clinicImage.png',
-	},
-	{
-		src: '/clinicImage.png',
-	},
-];
+import Button from '../../../components/ui/Button';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 const BranchDetailPage = ({ cardData, address, gallery }) => {
 	const router = useRouter();
 
-	console.log(cardData[0], 'cardData[0]');
-	console.log(address, 'address');
-	console.log(gallery, 'gallery');
-
 	if (!router.isReady) {
 		return 'loading...';
 	}
+	const weekday = [
+		'',
+		'Monday',
+		'Tuesday',
+		'Wednesday',
+		'Thursday',
+		'Friday',
+		'Saturday',
+		'Sunday ',
+	];
 
 	return (
 		<div className={s.container}>
@@ -71,14 +68,22 @@ const BranchDetailPage = ({ cardData, address, gallery }) => {
 						/>
 					</div>
 					<Text style={s.clinicNameText}>{cardData[0].displayName}</Text>
-					<Text style={s.clinicWorkingHours}>
-						{cardData[0].workingDay}
-						Saturday - Sunday 10:00-14:00
-					</Text>
-					<Text style={s.weekendWorkingHours}>
-						{cardData[0].weekendWorkingDay}
-						Saturday - Sunday 10:00-14:00
-					</Text>
+					{cardData[0]?.workingHours
+						?.sort((a, b) => a.dayId - b.dayId)
+						?.map((item) => (
+							<div
+								key={item.id}
+								className={
+									item.dayId === 6 || item.dayId === 7
+										? s.clinicWorkingHours
+										: s.weekendWorkingHours
+								}
+							>
+								<Text> {weekday[item.dayId]} </Text>
+								<Text> {[item.startHour, '-', item.endHour]} </Text>
+							</div>
+						))}
+
 					{cardData[0]?.contactInfos &&
 						cardData[0]?.contactInfos?.map((item, index) => (
 							<Text
@@ -107,6 +112,13 @@ const BranchDetailPage = ({ cardData, address, gallery }) => {
 						/>
 						{address?.address}
 					</Text>
+					<Link href={`/clinicDetailPage/${cardData[0]?.id}`}>
+						<Button
+							type='submit'
+							name='View Clinic'
+							style={s.viewClinicBtn}
+						/>
+					</Link>
 				</div>
 
 				<div className={s.clinicInfo}>
@@ -115,25 +127,32 @@ const BranchDetailPage = ({ cardData, address, gallery }) => {
 					<Text style={s.aboutClinicText}>{cardData[0]?.description}</Text>
 					<Text style={s.clinicInfoTitle}>Services</Text>
 					<div className={s.servicesContainer}>
-						<div className={s.serviceItem}>
-							<Image
-								alt='profile'
-								src='/Profile.svg'
-								width='24px'
-								height='24px'
-								style={{ paddingRight: '4px' }}
-							/>
-							<Text style={s.serviceTitle}>Doctors</Text>
-							<img
-								alt='Arrow - Right'
-								src='/Arrow - Right 9.svg'
-								width='24px'
-								height='24px'
-								style={{ paddingRight: '4px' }}
-								className={s.imgArrow}
-							/>
-						</div>
-						<Link href='clinic/analysis'>
+						<Link
+							href={{
+								pathname: '/doctors',
+								query: { id: cardData[0]?.id },
+							}}
+						>
+							<div className={s.serviceItem}>
+								<Image
+									alt='profile'
+									src='/Profile.svg'
+									width='24px'
+									height='24px'
+									style={{ paddingRight: '4px' }}
+								/>
+								<Text style={s.serviceTitle}>Doctors</Text>
+								<img
+									alt='Arrow - Right'
+									src='/Arrow - Right 9.svg'
+									width='24px'
+									height='24px'
+									style={{ paddingRight: '4px' }}
+									className={s.imgArrow}
+								/>
+							</div>
+						</Link>
+						{/* <Link href='clinic/analysis'>
 							<div className={s.serviceItem}>
 								<Image
 									alt='SearchIcon'
@@ -152,8 +171,8 @@ const BranchDetailPage = ({ cardData, address, gallery }) => {
 									className={s.imgArrow}
 								/>
 							</div>
-						</Link>
-						<div className={s.serviceItem}>
+						</Link> */}
+						{/* <div className={s.serviceItem}>
 							<Image
 								alt='chat'
 								src='/Chat.svg'
@@ -170,7 +189,7 @@ const BranchDetailPage = ({ cardData, address, gallery }) => {
 								style={{ paddingRight: '4px' }}
 								className={s.imgArrow}
 							/>
-						</div>
+						</div> */}
 					</div>
 					<div className={s.offerCardContainer}>
 						<div className={s.offerContiner}>
@@ -212,7 +231,7 @@ const BranchDetailPage = ({ cardData, address, gallery }) => {
 					{' '}
 					Images of the clinic
 				</Text>
-				<div className={s.imageContainer}>
+				{/* <div className={s.imageContainer}>
 					{gallery &&
 						gallery?.map((img) => {
 							return (
@@ -238,7 +257,53 @@ const BranchDetailPage = ({ cardData, address, gallery }) => {
 						width='24px'
 						height='24px'
 					/>
-				</div>
+				</div> */}
+				{/* <div className={s.clinicContainerScroll}> */}
+				<Carousel
+					className={s.carousel}
+					showStatus={false}
+					showIndicators={false}
+					centerMode={true}
+					swipeable={true}
+					emulateTouch={true}
+					showArrows={false}
+					centerSlidePercentage={25.5}
+					renderArrowPrev={(clickHandler) => (
+						<button onClick={clickHandler}>
+							<img
+								src='/Arrow - Left.svg'
+								alt='arrowLeft'
+								width='24px'
+								height='24px'
+							/>
+						</button>
+					)}
+					renderArrowNext={(clickHandler) => (
+						<button onClick={clickHandler}>
+							<img
+								src='/Arrow - Right.svg'
+								alt='arrowRight'
+								width='24px'
+								height='24px'
+							/>
+						</button>
+					)}
+				>
+					<div className={s.imageContainer}>
+						{gallery &&
+							gallery?.map((img) => {
+								return (
+									<>
+										<img
+											src={img?.url}
+											alt='clinic image'
+										/>
+									</>
+								);
+							})}
+					</div>
+				</Carousel>
+				{/* </div> */}
 			</div>
 		</div>
 	);

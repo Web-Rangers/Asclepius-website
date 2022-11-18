@@ -97,8 +97,8 @@ function Home({ clinics, doctors, frelancers }) {
 			<div>
 				<div className={classes.firstPart}>
 					<div className={classes.showSlider}>
-						<Slider />
-						{/* <MainSlider /> */}
+						{/* <Slider /> */}
+						<MainSlider />
 					</div>
 				</div>
 			</div>
@@ -208,8 +208,8 @@ export const getServerSideProps = async () => {
 	return {
 		props: {
 			clinics: getClinics?.length === 0 ? null : getClinics,
-			doctors: getDoctors.length === 0 ? null : getDoctors,
-			frelancers: getFreelancerDoc.length === 0 ? null : getFreelancerDoc,
+			doctors: getDoctors?.length === 0 ? null : getDoctors,
+			frelancers: getFreelancerDoc?.length === 0 ? null : getFreelancerDoc,
 		},
 	};
 };
