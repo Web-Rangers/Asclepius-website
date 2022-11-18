@@ -42,11 +42,11 @@ export default function CheckoutFamilyMember({onClose, type, users, setUsers}) {
                     <ReactSVG className={styles.back} src="/backToCheckout.svg" onClick={() => onClose()} />
                     <h2>Add family member</h2>
                 </div>
+            </div>
+            <div className={styles.checkoutContainer}>
                 <div className={styles.document}>
                     Read information about the processing of personal data here - <a href="">Document link</a>
                 </div>
-            </div>
-            <div className={styles.checkoutContainer}>
                 {
                     type == '3' && <Above18 
                                         userInfo={userInfo} 
