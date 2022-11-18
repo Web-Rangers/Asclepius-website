@@ -18,7 +18,6 @@
   top: 0;
   right: 0;
   z-index: 9999999;
-  overflow-y: auto;
 }
 
 .fmTool {
@@ -35,8 +34,31 @@
   font-size: 24px;
 }
 
+.checkoutContainer {
+  height: calc(100% - 10%);
+  margin: 0 20px 30px 40px;
+  overflow-y: auto;
+  padding: 0 20px 0 0;
+}
+
+.checkoutContainer::-webkit-scrollbar {
+  width: 5px;
+}
+
+.checkoutContainer::-webkit-scrollbar-track {
+  background: #bfccff;
+}
+
+.checkoutContainer::-webkit-scrollbar-thumb {
+  background: #2751f2;
+}
+
+.checkoutContainer::-webkit-scrollbar-thumb:hover {
+  background: #1641ed;
+}
+
 .document {
-  padding: 0 40px;
+  margin-bottom: 38px;
   font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
@@ -53,7 +75,6 @@
 }
 
 .users {
-  padding: 0 40px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -128,10 +149,6 @@
   cursor: pointer;
 }
 
-.addFamilymember {
-  padding: 0 40px;
-}
-
 .addFamilymember h2 {
   font-family: 'Noto Sans';
   font-style: normal;
@@ -141,7 +158,6 @@
 }
 
 .form{
-  padding: 0 40px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -169,7 +185,6 @@
 }
 
 .btnControl {
-  padding: 0 40px;
   display: flex;
   gap: 16px;
 }
