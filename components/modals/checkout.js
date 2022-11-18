@@ -15,21 +15,23 @@ import localeData from "dayjs/plugin/localeData";
 dayjs.extend(weekday)
 dayjs.extend(localeData)
 
-export default function Checkout({onClose, users, setUsers}) {
+export default function Checkout({onClose, cards, cardType, users, setUsers}) {
     const [memberType, setMemberType] = useState('');
     const [openMemberModal, setOpenMemberModal] = useState(false);
 
     const [edit, setEdit] = useState(null);
 
-    function buyCard() {
+    const findCard = cards.filter((e)=> e.genericTransactionTypeId === cardType)[0];
+
+    async function buyCard() {
         const bogRequest = {
             intent: 'AUTHORIZE',
             items: [
                 {
-                    amount: '0.01', // price
+                    amount: findCard?.entries[0].entryAmount, // price
                     description: 'test',
                     quantity: '1',
-                    product_id: '123456', // set card id 
+                    product_id: findCard?.genericTransactionTypeId, // set card id 
                 },
             ],
             locale: 'ka',
@@ -47,14 +49,71 @@ export default function Checkout({onClose, users, setUsers}) {
             ],
         };
 
-        const body = {
-            bog: bogRequest, 
-            family: {
-                userId: 123,
-                members: users
-            }
-        }
-        console.log(body)
+        // const body = {
+        //     bog: bogRequest, 
+        //     family: {
+        //         userId: 123,
+        //         members: users
+        //     }
+        // }
+
+        try {
+			const req = await fetch('https://medical.pirveli.ge/medical/orders/create-order', {
+				method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    "bogOrderRequestDTO": {
+                        "user_id": null,
+                        "contract_id": null,
+                        "party_id": null,
+                        "bog_order_request_dto" : {
+                          "intent": "AUTHORIZE",
+                          "items": [
+                              {
+                              "amount": "0.01",
+                              "description": "regTest",
+                              "quantity": "1",
+                              "product_id": "270"
+                              }
+                          ],
+                          "locale": "ka",
+                          "shop_order_id": "123456",
+                          "redirect_url": "https://bog-banking.pirveli.ge/callback/statusChange",
+                          "show_shop_order_id_on_extract": true,
+                          "capture_method": "AUTOMATIC",
+                          "purchase_units": [
+                              {
+                              "amount": {
+                                  "currency_code": "GEL",
+                                  "value": "0.01"
+                              }
+                              }
+                          ]
+                        }
+                      },
+                    "customerDTOList": [
+                      {
+                        "regId": 0,
+                        "name": "string",
+                        "surname": "string",
+                        "idNumber": "string",
+                        "mail": "string",
+                        "date": "string",
+                        "gender": "string"
+                      }
+                    ]
+                  }),
+			});
+            const res = await req.json();
+
+            console.log(res)
+
+            return res
+		}catch(error){
+			console.log(error)
+		}
     }
 
     return <>
@@ -149,7 +208,7 @@ export default function Checkout({onClose, users, setUsers}) {
                         />
                     </div>
                     {
-                        users.length > 2 && 
+                        users.length > 0 && 
                         <>
                             <button className={styles.save} onClick={()=> buyCard()}>Buy card</button>
                         </>
