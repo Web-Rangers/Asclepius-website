@@ -31,7 +31,7 @@
 	background-color: #ffffff;
 	margin-top: 24px;
 	width: calc(100% - 0px);
-	max-width: calc(1420px - 100px);
+	max-width: 1340px;
 	margin: auto;
 }
 
@@ -194,6 +194,23 @@
 	margin-top: 21px;
 	padding: 0px 20px;
 }
+.viewClinicBtn {
+	display: block;
+	margin: auto;
+	margin-top: 19px;
+	width: 90%;
+	height: 52px;
+	background: #ffbbb6;
+	border-radius: 5px;
+	color: #1e2837;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 19px;
+	border: none;
+	cursor: pointer;
+}
 .contactInfoText {
 	display: flex;
 	font-family: 'Noto Sans';
@@ -264,7 +281,7 @@
 	padding: 0 24px;
 	align-items: center;
 	width: 100%;
-	height: 288px;
+	height: 291px;
 	background: #f7f9f8;
 	border-radius: 5px;
 	/* border: 1px solid black; */

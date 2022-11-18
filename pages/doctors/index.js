@@ -155,7 +155,7 @@ const doctorsArray = [
 	},
 ];
 
-export default function Doctors({ frelancers, doctors }) {
+export default function Doctors({ frelancers, doctors, clinicDoctors }) {
 	const [isOpen, setOpen] = useState();
 	const [status, setStatus] = useState('');
 	const [serviceType, setServiceType] = useState('');
@@ -164,12 +164,14 @@ export default function Doctors({ frelancers, doctors }) {
 
 	const concatData = frelancers?.content.concat(doctors?.content);
 
-	let PageSize = 4;
+	let PageSize = 12;
 
 	const currentTableData = useMemo(() => {
 		const firstPageIndex = (currentPage - 1) * PageSize;
 		const lastPageIndex = firstPageIndex + PageSize;
-		return concatData?.slice(firstPageIndex, lastPageIndex);
+		return router.query.id
+			? clinicDoctors?.content.slice(firstPageIndex, lastPageIndex)
+			: concatData?.slice(firstPageIndex, lastPageIndex);
 	}, [currentPage]);
 
 	return (
@@ -394,7 +396,7 @@ export default function Doctors({ frelancers, doctors }) {
 	);
 }
 
-export const getStaticProps = async () => {
+export async function getServerSideProps({ query }) {
 	let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
 	const getDoctors = await getData(
 		`${API_URL}/asclepius/v1/api/clinics/doctors?page=0&size=100`
@@ -403,10 +405,38 @@ export const getStaticProps = async () => {
 		`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
 	);
 
+	const getClinicDoctors = await getData(
+		`${API_URL}/asclepius/v1/api/clinics/${query.id}/doctors?page=0&size=5`
+	);
 	return {
 		props: {
 			doctors: getDoctors,
 			frelancers: getFreelancerDoc,
+			clinicDoctors: getClinicDoctors,
 		},
 	};
-};
+}
+
+// export const getStaticProps = async () => {
+// 	let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
+// 	// console.log('context', context);
+
+// 	const getDoctors = await getData(
+// 		`${API_URL}/asclepius/v1/api/clinics/doctors?page=0&size=100`
+// 	);
+// 	const getFreelancerDoc = await getData(
+// 		`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
+// 	);
+
+// 	// const getClinicDoctors = await getData(
+// 	// 	`${API_URL}/asclepius/v1/api/clinics/${context.params.id}/doctors?page=0&size=5`
+// 	// );
+
+// 	return {
+// 		props: {
+// 			doctors: getDoctors,
+// 			frelancers: getFreelancerDoc,
+// 			// clinicDoctors: getClinicDoctors,
+// 		},
+// 	};
+// };

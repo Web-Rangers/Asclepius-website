@@ -56,6 +56,7 @@ a {
 .carousel .control-dots {
 	bottom: -35px !important;
 	z-index: -1;
+	top: 465px;
 }
 
 .carousel .control-dots .dot.selected {
@@ -92,9 +93,20 @@ a {
 .carousel .slider-wrapper.axis-horizontal .slider .slide {
 	flex-direction: column;
 	flex-flow: column;
-	padding-right: 29px;
 }
 .carousel .slide img {
 	vertical-align: top;
 	border: 0;
+}
+.carousel .slide {
+	min-width: 100%;
+	margin: 0;
+	position: relative;
+	text-align: start !important;
+}
+
+@media only screen and (max-width: 767px) {
+	.carousel .control-dots {
+		display: none;
+	}
 }

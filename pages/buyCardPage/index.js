@@ -16,10 +16,12 @@ import { styled } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import style from '../../styles/components/card.module.css';
+import Select from '../../components/Select';
 
-function BuyCardPage({ cards, clinics }) {
+function BuyCardPage({ cards, clinics, categories, products }) {
 	const [modalIsOpen, setIsOpen] = useState(false);
 	const [customStyles, setCustomStyles] = useState({});
+
 	const openModal = () => {
 		setIsOpen(true);
 	};
@@ -70,7 +72,14 @@ function BuyCardPage({ cards, clinics }) {
 	}
 
 	const [selectPack, setSelectPack] = useState('');
-	const [cardType, setCardType] = useState(false);
+	const [month, setMonth] = useState('');
+	const [cardType, setCardType] = useState('');
+
+	console.log('cardType', products);
+
+	console.log('cardType', cardType);
+
+	const [checked, setChecked] = useState(false);
 	const [card, setCard] = useState({
 		id: '',
 		amount: '',
@@ -189,50 +198,6 @@ function BuyCardPage({ cards, clinics }) {
 		},
 	}));
 
-	// const AntSwitch = styled(Switch)(({ theme }) => ({
-	// 	width: 60,
-	// 	height: 32,
-	// 	padding: 0,
-	// 	display: 'flex',
-	// 	'&:active': {
-	// 		'& .MuiSwitch-thumb': {
-	// 			width: 15,
-	// 		},
-	// 		'& .MuiSwitch-switchBase.Mui-checked': {
-	// 			transform: 'translateX(9px)',
-	// 		},
-	// 	},
-	// 	'& .MuiSwitch-switchBase': {
-	// 		padding: 2,
-	// 		'&.Mui-checked': {
-	// 			transform: 'translateX(12px)',
-	// 			color: '#fff',
-	// 			'& + .MuiSwitch-track': {
-	// 				opacity: 1,
-	// 				backgroundColor:
-	// 					theme.palette.mode === 'dark' ? '#177ddc' : '#1890ff',
-	// 			},
-	// 		},
-	// 	},
-	// 	'& .MuiSwitch-thumb': {
-	// 		boxShadow: '0 2px 4px 0 rgb(0 35 11 / 20%)',
-	// 		width: 12,
-	// 		height: 12,
-	// 		borderRadius: 6,
-	// 		transition: theme.transitions.create(['width'], {
-	// 			duration: 200,
-	// 		}),
-	// 	},
-	// 	'& .MuiSwitch-track': {
-	// 		borderRadius: 16 / 2,
-	// 		opacity: 1,
-	// 		backgroundColor:
-	// 			theme.palette.mode === 'dark'
-	// 				? 'rgba(255,255,255,.35)'
-	// 				: 'rgba(0,0,0,.25)',
-	// 		boxSizing: 'border-box',
-	// 	},
-	// }));
 	return (
 		<div className={s.container}>
 			<div className={s.firstPart}>
@@ -297,8 +262,8 @@ function BuyCardPage({ cards, clinics }) {
 								</Typography>
 
 								<AntSwitch
-									checked={cardType}
-									onChange={(e) => setCardType(e.target.checked)}
+									checked={checked}
+									onChange={(e) => setChecked(e.target.checked)}
 									defaultChecked
 									inputProps={{ 'aria-label': 'ant design' }}
 								/>
@@ -315,19 +280,19 @@ function BuyCardPage({ cards, clinics }) {
 					<div className={s.tableColumnTitle}>
 						<div className={s.columnTitleContainer}>
 							<span className={s.tablePriceTitleStyles}>50$</span>
-							<span className={s.tableDataTitleStyles}>1 months</span>
+							<span className={s.tableDataTitleStyles}>Silver</span>
 						</div>
 						<div className={s.columnTitleContainer}>
 							<span className={s.tablePriceTitleStyles}>100$</span>
-							<span className={s.tableDataTitleStyles}>3 months</span>
+							<span className={s.tableDataTitleStyles}>Gold</span>
 						</div>
 						<div className={s.columnTitleContainer}>
 							<span className={s.tablePriceTitleStyles}>150$$</span>
-							<span className={s.tableDataTitleStyles}>6 months</span>
+							<span className={s.tableDataTitleStyles}>Platinium</span>
 						</div>
 					</div>
 				</div>
-				{clinics.map((item) => (
+				{categories.map((item) => (
 					<div
 						className={s.tableContentContainer}
 						key={item.id}
@@ -348,8 +313,7 @@ function BuyCardPage({ cards, clinics }) {
           {
             selectPack === '6 months' && <div className={s.price}>150$</div>
           } */}
-					<div className={s.customDropdown}>
-						<span className={s.tablePriceTitleStyles}>50$</span>
+					{/* <div className={s.customDropdown}>
 						<div
 							className={s.customOpt}
 							onClick={() => setOpen(!open)}
@@ -380,22 +344,70 @@ function BuyCardPage({ cards, clinics }) {
 											setOpen(false);
 										}}
 									>
-										{e.title}
+										{'ragaca'}
 									</div>
 								);
 							})}
 						</div>
-					</div>
-					<Button
-						style={s.buttonActive}
-						name='Buy now'
-						onClick={() => {
-							sendRequest(card.id, card.amount).then((response) =>
-								console.log(response)
-							);
+					</div> */}
+					{/* {products.map((item) =>(
+						
+					)} */}
+					<Select
+						placeholder='Month'
+						label='Month'
+						className={s.buyDropDown}
+						options={[
+							{
+								label: '1 month',
+								value: '1',
+							},
+							{ label: '2 months', value: '2' },
+							{ label: '3 months', value: '3' },
+						]}
+						onChange={(value) => {
+							setMonth(value);
+						}}
+					/>
+
+					<Select
+						placeholder='Card type'
+						label='Card type'
+						className={s.buyDropDown}
+						options={products.map((item) => ({
+							label: item.cardName,
+							value: item.cardName,
+						}))}
+						value={cardType}
+						onChange={(options) => {
+							setCardType(options);
+						}}
+					/>
+					<Select
+						placeholder='Package'
+						label='Package'
+						className={s.buyDropDown}
+						options={[
+							{
+								label: 'Individually',
+								value: '1',
+							},
+							{ label: 'Family', value: '2' },
+						]}
+						onChange={(value) => {
+							setSelectPack(value);
 						}}
 					/>
 				</div>
+				<Button
+					style={s.buttonActive}
+					name='Buy now'
+					onClick={() => {
+						sendRequest(card.id, card.amount).then((response) =>
+							console.log(response)
+						);
+					}}
+				/>
 			</div>
 		</div>
 	);
@@ -406,7 +418,7 @@ const DropDown = ({ services, item }) => {
 	return (
 		<div className={s.customOptContainer}>
 			<span className={s.clinicNameStyle}>
-				{item.displayName}
+				{item.title}
 				<ReactSVG
 					className={classNames({
 						[s.titleArrowTransform]: dropDown,
@@ -461,10 +473,17 @@ export const getStaticProps = async () => {
 		`${API_URL}/asclepius/v1/api/transactions/cards/get-products?contractId=572`
 	);
 
+	const getCategories = await getData(`${API_URL}/asclepius/v1/api/categories`);
+
+	const getProducts = await getData(
+		`https://medical.pirveli.ge/medical/products/get-products`
+	);
 	return {
 		props: {
 			cards: getDoctors,
 			clinics: getClinics,
+			categories: getCategories,
+			products: getProducts,
 		},
 	};
 };

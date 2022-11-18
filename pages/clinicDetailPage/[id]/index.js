@@ -31,7 +31,7 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 		// setCardData(router.query)
 	}, [router.isReady]);
 
-	console.log('sdf', gallery);
+	console.log('id', branches);
 
 	const weekday = [
 		'',
@@ -83,8 +83,8 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 					</div>
 					<Text style={s.clinicNameText}>{cardData?.displayName}</Text>
 					{cardData?.workingHours
-						.sort((a, b) => a.dayId - b.dayId)
-						.map(
+						?.sort((a, b) => a.dayId - b.dayId)
+						?.map(
 							(item) => (
 								<div
 									key={item.id}
@@ -140,23 +140,25 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 					<Text style={s.aboutClinicText}>{cardData?.description}</Text>
 					<Text style={s.clinicInfoTitle}>Services</Text>
 					<div className={s.servicesContainer}>
-						<div className={s.serviceItem}>
-							<Image
-								alt='profile'
-								src='/Profile.svg'
-								width='24px'
-								height='24px'
-								style={{ paddingRight: '4px' }}
-							/>
-							<Text style={s.serviceTitle}>Doctors</Text>
-							<Image
-								alt='Arrow - Right'
-								src='/Arrow - Right 9.svg'
-								width='24px'
-								height='24px'
-								style={{ paddingRight: '4px' }}
-							/>
-						</div>
+						<Link href={{ pathname: '/doctors', query: { id: cardData?.id } }}>
+							<div className={s.serviceItem}>
+								<Image
+									alt='profile'
+									src='/Profile.svg'
+									width='24px'
+									height='24px'
+									style={{ paddingRight: '4px' }}
+								/>
+								<Text style={s.serviceTitle}>Doctors</Text>
+								<Image
+									alt='Arrow - Right'
+									src='/Arrow - Right 9.svg'
+									width='24px'
+									height='24px'
+									style={{ paddingRight: '4px' }}
+								/>
+							</div>
+						</Link>
 						{/* <Link href='clinic/analysis'>
 							<div className={s.serviceItem}>
 								<Image
@@ -230,7 +232,9 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 			</div>
 			<div className={s.imageTitleContainer}>
 				<div className={s.clinicTitleArrow}>
-					<Text style={s.clinicsTitleTextStyle}> Images of the clinic</Text>
+					<Text style={s.clinicsTitleTextStyle}>
+						{branches.length > 0 ? 'List of branches' : 'Images of the clinic'}
+					</Text>
 					<div className={s.imageSlider}> </div>
 				</div>
 
@@ -244,20 +248,25 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 						// swipeable={true}
 						// emulateTouch={true}
 					>
-						{gallery?.map((item) => {
-							return (
-								// <BranchPageCardItem
-								// 	key={item?.id}
-								// 	props={item}
-								// />
-								<img
-									key={item.id}
-									src={item.url}
-									height='228px'
-									width='28px'
-								/>
-							);
-						})}
+						{branches.length > 0
+							? branches?.map((item) => {
+									return (
+										<BranchPageCardItem
+											key={item?.id}
+											props={item}
+										/>
+									);
+							  })
+							: gallery?.map((item) => {
+									return (
+										<img
+											key={item.id}
+											src={item.url}
+											height='228px'
+											width='28px'
+										/>
+									);
+							  })}
 					</Carousel>
 				</div>
 			</div>

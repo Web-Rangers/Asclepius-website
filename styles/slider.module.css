@@ -1,6 +1,6 @@
 .slideshow {
 	flex-direction: column;
-	overflow: hidden;
+	/* overflow: hidden; */
 	margin: auto;
 	width: calc(100% - 0px);
 	max-width: calc(1440px - 50px);
@@ -80,8 +80,11 @@
 	line-height: 30px;
 	color: #797a80;
 	white-space: pre-line;
-	width: 455px;
+	width: 100%;
 	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 }
 .medicalCardsButtons {
 	display: flex;
@@ -92,7 +95,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 177px;
+	width: 196px;
 	height: 48px;
 	background: #ff1c00;
 	border-radius: 5px;
@@ -107,17 +110,18 @@
 	margin-bottom: 12px;
 }
 .downloadOrderBtn {
-	width: 146px;
+	width: 196px;
 	height: 48px;
 	background: #ffffff;
-	font-family: 'Noto Sans';
+	font-family: 'Avenir Next Bold';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 16px;
 	line-height: 22px;
-	color: #182372;
-	border: none;
+	color: #1e2837;
+	border: 1px solid rgba(151, 151, 151, 0.3);
 	border-radius: 5px;
+	cursor: pointer;
 }
 .linkCard {
 	color: #080809;
@@ -128,6 +132,13 @@
 	position: absolute;
 	right: 0;
 	top: 0;
+}
+.sliderImageTwo {
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding-top: 40px;
+	height: 495px;
 }
 
 .sliderImage {
@@ -150,11 +161,49 @@
 	background: #f7f9fb;
 }
 
-@media only screen and (max-width: 1200px) {
+.carousel {
+	width: calc(100% - 0px);
+	max-width: calc(1440px - 100px);
+	background: #f7f9fb;
+	height: 494px;
+	margin-bottom: 100px;
+	padding-bottom: 0px;
+}
+.dots {
+	margin-right: 19px;
+}
+
+@media only screen and (max-width: 1340px) {
 	.sliderImage {
 		display: none;
 	}
-	.sliderTextContent {
-		width: 1200px;
+	.sliderImageTwo {
+		display: none;
+	}
+	.content {
+		display: flex;
+		flex-direction: column;
+		vertical-align: top;
+		width: 132%;
+		height: 494px;
+		margin-right: 100px;
+		padding-top: 76px;
+		padding-left: 40px;
+		background-color: #f7f9fb;
+		padding-right: 100px;
+	}
+	.medicalCardText {
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 30px;
+		color: #797a80;
+		white-space: pre-line;
+		width: 70%;
+		margin-top: 20px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
 	}
 }
