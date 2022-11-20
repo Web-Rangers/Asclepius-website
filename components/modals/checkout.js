@@ -22,7 +22,7 @@ export default function Checkout({onClose, cards, cardType, users, setUsers}) {
 
     const [edit, setEdit] = useState(null);
 
-    // const findCard = cards?.filter((e)=> e.genericTransactionTypeId === cardType)[0];
+    const findCard = cards?.filter((e)=> e.genericTransactionTypeId === cardType)[0];
 
     function usersArray() {
         const manageUsersArray = users?.map((user)=> {
@@ -145,10 +145,10 @@ export default function Checkout({onClose, cards, cardType, users, setUsers}) {
                                         "intent": "AUTHORIZE",
                                         "items": [
                                             {
-                                            "amount": "0.01",
+                                            "amount": "0.01", //findCard?.entries[0].entryAmount
                                             "description": "regTest",
                                             "quantity": "1",
-                                            "product_id": "270"
+                                            "product_id": `${findCard?.genericTransactionTypeId}`
                                             }
                                         ],
                                         "locale": "ka",
@@ -158,10 +158,10 @@ export default function Checkout({onClose, cards, cardType, users, setUsers}) {
                                         "capture_method": "AUTOMATIC",
                                         "purchase_units": [
                                             {
-                                            "amount": {
-                                                "currency_code": "GEL",
-                                                "value": "0.01"
-                                            }
+                                                "amount": {
+                                                    "currency_code": "GEL",
+                                                    "value": "0.01" //findCard?.entries[0].entryAmount
+                                                }
                                             }
                                         ]
                                     },
