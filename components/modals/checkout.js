@@ -12,6 +12,7 @@ import 'dayjs/locale/zh-cn';
 import weekday from "dayjs/plugin/weekday";
 import localeData from "dayjs/plugin/localeData";
 import {postData} from '../request';
+import Router from 'next/router';
 
 dayjs.extend(weekday)
 dayjs.extend(localeData)
@@ -168,7 +169,7 @@ export default function Checkout({onClose, cards, cardType, users, setUsers}) {
                                     "customerDTOList": usersArray()
                                   },
                                 'POST'
-                            )}>Buy card</button>
+                            ).then(response=> Router.push(response?.links[1].href))}>Buy card</button>
                         </>
                     }
                 </div>

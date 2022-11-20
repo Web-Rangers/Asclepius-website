@@ -31,17 +31,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 		setIsOpen(false);
 	};
 
-	const [users, setUsers] = useState([
-		{
-			id: 0, 
-			name: 'George Fowler',
-			mail: 'georgefowler@gmail.com',
-			regId: null,
-			phone: '+995 599 99 99 63',
-			date: '2000-03-11',
-			idNumber: '012111099283'
-		}
-	])
+	const [users, setUsers] = useState([])
 
 	useEffect(() => {
 		if (window.innerWidth < 600) {
