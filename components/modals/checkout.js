@@ -11,6 +11,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import weekday from "dayjs/plugin/weekday";
 import localeData from "dayjs/plugin/localeData";
+import {postData} from '../request';
 
 dayjs.extend(weekday)
 dayjs.extend(localeData)
@@ -21,99 +22,25 @@ export default function Checkout({onClose, cards, cardType, users, setUsers}) {
 
     const [edit, setEdit] = useState(null);
 
-    const findCard = cards.filter((e)=> e.genericTransactionTypeId === cardType)[0];
+    // const findCard = cards?.filter((e)=> e.genericTransactionTypeId === cardType)[0];
 
-    async function buyCard() {
-        const bogRequest = {
-            intent: 'AUTHORIZE',
-            items: [
+    function usersArray() {
+        const manageUsersArray = users?.map((user)=> {
+            let userWithoutId = Object.keys(user).filter(key =>
+                key !== 'id').reduce((obj, key) =>
                 {
-                    amount: findCard?.entries[0].entryAmount, // price
-                    description: 'test',
-                    quantity: '1',
-                    product_id: findCard?.genericTransactionTypeId, // set card id 
-                },
-            ],
-            locale: 'ka',
-            shop_order_id: '123456',
-            redirect_url: 'https://bog-banking.pirveli.ge/callback/statusChange',
-            show_shop_order_id_on_extract: true,
-            capture_method: 'AUTOMATIC',
-            purchase_units: [
-                {
-                    amount: {
-                        currency_code: 'GEL',
-                        value: '0.01',
-                    },
-                },
-            ],
-        };
-
-        // const body = {
-        //     bog: bogRequest, 
-        //     family: {
-        //         userId: 123,
-        //         members: users
-        //     }
-        // }
-
-        try {
-			const req = await fetch('https://medical.pirveli.ge/medical/orders/create-order', {
-				method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    "bogOrderRequestDTO": {
-                        "user_id": null,
-                        "contract_id": null,
-                        "party_id": null,
-                        "bog_order_request_dto" : {
-                          "intent": "AUTHORIZE",
-                          "items": [
-                              {
-                              "amount": "0.01",
-                              "description": "regTest",
-                              "quantity": "1",
-                              "product_id": "270"
-                              }
-                          ],
-                          "locale": "ka",
-                          "shop_order_id": "123456",
-                          "redirect_url": "https://bog-banking.pirveli.ge/callback/statusChange",
-                          "show_shop_order_id_on_extract": true,
-                          "capture_method": "AUTOMATIC",
-                          "purchase_units": [
-                              {
-                              "amount": {
-                                  "currency_code": "GEL",
-                                  "value": "0.01"
-                              }
-                              }
-                          ]
-                        }
-                      },
-                    "customerDTOList": [
-                      {
-                        "regId": 0,
-                        "name": "string",
-                        "surname": "string",
-                        "idNumber": "string",
-                        "mail": "string",
-                        "date": "string",
-                        "gender": "string"
-                      }
-                    ]
-                  }),
-			});
-            const res = await req.json();
-
-            console.log(res)
-
-            return res
-		}catch(error){
-			console.log(error)
-		}
+                    obj[key] = user[key];
+                    return obj;
+                }, {}
+            );
+            
+            if(userWithoutId.mail) {
+                return {...userWithoutId, regId: null}
+            } else {
+                return {...userWithoutId, mail: null, regId: null}
+            }
+        })
+        return manageUsersArray
     }
 
     return <>
@@ -145,9 +72,6 @@ export default function Checkout({onClose, cards, cardType, users, setUsers}) {
                                         <div className={styles.userBlock}>
                                             <div className={styles.user}>
                                                 <div className={styles.userHead}>
-                                                    {/* <div className={styles.block}>
-                                                        <img src="/userImg.png" alt="" />
-                                                    </div> */}
                                                     <div className={styles.block}>
                                                         <h2>{user.name}</h2>
                                                         {
@@ -210,7 +134,41 @@ export default function Checkout({onClose, cards, cardType, users, setUsers}) {
                     {
                         users.length > 0 && 
                         <>
-                            <button className={styles.save} onClick={()=> buyCard()}>Buy card</button>
+                            <button className={styles.save} onClick={()=> postData(
+                                'https://medical.pirveli.ge/medical/orders/create-order', 
+                                {
+                                    "bank_name": "bog",
+                                    "party_id": null,
+                                    "contract_id": null,
+                                    "user_id": null,
+                                    "bog_order_request_dto" : {
+                                        "intent": "AUTHORIZE",
+                                        "items": [
+                                            {
+                                            "amount": "0.01",
+                                            "description": "regTest",
+                                            "quantity": "1",
+                                            "product_id": "270"
+                                            }
+                                        ],
+                                        "locale": "ka",
+                                        "shop_order_id": "123456",
+                                        "redirect_url": "https://bog-banking.pirveli.ge/callback/statusChange",
+                                        "show_shop_order_id_on_extract": true,
+                                        "capture_method": "AUTOMATIC",
+                                        "purchase_units": [
+                                            {
+                                            "amount": {
+                                                "currency_code": "GEL",
+                                                "value": "0.01"
+                                            }
+                                            }
+                                        ]
+                                    },
+                                    "customerDTOList": usersArray()
+                                  },
+                                'POST'
+                            )}>Buy card</button>
                         </>
                     }
                 </div>
