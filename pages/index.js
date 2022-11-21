@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from '../components/contents/Slider';
 import classes from '../styles/homePage.module.css';
 import ClinicCardList from '../components/contents/ClinicCardList';
@@ -14,15 +14,39 @@ import { useWindowSize } from '../components/useWindowSize';
 import { getData } from '../components/request';
 import { Carousel } from 'react-responsive-carousel';
 import MainSlider from '../components/contents/mainSlider';
+import { DownOutlined } from '@ant-design/icons';
+import { Dropdown, message, Space } from 'antd';
+
+const onClick = ({ key }) => {
+	message.info(`Click on item ${key}`);
+};
+const items = [
+	{
+		label: '1st menu item',
+		key: '1',
+	},
+	{
+		label: '2nd menu item',
+		key: '2',
+	},
+	{
+		label: '3rd menu item',
+		key: '3',
+	},
+];
 
 function Home({ clinics, doctors, frelancers }) {
 	const [clinicData, setClinicData] = useState([]);
 	const [doctorsData, setDoctorsData] = useState([]);
 	const [imgData, setImgData] = useState([]);
 
-	const allData = frelancers?.content?.concat(doctors?.content);
+	const allData = frelancers?.content
+		?.concat(doctors?.content)
+		.sort(function (a, b) {
+			return a.id > b.id ? -1 : a.id > b.id ? 1 : 0;
+		});
 
-	console.log('free'.frelancers);
+	console.log('doctr', allData);
 
 	const catalogData = [
 		{ name: 'ყველა კატეგორია' },
@@ -94,6 +118,19 @@ function Home({ clinics, doctors, frelancers }) {
 			{/* <div className={classes.dropDownContainer}>
 				<span>hello</span>
 			</div> */}
+			<Dropdown
+				menu={{
+					items,
+					onClick,
+				}}
+			>
+				<a onClick={(e) => e.preventDefault()}>
+					<Space>
+						Hover me, Click menu item
+						<DownOutlined />
+					</Space>
+				</a>
+			</Dropdown>
 			<div>
 				<div className={classes.firstPart}>
 					<div className={classes.showSlider}>
@@ -207,7 +244,12 @@ export const getServerSideProps = async () => {
 
 	return {
 		props: {
-			clinics: getClinics?.length === 0 ? null : getClinics,
+			clinics:
+				getClinics?.length === 0
+					? null
+					: getClinics.sort(function (a, b) {
+							return a.regDate > b.regDate ? -1 : a.regDate > b.regDate ? 1 : 0;
+					  }),
 			doctors: getDoctors?.length === 0 ? null : getDoctors,
 			frelancers: getFreelancerDoc?.length === 0 ? null : getFreelancerDoc,
 		},

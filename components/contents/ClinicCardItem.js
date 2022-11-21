@@ -31,17 +31,18 @@ const ClinicCardItem = (props) => {
 						height='194px'
 					/>
 				</div>
-				<h2 className={classes.clinicNameText}>{props.clinicName}</h2>
-
-				<Text style={classes.clinicAddressText}>
-					<Image
-						src='/map-pin 1.svg'
-						alt=''
-						width='16.67px'
-						height='15.04'
-					/>
-					{props.clinicAddress}
-				</Text>
+				<div>
+					<h2 className={classes.clinicNameText}>{props.clinicName}</h2>
+					<Text style={classes.clinicAddressText}>
+						<Image
+							src='/map-pin 1.svg'
+							alt=''
+							width='16.67px'
+							height='15.04'
+						/>
+						{props.clinicAddress}
+					</Text>
+				</div>
 			</div>
 		</Link>
 	);
