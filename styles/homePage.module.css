@@ -757,7 +757,7 @@
 		display: none;
 	}
 	.imgPart {
-		height: 80%;
+		/* height: 80%; */
 	}
 	.doctorCardList {
 		display: flex;

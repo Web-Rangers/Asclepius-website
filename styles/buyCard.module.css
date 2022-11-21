@@ -66,6 +66,14 @@
 	align-items: center;
 	margin-bottom: 48px;
 }
+
+.cardImgContainer {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	gap: 63.06px;
+	margin-bottom: 60px;
+}
 /* table  */
 
 .table {

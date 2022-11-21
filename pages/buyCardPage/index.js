@@ -25,7 +25,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 
 	const [checkout, setCheckout] = useState(false);
 
-  const openModal = () => {
+	const openModal = () => {
 		setIsOpen(true);
 	};
 
@@ -35,14 +35,14 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 
 	const [users, setUsers] = useState([
 		{
-			id: 0, 
+			id: 0,
 			name: 'George Fowler',
 			mail: 'georgefowler@gmail.com',
 			phone: '+995 599 99 99 63',
 			date: '11.03.2000',
-			idNumber: '012111099283'
-		}
-	])
+			idNumber: '012111099283',
+		},
+	]);
 
 	useEffect(() => {
 		if (window.innerWidth < 600) {
@@ -212,172 +212,204 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 		},
 	}));
 
-	return <>
-		{checkout && <Checkout cards={cards} cardType={cardType} users={users} onClose={()=> setCheckout(false)} setUsers={(e)=> setUsers(e)} />}
-		<div className={s.container}>
-			<div className={s.firstPart}>
-				<div className={s.headerContainer}>
-					<div className={s.headerContainerLeft}>
-						<Text style={s.headerContainerTitle}>How to buy a card ?</Text>
-						<div className={s.buyCardStep}>
-							<div>
-								<Text style={s.headerContainerNumber}>01</Text>
-								<Text style={s.headerContainerText}>
-									Choose the desired card
-								</Text>
-							</div>
-							<div>
-								<Text style={s.headerContainerNumber}>02</Text>
-								<Text style={s.headerContainerText}>
-									Add your personal data
-								</Text>
-							</div>
-							<div>
-								<Text style={s.headerContainerNumber}>03</Text>
-								<Text style={s.headerContainerText}>
-									Add your personal card and pay
-								</Text>
-							</div>
-						</div>
-					</div>
-					<div className={s.headerContainerRight}>
-						<div className={s.headerBg}></div>
-					</div>
-				</div>
-			</div>
-			<div className={s.forMobile}>
-				<CardPrice
-					withoutHeader
-					onClick={openModal}
+	return (
+		<>
+			{checkout && (
+				<Checkout
+					cards={cards}
+					cardType={cardType}
+					users={users}
+					onClose={() => setCheckout(false)}
+					setUsers={(e) => setUsers(e)}
 				/>
-			</div>
-			<Modal
-				isOpen={modalIsOpen}
-				onRequestClose={closeModal}
-				style={customStyles}
-				contentLabel='Example Modal'
-			>
-				<CardCheckoutModal closeModal={closeModal} />
-			</Modal>
-			<div className={s.chooseCardContainer}>
-				<div className={s.headerContainerTitle}>
-					<Text>Choose exactly what you need</Text>
-				</div>
-
-				<div className={s.switcher}>
-					<div>
-						<FormGroup>
-							<Stack
-								direction='row'
-								spacing={1}
-								alignItems='center'
-							>
-								<Typography className={style.switcherLabel}>
-									ინდივიდუალური
-								</Typography>
-
-								<AntSwitch
-									checked={checked}
-									onChange={(e) => setChecked(e.target.checked)}
-									defaultChecked
-									inputProps={{ 'aria-label': 'ant design' }}
-								/>
-								<Typography className={style.switcherLabel}>საოჯახო</Typography>
-							</Stack>
-						</FormGroup>
-					</div>
-				</div>
-
-				<div className={s.table}>
-					<div className={s.tableHeader}>
-						<span className={s.clinicTitleStyles}>პარტნიორები</span>
-					</div>
-					<div className={s.tableColumnTitle}>
-						<div className={s.columnTitleContainer}>
-							<span className={s.tablePriceTitleStyles}>50$</span>
-							<span className={s.tableDataTitleStyles}>Silver</span>
+			)}
+			<div className={s.container}>
+				<div className={s.firstPart}>
+					<div className={s.headerContainer}>
+						<div className={s.headerContainerLeft}>
+							<Text style={s.headerContainerTitle}>How to buy a card ?</Text>
+							<div className={s.buyCardStep}>
+								<div>
+									<Text style={s.headerContainerNumber}>01</Text>
+									<Text style={s.headerContainerText}>
+										Choose the desired card
+									</Text>
+								</div>
+								<div>
+									<Text style={s.headerContainerNumber}>02</Text>
+									<Text style={s.headerContainerText}>
+										Add your personal data
+									</Text>
+								</div>
+								<div>
+									<Text style={s.headerContainerNumber}>03</Text>
+									<Text style={s.headerContainerText}>
+										Add your personal card and pay
+									</Text>
+								</div>
+							</div>
 						</div>
-						<div className={s.columnTitleContainer}>
-							<span className={s.tablePriceTitleStyles}>100$</span>
-							<span className={s.tableDataTitleStyles}>Gold</span>
-						</div>
-						<div className={s.columnTitleContainer}>
-							<span className={s.tablePriceTitleStyles}>150$$</span>
-							<span className={s.tableDataTitleStyles}>Platinium</span>
+						<div className={s.headerContainerRight}>
+							<div className={s.headerBg}></div>
 						</div>
 					</div>
 				</div>
-				{categories.map((item) => (
-					<div
-						className={s.tableContentContainer}
-						key={item.id}
-					>
-						<DropDown
-							item={item}
-							services={services}
+				<div className={s.forMobile}>
+					<CardPrice
+						withoutHeader
+						onClick={openModal}
+					/>
+				</div>
+				<Modal
+					isOpen={modalIsOpen}
+					onRequestClose={closeModal}
+					style={customStyles}
+					contentLabel='Example Modal'
+				>
+					<CardCheckoutModal closeModal={closeModal} />
+				</Modal>
+				<div className={s.chooseCardContainer}>
+					<div className={s.headerContainerTitle}>
+						<Text>Choose exactly what you need</Text>
+					</div>
+
+					<div className={s.switcher}>
+						<div>
+							<FormGroup>
+								<Stack
+									direction='row'
+									spacing={1}
+									alignItems='center'
+								>
+									<Typography className={style.switcherLabel}>
+										ინდივიდუალური
+									</Typography>
+
+									<AntSwitch
+										checked={checked}
+										onChange={(e) => setChecked(e.target.checked)}
+										defaultChecked
+										inputProps={{ 'aria-label': 'ant design' }}
+									/>
+									<Typography className={style.switcherLabel}>
+										საოჯახო
+									</Typography>
+								</Stack>
+							</FormGroup>
+						</div>
+					</div>
+					<div className={s.cardImgContainer}>
+						<img
+							src='/Card1.svg'
+							alt='silverCard'
+							width='344px'
+							height='202px'
+						/>
+						<img
+							src='/Card2.svg'
+							alt='silverCard'
+							width='344px'
+							height='202px'
+						/>
+						<img
+							src='/Card3.svg'
+							alt='silverCard'
+							width='344px'
+							height='202px'
 						/>
 					</div>
-				))}
-				<div className={s.buttonContainer}>
-					<Select
-						placeholder='Month'
-						label='Month'
-						className={s.buyDropDown}
-						options={[
-							{
-								label: '1 month',
-								value: '1',
-							},
-							{ label: '2 months', value: '2' },
-							{ label: '3 months', value: '3' },
-						]}
-						onChange={(value) => {
-							setMonth(value);
-						}}
-					/>
 
-					<Select
-						placeholder='Card type'
-						label='Card type'
-						className={s.buyDropDown}
-						options={products.map((item) => ({
-							label: item.cardName,
-							value: item.genericTransactionTypeId,
-						}))}
-						value={cardType}
-						onChange={(options) => {
-							setCardType(options);
-						}}
-					/>
-					<Select
-						placeholder='Package'
-						label='Package'
-						className={s.buyDropDown}
-						options={[
-							{
-								label: 'Individually',
-								value: '1',
-							},
-							{ label: 'Family', value: '2' },
-						]}
-						onChange={(value) => {
-							setSelectPack(value);
-						}}
-					/>
-					<Button
-						style={s.buttonActive}
-						name='Buy now'
-						onClick={() => {
-							// sendRequest(card.id, card.amount).then((response) =>
-							// 	console.log(response)
-							// );
-							setCheckout(!checkout)
-						}}
-					/>
+					<div className={s.table}>
+						<div className={s.tableHeader}>
+							<span className={s.clinicTitleStyles}>პარტნიორები</span>
+						</div>
+						<div className={s.tableColumnTitle}>
+							<div className={s.columnTitleContainer}>
+								<span className={s.tablePriceTitleStyles}>50$</span>
+								<span className={s.tableDataTitleStyles}>Silver</span>
+							</div>
+							<div className={s.columnTitleContainer}>
+								<span className={s.tablePriceTitleStyles}>100$</span>
+								<span className={s.tableDataTitleStyles}>Gold</span>
+							</div>
+							<div className={s.columnTitleContainer}>
+								<span className={s.tablePriceTitleStyles}>150$$</span>
+								<span className={s.tableDataTitleStyles}>Platinium</span>
+							</div>
+						</div>
+					</div>
+					{categories.map((item) => (
+						<div
+							className={s.tableContentContainer}
+							key={item.id}
+						>
+							<DropDown
+								item={item}
+								services={services}
+							/>
+						</div>
+					))}
+					<div className={s.buttonContainer}>
+						<Select
+							placeholder='Month'
+							label='Month'
+							className={s.buyDropDown}
+							options={[
+								{
+									label: '1 month',
+									value: '1',
+								},
+								{ label: '2 months', value: '2' },
+								{ label: '3 months', value: '3' },
+							]}
+							onChange={(value) => {
+								setMonth(value);
+							}}
+						/>
+
+						<Select
+							placeholder='Card type'
+							label='Card type'
+							className={s.buyDropDown}
+							options={products.map((item) => ({
+								label: item.cardName,
+								value: item.genericTransactionTypeId,
+							}))}
+							value={cardType}
+							onChange={(options) => {
+								setCardType(options);
+							}}
+						/>
+						<Select
+							placeholder='Package'
+							label='Package'
+							className={s.buyDropDown}
+							options={[
+								{
+									label: 'Individually',
+									value: '1',
+								},
+								{ label: 'Family', value: '2' },
+							]}
+							onChange={(value) => {
+								setSelectPack(value);
+							}}
+						/>
+						<Button
+							style={s.buttonActive}
+							name='Buy now'
+							onClick={() => {
+								// sendRequest(card.id, card.amount).then((response) =>
+								// 	console.log(response)
+								// );
+								setCheckout(!checkout);
+							}}
+						/>
+					</div>
 				</div>
 			</div>
-		</div>
-	</>
+		</>
+	);
 }
 
 const DropDown = ({ services, item }) => {

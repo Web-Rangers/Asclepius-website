@@ -313,20 +313,20 @@ export default function Doctors({ frelancers, doctors, clinicDoctors }) {
 								>
 									<div className={styles.doctor}>
 										<div className={styles.poster}>
-											<div className={styles.doctorStar}>
+											{/* <div className={styles.doctorStar}>
 												<img
 													src='/whiteStar.svg'
 													alt=''
 												/>
 												<span>4.9</span>
-											</div>
+											</div> */}
 											<img
 												className={styles.doctorImage}
 												src={doctor?.pictureUrl}
 												alt=''
 											/>
 										</div>
-										<div className={styles.doctorContact}>
+										{/* <div className={styles.doctorContact}>
 											<div className={styles.contact}>
 												<img
 													className={styles.video}
@@ -341,7 +341,7 @@ export default function Doctors({ frelancers, doctors, clinicDoctors }) {
 													alt=''
 												/>
 											</div>
-										</div>
+										</div> */}
 										<div className={styles.doctorInfo}>
 											<div className={styles.doctorName}>
 												<h2>{`${doctor?.firstName}`}</h2>
