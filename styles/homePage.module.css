@@ -164,6 +164,16 @@
 	font-size: 26px;
 	line-height: 28px;
 	color: #1e2837;
+	/* margin-top: 72px; */
+	height: 38px;
+}
+.ourDoctorTextStyle {
+	font-family: 'Avenir Next Bold';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 26px;
+	line-height: 28px;
+	color: #1e2837;
 	margin-top: 72px;
 	height: 38px;
 }

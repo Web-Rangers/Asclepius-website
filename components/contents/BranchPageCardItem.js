@@ -8,8 +8,6 @@ import Link from 'next/link';
 const BranchPageCardItem = ({ props }) => {
 	const router = useRouter();
 
-	console.log('props', props);
-
 	const weekday = [
 		'',
 		'Monday',
@@ -76,11 +74,15 @@ const BranchPageCardItem = ({ props }) => {
 						/>
 						{props?.address?.address}
 					</Text>
-					{/* <Button
-					type='submit'
-					name='View Clinic'
-					style={s.viewClinicBtn}
-				/> */}
+					{/* {viewBtn && (
+						<Link href={`/clinicDetailPage/${props?.id}`}>
+							<Button
+								type='submit'
+								name='View Clinic'
+								style={s.viewClinicBtn}
+							/>
+						</Link>
+					)} */}
 				</div>
 			</div>
 		</Link>

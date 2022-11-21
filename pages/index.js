@@ -14,8 +14,6 @@ import { useWindowSize } from '../components/useWindowSize';
 import { getData } from '../components/request';
 import { Carousel } from 'react-responsive-carousel';
 import MainSlider from '../components/contents/mainSlider';
-import { DownOutlined } from '@ant-design/icons';
-import { Dropdown, message, Space } from 'antd';
 
 const onClick = ({ key }) => {
 	message.info(`Click on item ${key}`);
@@ -115,22 +113,6 @@ function Home({ clinics, doctors, frelancers }) {
 					</span>
 				))}
 			</div>
-			{/* <div className={classes.dropDownContainer}>
-				<span>hello</span>
-			</div> */}
-			<Dropdown
-				menu={{
-					items,
-					onClick,
-				}}
-			>
-				<a onClick={(e) => e.preventDefault()}>
-					<Space>
-						Hover me, Click menu item
-						<DownOutlined />
-					</Space>
-				</a>
-			</Dropdown>
 			<div>
 				<div className={classes.firstPart}>
 					<div className={classes.showSlider}>

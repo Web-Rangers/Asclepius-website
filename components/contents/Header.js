@@ -53,7 +53,6 @@ const Header = () => {
 						<div className={classes.searchInputMobile}>
 							<input
 								type='search'
-								placeholder='Search...'
 								value={searchInput}
 								onChange={handleChange}
 							/>

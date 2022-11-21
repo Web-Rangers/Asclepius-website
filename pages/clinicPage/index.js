@@ -13,17 +13,19 @@ import FilterModal from '../../components/modals/filterModal';
 import Select from '../../components/Select';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
+import { getData } from '../../components/request';
+import ClinicCardItem from '../../components/contents/ClinicCardItem';
 
 let PageSize = 4;
 
-function ClinicsPage() {
+function ClinicsPage({ clinics }) {
 	const [modalIsOpen, setIsOpen] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [searchInput, setSearchInput] = useState('');
 	const [customStyles, setCustomStyles] = useState({});
 	const [modalOpen, setOpen] = useState(false);
 	const [value, setValue] = useState([0, 100]);
-	const [filterData, setFilterData] = useState(clinicArrayData);
+	const [filterData, setFilterData] = useState(clinics);
 
 	const handleChangeRange = (event, newValue) => {
 		setValue(newValue);
@@ -211,16 +213,10 @@ function ClinicsPage() {
 			</div>
 			<div className={s.clinicPageCardListContainer}>
 				{currentTableData.map((item) => (
-					<BranchPageCardItem
-						key={item.id}
-						alt={item.alt}
-						clinicName={item.clinicName}
-						workingDay={item.workingDay}
-						workingHours={item.workingHours}
-						clinicAddress={item.clinicAddress}
-						rating={item.rating}
+					<ClinicCardItem
+						key={item?.id}
 						data={item}
-						sale={item.sale}
+						listItem={true}
 					/>
 				))}
 			</div>
@@ -234,5 +230,24 @@ function ClinicsPage() {
 		</div>
 	);
 }
+
+export const getServerSideProps = async () => {
+	let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+	const getClinics = await getData(
+		`${API_URL}/asclepius/v1/api/clinics/search?name=`
+	);
+
+	return {
+		props: {
+			clinics:
+				getClinics?.length === 0
+					? null
+					: getClinics.sort(function (a, b) {
+							return a.regDate > b.regDate ? -1 : a.regDate > b.regDate ? 1 : 0;
+					  }),
+		},
+	};
+};
 
 export default ClinicsPage;

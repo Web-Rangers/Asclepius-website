@@ -8,6 +8,15 @@
 	cursor: pointer;
 }
 
+.cardItem {
+	display: inline-block;
+	width: 330;
+	min-height: 577px;
+	border: 1px solid #efefef;
+	margin-right: 1.3%;
+	margin-bottom: 39px;
+}
+
 .cardItemContainer:last-child {
 	margin-right: 0;
 }
@@ -23,10 +32,19 @@
 	height: auto;
 }
 
+.clinicItemImage {
+	width: 100%;
+	height: 280px;
+	margin-bottom: 25px;
+	height: auto;
+	display: flex;
+	object-fit: cover;
+}
+
 .clinicPageCardListContainer {
 	display: flex;
 	justify-content: flex-start;
-	gap: 0;
+	gap: 0px;
 	margin-bottom: 153px;
 }
 .imgPart {
@@ -35,6 +53,15 @@
 	position: relative;
 	overflow: hidden;
 	margin-bottom: 25px;
+	width: 327px;
+	height: 290px;
+	object-fit: cover;
+}
+.clinicImage {
+	display: flex;
+	justify-content: flex-end;
+	position: relative;
+	overflow: hidden;
 	width: 327px;
 	height: 290px;
 }
@@ -83,6 +110,7 @@
 	font-size: 14px;
 	line-height: 19px;
 	border: none;
+	cursor: pointer;
 }
 
 .rangeContainer {

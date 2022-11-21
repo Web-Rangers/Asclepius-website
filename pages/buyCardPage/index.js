@@ -31,7 +31,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 		setIsOpen(false);
 	};
 
-	const [users, setUsers] = useState([])
+	const [users, setUsers] = useState([]);
 
 	useEffect(() => {
 		if (window.innerWidth < 600) {
@@ -135,40 +135,43 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 			boxSizing: 'border-box',
 		},
 	}));
-	
-	console.log(products)
-	return <>
-		{checkout && 
-			<Checkout 
-				cards={products} 
-				cardType={cardType} 
-				users={users} 
-				onClose={()=> setCheckout(false)} 
-				setUsers={(e)=> setUsers(e)}
-			/>}
-		<div className={s.container}>
-			<div className={s.firstPart}>
-				<div className={s.headerContainer}>
-					<div className={s.headerContainerLeft}>
-						<Text style={s.headerContainerTitle}>How to buy a card ?</Text>
-						<div className={s.buyCardStep}>
-							<div>
-								<Text style={s.headerContainerNumber}>01</Text>
-								<Text style={s.headerContainerText}>
-									Choose the desired card
-								</Text>
-							</div>
-							<div>
-								<Text style={s.headerContainerNumber}>02</Text>
-								<Text style={s.headerContainerText}>
-									Add your personal data
-								</Text>
-							</div>
-							<div>
-								<Text style={s.headerContainerNumber}>03</Text>
-								<Text style={s.headerContainerText}>
-									Add your personal card and pay
-								</Text>
+
+	console.log(products);
+	return (
+		<>
+			{checkout && (
+				<Checkout
+					cards={products}
+					cardType={cardType}
+					users={users}
+					onClose={() => setCheckout(false)}
+					setUsers={(e) => setUsers(e)}
+				/>
+			)}
+			<div className={s.container}>
+				<div className={s.firstPart}>
+					<div className={s.headerContainer}>
+						<div className={s.headerContainerLeft}>
+							<Text style={s.headerContainerTitle}>How to buy a card ?</Text>
+							<div className={s.buyCardStep}>
+								<div>
+									<Text style={s.headerContainerNumber}>01</Text>
+									<Text style={s.headerContainerText}>
+										Choose the desired card
+									</Text>
+								</div>
+								<div>
+									<Text style={s.headerContainerNumber}>02</Text>
+									<Text style={s.headerContainerText}>
+										Add your personal data
+									</Text>
+								</div>
+								<div>
+									<Text style={s.headerContainerNumber}>03</Text>
+									<Text style={s.headerContainerText}>
+										Add your personal card and pay
+									</Text>
+								</div>
 							</div>
 						</div>
 						<div className={s.headerContainerRight}>
@@ -207,57 +210,52 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 										ინდივიდუალური
 									</Typography>
 
-								<AntSwitch
-									checked={checked}
-									onChange={(e) => {setPaymentType(e.target.ariaChecked); setChecked(e.target.checked)}}
-									defaultChecked
-									inputProps={{ 'aria-label': 'ant design', 'aria-checked': checked ? 'individual' : 'family' }}
-									checkedChildren="YESxasdiasldkasjdljasd" 
-									unCheckedChildren="NOasdkhasjkdhsakjdhksajd"
-								/>
-								<Typography className={style.switcherLabel}>საოჯახო</Typography>
-							</Stack>
-						</FormGroup>
-					</div>
-					<div className={s.cardImgContainer}>
-						<img
-							src='/Card1.svg'
-							alt='silverCard'
-							width='344px'
-							height='202px'
-						/>
-						<img
-							src='/Card2.svg'
-							alt='silverCard'
-							width='344px'
-							height='202px'
-						/>
-						<img
-							src='/Card3.svg'
-							alt='silverCard'
-							width='344px'
-							height='202px'
-						/>
+									<AntSwitch
+										checked={checked}
+										onChange={(e) => {
+											setPaymentType(e.target.ariaChecked);
+											setChecked(e.target.checked);
+										}}
+										defaultChecked
+										inputProps={{
+											'aria-label': 'ant design',
+											'aria-checked': checked ? 'individual' : 'family',
+										}}
+										checkedChildren='YESxasdiasldkasjdljasd'
+										unCheckedChildren='NOasdkhasjkdhsakjdhksajd'
+									/>
+									<Typography className={style.switcherLabel}>
+										საოჯახო
+									</Typography>
+								</Stack>
+							</FormGroup>
+						</div>
 					</div>
 
 					<div className={s.table}>
 						<div className={s.tableHeader}>
 							<span className={s.clinicTitleStyles}>პარტნიორები</span>
 						</div>
-						<div className={s.tableColumnTitle}>
-							<div className={s.columnTitleContainer}>
-								<span className={s.tablePriceTitleStyles}>50$</span>
-								<span className={s.tableDataTitleStyles}>Silver</span>
-							</div>
-							<div className={s.columnTitleContainer}>
+						{products.map((item) => (
+							<div className={s.tableColumnTitle}>
+								<div className={s.columnTitleContainer}>
+									<span className={s.tablePriceTitleStyles}>
+										{checked ? item.priseFamily : item.priseInd}
+									</span>
+									<span className={s.tableDataTitleStyles}>
+										{item.cardName}
+									</span>
+								</div>
+								{/* <div className={s.columnTitleContainer}>
 								<span className={s.tablePriceTitleStyles}>100$</span>
 								<span className={s.tableDataTitleStyles}>Gold</span>
 							</div>
 							<div className={s.columnTitleContainer}>
 								<span className={s.tablePriceTitleStyles}>150$$</span>
 								<span className={s.tableDataTitleStyles}>Platinium</span>
+							</div> */}
 							</div>
-						</div>
+						))}
 					</div>
 					{categories.map((item) => (
 						<div
@@ -287,42 +285,46 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 								setMonth(value);
 							}}
 						/>
-					<Select
-						placeholder='Card type'
-						label='Card type'
-						className={s.buyDropDown}
-						options={products && products?.map((item) => ({
-							label: item.cardName,
-							value: item.genericTransactionTypeId,
-						}))}
-						value={cardType}
-						onChange={(options) => {
-							setCardType(options);
-						}}
-					/>
-					<Select
-						placeholder='Package'
-						label='Package'
-						className={s.buyDropDown}
-						options={[
-							{
-								label: 'Individually',
-								value: '1',
-							},
-							{ label: 'Family', value: '2' },
-						]}
-						onChange={(value) => {
-							setSelectPack(value);
-						}}
-					/>
-					<Button
-						style={s.buttonActive}
-						name='Buy now'
-						onClick={() => {
-							// paymentType == 'family' ? 
-								(cardType && setCheckout(!checkout)) 
+
+						<Select
+							placeholder='Card type'
+							label='Card type'
+							className={s.buyDropDown}
+							options={
+								products &&
+								products?.map((item) => ({
+									label: item.cardName,
+									value: item.genericTransactionTypeId,
+								}))
+							}
+							value={cardType}
+							onChange={(options) => {
+								setCardType(options);
+							}}
+						/>
+						<Select
+							placeholder='Package'
+							label='Package'
+							className={s.buyDropDown}
+							options={[
+								{
+									label: 'Individually',
+									value: '1',
+								},
+								{ label: 'Family', value: '2' },
+							]}
+							onChange={(value) => {
+								setSelectPack(value);
+							}}
+						/>
+						<Button
+							style={s.buttonActive}
+							name='Buy now'
+							onClick={() => {
+								// paymentType == 'family' ?
+								cardType && setCheckout(!checkout);
 								// (cardType && postData(
-								// 	'https://medical.pirveli.ge/medical/orders/create-order', 
+								// 	'https://medical.pirveli.ge/medical/orders/create-order',
 								// 	{
 								// 		"bogOrderRequest_dto": {
 								// 			"user_id": null,
@@ -357,8 +359,9 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 								// 	},
 								// 	'POST'
 								// ))
-						}}
-					/>
+							}}
+						/>
+					</div>
 				</div>
 			</div>
 		</>

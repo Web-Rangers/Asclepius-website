@@ -38,7 +38,7 @@ const DoctorCardList = ({ doctorsData }) => {
 				<div className={classes.clinicCardContainerTitle}>
 					{/* <Text style={classes.serviceTextStyle}>Popular</Text> */}
 					<div className={classes.arrows}>
-						<Text style={classes.ourClinicTextStyle}>ექიმები</Text>
+						<Text style={classes.ourDoctorTextStyle}>ექიმები</Text>
 					</div>
 				</div>
 				<div

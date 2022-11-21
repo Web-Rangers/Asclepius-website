@@ -20,7 +20,6 @@
 	line-height: 28px;
 	color: #1e2837;
 	padding-left: 7px;
-	/* margin-left: 76px; */
 }
 
 .container {
@@ -271,7 +270,11 @@
 	line-height: 22px;
 	color: #797a80;
 }
-
+.swipperContainer {
+	width: calc(100% - 20px);
+	max-width: 1340px;
+	margin: auto;
+}
 /* specific clinic page */
 
 .clinicOfferCardContainer {

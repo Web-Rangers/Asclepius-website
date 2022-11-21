@@ -9,6 +9,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import { useState, useEffect } from 'react';
 import { getData } from '../../../components/request';
+import { Swipper } from '../../../components/contents/Swipper';
 
 const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 	const router = useRouter();
@@ -31,7 +32,7 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 		// setCardData(router.query)
 	}, [router.isReady]);
 
-	console.log('id', branches);
+	console.log('id', cardData);
 
 	const weekday = [
 		'',
@@ -237,9 +238,12 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 					</Text>
 					<div className={s.imageSlider}> </div>
 				</div>
-
+				<Swipper
+					data={gallery}
+					branches={branches}
+				/>
 				<div className={s.clinicContainerScroll}>
-					<Carousel
+					{/* <Carousel
 						className={s.carousel}
 						showStatus={false}
 						showIndicators={false}
@@ -267,7 +271,7 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 										/>
 									);
 							  })}
-					</Carousel>
+					</Carousel> */}
 				</div>
 			</div>
 		</div>
