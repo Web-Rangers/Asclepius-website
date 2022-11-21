@@ -170,16 +170,14 @@ const Card = () => {
 				<div className={style.Starter}>
 					<div className={style.cardTitles}>
 						<span className={style.cardTitleText}>Starter</span>
-						<span className={style.tableValueSec}> Billed Individually</span>
+						<span className={style.tableValueSec}>
+							<span>{cardType ? '$15' : '$10'}</span> Billed Individually
+						</span>
 					</div>
 					{featuresData.map((item, index) => (
 						<div
 							key={item.id}
-							className={
-								index % 2 === 0
-									? style.tableValuesContainer
-									: style.tableValuesContainerSec
-							}
+							className={style.tableValuesContainer}
 						>
 							<span
 								className={
@@ -211,7 +209,6 @@ const Card = () => {
 						<span className={style.recommendedStyle}>Recommended</span>
 						<span className={style.cardTitleText}>Pro</span>
 						<span className={style.tableValueSec}>
-							{' '}
 							<span>{cardType ? '$15' : '$10'}</span> Billed Individually
 						</span>
 					</div>
@@ -259,11 +256,7 @@ const Card = () => {
 					{featuresData.map((item, index) => (
 						<div
 							key={item.id}
-							className={
-								index % 2 === 0
-									? style.tableValuesContainer
-									: style.tableValuesContainerSec
-							}
+							className={style.tableValuesContainer}
 						>
 							<span
 								className={
