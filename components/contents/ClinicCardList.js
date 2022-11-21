@@ -23,11 +23,18 @@ const ClinicCardList = ({ clinicsData }) => {
 		setData(clinicsData?.filter((e, i) => i < 4));
 	}, [clinicsData]);
 
-	console.log('clinics data', clinicsData);
 	return (
 		<div className={classes.clinicCardContainer}>
 			<div className={classes.firstPart}>
 				<Card />
+				<div
+					className={classes.showBtn}
+					onClick={() => {
+						router.push('/buyCardPage');
+					}}
+				>
+					{'მეტი'}
+				</div>
 				<div className={classes.clinicCardContainerTitle}>
 					{/* <Text style={classes.serviceTextStyle}>Services</Text> */}
 					<div className={classes.arrows}>
@@ -61,7 +68,7 @@ const ClinicCardList = ({ clinicsData }) => {
 						showMoreFunc();
 					}}
 				>
-					{!state ? 'მეტი' : 'ნაკლები'}
+					{!state ? 'მეტი' : 'მეტი'}
 				</div>
 			</div>
 		</div>

@@ -28,6 +28,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-stars": "^2.2.5",
     "react-svg": "^15.1.6",
+    "swiper": "^8.4.4",
     "twilio-video": "^2.24.1",
     "use-twilio-video": "^0.1.1"
   },

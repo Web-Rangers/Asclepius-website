@@ -6,6 +6,7 @@ import Header from '../components/contents/Header';
 import SignUpFooter from '../components/contents/SignUpFooter';
 import classes from '../styles/headerFooter.module.css';
 import { useRouter } from 'next/router';
+import Script from 'next/script';
 
 import {
 	Hydrate,
@@ -50,6 +51,16 @@ function MyApp({ Component, pageProps }) {
 				<Hydrate state={pageProps.dehidratedState}>
 					{hideHeader ? signUp ? <SignUpHeader /> : <Header /> : null}
 					{getLayout(<Component {...pageProps} />)}
+					<Script
+						strategy='afterInteractive'
+						dangerouslySetInnerHTML={{
+							__html: `(function(d, w, s) {
+								var widgetHash = 'UwPgnPMNck3Zi0wl06Xw', bch = d.createElement(s); bch.type = 'text/javascript'; bch.async = true;
+								bch.src = '//widgets.binotel.com/chat/widgets/' + widgetHash + '.js';
+								var sn = d.getElementsByTagName(s)[0]; sn.parentNode.insertBefore(bch, sn);
+							})(document, window, 'script');`,
+						}}
+					/>
 					{hideHeader ? signUp ? <SignUpFooter /> : <Footer /> : null}
 				</Hydrate>
 			</QueryClientProvider>

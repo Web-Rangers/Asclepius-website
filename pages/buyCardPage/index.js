@@ -16,23 +16,23 @@ import Typography from '@mui/material/Typography';
 import style from '../../styles/components/card.module.css';
 import Select from '../../components/Select';
 import Checkout from '../../components/modals/checkout';
-
+​
 function BuyCardPage({ cards, clinics, categories, products }) {
 	const [modalIsOpen, setIsOpen] = useState(false);
 	const [customStyles, setCustomStyles] = useState({});
-
+​
 	const [checkout, setCheckout] = useState(false);
-
+​
   const openModal = () => {
 		setIsOpen(true);
 	};
-
+​
 	const closeModal = () => {
 		setIsOpen(false);
 	};
-
+​
 	const [users, setUsers] = useState([])
-
+​
 	useEffect(() => {
 		if (window.innerWidth < 600) {
 			setCustomStyles({
@@ -68,14 +68,14 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 			});
 		}
 	}, []);
-
+​
 	const [selectPack, setSelectPack] = useState('');
 	const [month, setMonth] = useState('');
 	const [cardType, setCardType] = useState('');
-
+​
 	const [checked, setChecked] = useState(false);
 	const [paymentType, setPaymentType] = useState('');
-
+​
 	const services = [
 		{
 			id: '1',
@@ -265,7 +265,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 							setMonth(value);
 						}}
 					/>
-
+​
 					<Select
 						placeholder='Card type'
 						label='Card type'
@@ -343,7 +343,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 		</div>
 	</>
 }
-
+​
 const DropDown = ({ services, item }) => {
 	const [dropDown, setDropDown] = useState(false);
 	return (
@@ -358,7 +358,7 @@ const DropDown = ({ services, item }) => {
 					onClick={() => setDropDown(!dropDown)}
 				/>
 			</span>
-
+​
 			<div className={s.serviceOptionListStyle}>
 				<div className={s.serviceOptionListStyle}>
 					{dropDown
@@ -393,19 +393,19 @@ const DropDown = ({ services, item }) => {
 		</div>
 	);
 };
-
+​
 export const getStaticProps = async () => {
 	let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
-
+​
 	const getClinics = await getData(
 		`${API_URL}/asclepius/v1/api/clinics/search?name=`
 	);
 	const getDoctors = await getData(
 		`${API_URL}/asclepius/v1/api/transactions/cards/get-products?contractId=572`
 	);
-
+​
 	const getCategories = await getData(`${API_URL}/asclepius/v1/api/categories`);
-
+​
 	const getProducts = await getData(
 		`https://medical.pirveli.ge/medical/products/get-products`
 	);
@@ -418,5 +418,5 @@ export const getStaticProps = async () => {
 		},
 	};
 };
-
+​
 export default BuyCardPage;

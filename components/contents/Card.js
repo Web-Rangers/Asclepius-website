@@ -202,7 +202,7 @@ const Card = () => {
 						</div>
 					))}
 					<Button
-						name='დეტალურად'
+						name='ყიდვა'
 						style={style.getStartedBtn}
 					/>
 				</div>
@@ -243,7 +243,7 @@ const Card = () => {
 						</div>
 					))}
 					<Button
-						name='დეტალურად'
+						name='ყიდვა'
 						style={style.getStartedBtn}
 					/>
 				</div>
@@ -286,7 +286,7 @@ const Card = () => {
 						</div>
 					))}
 					<Button
-						name='დეტალურად'
+						name='ყიდვა'
 						style={style.getStartedBtn}
 					/>
 				</div>
@@ -330,7 +330,7 @@ const Card = () => {
 
 					<div className={style.getStartedBtnContainer}>
 						<Button
-							name='დეტალურად'
+							name='ყიდვა'
 							style={style.getStartedBtn}
 						/>
 					</div>
@@ -357,7 +357,7 @@ const Card = () => {
 					))}
 					<div className={style.getStartedBtnContainerPro}>
 						<Button
-							name='დეტალურად'
+							name='ყიდვა'
 							style={style.getStartedBtnPro}
 						/>
 					</div>
@@ -384,7 +384,7 @@ const Card = () => {
 					))}
 					<div className={style.getStartedBtnContainer}>
 						<Button
-							name='დეტალურად'
+							name='ყიდვა'
 							style={style.getStartedBtn}
 						/>
 					</div>

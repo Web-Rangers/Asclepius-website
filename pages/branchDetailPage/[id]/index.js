@@ -1,5 +1,5 @@
 import s from '../../../styles/clinicDetailPage.module.css';
-
+import { useState, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Text from '../../../components/ui/Text';
@@ -9,6 +9,7 @@ import { getData } from '../../../components/request';
 import Button from '../../../components/ui/Button';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import { Swipper } from '../../../components/contents/Swipper';
 
 const BranchDetailPage = ({ cardData, address, gallery }) => {
 	const router = useRouter();
@@ -231,78 +232,14 @@ const BranchDetailPage = ({ cardData, address, gallery }) => {
 					{' '}
 					Images of the clinic
 				</Text>
-				{/* <div className={s.imageContainer}>
-					{gallery &&
-						gallery?.map((img) => {
-							return (
-								<>
-									<img
-										src={img?.url}
-										alt='clinic image'
-									/>
-								</>
-							);
-						})}
+
+				<div className={s.swipperContainer}>
+					<Swipper
+						data={gallery}
+						iconBottom={true}
+					/>
 				</div>
-				<div className={s.imageSlider}>
-					<Image
-						src='/Arrow - Left.svg'
-						alt='arrowLeft'
-						width='24px'
-						height='24px'
-					/>
-					<Image
-						src='/Arrow - Right.svg'
-						alt='arrowRight'
-						width='24px'
-						height='24px'
-					/>
-				</div> */}
-				{/* <div className={s.clinicContainerScroll}> */}
-				<Carousel
-					className={s.carousel}
-					showStatus={false}
-					showIndicators={false}
-					centerMode={true}
-					swipeable={true}
-					emulateTouch={true}
-					showArrows={false}
-					centerSlidePercentage={25.5}
-					renderArrowPrev={(clickHandler) => (
-						<button onClick={clickHandler}>
-							<img
-								src='/Arrow - Left.svg'
-								alt='arrowLeft'
-								width='24px'
-								height='24px'
-							/>
-						</button>
-					)}
-					renderArrowNext={(clickHandler) => (
-						<button onClick={clickHandler}>
-							<img
-								src='/Arrow - Right.svg'
-								alt='arrowRight'
-								width='24px'
-								height='24px'
-							/>
-						</button>
-					)}
-				>
-					<div className={s.imageContainer}>
-						{gallery &&
-							gallery?.map((img) => {
-								return (
-									<>
-										<img
-											src={img?.url}
-											alt='clinic image'
-										/>
-									</>
-								);
-							})}
-					</div>
-				</Carousel>
+
 				{/* </div> */}
 			</div>
 		</div>
