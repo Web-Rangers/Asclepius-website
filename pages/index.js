@@ -17,24 +17,6 @@ import MainSlider from '../components/contents/mainSlider';
 import { Dropdown, message } from 'antd';
 import 'antd/dist/antd.css';
 
-const onClick = ({ key }) => {
-	message.info(`Click on item ${key}`);
-};
-const items = [
-	{
-		label: '1st menu item',
-		key: '1',
-	},
-	{
-		label: '2nd menu item',
-		key: '2',
-	},
-	{
-		label: '3rd menu item',
-		key: '3',
-	},
-];
-
 function Home({ clinics, doctors, frelancers, categories }) {
 	const [clinicData, setClinicData] = useState([]);
 	const [doctorsData, setDoctorsData] = useState([]);
@@ -45,17 +27,6 @@ function Home({ clinics, doctors, frelancers, categories }) {
 		.sort(function (a, b) {
 			return a.id > b.id ? -1 : a.id > b.id ? 1 : 0;
 		});
-
-	console.log('doctr', allData);
-
-	const catalogData = [
-		{ name: 'ყველა კატეგორია' },
-		{ name: 'სტომატოლოგია' },
-		{ name: 'ესთეტიკა და სილამაზე' },
-		{ name: 'სამედიცინო დაწესებულებები' },
-		{ name: 'რეპროდუქტოლოგია' },
-		{ name: 'ლაბორატორია და დიაგნოსტიკა' },
-	];
 
 	const windowSize = useWindowSize();
 
@@ -105,81 +76,98 @@ function Home({ clinics, doctors, frelancers, categories }) {
 
 	const items = [
 		{
-		  key: '1',
-		  label: (
-			<a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-			  1st menu item
-			</a>
-		  ),
+			key: '1',
+			label: (
+				<a
+					target='_blank'
+					rel='noopener noreferrer'
+					href='https://www.antgroup.com'
+				>
+					1st menu item
+				</a>
+			),
 		},
 		{
-		  key: '2',
-		  label: (
-			<a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-			  2nd menu item
-			</a>
-		  ),
+			key: '2',
+			label: (
+				<a
+					target='_blank'
+					rel='noopener noreferrer'
+					href='https://www.aliyun.com'
+				>
+					2nd menu item
+				</a>
+			),
 		},
 		{
-		  key: '3',
-		  label: (
-			<a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-			  3rd menu item
-			</a>
-		  ),
+			key: '3',
+			label: (
+				<a
+					target='_blank'
+					rel='noopener noreferrer'
+					href='https://www.luohanacademy.com'
+				>
+					3rd menu item
+				</a>
+			),
 		},
-	  ];
+	];
 
 	return (
 		<div className={classes.homePageContainer}>
 			<div className={classes.catalogContainer}>
 				{categories?.map((item, index) => {
-					const subCategories = categories.filter((e)=> e.parentCategoryId == item.id);
-					const items = subCategories.map((e, key)=> {
+					const subCategories = categories.filter(
+						(e) => e.parentCategoryId == item.id
+					);
+					const items = subCategories.map((e, key) => {
 						return {
 							key: key,
 							label: (
-							  <a target="_blank" rel="noopener noreferrer" href={`/${e.title}`}>
-								{e.title}
-							  </a>
-							),
-						}
-					})
-
-					return <>
-					{
-						item.parentCategoryId === null && 
-						(
-							items.length > 0 ?
-							<Dropdown
-								menu={{
-									items,
-								}}
-								placement="bottom"
-								overlayClassName={classes.dropdown}
-							>
-								<span
-									key={index}
-									className={classes.catalogTextStyle}
+								<a
+									target='_blank'
+									rel='noopener noreferrer'
+									href={`/${e.title}`}
 								>
-									{item.title}
-								</span>
-							</Dropdown> : 
-							<span
-								key={index}
-								className={classes.catalogTextStyle}
-							>
-								{item.title}
-							</span>
-						)
-					}
-					</>
+									{e.title}
+								</a>
+							),
+						};
+					});
+
+					return (
+						<>
+							{item.parentCategoryId === null &&
+								(items.length > 0 ? (
+									<Dropdown
+										menu={{
+											items,
+										}}
+										placement='bottom'
+										overlayClassName={classes.dropdown}
+									>
+										<span
+											key={index}
+											className={classes.catalogTextStyle}
+										>
+											{item.title}
+										</span>
+									</Dropdown>
+								) : (
+									<span
+										key={index}
+										className={classes.catalogTextStyle}
+									>
+										{item.title}
+									</span>
+								))}
+						</>
+					);
 				})}
 			</div>
 			<div>
 				<div className={classes.firstPart}>
 					<div className={classes.showSlider}>
-						{/* <Slider /> */}
 						<MainSlider />
 					</div>
 				</div>
@@ -286,9 +274,7 @@ export const getServerSideProps = async () => {
 	const getFreelancerDoc = await getData(
 		`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
 	);
-	const getCategories = await getData(
-		`${API_URL}/asclepius/v1/api/categories`
-	);
+	const getCategories = await getData(`${API_URL}/asclepius/v1/api/categories`);
 
 	return {
 		props: {
@@ -300,7 +286,7 @@ export const getServerSideProps = async () => {
 					  }),
 			doctors: getDoctors?.length === 0 ? null : getDoctors,
 			frelancers: getFreelancerDoc?.length === 0 ? null : getFreelancerDoc,
-			categories: getCategories
+			categories: getCategories,
 		},
 	};
 };
