@@ -23,6 +23,8 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 
 	const [checkout, setCheckout] = useState(false);
 
+	console.log('product', categories);
+
 	const openModal = () => {
 		setIsOpen(true);
 	};
@@ -232,32 +234,41 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 						<div className={s.tableHeader}>
 							<span className={s.clinicTitleStyles}>პარტნიორები</span>
 						</div>
-						<div className={s.tableColumnTitle}>
-							<div className={s.columnTitleContainer}>
-								<span className={s.tablePriceTitleStyles}>50$</span>
-								<span className={s.tableDataTitleStyles}>Silver</span>
+						{products?.slice(0, 3).map((item) => (
+							<div className={s.tableColumnTitle}>
+								<div className={s.columnTitleContainer}>
+									<span className={s.tablePriceTitleStyles}>
+										{checked ? item?.priseFamily : item?.priseInd}
+									</span>
+									<span className={s.tableDataTitleStyles}>
+										{item?.cardName}
+									</span>
+								</div>
+								{/* <div className={s.columnTitleContainer}>
+		<span className={s.tablePriceTitleStyles}>100$</span>
+		<span className={s.tableDataTitleStyles}>Gold</span>
+	</div>
+	<div className={s.columnTitleContainer}>
+		<span className={s.tablePriceTitleStyles}>150$$</span>
+		<span className={s.tableDataTitleStyles}>Platinium</span>
+	</div> */}
 							</div>
-							<div className={s.columnTitleContainer}>
-								<span className={s.tablePriceTitleStyles}>100$</span>
-								<span className={s.tableDataTitleStyles}>Gold</span>
-							</div>
-							<div className={s.columnTitleContainer}>
-								<span className={s.tablePriceTitleStyles}>150$$</span>
-								<span className={s.tableDataTitleStyles}>Platinium</span>
-							</div>
-						</div>
+						))}
 					</div>
-					{categories.map((item) => (
-						<div
-							className={s.tableContentContainer}
-							key={item.id}
-						>
-							<DropDown
-								item={item}
-								services={services}
-							/>
-						</div>
-					))}
+					{categories
+						.filter((e) => e.parentCategoryId === null)
+						.map((item) => (
+							<div
+								className={s.tableContentContainer}
+								key={item.id}
+							>
+								<DropDown
+									item={item}
+									services={services}
+								/>
+							</div>
+						))}
+
 					<div className={s.buttonContainer}>
 						<Select
 							placeholder='Month'
