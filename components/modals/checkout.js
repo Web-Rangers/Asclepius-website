@@ -166,7 +166,44 @@ export default function Checkout({onClose, cards, cardType, users, setUsers}) {
                                             }
                                         ]
                                     },
-                                    "customerDTOList": usersArray()
+                                    "customerDTOList": [
+                                        {
+                                            "objectType": "customer",
+                                            "registryType": "individual",
+                                            "taxationPolicy": "notax",
+                                            "orgLegalForm": "ind",
+                                            "firstName": "Leo",
+                                            "lastName": "Messi",
+                                            "otherName": "mr",
+                                            "gender": "m",
+                                            "personalId": "07654321151",
+                                            "personDob" :"1988-04-30" 
+                                        },
+                                        {
+                                            "objectType": "customer",
+                                            "registryType": "individual",
+                                            "taxationPolicy": "notax",
+                                            "orgLegalForm": "ind",
+                                            "firstName": "Jenifer",
+                                            "lastName": "Messi",
+                                            "otherName": "mr",
+                                            "gender": "f",
+                                            "personalId": "08765432916",
+                                            "personDob" :"1989-10-30" 
+                                        },
+                                            {
+                                            "objectType": "customer",
+                                            "registryType": "individual",
+                                            "taxationPolicy": "notax",
+                                            "orgLegalForm": "ind",
+                                            "firstName": "Taso",
+                                            "lastName": "Messi",
+                                            "otherName": "mr",
+                                            "gender": "f",
+                                            "personalId": "58767432116",
+                                            "personDob" :"2005-08-10" 
+                                        }
+                                    ]
                                   },
                                 'POST'
                             ).then(response=> Router.push(response?.links[1].href))}>Buy card</button>
