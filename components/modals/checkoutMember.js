@@ -23,10 +23,18 @@ export default function CheckoutFamilyMember({onClose, type, users, setUsers}) {
                 valid = true;
                 setValidationList((e)=> ([...e, key]))
                 setValidation(true)
+            }else {
+                if(key == 'personalId'){
+                    if(value.toString().length < 11) {
+                        valid = true;
+                        setValidationList((e)=> ([...e, key]))
+                        setValidation(true)
+                    }
+                }
             }
         }
 
-        console.log(validationList,validationList.findIndex((e)=> e == 'surname'))
+        console.log(validationList)
 
         if(!valid) {
             setUsers((state)=> ([...state, userInfo]))
@@ -85,12 +93,17 @@ export function Above18({userInfo, setUserInfo, validation, validationList}) {
 
     useEffect(()=> {
         setUserInfo({
-            name: '',
-            surname: '',
+            objectType: "customer",
+            registryType: "individual",
+            taxationPolicy: "notax",
+            orgLegalForm: "ind",
+            firstName: '',
+            lastName: '',
             mail: '',
-            idNumber: '',
-            date: '',
+            personalId: '',
+            personDob: '',
             gender: '',
+            otherName: "othername",
             id: Math.floor(Math.random() * 10000)
         })
     },[])
@@ -100,22 +113,22 @@ export function Above18({userInfo, setUserInfo, validation, validationList}) {
             <Input 
                 label="Child’s name" 
                 style={classNames(styles.servInput, {
-                    [styles.validationInput]: validationList.findIndex((e)=> e == 'name') !== -1,
-                    [styles.removeValidation]: userInfo?.name,
+                    [styles.validationInput]: validationList.findIndex((e)=> e == 'firstName') !== -1,
+                    [styles.removeValidation]: userInfo?.firstName,
                 })} 
                 placeholder="Name" 
-                value={userInfo.name}
-                onChange={(e)=> setUserInfo(values=> ({...values, name: e}))}
+                value={userInfo.firstName}
+                onChange={(e)=> setUserInfo(values=> ({...values, firstName: e}))}
             />
             <Input 
                 label="Child’s surname" 
                 style={classNames(styles.servInput, {
-                    [styles.validationInput]: validationList.findIndex((e)=> e == 'surname') !== -1,
-                    [styles.removeValidation]: userInfo?.surname,
+                    [styles.validationInput]: validationList.findIndex((e)=> e == 'lastName') !== -1,
+                    [styles.removeValidation]: userInfo?.lastName,
                 })} 
                 placeholder="Surname" 
-                value={userInfo.surname}
-                onChange={(e)=> setUserInfo(values=> ({...values, surname: e}))}
+                value={userInfo.lastName}
+                onChange={(e)=> setUserInfo(values=> ({...values, lastName: e}))}
             />
             <Input 
                 label="Mail" 
@@ -131,22 +144,22 @@ export function Above18({userInfo, setUserInfo, validation, validationList}) {
                 label="Id number" 
                 className={styles.servInput}
                 style={classNames(styles.servInput, {
-                    [styles.validationInput]: validationList.findIndex((e)=> e == 'idNumber') !== -1,
-                    [styles.removeValidation]: userInfo?.idNumber,
+                    [styles.validationInput]: validationList.findIndex((e)=> e == 'personalId') !== -1,
+                    [styles.removeValidation]: userInfo?.personalId.toString().length > 10,
                 })}  
                 placeholder="Id number" 
-                value={userInfo.idNumber}
-                onChange={(e)=> setUserInfo(values=> ({...values, idNumber: e}))}
+                value={userInfo.personalId}
+                onChange={(e)=> setUserInfo(values=> ({...values, personalId: e}))}
             />
             <div className={styles.birth}>
                 <h2>Date of birth</h2>
                 <DatePicker 
                     className={classNames(styles.dataPicker, {
-                        [styles.validationDate]: validationList.findIndex((e)=> e == 'date') !== -1,
-                        [styles.removevalidationDate]: userInfo?.date,
+                        [styles.validationDate]: validationList.findIndex((e)=> e == 'personDob') !== -1,
+                        [styles.removevalidationDate]: userInfo?.personDob,
                     })}  
                     placeholder='Date of birth' 
-                    onChange={(date, dateString)=> setUserInfo(values=> ({...values, date: dateString}))}
+                    onChange={(date, dateString)=> setUserInfo(values=> ({...values, personDob: dateString}))}
                     getPopupContainer={() => bodyref.current}
                 />
             </div>
@@ -182,12 +195,17 @@ export function WifeOrHusband({userInfo, setUserInfo, validation, validationList
 
     useEffect(()=> {
         setUserInfo({
-            name: '',
-            surname: '',
+            objectType: "customer",
+            registryType: "individual",
+            taxationPolicy: "notax",
+            orgLegalForm: "ind",
+            firstName: '',
+            lastName: '',
             mail: '',
-            idNumber: '',
-            date: '', 
+            personalId: '',
+            personDob: '',
             gender: '',
+            otherName: "othername",
             id: Math.floor(Math.random() * 10000)
         })
     },[])
@@ -197,22 +215,22 @@ export function WifeOrHusband({userInfo, setUserInfo, validation, validationList
             <Input 
                 label="Wife / husbend’s name" 
                 style={classNames(styles.servInput, {
-                    [styles.validationInput]: validationList.findIndex((e)=> e == 'name') !== -1,
-                    [styles.removeValidation]: userInfo?.name,
+                    [styles.validationInput]: validationList.findIndex((e)=> e == 'firstName') !== -1,
+                    [styles.removeValidation]: userInfo?.firstName,
                 })} 
                 placeholder="Name" 
-                value={userInfo.name}
-                onChange={(e)=> setUserInfo(values=> ({...values, name: e}))}
+                value={userInfo.firstName}
+                onChange={(e)=> setUserInfo(values=> ({...values, firstName: e}))}
             />
             <Input 
                 label="Wife / husbend’s surname" 
                 style={classNames(styles.servInput, {
-                    [styles.validationInput]: validationList.findIndex((e)=> e == 'surname') !== -1,
-                    [styles.removeValidation]: userInfo?.surname,
+                    [styles.validationInput]: validationList.findIndex((e)=> e == 'lastName') !== -1,
+                    [styles.removeValidation]: userInfo?.lastName,
                 })} 
                 placeholder="Surname" 
-                value={userInfo.surname}
-                onChange={(e)=> setUserInfo(values=> ({...values, surname: e}))}
+                value={userInfo.lastName}
+                onChange={(e)=> setUserInfo(values=> ({...values, lastName: e}))}
             />
             <Input 
                 label="Mail" 
@@ -228,22 +246,22 @@ export function WifeOrHusband({userInfo, setUserInfo, validation, validationList
                 label="Id number" 
                 className={styles.servInput}
                 style={classNames(styles.servInput, {
-                    [styles.validationInput]: validationList.findIndex((e)=> e == 'idNumber') !== -1,
-                    [styles.removeValidation]: userInfo?.idNumber,
+                    [styles.validationInput]: validationList.findIndex((e)=> e == 'personalId') !== -1,
+                    [styles.removeValidation]: userInfo?.personalId.toString().length > 10,
                 })}  
                 placeholder="Id number" 
-                value={userInfo.idNumber}
-                onChange={(e)=> setUserInfo(values=> ({...values, idNumber: e}))}
+                value={userInfo.personalId}
+                onChange={(e)=> setUserInfo(values=> ({...values, personalId: e}))}
             />
             <div className={styles.birth}>
                 <h2>Date of birth</h2>
                 <DatePicker 
                     className={classNames(styles.dataPicker, {
-                        [styles.validationDate]: validationList.findIndex((e)=> e == 'date') !== -1,
-                        [styles.removevalidationDate]: userInfo?.date,
+                        [styles.validationDate]: validationList.findIndex((e)=> e == 'personDob') !== -1,
+                        [styles.removevalidationDate]: userInfo?.personDob,
                     })}  
                     placeholder='Date of birth' 
-                    onChange={(date, dateString)=> setUserInfo(values=> ({...values, date: dateString}))}
+                    onChange={(date, dateString)=> setUserInfo(values=> ({...values, personDob: dateString}))}
                     getPopupContainer={() => bodyref.current}
                 />
             </div>
@@ -279,57 +297,62 @@ export function Under18({userInfo, setUserInfo, validation, validationList}) {
 
     useEffect(()=> {
         setUserInfo({
-            name: '',
-            surname: '',
-            idNumber: '',
-            date: '', 
+            objectType: "customer",
+            registryType: "individual",
+            taxationPolicy: "notax",
+            orgLegalForm: "ind",
+            firstName: '',
+            lastName: '',
+            personalId: '',
+            personDob: '',
             gender: '',
+            otherName: "othername",
             id: Math.floor(Math.random() * 10000)
         })
     },[])
-    
+
     return <>
         <div className={styles.form} ref={bodyref}>
             <Input 
                 label="Child’s name" 
                 style={classNames(styles.servInput, {
-                    [styles.validationInput]: validationList.findIndex((e)=> e == 'name') !== -1,
-                    [styles.removeValidation]: userInfo?.name,
+                    [styles.validationInput]: validationList.findIndex((e)=> e == 'firstName') !== -1,
+                    [styles.removeValidation]: userInfo?.firstName,
                 })} 
                 placeholder="Name" 
-                value={userInfo.name}
-                onChange={(e)=> setUserInfo(values=> ({...values, name: e}))}
+                value={userInfo.firstName}
+                onChange={(e)=> setUserInfo(values=> ({...values, firstName: e}))}
             />
             <Input 
                 label="Child’s surname" 
                 style={classNames(styles.servInput, {
-                    [styles.validationInput]: validationList.findIndex((e)=> e == 'surname') !== -1,
-                    [styles.removeValidation]: userInfo?.surname,
+                    [styles.validationInput]: validationList.findIndex((e)=> e == 'lastName') !== -1,
+                    [styles.removeValidation]: userInfo?.lastName,
                 })} 
                 placeholder="Surname" 
-                value={userInfo.surname}
-                onChange={(e)=> setUserInfo(values=> ({...values, surname: e}))}
+                value={userInfo.lastName}
+                onChange={(e)=> setUserInfo(values=> ({...values, lastName: e}))}
             />
             <Input 
                 label="Id number" 
                 className={styles.servInput}
                 style={classNames(styles.servInput, {
-                    [styles.validationInput]: validationList.findIndex((e)=> e == 'idNumber') !== -1,
-                    [styles.removeValidation]: userInfo?.idNumber,
+                    [styles.validationInput]: validationList.findIndex((e)=> e == 'personalId') !== -1,
+                    [styles.removeValidation]: userInfo?.personalId.toString().length > 10,
                 })}  
                 placeholder="Id number" 
-                value={userInfo.idNumber}
-                onChange={(e)=> setUserInfo(values=> ({...values, idNumber: e}))}
+                value={userInfo.personalId}
+                onChange={(e)=> setUserInfo(values=> ({...values, personalId: e}))}
             />
             <div className={styles.birth}>
                 <h2>Date of birth</h2>
                 <DatePicker 
                     className={classNames(styles.dataPicker, {
-                        [styles.validationDate]: validationList.findIndex((e)=> e == 'date') !== -1,
-                        [styles.removevalidationDate]: userInfo?.date,
+                        [styles.validationDate]: validationList.findIndex((e)=> e == 'personDob') !== -1,
+                        [styles.removevalidationDate]: userInfo?.personDob,
                     })}  
                     placeholder='Date of birth' 
-                    onChange={(date, dateString)=> setUserInfo(values=> ({...values, date: dateString}))}
+                    onChange={(date, dateString)=> setUserInfo(values=> ({...values, personDob: dateString}))}
                     getPopupContainer={() => bodyref.current}
                 />
             </div>

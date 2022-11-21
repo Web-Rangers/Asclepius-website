@@ -23,7 +23,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 
 	const [checkout, setCheckout] = useState(false);
 
-	const openModal = () => {
+  const openModal = () => {
 		setIsOpen(true);
 	};
 
@@ -92,7 +92,6 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 			percent6: '20%',
 		},
 	];
-
 	const AntSwitch = styled(Switch)(({ theme }) => ({
 		width: 60,
 		height: 32,
@@ -171,42 +170,41 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 								</Text>
 							</div>
 						</div>
-						<div className={s.headerContainerRight}>
-							<div className={s.headerBg}></div>
-						</div>
+					</div>
+					<div className={s.headerContainerRight}>
+						<div className={s.headerBg}></div>
 					</div>
 				</div>
-				<div className={s.forMobile}>
-					<CardPrice
-						withoutHeader
-						onClick={openModal}
-					/>
+			</div>
+			<div className={s.forMobile}>
+				<CardPrice
+					withoutHeader
+					onClick={openModal}
+				/>
+			</div>
+			<Modal
+				isOpen={modalIsOpen}
+				onRequestClose={closeModal}
+				style={customStyles}
+				contentLabel='Example Modal'
+			>
+				<CardCheckoutModal closeModal={closeModal} />
+			</Modal>
+			<div className={s.chooseCardContainer}>
+				<div className={s.headerContainerTitle}>
+					<Text>Choose exactly what you need</Text>
 				</div>
-				<Modal
-					isOpen={modalIsOpen}
-					onRequestClose={closeModal}
-					style={customStyles}
-					contentLabel='Example Modal'
-				>
-					<CardCheckoutModal closeModal={closeModal} />
-				</Modal>
-				<div className={s.chooseCardContainer}>
-					<div className={s.headerContainerTitle}>
-						<Text>Choose exactly what you need</Text>
-					</div>
-
-					<div className={s.switcher}>
-						<div>
-							<FormGroup>
-								<Stack
-									direction='row'
-									spacing={1}
-									alignItems='center'
-								>
-									<Typography className={style.switcherLabel}>
-										ინდივიდუალური
-									</Typography>
-
+				<div className={s.switcher}>
+					<div>
+						<FormGroup>
+							<Stack
+								direction='row'
+								spacing={1}
+								alignItems='center'
+							>
+								<Typography className={style.switcherLabel}>
+									ინდივიდუალური
+								</Typography>
 								<AntSwitch
 									checked={checked}
 									onChange={(e) => {setPaymentType(e.target.ariaChecked); setChecked(e.target.checked)}}
@@ -219,74 +217,55 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 							</Stack>
 						</FormGroup>
 					</div>
-					<div className={s.cardImgContainer}>
-						<img
-							src='/Card1.svg'
-							alt='silverCard'
-							width='344px'
-							height='202px'
-						/>
-						<img
-							src='/Card2.svg'
-							alt='silverCard'
-							width='344px'
-							height='202px'
-						/>
-						<img
-							src='/Card3.svg'
-							alt='silverCard'
-							width='344px'
-							height='202px'
+				</div>
+				<div className={s.table}>
+					<div className={s.tableHeader}>
+						<span className={s.clinicTitleStyles}>პარტნიორები</span>
+					</div>
+					<div className={s.tableColumnTitle}>
+						<div className={s.columnTitleContainer}>
+							<span className={s.tablePriceTitleStyles}>50$</span>
+							<span className={s.tableDataTitleStyles}>Silver</span>
+						</div>
+						<div className={s.columnTitleContainer}>
+							<span className={s.tablePriceTitleStyles}>100$</span>
+							<span className={s.tableDataTitleStyles}>Gold</span>
+						</div>
+						<div className={s.columnTitleContainer}>
+							<span className={s.tablePriceTitleStyles}>150$$</span>
+							<span className={s.tableDataTitleStyles}>Platinium</span>
+						</div>
+					</div>
+				</div>
+				{categories.map((item) => (
+					<div
+						className={s.tableContentContainer}
+						key={item.id}
+					>
+						<DropDown
+							item={item}
+							services={services}
 						/>
 					</div>
+				))}
+				<div className={s.buttonContainer}>
+					<Select
+						placeholder='Month'
+						label='Month'
+						className={s.buyDropDown}
+						options={[
+							{
+								label: '1 month',
+								value: '1',
+							},
+							{ label: '2 months', value: '2' },
+							{ label: '3 months', value: '3' },
+						]}
+						onChange={(value) => {
+							setMonth(value);
+						}}
+					/>
 
-					<div className={s.table}>
-						<div className={s.tableHeader}>
-							<span className={s.clinicTitleStyles}>პარტნიორები</span>
-						</div>
-						<div className={s.tableColumnTitle}>
-							<div className={s.columnTitleContainer}>
-								<span className={s.tablePriceTitleStyles}>50$</span>
-								<span className={s.tableDataTitleStyles}>Silver</span>
-							</div>
-							<div className={s.columnTitleContainer}>
-								<span className={s.tablePriceTitleStyles}>100$</span>
-								<span className={s.tableDataTitleStyles}>Gold</span>
-							</div>
-							<div className={s.columnTitleContainer}>
-								<span className={s.tablePriceTitleStyles}>150$$</span>
-								<span className={s.tableDataTitleStyles}>Platinium</span>
-							</div>
-						</div>
-					</div>
-					{categories.map((item) => (
-						<div
-							className={s.tableContentContainer}
-							key={item.id}
-						>
-							<DropDown
-								item={item}
-								services={services}
-							/>
-						</div>
-					))}
-					<div className={s.buttonContainer}>
-						<Select
-							placeholder='Month'
-							label='Month'
-							className={s.buyDropDown}
-							options={[
-								{
-									label: '1 month',
-									value: '1',
-								},
-								{ label: '2 months', value: '2' },
-								{ label: '3 months', value: '3' },
-							]}
-							onChange={(value) => {
-								setMonth(value);
-							}}
-						/>
 					<Select
 						placeholder='Card type'
 						label='Card type'
@@ -320,7 +299,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 						name='Buy now'
 						onClick={() => {
 							// paymentType == 'family' ? 
-								(cardType && setCheckout(!checkout)) 
+								(cardType && setCheckout(!checkout))
 								// (cardType && postData(
 								// 	'https://medical.pirveli.ge/medical/orders/create-order', 
 								// 	{
@@ -335,7 +314,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 								// 				  "amount": "0.01",
 								// 				  "description": "regTest",
 								// 				  "quantity": "1",
-								// 				  "product_id": "270"
+								// 				  "product_id": cardType
 								// 				  }
 								// 			  ],
 								// 			  "locale": "ka",
@@ -353,16 +332,16 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 								// 			  ]
 								// 			}
 								// 		  },
-								// 		"customerDTOList": null
+								// 		"customerDTOList": []
 								// 	},
 								// 	'POST'
-								// )) //
+								// ))
 						}}
 					/>
 				</div>
 			</div>
-		</>
-	);
+		</div>
+	</>
 }
 
 const DropDown = ({ services, item }) => {
