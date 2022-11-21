@@ -13,7 +13,7 @@ import ResponsiveSlider from '../components/contents/ResponsiveCarousel';
 import { useWindowSize } from '../components/useWindowSize';
 import { getData } from '../components/request';
 import { Carousel } from 'react-responsive-carousel';
-import MainSlider from '../components/contents/mainSlider';
+import MainSlider from '../components/contents/MainSlider';
 import { Dropdown, message } from 'antd';
 import 'antd/dist/antd.css';
 
