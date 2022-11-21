@@ -235,7 +235,10 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 							<span className={s.clinicTitleStyles}>პარტნიორები</span>
 						</div>
 						{products?.slice(0, 3).map((item) => (
-							<div className={s.tableColumnTitle}>
+							<div
+								className={s.tableColumnTitle}
+								key={item.id}
+							>
 								<div className={s.columnTitleContainer}>
 									<span className={s.tablePriceTitleStyles}>
 										{checked ? item?.priseFamily : item?.priseInd}
@@ -244,14 +247,6 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 										{item?.cardName}
 									</span>
 								</div>
-								{/* <div className={s.columnTitleContainer}>
-		<span className={s.tablePriceTitleStyles}>100$</span>
-		<span className={s.tableDataTitleStyles}>Gold</span>
-	</div>
-	<div className={s.columnTitleContainer}>
-		<span className={s.tablePriceTitleStyles}>150$$</span>
-		<span className={s.tableDataTitleStyles}>Platinium</span>
-	</div> */}
 							</div>
 						))}
 					</div>
