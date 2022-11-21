@@ -50,6 +50,7 @@
 
 .bg {
   position: relative;
+  min-height: 76%;
 }
 
 .bg:after {

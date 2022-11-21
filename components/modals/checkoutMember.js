@@ -162,9 +162,9 @@ export function Above18({userInfo, setUserInfo, validation, validationList}) {
                 options={[
                 {
                     label: "Male",
-                    value: "1",
+                    value: "m",
                 },
-                { label: "Female", value: "2" },
+                { label: "Female", value: "f" },
                 ]}
             />
         </div>
@@ -259,9 +259,9 @@ export function WifeOrHusband({userInfo, setUserInfo, validation, validationList
                 options={[
                 {
                     label: "Male",
-                    value: "1",
+                    value: "m",
                 },
-                { label: "Female", value: "2" },
+                { label: "Female", value: "f" },
                 ]}
             />
         </div>
@@ -345,9 +345,9 @@ export function Under18({userInfo, setUserInfo, validation, validationList}) {
                 options={[
                 {
                     label: "Male",
-                    value: "1",
+                    value: "m",
                 },
-                { label: "Female", value: "2" },
+                { label: "Female", value: "f" },
                 ]}
             />
         </div>

@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
 import Text from '../../components/ui/Text';
-import Image from 'next/image';
 import s from '../../styles/buyCard.module.css';
 import CardPrice from '../../components/contents/CardPrice';
-import buyCardData from '../../fakeData';
 import Button from '../../components/ui/Button';
 import Modal from 'react-modal';
 import CardCheckoutModal from '../../components/modals/CardCheckoutModal';
 import classNames from 'classnames';
 import { ReactSVG } from 'react-svg';
-import { getData } from '../../components/request';
+import { getData, postData } from '../../components/request';
 import FormGroup from '@mui/material/FormGroup';
 import Switch from '@mui/material/Switch';
 import { styled } from '@mui/material/styles';
@@ -33,16 +31,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 		setIsOpen(false);
 	};
 
-	const [users, setUsers] = useState([
-		{
-			id: 0,
-			name: 'George Fowler',
-			mail: 'georgefowler@gmail.com',
-			phone: '+995 599 99 99 63',
-			date: '11.03.2000',
-			idNumber: '012111099283',
-		},
-	]);
+	const [users, setUsers] = useState([])
 
 	useEffect(() => {
 		if (window.innerWidth < 600) {
@@ -80,77 +69,12 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 		}
 	}, []);
 
-	function conMili(mSecVal) {
-		//get the milliseconds value
-		return new Date(mSecVal).toString();
-	}
-
 	const [selectPack, setSelectPack] = useState('');
 	const [month, setMonth] = useState('');
 	const [cardType, setCardType] = useState('');
 
-	console.log('cardType', products);
-
-	console.log('cardType', cardType);
-
 	const [checked, setChecked] = useState(false);
-	const [card, setCard] = useState({
-		id: '',
-		amount: '',
-	});
-	const [open, setOpen] = useState(false);
-	const [show, setShow] = useState(false);
-	const packs = ['1 months', '3 months', '6 months'];
-	const lastThreeItem = cards.slice(-3);
-
-	const sendRequest = async (id, amount) => {
-		try {
-			const request = await fetch(
-				`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/payment/bog/checkout/orders`,
-				{
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify({
-						user_id: 1,
-						contract_id: 21,
-						party_id: 1,
-						bog_order_request_dto: {
-							intent: 'AUTHORIZE',
-							items: [
-								{
-									amount: `${amount}`,
-									description: 'test',
-									quantity: '1',
-									product_id: `${id}`,
-								},
-							],
-							locale: 'ka',
-							shop_order_id: '123456',
-							redirect_url:
-								'https://bog-banking.pirveli.ge/callback/statusChange',
-							show_shop_order_id_on_extract: true,
-							capture_method: 'AUTOMATIC',
-							purchase_units: [
-								{
-									amount: {
-										currency_code: 'GEL',
-										value: '0.01',
-									},
-								},
-							],
-						},
-					}),
-				}
-			);
-			const response = await request.json();
-
-			return response;
-		} catch (error) {
-			throw error;
-		}
-	};
+	const [paymentType, setPaymentType] = useState('');
 
 	const services = [
 		{
@@ -211,42 +135,40 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 			boxSizing: 'border-box',
 		},
 	}));
-
-	return (
-		<>
-			{checkout && (
-				<Checkout
-					cards={cards}
-					cardType={cardType}
-					users={users}
-					onClose={() => setCheckout(false)}
-					setUsers={(e) => setUsers(e)}
-				/>
-			)}
-			<div className={s.container}>
-				<div className={s.firstPart}>
-					<div className={s.headerContainer}>
-						<div className={s.headerContainerLeft}>
-							<Text style={s.headerContainerTitle}>How to buy a card ?</Text>
-							<div className={s.buyCardStep}>
-								<div>
-									<Text style={s.headerContainerNumber}>01</Text>
-									<Text style={s.headerContainerText}>
-										Choose the desired card
-									</Text>
-								</div>
-								<div>
-									<Text style={s.headerContainerNumber}>02</Text>
-									<Text style={s.headerContainerText}>
-										Add your personal data
-									</Text>
-								</div>
-								<div>
-									<Text style={s.headerContainerNumber}>03</Text>
-									<Text style={s.headerContainerText}>
-										Add your personal card and pay
-									</Text>
-								</div>
+	
+	console.log(products)
+	return <>
+		{checkout && 
+			<Checkout 
+				cards={products} 
+				cardType={cardType} 
+				users={users} 
+				onClose={()=> setCheckout(false)} 
+				setUsers={(e)=> setUsers(e)}
+			/>}
+		<div className={s.container}>
+			<div className={s.firstPart}>
+				<div className={s.headerContainer}>
+					<div className={s.headerContainerLeft}>
+						<Text style={s.headerContainerTitle}>How to buy a card ?</Text>
+						<div className={s.buyCardStep}>
+							<div>
+								<Text style={s.headerContainerNumber}>01</Text>
+								<Text style={s.headerContainerText}>
+									Choose the desired card
+								</Text>
+							</div>
+							<div>
+								<Text style={s.headerContainerNumber}>02</Text>
+								<Text style={s.headerContainerText}>
+									Add your personal data
+								</Text>
+							</div>
+							<div>
+								<Text style={s.headerContainerNumber}>03</Text>
+								<Text style={s.headerContainerText}>
+									Add your personal card and pay
+								</Text>
 							</div>
 						</div>
 						<div className={s.headerContainerRight}>
@@ -285,18 +207,17 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 										ინდივიდუალური
 									</Typography>
 
-									<AntSwitch
-										checked={checked}
-										onChange={(e) => setChecked(e.target.checked)}
-										defaultChecked
-										inputProps={{ 'aria-label': 'ant design' }}
-									/>
-									<Typography className={style.switcherLabel}>
-										საოჯახო
-									</Typography>
-								</Stack>
-							</FormGroup>
-						</div>
+								<AntSwitch
+									checked={checked}
+									onChange={(e) => {setPaymentType(e.target.ariaChecked); setChecked(e.target.checked)}}
+									defaultChecked
+									inputProps={{ 'aria-label': 'ant design', 'aria-checked': checked ? 'individual' : 'family' }}
+									checkedChildren="YESxasdiasldkasjdljasd" 
+									unCheckedChildren="NOasdkhasjkdhsakjdhksajd"
+								/>
+								<Typography className={style.switcherLabel}>საოჯახო</Typography>
+							</Stack>
+						</FormGroup>
 					</div>
 					<div className={s.cardImgContainer}>
 						<img
@@ -366,46 +287,78 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 								setMonth(value);
 							}}
 						/>
-
-						<Select
-							placeholder='Card type'
-							label='Card type'
-							className={s.buyDropDown}
-							options={products.map((item) => ({
-								label: item.cardName,
-								value: item.genericTransactionTypeId,
-							}))}
-							value={cardType}
-							onChange={(options) => {
-								setCardType(options);
-							}}
-						/>
-						<Select
-							placeholder='Package'
-							label='Package'
-							className={s.buyDropDown}
-							options={[
-								{
-									label: 'Individually',
-									value: '1',
-								},
-								{ label: 'Family', value: '2' },
-							]}
-							onChange={(value) => {
-								setSelectPack(value);
-							}}
-						/>
-						<Button
-							style={s.buttonActive}
-							name='Buy now'
-							onClick={() => {
-								// sendRequest(card.id, card.amount).then((response) =>
-								// 	console.log(response)
-								// );
-								setCheckout(!checkout);
-							}}
-						/>
-					</div>
+					<Select
+						placeholder='Card type'
+						label='Card type'
+						className={s.buyDropDown}
+						options={products && products?.map((item) => ({
+							label: item.cardName,
+							value: item.genericTransactionTypeId,
+						}))}
+						value={cardType}
+						onChange={(options) => {
+							setCardType(options);
+						}}
+					/>
+					<Select
+						placeholder='Package'
+						label='Package'
+						className={s.buyDropDown}
+						options={[
+							{
+								label: 'Individually',
+								value: '1',
+							},
+							{ label: 'Family', value: '2' },
+						]}
+						onChange={(value) => {
+							setSelectPack(value);
+						}}
+					/>
+					<Button
+						style={s.buttonActive}
+						name='Buy now'
+						onClick={() => {
+							// paymentType == 'family' ? 
+								(cardType && setCheckout(!checkout)) 
+								// (cardType && postData(
+								// 	'https://medical.pirveli.ge/medical/orders/create-order', 
+								// 	{
+								// 		"bogOrderRequest_dto": {
+								// 			"user_id": null,
+								// 			"contract_id": null,
+								// 			"party_id": null,
+								// 			"bog_order_request_dto" : {
+								// 			  "intent": "AUTHORIZE",
+								// 			  "items": [
+								// 				  {
+								// 				  "amount": "0.01",
+								// 				  "description": "regTest",
+								// 				  "quantity": "1",
+								// 				  "product_id": "270"
+								// 				  }
+								// 			  ],
+								// 			  "locale": "ka",
+								// 			  "shop_order_id": "123456",
+								// 			  "redirect_url": "https://bog-banking.pirveli.ge/callback/statusChange",
+								// 			  "show_shop_order_id_on_extract": true,
+								// 			  "capture_method": "AUTOMATIC",
+								// 			  "purchase_units": [
+								// 				  {
+								// 				  "amount": {
+								// 					  "currency_code": "GEL",
+								// 					  "value": "0.01"
+								// 				  }
+								// 				  }
+								// 			  ]
+								// 			}
+								// 		  },
+								// 		"customerDTOList": null
+								// 	},
+								// 	'POST'
+								// ))
+						}}
+					/>
 				</div>
 			</div>
 		</>
