@@ -74,7 +74,7 @@ export default function Checkout({onClose, cards, cardType, users, setUsers}) {
                                             <div className={styles.user}>
                                                 <div className={styles.userHead}>
                                                     <div className={styles.block}>
-                                                        <h2>{user.name}</h2>
+                                                        <h2>{user.firstName}</h2>
                                                         {
                                                             user?.mail && 
                                                             <span>{user.mail}</span>
@@ -91,11 +91,11 @@ export default function Checkout({onClose, cards, cardType, users, setUsers}) {
                                                     }
                                                     <div className={styles.infoCol}>
                                                         <ReactSVG src="/userDate.svg" />
-                                                        <h4>Date of birth: {user.date}</h4>
+                                                        <h4>Date of birth: {user.personDob}</h4>
                                                     </div>
                                                     <div className={styles.infoCol}>
                                                         <ReactSVG src="/userId.svg" />
-                                                        <h4>ID number: {user.idNumber}</h4>
+                                                        <h4>ID number: {user.personalId}</h4>
                                                     </div>
                                                 </div>
                                             </div>
