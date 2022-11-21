@@ -207,7 +207,7 @@ export function EditUserInfo({user, users, setEdit, setUsers}) {
             <div className={styles.user}>
                 <div className={styles.userHead}>
                     <div className={styles.block}>
-                        <Input label="Name" value={state.name} onChange={(value)=> setState(e=> ({...e, name: value}))} />
+                        <Input label="Name" value={state.firstName} onChange={(value)=> setState(e=> ({...e, firstName: value}))} />
                         {
                             user?.mail && 
                             <Input label="mail" value={state.mail} onChange={(value)=> setState(e=> ({...e, mail: value}))} />
@@ -227,16 +227,16 @@ export function EditUserInfo({user, users, setEdit, setUsers}) {
                         <DatePicker
                             className={styles.dataPicker}
                             format={"YYYY-MM-DD"}
-                            defaultValue={dayjs(state.date, 'YYYY-MM-DD')} 
+                            defaultValue={dayjs(state.personDob, 'YYYY-MM-DD')} 
                             value={dayjs(state.date, 'YYYY-MM-DD')}
-                            onChange={(date, dateString)=> setState(e=> ({...e, date: dateString}))}
+                            onChange={(date, dateString)=> setState(e=> ({...e, personDob: dateString}))}
                             placeholder="Start Date"
                             getPopupContainer={() => bodyref.current}
                         />
                     </div>
                     <div className={styles.infoCol}>
                         <ReactSVG src="/userId.svg" />
-                        <Input value={state.idNumber} onChange={(value)=> setState(e=> ({...e, idNumber: value}))} />
+                        <Input value={state.personalId} onChange={(value)=> setState(e=> ({...e, personalId: value}))} />
                     </div>
                 </div>
                 <button className={styles.save} onClick={()=> editUser()}>save</button>
