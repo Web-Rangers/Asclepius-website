@@ -111,7 +111,7 @@
 	width: 360px;
 	height: 52px;
 	border-radius: 5px;
-	background-color: #3a74d2;
+	background-color: #195947;
 	color: #fff;
 	margin-top: 20px;
 	cursor: pointer;
@@ -120,8 +120,33 @@
 
 .iconsStyle {
 	padding-right: 8px;
+	width: 24px;
+	height: 22px;
 }
+.termAndCondition {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 19px;
+	gap: 5px;
+	width: 100%;
 
+	color: #797a80;
+}
+.termAndCondition a {
+	color: #01261c;
+	cursor: pointer;
+	text-decoration: underline;
+}
+.termAndCondition input {
+	width: 24px;
+	height: 24px;
+	padding-right: 13px;
+}
 .cardsContainer {
 	display: flex;
 	border: 1px solid #dcdddf;
@@ -292,7 +317,14 @@
 	margin-top: 20px;
 	margin-bottom: -10px;
 }
-
+.labelStyle {
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 16px;
+	color: #90959c;
+}
 .contactInfo {
 	display: flex;
 	align-items: center;
@@ -380,6 +412,7 @@
 		display: flex;
 		align-items: center;
 		background-color: #ffff;
+		padding: 0 16px;
 	}
 	.btnContainer {
 		display: flex;

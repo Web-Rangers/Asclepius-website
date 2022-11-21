@@ -68,7 +68,7 @@ const ClinicCardList = ({ clinicsData }) => {
 						showMoreFunc();
 					}}
 				>
-					{!state ? 'მეტი' : 'მეტი'}
+					{!state ? 'იხილეთ მეტი' : 'იხილეთ მეტი'}
 				</div>
 			</div>
 		</div>

@@ -33,7 +33,7 @@ const Input = ({
 				type={!isVisible && withIcon ? 'password' : 'text'}
 				onChange={(event) => onChange?.call(null, event.target.value)}
 			/>
-			<label>{label}</label>
+			<label className={classes.labelStyle}>{label}</label>
 			{withIcon ? (
 				<span
 					className='icon'

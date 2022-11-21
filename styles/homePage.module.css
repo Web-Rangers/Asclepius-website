@@ -733,7 +733,7 @@
 }
 
 .showBtn {
-	width: 180px;
+	width: 220px;
 	height: 48px;
 	margin: 55px auto 72px auto;
 	padding: 0 47px;
@@ -959,7 +959,16 @@
 		margin-right: 12px;
 		width: 100%;
 	} */
-
+	.ourClinicTextStyle {
+		font-family: 'Avenir Next Bold';
+		font-style: normal;
+		font-weight: 300;
+		font-size: 18px;
+		line-height: 18px;
+		color: #1e2837;
+		/* margin-top: 72px; */
+		height: 38px;
+	}
 	.clinicCardContainerTitle {
 		display: flex;
 		flex-direction: column;
@@ -1095,6 +1104,14 @@
 	.imgPart {
 		width: 100%;
 		height: 207px;
+	}
+	.imgPart img {
+		object-fit: cover;
+		width: 254px;
+		height: 160px;
+	}
+	.showBtn {
+		width: 100%;
 	}
 	.doctorCardContainer {
 		padding: 20px 0;
