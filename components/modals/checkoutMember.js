@@ -145,10 +145,10 @@ export function Above18({userInfo, setUserInfo, validation, validationList}) {
                 className={styles.servInput}
                 style={classNames(styles.servInput, {
                     [styles.validationInput]: validationList.findIndex((e)=> e == 'personalId') !== -1,
-                    [styles.removeValidation]: userInfo?.personalId.toString().length > 10,
+                    [styles.removeValidation]: userInfo?.personalId?.toString().length > 10,
                 })}  
                 placeholder="Id number" 
-                value={userInfo.personalId}
+                value={userInfo?.personalId}
                 onChange={(e)=> setUserInfo(values=> ({...values, personalId: e}))}
             />
             <div className={styles.birth}>
@@ -247,10 +247,10 @@ export function WifeOrHusband({userInfo, setUserInfo, validation, validationList
                 className={styles.servInput}
                 style={classNames(styles.servInput, {
                     [styles.validationInput]: validationList.findIndex((e)=> e == 'personalId') !== -1,
-                    [styles.removeValidation]: userInfo?.personalId.toString().length > 10,
+                    [styles.removeValidation]: userInfo?.personalId?.toString().length > 10,
                 })}  
                 placeholder="Id number" 
-                value={userInfo.personalId}
+                value={userInfo?.personalId}
                 onChange={(e)=> setUserInfo(values=> ({...values, personalId: e}))}
             />
             <div className={styles.birth}>
@@ -338,10 +338,10 @@ export function Under18({userInfo, setUserInfo, validation, validationList}) {
                 className={styles.servInput}
                 style={classNames(styles.servInput, {
                     [styles.validationInput]: validationList.findIndex((e)=> e == 'personalId') !== -1,
-                    [styles.removeValidation]: userInfo?.personalId.toString().length > 10,
+                    [styles.removeValidation]: userInfo?.personalId?.toString().length > 10,
                 })}  
                 placeholder="Id number" 
-                value={userInfo.personalId}
+                value={userInfo?.personalId}
                 onChange={(e)=> setUserInfo(values=> ({...values, personalId: e}))}
             />
             <div className={styles.birth}>
