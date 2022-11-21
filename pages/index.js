@@ -14,13 +14,26 @@ import { useWindowSize } from '../components/useWindowSize';
 import { getData } from '../components/request';
 import { Carousel } from 'react-responsive-carousel';
 import MainSlider from '../components/contents/mainSlider';
-import { DownOutlined } from '@ant-design/icons';
-import { Dropdown, message, Space } from 'antd';
-import * as ANT from 'antd';
+import { Dropdown, message } from 'antd';
 import 'antd/dist/antd.css';
 
-
-
+const onClick = ({ key }) => {
+	message.info(`Click on item ${key}`);
+};
+const items = [
+	{
+		label: '1st menu item',
+		key: '1',
+	},
+	{
+		label: '2nd menu item',
+		key: '2',
+	},
+	{
+		label: '3rd menu item',
+		key: '3',
+	},
+];
 
 function Home({ clinics, doctors, frelancers, categories }) {
 	const [clinicData, setClinicData] = useState([]);
