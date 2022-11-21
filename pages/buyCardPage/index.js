@@ -339,7 +339,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 								// 		"customerDTOList": null
 								// 	},
 								// 	'POST'
-								// ))
+								// )) //
 						}}
 					/>
 				</div>
