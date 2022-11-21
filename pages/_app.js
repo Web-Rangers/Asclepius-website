@@ -52,6 +52,7 @@ function MyApp({ Component, pageProps }) {
 					{hideHeader ? signUp ? <SignUpHeader /> : <Header /> : null}
 					{getLayout(<Component {...pageProps} />)}
 					<Script
+						id='my-script'
 						strategy='afterInteractive'
 						dangerouslySetInnerHTML={{
 							__html: `(function(d, w, s) {
