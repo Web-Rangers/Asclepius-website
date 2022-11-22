@@ -24,7 +24,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 
 	const [checkout, setCheckout] = useState(false);
 
-	console.log('product', categories);
+	const [user, setUser] = useState({});
 
 	const openModal = () => {
 		setIsOpen(true);
@@ -70,6 +70,11 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 				},
 			});
 		}
+
+		getData('https://medical.pirveli.ge/medical/registry/user-id')
+			.then((response)=>{
+				setUser(response)
+			})
 	}, []);
 
 	const [selectPack, setSelectPack] = useState('');
@@ -138,7 +143,6 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 		},
 	}));
 
-	console.log(products);
 	return (
 		<>
 			{checkout && (
@@ -148,6 +152,8 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 					users={users}
 					onClose={() => setCheckout(false)}
 					setUsers={(e) => setUsers(e)}
+					currentUser={user}
+					selectPack={selectPack}
 				/>
 			)}
 			<div className={s.container}>

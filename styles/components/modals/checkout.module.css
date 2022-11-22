@@ -213,3 +213,27 @@
 .servInput {
   background-color: #fff;
 }
+
+.currentUserForm {
+  margin-top:20px;
+  display: flex;
+  flex-direction: column;
+  gap:15px;
+}
+
+.userBlock {
+  margin-bottom:30px;
+}
+
+.dataPicker {
+  width: 100%;
+  min-height: 55px;
+  border: 1px solid #e5e5e5;
+}
+
+.select div {
+  width: 100%;
+  min-height: 55px;
+  display: flex;
+  align-items: center;
+}
