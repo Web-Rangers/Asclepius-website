@@ -9,7 +9,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import { useState, useEffect } from 'react';
 import { getData } from '../../../components/request';
-import { Swipper } from '../../../components/contents/Swipper';
+import Swipper from '../../../components/contents/Swipper';
 
 const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 	const router = useRouter();
@@ -47,7 +47,7 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 	return (
 		<div className={s.container}>
 			<div>
-				<Link href='/clinicPage'>
+				<div onClick={() => router.back()}>
 					<a className={s.backButton}>
 						<Image
 							alt='Arrow-LeftActive'
@@ -58,7 +58,7 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 						/>
 						Back
 					</a>
-				</Link>
+				</div>
 			</div>
 			<Text style={s.clinicsTitleTextStyle}> {cardData?.displayName}</Text>
 			<div className={s.clinicDetailPageCard}>
