@@ -10,7 +10,6 @@ import Button from '../ui/Button';
 
 const ClinicCardItem = ({ data, listItem = false }) => {
 	const size = useWindowSize();
-	console.log('data');
 
 	const weekday = [
 		'',
