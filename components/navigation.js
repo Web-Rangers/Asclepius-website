@@ -9,7 +9,7 @@ export default function Navigation(){
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        getData(`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/categories`)
+        getData(`https://medical.pirveli.ge/medical/categories`)
             .then((response)=> setCategories(response));
     }, [])
     
