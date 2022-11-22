@@ -16,7 +16,7 @@ import Slider from '@mui/material/Slider';
 import { getData } from '../../components/request';
 import ClinicCardItem from '../../components/contents/ClinicCardItem';
 
-let PageSize = 4;
+let PageSize = 12;
 
 function ClinicsPage({ clinics }) {
 	const [modalIsOpen, setIsOpen] = useState(false);
