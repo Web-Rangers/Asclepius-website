@@ -477,11 +477,11 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
             <Form.Item {...tailLayout}>
                 {
                     (type == 'individual') && 
-                    <button htmlType="Submit" className={styles.save}>Buy card</button>
+                    <button type="Submit" className={styles.save}>Buy card</button>
                 }
                 {
                     (type == 'family' && users.length > 0) && 
-                    <button htmlType="Submit" className={styles.save}>Buy card</button>
+                    <button type="Submit" className={styles.save}>Buy card</button>
                 }
             </Form.Item>
         </Form>
