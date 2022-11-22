@@ -16,11 +16,11 @@ import Slider from '@mui/material/Slider';
 import { getData } from '../../components/request';
 import ClinicCardItem from '../../components/contents/ClinicCardItem';
 import { useRouter } from 'next/router';
-import Navigation from '../../components/navigation';
+import Navigation from '../../components/Navigation';
 
-let PageSize = 12;
+let PageSize = 4;
 
-function ClinicsPage({ clinics }) {
+function ClinicsPage({ clinics, cards }) {
 	const [modalIsOpen, setIsOpen] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [searchInput, setSearchInput] = useState('');
@@ -95,40 +95,25 @@ function ClinicsPage({ clinics }) {
 	};
 
 	function filterClinic(id) {
-		if(id){
+		if (id) {
 			const clinicsWithId = (element) => element.id == id;
-			const filterState = clinics?.filter((e)=> e.clinicCategories.some(clinicsWithId))
-			setFilterData(filterState)
-		}else {
-			setFilterData(clinics)
+			const filterState = clinics?.filter((e) =>
+				e.clinicCategories.some(clinicsWithId)
+			);
+			setFilterData(filterState);
+		} else {
+			setFilterData(clinics);
 		}
 	}
 
 	useEffect(() => {
 		let id = router?.query?.id;
-
-		setFilterData((state) => {
-			if (id) {
-				const clinicsWithId = (element) => element.id == id;
-				const filterState = state.filter((e) =>
-					e.clinicCategories.some(clinicsWithId)
-				);
-				return filterState;
-			}
-
-			return state;
-		});
-	}, [router.isReady]);
+		filterClinic(id);
+	}, [router.asPath, router.events]);
 
 	return (
 		router?.isReady && (
 			<>
-
-		filterClinic(id)
-	}, [router.asPath, router.events]);
-
-	return (
-			router?.isReady && <>
 				<Navigation />
 
 				<div className={s.branchPage}>
@@ -253,6 +238,7 @@ function ClinicsPage({ clinics }) {
 								key={item?.id}
 								data={item}
 								listItem={true}
+								cards={cards}
 							/>
 						))}
 					</div>
@@ -276,8 +262,12 @@ export const getServerSideProps = async () => {
 		`${API_URL}/asclepius/v1/api/clinics/search?name=`
 	);
 
+	const getProducts = await getData(
+		`https://medical.pirveli.ge/medical/products/get-products`
+	);
 	return {
 		props: {
+			cards: getProducts,
 			clinics:
 				getClinics?.length === 0
 					? null

@@ -138,7 +138,25 @@
 	filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(25deg)
 		brightness(105%) contrast(250%);
 }
-
+.percentContainer {
+	position: absolute;
+	width: 71px;
+	top: 218px;
+	height: 28px;
+	background-color: #ff5954;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	left: 0;
+	border-radius: 0px 14px 14px 0px;
+	padding: 0 16px;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 14px;
+	color: #ffffff;
+}
 .serviceTextStyle {
 	font-family: 'Noto Sans';
 	font-style: normal;
