@@ -16,7 +16,7 @@ import { Carousel } from 'react-responsive-carousel';
 import MainSlider from '../components/contents/MainSlider';
 import { Dropdown, message } from 'antd';
 import 'antd/dist/antd.css';
-import Link from 'next/link';
+import Navigation from '../components/navigation';
 
 function Home({ clinics, doctors, frelancers, categories }) {
 	const [clinicData, setClinicData] = useState([]);
@@ -116,68 +116,7 @@ function Home({ clinics, doctors, frelancers, categories }) {
 
 	return (
 		<div className={classes.homePageContainer}>
-			<div className={classes.catalogContainer}>
-				{categories?.map((item, index) => {
-					const subCategories = categories.filter(
-						(e) => e.parentCategoryId == item.id
-					);
-					const items = subCategories.map((e, key) => {
-						return {
-							key: key,
-							label: (
-								<Link
-									target='_blank'
-									rel='noopener noreferrer'
-									href={`/clinicPage?id=${e.id}`}
-								>
-									{e.title}
-								</Link>
-							),
-						};
-					});
-
-					return (
-						<>
-							{item.parentCategoryId === null &&
-								(items.length > 0 ? (
-									<Dropdown
-										menu={{
-											items,
-										}}
-										placement='bottom'
-										overlayClassName={classes.dropdown}
-									>
-										<span
-											key={index}
-											className={classes.catalogTextStyle}
-										>
-											<Link
-												target='_blank'
-												rel='noopener noreferrer'
-												href={`/clinicPage?id=${item.id}`}
-											>
-												{item.title}
-											</Link>
-										</span>
-									</Dropdown>
-								) : (
-									<span
-										key={index}
-										className={classes.catalogTextStyle}
-									>
-										<Link
-											target='_blank'
-											rel='noopener noreferrer'
-											href={item.title !== "ყველა" ? `/clinicPage?id=${item.id}` : "/clinicPage"}
-										>
-											{item.title}
-										</Link>
-									</span>
-								))}
-						</>
-					);
-				})}
-			</div>
+			<Navigation />
 			<div>
 				<div className={classes.firstPart}>
 					<div className={classes.showSlider}>
