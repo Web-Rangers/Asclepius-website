@@ -19,7 +19,7 @@ import { Dropdown, message } from 'antd';
 import 'antd/dist/antd.css';
 import Link from 'next/link';
 import Swipper from '../components/contents/Swipper';
-import Navigation from '../components/Navigation';
+import Navigation from '../components/navigation';
 
 function Home({ clinics, doctors, frelancers, categories, products }) {
 	const [clinicData, setClinicData] = useState([]);
