@@ -18,6 +18,11 @@
 	width: calc(100% - 0px);
 	max-width: calc(1440px - 100px);
 }
+
+.catalogContainer a {
+	color: #01261c;
+}
+
 .catalogTextStyle {
 	font-family: 'Avenir Next Georgian';
 	font-style: normal;
@@ -29,7 +34,7 @@
 	transition: 0.4s;
 }
 
-.catalogTextStyle:hover {
+.catalogContainer a:hover {
 	color: #ff1c00;
 }
 
