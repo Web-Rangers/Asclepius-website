@@ -13,22 +13,18 @@ import axios from 'axios';
 import ResponsiveSlider from '../components/contents/ResponsiveCarousel';
 import { useWindowSize } from '../components/useWindowSize';
 import { getData } from '../components/request';
+import { Carousel } from 'react-responsive-carousel';
 import MainSlider from '../components/contents/MainSlider';
 import { Dropdown, message } from 'antd';
 import 'antd/dist/antd.css';
-
 import Link from 'next/link';
 import Swipper from '../components/contents/Swipper';
-
-import Navigation from '../components/navigation';
-
+import Navigation from '../components/Navigation';
 
 function Home({ clinics, doctors, frelancers, categories, products }) {
 	const [clinicData, setClinicData] = useState([]);
 	const [doctorsData, setDoctorsData] = useState([]);
 	const [imgData, setImgData] = useState([]);
-
-	console.log('pro', products);
 
 	const allData = frelancers?.content
 		?.concat(doctors?.content)
@@ -52,6 +48,23 @@ function Home({ clinics, doctors, frelancers, categories, products }) {
 		{ id: '11', url: 'firstPartImg1.png' },
 		{ id: '12', url: 'firstPartImg2.png' },
 	];
+
+	function sliceIntoChunks(arr, chunkSize) {
+		const res = [];
+		for (let i = 0; i < arr.length; i += chunkSize) {
+			const chunk = arr.slice(i, i + chunkSize);
+			res.push(chunk);
+		}
+		return res;
+	}
+
+	useEffect(() => {
+		if (windowSize.width > 600) {
+			setImgData(sliceIntoChunks(firstPartImgArray, 4));
+		} else {
+			setImgData(sliceIntoChunks(firstPartImgArray, 1));
+		}
+	}, [windowSize.width]);
 
 	useEffect(() => {
 		if (windowSize.width > 600) {
@@ -110,9 +123,7 @@ function Home({ clinics, doctors, frelancers, categories, products }) {
 
 	return (
 		<div className={classes.homePageContainer}>
-
 			<Navigation />
-
 			<div>
 				<div className={classes.firstPart}>
 					<div className={classes.showSlider}>
