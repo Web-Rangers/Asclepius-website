@@ -16,6 +16,7 @@ import Slider from '@mui/material/Slider';
 import { getData } from '../../components/request';
 import ClinicCardItem from '../../components/contents/ClinicCardItem';
 import { useRouter } from 'next/router';
+import Navigation from '../../components/navigation';
 
 let PageSize = 4;
 
@@ -27,7 +28,6 @@ function ClinicsPage({ clinics }) {
 	const [modalOpen, setOpen] = useState(false);
 	const [value, setValue] = useState([0, 100]);
 	const [filterData, setFilterData] = useState(clinics);
-
 	const router = useRouter();
 
 	const handleChangeRange = (event, newValue) => {
@@ -84,8 +84,6 @@ function ClinicsPage({ clinics }) {
 		return filterData.slice(firstPageIndex, lastPageIndex);
 	}, [currentPage, filterData]);
 
-	console.log('filter', currentTableData);
-
 	let subtitle;
 
 	const openModal = () => {
@@ -96,22 +94,24 @@ function ClinicsPage({ clinics }) {
 		setIsOpen(false);
 	};
 
+	function filterClinic(id) {
+		if(id){
+			const clinicsWithId = (element) => element.id == id;
+			const filterState = clinics?.filter((e)=> e.clinicCategories.some(clinicsWithId))
+			setFilterData(filterState)
+		}else {
+			setFilterData(clinics)
+		}
+	}
+
 	useEffect(() => {
 		let id = router?.query?.id;
-		setFilterData(state=> {
-			if(id){
-				const clinicsWithId = (element) => element.id == id;
-				const filterState = state.filter((e)=> e.clinicCategories.some(clinicsWithId))
-				return filterState
-			}
-
-			return state
-		})
-	}, [router.isReady]);
+		filterClinic(id)
+	}, [router.asPath, router.events]);
 
 	return (
-		
 			router?.isReady && <>
+				<Navigation />
 				<div className={s.branchPage}>
 					<div className={s.branchTool}>
 						<Link href='/'>
@@ -139,7 +139,6 @@ function ClinicsPage({ clinics }) {
 							onClick={openModal}
 						></Button>
 					</div>
-
 					<div className={s.clinicFilterContainer}>
 						<Text style={s.clinicsTitleTextStyle}>Clinics</Text>
 						<div className={s.rangeContainer}>

@@ -4,24 +4,6 @@
 	width: calc(100% - 0px);
 	max-width: calc(1440px - 0px); */
 }
-.catalogContainer {
-	height: 80px;
-	display: flex;
-	justify-content: center;
-	flex-direction: row;
-	align-items: center;
-	padding: 0px;
-	gap: 20px;
-	margin: auto;
-	/* width: calc(100% - 0px);
-	max-width: calc(1440px - 0px); */
-	width: calc(100% - 0px);
-	max-width: calc(1440px - 100px);
-}
-
-.catalogContainer a {
-	color: #01261c;
-}
 
 .catalogTextStyle {
 	font-family: 'Avenir Next Georgian';
@@ -34,10 +16,6 @@
 	transition: 0.4s;
 }
 
-.catalogContainer a:hover {
-	color: #ff1c00;
-}
-
 .dropDownContainer {
 	height: 200px;
 	background-color: rgb(213, 164, 188);
@@ -45,6 +23,7 @@
 	width: calc(100% - 100px);
 	max-width: calc(1440px - 100px);
 }
+
 .showSlider {
 	margin: auto;
 	width: calc(100% - 100px);
