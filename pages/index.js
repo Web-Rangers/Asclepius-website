@@ -16,6 +16,7 @@ import { Carousel } from 'react-responsive-carousel';
 import MainSlider from '../components/contents/MainSlider';
 import { Dropdown, message } from 'antd';
 import 'antd/dist/antd.css';
+import Link from 'next/link';
 
 function Home({ clinics, doctors, frelancers, categories }) {
 	const [clinicData, setClinicData] = useState([]);
@@ -124,13 +125,13 @@ function Home({ clinics, doctors, frelancers, categories }) {
 						return {
 							key: key,
 							label: (
-								<a
+								<Link
 									target='_blank'
 									rel='noopener noreferrer'
-									href={`/${e.title}`}
+									href={`/clinicPage?id=${e.id}`}
 								>
 									{e.title}
-								</a>
+								</Link>
 							),
 						};
 					});
@@ -150,7 +151,13 @@ function Home({ clinics, doctors, frelancers, categories }) {
 											key={index}
 											className={classes.catalogTextStyle}
 										>
-											{item.title}
+											<Link
+												target='_blank'
+												rel='noopener noreferrer'
+												href={`/clinicPage?id=${item.id}`}
+											>
+												{item.title}
+											</Link>
 										</span>
 									</Dropdown>
 								) : (
@@ -158,7 +165,13 @@ function Home({ clinics, doctors, frelancers, categories }) {
 										key={index}
 										className={classes.catalogTextStyle}
 									>
-										{item.title}
+										<Link
+											target='_blank'
+											rel='noopener noreferrer'
+											href={item.title !== "ყველა" ? `/clinicPage?id=${item.id}` : "/clinicPage"}
+										>
+											{item.title}
+										</Link>
 									</span>
 								))}
 						</>
