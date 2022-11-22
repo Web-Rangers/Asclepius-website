@@ -237,3 +237,7 @@
   display: flex;
   align-items: center;
 }
+
+.nonBtn {
+  display: none;
+}
