@@ -24,8 +24,6 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 
 	const [checkout, setCheckout] = useState(false);
 
-	console.log('product', categories);
-
 	const openModal = () => {
 		setIsOpen(true);
 	};

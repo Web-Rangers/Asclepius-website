@@ -11,7 +11,7 @@ import 'swiper/css/navigation';
 // import required modules
 import { Pagination, Navigation, Lazy } from 'swiper';
 
-export const Swipper = ({ data, iconBottom, branch = false, branches }) => {
+const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 	const [swiperRef, setSwiperRef] = useState();
 
 	console.log('gaer', data);
@@ -27,7 +27,7 @@ export const Swipper = ({ data, iconBottom, branch = false, branches }) => {
 	}, [swiperRef]);
 
 	return (
-		<div>
+		<div className={style.swapperContainer}>
 			<Swiper
 				direction='horizontal'
 				onSwiper={setSwiperRef}
@@ -80,14 +80,15 @@ export const Swipper = ({ data, iconBottom, branch = false, branches }) => {
 									style={{
 										display: 'flex',
 										objectFit: 'cover',
-										marginTop: '24px',
 									}}
 								/>
 							</SwiperSlide>
 					  ))}
 			</Swiper>
 			{iconBottom && (
-				<div className={style.arrowContainer}>
+				<div
+					className={iconTop ? style.arrowContainerTop : style.arrowContainer}
+				>
 					<img
 						src='/Arrow - Left.svg'
 						alt='arrowLeft'
@@ -107,3 +108,5 @@ export const Swipper = ({ data, iconBottom, branch = false, branches }) => {
 		</div>
 	);
 };
+
+export default Swipper;

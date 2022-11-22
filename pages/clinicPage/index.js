@@ -98,23 +98,25 @@ function ClinicsPage({ clinics }) {
 
 	useEffect(() => {
 		let id = router?.query?.id;
-		setFilterData(state=> {
-			if(id){
+		setFilterData((state) => {
+			if (id) {
 				const clinicsWithId = (element) => element.id == id;
-				const filterState = state.filter((e)=> e.clinicCategories.some(clinicsWithId))
-				return filterState
+				const filterState = state.filter((e) =>
+					e.clinicCategories.some(clinicsWithId)
+				);
+				return filterState;
 			}
 
-			return state
-		})
+			return state;
+		});
 	}, [router.isReady]);
 
 	return (
-		
-			router?.isReady && <>
+		router?.isReady && (
+			<>
 				<div className={s.branchPage}>
 					<div className={s.branchTool}>
-						<Link href='/'>
+						<div onClick={() => router.back()}>
 							<a className={s.backButton}>
 								<Image
 									alt='Arrow-LeftActive'
@@ -125,7 +127,7 @@ function ClinicsPage({ clinics }) {
 								/>
 								Back
 							</a>
-						</Link>
+						</div>
 						<Button
 							style={s.filterForResp}
 							icon={
@@ -247,7 +249,7 @@ function ClinicsPage({ clinics }) {
 					/>
 				</div>
 			</>
-		
+		)
 	);
 }
 

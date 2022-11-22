@@ -152,21 +152,18 @@ const Header = () => {
 			<div className={classes.smallheaderContainer}>
 				<div className={classes.content}>
 					<div className={classes.smallheaderLeft}>
-						<Link href='/'>
-							<a className={classes.smallheaderLeftText}>E-commerce</a>
+						<Link href='https://optimoml.geopay.ge/index.php'>
+							<a className={classes.smallheaderLeftText}>მაღაზია</a>
 						</Link>
 
 						<Link href='/'>
-							<a className={classes.smallheaderLeftTextMedical}>
-								{' '}
-								Medical Card
-							</a>
+							<a className={classes.smallheaderLeftTextMedical}>მედიქალი</a>
 						</Link>
-						<Link href='/'>
-							<a className={classes.smallheaderLeftText}>Discount</a>
+						<Link href='https://vouchers.pirveli.ge'>
+							<a className={classes.smallheaderLeftText}>ვაუჩერები</a>
 						</Link>
-						<Link href='/'>
-							<a className={classes.smallheaderLeftText}>Lotto</a>
+						<Link href='https://lot51.pirveli.ge'>
+							<a className={classes.smallheaderLeftText}>ლოტო</a>
 						</Link>
 					</div>
 					<div className={classes.smallheaderRight}>
