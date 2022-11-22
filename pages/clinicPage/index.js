@@ -108,8 +108,20 @@ function ClinicsPage({ clinics, cards }) {
 
 	useEffect(() => {
 		let id = router?.query?.id;
-		filterClinic(id);
-	}, [router.asPath, router.events]);
+
+		setFilterData((state) => {
+			if (id) {
+				const clinicsWithId = (element) => element.id == id;
+				const filterState = clinics.filter((e) =>
+					e.clinicCategories.some(clinicsWithId)
+				);
+				return filterState;
+			}
+
+			return state;
+		});
+		setCurrentPage(1);
+	}, [router]);
 
 	return (
 		router?.isReady && (

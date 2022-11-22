@@ -2,16 +2,16 @@ import { Dropdown } from 'antd';
 import 'antd/dist/antd.css';
 import styles from '../styles/components/navigation.module.css';
 import { useState, useEffect } from 'react';
-import { getData } from './request';
+import { getData } from '../components/request';
 import Link from 'next/link';
 
 export default function Navigation() {
 	const [categories, setCategories] = useState([]);
 
 	useEffect(() => {
-		getData(
-			`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/categories`
-		).then((response) => setCategories(response));
+		getData(`https://medical.pirveli.ge/medical/categories`).then((response) =>
+			setCategories(response)
+		);
 	}, []);
 
 	return (
