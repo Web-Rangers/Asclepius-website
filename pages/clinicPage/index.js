@@ -110,7 +110,7 @@ function ClinicsPage({ clinics }) {
 		setFilterData((state) => {
 			if (id) {
 				const clinicsWithId = (element) => element.id == id;
-				const filterState = state.filter((e) =>
+				const filterState = clinics.filter((e) =>
 					e.clinicCategories.some(clinicsWithId)
 				);
 				return filterState;
@@ -118,14 +118,8 @@ function ClinicsPage({ clinics }) {
 
 			return state;
 		});
-	}, [router.isReady]);
-
-	return (
-		router?.isReady && (
-			<>
-
-		filterClinic(id)
-	}, [router.asPath, router.events]);
+		setCurrentPage(1)
+	}, [router]);
 
 	return (
 			router?.isReady && <>
@@ -266,7 +260,6 @@ function ClinicsPage({ clinics }) {
 				</div>
 			</>
 		)
-	);
 }
 
 export const getServerSideProps = async () => {
