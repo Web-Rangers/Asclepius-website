@@ -72,7 +72,7 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
     }
 
     async function request(values = null){
-        if(values){
+        if(Object.getOwnPropertyNames(values).length !== 0){
             let requestBody = {
                 objectType: 'customer',
                 id: 2000057,
@@ -205,6 +205,7 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                             currentUser={currentUser} 
                             onFinish={onFinish}
                             users={users}
+                            type='family'
                         >
                             <div className={styles.users}>
                                 {users.length > 0 && <h2>Family members:</h2>}
@@ -279,7 +280,7 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                                 />
                             </div>
                         </CurrentUser>
-                        </>  : <CurrentUser bodyref={bodyref} currentUser={currentUser} onFinish={onFinish}></CurrentUser>
+                        </>  : <CurrentUser type="individual" bodyref={bodyref} currentUser={currentUser} onFinish={onFinish}></CurrentUser>
                     }
                 </div>
             </div>
@@ -354,7 +355,7 @@ export function EditUserInfo({user, users, setEdit, setUsers}) {
     </>
 }
 
-export function CurrentUser({currentUser, bodyref, onFinish, children, users=[]}) {
+export function CurrentUser({currentUser, bodyref, onFinish, children, type, users=[]}) {
     return <>
         <div className={styles.userBlock}>
             <h2>Your information:</h2>
@@ -388,7 +389,10 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, users=[]}
             </div>
         </div>
         {children}
-        <h2>Additional personal information:</h2>
+        {
+            !currentUser?.personalId && 
+            <h2>Additional personal information:</h2>
+        }
         <Form 
             className={styles.currentUserForm} 
             name="control-ref" 
@@ -410,7 +414,7 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, users=[]}
                     <Input className={styles.input} />
                 </Form.Item>
             }
-            {
+            {/* {
                 currentUser?.phone == null &&
                 <Form.Item
                     name="phone"
@@ -423,7 +427,7 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, users=[]}
                 >
                     <Input />
                 </Form.Item>
-            }
+            } */}
             {
                 currentUser?.personDob == null &&
                 <Form.Item
@@ -472,7 +476,11 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, users=[]}
             }
             <Form.Item {...tailLayout}>
                 {
-                    users.length > 0 &&
+                    (type == 'individual') && 
+                    <button htmlType="Submit" className={styles.save}>Buy card</button>
+                }
+                {
+                    (type == 'family' && users.length > 0) && 
                     <button htmlType="Submit" className={styles.save}>Buy card</button>
                 }
             </Form.Item>
