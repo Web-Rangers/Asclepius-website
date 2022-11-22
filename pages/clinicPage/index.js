@@ -16,7 +16,7 @@ import Slider from '@mui/material/Slider';
 import { getData } from '../../components/request';
 import ClinicCardItem from '../../components/contents/ClinicCardItem';
 import { useRouter } from 'next/router';
-import Navigation from '../../components/Navigation';
+import Navigation from '../../components/navigation';
 
 let PageSize = 4;
 
