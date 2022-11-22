@@ -16,8 +16,12 @@ import { getData } from '../components/request';
 import MainSlider from '../components/contents/MainSlider';
 import { Dropdown, message } from 'antd';
 import 'antd/dist/antd.css';
+
 import Link from 'next/link';
 import Swipper from '../components/contents/Swipper';
+
+import Navigation from '../components/navigation';
+
 
 function Home({ clinics, doctors, frelancers, categories, products }) {
 	const [clinicData, setClinicData] = useState([]);
@@ -106,6 +110,7 @@ function Home({ clinics, doctors, frelancers, categories, products }) {
 
 	return (
 		<div className={classes.homePageContainer}>
+
 			<div className={classes.catalogContainer}>
 				{categories?.map((item, index) => {
 					const subCategories = categories.filter(
@@ -172,6 +177,9 @@ function Home({ clinics, doctors, frelancers, categories, products }) {
 					);
 				})}
 			</div>
+
+			<Navigation />
+
 			<div>
 				<div className={classes.firstPart}>
 					<div className={classes.showSlider}>

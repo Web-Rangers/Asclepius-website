@@ -1,0 +1,100 @@
+.catalogContainer {
+	height: 80px;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	align-items: center;
+	padding: 0px;
+	gap: 20px;
+	margin: auto;
+	/* width: calc(100% - 0px);
+	max-width: calc(1440px - 0px); */
+	width: calc(100% - 0px);
+	max-width: calc(1440px - 100px);
+}
+
+.catalogContainer a {
+	color: #01261c;
+}
+
+.catalogContainer a:hover {
+	color: #ff1c00;
+}
+
+.dropDownContainer {
+	height: 200px;
+	background-color: rgb(213, 164, 188);
+	margin: auto;
+	width: calc(100% - 100px);
+	max-width: calc(1440px - 100px);
+}
+
+.dropdown {
+	width: 100%;
+	background-color: #fff;
+	overflow: hidden;
+}
+
+.dropdown ul {
+	position: relative;
+	background-color: #fff;
+	border-top: 1px solid rgb(30, 40, 57, 10%);
+	box-shadow: 0 0 0;
+	width: calc(100% - 0px);
+	max-width: calc(1440px - 100px);
+	margin: 13px auto 0;
+	padding-left: 338px;
+	padding-top: 28px;
+	height: 292px;
+}
+
+.dropdown ul:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 312px;
+	height: 280px;
+	background-image: url('/dropdownicon.svg');
+}
+
+.dropdown ul li {
+	display: inline-block;
+	vertical-align: top;
+	width: 33.333333%;
+	overflow: hidden;
+	margin-bottom: 32px;
+	font-family: 'Avenir Next Georgian';
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 23px;
+	color: #1e2837;
+}
+
+.dropdown ul li:hover {
+	background-color: transparent;
+	color: #ff1c00;
+}
+
+.catalogTextStyle {
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 23px;
+	color: #01261c;
+	cursor: pointer;
+	transition: 0.4s;
+}
+
+@media only screen and (max-width: 1366px) {
+	.catalogContainer {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.catalogContainer {
+		display: none;
+	}
+}
