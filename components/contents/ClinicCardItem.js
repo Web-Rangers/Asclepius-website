@@ -7,10 +7,27 @@ import { useWindowSize } from '../useWindowSize';
 import { ReactSVG } from 'react-svg';
 import Link from 'next/link';
 import Button from '../ui/Button';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
-const ClinicCardItem = ({ data, listItem = false }) => {
+const ClinicCardItem = ({ data, listItem = false, cards }) => {
 	const size = useWindowSize();
-	console.log('data');
+	let a;
+
+	const [discount, setDiscount] = useState(0);
+
+	useEffect(() => {
+		cards?.map((item) =>
+			item?.clinic?.map((e) => {
+				if (e?.clinicId === data?.id) {
+					console.log('---------------', e?.percentage);
+					setDiscount(e.percentage);
+
+					discount > e?.percentage ? setDiscount(e.percentage) : '';
+				}
+			})
+		);
+	}, [data?.id, cards]);
 
 	const weekday = [
 		'',
@@ -42,10 +59,15 @@ const ClinicCardItem = ({ data, listItem = false }) => {
 								alt={data?.alt}
 								className={s.clinicItemImage}
 							/>
+							{discount > 0 && (
+								<span className={classes.percentContainer}>
+									{discount + '%'}
+								</span>
+							)}
 						</div>
 						<div>
 							<Text style={s.clinicNameText}>{data?.displayName}</Text>
-							{data?.workingHours
+							{/* {data?.workingHours
 								?.sort((a, b) => a.dayId - b.dayId)
 								?.map((item) => (
 									<div
@@ -59,7 +81,7 @@ const ClinicCardItem = ({ data, listItem = false }) => {
 										<Text> {weekday[item.dayId]} </Text>
 										<Text> {[item.startHour, '-', item.endHour]} </Text>
 									</div>
-								))}
+								))} */}
 							<Text style={s.clinicAddressText}>
 								<Image
 									alt='locationIcon'
@@ -108,7 +130,8 @@ const ClinicCardItem = ({ data, listItem = false }) => {
 										width='16.67px'
 										height='15.04'
 									/>
-									{data?.address.address}
+									<p>ddd{discount}</p>
+									{/* {data?.address.address} */}
 								</Text>
 							</div>
 						</div>

@@ -68,8 +68,8 @@ export const SignUp = () => {
 							className={classes.loginOptionsStyle}
 						>
 							<img
-								src='/google.svg'
-								alt='google'
+								src='/footerIcon.png'
+								alt='logo'
 								className={classes.iconsStyle}
 							/>
 							Pirveli.com
@@ -134,9 +134,16 @@ export const SignUp = () => {
 						onChange={handleChange('repeatPassword')}
 						withIcon
 					/>
+					<span className={classes.termAndCondition}>
+						<input
+							type='checkbox'
+							name='checkbox'
+						/>
+						I agree to the <a>terms</a> and <a>conditions</a>{' '}
+					</span>
 					<Button
 						type='submit'
-						name='Login'
+						name='Sign Up'
 					/>
 				</div>
 			</div>

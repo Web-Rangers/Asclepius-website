@@ -15,10 +15,12 @@ import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import { getData } from '../../components/request';
 import ClinicCardItem from '../../components/contents/ClinicCardItem';
+import { useRouter } from 'next/router';
+import Navigation from '../../components/navigation';
 
 let PageSize = 4;
 
-function ClinicsPage({ clinics }) {
+function ClinicsPage({ clinics, cards }) {
 	const [modalIsOpen, setIsOpen] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [searchInput, setSearchInput] = useState('');
@@ -26,6 +28,7 @@ function ClinicsPage({ clinics }) {
 	const [modalOpen, setOpen] = useState(false);
 	const [value, setValue] = useState([0, 100]);
 	const [filterData, setFilterData] = useState(clinics);
+	const router = useRouter();
 
 	const handleChangeRange = (event, newValue) => {
 		setValue(newValue);
@@ -81,8 +84,6 @@ function ClinicsPage({ clinics }) {
 		return filterData.slice(firstPageIndex, lastPageIndex);
 	}, [currentPage, filterData]);
 
-	console.log('filter', currentTableData);
-
 	let subtitle;
 
 	const openModal = () => {
@@ -93,141 +94,176 @@ function ClinicsPage({ clinics }) {
 		setIsOpen(false);
 	};
 
-	return (
-		<div className={s.branchPage}>
-			<div className={s.branchTool}>
-				<Link href='/'>
-					<a className={s.backButton}>
-						<Image
-							alt='Arrow-LeftActive'
-							src='/Arrow - LeftActive.svg'
-							width='24px'
-							height='24px'
-							style={{ paddingRight: '4px' }}
-						/>
-						Back
-					</a>
-				</Link>
-				<Button
-					style={s.filterForResp}
-					icon={
-						<Image
-							alt='Arrow-LeftActive'
-							src='/Filter.svg'
-							width='24px'
-							height='24px'
-						/>
-					}
-					onClick={openModal}
-				></Button>
-			</div>
+	function filterClinic(id) {
+		if (id) {
+			const clinicsWithId = (element) => element.id == id;
+			const filterState = clinics?.filter((e) =>
+				e.clinicCategories.some(clinicsWithId)
+			);
+			setFilterData(filterState);
+		} else {
+			setFilterData(clinics);
+		}
+	}
 
-			<div className={s.clinicFilterContainer}>
-				<Text style={s.clinicsTitleTextStyle}>Clinics</Text>
-				<div className={s.rangeContainer}>
-					<span className={s.discountTextStyle}>% Discount</span>
-					<div className={s.percentBox}>
-						<span className={s.percentBoxStyle}>{value[0] + '%'}</span>
-						<span className={s.percentBoxStyle}>{value[1] + '%'}</span>
+	useEffect(() => {
+		let id = router?.query?.id;
+
+		setFilterData((state) => {
+			if (id) {
+				const clinicsWithId = (element) => element.id == id;
+				const filterState = clinics.filter((e) =>
+					e.clinicCategories.some(clinicsWithId)
+				);
+				return filterState;
+			}
+
+			return state;
+		});
+		setCurrentPage(1);
+	}, [router]);
+
+	return (
+		router?.isReady && (
+			<>
+				<Navigation />
+
+				<div className={s.branchPage}>
+					<div className={s.branchTool}>
+						<div onClick={() => router.back()}>
+							<a className={s.backButton}>
+								<Image
+									alt='Arrow-LeftActive'
+									src='/Arrow - LeftActive.svg'
+									width='24px'
+									height='24px'
+									style={{ paddingRight: '4px' }}
+								/>
+								Back
+							</a>
+						</div>
+						<Button
+							style={s.filterForResp}
+							icon={
+								<Image
+									alt='Arrow-LeftActive'
+									src='/Filter.svg'
+									width='24px'
+									height='24px'
+								/>
+							}
+							onClick={openModal}
+						></Button>
 					</div>
-					<Slider
-						getAriaLabel={() => 'Temperature range'}
-						value={value}
-						onChange={handleChangeRange}
-					/>
-				</div>
-				<div className={s.btnContainer}>
-					<Button
-						style={s.filterButtonStyle}
-						name='Filter'
-						icon={
-							<Image
-								alt='Arrow-LeftActive'
-								src='/Filter.svg'
-								width='24px'
-								height='24px'
+					<div className={s.clinicFilterContainer}>
+						<Text style={s.clinicsTitleTextStyle}>Clinics</Text>
+						<div className={s.rangeContainer}>
+							<span className={s.discountTextStyle}>% Discount</span>
+							<div className={s.percentBox}>
+								<span className={s.percentBoxStyle}>{value[0] + '%'}</span>
+								<span className={s.percentBoxStyle}>{value[1] + '%'}</span>
+							</div>
+							<Slider
+								getAriaLabel={() => 'Temperature range'}
+								value={value}
+								onChange={handleChangeRange}
 							/>
-						}
-						onClick={setOpen}
-					></Button>
-					{modalOpen && (
-						<FilterModal onClose={() => setOpen(false)}>
-							<div className={classNames(s.filterContainer)}>
-								<div className={s.filterSelectors}>
-									<div className={s.searchInp}>
-										<h2>Search</h2>
-										<div className={s.searchForm}>
-											<input
-												type='text'
-												placeholder='Search with ID'
+						</div>
+						<div className={s.btnContainer}>
+							<Button
+								style={s.filterButtonStyle}
+								name='Filter'
+								icon={
+									<Image
+										alt='Arrow-LeftActive'
+										src='/Filter.svg'
+										width='24px'
+										height='24px'
+									/>
+								}
+								onClick={setOpen}
+							></Button>
+							{modalOpen && (
+								<FilterModal onClose={() => setOpen(false)}>
+									<div className={classNames(s.filterContainer)}>
+										<div className={s.filterSelectors}>
+											<div className={s.searchInp}>
+												<h2>Search</h2>
+												<div className={s.searchForm}>
+													<input
+														type='text'
+														placeholder='Search with ID'
+													/>
+												</div>
+											</div>
+											<Select
+												placeholder='City'
+												label='City'
+												labelStyle='outside'
+												className={s.servInput}
+												options={[
+													{
+														label: '4140 Parker Rd',
+														value: '1',
+													},
+													{ label: 'Another Branch', value: '2' },
+												]}
+												onChange={(value) => {
+													setStatus(value);
+												}}
+											/>
+											<Select
+												placeholder='Service Type'
+												label='Service Type'
+												labelStyle='outside'
+												className={s.servInput}
+												options={[
+													{
+														label: '4140 Parker Rd',
+														value: '1',
+													},
+													{ label: 'Another Branch', value: '2' },
+												]}
+												onChange={(value) => {
+													setStatus(value);
+												}}
+											/>
+										</div>
+										<div className={s.filterBtns}>
+											<Button
+												name='Clear'
+												style={s.clearBtn}
+											/>
+											<Button
+												name='Filter'
+												style={s.filterBtn}
 											/>
 										</div>
 									</div>
-									<Select
-										placeholder='City'
-										label='City'
-										labelStyle='outside'
-										className={s.servInput}
-										options={[
-											{
-												label: '4140 Parker Rd',
-												value: '1',
-											},
-											{ label: 'Another Branch', value: '2' },
-										]}
-										onChange={(value) => {
-											setStatus(value);
-										}}
-									/>
-									<Select
-										placeholder='Service Type'
-										label='Service Type'
-										labelStyle='outside'
-										className={s.servInput}
-										options={[
-											{
-												label: '4140 Parker Rd',
-												value: '1',
-											},
-											{ label: 'Another Branch', value: '2' },
-										]}
-										onChange={(value) => {
-											setStatus(value);
-										}}
-									/>
-								</div>
-								<div className={s.filterBtns}>
-									<Button
-										name='Clear'
-										style={s.clearBtn}
-									/>
-									<Button
-										name='Filter'
-										style={s.filterBtn}
-									/>
-								</div>
-							</div>
-						</FilterModal>
-					)}
-				</div>
-			</div>
-			<div className={s.clinicPageCardListContainer}>
-				{currentTableData.map((item) => (
-					<ClinicCardItem
-						key={item?.id}
-						data={item}
-						listItem={true}
+								</FilterModal>
+							)}
+						</div>
+					</div>
+					<div className={s.clinicPageCardListContainer}>
+						{currentTableData.map((item) => (
+							<ClinicCardItem
+								key={item?.id}
+								data={item}
+								listItem={true}
+								cards={cards}
+							/>
+						))}
+					</div>
+					<Pagination
+						className='pagination-bar'
+						currentPage={currentPage}
+						totalCount={filterData.length}
+						pageSize={PageSize}
+						onPageChange={(page) => setCurrentPage(page)}
 					/>
-				))}
-			</div>
-			<Pagination
-				className='pagination-bar'
-				currentPage={currentPage}
-				totalCount={clinicArrayData.length}
-				pageSize={PageSize}
-				onPageChange={(page) => setCurrentPage(page)}
-			/>
-		</div>
+				</div>
+			</>
+		)
 	);
 }
 
@@ -238,8 +274,12 @@ export const getServerSideProps = async () => {
 		`${API_URL}/asclepius/v1/api/clinics/search?name=`
 	);
 
+	const getProducts = await getData(
+		`https://medical.pirveli.ge/medical/products/get-products`
+	);
 	return {
 		props: {
+			cards: getProducts,
 			clinics:
 				getClinics?.length === 0
 					? null

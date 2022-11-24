@@ -10,7 +10,7 @@ import { Tooltip } from '@nextui-org/react';
 
 import Image from 'next/image';
 
-const Card = () => {
+const Card = ({ data }) => {
 	const AntSwitch = styled(Switch)(({ theme }) => ({
 		width: 60,
 		height: 32,
@@ -54,6 +54,7 @@ const Card = () => {
 		},
 	}));
 
+	console.log('data', data);
 	const [cardType, setCardType] = useState(false);
 
 	const featuresData = [
@@ -169,9 +170,14 @@ const Card = () => {
 			<div className={style.cardTableMobile}>
 				<div className={style.Starter}>
 					<div className={style.cardTitles}>
-						<span className={style.cardTitleText}>Starter</span>
+						<span className={style.cardTitleText}>{data[0]?.cardName}</span>
 						<span className={style.tableValueSec}>
-							<span>{cardType ? '$15' : '$10'}</span> Billed Individually
+							<span>
+								{cardType
+									? data[0]?.priseFamily + '$'
+									: data[0]?.priseInd + '$'}
+							</span>
+							Billed Individually
 						</span>
 					</div>
 					{featuresData.map((item, index) => (
@@ -207,9 +213,14 @@ const Card = () => {
 				<div className={style.pro}>
 					<div className={style.proCardTitles}>
 						<span className={style.recommendedStyle}>Recommended</span>
-						<span className={style.cardTitleText}>Pro</span>
+						<span className={style.cardTitleText}>{data[1]?.cardName}</span>
 						<span className={style.tableValueSec}>
-							<span>{cardType ? '$15' : '$10'}</span> Billed Individually
+							<span>
+								{cardType
+									? data[1]?.priseFamily + '$'
+									: data[1]?.priseInd + '$'}
+							</span>{' '}
+							Billed Individually
 						</span>
 					</div>
 					{featuresData.map((item, index) => (
@@ -246,11 +257,16 @@ const Card = () => {
 				</div>
 				<div className={style.plus}>
 					<div className={style.cardTitles}>
-						<span className={style.cardTitleText}>Plus</span>
+						<span className={style.cardTitleText}>{data[2]?.cardName}</span>
 
 						<span className={style.tableValueSec}>
 							{' '}
-							<span>{cardType ? '$30' : '$15'}</span>Billed Individually
+							<span>
+								{cardType
+									? data[2]?.priseFamily + '$'
+									: data[2]?.priseInd + '$'}
+							</span>
+							Billed Individually
 						</span>
 					</div>
 					{featuresData.map((item, index) => (
@@ -303,10 +319,14 @@ const Card = () => {
 				</div>
 				<div className={style.Starter}>
 					<div className={style.cardTitles}>
-						<span className={style.cardTitleText}>Starter</span>
+						<span className={style.cardTitleText}>{data[0]?.cardName}</span>
 						<span className={style.price}>
 							{' '}
-							<span>{cardType ? '$5' : '$15'}</span>
+							<span>
+								{cardType
+									? data[0]?.priseFamily + '$'
+									: data[0]?.priseInd + '$'}
+							</span>
 							<span className={style.spanText}>Billed Individually</span>
 						</span>
 					</div>
@@ -331,10 +351,14 @@ const Card = () => {
 				<div className={style.pro}>
 					<div className={style.proCardTitles}>
 						<span className={style.recommendedStyle}>Recommended</span>
-						<span className={style.cardTitleTextPro}>Pro</span>
+						<span className={style.cardTitleTextPro}>{data[1]?.cardName}</span>
 						<span className={style.price}>
 							{' '}
-							<span>{cardType ? '$15' : '$10'}</span>
+							<span>
+								{cardType
+									? data[1]?.priseFamily + '$'
+									: data[1]?.priseInd + '$'}
+							</span>
 							<span className={style.spanText}>Billed Individually</span>
 						</span>
 					</div>
@@ -357,11 +381,15 @@ const Card = () => {
 				</div>
 				<div className={style.plus}>
 					<div className={style.cardTitles}>
-						<span className={style.cardTitleText}>Plus</span>
+						<span className={style.cardTitleText}>{data[2]?.cardName}</span>
 
 						<span className={style.price}>
 							{' '}
-							<span>{cardType ? '$30' : '$15'}</span>
+							<span>
+								{cardType
+									? data[2]?.priseFamily + '$'
+									: data[2]?.priseInd + '$'}
+							</span>
 							<span className={style.spanText}>Billed Individually</span>
 						</span>
 					</div>

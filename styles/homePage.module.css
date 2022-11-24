@@ -4,20 +4,7 @@
 	width: calc(100% - 0px);
 	max-width: calc(1440px - 0px); */
 }
-.catalogContainer {
-	height: 80px;
-	display: flex;
-	justify-content: center;
-	flex-direction: row;
-	align-items: center;
-	padding: 0px;
-	gap: 20px;
-	margin: auto;
-	/* width: calc(100% - 0px);
-	max-width: calc(1440px - 0px); */
-	width: calc(100% - 0px);
-	max-width: calc(1440px - 100px);
-}
+
 .catalogTextStyle {
 	font-family: 'Avenir Next Georgian';
 	font-style: normal;
@@ -29,10 +16,6 @@
 	transition: 0.4s;
 }
 
-.catalogTextStyle:hover {
-	color: #ff1c00;
-}
-
 .dropDownContainer {
 	height: 200px;
 	background-color: rgb(213, 164, 188);
@@ -40,6 +23,7 @@
 	width: calc(100% - 100px);
 	max-width: calc(1440px - 100px);
 }
+
 .showSlider {
 	margin: auto;
 	width: calc(100% - 100px);
@@ -118,7 +102,7 @@
 .clinicCardContainer {
 	display: flex;
 	flex-direction: column;
-	margin-top: 172px;
+	margin-top: 72px;
 	background-color: #f5f5f5;
 	padding-top: 38px;
 }
@@ -154,7 +138,25 @@
 	filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(25deg)
 		brightness(105%) contrast(250%);
 }
-
+.percentContainer {
+	position: absolute;
+	width: 71px;
+	top: 218px;
+	height: 28px;
+	background-color: #ff5954;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	left: 0;
+	border-radius: 0px 14px 14px 0px;
+	padding: 0 16px;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 14px;
+	color: #ffffff;
+}
 .serviceTextStyle {
 	font-family: 'Noto Sans';
 	font-style: normal;
@@ -733,7 +735,7 @@
 }
 
 .showBtn {
-	width: 180px;
+	width: 220px;
 	height: 48px;
 	margin: 55px auto 72px auto;
 	padding: 0 47px;
@@ -959,7 +961,16 @@
 		margin-right: 12px;
 		width: 100%;
 	} */
-
+	.ourClinicTextStyle {
+		font-family: 'Avenir Next Bold';
+		font-style: normal;
+		font-weight: 300;
+		font-size: 18px;
+		line-height: 18px;
+		color: #1e2837;
+		/* margin-top: 72px; */
+		height: 38px;
+	}
 	.clinicCardContainerTitle {
 		display: flex;
 		flex-direction: column;
@@ -1095,6 +1106,14 @@
 	.imgPart {
 		width: 100%;
 		height: 207px;
+	}
+	.imgPart img {
+		object-fit: cover;
+		width: 254px;
+		height: 160px;
+	}
+	.showBtn {
+		width: 100%;
 	}
 	.doctorCardContainer {
 		padding: 20px 0;

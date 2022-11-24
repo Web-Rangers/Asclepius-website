@@ -16,6 +16,7 @@ import Typography from '@mui/material/Typography';
 import style from '../../styles/components/card.module.css';
 import Select from '../../components/Select';
 import Checkout from '../../components/modals/checkout';
+import TableDropDown from '../../components/TableDropDown';
 
 function BuyCardPage({ cards, clinics, categories, products }) {
 	const [modalIsOpen, setIsOpen] = useState(false);
@@ -23,7 +24,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 
 	const [checkout, setCheckout] = useState(false);
 
-	console.log('product', categories);
+	const [user, setUser] = useState({});
 
 	const openModal = () => {
 		setIsOpen(true);
@@ -69,6 +70,11 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 				},
 			});
 		}
+
+		getData('https://medical.pirveli.ge/medical/registry/user-id')
+			.then((response)=>{
+				setUser(response)
+			})
 	}, []);
 
 	const [selectPack, setSelectPack] = useState('');
@@ -137,7 +143,6 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 		},
 	}));
 
-	console.log(products);
 	return (
 		<>
 			{checkout && (
@@ -147,6 +152,8 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 					users={users}
 					onClose={() => setCheckout(false)}
 					setUsers={(e) => setUsers(e)}
+					currentUser={user}
+					selectPack={selectPack}
 				/>
 			)}
 			<div className={s.container}>
@@ -252,17 +259,19 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 					</div>
 					{categories
 						.filter((e) => e.parentCategoryId === null)
-						.map((item) => (
-							<div
-								className={s.tableContentContainer}
-								key={item.id}
-							>
-								<DropDown
-									item={item}
-									services={services}
-								/>
-							</div>
-						))}
+						.map((item) => {
+							return (
+								<div
+									className={s.tableContentContainer}
+									key={item.id}
+								>
+									<TableDropDown
+										item={item}
+										services={services}
+									/>
+								</div>
+							);
+						})}
 
 					<div className={s.buttonContainer}>
 						<Select
@@ -363,56 +372,6 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 		</>
 	);
 }
-
-const DropDown = ({ services, item }) => {
-	const [dropDown, setDropDown] = useState(false);
-	return (
-		<div className={s.customOptContainer}>
-			<span className={s.clinicNameStyle}>
-				{item.title}
-				<ReactSVG
-					className={classNames({
-						[s.titleArrowTransform]: dropDown,
-					})}
-					src='/dropArrow.svg'
-					onClick={() => setDropDown(!dropDown)}
-				/>
-			</span>
-
-			<div className={s.serviceOptionListStyle}>
-				<div className={s.serviceOptionListStyle}>
-					{dropDown
-						? services.map((item) => (
-								<div
-									className={s.serviceRow}
-									key={item.id}
-								>
-									<div
-										className={s.serviesOptions}
-										onClick={() => {
-											// setSelectPack(e.name);
-											// setCard({
-											// 	id: e.genericTransactionTypeId,
-											// 	amount: e.entries[0].entryAmount,
-											// });
-											setDropDown(false);
-										}}
-									>
-										{item.name}
-									</div>
-									<div className={s.tableColumnTitle}>
-										<span className={s.serviesOptions}>{item.percent1}</span>
-										<span className={s.serviesOptions}>{item.percent3}</span>
-										<span className={s.serviesOptions}>{item.percent6}</span>
-									</div>
-								</div>
-						  ))
-						: null}
-				</div>
-			</div>
-		</div>
-	);
-};
 
 export const getStaticProps = async () => {
 	let API_URL = process.env.NEXT_PUBLIC_BASE_URL;

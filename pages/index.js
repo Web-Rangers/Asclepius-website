@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Slider from '../components/contents/Slider';
 import classes from '../styles/homePage.module.css';
+import s from '../styles/clinicDetailPage.module.css';
 import ClinicCardList from '../components/contents/ClinicCardList';
 import DoctorCardList from '../components/contents/DoctorCardList';
 import Services from '../components/contents/Services';
@@ -13,11 +14,14 @@ import ResponsiveSlider from '../components/contents/ResponsiveCarousel';
 import { useWindowSize } from '../components/useWindowSize';
 import { getData } from '../components/request';
 import { Carousel } from 'react-responsive-carousel';
-import MainSlider from '../components/contents/mainSlider';
+import MainSlider from '../components/contents/MainSlider';
 import { Dropdown, message } from 'antd';
 import 'antd/dist/antd.css';
+import Link from 'next/link';
+import Swipper from '../components/contents/Swipper';
+import Navigation from '../components/navigation';
 
-function Home({ clinics, doctors, frelancers, categories }) {
+function Home({ clinics, doctors, frelancers, categories, products }) {
 	const [clinicData, setClinicData] = useState([]);
 	const [doctorsData, setDoctorsData] = useState([]);
 	const [imgData, setImgData] = useState([]);
@@ -31,14 +35,18 @@ function Home({ clinics, doctors, frelancers, categories }) {
 	const windowSize = useWindowSize();
 
 	const firstPartImgArray = [
-		'firstPartImg1.png',
-		'firstPartImg2.png',
-		'firstPartImg3.png',
-		'firstPartImg3.png',
-		'firstPartImg3.png',
-		'firstPartImg3.png',
-		'firstPartImg1.png',
-		'firstPartImg2.png',
+		{ id: '1', url: 'firstPartImg1.png' },
+		{ id: '2', url: 'firstPartImg2.png' },
+		{ id: '3', url: 'firstPartImg3.png' },
+		{ id: '4', url: 'firstPartImg3.png' },
+		{ id: '5', url: 'firstPartImg1.png' },
+		{ id: '6', url: 'firstPartImg3.png' },
+		{ id: '7', url: 'firstPartImg2.png' },
+		{ id: '8', url: 'firstPartImg1.png' },
+		{ id: '9', url: 'firstPartImg2.png' },
+		{ id: '10', url: 'firstPartImg2.png' },
+		{ id: '11', url: 'firstPartImg1.png' },
+		{ id: '12', url: 'firstPartImg2.png' },
 	];
 
 	function sliceIntoChunks(arr, chunkSize) {
@@ -115,56 +123,7 @@ function Home({ clinics, doctors, frelancers, categories }) {
 
 	return (
 		<div className={classes.homePageContainer}>
-			<div className={classes.catalogContainer}>
-				{categories?.map((item, index) => {
-					const subCategories = categories.filter(
-						(e) => e.parentCategoryId == item.id
-					);
-					const items = subCategories.map((e, key) => {
-						return {
-							key: key,
-							label: (
-								<a
-									target='_blank'
-									rel='noopener noreferrer'
-									href={`/${e.title}`}
-								>
-									{e.title}
-								</a>
-							),
-						};
-					});
-
-					return (
-						<>
-							{item.parentCategoryId === null &&
-								(items.length > 0 ? (
-									<Dropdown
-										menu={{
-											items,
-										}}
-										placement='bottom'
-										overlayClassName={classes.dropdown}
-									>
-										<span
-											key={index}
-											className={classes.catalogTextStyle}
-										>
-											{item.title}
-										</span>
-									</Dropdown>
-								) : (
-									<span
-										key={index}
-										className={classes.catalogTextStyle}
-									>
-										{item.title}
-									</span>
-								))}
-						</>
-					);
-				})}
-			</div>
+			<Navigation />
 			<div>
 				<div className={classes.firstPart}>
 					<div className={classes.showSlider}>
@@ -194,51 +153,13 @@ function Home({ clinics, doctors, frelancers, categories }) {
 			</div>
 			<div>
 				<div className={classes.firstPart}>
-					<Carousel
-						swipeable={true}
-						emulateTouch={true}
-						className={classes.carousel}
-						showStatus={false}
-						showIndicators={false}
-						showArrows={false}
-						centerMode={true}
-						centerSlidePercentage={25.5}
-						renderArrowPrev={(clickHandler) => (
-							<button onClick={clickHandler}>
-								<img
-									style={{
-										height: '15px',
-										width: '12.05px',
-										cursor: 'pointer',
-									}}
-									src={`Arrow - Left.svg`}
-								/>
-							</button>
-						)}
-						renderArrowNext={(clickHandler) => (
-							<button onClick={clickHandler}>
-								<img
-									style={{
-										height: '15px',
-										width: '12.05px',
-										cursor: 'pointer',
-									}}
-									src={`Arrow - Right.svg`}
-								/>
-							</button>
-						)}
-					>
-						{firstPartImgArray.map((e, index) => {
-							return (
-								<img
-									src={e}
-									className={classes.slide}
-									key={index}
-									alt='firstPartimg'
-								/>
-							);
-						})}
-					</Carousel>
+					<div className={s.swipperContainer}>
+						<Swipper
+							data={firstPartImgArray}
+							iconTop={true}
+							iconBottom={true}
+						/>
+					</div>
 				</div>
 				<div className={classes.firstPartImgForMobile}>
 					<div className={classes.firstPartImg}>
@@ -253,7 +174,10 @@ function Home({ clinics, doctors, frelancers, categories }) {
 					</div>
 				</div>
 			</div>
-			<ClinicCardList clinicsData={clinicData} />
+			<ClinicCardList
+				clinicsData={clinicData}
+				products={products}
+			/>
 			<DoctorCardList doctorsData={doctorsData} />
 			{/* <Services />
 			<Benefits /> */}
@@ -276,6 +200,10 @@ export const getServerSideProps = async () => {
 	);
 	const getCategories = await getData(`${API_URL}/asclepius/v1/api/categories`);
 
+	const getProducts = await getData(
+		`https://medical.pirveli.ge/medical/products/get-products`
+	);
+
 	return {
 		props: {
 			clinics:
@@ -287,6 +215,7 @@ export const getServerSideProps = async () => {
 			doctors: getDoctors?.length === 0 ? null : getDoctors,
 			frelancers: getFreelancerDoc?.length === 0 ? null : getFreelancerDoc,
 			categories: getCategories,
+			products: getProducts,
 		},
 	};
 };
