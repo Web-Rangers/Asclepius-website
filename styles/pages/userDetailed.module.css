@@ -1,11 +1,18 @@
 .detailedPage {
     margin:auto;
-    padding: 0 60px;
+    padding: 20px 60px;
     display: flex;
     justify-content: space-between;
-    max-width: 1920px;
     width: 100%;
-    margin-bottom:53px;
+    background-color: #F7F9FB;
+}
+
+.detailPageContainer {
+    margin: auto;
+    width: calc(100% - 0px);
+    max-width: calc(1440px - 100px);
+    display: flex;
+    justify-content: space-between;
 }
 
 .container {
@@ -171,7 +178,7 @@
 }
 
 .table .tableRow {
-    grid-template-columns: 14% 20% 17% 17% 10% 15% 7%;
+    grid-template-columns: 25% 25% 25% 25%;
 }
 
 .filterButton {
