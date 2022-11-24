@@ -17,11 +17,13 @@ import style from '../../styles/components/card.module.css';
 import Select from '../../components/Select';
 import Checkout from '../../components/modals/checkout';
 import TableDropDown from '../../components/TableDropDown';
+import { ConnectingAirportsOutlined } from '@mui/icons-material';
 
 function BuyCardPage({ cards, clinics, categories, products }) {
 	const [modalIsOpen, setIsOpen] = useState(false);
 	const [customStyles, setCustomStyles] = useState({});
-
+	const [dropDown, setDropDown] = useState('');
+	const [productState, setProductState] = useState(products);
 	const [checkout, setCheckout] = useState(false);
 
 	const [user, setUser] = useState({});
@@ -71,18 +73,39 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 			});
 		}
 
-		getData('https://medical.pirveli.ge/medical/registry/user-id')
-			.then((response)=>{
-				setUser(response)
-			})
+		getData('https://medical.pirveli.ge/medical/registry/user-id').then(
+			(response) => {
+				setUser(response);
+			}
+		);
 	}, []);
 
 	const [selectPack, setSelectPack] = useState('');
 	const [month, setMonth] = useState('');
 	const [cardType, setCardType] = useState('');
-
+	const [price, setPrice] = useState('');
 	const [checked, setChecked] = useState(false);
 	const [paymentType, setPaymentType] = useState('');
+	const [filteredCard, setFilteredCard] = useState([]);
+
+	useEffect(() => {
+		const filtredProducts = products
+			?.filter((e) => e.endDateIncrementValue == month)
+			.filter((e) => e.genericTransactionTypeId == cardType);
+		setProductState(filtredProducts);
+		setFilteredCard(products?.filter((e) => e.endDateIncrementValue == month));
+		setPrice(
+			filtredProducts?.map((e) =>
+				selectPack == 'priseInd' ? e?.priseInd : e?.priseFamily
+			)
+		);
+	}, [month, cardType, selectPack]);
+
+	const newMonth = products?.map((e) => e.endDateIncrementValue);
+
+	let uniqueArray = [...new Set(newMonth)];
+
+	console.log('filteredCard', filteredCard);
 
 	const services = [
 		{
@@ -265,27 +288,68 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 									className={s.tableContentContainer}
 									key={item.id}
 								>
-									<TableDropDown
-										item={item}
-										services={services}
-									/>
+									<div
+										onClick={() => {
+											if (dropDown === item.title) {
+												setDropDown('');
+											} else {
+												setDropDown(item.title);
+											}
+										}}
+										className={s.categorieTitle}
+									>
+										{item.title}
+										<ReactSVG src='/dropArrow.svg' />
+									</div>
+
+									{dropDown === item.title && (
+										<div className={s.dropDownList}>
+											{categories?.map((sub) => {
+												if (sub.id == item.id) {
+													let catsw = clinics
+														.map((e) => {
+															if (
+																e.clinicCategories.some((x) => x.id == sub.id)
+															) {
+																return e;
+															}
+														})
+														.filter((e) => e !== undefined);
+													return catsw.map((e) => e.displayName);
+												}
+											})}
+										</div>
+									)}
 								</div>
 							);
 						})}
 
 					<div className={s.buttonContainer}>
+						<span className={s.finalPrice}>
+							{price}{' '}
+							<span>
+								{price.length > 0 && (
+									<img
+										src='/blueLari.svg'
+										alt='lari'
+										width='24px'
+										height='24px'
+									/>
+								)}
+							</span>
+						</span>
+
 						<Select
 							placeholder='Month'
 							label='Month'
 							className={s.buyDropDown}
-							options={[
-								{
-									label: '1 month',
-									value: '1',
-								},
-								{ label: '2 months', value: '2' },
-								{ label: '3 months', value: '3' },
-							]}
+							options={
+								products &&
+								uniqueArray?.map((item) => ({
+									label: item,
+									value: item,
+								}))
+							}
 							onChange={(value) => {
 								setMonth(value);
 							}}
@@ -297,7 +361,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 							className={s.buyDropDown}
 							options={
 								products &&
-								products?.map((item) => ({
+								filteredCard?.map((item) => ({
 									label: item.cardName,
 									value: item.genericTransactionTypeId,
 								}))
@@ -314,9 +378,9 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 							options={[
 								{
 									label: 'Individually',
-									value: '1',
+									value: 'priseInd',
 								},
-								{ label: 'Family', value: '2' },
+								{ label: 'Family', value: 'priseFamily' },
 							]}
 							onChange={(value) => {
 								setSelectPack(value);

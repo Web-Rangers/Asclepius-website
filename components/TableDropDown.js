@@ -3,7 +3,7 @@ import s from '../styles/buyCard.module.css';
 import { ReactSVG } from 'react-svg';
 import classNames from 'classnames';
 
-const TableDropDown = ({ services, item }) => {
+const TableDropDown = ({ services, item, clinicName }) => {
 	const [dropDown, setDropDown] = useState(false);
 	return (
 		<div className={s.customOptContainer}>
@@ -37,7 +37,7 @@ const TableDropDown = ({ services, item }) => {
 											setDropDown(false);
 										}}
 									>
-										{item.name}
+										{clinicName}
 									</div>
 									<div className={s.tableColumnTitle}>
 										<span className={s.serviesOptions}>{item.percent1}</span>

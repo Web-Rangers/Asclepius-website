@@ -60,59 +60,59 @@ const Card = ({ data }) => {
 	const featuresData = [
 		{
 			id: '1',
-			name: 'Medical assistance',
-			starter: '24/7',
-			pro: '24/7',
-			plus: '24/7',
+			name: 'ცხელი ხაზის მომსახურება 24/7',
+			starter: '100% ულიმიტო',
+			pro: '100% ულიმიტო',
+			plus: '100% ულიმიტო',
 		},
 		{
 			id: '2',
-			name: 'Outpatient services',
-			starter: '15%',
-			pro: '15-20 %',
-			plus: 'From 20%',
+			name: 'ამბულატორიული  სერვისები',
+			starter: '15%-მდე',
+			pro: '15-20%',
+			plus: '20%-დან',
 		},
 		{
 			id: '3',
-			name: 'Hospital services',
-			starter: '15%',
-			pro: '15-20 %',
-			plus: 'From 20%',
+			name: 'ჰოსპიტალური მომსახურება',
+			starter: '15%-მდე',
+			pro: '15-20%',
+			plus: '20%-დან',
 		},
 		{
 			id: '4',
-			name: 'Dental services',
-			starter: '15%',
-			pro: '15-20 %',
-			plus: 'From 20%',
+			name: 'სტომატოლოგიური მომსახურება',
+			starter: '15%-მდე',
+			pro: '15-20%',
+			plus: '20%-დან',
 		},
 		{
 			id: '5',
-			name: 'Laboratory and high-tech diagnostics',
-			starter: '15%',
-			pro: '15-20 %',
-			plus: 'From 20%',
+			name: 'ლაბორატორიული დიაგნოსტიკა და მაღალტექნოლოგიური კვლევები',
+			starter: '15%-მდე',
+			pro: '15-20%',
+			plus: '20%-დან',
 		},
 		{
 			id: '6',
-			name: 'Aesthetics and beauty',
-			starter: '15%',
-			pro: '15-20 %',
-			plus: 'From 20%',
+			name: 'ესთეტიკა და სილამაზე',
+			starter: '15%-მდე',
+			pro: '15-20%',
+			plus: '20%-დან',
 		},
 		{
 			id: '7',
-			name: 'Rehabilitation and wellness services',
-			starter: '15%',
-			pro: '15-20 %',
-			plus: 'From 20%',
+			name: 'რეაბილიტაცია და გამაჯანსაღებელი მომსახურება',
+			starter: '15%-მდე',
+			pro: '15-20%',
+			plus: '20%-დან',
 		},
 		{
 			id: '8',
-			name: 'Family doctor telephone consultation',
-			starter: 'Once/ MTH',
-			pro: 'Twice a month',
-			plus: 'Three times a month',
+			name: 'ოჯახის ექიმის სატელეფონო კონსულტაცია',
+			starter: 'თვეში ერთხელ',
+			pro: 'თვეში 2 ჯერ',
+			plus: 'თვეში სამჯერ',
 		},
 	];
 	return (
@@ -173,11 +173,28 @@ const Card = ({ data }) => {
 						<span className={style.cardTitleText}>{data[0]?.cardName}</span>
 						<span className={style.tableValueSec}>
 							<span>
-								{cardType
-									? data[0]?.priseFamily + '$'
-									: data[0]?.priseInd + '$'}
+								{cardType ? (
+									<span>
+										{data[0]?.priseFamily}{' '}
+										<img
+											src='lari.svg'
+											alt='lari'
+											width='29px'
+											height='23px'
+										/>
+									</span>
+								) : (
+									<span>
+										{data[0]?.priseInd}
+										<img
+											src='lari.svg'
+											alt='lari'
+											width='29px'
+											height='23px'
+										/>
+									</span>
+								)}
 							</span>
-							Billed Individually
 						</span>
 					</div>
 					{featuresData.map((item, index) => (
@@ -216,11 +233,28 @@ const Card = ({ data }) => {
 						<span className={style.cardTitleText}>{data[1]?.cardName}</span>
 						<span className={style.tableValueSec}>
 							<span>
-								{cardType
-									? data[1]?.priseFamily + '$'
-									: data[1]?.priseInd + '$'}
-							</span>{' '}
-							Billed Individually
+								{cardType ? (
+									<span>
+										{data[1]?.priseFamily}{' '}
+										<img
+											src='lari.svg'
+											alt='lari'
+											width='29px'
+											height='23px'
+										/>
+									</span>
+								) : (
+									<span>
+										{data[1]?.priseInd}
+										<img
+											src='lari.svg'
+											alt='lari'
+											width='29px'
+											height='23px'
+										/>
+									</span>
+								)}
+							</span>
 						</span>
 					</div>
 					{featuresData.map((item, index) => (
@@ -260,13 +294,29 @@ const Card = ({ data }) => {
 						<span className={style.cardTitleText}>{data[2]?.cardName}</span>
 
 						<span className={style.tableValueSec}>
-							{' '}
 							<span>
-								{cardType
-									? data[2]?.priseFamily + '$'
-									: data[2]?.priseInd + '$'}
+								{cardType ? (
+									<span>
+										{data[2]?.priseFamily}{' '}
+										<img
+											src='lari.svg'
+											alt='lari'
+											width='29px'
+											height='23px'
+										/>
+									</span>
+								) : (
+									<span>
+										{data[2]?.priseInd}
+										<img
+											src='lari.svg'
+											alt='lari'
+											width='29px'
+											height='23px'
+										/>
+									</span>
+								)}
 							</span>
-							Billed Individually
 						</span>
 					</div>
 					{featuresData.map((item, index) => (
@@ -302,7 +352,7 @@ const Card = ({ data }) => {
 			</div>
 			<div className={style.cardTable}>
 				<div className={style.features}>
-					<span className={style.titleTextStyle}>Features</span>
+					<span className={style.titleTextStyle}>სერვისები</span>
 
 					{featuresData.map((item, index) => (
 						<span
@@ -321,13 +371,30 @@ const Card = ({ data }) => {
 					<div className={style.cardTitles}>
 						<span className={style.cardTitleText}>{data[0]?.cardName}</span>
 						<span className={style.price}>
-							{' '}
 							<span>
-								{cardType
-									? data[0]?.priseFamily + '$'
-									: data[0]?.priseInd + '$'}
+								{cardType ? (
+									<span>
+										{data[0]?.priseFamily}{' '}
+										<img
+											src='lari.svg'
+											alt='lari'
+											width='29px'
+											height='23px'
+										/>
+									</span>
+								) : (
+									<span>
+										{data[0]?.priseInd}
+										<img
+											src='lari.svg'
+											alt='lari'
+											width='29px'
+											height='23px'
+										/>
+									</span>
+								)}
 							</span>
-							<span className={style.spanText}>Billed Individually</span>
+							<span className={style.spanText}></span>
 						</span>
 					</div>
 					{featuresData.map((item, index) => (
@@ -350,16 +417,35 @@ const Card = ({ data }) => {
 				</div>
 				<div className={style.pro}>
 					<div className={style.proCardTitles}>
-						<span className={style.recommendedStyle}>Recommended</span>
+						<span className={style.recommendedStyle}>რეკომენდებული</span>
 						<span className={style.cardTitleTextPro}>{data[1]?.cardName}</span>
 						<span className={style.price}>
-							{' '}
 							<span>
-								{cardType
-									? data[1]?.priseFamily + '$'
-									: data[1]?.priseInd + '$'}
+								<span>
+									{cardType ? (
+										<span>
+											{data[1]?.priseFamily}
+											<img
+												src='lari.svg'
+												alt='lari'
+												width='29px'
+												height='23px'
+											/>
+										</span>
+									) : (
+										<span>
+											{data[1]?.priseInd}
+											<img
+												src='lari.svg'
+												alt='lari'
+												width='29px'
+												height='23px'
+											/>
+										</span>
+									)}
+								</span>
+								<span className={style.spanText}></span>
 							</span>
-							<span className={style.spanText}>Billed Individually</span>
 						</span>
 					</div>
 					{featuresData.map((item, index) => (
@@ -384,13 +470,32 @@ const Card = ({ data }) => {
 						<span className={style.cardTitleText}>{data[2]?.cardName}</span>
 
 						<span className={style.price}>
-							{' '}
 							<span>
-								{cardType
-									? data[2]?.priseFamily + '$'
-									: data[2]?.priseInd + '$'}
+								<span>
+									{cardType ? (
+										<span>
+											{data[2]?.priseFamily}
+											<img
+												src='lari.svg'
+												alt='lari'
+												width='29px'
+												height='23px'
+											/>
+										</span>
+									) : (
+										<span>
+											{data[2]?.priseInd}
+											<img
+												src='lari.svg'
+												alt='lari'
+												width='29px'
+												height='23px'
+											/>
+										</span>
+									)}
+								</span>
+								<span className={style.spanText}></span>
 							</span>
-							<span className={style.spanText}>Billed Individually</span>
 						</span>
 					</div>
 					{featuresData.map((item, index) => (

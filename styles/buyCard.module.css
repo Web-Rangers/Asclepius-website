@@ -129,7 +129,7 @@
 }
 .tableContentContainer {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	width: 1159px;
 	border-bottom: 1px solid #d8dadc;
 	padding-bottom: 21px;
@@ -454,6 +454,27 @@
 .buyDropDown {
 	width: 198px;
 	height: 52px;
+}
+.dropDownList {
+	margin-top: 5px;
+}
+.finalPrice {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 57px;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 34px;
+	line-height: 27px;
+	color: #5e70da;
+}
+
+.categorieTitle {
+	display: flex;
+	flex-direction: row;
+	gap: 5px;
 }
 .selectBody {
 	display: flex;

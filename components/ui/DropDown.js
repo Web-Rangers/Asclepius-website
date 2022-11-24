@@ -62,7 +62,6 @@ export default function DropDown({
 		};
 	}, []);
 
-	console.log('dd', name);
 	return (
 		<div
 			className={`${styles.container} ${!bordered && styles.noBorder}`}

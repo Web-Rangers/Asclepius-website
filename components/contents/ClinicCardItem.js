@@ -130,8 +130,7 @@ const ClinicCardItem = ({ data, listItem = false, cards }) => {
 										width='16.67px'
 										height='15.04'
 									/>
-									<p>ddd{discount}</p>
-									{/* {data?.address.address} */}
+									{data?.address.address}
 								</Text>
 							</div>
 						</div>
