@@ -18,6 +18,7 @@ import Select from '../../components/Select';
 import Checkout from '../../components/modals/checkout';
 import TableDropDown from '../../components/TableDropDown';
 import { ConnectingAirportsOutlined } from '@mui/icons-material';
+import Image from 'next/image';
 
 function BuyCardPage({ cards, clinics, categories, products }) {
 	const [modalIsOpen, setIsOpen] = useState(false);
@@ -25,6 +26,65 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 	const [dropDown, setDropDown] = useState('');
 	const [productState, setProductState] = useState(products);
 	const [checkout, setCheckout] = useState(false);
+
+	const featuresData = [
+		{
+			id: '1',
+			name: 'ცხელი ხაზის მომსახურება 24/7',
+			starter: '100% ულიმიტო',
+			pro: '100% ულიმიტო',
+			plus: '100% ულიმიტო',
+		},
+		{
+			id: '2',
+			name: 'ამბულატორიული  სერვისები',
+			starter: '15%-მდე',
+			pro: '15-20%',
+			plus: '20%-დან',
+		},
+		{
+			id: '3',
+			name: 'ჰოსპიტალური მომსახურება',
+			starter: '15%-მდე',
+			pro: '15-20%',
+			plus: '20%-დან',
+		},
+		{
+			id: '4',
+			name: 'სტომატოლოგიური მომსახურება',
+			starter: '15%-მდე',
+			pro: '15-20%',
+			plus: '20%-დან',
+		},
+		{
+			id: '5',
+			name: 'ლაბორატორიული დიაგნოსტიკა და მაღალტექნოლოგიური კვლევები',
+			starter: '15%-მდე',
+			pro: '15-20%',
+			plus: '20%-დან',
+		},
+		{
+			id: '6',
+			name: 'ესთეტიკა და სილამაზე',
+			starter: '15%-მდე',
+			pro: '15-20%',
+			plus: '20%-დან',
+		},
+		{
+			id: '7',
+			name: 'რეაბილიტაცია და გამაჯანსაღებელი მომსახურება',
+			starter: '15%-მდე',
+			pro: '15-20%',
+			plus: '20%-დან',
+		},
+		{
+			id: '8',
+			name: 'ოჯახის ექიმის სატელეფონო კონსულტაცია',
+			starter: 'თვეში ერთხელ',
+			pro: 'თვეში 2 ჯერ',
+			plus: 'თვეში სამჯერ',
+		},
+	];
 
 	const [user, setUser] = useState({});
 
@@ -87,25 +147,49 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 	const [checked, setChecked] = useState(false);
 	const [paymentType, setPaymentType] = useState('');
 	const [filteredCard, setFilteredCard] = useState([]);
+	const [chooseCard, setChooseCard] = useState();
+
+	const [cardTypes, setCardTypes] = useState({
+		individual: [],
+		family: [],
+	});
 
 	useEffect(() => {
-		const filtredProducts = products
-			?.filter((e) => e.endDateIncrementValue == month)
-			.filter((e) => e.genericTransactionTypeId == cardType);
-		setProductState(filtredProducts);
 		setFilteredCard(products?.filter((e) => e.endDateIncrementValue == month));
-		setPrice(
-			filtredProducts?.map((e) =>
-				selectPack == 'priseInd' ? e?.priseInd : e?.priseFamily
+		setProductState(
+			filteredCard?.filter(
+				(e) => e.genericTransactionTypeToAddInfo.infoCategory == selectPack
 			)
 		);
+		setChooseCard(
+			productState.filter((item) => item.genericTransactionTypeId == cardType)
+		);
 	}, [month, cardType, selectPack]);
+
+	console.log('choose', month, cardType, selectPack);
+
+	useEffect(() => {
+		setPrice(chooseCard && chooseCard[0]?.price);
+	});
+
+	useEffect(() => {
+		let individual = products?.filter(
+				(e) =>
+					e.genericTransactionTypeToAddInfo.infoCategory !==
+					'PERCENTAGE_CLINIC_DISCOUNT_FAMILY'
+			),
+			family = products?.filter(
+				(e) =>
+					e.genericTransactionTypeToAddInfo.infoCategory ==
+					'PERCENTAGE_CLINIC_DISCOUNT_FAMILY'
+			);
+
+		setCardTypes((e) => ({ family: family, individual: individual }));
+	}, []);
 
 	const newMonth = products?.map((e) => e.endDateIncrementValue);
 
 	let uniqueArray = [...new Set(newMonth)];
-
-	console.log('filteredCard', filteredCard);
 
 	const services = [
 		{
@@ -264,25 +348,53 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 						<div className={s.tableHeader}>
 							<span className={s.clinicTitleStyles}>პარტნიორები</span>
 						</div>
-						{products?.slice(0, 3).map((item) => (
-							<div
-								className={s.tableColumnTitle}
-								key={item.id}
-							>
-								<div className={s.columnTitleContainer}>
-									<span className={s.tablePriceTitleStyles}>
-										{checked ? item?.priseFamily : item?.priseInd}
-									</span>
-									<span className={s.tableDataTitleStyles}>
-										{item?.cardName}
-									</span>
-								</div>
-							</div>
-						))}
+						{checked
+							? cardTypes?.family.map((e, i) => {
+									if (i < 3) {
+										return (
+											<>
+												<div
+													className={s.tableColumnTitle}
+													key={e.id}
+												>
+													<div className={s.columnTitleContainer}>
+														<span className={s.tablePriceTitleStyles}>
+															{e.price}
+														</span>
+														<span className={s.tableDataTitleStyles}>
+															{e?.cardName}
+														</span>
+													</div>
+												</div>
+											</>
+										);
+									}
+							  })
+							: cardTypes?.individual.map((e, i) => {
+									if (i < 3) {
+										return (
+											<>
+												<div
+													className={s.tableColumnTitle}
+													key={e.id}
+												>
+													<div className={s.columnTitleContainer}>
+														<span className={s.tablePriceTitleStyles}>
+															{e.price}
+														</span>
+														<span className={s.tableDataTitleStyles}>
+															{e?.cardName}
+														</span>
+													</div>
+												</div>
+											</>
+										);
+									}
+							  })}
 					</div>
 					{categories
 						.filter((e) => e.parentCategoryId === null)
-						.map((item) => {
+						.map((item, i) => {
 							return (
 								<div
 									className={s.tableContentContainer}
@@ -298,8 +410,20 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 										}}
 										className={s.categorieTitle}
 									>
-										{item.title}
-										<ReactSVG src='/dropArrow.svg' />
+										<div className={s.nameIconCont}>
+											{item.title}
+
+											<Image
+												src='/dropArrow.svg'
+												width='14px'
+												height='8px'
+											/>
+										</div>
+										<div className={s.tableFackData}>
+											<span>{featuresData[0].starter}</span>
+											<span>{featuresData[1].pro}</span>
+											<span>{featuresData[2].plus}</span>
+										</div>
 									</div>
 
 									{dropDown === item.title && (
@@ -315,7 +439,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 															}
 														})
 														.filter((e) => e !== undefined);
-													return catsw.map((e) => e.displayName);
+													return catsw.map((e) => <span>{e.displayName}</span>);
 												}
 											})}
 										</div>
@@ -326,9 +450,9 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 
 					<div className={s.buttonContainer}>
 						<span className={s.finalPrice}>
-							{price}{' '}
+							{price}
 							<span>
-								{price.length > 0 && (
+								{price && (
 									<img
 										src='/blueLari.svg'
 										alt='lari'
@@ -354,6 +478,21 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 								setMonth(value);
 							}}
 						/>
+						<Select
+							placeholder='Package'
+							label='Package'
+							className={s.buyDropDown}
+							options={[
+								{
+									label: 'Individually',
+									value: 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL',
+								},
+								{ label: 'Family', value: 'PERCENTAGE_CLINIC_DISCOUNT_FAMILY' },
+							]}
+							onChange={(value) => {
+								setSelectPack(value);
+							}}
+						/>
 
 						<Select
 							placeholder='Card type'
@@ -361,7 +500,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 							className={s.buyDropDown}
 							options={
 								products &&
-								filteredCard?.map((item) => ({
+								productState?.map((item) => ({
 									label: item.cardName,
 									value: item.genericTransactionTypeId,
 								}))
@@ -371,21 +510,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 								setCardType(options);
 							}}
 						/>
-						<Select
-							placeholder='Package'
-							label='Package'
-							className={s.buyDropDown}
-							options={[
-								{
-									label: 'Individually',
-									value: 'priseInd',
-								},
-								{ label: 'Family', value: 'priseFamily' },
-							]}
-							onChange={(value) => {
-								setSelectPack(value);
-							}}
-						/>
+
 						<Button
 							style={s.buttonActive}
 							name='Buy now'
