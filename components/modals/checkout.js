@@ -18,35 +18,17 @@ import Router from 'next/router';
 dayjs.extend(weekday)
 dayjs.extend(localeData)
 
-  const tailLayout = {
+const tailLayout = {
     wrapperCol: {
-      offset: 8,
-      span: 16,
+        offset: 8,
+        span: 16,
     },
-  };
-
-
-//  constact info: 
-//  values?.phone && {
-//     "type": "phone",
-//     "prefix": "995",
-//     "value": values.phone,
-//     "tag": "",
-//     "serviceType": "",
-//     "info": "" 
-//  },
-//  values?.mail && {
-//     "type": "mail",
-//     "prefix": "",
-//     "value": values.mail,
-//     "tag": "",
-//     "serviceType": "",
-//     "info": "" 
-//  }
+};
 
 export default function Checkout({onClose, currentUser, cards, selectPack, cardType, users, setUsers}) {
     const [memberType, setMemberType] = useState('');
     const [openMemberModal, setOpenMemberModal] = useState(false);
+    const [personDate, setPersonDate] = useState('');
 
     const [edit, setEdit] = useState(null);
 
@@ -75,7 +57,7 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
         if(Object.getOwnPropertyNames(values).length !== 0){
             let requestBody = {
                 objectType: 'customer',
-                id: 2000057,
+                id: currentUser.id,
                 registryType: "individual",
                 taxationPolicy: "notax",
                 orgLegalForm: "ind",
@@ -83,19 +65,19 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                 physicalAddressId: null,
                 shortDescription: "test",
                 activeDocId: null,
-                regDate: "2022-11-22T08:56:26",
-                uuid: "f89ac3c6-9612-468a-ac98-c7eed7ecc11e",
+                regDate: null,
+                uuid: currentUser.uuid,
                 contactInfos: [],
                 orgDisplayName: null,
                 orgLegalName: null,
                 orgIdentNo: null,
                 orgResponsiblePerson: null,
-                firstName: "vato",
-                lastName: "kobulia",
+                firstName: currentUser.firstName,
+                lastName: currentUser.lastName,
                 otherName: null,
                 gender: values.gender || currentUser.gender,
                 personalId: values?.personalId || currentUser.personalId,
-                personDob: '2022-11-15'
+                personDob: personDate || currentUser.personDob
             };
 
             postData(`https://medical.pirveli.ge/medical/registry/${currentUser.id}`, requestBody, 'PUT')
@@ -134,7 +116,7 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                             "customerDTOList": selectPack == '2' ? usersArray() : null
                         },
                         'POST'
-                    ).then(response=> Router.push(response?.links[1].href))
+                    ).then(response=> Router.push(response?.links[1].href)).catch((error)=> console.log(error))
                 })
         }else {
             postData(
@@ -206,6 +188,7 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                             onFinish={onFinish}
                             users={users}
                             type='family'
+                            setPersonDate={setPersonDate}
                         >
                             <div className={styles.users}>
                                 {users.length > 0 && <h2>Family members:</h2>}
@@ -355,7 +338,7 @@ export function EditUserInfo({user, users, setEdit, setUsers}) {
     </>
 }
 
-export function CurrentUser({currentUser, bodyref, onFinish, children, type, users=[]}) {
+export function CurrentUser({currentUser, bodyref, onFinish, children, type, users=[], setPersonDate=null}) {
     return <>
         <div className={styles.userBlock}>
             <h2>Your information:</h2>
@@ -442,6 +425,7 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
                     <DatePicker 
                         className={styles.dataPicker}
                         getPopupContainer={() => bodyref.current}
+                        onChange={(date, dateString)=> setPersonDate !== null && setPersonDate(dateString)}
                         placeholder='Date of birth' 
                     />
                 </Form.Item>
