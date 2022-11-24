@@ -30,7 +30,7 @@ const Card = ({ data }) => {
 			);
 
 		setCardTypes((e) => ({ family: family, individual: individual }));
-	}, []);
+	}, [data]);
 
 	const AntSwitch = styled(Switch)(({ theme }) => ({
 		width: 60,
@@ -192,14 +192,14 @@ const Card = ({ data }) => {
 					<div className={style.cardTitles}>
 						<span className={style.cardTitleText}>
 							{checked
-								? cardTypes.family[0]?.cardName
-								: cardTypes.individual[0]?.cardName}
+								? cardTypes?.family[0]?.cardName
+								: cardTypes?.individual[0]?.cardName}
 						</span>
 						<span className={style.tableValueSec}>
 							<span>
 								{checked ? (
 									<span>
-										{cardTypes.family[0]?.price}
+										{cardTypes?.family[0]?.price}
 										<img
 											src='lari.svg'
 											alt='lari'
@@ -209,7 +209,7 @@ const Card = ({ data }) => {
 									</span>
 								) : (
 									<span>
-										{cardTypes.individual[0]?.price}
+										{cardTypes?.individual[0]?.price}
 										<img
 											src='lari.svg'
 											alt='lari'
@@ -256,14 +256,14 @@ const Card = ({ data }) => {
 						<span className={style.recommendedStyle}>Recommended</span>
 						<span className={style.cardTitleText}>
 							{checked
-								? cardTypes.family[1]?.cardName
-								: cardTypes.individual[1]?.cardName}
+								? cardTypes?.family[1]?.cardName
+								: cardTypes?.individual[1]?.cardName}
 						</span>
 						<span className={style.tableValueSec}>
 							<span>
 								{checked ? (
 									<span>
-										{cardTypes.family[1]?.price}
+										{cardTypes?.family[1]?.price}
 										<img
 											src='lari.svg'
 											alt='lari'
@@ -273,7 +273,7 @@ const Card = ({ data }) => {
 									</span>
 								) : (
 									<span>
-										{cardTypes.individual[1]?.price}
+										{cardTypes?.individual[1]?.price}
 										<img
 											src='lari.svg'
 											alt='lari'
@@ -321,15 +321,15 @@ const Card = ({ data }) => {
 					<div className={style.cardTitles}>
 						<span className={style.cardTitleText}>
 							{checked
-								? cardTypes.family[2]?.cardName
-								: cardTypes.individual[2]?.cardName}
+								? cardTypes?.family[2]?.cardName
+								: cardTypes?.individual[2]?.cardName}
 						</span>
 
 						<span className={style.tableValueSec}>
 							<span>
 								{checked ? (
 									<span>
-										{cardTypes.family[2]?.price}
+										{cardTypes?.family[2]?.price}
 										<img
 											src='lari.svg'
 											alt='lari'
@@ -339,7 +339,7 @@ const Card = ({ data }) => {
 									</span>
 								) : (
 									<span>
-										{cardTypes.individual[2]?.price}
+										{cardTypes?.individual[2]?.price}
 										<img
 											src='lari.svg'
 											alt='lari'
@@ -403,14 +403,14 @@ const Card = ({ data }) => {
 					<div className={style.cardTitles}>
 						<span className={style.cardTitleText}>
 							{checked
-								? cardTypes.family[0]?.cardName
-								: cardTypes.individual[0]?.cardName}
+								? cardTypes?.family[0]?.cardName
+								: cardTypes?.individual[0]?.cardName}
 						</span>
 						<span className={style.price}>
 							<span>
 								{checked ? (
 									<span>
-										{cardTypes.family[0]?.price}
+										{cardTypes?.family[0]?.price}
 										<img
 											src='lari.svg'
 											alt='lari'
@@ -420,7 +420,7 @@ const Card = ({ data }) => {
 									</span>
 								) : (
 									<span>
-										{cardTypes.individual[0]?.price}
+										{cardTypes?.individual[0]?.price}
 										<img
 											src='lari.svg'
 											alt='lari'
@@ -456,15 +456,15 @@ const Card = ({ data }) => {
 						<span className={style.recommendedStyle}>რეკომენდებული</span>
 						<span className={style.cardTitleTextPro}>
 							{checked
-								? cardTypes.family[1]?.cardName
-								: cardTypes.individual[1]?.cardName}
+								? cardTypes?.family[1]?.cardName
+								: cardTypes?.individual[1]?.cardName}
 						</span>
 						<span className={style.price}>
 							<span>
 								<span>
 									{checked ? (
 										<span>
-											{cardTypes.family[1]?.price}
+											{cardTypes?.family[1]?.price}
 											<img
 												src='lari.svg'
 												alt='lari'
@@ -474,7 +474,7 @@ const Card = ({ data }) => {
 										</span>
 									) : (
 										<span>
-											{cardTypes.individual[1]?.price}
+											{cardTypes?.individual[1]?.price}
 											<img
 												src='lari.svg'
 												alt='lari'
@@ -509,8 +509,8 @@ const Card = ({ data }) => {
 					<div className={style.cardTitles}>
 						<span className={style.cardTitleText}>
 							{checked
-								? cardTypes.family[2]?.cardName
-								: cardTypes.individual[2]?.cardName}
+								? cardTypes?.family[2]?.cardName
+								: cardTypes?.individual[2]?.cardName}
 						</span>
 
 						<span className={style.price}>
@@ -518,7 +518,7 @@ const Card = ({ data }) => {
 								<span>
 									{checked ? (
 										<span>
-											{cardTypes.family[2]?.price}
+											{cardTypes?.family[2]?.price}
 											<img
 												src='lari.svg'
 												alt='lari'
@@ -528,7 +528,7 @@ const Card = ({ data }) => {
 										</span>
 									) : (
 										<span>
-											{cardTypes.individual[2]?.price}
+											{cardTypes?.individual[2]?.price}
 											<img
 												src='lari.svg'
 												alt='lari'
