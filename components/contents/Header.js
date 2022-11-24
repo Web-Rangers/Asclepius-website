@@ -206,9 +206,17 @@ const Header = () => {
 				</div>
 
 				<div className={classes.rightSideContainerStyle}>
-					<Link href='/contactUs'>
-						<a className={classes.contactBtnStyle}>დაგვიკავშირდი</a>
-					</Link>
+					<div className={classes.contactUsIcon}>
+						<img
+							src='/contactUsIcon.svg'
+							alt='contactUsIcon'
+						/>
+					</div>
+					<div className={classes.hideText}>
+						<Link href='/contactUs'>
+							<a className={classes.contactBtnStyle}>დაგვიკავშირდი</a>
+						</Link>
+					</div>
 					<Link href='/signInPage'>
 						<a className={classes.signInBtnStyle}>შესვლა</a>
 					</Link>

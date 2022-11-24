@@ -184,6 +184,30 @@
 	justify-content: space-around;
 	align-items: center;
 }
+.contactUsIcon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	background: #f7f9fb;
+	border-radius: 5px;
+	margin-right: 18px;
+	margin-left: 209px;
+	cursor: pointer;
+	position: relative;
+}
+
+.hideText {
+	display: none;
+}
+
+.contactUsIcon:hover + .hideText {
+	display: flex;
+	position: absolute;
+	transform: translateX(-350px);
+}
+
 .firstRow {
 	display: flex;
 	flex-direction: row;
@@ -326,7 +350,7 @@
 	color: #1e2837;
 	border: none;
 	margin-right: 38px;
-	margin-left: 117px;
+	margin-left: 240px;
 }
 .contactBtn {
 	width: 142px;
@@ -364,7 +388,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 174px;
+	width: 196px;
 	height: 48px;
 	background: #fdc7c4;
 	border-radius: 5px;
