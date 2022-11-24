@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from '../ui/Button';
 import classes from '../../styles/headerFooter.module.css';
 import DropDown from '../ui/DropDown';
@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Modal from 'react-modal';
+import { getData } from '../request';
 
 const customStyles = {
 	content: {
@@ -25,6 +26,7 @@ const Header = () => {
 	const router = useRouter();
 	const [modalIsOpen, setIsOpen] = useState(false);
 	const [searchInput, setSearchInput] = useState('');
+	const [user, setUser] = useState(null);
 
 	const handleChange = (e) => {
 		setSearchInput(e.target.value);
@@ -37,6 +39,16 @@ const Header = () => {
 	const closeModal = () => {
 		setIsOpen(false);
 	};
+
+	useEffect(() => {
+		getData('https://medical.pirveli.ge/medical/registry/user-id').then(
+			(response) => {
+				setUser(response ? true : false);
+				console.log(response)
+			}
+		);
+	}, [])
+	
 
 	return (
 		<>
@@ -110,21 +122,25 @@ const Header = () => {
 								</li>
 							</div>
 							<div className={classes.burgerMenuAuth}>
-								<li>
-									<Link href='/signInPage'>
-										<a>Sign in</a>
-									</Link>
-								</li>
-								<li>
-									<Link href='/signUpPage'>
-										<a>Registration</a>
-									</Link>
-									{/* <Button
-									name='Registration'
-									style={classes.registrationButton}
-									onClick={handleClick}
-								/> */}
-								</li>
+								{
+									user && <>
+										<li>
+											<Link href='/signInPage'>
+												<a>Sign in</a>
+											</Link>
+										</li>
+										<li>
+											<Link href='/signUpPage'>
+												<a>Registration</a>
+											</Link>
+											{/* <Button
+											name='Registration'
+											style={classes.registrationButton}
+											onClick={handleClick}
+										/> */}
+										</li>
+									</>
+								}
 
 								<li>
 									<DropDown withName={true} />
@@ -217,9 +233,12 @@ const Header = () => {
 							<a className={classes.contactBtnStyle}>დაგვიკავშირდი</a>
 						</Link>
 					</div>
-					<Link href='/signInPage'>
-						<a className={classes.signInBtnStyle}>შესვლა</a>
-					</Link>
+					{
+						!user &&  
+						<Link href='/signInPage'>
+							<a className={classes.signInBtnStyle}>შესვლა</a>
+						</Link>
+					}
 					<Link href='/buyCardPage'>
 						<a className={classes.buyCardBtnStyle}>ბარათის შეძენა</a>
 					</Link>
