@@ -33,6 +33,7 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
     const [edit, setEdit] = useState(null);
 
     const findCard = cards?.filter((e)=> e.genericTransactionTypeId === cardType)[0];
+    let cardTp = findCard.genericTransactionTypeToAddInfo.infoCategory; //"PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL"
 
     function usersArray() {
         const manageUsersArray = users?.map((user)=> {
@@ -52,6 +53,8 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
         })
         return manageUsersArray
     }
+
+    let API_URL = (cardTp !== 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL' ? 'https://medical.pirveli.ge/medical/orders/create-orders' : 'https://medical.pirveli.ge/medical/orders/create-order');
 
     async function request(values = null){
         if(Object.getOwnPropertyNames(values).length !== 0){
@@ -83,7 +86,7 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
             postData(`https://medical.pirveli.ge/medical/registry/${currentUser.id}`, requestBody, 'PUT')
                 .then((response)=>{
                     postData(
-                        'https://medical.pirveli.ge/medical/orders/create-order', 
+                        API_URL,
                         {
                             "bank_name": "bog",
                             "party_id": null,
@@ -113,14 +116,14 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                                     }
                                 ]
                             },
-                            "customerDTOList": selectPack == '2' ? usersArray() : null
+                            "customerDTOList": cardTp !== 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL' ? usersArray() : null
                         },
                         'POST'
                     ).then(response=> Router.push(response?.links[1].href)).catch((error)=> console.log(error))
                 })
         }else {
             postData(
-                'https://medical.pirveli.ge/medical/orders/create-order', 
+                API_URL,
                 {
                     "bank_name": "bog",
                     "party_id": null,
@@ -150,7 +153,7 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                             }
                         ]
                     },
-                    "customerDTOList": selectPack == '2' ? usersArray() : null
+                    "customerDTOList": cardTp !== 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL' ? usersArray() : null
                 },
                 'POST'
             ).then(response=> Router.push(response?.links[1].href))
@@ -181,7 +184,7 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                         Read information about the processing of personal data here - <a href="">Document link</a>
                     </div>
                     {
-                        selectPack == '2' ? <>
+                        cardTp !== 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL' ? <>
                         <CurrentUser 
                             bodyref={bodyref} 
                             currentUser={currentUser} 
