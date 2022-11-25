@@ -5,7 +5,7 @@ import Text from '../ui/Text';
 import { useRouter } from 'next/router';
 import Card from './Card';
 
-const ClinicCardList = ({ clinicsData }) => {
+const ClinicCardList = ({ clinicsData, products }) => {
 	const router = useRouter();
 	const [data, setData] = useState([]);
 	const [state, setState] = useState(false);
@@ -26,7 +26,7 @@ const ClinicCardList = ({ clinicsData }) => {
 	return (
 		<div className={classes.clinicCardContainer}>
 			<div className={classes.firstPart}>
-				<Card />
+				<Card data={products} />
 				<div
 					className={classes.showBtn}
 					onClick={() => {
