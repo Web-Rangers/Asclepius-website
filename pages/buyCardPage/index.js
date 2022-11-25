@@ -31,9 +31,9 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 		{
 			id: '1',
 			name: 'ცხელი ხაზის მომსახურება 24/7',
-			starter: '100% ულიმიტო',
-			pro: '100% ულიმიტო',
-			plus: '100% ულიმიტო',
+			starter: '15%-მდე',
+			pro: '15%-მდე',
+			plus: '15%-მდე',
 		},
 		{
 			id: '2',
@@ -191,22 +191,6 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 
 	let uniqueArray = [...new Set(newMonth)];
 
-	const services = [
-		{
-			id: '1',
-			name: 'service 1',
-			percent1: '20%',
-			percent3: '20%',
-			percent6: '20%',
-		},
-		{
-			id: '2',
-			name: 'service 2',
-			percent1: '20%',
-			percent3: '20%',
-			percent6: '20%',
-		},
-	];
 	const AntSwitch = styled(Switch)(({ theme }) => ({
 		width: 60,
 		height: 32,

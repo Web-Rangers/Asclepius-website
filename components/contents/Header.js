@@ -208,7 +208,7 @@ const Header = () => {
 				<div className={classes.rightSideContainerStyle}>
 					<div className={classes.contactUsIcon}>
 						<Image
-							src='/contactUsIcon.svg'
+							src='/contactUSIcon.svg'
 							alt='contactUsIcon'
 							width='17px'
 							height='17px'
