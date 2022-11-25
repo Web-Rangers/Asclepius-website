@@ -417,7 +417,7 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
                 </Form.Item>
             } */}
             {
-                // currentUser?.personDob == null &&
+                currentUser?.personDob == null &&
                 <Form.Item
                     name="personDob"
                     label="Date of birthday"
