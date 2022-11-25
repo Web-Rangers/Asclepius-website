@@ -7,6 +7,9 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Modal from 'react-modal';
 import { getData } from '../request';
+import { DownOutlined } from '@ant-design/icons';
+import { Dropdown, Space } from 'antd';
+import { ReactSVG } from 'react-svg';
 
 const customStyles = {
 	content: {
@@ -22,11 +25,31 @@ const customStyles = {
 	},
 };
 
+const items = [
+	{
+	  label: <a href="/transaction">Transactions</a>,
+	  key: '0',
+	},
+	{
+	  label: <a href="/">Settings</a>,
+	  key: '1',
+	},
+	{
+	   label: <a href="/">About us</a>,
+	   key: '2',
+	},
+	{
+	  label: <a href="/">My cards</a>,
+	  key: '3',
+	},
+  ];
+
 const Header = () => {
 	const router = useRouter();
 	const [modalIsOpen, setIsOpen] = useState(false);
 	const [searchInput, setSearchInput] = useState('');
 	const [user, setUser] = useState(null);
+	const [userInfo, setUserInfo] = useState({})
 
 	const handleChange = (e) => {
 		setSearchInput(e.target.value);
@@ -44,7 +67,7 @@ const Header = () => {
 		getData('https://medical.pirveli.ge/medical/registry/user-id').then(
 			(response) => {
 				setUser(response ? true : false);
-				console.log(response)
+				setUserInfo(response)
 			}
 		);
 	}, [])
@@ -244,6 +267,69 @@ const Header = () => {
 					<Link href='/buyCardPage'>
 						<a className={classes.buyCardBtnStyle}>ბარათის შეძენა</a>
 					</Link>
+					{
+						user && 
+						<div className={classes.authorizedUser}>
+							<Dropdown
+								trigger={['click']}
+								dropdownRender={(nodes)=> {
+									return <>
+										<div className={classes.auth_user_notification}>
+											<h3>No Notifications</h3>
+										</div>
+									</>
+								}}
+								overlayClassName={classes.userNotDropBlock}
+								placement={"bottomRight"}
+							>
+								<a onClick={(e) => e.preventDefault()}>
+								<Space className={classes.notificationHeight}>
+									<ReactSVG src="/notificationuser.svg" />
+								</Space>
+								</a>
+							</Dropdown>
+
+							<Dropdown
+								menu={{
+								items,
+								}}
+								trigger={['click']}
+								dropdownRender={(nodes)=> {
+									return <>
+										<div className={classes.auth_user_menu}>
+											<h2>My Account</h2>
+											<div className={classes.auth_user_icon}>
+												<ReactSVG src="/avatar.svg" />
+												<h4>{userInfo?.firstName} {userInfo?.lastName}</h4>
+												<ReactSVG src="/userArrow.svg" />
+											</div>
+
+											<div className={classes.auth_user_options}>
+												{
+													items?.map((item)=> {
+														return <li>{item.label}</li>
+													})
+												}
+											</div>
+
+											<div className={classes.auth_logout}>
+												<ReactSVG src="/Logout.svg" />
+												Log out
+											</div>
+										</div>
+									</>
+								}}
+								overlayClassName={classes.userDropBlock}
+								placement={"bottomRight"}
+							>
+								<a onClick={(e) => e.preventDefault()}>
+								<Space>
+									<ReactSVG src="/avatar.svg" />
+								</Space>
+								</a>
+							</Dropdown>
+						</div>
+					}
 				</div>
 
 				{/* <ul className={classes.navbar}>
