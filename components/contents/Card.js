@@ -17,7 +17,6 @@ const Card = ({ data }) => {
 		family: [],
 	});
 
-	console.log('data', data);
 	useEffect(() => {
 		let individual = data?.filter(
 				(e) =>
