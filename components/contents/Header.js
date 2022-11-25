@@ -10,6 +10,7 @@ import { getData } from '../request';
 import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, Space } from 'antd';
 import { ReactSVG } from 'react-svg';
+import 'antd/dist/antd.css';
 
 const customStyles = {
 	content: {
