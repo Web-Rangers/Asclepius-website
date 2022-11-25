@@ -456,6 +456,8 @@
 	height: 52px;
 }
 .dropDownList {
+	display: flex;
+	flex-direction: column;
 	margin-top: 5px;
 }
 .finalPrice {
@@ -470,7 +472,14 @@
 	line-height: 27px;
 	color: #5e70da;
 }
-
+.tableFackData {
+	display: flex;
+	gap: 185px;
+	justify-content: flex-end;
+}
+.nameIconCont {
+	width: 335px;
+}
 .categorieTitle {
 	display: flex;
 	flex-direction: row;

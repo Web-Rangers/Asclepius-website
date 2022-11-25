@@ -223,9 +223,11 @@ const Header = () => {
 
 				<div className={classes.rightSideContainerStyle}>
 					<div className={classes.contactUsIcon}>
-						<img
+						<Image
 							src='/contactUsIcon.svg'
 							alt='contactUsIcon'
+							width='17px'
+							height='17px'
 						/>
 					</div>
 					<div className={classes.hideText}>

@@ -26,6 +26,8 @@ function Home({ clinics, doctors, frelancers, categories, products }) {
 	const [doctorsData, setDoctorsData] = useState([]);
 	const [imgData, setImgData] = useState([]);
 
+	console.log('products', products);
+
 	const allData = frelancers?.content
 		?.concat(doctors?.content)
 		.sort(function (a, b) {

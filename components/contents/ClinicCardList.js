@@ -5,7 +5,7 @@ import Text from '../ui/Text';
 import { useRouter } from 'next/router';
 import Card from './Card';
 
-const ClinicCardList = ({ clinicsData, products }) => {
+const ClinicCardList = ({ clinicsData }) => {
 	const router = useRouter();
 	const [data, setData] = useState([]);
 	const [state, setState] = useState(false);
@@ -15,7 +15,7 @@ const ClinicCardList = ({ clinicsData, products }) => {
 			setData(clinicsData?.filter((e, i) => i < 12));
 		} else setData(clinicsData?.filter((e, i) => i < 4));
 		if (data.length === 12) {
-			router.push('/clinicPage');
+			router.push('/', '/clinicPage', { shallow: true });
 		}
 	});
 
@@ -26,7 +26,7 @@ const ClinicCardList = ({ clinicsData, products }) => {
 	return (
 		<div className={classes.clinicCardContainer}>
 			<div className={classes.firstPart}>
-				<Card data={products} />
+				<Card />
 				<div
 					className={classes.showBtn}
 					onClick={() => {
@@ -64,11 +64,10 @@ const ClinicCardList = ({ clinicsData, products }) => {
 				<div
 					className={classes.showBtn}
 					onClick={() => {
-						setState(!state);
 						showMoreFunc();
 					}}
 				>
-					{!state ? 'იხილეთ მეტი' : 'იხილეთ მეტი'}
+					{'იხილეთ მეტი'}
 				</div>
 			</div>
 		</div>
