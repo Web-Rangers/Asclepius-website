@@ -64,11 +64,10 @@ const ClinicCardList = ({ clinicsData }) => {
 				<div
 					className={classes.showBtn}
 					onClick={() => {
-						setState(!state);
 						showMoreFunc();
 					}}
 				>
-					{!state ? 'იხილეთ მეტი' : 'იხილეთ მეტი'}
+					{'იხილეთ მეტი'}
 				</div>
 			</div>
 		</div>

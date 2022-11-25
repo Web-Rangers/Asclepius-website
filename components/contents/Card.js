@@ -17,6 +17,7 @@ const Card = ({ data }) => {
 		family: [],
 	});
 
+	console.log('data', data);
 	useEffect(() => {
 		let individual = data?.filter(
 				(e) =>
@@ -30,7 +31,7 @@ const Card = ({ data }) => {
 			);
 
 		setCardTypes((e) => ({ family: family, individual: individual }));
-	}, [data]);
+	}, []);
 
 	const AntSwitch = styled(Switch)(({ theme }) => ({
 		width: 60,
