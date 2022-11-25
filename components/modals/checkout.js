@@ -81,7 +81,7 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                 otherName: null,
                 gender: values.gender || currentUser.gender,
                 personalId: values?.personalId || currentUser.personalId,
-                personDob: personDate || currentUser.personDob
+                personDob: '2000-10-10'
             };
 
             postData(`https://medical.pirveli.ge/medical/registry/${currentUser.id}`, requestBody, 'PUT')
