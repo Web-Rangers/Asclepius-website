@@ -439,7 +439,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 															}
 														})
 														.filter((e) => e !== undefined);
-													return catsw.map((e) => <span>{e.displayName}</span>);
+													return catsw.map((e, i) => <span key={i}>{e.displayName}</span>);
 												}
 											})}
 										</div>

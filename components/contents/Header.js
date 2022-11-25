@@ -27,19 +27,19 @@ const customStyles = {
 
 const items = [
 	{
-	  label: <a href="/transaction">Transactions</a>,
+	  label: <Link href="/transaction">Transactions</Link>,
 	  key: '0',
 	},
 	{
-	  label: <a href="/">Settings</a>,
+	  label: <Link href="/">Settings</Link>,
 	  key: '1',
 	},
 	{
-	   label: <a href="/">About us</a>,
+	   label: <Link href="/">About us</Link>,
 	   key: '2',
 	},
 	{
-	  label: <a href="/">My cards</a>,
+	  label: <Link href="/">My cards</Link>,
 	  key: '3',
 	},
   ];
@@ -306,8 +306,8 @@ const Header = () => {
 
 											<div className={classes.auth_user_options}>
 												{
-													items?.map((item)=> {
-														return <li>{item.label}</li>
+													items?.map((item, key)=> {
+														return <li key={key}>{item.label}</li>
 													})
 												}
 											</div>
