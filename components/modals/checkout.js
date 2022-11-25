@@ -14,6 +14,7 @@ import weekday from "dayjs/plugin/weekday";
 import localeData from "dayjs/plugin/localeData";
 import {postData} from '../request';
 import Router from 'next/router';
+import moment from 'moment';
 
 dayjs.extend(weekday)
 dayjs.extend(localeData)
@@ -57,7 +58,6 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
     let API_URL = (cardTp !== 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL' ? 'https://medical.pirveli.ge/medical/orders/create-orders' : 'https://medical.pirveli.ge/medical/orders/create-order');
 
     async function request(values = null){
-        console.log(values)
         if(Object.getOwnPropertyNames(values).length !== 0){
             let requestBody = {
                 objectType: 'customer',
@@ -81,7 +81,7 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                 otherName: null,
                 gender: values.gender || currentUser.gender,
                 personalId: values?.personalId || currentUser.personalId,
-                personDob: '2022-10-10'
+                personDob: personDate || currentUser.personDob
             };
 
             postData(`https://medical.pirveli.ge/medical/registry/${currentUser.id}`, requestBody, 'PUT')
@@ -267,7 +267,7 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                                 />
                             </div>
                         </CurrentUser>
-                        </>  : <CurrentUser type="individual" bodyref={bodyref} currentUser={currentUser} onFinish={onFinish}></CurrentUser>
+                        </>  : <CurrentUser setPersonDate={setPersonDate} type="individual" bodyref={bodyref} currentUser={currentUser} onFinish={onFinish}></CurrentUser>
                     }
                 </div>
             </div>
@@ -342,7 +342,7 @@ export function EditUserInfo({user, users, setEdit, setUsers}) {
     </>
 }
 
-export function CurrentUser({currentUser, bodyref, onFinish, children, type, users=[], setPersonDate=null}) {
+export function CurrentUser({currentUser, bodyref, onFinish, children, type, users=[], setPersonDate}) {
     return <>
         <div className={styles.userBlock}>
             <h2>Your information:</h2>
@@ -428,9 +428,9 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
                 >
                     <DatePicker 
                         className={styles.dataPicker}
-                        getPopupContainer={() => bodyref.current}
-                        onChange={(date, dateString)=> setPersonDate !== null && setPersonDate(dateString)}
                         placeholder='Date of birth' 
+                        onChange={(date, dateString)=> setPersonDate(dateString)}
+                        getPopupContainer={() => bodyref.current}
                     />
                 </Form.Item>
             }
