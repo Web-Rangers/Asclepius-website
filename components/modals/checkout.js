@@ -81,47 +81,47 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                 otherName: null,
                 gender: values.gender || currentUser.gender,
                 personalId: values?.personalId || currentUser.personalId,
-                personDob: '2000-10-10'
+                personDob: personDate || currentUser.personDob
             };
 
             postData(`https://medical.pirveli.ge/medical/registry/${currentUser.id}`, requestBody, 'PUT')
                 .then((response)=>{
                     console.log(requestBody)
-                    // postData(
-                    //     API_URL,
-                    //     {
-                    //         "bank_name": "bog",
-                    //         "party_id": null,
-                    //         "contract_id": null,
-                    //         "user_id": null,
-                    //         "bog_order_request_dto" : {
-                    //             "intent": "AUTHORIZE",
-                    //             "items": [
-                    //                 {
-                    //                 "amount": "0.01", //findCard?.entries[0].entryAmount
-                    //                 "description": "regTest",
-                    //                 "quantity": "1",
-                    //                 "product_id": `${findCard?.genericTransactionTypeId}`
-                    //                 }
-                    //             ],
-                    //             "locale": "ka",
-                    //             "shop_order_id": "123456",
-                    //             "redirect_url": "https://bog-banking.pirveli.ge/callback/statusChange",
-                    //             "show_shop_order_id_on_extract": true,
-                    //             "capture_method": "AUTOMATIC",
-                    //             "purchase_units": [
-                    //                 {
-                    //                     "amount": {
-                    //                         "currency_code": "GEL",
-                    //                         "value": "0.01" //findCard?.entries[0].entryAmount
-                    //                     }
-                    //                 }
-                    //             ]
-                    //         },
-                    //         "customerDTOList": cardTp !== 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL' ? usersArray() : null
-                    //     },
-                    //     'POST'
-                    // ).then(response=> Router.push(response?.links[1].href)).catch((error)=> console.log(error))
+                    postData(
+                        API_URL,
+                        {
+                            "bank_name": "bog",
+                            "party_id": null,
+                            "contract_id": null,
+                            "user_id": null,
+                            "bog_order_request_dto" : {
+                                "intent": "AUTHORIZE",
+                                "items": [
+                                    {
+                                    "amount": "0.01", //findCard?.entries[0].entryAmount
+                                    "description": "regTest",
+                                    "quantity": "1",
+                                    "product_id": `${findCard?.genericTransactionTypeId}`
+                                    }
+                                ],
+                                "locale": "ka",
+                                "shop_order_id": "123456",
+                                "redirect_url": "https://bog-banking.pirveli.ge/callback/statusChange",
+                                "show_shop_order_id_on_extract": true,
+                                "capture_method": "AUTOMATIC",
+                                "purchase_units": [
+                                    {
+                                        "amount": {
+                                            "currency_code": "GEL",
+                                            "value": "0.01" //findCard?.entries[0].entryAmount
+                                        }
+                                    }
+                                ]
+                            },
+                            "customerDTOList": cardTp !== 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL' ? usersArray() : null
+                        },
+                        'POST'
+                    ).then(response=> Router.push(response?.links[1].href)).catch((error)=> console.log(error))
                 })
         }else {
             postData(
