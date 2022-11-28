@@ -395,8 +395,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 										className={s.categorieTitle}
 									>
 										<div className={s.nameIconCont}>
-											{item.title}
-
+											<span className={s.nameIconTitle}> {item.title}</span>
 											<Image
 												src='/dropArrow.svg'
 												width='14px'
@@ -423,7 +422,9 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 															}
 														})
 														.filter((e) => e !== undefined);
-													return catsw.map((e, i) => <span key={i}>{e.displayName}</span>);
+													return catsw.map((e, i) => (
+														<span key={i}>{e.displayName}</span>
+													));
 												}
 											})}
 										</div>

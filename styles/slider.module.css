@@ -108,6 +108,7 @@
 	line-height: 23px;
 	color: #ffffff;
 	margin-bottom: 12px;
+	cursor: pointer;
 }
 .downloadOrderBtn {
 	width: 196px;
@@ -192,6 +193,9 @@
 	margin-bottom: 51px;
 	position: absolute;
 	z-index: 200;
+}
+.arrowContainerTop img {
+	cursor: pointer;
 }
 
 @media only screen and (max-width: 1340px) {

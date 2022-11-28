@@ -87,7 +87,9 @@ const MainSlider = ({ type = 'desktop' }) => {
 											</div>
 											<div className={classes.medicalCardsButtons}>
 												<Link href='/buyCardPage'>
-													<a className={classes.orderBtn}>ბარათის შეძენა</a>
+													<span className={classes.orderBtn}>
+														ბარათის შეძენა
+													</span>
 												</Link>
 
 												<Button
@@ -147,7 +149,9 @@ const MainSlider = ({ type = 'desktop' }) => {
 											</div>
 											<div className={classes.medicalCardsButtons}>
 												<Link href='/buyCardPage'>
-													<a className={classes.orderBtn}>ბარათის შეძენა</a>
+													<span className={classes.orderBtn}>
+														ბარათის შეძენა
+													</span>
 												</Link>
 												<Button
 													name='Learn More'

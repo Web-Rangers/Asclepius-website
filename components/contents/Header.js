@@ -28,29 +28,29 @@ const customStyles = {
 
 const items = [
 	{
-	  label: <Link href="/transaction">Transactions</Link>,
-	  key: '0',
+		label: <Link href='/transaction'>Transactions</Link>,
+		key: '0',
 	},
 	{
-	  label: <Link href="/">Settings</Link>,
-	  key: '1',
+		label: <Link href='/'>Settings</Link>,
+		key: '1',
 	},
 	{
-	   label: <Link href="/">About us</Link>,
-	   key: '2',
+		label: <Link href='/'>About us</Link>,
+		key: '2',
 	},
 	{
-	  label: <Link href="/">My cards</Link>,
-	  key: '3',
+		label: <Link href='/'>My cards</Link>,
+		key: '3',
 	},
-  ];
+];
 
 const Header = () => {
 	const router = useRouter();
 	const [modalIsOpen, setIsOpen] = useState(false);
 	const [searchInput, setSearchInput] = useState('');
 	const [user, setUser] = useState(null);
-	const [userInfo, setUserInfo] = useState({})
+	const [userInfo, setUserInfo] = useState({});
 
 	const handleChange = (e) => {
 		setSearchInput(e.target.value);
@@ -68,11 +68,10 @@ const Header = () => {
 		getData('https://medical.pirveli.ge/medical/registry/user-id').then(
 			(response) => {
 				setUser(response ? true : false);
-				setUserInfo(response)
+				setUserInfo(response);
 			}
 		);
-	}, [])
-	
+	}, []);
 
 	return (
 		<>
@@ -146,8 +145,8 @@ const Header = () => {
 								</li>
 							</div>
 							<div className={classes.burgerMenuAuth}>
-								{
-									user && <>
+								{user && (
+									<>
 										<li>
 											<Link href='/signInPage'>
 												<a>Sign in</a>
@@ -164,7 +163,7 @@ const Header = () => {
 										/> */}
 										</li>
 									</>
-								}
+								)}
 
 								<li>
 									<DropDown withName={true} />
@@ -259,78 +258,80 @@ const Header = () => {
 							<a className={classes.contactBtnStyle}>დაგვიკავშირდი</a>
 						</Link>
 					</div>
-					{
-						!user &&  
+					{!user && (
 						<Link href='/signInPage'>
-							<a className={classes.signInBtnStyle}>შესვლა</a>
+							<span className={classes.signInBtnStyle}>შესვლა</span>
 						</Link>
-					}
+					)}
 					<Link href='/buyCardPage'>
-						<a className={classes.buyCardBtnStyle}>ბარათის შეძენა</a>
+						<span className={classes.buyCardBtnStyle}>ბარათის შეძენა</span>
 					</Link>
-					{
-						user && 
+					{user && (
 						<div className={classes.authorizedUser}>
 							<Dropdown
 								trigger={['click']}
-								dropdownRender={(nodes)=> {
-									return <>
-										<div className={classes.auth_user_notification}>
-											<h3>No Notifications</h3>
-										</div>
-									</>
+								dropdownRender={(nodes) => {
+									return (
+										<>
+											<div className={classes.auth_user_notification}>
+												<h3>No Notifications</h3>
+											</div>
+										</>
+									);
 								}}
 								overlayClassName={classes.userNotDropBlock}
-								placement={"bottomRight"}
+								placement={'bottomRight'}
 							>
 								<a onClick={(e) => e.preventDefault()}>
-								<Space className={classes.notificationHeight}>
-									<ReactSVG src="/notificationuser.svg" />
-								</Space>
+									<Space className={classes.notificationHeight}>
+										<ReactSVG src='/notificationuser.svg' />
+									</Space>
 								</a>
 							</Dropdown>
 
 							<Dropdown
 								menu={{
-								items,
+									items,
 								}}
 								trigger={['click']}
-								dropdownRender={(nodes)=> {
-									return <>
-										<div className={classes.auth_user_menu}>
-											<h2>My Account</h2>
-											<div className={classes.auth_user_icon}>
-												<ReactSVG src="/avatar.svg" />
-												<h4>{userInfo?.firstName} {userInfo?.lastName}</h4>
-												<ReactSVG src="/userArrow.svg" />
-											</div>
+								dropdownRender={(nodes) => {
+									return (
+										<>
+											<div className={classes.auth_user_menu}>
+												<h2>My Account</h2>
+												<div className={classes.auth_user_icon}>
+													<ReactSVG src='/avatar.svg' />
+													<h4>
+														{userInfo?.firstName} {userInfo?.lastName}
+													</h4>
+													<ReactSVG src='/userArrow.svg' />
+												</div>
 
-											<div className={classes.auth_user_options}>
-												{
-													items?.map((item, key)=> {
-														return <li key={key}>{item.label}</li>
-													})
-												}
-											</div>
+												<div className={classes.auth_user_options}>
+													{items?.map((item, key) => {
+														return <li key={key}>{item.label}</li>;
+													})}
+												</div>
 
-											<div className={classes.auth_logout}>
-												<ReactSVG src="/Logout.svg" />
-												Log out
+												<div className={classes.auth_logout}>
+													<ReactSVG src='/Logout.svg' />
+													Log out
+												</div>
 											</div>
-										</div>
-									</>
+										</>
+									);
 								}}
 								overlayClassName={classes.userDropBlock}
-								placement={"bottomRight"}
+								placement={'bottomRight'}
 							>
 								<a onClick={(e) => e.preventDefault()}>
-								<Space>
-									<ReactSVG src="/avatar.svg" />
-								</Space>
+									<Space>
+										<ReactSVG src='/avatar.svg' />
+									</Space>
 								</a>
 							</Dropdown>
 						</div>
-					}
+					)}
 				</div>
 
 				{/* <ul className={classes.navbar}>
