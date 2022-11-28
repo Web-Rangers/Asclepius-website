@@ -23,7 +23,7 @@ export default function DoctorDetailed({
 	const [modalIsOpen, setModalOpen] = useState(false);
 	const router = useRouter();
 
-	const { firstName, pictureUrl, professions, aboutMe } = doctor;
+	const { firstName, lastName, pictureUrl, professions, aboutMe } = doctor;
 
 	return (
 		<>
@@ -77,7 +77,7 @@ export default function DoctorDetailed({
 								</div>
 							</div> */}
 							<div className={styles.aboutDoctor}>
-								<h2>{firstName}</h2>
+								<h2>{firstName + '  ' + lastName}</h2>
 								<div className={styles.proffesion}>
 									{professions?.map((prof, i) => {
 										return (
