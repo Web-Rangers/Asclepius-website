@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import styles from '../../styles/pages/userDetailed.module.css';
 import Button from '../../components/ui/Button';
 import Block from '../../components/block';
@@ -12,6 +12,7 @@ import AddFamilyMember from '../../components/modals/addFamilyMember';
 import Calendar from '../../components/Calendar';
 import {useWindowSize} from '../../components/useWindowSize';
 import Menu from '../../components/ui/menu';
+import { getData } from '../../components/request';
 
 export default function UserDetailed() {
     const [familyMemberModal, setFamilyMemberModal] = useState(false);
@@ -19,6 +20,7 @@ export default function UserDetailed() {
     const [status, setStatus] = useState('');
     const [serviceType, setServiceType] = useState('');
     const [menuItem, setMenuItem] = useState('main');
+    const [products, setProducts] = useState([]);
 
     const memberList = [
         {
@@ -39,25 +41,25 @@ export default function UserDetailed() {
 
     const columns = [
         {
-            key: "date",
+            key: "transactionDate",
             title: "Date",
-            dataIndex: "date",
+            dataIndex: "transactionDate",
             sort: true,
         },
         {
-            key: "institution",
+            key: "productName",
             title: "Institution",
-            dataIndex: "institution",
+            dataIndex: "productName",
         },
         {
-            key: "service_type",
+            key: "productType",
             title: "Service type",
-            dataIndex: "service_type",
+            dataIndex: "productType",
         },
         {
-            key: "discount",
+            key: "amount",
             title: "Discount",
-            dataIndex: "discount",
+            dataIndex: "amount",
         }
     ];
 
@@ -87,6 +89,11 @@ export default function UserDetailed() {
             discount: 'Dentist',
         },
     ];
+
+    useEffect(()=> {
+        getData('https://medical.pirveli.ge/medical/products/get-bought-products')
+            .then((response)=> setProducts(response))
+    },[])
 
     return <>
         <div className={styles.detailedPage}>
@@ -234,7 +241,7 @@ export default function UserDetailed() {
                             <Table 
                                 className={styles.table}
                                 columns={columns}
-                                data={data}
+                                data={products?.products}
                                 rowClassName={styles.tableRow}
                                 cellClassName={styles.tableCell}
                                 headerClassName={styles.tableHeader}

@@ -299,11 +299,13 @@ const Header = () => {
 									return <>
 										<div className={classes.auth_user_menu}>
 											<h2>My Account</h2>
-											<div className={classes.auth_user_icon}>
-												<ReactSVG src="/avatar.svg" />
-												<h4>{userInfo?.firstName} {userInfo?.lastName}</h4>
-												<ReactSVG src="/userArrow.svg" />
-											</div>
+											<Link href="/user">
+												<div className={classes.auth_user_icon}>
+													<ReactSVG src="/avatar.svg" />
+													<h4>{userInfo?.firstName} {userInfo?.lastName}</h4>
+													<ReactSVG src="/userArrow.svg" />
+												</div>
+											</Link>
 
 											<div className={classes.auth_user_options}>
 												{
