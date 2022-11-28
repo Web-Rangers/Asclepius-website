@@ -216,13 +216,13 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 							<div className={s.clinicCardImage}>
 								<Image
 									alt='silver card'
-									src='/Card 1.svg'
+									src='/Card1.svg'
 									width='117px'
 									height='68.34px'
 								/>
 								<Image
 									alt='silver card'
-									src='/Card 1.svg'
+									src='/Card2.svg'
 									width='117px'
 									height='68.34px'
 								/>
@@ -241,6 +241,7 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 				<Swipper
 					data={gallery}
 					branches={branches}
+					iconBottom={true}
 				/>
 				<div className={s.clinicContainerScroll}>
 					{/* <Carousel

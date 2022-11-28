@@ -48,7 +48,7 @@ const BranchDetailPage = ({ cardData, address, gallery }) => {
 			<div className={s.clinicDetailPageCard}>
 				<div
 					className={s.cardItemContainer}
-					key={cardData[0].id}
+					key={cardData[0]?.id}
 				>
 					<div className={s.imgPart}>
 						{/* <div className={s.ratingContainer}>
@@ -68,7 +68,7 @@ const BranchDetailPage = ({ cardData, address, gallery }) => {
 							height='326px'
 						/>
 					</div>
-					<Text style={s.clinicNameText}>{cardData[0].displayName}</Text>
+					<Text style={s.clinicNameText}>{cardData[0]?.displayName}</Text>
 					{cardData[0]?.workingHours
 						?.sort((a, b) => a.dayId - b.dayId)
 						?.map((item) => (

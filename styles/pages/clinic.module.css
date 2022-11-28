@@ -1,341 +1,341 @@
 .clinicBody {
-    max-width: 1920px;
-    width: 100%;
-    margin: auto;
-    padding: 10px 60px 0;
+	margin: auto;
+	width: 1340px;
 }
 
 .clinicContent {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    min-height: 848px;
+	display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+	min-height: 848px;
 }
 
 .clinicLogoContent {
-    width: 608px;
-    background-color: #EBF1FB;
-    min-height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-top-left-radius:5px;
+	width: 608px;
+	background-color: #ebf1fb;
+	min-height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	border-top-left-radius: 5px;
 }
 
 .logo {
-    object-fit: cover;
-    width: 80%;
+	object-fit: cover;
+	width: 80%;
 }
 
 .clinicAnalyisis {
-    width: calc(100% - 608px);
-    min-height: 100%;
-    background-color: #fff;
-    border-top-right-radius:5px;
-    display: flex;
-    align-items: center;
-    padding-top:140px;
-    flex-direction: column;
-    position: relative;
+	width: calc(100% - 608px);
+	min-height: 100%;
+	background-color: #fff;
+	border-top-right-radius: 5px;
+	display: flex;
+	align-items: center;
+	padding-top: 140px;
+	flex-direction: column;
+	position: relative;
 }
 
 .analysH {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 33px;
-    color: #1E2837;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 33px;
+	color: #1e2837;
 }
 
 .clinicsList {
-    display: none;
+	display: none;
 }
 
 .activeSearch {
-    display: block;
-    background-color:#fff;
-    box-shadow: 0px 10px 34px 8px rgba(191, 196, 202, 0.15);
-    border-radius: 0px 0px 5px 5px;
+	display: block;
+	background-color: #fff;
+	box-shadow: 0px 10px 34px 8px rgba(191, 196, 202, 0.15);
+	border-radius: 0px 0px 5px 5px;
 }
 
 .searchInput {
-    width: 517px;
-    height: 56px;
-    padding: 17px 24px;
-    background: #FFFFFF;
-    border: 1px solid #EFEFEF;
-    border-radius: 5px;
-    outline:none;
-    box-sizing: border-box;
+	width: 517px;
+	height: 56px;
+	padding: 17px 24px;
+	background: #ffffff;
+	border: 1px solid #efefef;
+	border-radius: 5px;
+	outline: none;
+	box-sizing: border-box;
 }
 
 .listH h2 {
-    margin:0;
-    padding:12px 24px;
-    font-weight: 500;
-    font-size: 16px;
-    color: #797A80;
+	margin: 0;
+	padding: 12px 24px;
+	font-weight: 500;
+	font-size: 16px;
+	color: #797a80;
 }
 
 .clinic {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding:14px 24px;
-    cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 14px 24px;
+	cursor: pointer;
 }
 
 .clinic h2 {
-    margin: 0 auto 0 0;
-    color: #797A80;
-    font-weight: 500;
-    font-size: 14px;
-    margin-left:18px;
+	margin: 0 auto 0 0;
+	color: #797a80;
+	font-weight: 500;
+	font-size: 14px;
+	margin-left: 18px;
 }
 
 .listItem:hover .clinic {
-    background-color: #EBF1FB;
+	background-color: #ebf1fb;
 }
 
 .listItem:hover .clinic h2 {
-    color: #3A74D2;
+	color: #3a74d2;
 }
 
 .listItem:hover .clinic .arrow {
-    filter: invert(39%) sepia(95%) saturate(599%) hue-rotate(183deg) brightness(89%) contrast(88%);
+	filter: invert(39%) sepia(95%) saturate(599%) hue-rotate(183deg)
+		brightness(89%) contrast(88%);
 }
 
 .analysis {
-    display: none;
+	display: none;
 }
 
 .activeBlock {
-    display: block;
-    width: 517px;
-    margin: 10px 0;
-    background-color:#F7F9FB; 
-    max-height: 230px;
-    overflow-y: auto;
+	display: block;
+	width: 517px;
+	margin: 10px 0;
+	background-color: #f7f9fb;
+	max-height: 230px;
+	overflow-y: auto;
 }
 
 .activeBlock::-webkit-scrollbar {
-    width: 5px;
+	width: 5px;
 }
 
 .activeBlock::-webkit-scrollbar-track {
-    background: #F7F9FB;
+	background: #f7f9fb;
 }
 
 .activeBlock::-webkit-scrollbar-thumb {
-    background: #2751F2; 
-}  
-
-.activeBlock::-webkit-scrollbar-thumb:hover {
-    background: #1641ed; 
-  }
-
-.activeAnBlock {
-    border:1px solid #EFEFEF;
-    margin: 10px 0;
-    border-radius: 5px;
+	background: #2751f2;
 }
 
-.activeClinicBlocks{
-    box-shadow: 0 0 0;
+.activeBlock::-webkit-scrollbar-thumb:hover {
+	background: #1641ed;
+}
+
+.activeAnBlock {
+	border: 1px solid #efefef;
+	margin: 10px 0;
+	border-radius: 5px;
+}
+
+.activeClinicBlocks {
+	box-shadow: 0 0 0;
 }
 
 .analist {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding:5px 24px;
-    border-bottom:1px solid#E5E5E5;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 24px;
+	border-bottom: 1px solid#E5E5E5;
 }
 
 .analist h2 {
-    margin: 0 auto 0 0;
-    font-weight: 500;
-    font-size: 14px;
-    color: #797A80;
+	margin: 0 auto 0 0;
+	font-weight: 500;
+	font-size: 14px;
+	color: #797a80;
 }
 
 .analist h3 {
-    font-weight: 500;
-    font-size: 14px;
-    color: #797A80;
+	font-weight: 500;
+	font-size: 14px;
+	color: #797a80;
 }
 
 .nextBtn {
-    position:absolute;
-    bottom: 0;
-    right: 0;
-    margin:26px;
-    background: #3A74D2;
-    border-radius: 5px;
-    border:none;
-    font-weight: 500;
-    font-size: 16px;
-    color: #FFFFFF;
-    width: 170px;
-    height: 48px;
-    cursor:pointer;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin: 26px;
+	background: #3a74d2;
+	border-radius: 5px;
+	border: none;
+	font-weight: 500;
+	font-size: 16px;
+	color: #ffffff;
+	width: 170px;
+	height: 48px;
+	cursor: pointer;
 }
 
 .bookingContent {
-    max-width: 514px;
-    width: 90%;
-    border: 1px solid #E5E5E5;
-    display: flex;
-    align-items: center;
-    padding:23px 29px;
+	max-width: 514px;
+	width: 90%;
+	border: 1px solid #e5e5e5;
+	display: flex;
+	align-items: center;
+	padding: 23px 29px;
 }
 
-.bookingTitle h2{
-    margin:0 29px;
+.bookingTitle h2 {
+	margin: 0 29px;
 }
 
 .bookingTitle div {
-    margin: 10px 29px 0;
-    display: flex;
-    align-items: center;
-    gap:5px;
+	margin: 10px 29px 0;
+	display: flex;
+	align-items: center;
+	gap: 5px;
 }
 
-.bookingService{
-    max-width: 514px;
-    width: 90%;
-    margin-top:20px;
+.bookingService {
+	max-width: 514px;
+	width: 90%;
+	margin-top: 20px;
 }
 
 .bookingPatient {
-    max-width: 514px;
-    width: 90%;
+	max-width: 514px;
+	width: 90%;
 }
 
 .bookingPatient h2 {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 25px;
-    color: #1E2837;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 25px;
+	color: #1e2837;
 }
 
-.datepicker{
-    margin-top:30px;
+.datepicker {
+	margin-top: 30px;
 }
 
 .datepicker span {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 25px;
-    color: #1E2837;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 25px;
+	color: #1e2837;
 }
 
 .bookingService h2 {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 25px;
-    color: #1E2837;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 25px;
+	color: #1e2837;
 }
 
 .selectBtn {
-    width: 108px;
-    height: 32px;
-    border: 1px solid #EFEFEF;
-    border-radius: 5px;
-    background-color:transparent;
-    margin:28px 28px 0 0;
-    cursor:pointer;
+	width: 108px;
+	height: 32px;
+	border: 1px solid #efefef;
+	border-radius: 5px;
+	background-color: transparent;
+	margin: 28px 28px 0 0;
+	cursor: pointer;
 }
 
 .activeBtn {
-    background: rgba(58, 116, 210, 0.1);
-    border: 1px solid #3A74D2;
-    color: #3A74D2;
+	background: rgba(58, 116, 210, 0.1);
+	border: 1px solid #3a74d2;
+	color: #3a74d2;
 }
 
 .dateList {
-    margin-bottom:30px;
+	margin-bottom: 30px;
 }
 
 .doneBtn {
-    margin:26px;
-    margin-top:30px;
-    margin-right:0;
-    background: #3A74D2;
-    border-radius: 5px;
-    border:none;
-    font-weight: 500;
-    font-size: 16px;
-    color: #FFFFFF;
-    width: 170px;
-    height: 48px;
-    cursor:pointer;
-    float:right
+	margin: 26px;
+	margin-top: 30px;
+	margin-right: 0;
+	background: #3a74d2;
+	border-radius: 5px;
+	border: none;
+	font-weight: 500;
+	font-size: 16px;
+	color: #ffffff;
+	width: 170px;
+	height: 48px;
+	cursor: pointer;
+	float: right;
 }
 
 .bookingNxt {
-    position: absolute;
-    bottom:0;
-    max-width: 514px;
-    width: 90%;
-    margin: auto;
+	position: absolute;
+	bottom: 0;
+	max-width: 514px;
+	width: 90%;
+	margin: auto;
 }
 
 .searchBlock {
-    position: relative;
+	position: relative;
 }
 
 .searchBlock:before {
-    content:"";
-    position: absolute;
-    right:0;
-    background-image: url('../../public/Search.svg');
-    width: 24px;
-    height: 24px;
-    margin-top:18px;
-    margin-right:24px;
+	content: '';
+	position: absolute;
+	right: 0;
+	background-image: url('../../public/Search.svg');
+	width: 24px;
+	height: 24px;
+	margin-top: 18px;
+	margin-right: 24px;
 }
 
 @media only screen and (max-width: 1260px) {
-    .clinicLogoContent {
-        width: 50%;
-    }
-    .clinicAnalyisis {
-        width: 50%;
-    }
-    .searchBlock {
-        width: 90%
-    }
-    .searchInput {
-        width: 100%;
-    }
-    .clinicContent {
-        min-height: 700px;
-    }
+	.clinicLogoContent {
+		width: 50%;
+	}
+	.clinicAnalyisis {
+		width: 50%;
+	}
+	.searchBlock {
+		width: 90%;
+	}
+	.searchInput {
+		width: 100%;
+	}
+	.clinicContent {
+		min-height: 700px;
+	}
 }
 
 @media only screen and (max-width: 900px) {
-    .clinicBody {
-        padding: 10px 0;
-    }
-    .clinicContent {
-        flex-direction: column;
-        min-height: auto;
-        padding-bottom:60px;
-        background-color: #fff;
-    }
-    .clinicAnalyisis {
-        width: 100%;
-        padding-top:15px
-    }
-    .clinicLogoContent {
-        background-color: #fff;
-        width: 100%;
-    }
-    .analysH, .searchBlock {
-        width: 90%;
-    }
-    .analysH h2 {
-        font-size:24px;
-    }
+	.clinicBody {
+		padding: 10px 0;
+	}
+	.clinicContent {
+		flex-direction: column;
+		min-height: auto;
+		padding-bottom: 60px;
+		background-color: #fff;
+	}
+	.clinicAnalyisis {
+		width: 100%;
+		padding-top: 15px;
+	}
+	.clinicLogoContent {
+		background-color: #fff;
+		width: 100%;
+	}
+	.analysH,
+	.searchBlock {
+		width: 90%;
+	}
+	.analysH h2 {
+		font-size: 24px;
+	}
 }
