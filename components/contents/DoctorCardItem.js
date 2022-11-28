@@ -30,10 +30,10 @@ const DoctorCardItem = ({ id, ...props }) => {
 							alt={'doctor'}
 						/>
 					</div>
-
-					<Text style={classes.doctorNameText}>{props.doctorName}</Text>
-					<Text style={classes.doctorSpecialityText}>{props.speciality}</Text>
-
+					<div className={classes.contentContainer}>
+						<Text style={classes.doctorNameText}>{props.doctorName}</Text>
+						<Text style={classes.doctorSpecialityText}>{props.speciality}</Text>
+					</div>
 					{/* <div className={classes.iconsContainer}>
 					<img
 						src='Video.svg'
