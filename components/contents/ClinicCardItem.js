@@ -20,7 +20,6 @@ const ClinicCardItem = ({ data, listItem = false, cards }) => {
 		cards?.map((item) =>
 			item?.clinic?.map((e) => {
 				if (e?.clinicId === data?.id) {
-					console.log('---------------', e?.percentage);
 					setDiscount(e.percentage);
 
 					discount > e?.percentage ? setDiscount(e.percentage) : '';

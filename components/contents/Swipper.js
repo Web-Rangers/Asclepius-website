@@ -1,8 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState, useCallback } from 'react';
 import style from '../../styles/slider.module.css';
-import BranchPageCardItem from './BranchPageCardItem';
-
+import BranchPageCardItem from '../contents/BranchPageCardItem';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';

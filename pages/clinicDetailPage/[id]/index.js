@@ -3,10 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Text from '../../../components/ui/Text';
 import { useRouter } from 'next/router';
-import BranchPageCardItem from '../../../components/contents/BranchPageCardItem';
 import clinicArrayData from '../../../clinicArrayData';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
 import { useState, useEffect } from 'react';
 import { getData } from '../../../components/request';
 import Swipper from '../../../components/contents/Swipper';

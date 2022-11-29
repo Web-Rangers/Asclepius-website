@@ -7,9 +7,7 @@ import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { getData } from '../../../components/request';
 import Button from '../../../components/ui/Button';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
-import { Swipper } from '../../../components/contents/Swipper';
+import Swipper from '../../../components/contents/Swipper';
 
 const BranchDetailPage = ({ cardData, address, gallery }) => {
 	const router = useRouter();
@@ -211,14 +209,14 @@ const BranchDetailPage = ({ cardData, address, gallery }) => {
 							<div className={s.cardImage}>
 								<Image
 									alt='silver card'
-									src='/Card 1.svg'
+									src='/Card1.svg'
 									width='117px'
 									height='68.34px'
 								/>
 							</div>
 							<Image
 								alt='gold card'
-								src='/Card 2.svg'
+								src='/Card2.svg'
 								width='117px'
 								height='68.34px'
 								style={{ paddingRight: '4px' }}
@@ -232,15 +230,12 @@ const BranchDetailPage = ({ cardData, address, gallery }) => {
 					{' '}
 					Images of the clinic
 				</Text>
-
 				<div className={s.swipperContainer}>
 					<Swipper
 						data={gallery}
 						iconBottom={true}
 					/>
 				</div>
-
-				{/* </div> */}
 			</div>
 		</div>
 	);
