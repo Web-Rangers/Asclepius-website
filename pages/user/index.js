@@ -21,6 +21,7 @@ export default function UserDetailed() {
     const [serviceType, setServiceType] = useState('');
     const [menuItem, setMenuItem] = useState('main');
     const [products, setProducts] = useState([]);
+    const [familyMembers, setFamilyMembers] = useState([]);
 
     const memberList = [
         {
@@ -63,36 +64,25 @@ export default function UserDetailed() {
         }
     ];
 
-    const data = [
-        {
-            date: '5.05.2022',
-            institution: 'David Smith',
-            service_type: 'In Clinic',
-            discount: 'Dentist',
-        },
-        {
-            date: '5.05.2022',
-            institution: 'David Smith',
-            service_type: 'In Clinic',
-            discount: 'Dentist',
-        },
-        {
-            date: '5.05.2022',
-            institution: 'David Smith',
-            service_type: 'In Clinic',
-            discount: 'Dentist',
-        },
-        {
-            date: '5.05.2022',
-            institution: 'David Smith',
-            service_type: 'In Clinic',
-            discount: 'Dentist',
-        },
-    ];
-
     useEffect(()=> {
         getData('https://medical.pirveli.ge/medical/products/get-bought-products')
-            .then((response)=> setProducts(response))
+            .then((response)=> {
+                const data = response?.products?.map((e)=> {
+                    return {...e,
+                        transactionDate: e.transactionDate.slice(0,10),
+                        productType: e.productType === 'PERCENTAGE_CLINIC_DISCOUNT_FAMILY' ? 'Family' : 'Individual'
+                    }
+                })
+                let familyMembersArray = [];
+                setProducts(data)
+                response?.products?.map((e)=> {
+                    e?.members?.map((z)=> {
+                        familyMembersArray.push(z)
+                    })
+                })
+                const unique = [...new Set(familyMembersArray)]
+                setFamilyMembers(unique)
+            })
     },[])
 
     return <>
@@ -238,16 +228,19 @@ export default function UserDetailed() {
                             }
                             className={styles.tableBlock}
                         >
-                            <Table 
-                                className={styles.table}
-                                columns={columns}
-                                data={products?.products}
-                                rowClassName={styles.tableRow}
-                                cellClassName={styles.tableCell}
-                                headerClassName={styles.tableHeader}
-                                bodyClassName={styles.tableBody}
-                                pagination={{ pageSize: 5, initialPage: 1 }}
-                            />
+                            {
+                                products?.length > 0 && 
+                                <Table 
+                                    className={styles.table}
+                                    columns={columns}
+                                    data={products}
+                                    rowClassName={styles.tableRow}
+                                    cellClassName={styles.tableCell}
+                                    headerClassName={styles.tableHeader}
+                                    bodyClassName={styles.tableBody}
+                                    pagination={{ pageSize: 5, initialPage: 1 }}
+                                />
+                            }
                         </Block>
                     </div>
                 </div>
@@ -277,15 +270,15 @@ export default function UserDetailed() {
                         })}
                     >
                         {
-                            memberList?.length > 0 ?
+                            familyMembers?.length > 0 ?
                             <div className={styles.membersList}>
-                                {memberList?.map((member)=>{
+                                {familyMembers?.map((member)=>{
                                     return <>
                                         <div className={styles.familyMember}>
                                             <div className={styles.memberInfo}>
                                                 <img src={member.image} alt="" />
                                                 <div>
-                                                    <h2>{member.name}</h2>
+                                                    <h2>{member.firstName}</h2>
                                                     <h3>{member.email}</h3>
                                                 </div>
                                             </div>
