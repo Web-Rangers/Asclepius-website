@@ -196,6 +196,11 @@
 	margin-top: 18px;
 	text-align: left;
 	margin: 12px 0 10px;
+	width: 50%;
+	-webkit-line-clamp: 2;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 .clinicAddressText {
 	font-family: 'Noto Sans';

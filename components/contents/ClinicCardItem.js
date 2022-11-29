@@ -120,8 +120,8 @@ const ClinicCardItem = ({ data, listItem = false, cards }) => {
 							/>
 						</div>
 						<div>
-							<div className={classes.bottomContainer}>
-								<h2 className={classes.clinicNameText}>{data?.displayName}</h2>
+							<div className={s.bottomContainer}>
+								<Text style={classes.clinicNameText}>{data?.displayName}</Text>
 								<Text style={classes.clinicAddressText}>
 									<Image
 										src='/map-pin 1.svg'
