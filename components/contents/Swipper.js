@@ -75,7 +75,7 @@ const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 								<img
 									src={data.url}
 									width=' 100%'
-									height='228px'
+									height={data?.size ? '100%' : '228px'}
 									style={{
 										display: 'flex',
 										objectFit: 'cover',
