@@ -4,7 +4,7 @@ import s from '../../styles/clinicDetailPage.module.css';
 
 const NavItem = ({ name, path, src }) => {
 	return (
-		<div className={s.bottomNavItem}>
+		<Link className={s.bottomNavItem}>
 			<img
 				src={src}
 				alt=''
@@ -12,7 +12,7 @@ const NavItem = ({ name, path, src }) => {
 				height='24px'
 			/>
 			<span>{name}</span>
-		</div>
+		</Link>
 	);
 };
 export default NavItem;
