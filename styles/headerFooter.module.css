@@ -1140,4 +1140,9 @@
 		color: #1e2837;
 		padding-top: 191px;
 	}
+	.iconContainer {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+	}
 }

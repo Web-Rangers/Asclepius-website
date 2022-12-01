@@ -20,20 +20,20 @@ export const ContactUs = () => {
 
 	return (
 		<>
+			<div className={classes.imgForMobile}>
+				<Link href={'/'}>
+					<a>
+						<Image
+							src='/contactUs.png'
+							alt='cards'
+							width='333px'
+							height='441'
+						/>
+					</a>
+				</Link>
+			</div>
 			<div className={classes.contactUsContainer}>
 				<div className={classes.contactUs}>
-					<div className={classes.imgForMobile}>
-						<Link href={'/'}>
-							<a>
-								<Image
-									src='/contactUs.png'
-									alt='cards'
-									width='333px'
-									height='441'
-								/>
-							</a>
-						</Link>
-					</div>
 					<div className={classes.singInTextStyle}>
 						<h1 className={classes.loginText}>Contact us</h1>
 						<Text style={classes.accountText}>
@@ -42,7 +42,7 @@ export const ContactUs = () => {
 						<div className={classes.contactInfoForMobile}>
 							<div className={classes.iconContactInfo}>
 								<img
-									src='messages.svg'
+									src='/messages.svg'
 									alt='messages'
 								/>
 								<Text style={classes.contactInfoText}>
@@ -51,7 +51,7 @@ export const ContactUs = () => {
 							</div>
 							<div className={classes.iconContactInfo}>
 								<img
-									src='location.svg'
+									src='/location.svg'
 									alt='location'
 								/>
 								<Text style={classes.contactInfoText}>
@@ -60,69 +60,70 @@ export const ContactUs = () => {
 							</div>
 							<div className={classes.iconContactInfo}>
 								<img
-									src='phone.svg'
+									src='/phone.svg'
 									alt='phone'
 								/>
 								<Text style={classes.contactInfoText}>+9955575755576</Text>
 							</div>
 						</div>
 					</div>
-
-					<div className={classes.nameSurnameContainer}>
-						<div className={classes.inputField}>
-							<Text style={classes.contactUsNameText}>First name</Text>
-							<Input
-								className={classes.inputField}
-								placeholder='Name'
-								type='text'
-								value={values.name}
-								onChange={(value) =>
-									setValues((prev) => ({ ...prev, name: value }))
-								}
-							/>
+					<div className={classes.formContainer}>
+						<div className={classes.nameSurnameContainer}>
+							<div className={classes.inputField}>
+								<Text style={classes.contactUsNameText}>First name</Text>
+								<Input
+									className={classes.inputField}
+									placeholder='Name'
+									type='text'
+									value={values.name}
+									onChange={(value) =>
+										setValues((prev) => ({ ...prev, name: value }))
+									}
+								/>
+							</div>
+							<div className={classes.inputField}>
+								<Text style={classes.contactUsNameText}>Last name</Text>
+								<Input
+									placeholder='Surname'
+									type='text'
+									value={values.surname}
+									onChange={(value) =>
+										setValues((prev) => ({ ...prev, surname: value }))
+									}
+								/>
+							</div>
 						</div>
-						<div className={classes.inputField}>
-							<Text style={classes.contactUsNameText}>Last name</Text>
-							<Input
-								placeholder='Surname'
-								type='text'
-								value={values.surname}
-								onChange={(value) =>
-									setValues((prev) => ({ ...prev, surname: value }))
-								}
-							/>
-						</div>
+						<Text style={classes.contactUsInputText}>E-mail</Text>
+						<Input
+							placeholder='E-mail'
+							type='email'
+							value={values.email}
+							onChange={(value) =>
+								setValues((prev) => ({ ...prev, email: value }))
+							}
+						/>
+						<Text style={classes.contactUsInputText}>Phone number</Text>
+						<Input
+							placeholder='Phone number'
+							type='number'
+							value={values.phoneNumber}
+							onChange={(value) =>
+								setValues((prev) => ({ ...prev, phoneNumber: value }))
+							}
+						/>
+						<Text style={classes.contactUsInputText}>Message</Text>
+						<textarea
+							placeholder='Message'
+							rows='4'
+							cols='50'
+							onChange={(value) =>
+								setValues((prev) => ({ ...prev, repeatPassword: value }))
+							}
+							className={classes.messageInput}
+						>
+							{values.repeatPassword}
+						</textarea>
 					</div>
-					<Text style={classes.contactUsInputText}>E-mail</Text>
-					<Input
-						placeholder='E-mail'
-						type='email'
-						value={values.email}
-						onChange={(value) =>
-							setValues((prev) => ({ ...prev, email: value }))
-						}
-					/>
-					<Text style={classes.contactUsInputText}>Phone number</Text>
-					<Input
-						placeholder='Phone number'
-						type='text'
-						value={values.phoneNumber}
-						onChange={(value) =>
-							setValues((prev) => ({ ...prev, phoneNumber: value }))
-						}
-					/>
-					<Text style={classes.contactUsInputText}>Message</Text>
-					<textarea
-						placeholder='Message'
-						rows='4'
-						cols='50'
-						onChange={(value) =>
-							setValues((prev) => ({ ...prev, repeatPassword: value }))
-						}
-						className={classes.messageInput}
-					>
-						{values.repeatPassword}
-					</textarea>
 					<Button
 						type='submit'
 						name='Send message'

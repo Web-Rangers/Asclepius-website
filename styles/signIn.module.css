@@ -277,6 +277,7 @@
 }
 .messageInput {
 	min-height: 103px;
+	min-width: 54%;
 	width: 54%;
 	padding-top: 19px;
 	padding-left: 14px;
@@ -287,6 +288,7 @@
 	font-size: 16px;
 	line-height: 16px;
 	color: #323941;
+	border: solid 1px #d5d8de;
 }
 .messageInput::placeholder {
 	color: #90959c;
@@ -396,18 +398,28 @@
 	.contactUsContainer {
 		display: flex;
 		flex-direction: column;
-		margin: 50px 0px 60px 10px;
+		padding-left: 16px;
+		padding-right: 16px;
 	}
 	.contactUs {
-		display: flex;
+		/* display: flex;
 		align-items: center;
 		width: 100%;
-		order: 2;
+		order: 2; */
+
+		flex: 1 1;
+		height: 1024px;
+		display: flex;
+		flex-direction: column;
+		margin-top: 18px;
 	}
 
 	.contactUsCardContainer {
 		order: 1;
 		border: none;
+
+		margin-top: 0;
+		margin-bottom: 0;
 	}
 
 	.cardContainerImg {
@@ -419,10 +431,13 @@
 	.imgForMobile {
 		display: flex;
 		justify-content: flex-end;
-		width: 400px;
-		margin-top: -150px;
+		width: 100%;
+		background-color: #ffbbb6;
 	}
-
+	.nameSurnameContainer {
+		display: flex;
+		gap: 23px;
+	}
 	.contactInfoForMobile {
 		display: flex;
 		flex-direction: column;
@@ -461,5 +476,48 @@
 	.btnContainer {
 		display: flex;
 		justify-content: center;
+	}
+	.formContainer {
+		z-index: 0;
+		width: 100%;
+	}
+	.inputConainer {
+		width: 100%;
+	}
+	.messageInput {
+		min-height: 103px;
+		min-width: 100%;
+		padding-top: 19px;
+		padding-left: 14px;
+		margin-top: 20px;
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 16px;
+		color: #323941;
+		border: solid 1px #d5d8de;
+	}
+	.singInTextStyle {
+		width: 100%;
+	}
+	.loginButton {
+		width: 100%;
+		margin-bottom: 60px;
+	}
+	.inputField {
+		display: flex;
+		flex-direction: column;
+		width: 160px;
+		margin-right: 0;
+	}
+	.inputField input {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		width: 100%;
+	}
+	.contactUsInputText {
+		margin-top: 0;
 	}
 }
