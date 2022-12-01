@@ -47,9 +47,18 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
             );
             
             if(userWithoutId.mail) {
-                return {...userWithoutId, regId: null}
+                return {...userWithoutId, contactInfos: [
+                    {
+                        "prefix": "mail",
+                        "value": userWithoutId.mail,
+                        "info": "my mail",
+                        "contactInfoType": "mail",
+                        "contactInfoTag": "work",
+                        "serviceType": "personal"
+                    }
+                ], regId: null}
             } else {
-                return {...userWithoutId, mail: null, regId: null}
+                return {...userWithoutId, contactInfos: null, regId: null}
             }
         })
         return manageUsersArray
@@ -71,7 +80,16 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                 activeDocId: null,
                 regDate: null,
                 uuid: currentUser.uuid,
-                contactInfos: [],
+                contactInfos: [
+                    {
+                        "prefix": "995",
+                        "value": values?.phone,
+                        "info": "my phone number",
+                        "contactInfoType": "phone",
+                        "contactInfoTag": "main",
+                        "serviceType": "personal"
+                    }
+                ],
                 orgDisplayName: null,
                 orgLegalName: null,
                 orgIdentNo: null,
@@ -402,7 +420,7 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
                     <Input className={styles.input} />
                 </Form.Item>
             }
-            {/* {
+            {
                 currentUser?.phone == null &&
                 <Form.Item
                     name="phone"
@@ -415,7 +433,7 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
                 >
                     <Input />
                 </Form.Item>
-            } */}
+            }
             {
                 currentUser?.personDob == null &&
                 <Form.Item
