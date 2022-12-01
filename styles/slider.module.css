@@ -233,3 +233,12 @@
 		align-items: flex-start;
 	}
 }
+
+@media only screen and (max-width: 600px) {
+	.sliderImage {
+		display: none;
+	}
+	.arrowContainer {
+		display: none;
+	}
+}

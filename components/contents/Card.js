@@ -199,7 +199,9 @@ const Card = ({ data }) => {
 							<span>
 								{checked ? (
 									<span>
-										{cardTypes?.family[0]?.price}
+										{cardTypes?.family[0]?.price.length === 0
+											? ''
+											: cardTypes?.family[0]?.price}
 										<img
 											src='lari.svg'
 											alt='lari'
@@ -209,7 +211,9 @@ const Card = ({ data }) => {
 									</span>
 								) : (
 									<span>
-										{cardTypes?.individual[0]?.price}
+										{cardTypes?.family[0]?.price.length === 0
+											? ''
+											: cardTypes?.individual[0]?.price}
 										<img
 											src='lari.svg'
 											alt='lari'
@@ -410,7 +414,9 @@ const Card = ({ data }) => {
 							<span>
 								{checked ? (
 									<span>
-										{cardTypes?.family[0]?.price}
+										{cardTypes?.family[0]?.price.length === 0
+											? ''
+											: cardTypes?.family[0]?.price}
 										<img
 											src='lari.svg'
 											alt='lari'
@@ -420,7 +426,9 @@ const Card = ({ data }) => {
 									</span>
 								) : (
 									<span>
-										{cardTypes?.individual[0]?.price}
+										{cardTypes?.family[0]?.price.length === 0
+											? ''
+											: cardTypes?.family[0]?.price}
 										<img
 											src='lari.svg'
 											alt='lari'

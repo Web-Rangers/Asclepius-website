@@ -111,8 +111,8 @@
 	height: 280px;
 }
 .imgPart {
-	width: 320px;
-	height: 280px;
+	/* width: 320px;
+	height: 280px; */
 }
 
 .imageSlider {
@@ -285,7 +285,7 @@
 	padding: 0 24px;
 	align-items: center;
 	width: 100%;
-	height: 291px;
+	min-height: 291px;
 	background: #f7f9f8;
 	border-radius: 5px;
 	/* border: 1px solid black; */
@@ -297,15 +297,13 @@
 }
 
 .clinicContainerScroll {
-	/* display: flex; */
-	/* flex-direction: row; */
-	/* margin-left: 76px;/ */
-	/* margin-right: 76px; */
-	/* overflow-x: scroll; */
 	overflow-y: hidden;
 	white-space: nowrap;
 	gap: 30px;
 	min-height: 300px;
+}
+.doctorInfoContainer {
+	padding-top: 22px;
 }
 .clinicTitleArrow {
 	display: flex;
@@ -363,8 +361,11 @@
 	border: none !important;
 	margin: 0 74px !important;
 }
+.mobileBottomNav {
+	display: none;
+}
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
 	.imgArrow {
 		display: none;
 	}
@@ -377,10 +378,16 @@
 		width: 100%;
 		overflow: hidden;
 		margin-bottom: 0;
+		padding-left: 16px;
+		padding-right: 16px;
 	}
 	.backButton {
 		margin: 0;
-		padding: 30px 20px;
+		padding: 24px 0 20px 0;
+	}
+	.doctorInfoContainer {
+		padding-top: 22px;
+		padding-left: 28px;
 	}
 	.clinicDetailPageCard {
 		flex-direction: column;
@@ -388,28 +395,38 @@
 	}
 	.cardItemContainer {
 		margin: 0 auto;
+		width: 100%;
 	}
 	.clinicNameText {
-		margin: 18px 28px 2px;
 		font-size: 18px;
+		margin: 0;
 	}
 	.clinicInfo {
 		width: 100%;
 	}
 	.clinicInfoTitle {
-		margin: 0 20px 30px;
+		/* margin: 0 20px 30px; */
 	}
 	.clinicTitle {
-		margin: 0 20px;
+		/* margin: 0 20px; */
 	}
 	.servicesContainer {
 		flex-wrap: wrap;
-		margin: 0 20px;
 		gap: 15px;
 		justify-content: space-between;
 	}
 	.aboutClinicText {
-		margin: 0 20px 30px;
+		/* margin: 0 20px 30px; */
+	}
+	.clinicOfferCardContainer {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		min-height: 421px;
+		background: #f7f9f8;
+		border-radius: 5px;
 	}
 	.offerCardContainer {
 		background: #f7f9fb;
@@ -422,8 +439,8 @@
 	}
 	.serviceName,
 	.serviceText {
-		margin-left: 20px;
-		margin-right: 10px;
+		/* margin-left: 20px;
+		margin-right: 10px; */
 	}
 	.cardImage {
 		margin-top: 20px;
@@ -454,9 +471,64 @@
 	}
 	.cardType {
 		width: 66%;
-		align-items: flex-end;
+		align-items: center;
+		height: 79%;
+		display: flex;
+		justify-content: center;
+		gap: 37px;
 	}
 	.serviceItem {
 		gap: 4px;
+	}
+	.imgPartImage {
+		width: 100%;
+		height: 100%;
+	}
+	.weekendWorkingHours {
+		margin-left: 0;
+	}
+	.contactInfoText {
+		display: flex;
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 24px;
+		color: #797a80;
+		margin-left: 0;
+		gap: 8px;
+		margin-top: 21px;
+	}
+	.clinicCardImage {
+		display: flex;
+		flex-direction: column;
+		gap: 65px;
+	}
+	.clinicContainerScroll {
+		overflow-y: hidden;
+		white-space: nowrap;
+		gap: 30px;
+		min-height: 0px;
+	}
+	.mobileBottomNav {
+		height: 100px;
+		background-color: beige;
+		float: inline-end;
+		display: block;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		height: 83px;
+		background: #f7f9fb;
+		z-index: 1;
+		padding: 11px 24px;
+	}
+	.bottomNavItem {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 }
