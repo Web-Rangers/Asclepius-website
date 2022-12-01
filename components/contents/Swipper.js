@@ -13,8 +13,6 @@ import { Pagination, Navigation, Lazy } from 'swiper';
 const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 	const [swiperRef, setSwiperRef] = useState();
 
-	console.log('gaer', data);
-
 	const handleLeftClick = useCallback(() => {
 		if (!swiperRef) return;
 		swiperRef.slidePrev();

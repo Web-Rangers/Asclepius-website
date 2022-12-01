@@ -112,15 +112,17 @@ export const ContactUs = () => {
 						}
 					/>
 					<Text style={classes.contactUsInputText}>Message</Text>
-					<Input
+					<textarea
 						placeholder='Message'
-						autoComplete='current-password'
-						type='text'
-						value={values.repeatPassword}
+						rows='4'
+						cols='50'
 						onChange={(value) =>
 							setValues((prev) => ({ ...prev, repeatPassword: value }))
 						}
-					/>
+						className={classes.messageInput}
+					>
+						{values.repeatPassword}
+					</textarea>
 					<Button
 						type='submit'
 						name='Send message'
