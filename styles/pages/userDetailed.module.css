@@ -64,13 +64,14 @@
 }
 
 .upgradeBtn{
-    outline:none;
+    font-family: 'Avenir Next Georgian';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    color: #5E70DA;
     background-color: transparent;
-    border:none;
-    color:#3A74D2;
-    text-decoration: underline;
+    border: none;
     cursor:pointer;
-    font-size:14px;
 }
 
 .greetingBackground {
@@ -342,6 +343,237 @@
 .calendarBlock{
     background-color: #fff;
     padding-bottom:10px;
+}
+
+.userblock {
+    padding: 20px 24px;
+    background: #FFFFFF;
+    border-radius: 5px;
+}
+
+.userBlcokItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.userinfoBlock {
+    align-self: center;
+    max-width: 169px;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.userinfoBlock h3 {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    color: #1E2837;
+}
+
+.userinfoBlock h4 {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    color: #797A80;
+}
+
+.userOptionBtn {
+    cursor:pointer;
+}
+
+.userAvatar {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.skelton div span{
+    width: 90px!important;
+    height: 90px!important;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.services_container {
+    width: 100%;
+    padding: 44px 42px;
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    background-color: #fff;
+}
+
+.servicesItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    border: 1px solid #EFEFEF;
+    border-radius: 5px;
+}
+
+.serviceItemInfo, .servicesItemServices {
+    margin: 30px 0 0;
+}
+
+.servicesItemServices {
+    position: relative;
+    padding-left: 30px;
+    height: auto;
+    overflow: hidden;
+    min-height: 181px;
+}
+
+.servicesItemServices:before {
+    content:"";
+    position: absolute;
+    top: 0;
+    left:0;
+    height: 100%;
+    min-height: 181px;
+    width: 1px;
+    background-color: #EFEFEF;
+}
+
+.servicesList {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.servicesItemServices h2 {
+    font-family: 'Avenir Next Georgian';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    color: #01261C;
+    margin-bottom: 19px;
+}
+
+.servicesList div {
+    margin-bottom: 30px;
+    display: flex;
+    gap: 10px;
+}
+
+.servicesList div span {
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 80%;
+    font-family: 'Avenir Next Georgian';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #1E2837;
+}
+
+.serviceItemImg {
+    width: 268px;
+    height: 270px;
+    position: relative;
+}
+
+.serviceItemImg div {
+    position: absolute;
+    bottom:0;
+    margin-bottom:64px;
+    background: #FF5954;
+    border-radius: 0px 14px 14px 0px;
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 14px;
+    color: #FFFFFF;
+    PADDING: 6PX 16PX;
+}
+
+.serviceItemInfo {
+    width: 221px;
+}
+ 
+.clinicWorkingHours { 
+    padding: 4px 16px;
+    background: #eef0fb;
+    border-radius: 14px;
+    cursor: text;
+    border:none;
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #5E70DA;
+}
+
+.serviceItemInfo h2 {
+    margin-bottom:27px;
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: #01261C;
+}
+
+.serviceItemInfo span {
+    margin-top:24px;
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #797A80;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.serviceQuantity {
+    float:right;
+    font-family: 'Avenir Next Georgian';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration-line: underline;
+    color: #5E70DA;
+    background-color: transparent;
+    border:none;
+    cursor: pointer;
+    margin-bottom:-20px;
+}
+
+.showLess {
+    margin-bottom:34px;
+}
+
+.sevicesBlock {
+    width: calc(100% - 221px - 268px - 90px);
+}
+
+.backBtn {
+    width: 90px;
+    display: flex;
+    align-items: center;
+    gap:13px;
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #5E70DA;
+    background-color: transparent;
+    border:none;
+    cursor: pointer;
+}
+
+.backBtn span {
+    margin-top:-2px;
 }
 
 @media only screen and (max-width: 600px) {
