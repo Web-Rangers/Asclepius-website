@@ -13,6 +13,9 @@ import Calendar from '../../components/Calendar';
 import {useWindowSize} from '../../components/useWindowSize';
 import Menu from '../../components/ui/menu';
 import { getData } from '../../components/request';
+import { Skeleton } from 'antd';
+import { ReactSVG } from 'react-svg';
+import Link from 'next/link';
 
 export default function UserDetailed() {
     const [familyMemberModal, setFamilyMemberModal] = useState(false);
@@ -22,6 +25,8 @@ export default function UserDetailed() {
     const [menuItem, setMenuItem] = useState('main');
     const [products, setProducts] = useState([]);
     const [familyMembers, setFamilyMembers] = useState([]);
+	const [user, setUser] = useState(null);
+	const [userInfo, setUserInfo] = useState({})
 
     const memberList = [
         {
@@ -84,6 +89,15 @@ export default function UserDetailed() {
                 setFamilyMembers(unique)
             })
     },[])
+
+    useEffect(() => {
+		getData('https://medical.pirveli.ge/medical/registry/user-id').then(
+			(response) => {
+				setUser(response ? true : false);
+				setUserInfo(response)
+			}
+		);
+	}, [])
 
     return <>
         <div className={styles.detailedPage}>
@@ -246,14 +260,28 @@ export default function UserDetailed() {
                 </div>
                 <div className={styles.rightMenu}>
                     <Block
-                        title="My card"
-                        actions={<button className={styles.upgradeBtn}>Upgrade</button>}
+                        className={styles.userblock}
+                    >
+                        {
+                            user ? <div className={styles.userBlcokItem}>
+                                        <ReactSVG className={styles.userAvatar} src="/useravatar.svg" />
+                                        <div className={styles.userinfoBlock}>
+                                            <h3>{userInfo?.firstName} {userInfo?.lastName}</h3>
+                                            <h4>Birth date: {userInfo?.personDob}</h4>
+                                        </div>
+                                        <ReactSVG className={styles.userOptionBtn} src="/useroption.svg" />
+                            </div> : <Skeleton className={styles.skelton} active avatar></Skeleton>
+                        }
+                    </Block>
+                    <Block
+                        title="ჩემი ბარათი"
+                        actions={<Link href="user/mycard"><button className={styles.upgradeBtn}>ყველა სერვისი</button></Link>}
                         className={styles.cards}
                     >
                         <img className={styles.cardImage} src="/card.png" alt="" />
                     </Block>
 
-                    <Block
+                    {/* <Block
                         title="Family member"
                         actions={
                             memberList.length > 0 && 
@@ -312,7 +340,7 @@ export default function UserDetailed() {
                                 />
                             </div>
                         }
-                    </Block>
+                    </Block> */}
                 </div>
             </div>
         </div>
