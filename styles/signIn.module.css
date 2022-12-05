@@ -278,7 +278,8 @@
 .messageInput {
 	min-height: 103px;
 	min-width: 54%;
-	width: 54%;
+	width: 100%;
+	max-width: 360px;
 	padding-top: 19px;
 	padding-left: 14px;
 	margin-top: 20px;
@@ -390,6 +391,37 @@
 	display: none;
 }
 /* mobile version  */
+
+@media only screen and (max-width: 1300px) {
+	.contactUs {
+		flex: 1 1;
+		height: 1024px;
+		display: flex;
+		flex-direction: column;
+		margin-top: 68px;
+		margin-left: 40px;
+	}
+	.formContainer {
+		z-index: 0;
+	}
+}
+@media only screen and (max-width: 1100px) {
+	.contactUsContainer {
+		display: flex;
+		margin: auto;
+		width: calc(100% - 0px);
+		max-width: calc(1440px - 100px);
+		background-color: #fff;
+		flex-direction: column;
+		align-items: center;
+	}
+	.cardContainerImg {
+		display: none;
+	}
+	.formContainer {
+		z-index: 0;
+	}
+}
 
 @media only screen and (max-width: 767px) {
 	.container {

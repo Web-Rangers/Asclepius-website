@@ -25,6 +25,7 @@
 	font-size: 18px;
 	line-height: 40px;
 	color: #90959c;
+	margin-bottom: 24px;
 }
 
 .aboutImg {
@@ -38,6 +39,8 @@
 	width: 100%;
 	min-height: 100%;
 	position: absolute;
+	display: flex;
+	object-fit: cover;
 }
 
 @media only screen and (max-width: 600px) {
@@ -61,6 +64,7 @@
 	.aboutUsText {
 		font-size: 14px;
 		line-height: 30px;
+		margin-bottom: 24px;
 	}
 	.aboutImg {
 		height: 204px;

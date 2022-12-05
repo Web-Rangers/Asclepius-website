@@ -49,11 +49,15 @@ const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 					},
 					// when window width is >= 768px
 					768: {
+						slidesPerView: 2,
+						spaceBetween: 15,
+					},
+					950: {
 						slidesPerView: 3,
 						spaceBetween: 15,
 					},
 					1280: {
-						slidesPerView: 4,
+						slidesPerView: 3,
 						spaceBetween: 30,
 					},
 				}}
