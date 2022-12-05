@@ -7,7 +7,7 @@ import clinicArrayData from '../../../clinicArrayData';
 import { useState, useEffect } from 'react';
 import { getData } from '../../../components/request';
 import Swipper from '../../../components/contents/Swipper';
-import NavItem from '../../../components/contents/navItem';
+import NavItem from '../../../components/contents/NavItem';
 
 const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 	const router = useRouter();
@@ -41,40 +41,10 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 		'Sunday ',
 	];
 
-	const navLinks = [
-		{ name: 'Main', path: '/', src: '/main.svg' },
-		{
-			name: 'Family',
-			path: '/family',
-			src: '/familySvg.svg',
-		},
-		{
-			name: 'Calendar',
-			path: '/calendar',
-			src: '/calendarSvg.svg',
-		},
-		{
-			name: 'Notifications',
-			path: '/notifications',
-			src: '/notifications.svg',
-		},
-		{
-			name: 'Profile',
-			path: '/profile',
-			src: '/profileNav.svg',
-		},
-	];
 	return (
 		<>
 			<div className={s.mobileBottomNav}>
-				{navLinks.map((item, index) => (
-					<NavItem
-						key={index}
-						name={item.name}
-						path={item.path}
-						src={item.src}
-					/>
-				))}
+				<NavItem />
 			</div>
 			<div className={s.container}>
 				<div>

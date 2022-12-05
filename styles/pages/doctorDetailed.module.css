@@ -487,14 +487,28 @@
 		margin-left: 50px;
 	}
 	.poster {
-		max-width: 450px;
-		width: 390px;
-		height: 306px;
+		width: 100%;
+		position: relative;
+		object-fit: cover;
+		border-radius: 0;
+	}
+	.doctor {
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
+	.doctorImage {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 	.aboutDoctor {
-		padding-left: 16px;
+		/* padding-left: 16px; */
 	}
 	.address {
+		/* padding-left: 16px; */
+	}
+	.aboutDocContainer {
 		padding-left: 16px;
 	}
 	.cetificates {
@@ -518,7 +532,9 @@
 
 	.tabForMobile {
 		display: inline-block;
-		margin-left: 20px;
+		padding-left: 16px;
+		padding-right: 16px;
+		min-height: 300px;
 	}
 	.doctorContainer {
 		background-color: #fff;
@@ -527,26 +543,42 @@
 	.language {
 		display: flex;
 		align-items: center;
-		justify-content: space-around;
 		border-bottom: none;
+		justify-content: start;
+		gap: 24px;
+	}
+	.languageTitle {
+		display: flex;
+		gap: 4px;
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 22px;
+		color: #01261c;
 	}
 	.languageIcon {
 		display: flex;
 		margin-right: -25px;
 	}
 	.activeTab {
-		border-bottom: 1px solid blue;
-		padding-bottom: 15px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 50px;
+		background-color: #ffbbb6;
+		border-radius: 30px;
 	}
+
 	.tabNav {
 		display: flex;
 		flex-direction: row;
 		list-style: none;
+		background-color: #efefef;
+		align-items: center;
+		padding-left: 0;
 		justify-content: space-around;
-		margin-top: -40px;
-		border-bottom: 1px solid #efefef;
-		margin-left: -50px;
-		margin-right: 20px;
+		border-radius: 30px;
 	}
 	.tabNav li {
 		font-family: 'Noto Sans';
@@ -555,6 +587,9 @@
 		font-size: 14px;
 		line-height: 19px;
 		color: #1e2837;
+		width: 114px;
+		padding-left: 16px;
+		padding-right: 16px;
 	}
 	.bookNowBtn {
 		display: flex;
@@ -594,5 +629,18 @@
 	.closeBooking {
 		display: flex;
 		margin-left: 200px;
+	}
+	.certificate {
+		display: flex;
+		align-items: baseline;
+		gap: 14px;
+		margin-bottom: 31px;
+		min-height: 300px;
+		flex-direction: column;
+	}
+	.certificateInfo h2 img {
+		margin-right: 10px;
+		width: 14px;
+		height: 14p;
 	}
 }

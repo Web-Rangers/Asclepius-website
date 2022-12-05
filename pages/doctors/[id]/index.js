@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from '../../../styles/pages/doctorDetailed.module.css';
+import s from '../../../styles/clinicDetailPage.module.css';
 import Link from 'next/link';
 import Calendar from '../../../components/Calendar';
 import classNames from 'classnames';
@@ -9,6 +10,7 @@ import { getData } from '../../../components/request';
 import { useRouter } from 'next/router';
 import Input from '../../../components/Input';
 import Button from '../../../components/ui/Button';
+import NavItem from '../../../components/contents/NavItem';
 
 let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -25,9 +27,13 @@ export default function DoctorDetailed({
 	const [tab, setTab] = useState('certificates');
 	const { firstName, lastName, pictureUrl, professions, aboutMe } = doctor;
 
+	console.log('sertifi', educations);
 	return (
 		<>
 			{modalIsOpen && <AddFamilyMember onClose={() => setModalOpen(false)} />}
+			<div className={s.mobileBottomNav}>
+				<NavItem />
+			</div>
 			<div className={styles.doctorBody}>
 				<div className={styles.doctorContainer}>
 					<div className={styles.back}>
@@ -76,34 +82,42 @@ export default function DoctorDetailed({
 									/>
 								</div>
 							</div> */}
-							<div className={styles.aboutDoctor}>
-								<h2>{firstName + '  ' + lastName}</h2>
-								<div className={styles.proffesion}>
-									{professions?.map((prof, i) => {
-										return (
-											<div
-												key={i}
-												className={styles.prof}
-											>
-												{prof?.name}
-											</div>
-										);
-									})}
+							<div className={styles.aboutDocContainer}>
+								<div className={styles.aboutDoctor}>
+									<h2>{firstName + '  ' + lastName}</h2>
+									<div className={styles.proffesion}>
+										{professions?.map((prof, i) => {
+											return (
+												<div
+													key={i}
+													className={styles.prof}
+												>
+													{prof?.name}
+												</div>
+											);
+										})}
+									</div>
 								</div>
-							</div>
-							<div className={styles.address}>
-								<img
-									src='/doctorLocation.svg'
-									alt=''
-								/>
-								<h4>Carymouth , Hallmark Clinic</h4>
-							</div>
-							<div className={styles.language}>
-								<span className={styles.languageTitle}>Language</span>
-								<div className={styles.languageList}>
-									<span>Geo</span>
-									<span>Eng</span>
-									<span>Rus</span>
+								<div className={styles.address}>
+									<img
+										src='/doctorLocation.svg'
+										alt=''
+									/>
+									<h4>Carymouth , Hallmark Clinic</h4>
+								</div>
+								<div className={styles.language}>
+									<span className={styles.languageTitle}>
+										<img
+											src='/globus.svg'
+											alt=''
+										/>
+										Language
+									</span>
+									<div className={styles.languageList}>
+										<span>Geo</span>
+										<span>Eng</span>
+										<span>Rus</span>
+									</div>
 								</div>
 							</div>
 							<div className={styles.cetificates}>
@@ -236,103 +250,58 @@ export default function DoctorDetailed({
 							{tab === 'certificates' ? (
 								<>
 									<div className={styles.certificate}>
-										<div className={styles.certCheckmark}>
-											<img
-												src='/checkMark.svg'
-												alt=''
-											/>
-										</div>
-										<div className={styles.certificateInfo}>
-											<h2>Phoenix healthcare center</h2>
-											<p>Carymouth , Hallmark Clinic</p>
-											<h4>June 22 / 2022</h4>
-											<div className={styles.certLink}>
-												<img
-													src='/disabledEye.svg'
-													alt=''
-												/>
-												<Link href='/'>
-													<a>https://thenounproject.com</a>
-												</Link>
-											</div>
-										</div>
-									</div>
-									<div className={styles.certificate}>
-										<div className={styles.certCheckmark}>
-											<img
-												src='/checkMark.svg'
-												alt=''
-											/>
-										</div>
-										<div className={styles.certificateInfo}>
-											<h2>Phoenix healthcare center</h2>
-											<p>Carymouth , Hallmark Clinic</p>
-											<h4>June 22 / 2022</h4>
-											<div className={styles.certLink}>
-												<img
-													src='/disabledEye.svg'
-													alt=''
-												/>
-												<Link href='/'>
-													<a>https://thenounproject.com</a>
-												</Link>
-											</div>
-										</div>
+										<div className={styles.certCheckmark}></div>
+										{certificates !== null &&
+											certificates?.map((item) => (
+												<div className={styles.certificateInfo}>
+													<h2>
+														{' '}
+														<img
+															src='/checkMark.svg'
+															alt=''
+														/>
+														{item.title}
+													</h2>
+													<p>{item.issuer}</p>
+													<h4>
+														{[item.issueDate, ' - ', item.expirationDate]}
+													</h4>
+
+													<div className={styles.certLink}>
+														<img
+															src='/disabledEye.svg'
+															alt=''
+														/>
+														<Link href='/'>
+															<a>{item.credentialInfo}</a>
+														</Link>
+													</div>
+													<p> ID:{item.credentialId}</p>
+												</div>
+											))}
 									</div>
 								</>
 							) : null}
 							{tab === 'aboutme' ? (
 								<div className={styles.aboutTxt}>
-									<span>
-										- Board member of the International Association of Sexually
-										Transmitted Diseases
-									</span>
-									<span>
-										- Full member of the European Academy of Dermatology and
-										Venereology
-									</span>
-									<span>
-										- Chairman of the Tbilisi Association of Dermatologists and
-										Venereologists
-									</span>
-									<span>
-										- Vice President of the Pediatric Dermatology Association of
-										Georgia
-									</span>
-									<span>
-										- Chairman of the Association of Dermatologists and
-										Venereologists
-									</span>
+									<span>{aboutMe}</span>
 								</div>
 							) : null}
-							{tab === 'education' ? (
-								<div className={styles.educationContent}>
-									<div className={styles.educationItem}>
-										<div className={styles.data}>9/2003 - 6/2006 yr.</div>
-										<h2>Tbilisi State Medical Institute</h2>
-										<p>
-											Higher medical education - Chairman of the Association of
-											Dermatologists and Venereologists
-										</p>
-									</div>
-									<div className={styles.educationItem}>
-										<div className={styles.data}>9/2003 - 6/2006 yr.</div>
-										<h2>Tbilisi State Medical Institute</h2>
-										<p>
-											Higher medical education - Chairman of the Association of
-											Dermatologists and Venereologists
-										</p>
-									</div>
-									<div className={styles.educationItem}>
-										<div className={styles.data}>9/2003 - 6/2006 yr.</div>
-										<h2>Tbilisi State Medical Institute</h2>
-										<p>
-											Higher medical education - Chairman of the Association of
-											Dermatologists and Venereologists
-										</p>
-									</div>
-								</div>
-							) : null}
+							{tab === 'education'
+								? educations !== null &&
+								  educations?.map((item) => (
+										<div className={styles.educationContent}>
+											<div className={styles.educationItem}>
+												<div className={styles.data}>
+													{' '}
+													{item.dateEnd} - {item.dateStart} yr.
+												</div>
+												<h2>{item.degree}</h2>
+												<p>{item.school}</p>
+											</div>
+										</div>
+								  ))
+								: null}
 						</div>
 
 						{/* <div className={styles.doctorServices}>
