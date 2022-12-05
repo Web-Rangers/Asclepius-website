@@ -254,6 +254,7 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 						</Text>
 						<div className={s.imageSlider}> </div>
 					</div>
+
 					<Swipper
 						data={gallery}
 						branches={branches}

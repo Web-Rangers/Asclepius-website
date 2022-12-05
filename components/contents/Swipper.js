@@ -82,7 +82,7 @@ const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 							</SwiperSlide>
 					  ))}
 			</Swiper>
-			{iconBottom && (
+			{branches?.length > 4 && iconBottom && (
 				<div
 					className={iconTop ? style.arrowContainerTop : style.arrowContainer}
 				>
