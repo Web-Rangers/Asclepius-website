@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import styles from '../../styles/pages/userDetailed.module.css';
 import Button from '../../components/ui/Button';
 import Block from '../../components/block';
@@ -12,6 +12,10 @@ import AddFamilyMember from '../../components/modals/addFamilyMember';
 import Calendar from '../../components/Calendar';
 import {useWindowSize} from '../../components/useWindowSize';
 import Menu from '../../components/ui/menu';
+import { getData } from '../../components/request';
+import { Skeleton } from 'antd';
+import { ReactSVG } from 'react-svg';
+import Link from 'next/link';
 
 export default function UserDetailed() {
     const [familyMemberModal, setFamilyMemberModal] = useState(false);
@@ -19,6 +23,10 @@ export default function UserDetailed() {
     const [status, setStatus] = useState('');
     const [serviceType, setServiceType] = useState('');
     const [menuItem, setMenuItem] = useState('main');
+    const [products, setProducts] = useState([]);
+    const [familyMembers, setFamilyMembers] = useState([]);
+	const [user, setUser] = useState(null);
+	const [userInfo, setUserInfo] = useState({})
 
     const memberList = [
         {
@@ -39,54 +47,57 @@ export default function UserDetailed() {
 
     const columns = [
         {
-            key: "date",
+            key: "transactionDate",
             title: "Date",
-            dataIndex: "date",
+            dataIndex: "transactionDate",
             sort: true,
         },
         {
-            key: "institution",
+            key: "productName",
             title: "Institution",
-            dataIndex: "institution",
+            dataIndex: "productName",
         },
         {
-            key: "service_type",
+            key: "productType",
             title: "Service type",
-            dataIndex: "service_type",
+            dataIndex: "productType",
         },
         {
-            key: "discount",
+            key: "amount",
             title: "Discount",
-            dataIndex: "discount",
+            dataIndex: "amount",
         }
     ];
 
-    const data = [
-        {
-            date: '5.05.2022',
-            institution: 'David Smith',
-            service_type: 'In Clinic',
-            discount: 'Dentist',
-        },
-        {
-            date: '5.05.2022',
-            institution: 'David Smith',
-            service_type: 'In Clinic',
-            discount: 'Dentist',
-        },
-        {
-            date: '5.05.2022',
-            institution: 'David Smith',
-            service_type: 'In Clinic',
-            discount: 'Dentist',
-        },
-        {
-            date: '5.05.2022',
-            institution: 'David Smith',
-            service_type: 'In Clinic',
-            discount: 'Dentist',
-        },
-    ];
+    useEffect(()=> {
+        getData('https://medical.pirveli.ge/medical/products/get-bought-products')
+            .then((response)=> {
+                const data = response?.products?.map((e)=> {
+                    return {...e,
+                        transactionDate: e.transactionDate.slice(0,10),
+                        productType: e.productType === 'PERCENTAGE_CLINIC_DISCOUNT_FAMILY' ? 'Family' : 'Individual'
+                    }
+                })
+                let familyMembersArray = [];
+                setProducts(data)
+                response?.products?.map((e)=> {
+                    e?.members?.map((z)=> {
+                        familyMembersArray.push(z)
+                    })
+                })
+                const unique = [...new Set(familyMembersArray)]
+                setFamilyMembers(unique)
+            })
+    },[])
+
+    useEffect(() => {
+		getData('https://medical.pirveli.ge/medical/registry/user-id').then(
+			(response) => {
+				setUser(response ? true : false);
+				setUserInfo(response)
+			}
+		);
+	}, [])
 
     return <>
         <div className={styles.detailedPage}>
@@ -231,29 +242,46 @@ export default function UserDetailed() {
                             }
                             className={styles.tableBlock}
                         >
-                            <Table 
-                                className={styles.table}
-                                columns={columns}
-                                data={data}
-                                rowClassName={styles.tableRow}
-                                cellClassName={styles.tableCell}
-                                headerClassName={styles.tableHeader}
-                                bodyClassName={styles.tableBody}
-                                pagination={{ pageSize: 5, initialPage: 1 }}
-                            />
+                            {
+                                products?.length > 0 && 
+                                <Table 
+                                    className={styles.table}
+                                    columns={columns}
+                                    data={products}
+                                    rowClassName={styles.tableRow}
+                                    cellClassName={styles.tableCell}
+                                    headerClassName={styles.tableHeader}
+                                    bodyClassName={styles.tableBody}
+                                    pagination={{ pageSize: 5, initialPage: 1 }}
+                                />
+                            }
                         </Block>
                     </div>
                 </div>
                 <div className={styles.rightMenu}>
                     <Block
-                        title="My card"
-                        actions={<button className={styles.upgradeBtn}>Upgrade</button>}
+                        className={styles.userblock}
+                    >
+                        {
+                            user ? <div className={styles.userBlcokItem}>
+                                        <ReactSVG className={styles.userAvatar} src="/useravatar.svg" />
+                                        <div className={styles.userinfoBlock}>
+                                            <h3>{userInfo?.firstName} {userInfo?.lastName}</h3>
+                                            <h4>Birth date: {userInfo?.personDob}</h4>
+                                        </div>
+                                        <ReactSVG className={styles.userOptionBtn} src="/useroption.svg" />
+                            </div> : <Skeleton className={styles.skelton} active avatar></Skeleton>
+                        }
+                    </Block>
+                    <Block
+                        title="ჩემი ბარათი"
+                        actions={<Link href="user/mycard"><button className={styles.upgradeBtn}>ყველა სერვისი</button></Link>}
                         className={styles.cards}
                     >
                         <img className={styles.cardImage} src="/card.png" alt="" />
                     </Block>
 
-                    <Block
+                    {/* <Block
                         title="Family member"
                         actions={
                             memberList.length > 0 && 
@@ -270,15 +298,15 @@ export default function UserDetailed() {
                         })}
                     >
                         {
-                            memberList?.length > 0 ?
+                            familyMembers?.length > 0 ?
                             <div className={styles.membersList}>
-                                {memberList?.map((member)=>{
+                                {familyMembers?.map((member)=>{
                                     return <>
                                         <div className={styles.familyMember}>
                                             <div className={styles.memberInfo}>
                                                 <img src={member.image} alt="" />
                                                 <div>
-                                                    <h2>{member.name}</h2>
+                                                    <h2>{member.firstName}</h2>
                                                     <h3>{member.email}</h3>
                                                 </div>
                                             </div>
@@ -312,7 +340,7 @@ export default function UserDetailed() {
                                 />
                             </div>
                         }
-                    </Block>
+                    </Block> */}
                 </div>
             </div>
         </div>
