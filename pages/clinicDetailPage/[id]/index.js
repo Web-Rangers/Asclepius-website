@@ -56,7 +56,7 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 		{
 			name: 'Notifications',
 			path: '/notifications',
-			src: '/notificationwithsms.svg',
+			src: '/notifications.svg',
 		},
 		{
 			name: 'Profile',
