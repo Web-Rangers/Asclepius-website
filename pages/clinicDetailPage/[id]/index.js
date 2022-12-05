@@ -7,7 +7,7 @@ import clinicArrayData from '../../../clinicArrayData';
 import { useState, useEffect } from 'react';
 import { getData } from '../../../components/request';
 import Swipper from '../../../components/contents/Swipper';
-import NavItem from '../../../components/contents/navItem';
+import NavItem from '../../../components/contents/NavItem';
 
 const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 	const router = useRouter();
