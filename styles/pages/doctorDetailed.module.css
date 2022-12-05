@@ -454,3 +454,145 @@
 	line-height: 24px;
 	color: #8d8a8a;
 }
+
+.languageIcon {
+	display: none;
+}
+.tabForMobile {
+	display: none;
+}
+.bookNowBtn {
+	display: none;
+}
+.bookingPageBtn {
+	display: none;
+}
+.closeBooking {
+	display: none;
+}
+
+@media only screen and (max-width: 767px) {
+	.back {
+		display: none;
+	}
+	.doctorBody {
+		padding: 0px;
+		width: 100%;
+	}
+	.content {
+		display: flex;
+		flex-direction: column;
+	}
+	.doctorContact {
+		margin-left: 50px;
+	}
+	.poster {
+		max-width: 450px;
+		width: 390px;
+		height: 306px;
+	}
+	.aboutDoctor {
+		padding-left: 16px;
+	}
+	.address {
+		padding-left: 16px;
+	}
+	.cetificates {
+		display: none;
+	}
+
+	.doctorInfo {
+		display: none;
+	}
+	.doctorServices {
+		display: none;
+		padding-left: 16px;
+		padding-right: 16px;
+		padding-top: 20px;
+		position: absolute;
+		background-color: #ffffff;
+		height: 100%;
+		width: 100%;
+		z-index: 999;
+	}
+
+	.tabForMobile {
+		display: inline-block;
+		margin-left: 20px;
+	}
+	.doctorContainer {
+		background-color: #fff;
+		padding: 0;
+	}
+	.language {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		border-bottom: none;
+	}
+	.languageIcon {
+		display: flex;
+		margin-right: -25px;
+	}
+	.activeTab {
+		border-bottom: 1px solid blue;
+		padding-bottom: 15px;
+	}
+	.tabNav {
+		display: flex;
+		flex-direction: row;
+		list-style: none;
+		justify-content: space-around;
+		margin-top: -40px;
+		border-bottom: 1px solid #efefef;
+		margin-left: -50px;
+		margin-right: 20px;
+	}
+	.tabNav li {
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 19px;
+		color: #1e2837;
+	}
+	.bookNowBtn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 16px;
+		margin-right: 16px;
+		position: fixed;
+		margin-top: 570px;
+	}
+	.bookNowBtnStyle {
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 22px;
+		width: 360px;
+		height: 58px;
+		background: #3a74d2;
+		box-shadow: 0px 10px 34px rgba(191, 196, 202, 0.2);
+		border-radius: 5px;
+		color: #ffffff;
+		border: none;
+	}
+
+	.activeBooking {
+		display: block;
+	}
+	.bookingPageBtn {
+		display: flex;
+		width: 344px;
+		height: 58px;
+		background: #3a74d2;
+		border-radius: 5px;
+		margin-top: 30px;
+	}
+	.closeBooking {
+		display: flex;
+		margin-left: 200px;
+	}
+}
