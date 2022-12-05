@@ -22,7 +22,7 @@ export default function DoctorDetailed({
 	const [patient, setPatient] = useState('');
 	const [modalIsOpen, setModalOpen] = useState(false);
 	const router = useRouter();
-
+	const [tab, setTab] = useState('certificates');
 	const { firstName, lastName, pictureUrl, professions, aboutMe } = doctor;
 
 	return (
@@ -205,6 +205,134 @@ export default function DoctorDetailed({
 										)}
 								</div>
 							</div>
+						</div>
+						<div className={styles.tabForMobile}>
+							<ul className={styles.tabNav}>
+								<li
+									className={classNames({
+										[styles.activeTab]: tab === 'certificates',
+									})}
+									onClick={() => setTab('certificates')}
+								>
+									Certificate
+								</li>
+								<li
+									onClick={() => setTab('aboutme')}
+									className={classNames({
+										[styles.activeTab]: tab === 'aboutme',
+									})}
+								>
+									About me
+								</li>
+								<li
+									onClick={() => setTab('education')}
+									className={classNames({
+										[styles.activeTab]: tab === 'education',
+									})}
+								>
+									Education
+								</li>
+							</ul>
+							{tab === 'certificates' ? (
+								<>
+									<div className={styles.certificate}>
+										<div className={styles.certCheckmark}>
+											<img
+												src='/checkMark.svg'
+												alt=''
+											/>
+										</div>
+										<div className={styles.certificateInfo}>
+											<h2>Phoenix healthcare center</h2>
+											<p>Carymouth , Hallmark Clinic</p>
+											<h4>June 22 / 2022</h4>
+											<div className={styles.certLink}>
+												<img
+													src='/disabledEye.svg'
+													alt=''
+												/>
+												<Link href='/'>
+													<a>https://thenounproject.com</a>
+												</Link>
+											</div>
+										</div>
+									</div>
+									<div className={styles.certificate}>
+										<div className={styles.certCheckmark}>
+											<img
+												src='/checkMark.svg'
+												alt=''
+											/>
+										</div>
+										<div className={styles.certificateInfo}>
+											<h2>Phoenix healthcare center</h2>
+											<p>Carymouth , Hallmark Clinic</p>
+											<h4>June 22 / 2022</h4>
+											<div className={styles.certLink}>
+												<img
+													src='/disabledEye.svg'
+													alt=''
+												/>
+												<Link href='/'>
+													<a>https://thenounproject.com</a>
+												</Link>
+											</div>
+										</div>
+									</div>
+								</>
+							) : null}
+							{tab === 'aboutme' ? (
+								<div className={styles.aboutTxt}>
+									<span>
+										- Board member of the International Association of Sexually
+										Transmitted Diseases
+									</span>
+									<span>
+										- Full member of the European Academy of Dermatology and
+										Venereology
+									</span>
+									<span>
+										- Chairman of the Tbilisi Association of Dermatologists and
+										Venereologists
+									</span>
+									<span>
+										- Vice President of the Pediatric Dermatology Association of
+										Georgia
+									</span>
+									<span>
+										- Chairman of the Association of Dermatologists and
+										Venereologists
+									</span>
+								</div>
+							) : null}
+							{tab === 'education' ? (
+								<div className={styles.educationContent}>
+									<div className={styles.educationItem}>
+										<div className={styles.data}>9/2003 - 6/2006 yr.</div>
+										<h2>Tbilisi State Medical Institute</h2>
+										<p>
+											Higher medical education - Chairman of the Association of
+											Dermatologists and Venereologists
+										</p>
+									</div>
+									<div className={styles.educationItem}>
+										<div className={styles.data}>9/2003 - 6/2006 yr.</div>
+										<h2>Tbilisi State Medical Institute</h2>
+										<p>
+											Higher medical education - Chairman of the Association of
+											Dermatologists and Venereologists
+										</p>
+									</div>
+									<div className={styles.educationItem}>
+										<div className={styles.data}>9/2003 - 6/2006 yr.</div>
+										<h2>Tbilisi State Medical Institute</h2>
+										<p>
+											Higher medical education - Chairman of the Association of
+											Dermatologists and Venereologists
+										</p>
+									</div>
+								</div>
+							) : null}
 						</div>
 
 						{/* <div className={styles.doctorServices}>
