@@ -67,8 +67,9 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 	return (
 		<>
 			<div className={s.mobileBottomNav}>
-				{navLinks.map((item) => (
+				{navLinks.map((item, index) => (
 					<NavItem
+						key={index}
 						name={item.name}
 						path={item.path}
 						src={item.src}
