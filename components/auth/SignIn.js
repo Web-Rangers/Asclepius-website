@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classes from '../../styles/signIn.module.css';
+import s from '../../styles/headerFooter.module.css';
 import Link from 'next/link';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
@@ -9,7 +10,7 @@ export const SignIn = () => {
 	return (
 		<div className={classes.container}>
 			<div className={classes.leftSideContainer}>
-				<Link href={'/'}>
+				{/* <Link href={'/'}>
 					<a>
 						<img
 							src='/MedicalLogo.png'
@@ -17,6 +18,20 @@ export const SignIn = () => {
 							height='50px'
 							className={classes.headerIcon}
 						/>
+					</a>
+				</Link> */}
+
+				<Link href={'/'}>
+					<a className={classes.logoContainer}>
+						<img
+							src='/footerIcon.png'
+							alt='headerIcon'
+							width='44px'
+							height='40px'
+							// className={classes.mobileIcon}
+						/>
+						<span className={s.logoTextOne}>Pirveli</span>
+						<span className={s.logoTextTwo}>.com </span>
 					</a>
 				</Link>
 
@@ -72,6 +87,7 @@ export const SignIn = () => {
 					<Button
 						type='submit'
 						name='Login'
+						style={classes.loginBtn}
 					/>
 				</div>
 			</div>
@@ -79,8 +95,8 @@ export const SignIn = () => {
 				<img
 					src='/cards.png'
 					alt='cards'
-					width='650px'
-					height='500px'
+					width='608px'
+					height='792px'
 				/>
 			</div>
 		</div>

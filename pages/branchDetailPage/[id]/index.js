@@ -7,9 +7,7 @@ import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { getData } from '../../../components/request';
 import Button from '../../../components/ui/Button';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
-import { Swipper } from '../../../components/contents/Swipper';
+import Swipper from '../../../components/contents/Swipper';
 
 const BranchDetailPage = ({ cardData, address, gallery }) => {
 	const router = useRouter();
@@ -48,7 +46,7 @@ const BranchDetailPage = ({ cardData, address, gallery }) => {
 			<div className={s.clinicDetailPageCard}>
 				<div
 					className={s.cardItemContainer}
-					key={cardData[0].id}
+					key={cardData[0]?.id}
 				>
 					<div className={s.imgPart}>
 						{/* <div className={s.ratingContainer}>
@@ -68,7 +66,7 @@ const BranchDetailPage = ({ cardData, address, gallery }) => {
 							height='326px'
 						/>
 					</div>
-					<Text style={s.clinicNameText}>{cardData[0].displayName}</Text>
+					<Text style={s.clinicNameText}>{cardData[0]?.displayName}</Text>
 					{cardData[0]?.workingHours
 						?.sort((a, b) => a.dayId - b.dayId)
 						?.map((item) => (
@@ -211,14 +209,14 @@ const BranchDetailPage = ({ cardData, address, gallery }) => {
 							<div className={s.cardImage}>
 								<Image
 									alt='silver card'
-									src='/Card 1.svg'
+									src='/Card1.svg'
 									width='117px'
 									height='68.34px'
 								/>
 							</div>
 							<Image
 								alt='gold card'
-								src='/Card 2.svg'
+								src='/Card2.svg'
 								width='117px'
 								height='68.34px'
 								style={{ paddingRight: '4px' }}
@@ -232,15 +230,12 @@ const BranchDetailPage = ({ cardData, address, gallery }) => {
 					{' '}
 					Images of the clinic
 				</Text>
-
 				<div className={s.swipperContainer}>
 					<Swipper
 						data={gallery}
 						iconBottom={true}
 					/>
 				</div>
-
-				{/* </div> */}
 			</div>
 		</div>
 	);

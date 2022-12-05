@@ -37,18 +37,18 @@ function Home({ clinics, doctors, frelancers, categories, products }) {
 	const windowSize = useWindowSize();
 
 	const firstPartImgArray = [
-		{ id: '1', url: 'firstPartImg1.png' },
-		{ id: '2', url: 'firstPartImg2.png' },
-		{ id: '3', url: 'firstPartImg3.png' },
-		{ id: '4', url: 'firstPartImg3.png' },
-		{ id: '5', url: 'firstPartImg1.png' },
-		{ id: '6', url: 'firstPartImg3.png' },
-		{ id: '7', url: 'firstPartImg2.png' },
-		{ id: '8', url: 'firstPartImg1.png' },
-		{ id: '9', url: 'firstPartImg2.png' },
-		{ id: '10', url: 'firstPartImg2.png' },
-		{ id: '11', url: 'firstPartImg1.png' },
-		{ id: '12', url: 'firstPartImg2.png' },
+		{ id: '1', url: 'firstPartImg1.png', size: true },
+		{ id: '2', url: 'firstPartImg2.png', size: true },
+		{ id: '3', url: 'firstPartImg3.png', size: true },
+		{ id: '4', url: 'firstPartImg3.png', size: true },
+		{ id: '5', url: 'firstPartImg1.png', size: true },
+		{ id: '6', url: 'firstPartImg3.png', size: true },
+		{ id: '7', url: 'firstPartImg2.png', size: true },
+		{ id: '8', url: 'firstPartImg1.png', size: true },
+		{ id: '9', url: 'firstPartImg2.png', size: true },
+		{ id: '10', url: 'firstPartImg2.png', size: true },
+		{ id: '11', url: 'firstPartImg1.png', size: true },
+		{ id: '12', url: 'firstPartImg2.png', size: true },
 	];
 
 	function sliceIntoChunks(arr, chunkSize) {

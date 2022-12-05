@@ -1,8 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState, useCallback } from 'react';
 import style from '../../styles/slider.module.css';
-import BranchPageCardItem from './BranchPageCardItem';
-
+import BranchPageCardItem from '../contents/BranchPageCardItem';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -13,8 +12,6 @@ import { Pagination, Navigation, Lazy } from 'swiper';
 
 const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 	const [swiperRef, setSwiperRef] = useState();
-
-	console.log('gaer', data);
 
 	const handleLeftClick = useCallback(() => {
 		if (!swiperRef) return;
@@ -76,7 +73,7 @@ const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 								<img
 									src={data.url}
 									width=' 100%'
-									height='228px'
+									height={data?.size ? '100%' : '228px'}
 									style={{
 										display: 'flex',
 										objectFit: 'cover',

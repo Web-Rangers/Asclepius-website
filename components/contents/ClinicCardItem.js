@@ -20,7 +20,6 @@ const ClinicCardItem = ({ data, listItem = false, cards }) => {
 		cards?.map((item) =>
 			item?.clinic?.map((e) => {
 				if (e?.clinicId === data?.id) {
-					console.log('---------------', e?.percentage);
 					setDiscount(e.percentage);
 
 					discount > e?.percentage ? setDiscount(e.percentage) : '';
@@ -107,34 +106,38 @@ const ClinicCardItem = ({ data, listItem = false, cards }) => {
 					key={data.key}
 					href={`/clinicDetailPage/${data?.id}`}
 				>
-					<div className={classes.cardItemContainer}>
-						{/* <div className={classes.cardRating}>
+					<a>
+						<div className={classes.cardItemContainer}>
+							{/* <div className={classes.cardRating}>
         <ReactSVG src="/clinicStar.svg" className={classes.cardRatingStar} />
         <span>4.9</span>
       </div> */}
-						<div className={classes.imgPart}>
-							<img
-								src={data?.logoUrl}
-								alt={'clinic'}
-								width='313px'
-								height='194px'
-							/>
-						</div>
-						<div>
-							<div className={classes.bottomContainer}>
-								<h2 className={classes.clinicNameText}>{data?.displayName}</h2>
-								<Text style={classes.clinicAddressText}>
-									<Image
-										src='/map-pin 1.svg'
-										alt=''
-										width='16.67px'
-										height='15.04'
-									/>
-									{data?.address.address}
-								</Text>
+							<div className={classes.imgPart}>
+								<img
+									src={data?.logoUrl}
+									alt={'clinic'}
+									width='313px'
+									height='194px'
+								/>
+							</div>
+							<div>
+								<div className={s.bottomContainer}>
+									<Text style={classes.clinicNameText}>
+										{data?.displayName}
+									</Text>
+									<Text style={classes.clinicAddressText}>
+										<Image
+											src='/map-pin 1.svg'
+											alt=''
+											width='16.67px'
+											height='15.04'
+										/>
+										{data?.address.address}
+									</Text>
+								</div>
 							</div>
 						</div>
-					</div>
+					</a>
 				</Link>
 			)}
 		</>

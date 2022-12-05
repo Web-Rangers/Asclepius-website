@@ -20,7 +20,7 @@ import Navigation from '../../components/navigation';
 
 let PageSize = 4;
 
-function ClinicsPage({ clinics, cards }) {
+function ClinicsPage({ clinics, cards, municipalities }) {
 	const [modalIsOpen, setIsOpen] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [searchInput, setSearchInput] = useState('');
@@ -28,7 +28,11 @@ function ClinicsPage({ clinics, cards }) {
 	const [modalOpen, setOpen] = useState(false);
 	const [value, setValue] = useState([0, 100]);
 	const [filterData, setFilterData] = useState(clinics);
+	const [municipal, setMunicipal] = useState('');
 	const router = useRouter();
+	const [filterMunici, setFilterMunici] = useState(false);
+
+	console.log('filterData', filterData);
 
 	const handleChangeRange = (event, newValue) => {
 		setValue(newValue);
@@ -85,6 +89,14 @@ function ClinicsPage({ clinics, cards }) {
 	}, [currentPage, filterData]);
 
 	let subtitle;
+
+	useEffect(() => {
+		setFilterData(
+			municipal
+				? clinics.filter((item) => item.address.municipality.id === municipal)
+				: clinics
+		);
+	}, [municipal, clinics]);
 
 	const openModal = () => {
 		setIsOpen(true);
@@ -169,14 +181,28 @@ function ClinicsPage({ clinics, cards }) {
 								onChange={handleChangeRange}
 							/>
 						</div>
-						<div className={s.btnContainer}>
+						<Select
+							placeholder='City'
+							label='City'
+							labelStyle='outside'
+							className={s.mucipalInput}
+							value={municipal}
+							options={municipalities?.map((item) => ({
+								label: item.title,
+								value: item.id,
+							}))}
+							onChange={(e) => {
+								setMunicipal(e);
+							}}
+						/>
+						{/* <div className={s.btnContainer}>
 							<Button
 								style={s.filterButtonStyle}
 								name='Filter'
 								icon={
 									<Image
 										alt='Arrow-LeftActive'
-										src='/Filter.svg'
+										src='/filter.svg'
 										width='24px'
 										height='24px'
 									/>
@@ -242,10 +268,10 @@ function ClinicsPage({ clinics, cards }) {
 									</div>
 								</FilterModal>
 							)}
-						</div>
+						</div> */}
 					</div>
 					<div className={s.clinicPageCardListContainer}>
-						{currentTableData.map((item) => (
+						{currentTableData?.map((item) => (
 							<ClinicCardItem
 								key={item?.id}
 								data={item}
@@ -277,13 +303,19 @@ export const getServerSideProps = async () => {
 	const getProducts = await getData(
 		`https://medical.pirveli.ge/medical/products/get-products`
 	);
+
+	const getMunicipalities = await getData(
+		`${API_URL}/asclepius/v1/api/municipalities`
+	);
+
 	return {
 		props: {
+			municipalities: getMunicipalities,
 			cards: getProducts,
 			clinics:
 				getClinics?.length === 0
 					? null
-					: getClinics.sort(function (a, b) {
+					: getClinics?.sort(function (a, b) {
 							return a.regDate > b.regDate ? -1 : a.regDate > b.regDate ? 1 : 0;
 					  }),
 		},

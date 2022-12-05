@@ -351,6 +351,7 @@
 	border: none;
 	margin-right: 38px;
 	margin-left: 240px;
+	cursor: pointer;
 }
 .contactBtn {
 	width: 142px;
@@ -383,6 +384,7 @@
 	color: #ffffff;
 	border: none;
 	margin-right: 37.5px;
+	cursor: pointer;
 }
 .signInBtnStyle {
 	display: flex;
@@ -400,6 +402,7 @@
 	color: #1e2837;
 	border: none;
 	margin-right: 18px;
+	cursor: pointer;
 }
 .userProfilePart {
 	display: flex;
@@ -506,8 +509,8 @@
 
 .userDropBlock {
 	width: 242px;
-	margin-top:8px;
-	background-color: #fff;	
+	margin-top: 8px;
+	background-color: #fff;
 	box-shadow: 0px 10px 34px 8px rgba(191, 196, 202, 0.15);
 	border-radius: 0px 0px 3px 3px;
 }
@@ -515,18 +518,18 @@
 .authorizedUser {
 	display: flex;
 	align-items: center;
-	margin-top:9px;
+	margin-top: 9px;
 	gap: 32px;
 }
 
-.auth_user_menu{
+.auth_user_menu {
 	padding: 17px 22px;
 }
 
 .userNotDropBlock {
 	width: 342px;
-	margin-top:8px;
-	background-color: #fff;	
+	margin-top: 8px;
+	background-color: #fff;
 	box-shadow: 0px 10px 34px 8px rgba(191, 196, 202, 0.15);
 	border-radius: 0px 0px 3px 3px;
 }
@@ -541,7 +544,7 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	color: #92989F;
+	color: #92989f;
 }
 
 .notificationHeight {
@@ -549,40 +552,40 @@
 }
 
 .auth_user_menu h2 {
-	padding-bottom:12px;
-	border-bottom: 0.5px solid #E5E5E5;
+	padding-bottom: 12px;
+	border-bottom: 0.5px solid #e5e5e5;
 	font-family: 'Noto Sans';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 14px;
 	line-height: 19px;
-	color: #1E2837;
+	color: #1e2837;
 }
 
 .auth_user_icon {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	cursor:pointer;
-	padding:8px 0;
-	border-bottom: 0.5px solid #E5E5E5;
+	cursor: pointer;
+	padding: 8px 0;
+	border-bottom: 0.5px solid #e5e5e5;
 }
 
 .auth_user_options {
 	display: flex;
 	flex-direction: column;
-	gap:22px;
+	gap: 22px;
 	padding: 12px 0 22px;
-	border-bottom: 0.5px solid #E5E5E5;
+	border-bottom: 0.5px solid #e5e5e5;
 }
 
-.auth_user_options li a{
+.auth_user_options li a {
 	font-family: 'Noto Sans';
 	font-style: normal;
 	font-weight: 500;
 	font-size: 14px;
 	line-height: 16px;
-	color: #92989F;
+	color: #92989f;
 }
 
 .auth_user_icon h4 {
@@ -590,21 +593,21 @@
 	margin-left: 12px;
 }
 
-.auth_user_icon:hover h4{
-	color: #92989F;
+.auth_user_icon:hover h4 {
+	color: #92989f;
 	transition: 0.4s;
 }
 
 .auth_logout {
 	display: flex;
-	margin-top:14.5px;
-	gap:15px;
+	margin-top: 14.5px;
+	gap: 15px;
 	font-family: 'Noto Sans';
 	font-style: normal;
 	font-weight: 500;
 	font-size: 14px;
 	line-height: 19px;
-	color: #1E2837;
+	color: #1e2837;
 	cursor: pointer;
 }
 
@@ -612,7 +615,7 @@
 	box-shadow: 0 0 0;
 }
 
-@media only screen and (max-width: 1290px) {
+@media only screen and (max-width: 1400px) {
 	.leftSideContainer {
 		display: none;
 	}
@@ -663,6 +666,7 @@
 		flex-direction: column;
 		align-items: flex-end;
 		width: 100%;
+		cursor: pointer;
 	}
 	.modalContent {
 		display: flex;
@@ -840,6 +844,7 @@
 		flex-direction: column;
 		align-items: flex-end;
 		width: 100%;
+		cursor: pointer;
 	}
 	.modalContent {
 		display: flex;
@@ -1134,5 +1139,10 @@
 		line-height: 16px;
 		color: #1e2837;
 		padding-top: 191px;
+	}
+	.iconContainer {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
 	}
 }
