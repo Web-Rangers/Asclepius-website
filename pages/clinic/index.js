@@ -9,7 +9,6 @@ import { getData } from '../../components/request';
 import Image from 'next/image';
 
 export default function Clinic({ clinics }) {
-	console.log(clinics, 'clinics');
 	const [blockId, setBlockId] = useState('');
 	const [done, setDone] = useState(false);
 
