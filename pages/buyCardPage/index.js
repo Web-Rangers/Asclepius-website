@@ -158,11 +158,11 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 		setFilteredCard(products?.filter((e) => e.endDateIncrementValue == month));
 		setProductState(
 			filteredCard?.filter(
-				(e) => e.genericTransactionTypeToAddInfo.infoCategory == selectPack
+				(e) => e.genericTransactionTypeToAddInfo?.infoCategory == selectPack
 			)
 		);
 		setChooseCard(
-			productState.filter((item) => item.genericTransactionTypeId == cardType)
+			productState?.filter((item) => item.genericTransactionTypeId == cardType)
 		);
 	}, [month, cardType, selectPack]);
 
@@ -175,12 +175,12 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 	useEffect(() => {
 		let individual = products?.filter(
 				(e) =>
-					e.genericTransactionTypeToAddInfo.infoCategory !==
+					e.genericTransactionTypeToAddInfo?.infoCategory !==
 					'PERCENTAGE_CLINIC_DISCOUNT_FAMILY'
 			),
 			family = products?.filter(
 				(e) =>
-					e.genericTransactionTypeToAddInfo.infoCategory ==
+					e.genericTransactionTypeToAddInfo?.infoCategory ==
 					'PERCENTAGE_CLINIC_DISCOUNT_FAMILY'
 			);
 
