@@ -28,8 +28,11 @@ const NavItem = ({ name, path, src }) => {
 	];
 	return (
 		<>
-			{navLinks.map((item) => (
-				<div className={s.bottomNavItem}>
+			{navLinks.map((item, i) => (
+				<div
+					className={s.bottomNavItem}
+					key={i}
+				>
 					<img
 						src={item.src}
 						alt=''

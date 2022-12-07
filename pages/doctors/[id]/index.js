@@ -253,7 +253,10 @@ export default function DoctorDetailed({
 										<div className={styles.certCheckmark}></div>
 										{certificates !== null &&
 											certificates?.map((item) => (
-												<div className={styles.certificateInfo}>
+												<div
+													className={styles.certificateInfo}
+													key={item.id}
+												>
 													<h2>
 														{' '}
 														<img
@@ -290,7 +293,10 @@ export default function DoctorDetailed({
 							{tab === 'education'
 								? educations !== null &&
 								  educations?.map((item) => (
-										<div className={styles.educationContent}>
+										<div
+											className={styles.educationContent}
+											key={item.id}
+										>
 											<div className={styles.educationItem}>
 												<div className={styles.data}>
 													{' '}
