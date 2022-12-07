@@ -20,12 +20,12 @@ const Card = ({ data }) => {
 	useEffect(() => {
 		let individual = data?.filter(
 				(e) =>
-					e.genericTransactionTypeToAddInfo.infoCategory !==
+					e.genericTransactionTypeToAddInfo?.infoCategory !==
 					'PERCENTAGE_CLINIC_DISCOUNT_FAMILY'
 			),
 			family = data?.filter(
 				(e) =>
-					e.genericTransactionTypeToAddInfo.infoCategory ==
+					e.genericTransactionTypeToAddInfo?.infoCategory ==
 					'PERCENTAGE_CLINIC_DISCOUNT_FAMILY'
 			);
 
