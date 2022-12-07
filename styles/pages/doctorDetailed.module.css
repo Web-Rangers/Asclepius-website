@@ -454,3 +454,193 @@
 	line-height: 24px;
 	color: #8d8a8a;
 }
+
+.languageIcon {
+	display: none;
+}
+.tabForMobile {
+	display: none;
+}
+.bookNowBtn {
+	display: none;
+}
+.bookingPageBtn {
+	display: none;
+}
+.closeBooking {
+	display: none;
+}
+
+@media only screen and (max-width: 767px) {
+	.back {
+		display: none;
+	}
+	.doctorBody {
+		padding: 0px;
+		width: 100%;
+	}
+	.content {
+		display: flex;
+		flex-direction: column;
+	}
+	.doctorContact {
+		margin-left: 50px;
+	}
+	.poster {
+		width: 100%;
+		position: relative;
+		object-fit: cover;
+		border-radius: 0;
+	}
+	.doctor {
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
+	.doctorImage {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	.aboutDoctor {
+		/* padding-left: 16px; */
+	}
+	.address {
+		/* padding-left: 16px; */
+	}
+	.aboutDocContainer {
+		padding-left: 16px;
+	}
+	.cetificates {
+		display: none;
+	}
+
+	.doctorInfo {
+		display: none;
+	}
+	.doctorServices {
+		display: none;
+		padding-left: 16px;
+		padding-right: 16px;
+		padding-top: 20px;
+		position: absolute;
+		background-color: #ffffff;
+		height: 100%;
+		width: 100%;
+		z-index: 999;
+	}
+
+	.tabForMobile {
+		display: inline-block;
+		padding-left: 16px;
+		padding-right: 16px;
+		min-height: 300px;
+	}
+	.doctorContainer {
+		background-color: #fff;
+		padding: 0;
+	}
+	.language {
+		display: flex;
+		align-items: center;
+		border-bottom: none;
+		justify-content: start;
+		gap: 24px;
+	}
+	.languageTitle {
+		display: flex;
+		gap: 4px;
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 22px;
+		color: #01261c;
+	}
+	.languageIcon {
+		display: flex;
+		margin-right: -25px;
+	}
+	.activeTab {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 50px;
+		background-color: #ffbbb6;
+		border-radius: 30px;
+	}
+
+	.tabNav {
+		display: flex;
+		flex-direction: row;
+		list-style: none;
+		background-color: #efefef;
+		align-items: center;
+		padding-left: 0;
+		justify-content: space-around;
+		border-radius: 30px;
+	}
+	.tabNav li {
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 19px;
+		color: #1e2837;
+		width: 114px;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+	.bookNowBtn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 16px;
+		margin-right: 16px;
+		position: fixed;
+		margin-top: 570px;
+	}
+	.bookNowBtnStyle {
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 22px;
+		width: 360px;
+		height: 58px;
+		background: #3a74d2;
+		box-shadow: 0px 10px 34px rgba(191, 196, 202, 0.2);
+		border-radius: 5px;
+		color: #ffffff;
+		border: none;
+	}
+
+	.activeBooking {
+		display: block;
+	}
+	.bookingPageBtn {
+		display: flex;
+		width: 344px;
+		height: 58px;
+		background: #3a74d2;
+		border-radius: 5px;
+		margin-top: 30px;
+	}
+	.closeBooking {
+		display: flex;
+		margin-left: 200px;
+	}
+	.certificate {
+		display: flex;
+		align-items: baseline;
+		gap: 14px;
+		margin-bottom: 31px;
+		min-height: 300px;
+		flex-direction: column;
+	}
+	.certificateInfo h2 img {
+		margin-right: 10px;
+		width: 14px;
+		height: 14p;
+	}
+}

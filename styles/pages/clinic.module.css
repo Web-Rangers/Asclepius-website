@@ -33,7 +33,7 @@
 	border-top-right-radius: 5px;
 	display: flex;
 	align-items: center;
-	padding-top: 140px;
+	/* padding-top: 140px; */
 	flex-direction: column;
 	position: relative;
 }
@@ -43,6 +43,30 @@
 	font-size: 24px;
 	line-height: 33px;
 	color: #1e2837;
+	padding-top: 140px;
+}
+.backContainer {
+	display: flex;
+	gap: 15px;
+	cursor: pointer;
+	margin-top: 20px;
+}
+.list {
+	max-height: 400px;
+	overflow: scroll;
+}
+.backContainer span {
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 22px;
+	color: #01261c;
+}
+.contentHeader {
+	display: flex;
+	width: 517px;
+	flex-direction: column;
 }
 
 .clinicsList {

@@ -251,6 +251,10 @@
 	line-height: 24.52px;
 	color: #1e2837;
 	text-align: left;
+	-webkit-line-clamp: 2;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 .contentContainer {
 	display: flex;

@@ -41,40 +41,10 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 		'Sunday ',
 	];
 
-	const navLinks = [
-		{ name: 'Main', path: '/', src: '/main.svg' },
-		{
-			name: 'Family',
-			path: '/family',
-			src: '/familySvg.svg',
-		},
-		{
-			name: 'Calendar',
-			path: '/calendar',
-			src: '/calendarSvg.svg',
-		},
-		{
-			name: 'Notifications',
-			path: '/notifications',
-			src: '/notifications.svg',
-		},
-		{
-			name: 'Profile',
-			path: '/profile',
-			src: '/profileNav.svg',
-		},
-	];
 	return (
 		<>
 			<div className={s.mobileBottomNav}>
-				{navLinks.map((item, index) => (
-					<NavItem
-						key={index}
-						name={item.name}
-						path={item.path}
-						src={item.src}
-					/>
-				))}
+				<NavItem />
 			</div>
 			<div className={s.container}>
 				<div>
@@ -284,6 +254,7 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 						</Text>
 						<div className={s.imageSlider}> </div>
 					</div>
+
 					<Swipper
 						data={gallery}
 						branches={branches}

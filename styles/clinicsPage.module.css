@@ -565,6 +565,19 @@
 	.imgPart > span {
 		width: 100% !important;
 	}
+	.imgPart {
+		width: 100%;
+	}
+	.imgPartImage {
+		width: 100%;
+		height: 280px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		margin-bottom: 25px;
+		height: auto;
+	}
 	.branchPage {
 		width: 100%;
 		padding: 0 16px;
