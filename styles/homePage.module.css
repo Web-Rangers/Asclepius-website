@@ -1010,8 +1010,15 @@
 		border: 1px solid #d8d8d8;
 		border-radius: 5px;
 		position: relative;
+		width: 254px;
+		height: 361px;
+		object-fit: cover;
 	}
 
+	.docImage {
+		width: 254px;
+		height: 264px;
+	}
 	.cardItemContainer {
 		display: flex;
 		flex-direction: column;

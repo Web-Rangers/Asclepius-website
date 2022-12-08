@@ -260,37 +260,6 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 						branches={branches}
 						iconBottom={true}
 					/>
-					<div className={s.clinicContainerScroll}>
-						{/* <Carousel
-        className={s.carousel}
-        showStatus={false}
-        showIndicators={false}
-        centerMode={true}
-        centerSlidePercentage={25.5}
-        // swipeable={true}
-        // emulateTouch={true}
-    >
-        {branches.length > 0
-            ? branches?.map((item) => {
-                    return (
-                        <BranchPageCardItem
-                            key={item?.id}
-                            props={item}
-                        />
-                    );
-              })
-            : gallery?.map((item) => {
-                    return (
-                        <img
-                            key={item.id}
-                            src={item.url}
-                            height='228px'
-                            width='28px'
-                        />
-                    );
-              })}
-    </Carousel> */}
-					</div>
 				</div>
 			</div>
 		</>
