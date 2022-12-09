@@ -107,8 +107,8 @@ const Account = () => {
 					width: 70,
 				}}
 			>
-				<Option value='86'>+86</Option>
-				<Option value='87'>+87</Option>
+				<Select.Option value='86'>+86</Select.Option>
+				<Select.Option value='87'>+87</Select.Option>
 			</Select>
 		</Form.Item>
 	);
