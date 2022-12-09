@@ -64,7 +64,7 @@ const ClinicCardItem = ({ data, listItem = false, cards }) => {
 								</span>
 							)}
 						</div>
-						<div>
+						<div className={s.bottomContainer}>
 							<Text style={s.clinicNameText}>{data?.displayName}</Text>
 							{/* {data?.workingHours
 								?.sort((a, b) => a.dayId - b.dayId)
@@ -120,21 +120,17 @@ const ClinicCardItem = ({ data, listItem = false, cards }) => {
 									height='194px'
 								/>
 							</div>
-							<div>
-								<div className={s.bottomContainer}>
-									<Text style={classes.clinicNameText}>
-										{data?.displayName}
-									</Text>
-									<Text style={classes.clinicAddressText}>
-										<Image
-											src='/map-pin 1.svg'
-											alt=''
-											width='16.67px'
-											height='15.04'
-										/>
-										{data?.address.address}
-									</Text>
-								</div>
+							<div className={s.bottomContainer}>
+								<Text style={classes.clinicNameText}>{data?.displayName}</Text>
+								<Text style={classes.clinicAddressText}>
+									<Image
+										src='/map-pin 1.svg'
+										alt=''
+										width='16.67px'
+										height='15.04'
+									/>
+									{data?.address.address}
+								</Text>
 							</div>
 						</div>
 					</a>

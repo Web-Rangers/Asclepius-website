@@ -206,6 +206,9 @@
 	.sliderImageTwo {
 		display: none;
 	}
+	.arrowContainerTop {
+		display: none;
+	}
 	.content {
 		display: flex;
 		flex-direction: column;
@@ -243,5 +246,11 @@
 	}
 	.swiperImg {
 		width: 254px;
+	}
+	.arrowContainerTop {
+		display: none;
+	}
+	.branchMobileSize {
+		width: 313px;
 	}
 }

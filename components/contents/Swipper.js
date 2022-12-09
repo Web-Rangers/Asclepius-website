@@ -61,7 +61,7 @@ const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 						spaceBetween: 30,
 					},
 				}}
-				className='offerSlider'
+				className={style.branchMobileSize}
 			>
 				{branches?.length > 0
 					? branches.map((data) => (

@@ -232,7 +232,7 @@ export default function Mycard() {
 											})}
 											onClick={() => changeServicesquantity(item)}
 										>
-											{item.num == 6 ? 'იხილე მეტი' : 'იხილე ნაკლები'}
+											{item.num == 6 ? 'მეტი' : 'ნაკლები'}
 										</button>
 									</div>
 								</div>
