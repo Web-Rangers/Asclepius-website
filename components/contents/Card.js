@@ -199,9 +199,7 @@ const Card = ({ data }) => {
 							<span>
 								{checked ? (
 									<span>
-										{cardTypes?.family[0]?.price.length === 0
-											? ''
-											: cardTypes?.family[0]?.price}
+										{cardTypes?.family[0]?.price}
 										<img
 											src='lari.svg'
 											alt='lari'
@@ -211,9 +209,7 @@ const Card = ({ data }) => {
 									</span>
 								) : (
 									<span>
-										{cardTypes?.family[0]?.price.length === 0
-											? ''
-											: cardTypes?.individual[0]?.price}
+										{cardTypes?.family[0]?.price}
 										<img
 											src='lari.svg'
 											alt='lari'
@@ -242,8 +238,8 @@ const Card = ({ data }) => {
 							<span
 								className={
 									index % 2 === 0
-										? style.tableValueMobile
-										: style.tableValueSecMobile
+										? style.tableValueMobileP
+										: style.tableValueSecMobileP
 								}
 							>
 								{item.starter}
@@ -318,7 +314,7 @@ const Card = ({ data }) => {
 					))}
 					<Button
 						name='ყიდვა'
-						style={style.getStartedBtn}
+						style={style.getPlusBtn}
 					/>
 				</div>
 				<div className={style.plus}>
@@ -372,8 +368,8 @@ const Card = ({ data }) => {
 							<span
 								className={
 									index % 2 === 0
-										? style.tableValueFrom
-										: style.tableValueSecFrom
+										? style.tableValueMobileP
+										: style.tableValueSecMobileP
 								}
 							>
 								{item.plus}
@@ -381,7 +377,7 @@ const Card = ({ data }) => {
 						</div>
 					))}
 					<Button
-						name='ყიდვა'
+						name='ყიდვა '
 						style={style.getStartedBtn}
 					/>
 				</div>

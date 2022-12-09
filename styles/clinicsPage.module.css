@@ -1,7 +1,7 @@
 .cardItemContainer {
 	display: inline-block;
 	width: 330;
-	min-height: 577px;
+	max-height: 490px;
 	border: 1px solid #efefef;
 	margin-right: 1.3%;
 	margin-bottom: 39px;
@@ -19,17 +19,17 @@
 
 .cardItemContainer:last-child {
 	margin-right: 0;
+	width: 100%;
 }
 
 .imgPartImage {
-	width: 320px;
-	height: 280px;
+	width: 100%;
+	height: 100%;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	margin-bottom: 25px;
-	height: auto;
 }
 
 .clinicItemImage {
@@ -55,7 +55,7 @@
 	position: relative;
 	overflow: hidden;
 	margin-bottom: 25px;
-	width: 309px;
+	width: 100%;
 	height: 290px;
 	object-fit: cover;
 }
@@ -179,6 +179,22 @@
 	margin-bottom: 29px;
 	text-align: left;
 }
+.bottomContainer {
+	width: 313px;
+}
+.hoursContainer {
+	display: flex;
+	gap: 10px;
+	margin-left: 16px;
+}
+.hoursContainer span {
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 21.79px;
+	color: #1e2837;
+}
 
 .clinicWorkingHours {
 	display: flex;
@@ -192,7 +208,7 @@
 	height: 28px;
 	background-color: rgba(58, 116, 210, 0.1);
 	border-radius: 14px;
-	margin-left: 17px;
+	padding: 17px;
 	font-family: 'Noto Sans';
 	font-style: normal;
 	font-weight: 400;
@@ -200,17 +216,17 @@
 	line-height: 24px;
 	color: #3a74d2;
 	margin-top: 16px;
-	padding: 0px 20px;
+	padding: 20px 20px;
 }
 .weekendWorkingHours {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 221px;
+	min-width: 221px;
 	height: 28px;
 	background-color: rgba(152, 227, 125, 0.1);
 	border-radius: 14px;
-	margin-left: 17px;
+	padding: 17px;
 	font-family: 'Noto Sans';
 	font-style: normal;
 	font-weight: 400;
@@ -260,6 +276,7 @@
 	line-height: 28px;
 	color: #1e2837;
 	padding-left: 2px;
+	margin-bottom: 20px;
 }
 .btnContainer {
 	margin-top: 32px;
@@ -540,14 +557,32 @@
 		margin: 0px;
 	}
 	.clinicFilterContainer {
+		display: flex;
+		flex-direction: column;
 		margin: 26px 16px 20px;
 	}
-	.filterForResp {
+	.rangeContainer {
 		display: block;
-		background-color: transparent;
+		margin-right: 14px;
+		margin-bottom: 120px;
+		width: 270px;
+		height: 14px;
+	}
+	.percentBox {
+		width: 100%;
+	}
+	.discountTextStyle {
+		margin-top: 20px;
+	}
+	.clinicsTitleTextStyle {
+		margin-bottom: 20px;
+	}
+	.filterForResp {
+		display: none;
+		/* background-color: transparent;
 		border: none;
 		outline: none;
-		cursor: pointer;
+		cursor: pointer; */
 	}
 	.filterButtonStyle {
 		display: none;
@@ -570,13 +605,12 @@
 	}
 	.imgPartImage {
 		width: 100%;
-		height: 280px;
+		height: 100%;
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		margin-bottom: 25px;
-		height: auto;
 	}
 	.branchPage {
 		width: 100%;

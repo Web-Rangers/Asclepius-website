@@ -397,7 +397,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 										<div className={s.nameIconCont}>
 											<span className={s.nameIconTitle}> {item.title}</span>
 											<Image
-												src='/dropArrow.svg'
+												src='/droparrow.svg'
 												width='14px'
 												height='8px'
 											/>

@@ -9,7 +9,13 @@ import { getData } from '../../../components/request';
 import Swipper from '../../../components/contents/Swipper';
 import NavItem from '../../../components/contents/NavItem';
 
-const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
+const ClinicDetailPage = ({
+	cardData,
+	address,
+	branches,
+	gallery,
+	products,
+}) => {
 	const router = useRouter();
 
 	// const [cardData, setCardData] = useState(null);
@@ -24,6 +30,14 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 		}
 		return res;
 	}
+
+	const productOfClinic = products?.map((item) => item?.clinic);
+
+	// console.log('data', cardData);
+	// console.log(
+	// 	'data',
+	// 	productOfClinic.filter((item) => item[0].clinicId, cardData?.id)
+	// );
 
 	useEffect(() => {
 		setClinicData(sliceIntoChunks(clinicArrayData, 3));
@@ -260,37 +274,6 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 						branches={branches}
 						iconBottom={true}
 					/>
-					<div className={s.clinicContainerScroll}>
-						{/* <Carousel
-        className={s.carousel}
-        showStatus={false}
-        showIndicators={false}
-        centerMode={true}
-        centerSlidePercentage={25.5}
-        // swipeable={true}
-        // emulateTouch={true}
-    >
-        {branches.length > 0
-            ? branches?.map((item) => {
-                    return (
-                        <BranchPageCardItem
-                            key={item?.id}
-                            props={item}
-                        />
-                    );
-              })
-            : gallery?.map((item) => {
-                    return (
-                        <img
-                            key={item.id}
-                            src={item.url}
-                            height='228px'
-                            width='28px'
-                        />
-                    );
-              })}
-    </Carousel> */}
-					</div>
 				</div>
 			</div>
 		</>
@@ -315,6 +298,9 @@ export const getServerSideProps = async (ctx) => {
 	const getClinicGallery = await getData(
 		`https://asclepius.pirveli.ge/asclepius/v1/api/gallery/clinic/${userId}`
 	);
+	const getProducts = await getData(
+		`https://medical.pirveli.ge/medical/products/get-products`
+	);
 
 	return {
 		props: {
@@ -322,6 +308,7 @@ export const getServerSideProps = async (ctx) => {
 			address: getClinicAddress,
 			branches: getClinicBranches,
 			gallery: getClinicGallery,
+			products: getProducts,
 		},
 	};
 };

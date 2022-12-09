@@ -18,7 +18,7 @@ import ClinicCardItem from '../../components/contents/ClinicCardItem';
 import { useRouter } from 'next/router';
 import Navigation from '../../components/navigation';
 
-let PageSize = 4;
+let PageSize = 12;
 
 function ClinicsPage({ clinics, cards, municipalities }) {
 	const [modalIsOpen, setIsOpen] = useState(false);
@@ -179,6 +179,7 @@ function ClinicsPage({ clinics, cards, municipalities }) {
 								getAriaLabel={() => 'Temperature range'}
 								value={value}
 								onChange={handleChangeRange}
+								classes={{ width: '200px' }}
 							/>
 						</div>
 						<Select
