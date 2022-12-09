@@ -33,7 +33,7 @@ const items = [
 	},
 	{
 
-		label: <Link href='/user/account'>Settings</Link>,
+		label: <Link href='https://profile.pirveli.ge'>Settings</Link>,
 
 
 		key: '1',
@@ -326,11 +326,12 @@ const Header = () => {
 														return <li key={key}>{item.label}</li>;
 													})}
 												</div>
-
-												<div className={classes.auth_logout}>
-													<ReactSVG src='/Logout.svg' />
-													Log out
-												</div>
+												<Link href="https://auth.pirveli.ge/realms/xracoon-demo/protocol/openid-connect/logout">
+													<div className={classes.auth_logout}>
+														<ReactSVG src='/Logout.svg' />
+														Log out
+													</div>
+												</Link>
 											</div>
 										</>
 									);
