@@ -32,7 +32,10 @@ const items = [
 		key: '0',
 	},
 	{
+
 		label: <Link href='/user/account'>Settings</Link>,
+
+
 		key: '1',
 	},
 	{
@@ -72,6 +75,14 @@ const Header = () => {
 			}
 		);
 	}, []);
+
+
+	useEffect(() => {
+		modalIsOpen
+			? (document.body.style.overflow = 'hidden')
+			: (document.body.style.overflow = 'scroll');
+	}, [modalIsOpen]);
+
 
 	return (
 		<>

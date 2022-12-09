@@ -162,7 +162,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 			)
 		);
 		setChooseCard(
-			productState.filter((item) => item.genericTransactionTypeId == cardType)
+			productState?.filter((item) => item.genericTransactionTypeId == cardType)
 		);
 	}, [month, cardType, selectPack]);
 
