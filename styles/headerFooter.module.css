@@ -193,7 +193,7 @@
 	background: #f7f9fb;
 	border-radius: 5px;
 	margin-right: 18px;
-	margin-left: 209px;
+	margin-left: 100px;
 	cursor: pointer;
 	position: relative;
 }
@@ -1119,6 +1119,8 @@
 		padding-left: 53px;
 		padding-top: -20px;
 		padding-bottom: 44px;
+		margin-left: 16px;
+		margin-right: 16px;
 	}
 	.burgerMenuAuth {
 		display: flex;

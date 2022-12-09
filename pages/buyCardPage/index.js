@@ -158,7 +158,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 		setFilteredCard(products?.filter((e) => e.endDateIncrementValue == month));
 		setProductState(
 			filteredCard?.filter(
-				(e) => e.genericTransactionTypeToAddInfo.infoCategory == selectPack
+				(e) => e.genericTransactionTypeToAddInfo?.infoCategory == selectPack
 			)
 		);
 		setChooseCard(
@@ -175,12 +175,12 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 	useEffect(() => {
 		let individual = products?.filter(
 				(e) =>
-					e.genericTransactionTypeToAddInfo.infoCategory !==
+					e.genericTransactionTypeToAddInfo?.infoCategory !==
 					'PERCENTAGE_CLINIC_DISCOUNT_FAMILY'
 			),
 			family = products?.filter(
 				(e) =>
-					e.genericTransactionTypeToAddInfo.infoCategory ==
+					e.genericTransactionTypeToAddInfo?.infoCategory ==
 					'PERCENTAGE_CLINIC_DISCOUNT_FAMILY'
 			);
 
@@ -397,7 +397,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 										<div className={s.nameIconCont}>
 											<span className={s.nameIconTitle}> {item.title}</span>
 											<Image
-												src='/dropArrow.svg'
+												src='/droparrow.svg'
 												width='14px'
 												height='8px'
 											/>

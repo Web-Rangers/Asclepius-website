@@ -1,7 +1,7 @@
 .cardItemContainer {
 	display: inline-block;
 	width: 330;
-	min-height: 577px;
+	max-height: 490px;
 	border: 1px solid #efefef;
 	margin-right: 1.3%;
 	margin-bottom: 39px;
