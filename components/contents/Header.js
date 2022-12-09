@@ -32,7 +32,7 @@ const items = [
 		key: '0',
 	},
 	{
-		label: <Link href='/'>Settings</Link>,
+		label: <Link href='/user/account'>Settings</Link>,
 		key: '1',
 	},
 	{
