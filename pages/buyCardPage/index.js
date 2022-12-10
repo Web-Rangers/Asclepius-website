@@ -148,6 +148,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 	const [paymentType, setPaymentType] = useState('');
 	const [filteredCard, setFilteredCard] = useState([]);
 	const [chooseCard, setChooseCard] = useState();
+	const [showMore, setShowMore] = useState(false);
 
 	const [cardTypes, setCardTypes] = useState({
 		individual: [],
@@ -166,7 +167,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 		);
 	}, [month, cardType, selectPack]);
 
-	console.log('choose', month, cardType, selectPack);
+	console.log('products', products);
 
 	useEffect(() => {
 		setPrice(chooseCard && chooseCard[0]?.price);
@@ -390,6 +391,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 												setDropDown('');
 											} else {
 												setDropDown(item.title);
+												setShowMore(false);
 											}
 										}}
 										className={s.categorieTitle}
@@ -422,9 +424,24 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 															}
 														})
 														.filter((e) => e !== undefined);
-													return catsw.map((e, i) => (
-														<span key={i}>{e.displayName}</span>
-													));
+													return (
+														<>
+															{!showMore &&
+																catsw.length > 3 &&
+																catsw
+																	.slice(0, 3)
+																	.map((e, i) => (
+																		<span key={i}>{e.displayName}</span>
+																	))}
+															{showMore &&
+																catsw.map((e, i) => (
+																	<span key={i}>{e.displayName}</span>
+																))}
+															<span onClick={() => setShowMore(!showMore)}>
+																{showMore ? 'იხილე ნაკლები' : 'იხილეთ მეტი'}
+															</span>
+														</>
+													);
 												}
 											})}
 										</div>
