@@ -586,6 +586,7 @@ export const getStaticProps = async () => {
 			categories: getCategories,
 			products: getProducts,
 		},
+		revalidate: 10
 	};
 };
 
