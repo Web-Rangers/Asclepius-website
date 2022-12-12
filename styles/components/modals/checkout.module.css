@@ -241,3 +241,11 @@
 .nonBtn {
   display: none;
 }
+
+.servicesContainer {
+  width: 620px;
+}
+
+.servicesBg:after {
+  width: 68%!important;
+}

@@ -69,6 +69,7 @@ const Header = () => {
 			(response) => {
 				setUser(response ? true : false);
 				setUserInfo(response)
+				console.log(response)
 			}
 		);
 	}, [])

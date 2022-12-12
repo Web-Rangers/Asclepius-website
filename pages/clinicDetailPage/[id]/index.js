@@ -10,6 +10,7 @@ import { Carousel } from 'react-responsive-carousel';
 import { useState, useEffect } from 'react';
 import { getData } from '../../../components/request';
 import Swipper from '../../../components/contents/Swipper';
+import ServicesModal from '../../../components/modals/ServicesModal';
 
 const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 	const router = useRouter();
@@ -17,6 +18,7 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 	// const [cardData, setCardData] = useState(null);
 
 	const [clinicData, setClinicData] = useState(null);
+	const [isModalOpen, setModalOpen] = useState(false);
 
 	function sliceIntoChunks(arr, chunkSize) {
 		const res = [];
@@ -32,8 +34,6 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 		// setCardData(router.query)
 	}, [router.isReady]);
 
-	console.log('id', cardData);
-
 	const weekday = [
 		'',
 		'Monday',
@@ -44,7 +44,14 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 		'Saturday',
 		'Sunday ',
 	];
-	return (
+
+	return <>
+		{
+            isModalOpen && 
+            <ServicesModal
+				onClose={()=> setModalOpen(false)}
+			/>
+        }
 		<div className={s.container}>
 			<div>
 				<div onClick={() => router.back()}>
@@ -67,15 +74,6 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 					key={cardData?.id}
 				>
 					<div className={s.imgPart}>
-						{/* <div className={s.ratingContainer}>
-							<Image
-								src='/Star.svg'
-								alt='star'
-								width='16.67px'
-								height='15.04'
-							/>
-							<Text>{cardData?.rating}</Text>
-						</div> */}
 						<img
 							src={cardData?.logoUrl}
 							alt={cardData?.displayName}
@@ -99,10 +97,6 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 									<Text> {[item.startHour, '-', item.endHour]} </Text>
 								</div>
 							)
-
-							// <Text style={s.clinicWorkingHours}>
-							// 	Monday - Friday {[item.startHour, '-', item.endHour]}
-							// </Text>
 						)}
 
 					{cardData?.contactInfos &&
@@ -160,34 +154,15 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 								/>
 							</div>
 						</Link>
-						{/* <Link href='clinic/analysis'>
-							<div className={s.serviceItem}>
-								<Image
-									alt='SearchIcon'
-									src='/SearchIcon.svg'
-									width='24px'
-									height='24px'
-									style={{ paddingRight: '4px' }}
-								/>
-								<Text style={s.serviceTitle}>Analysis</Text>
-								<Image
-									alt='Arrow-Right'
-									src='/Arrow - Right 9.svg'
-									width='24px'
-									height='24px'
-									style={{ paddingRight: '4px' }}
-								/>
-							</div>
-						</Link>
-						<div className={s.serviceItem}>
+						<div className={s.serviceItem} onClick={()=> setModalOpen(!isModalOpen)}>
 							<Image
-								alt='chat'
-								src='/Chat.svg'
+								alt='services'
+								src='/servicesicon.svg'
 								width='24px'
 								height='24px'
 								style={{ paddingRight: '4px' }}
 							/>
-							<Text style={s.serviceTitle}>Research</Text>
+							<Text style={s.serviceTitle}>Services</Text>
 							<Image
 								alt='Arrow-Right'
 								src='/Arrow - Right 9.svg'
@@ -195,7 +170,7 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 								height='24px'
 								style={{ paddingRight: '4px' }}
 							/>
-						</div> */}
+						</div>
 					</div>
 					<div className={s.clinicOfferCardContainer}>
 						<div className={s.offerContiner}>
@@ -243,39 +218,11 @@ const ClinicDetailPage = ({ cardData, address, branches, gallery }) => {
 					branches={branches}
 				/>
 				<div className={s.clinicContainerScroll}>
-					{/* <Carousel
-						className={s.carousel}
-						showStatus={false}
-						showIndicators={false}
-						centerMode={true}
-						centerSlidePercentage={25.5}
-						// swipeable={true}
-						// emulateTouch={true}
-					>
-						{branches.length > 0
-							? branches?.map((item) => {
-									return (
-										<BranchPageCardItem
-											key={item?.id}
-											props={item}
-										/>
-									);
-							  })
-							: gallery?.map((item) => {
-									return (
-										<img
-											key={item.id}
-											src={item.url}
-											height='228px'
-											width='28px'
-										/>
-									);
-							  })}
-					</Carousel> */}
+
 				</div>
 			</div>
 		</div>
-	);
+	</>;
 };
 
 export default ClinicDetailPage;
