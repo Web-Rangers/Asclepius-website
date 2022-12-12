@@ -18,11 +18,9 @@ const ClinicDetailPage = ({
 	products,
 }) => {
 	const router = useRouter();
-
-	// const [cardData, setCardData] = useState(null);
-
 	const [clinicData, setClinicData] = useState(null);
 	const [isModalOpen, setModalOpen] = useState(false);
+	const [services, setService] = useState([]);
 
 	function sliceIntoChunks(arr, chunkSize) {
 		const res = [];
@@ -33,18 +31,15 @@ const ClinicDetailPage = ({
 		return res;
 	}
 
-	const productOfClinic = products?.map((item) => item?.clinic);
-
-	// console.log('data', cardData);
-	// console.log(
-	// 	'data',
-	// 	productOfClinic.filter((item) => item[0].clinicId, cardData?.id)
-	// );
-
+	
 	useEffect(() => {
 		setClinicData(sliceIntoChunks(clinicArrayData, 3));
-		// setCardData(router.query)
 	}, [router.isReady]);
+
+	useEffect(()=> {
+		getData(`https://medical.pirveli.ge/medical/products/get-products-by-contract-id?contractId=${cardData?.contracts?.contractId}`)
+			.then((response)=> {setService(response)})
+	},[])
 
 	const weekday = [
 		'',
@@ -62,6 +57,7 @@ const ClinicDetailPage = ({
 			{
 				isModalOpen && 
 				<ServicesModal
+					services={services}
 					onClose={()=> setModalOpen(false)}
 				/>
 			}
@@ -185,42 +181,23 @@ const ClinicDetailPage = ({
 									/>
 								</div>
 							</Link>
-							{/* <Link href='clinic/analysis'>
-        <div className={s.serviceItem}>
-            <Image
-                alt='SearchIcon'
-                src='/SearchIcon.svg'
-                width='24px'
-                height='24px'
-                style={{ paddingRight: '4px' }}
-            />
-            <Text style={s.serviceTitle}>Analysis</Text>
-            <Image
-                alt='Arrow-Right'
-                src='/Arrow - Right 9.svg'
-                width='24px'
-                height='24px'
-                style={{ paddingRight: '4px' }}
-            />
-        </div>
-    </Link>
-    <div className={s.serviceItem}>
-        <Image
-            alt='chat'
-            src='/Chat.svg'
-            width='24px'
-            height='24px'
-            style={{ paddingRight: '4px' }}
-        />
-        <Text style={s.serviceTitle}>Research</Text>
-        <Image
-            alt='Arrow-Right'
-            src='/Arrow - Right 9.svg'
-            width='24px'
-            height='24px'
-            style={{ paddingRight: '4px' }}
-        />
-    </div> */}
+							<div className={s.serviceItem} onClick={()=> setModalOpen(true)}>
+								<Image
+									alt='services'
+									src='/servicesIcon.svg'
+									width='24px'
+									height='24px'
+									style={{ paddingRight: '4px' }}
+								/>
+								<Text style={s.serviceTitle}>Services</Text>
+								<Image
+									alt='Arrow-Right'
+									src='/Arrow - Right 9.svg'
+									width='24px'
+									height='24px'
+									style={{ paddingRight: '4px' }}
+								/>
+							</div>
 						</div>
 						<div className={s.clinicOfferCardContainer}>
 							<div className={s.offerContiner}>
@@ -267,22 +244,25 @@ const ClinicDetailPage = ({
 						</div>
 					</div>
 				</div>
-				<div className={s.imageTitleContainer}>
-					<div className={s.clinicTitleArrow}>
-						<Text style={s.clinicsTitleTextStyle}>
-							{branches.length > 0
-								? 'List of branches'
-								: 'Images of the clinic'}
-						</Text>
-						<div className={s.imageSlider}> </div>
+							
+				{
+					gallery?.length > 0 && 
+					<div className={s.imageTitleContainer}>
+						<div className={s.clinicTitleArrow}>
+							<Text style={s.clinicsTitleTextStyle}>
+								{branches.length > 0
+									? 'List of branches'
+									: 'Images of the clinic'}
+							</Text>
+							<div className={s.imageSlider}> </div>
+						</div>
+							<Swipper
+								data={gallery}
+								branches={branches}
+								iconBottom={true}
+							/>
 					</div>
-
-					<Swipper
-						data={gallery}
-						branches={branches}
-						iconBottom={true}
-					/>
-				</div>
+				}
 			</div>
 		</>
 	);

@@ -289,6 +289,7 @@
 	background: #f7f9f8;
 	border-radius: 5px;
 	/* border: 1px solid black; */
+	margin-bottom: 50px;
 }
 .clinicCardImage {
 	display: flex;

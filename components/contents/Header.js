@@ -11,6 +11,7 @@ import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, Space } from 'antd';
 import { ReactSVG } from 'react-svg';
 import 'antd/dist/antd.css';
+import classNames from 'classnames';
 
 const customStyles = {
 	content: {
@@ -93,9 +94,6 @@ const Header = () => {
         window.addEventListener('scroll', onScroll, { passive: true });
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
-
-    console.log(offset); 
-
 
 	return (
 		<>
@@ -262,11 +260,10 @@ const Header = () => {
 							value={searchInput}
 							onChange={handleChange}
 						/>
-
-						<img
-							src='/Search.svg'
-							alt='Search'
-						/>
+						<button>
+							<ReactSVG src='/searchIconsvg.svg' />
+							<span>Search</span>
+						</button>
 					</div>
 
 					<div className={classes.rightSideContainerStyle}>
@@ -290,7 +287,9 @@ const Header = () => {
 							</Link>
 						)}
 						<Link href='/buyCardPage'>
-							<span className={classes.buyCardBtnStyle}>ბარათის შეძენა</span>
+							<span className={classNames(classes.buyCardBtnStyle, {
+								[classes.buyCardBtnShow]: offset > 47
+							})}>ბარათის შეძენა</span>
 						</Link>
 						{user && (
 							<div className={classes.authorizedUser}>

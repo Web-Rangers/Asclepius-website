@@ -321,20 +321,19 @@
 
 .searchInput {
 	display: flex;
-	justify-content: space-around;
-	align-items: 'center';
+	justify-content: space-between;
+	align-items: center;
 	background-color: #f7f9fb;
-	margin-left: 63px;
-	padding-right: 14px;
-	width: 428px;
-	height: 44px;
-	border-radius: 5px;
+	width: 613px;
+	height: 48px;
+	border-radius: 12px;
 }
 .searchInput input {
 	border: none;
 	width: 400px;
 	padding-left: 21px;
 	background-color: #f7f9fb;
+	border-radius: 12px;
 }
 .searchInput input:focus {
 	outline: none;
@@ -344,6 +343,26 @@
 	align-items: center;
 	width: 24px;
 	margin-right: 14px;
+}
+.searchInput button {
+	display: flex;
+	align-items: center;
+	gap: 11px;
+	background: #FF1C00;
+	border:0px;
+	padding: 0 16px;
+	height: 48px;
+	border-radius: 0px 12px 12px 0px;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+.searchInput button span {
+	font-family: 'Sofia Pro';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 16px;
+	color: #FFFFFF;
 }
 .contactBtnStyle {
 	width: 142px;
@@ -393,6 +412,13 @@
 	border: none;
 	margin-right: 37.5px;
 	cursor: pointer;
+	visibility: hidden;
+	transform: scale(0.6);
+}
+.buyCardBtnShow {
+	visibility: visible;
+	transition: 0.4s;
+	transform: scale(1);
 }
 .signInBtnStyle {
 	display: flex;
