@@ -71,7 +71,8 @@ const Header = () => {
 		getData('https://medical.pirveli.ge/medical/registry/user-id').then(
 			(response) => {
 				setUser(response ? true : false);
-				setUserInfo(response);
+				setUserInfo(response)
+				console.log(response)
 			}
 		);
 	}, []);
