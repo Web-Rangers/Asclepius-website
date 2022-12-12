@@ -84,6 +84,18 @@ const Header = () => {
 			: (document.body.style.overflow = 'scroll');
 	}, [modalIsOpen]);
 
+	const [offset, setOffset] = useState(0);
+
+    useEffect(() => {
+        const onScroll = () => setOffset(window.pageYOffset);
+        // clean up code
+        window.removeEventListener('scroll', onScroll);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
+    console.log(offset); 
+
 
 	return (
 		<>
@@ -227,166 +239,168 @@ const Header = () => {
 					</div>
 				</div>
 			</div>
-			<div className={classes.headerContainer}>
-				<Link href={'/'}>
-					<a className={classes.logoContainer}>
-						<img
-							src='/footerIcon.png'
-							alt='headerIcon'
-							width='44px'
-							height='40px'
-							// className={classes.mobileIcon}
-						/>
-						<span className={classes.logoTextOne}>Pirveli</span>
-						<span className={classes.logoTextTwo}>.com </span>
-					</a>
-				</Link>
-
-				<div className={classes.searchInput}>
-					<input
-						type='search'
-						placeholder='Search...'
-						value={searchInput}
-						onChange={handleChange}
-					/>
-
-					<img
-						src='/Search.svg'
-						alt='Search'
-					/>
-				</div>
-
-				<div className={classes.rightSideContainerStyle}>
-					<div className={classes.contactUsIcon}>
-						<Image
-							src='/contactUSIcon.svg'
-							alt='contactUsIcon'
-							width='17px'
-							height='17px'
-						/>
-					</div>
-					<div className={classes.hideText}>
-						<Link href='/contactUs'>
-							<a className={classes.contactBtnStyle}>დაგვიკავშირდი</a>
-						</Link>
-					</div>
-
-					{!user && (
-						<Link href='/signInPage'>
-							<a className={classes.signInBtnStyle}>შესვლა</a>
-						</Link>
-					)}
-					<Link href='/buyCardPage'>
-						<span className={classes.buyCardBtnStyle}>ბარათის შეძენა</span>
+			<div className={classes.headerContainerBg}>
+				<div className={classes.headerContainer}>
+					<Link href={'/'}>
+						<a className={classes.logoContainer}>
+							<img
+								src='/footerIcon.png'
+								alt='headerIcon'
+								width='44px'
+								height='40px'
+								// className={classes.mobileIcon}
+							/>
+							<span className={classes.logoTextOne}>Pirveli</span>
+							<span className={classes.logoTextTwo}>.com </span>
+						</a>
 					</Link>
-					{user && (
-						<div className={classes.authorizedUser}>
-							<Dropdown
-								trigger={['click']}
-								dropdownRender={(nodes) => {
-									return (
-										<>
-											<div className={classes.auth_user_notification}>
-												<h3>No Notifications</h3>
-											</div>
-										</>
-									);
-								}}
-								overlayClassName={classes.userNotDropBlock}
-								placement={'bottomRight'}
-							>
-								<a onClick={(e) => e.preventDefault()}>
-									<Space className={classes.notificationHeight}>
-										<ReactSVG src='/notificationuser.svg' />
-									</Space>
-								</a>
-							</Dropdown>
 
-							<Dropdown
-								menu={{
-									items,
-								}}
-								trigger={['click']}
-								dropdownRender={(nodes) => {
-									return (
-										<>
-											<div className={classes.auth_user_menu}>
-												<h2>My Account</h2>
-												<Link href='/user'>
-													<div className={classes.auth_user_icon}>
-														<ReactSVG src='/avatar.svg' />
-														<h4>
-															{userInfo?.firstName} {userInfo?.lastName}
-														</h4>
-														<ReactSVG src='/userArrow.svg' />
-													</div>
-												</Link>
-
-												<div className={classes.auth_user_options}>
-													{items?.map((item, key) => {
-														return <li key={key}>{item.label}</li>;
-													})}
-												</div>
-												<Link href="https://auth.pirveli.ge/realms/xracoon-demo/protocol/openid-connect/logout">
-													<div className={classes.auth_logout}>
-														<ReactSVG src='/Logout.svg' />
-														Log out
-													</div>
-												</Link>
-											</div>
-										</>
-									);
-								}}
-								overlayClassName={classes.userDropBlock}
-								placement={'bottomRight'}
-							>
-								<a onClick={(e) => e.preventDefault()}>
-									<Space>
-										<ReactSVG src='/avatar.svg' />
-									</Space>
-								</a>
-							</Dropdown>
-						</div>
-					)}
-				</div>
-
-				{/* <ul className={classes.navbar}>
-					<li>
-						<Link href='/'>
-							<a>Home </a>
-						</Link>
-					</li>
-					<li>
-						<Link href='/Button'>
-							<a>Button</a>
-						</Link>
-					</li>
-					<li>
-						<Link href='/aboutUsPage'>
-							<a> About us</a>
-						</Link>
-					</li>
-					<li>
-						<Link href='#Offers'>
-							<a>Offers</a>
-						</Link>
-					</li>
-					<li>
-						<Link href='/contactUs'>
-							<a>Contact</a>
-						</Link>
-					</li>
-					<li>
-						<Button
-							name='Sign in'
-							style={classes.signInButton}
-							onClick={handleClick}
+					<div className={classes.searchInput}>
+						<input
+							type='search'
+							placeholder='Search...'
+							value={searchInput}
+							onChange={handleChange}
 						/>
-					</li>
-					<li>
-						<DropDown />
-					</li>
-				</ul> */}
+
+						<img
+							src='/Search.svg'
+							alt='Search'
+						/>
+					</div>
+
+					<div className={classes.rightSideContainerStyle}>
+						{/* <div className={classes.contactUsIcon}>
+							<Image
+								src='/contactUSIcon.svg'
+								alt='contactUsIcon'
+								width='17px'
+								height='17px'
+							/>
+						</div> */}
+						<div className={classes.hideText}>
+							<Link href='/contactUs'>
+								<a className={classes.contactBtnStyle}>დაგვიკავშირდი</a>
+							</Link>
+						</div>
+
+						{!user && (
+							<Link href='/signInPage'>
+								<a className={classes.signInBtnStyle}>შესვლა</a>
+							</Link>
+						)}
+						<Link href='/buyCardPage'>
+							<span className={classes.buyCardBtnStyle}>ბარათის შეძენა</span>
+						</Link>
+						{user && (
+							<div className={classes.authorizedUser}>
+								<Dropdown
+									trigger={['click']}
+									dropdownRender={(nodes) => {
+										return (
+											<>
+												<div className={classes.auth_user_notification}>
+													<h3>No Notifications</h3>
+												</div>
+											</>
+										);
+									}}
+									overlayClassName={classes.userNotDropBlock}
+									placement={'bottomRight'}
+								>
+									<a onClick={(e) => e.preventDefault()}>
+										<Space className={classes.notificationHeight}>
+											<ReactSVG src='/notificationuser.svg' />
+										</Space>
+									</a>
+								</Dropdown>
+
+								<Dropdown
+									menu={{
+										items,
+									}}
+									trigger={['click']}
+									dropdownRender={(nodes) => {
+										return (
+											<>
+												<div className={classes.auth_user_menu}>
+													<h2>My Account</h2>
+													<Link href='/user'>
+														<div className={classes.auth_user_icon}>
+															<ReactSVG src='/avatar.svg' />
+															<h4>
+																{userInfo?.firstName} {userInfo?.lastName}
+															</h4>
+															<ReactSVG src='/userArrow.svg' />
+														</div>
+													</Link>
+
+													<div className={classes.auth_user_options}>
+														{items?.map((item, key) => {
+															return <li key={key}>{item.label}</li>;
+														})}
+													</div>
+													<Link href="https://auth.pirveli.ge/realms/xracoon-demo/protocol/openid-connect/logout">
+														<div className={classes.auth_logout}>
+															<ReactSVG src='/Logout.svg' />
+															Log out
+														</div>
+													</Link>
+												</div>
+											</>
+										);
+									}}
+									overlayClassName={classes.userDropBlock}
+									placement={'bottomRight'}
+								>
+									<a onClick={(e) => e.preventDefault()}>
+										<Space>
+											<ReactSVG src='/avatar.svg' />
+										</Space>
+									</a>
+								</Dropdown>
+							</div>
+						)}
+					</div>
+
+					{/* <ul className={classes.navbar}>
+						<li>
+							<Link href='/'>
+								<a>Home </a>
+							</Link>
+						</li>
+						<li>
+							<Link href='/Button'>
+								<a>Button</a>
+							</Link>
+						</li>
+						<li>
+							<Link href='/aboutUsPage'>
+								<a> About us</a>
+							</Link>
+						</li>
+						<li>
+							<Link href='#Offers'>
+								<a>Offers</a>
+							</Link>
+						</li>
+						<li>
+							<Link href='/contactUs'>
+								<a>Contact</a>
+							</Link>
+						</li>
+						<li>
+							<Button
+								name='Sign in'
+								style={classes.signInButton}
+								onClick={handleClick}
+							/>
+						</li>
+						<li>
+							<DropDown />
+						</li>
+					</ul> */}
+				</div>
 			</div>
 		</>
 	);

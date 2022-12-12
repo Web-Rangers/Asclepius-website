@@ -29,10 +29,10 @@ const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 				direction='horizontal'
 				onSwiper={setSwiperRef}
 				slidesPerView={'auto'}
-				// navigation={{
-				// 	prevEl: prevRef.current ? prevRef.current : undefined,
-				// 	nextEl: nextRef.current ? nextRef.current : undefined,
-				// }}
+				navigation={{
+					prevEl: style.swiperArrowLeft,
+					nextEl: style.swiperArrowLeft,
+				}}
 				freeMode={true}
 				loopFillGroupWithBlank={true}
 				lazy={true}
@@ -89,24 +89,34 @@ const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 							</SwiperSlide>
 					  ))}
 			</Swiper>
-			{iconBottom && (
+			<img
+				src='/swiperLeftArrow.svg'
+				alt='arrowLeft'
+				className={style.swiperArrowLeft}
+				onClick={handleLeftClick}
+			/>
+			<img
+				src='/swiperArrow.svg'
+				alt='arrowRight'
+				className={style.swiperArrowRight}
+				onClick={handleRightClick}
+			/>
+			{/* {iconBottom && (
 				<div
 					className={iconTop ? style.arrowContainerTop : style.arrowContainer}
 				>
 					{iconTop && (
 						<>
 							<img
-								src='/Arrow - Left.svg'
+								src='/swiperLeftArrow.svg'
 								alt='arrowLeft'
-								width='12.5px'
-								height='15px'
+								className={style.swiperArrowLeft}
 								onClick={handleLeftClick}
 							/>
 							<img
-								src='/Arrow - Right.svg'
+								src='/swiperArrow.svg'
 								alt='arrowRight'
-								width='12.5px'
-								height='15px'
+								className={style.swiperArrowRight}
 								onClick={handleRightClick}
 							/>
 						</>
@@ -130,7 +140,7 @@ const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 						</>
 					) : null}
 				</div>
-			)}
+			)} */}
 		</div>
 	);
 };

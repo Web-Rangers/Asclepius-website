@@ -1,3 +1,10 @@
+.catalogContainerBg {
+	position: sticky;
+    top: 80px;
+    z-index: 999;
+    background: #fff;
+}
+
 .catalogContainer {
 	height: 48px;
 	display: flex;

@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import { getData } from '../../../components/request';
 import Swipper from '../../../components/contents/Swipper';
 import NavItem from '../../../components/contents/NavItem';
+import ServicesModal from '../../../components/modals/ServicesModal';
 
 const ClinicDetailPage = ({
 	cardData,
@@ -21,6 +22,7 @@ const ClinicDetailPage = ({
 	// const [cardData, setCardData] = useState(null);
 
 	const [clinicData, setClinicData] = useState(null);
+	const [isModalOpen, setModalOpen] = useState(false);
 
 	function sliceIntoChunks(arr, chunkSize) {
 		const res = [];
@@ -57,6 +59,12 @@ const ClinicDetailPage = ({
 
 	return (
 		<>
+			{
+				isModalOpen && 
+				<ServicesModal
+					onClose={()=> setModalOpen(false)}
+				/>
+			}
 			<div className={s.mobileBottomNav}>
 				<NavItem />
 			</div>

@@ -16,37 +16,52 @@ export default function Navigation() {
 
 	return (
 		<>
-			<div className={styles.catalogContainer}>
-				{categories?.map((item, index) => {
-					const subCategories = categories.filter(
-						(e) => e.parentCategoryId == item.id
-					);
-					const items = subCategories.map((e, key) => {
-						return {
-							key: key,
-							label: (
-								<Link
-									target='_blank'
-									rel='noopener noreferrer'
-									href={`/clinicPage?id=${e.id}`}
-								>
-									{e.title}
-								</Link>
-							),
-						};
-					});
-
-					return (
-						<>
-							{item.parentCategoryId === null &&
-								(items.length > 0 ? (
-									<Dropdown
-										menu={{
-											items,
-										}}
-										placement='bottom'
-										overlayClassName={styles.dropdown}
+			<div className={styles.catalogContainerBg}>
+				<div className={styles.catalogContainer}>
+					{categories?.map((item, index) => {
+						const subCategories = categories.filter(
+							(e) => e.parentCategoryId == item.id
+						);
+						const items = subCategories.map((e, key) => {
+							return {
+								key: key,
+								label: (
+									<Link
+										target='_blank'
+										rel='noopener noreferrer'
+										href={`/clinicPage?id=${e.id}`}
 									>
+										{e.title}
+									</Link>
+								),
+							};
+						});
+
+						return (
+							<>
+								{item.parentCategoryId === null &&
+									(items.length > 0 ? (
+										<Dropdown
+											menu={{
+												items,
+											}}
+											placement='bottom'
+											overlayClassName={styles.dropdown}
+										>
+											<span
+												key={index}
+												className={styles.catalogTextStyle}
+											>
+												<Link
+													target='_blank'
+													rel='noopener noreferrer'
+													href={`/clinicPage?id=${item.id}`}
+												>
+													{item.title}
+												</Link>
+											</span>
+										</Dropdown>
+									) : (
 										<span
 											key={index}
 											className={styles.catalogTextStyle}
@@ -54,33 +69,20 @@ export default function Navigation() {
 											<Link
 												target='_blank'
 												rel='noopener noreferrer'
-												href={`/clinicPage?id=${item.id}`}
+												href={
+													item.title !== 'ყველა'
+														? `/clinicPage?id=${item.id}`
+														: '/clinicPage'
+												}
 											>
 												{item.title}
 											</Link>
 										</span>
-									</Dropdown>
-								) : (
-									<span
-										key={index}
-										className={styles.catalogTextStyle}
-									>
-										<Link
-											target='_blank'
-											rel='noopener noreferrer'
-											href={
-												item.title !== 'ყველა'
-													? `/clinicPage?id=${item.id}`
-													: '/clinicPage'
-											}
-										>
-											{item.title}
-										</Link>
-									</span>
-								))}
-						</>
-					);
-				})}
+									))}
+							</>
+						);
+					})}
+				</div>
 			</div>
 		</>
 	);

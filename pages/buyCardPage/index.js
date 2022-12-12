@@ -20,12 +20,13 @@ import TableDropDown from '../../components/TableDropDown';
 import { ConnectingAirportsOutlined } from '@mui/icons-material';
 import Image from 'next/image';
 
-function BuyCardPage({ cards, clinics, categories, products }) {
+function BuyCardPage({ cards, clinics, categories }) {
 	const [modalIsOpen, setIsOpen] = useState(false);
 	const [customStyles, setCustomStyles] = useState({});
 	const [dropDown, setDropDown] = useState('');
-	const [productState, setProductState] = useState(products);
+	const [productState, setProductState] = useState([]);
 	const [checkout, setCheckout] = useState(false);
+	const [products, setProducts] = useState([]);
 
 	const featuresData = [
 		{
@@ -138,6 +139,9 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 				setUser(response);
 			}
 		);
+
+		getData('https://medical.pirveli.ge/medical/products/get-products')
+			.then((res)=> {setProducts(res); setProductState(res)})
 	}, []);
 
 	const [selectPack, setSelectPack] = useState('');
@@ -576,15 +580,11 @@ export const getStaticProps = async () => {
 
 	const getCategories = await getData(`${API_URL}/asclepius/v1/api/categories`);
 
-	const getProducts = await getData(
-		`https://medical.pirveli.ge/medical/products/get-products`
-	);
 	return {
 		props: {
 			cards: getDoctors,
 			clinics: getClinics,
 			categories: getCategories,
-			products: getProducts,
 		},
 		revalidate: 10
 	};

@@ -125,6 +125,11 @@ a {
 	padding: 0;
 }
 
+.swiper-slide {
+	border-radius: 12px;
+    overflow: hidden;
+}
+
 .ant-form-item-label > label {
 	position: relative;
 	display: inline-flex;
