@@ -39,7 +39,26 @@
 .singInTextStyle {
 	width: 360px;
 }
-
+.loginBtn {
+	width: 360px;
+	height: 52px;
+	border-radius: 5px;
+	background-color: #ffbbb6;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 25px;
+	color: #1e2837;
+	margin-top: 20px;
+	cursor: pointer;
+	border: none;
+}
+.logoContainer {
+	display: flex;
+	flex-direction: row;
+	margin-top: 32px;
+}
 .loginText {
 	color: #1e2837;
 	font-family: 'Graphik';
@@ -111,8 +130,13 @@
 	width: 360px;
 	height: 52px;
 	border-radius: 5px;
-	background-color: #195947;
-	color: #fff;
+	background-color: #fdc7c4;
+	font-family: 'Avenir Next Bold';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 23px;
+	color: #1e2837;
 	margin-top: 20px;
 	cursor: pointer;
 	border: none;
@@ -149,10 +173,13 @@
 }
 .cardsContainer {
 	display: flex;
-	border: 1px solid #dcdddf;
 	flex: 1;
 	justify-content: center;
 	align-items: center;
+	background: #ffbbb6;
+	border: 1px solid rgba(174, 191, 188, 0.2);
+	border-radius: 8px;
+	height: 100vh;
 }
 
 .contactUsCardContainer {
@@ -222,21 +249,19 @@
 }
 
 .inputConainer label {
-	position: absolute;
+	/* position: absolute;
 	margin-top: -3.7em;
 	padding-left: 10px;
-	transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out; */
 }
 .inputConainerInput {
 	position: relative;
 	z-index: 1;
 	width: 100%;
-	height: 58px;
+	height: 56px;
 	display: block;
-	padding-left: 10px;
-	padding-top: 15px;
+	padding-left: 14px;
 	margin: 18px 0 18px 0;
-	border: solid 1px #d5d8de;
 	transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
 	transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
 	background: linear-gradient(to top, rgba(255, 255, 255, 0) 99%, #d5d8de 1%);
@@ -247,7 +272,29 @@
 	background-repeat: no-repeat;
 	color: #323941;
 	font-size: 16px;
+	border: 1px solid #e5e5e5;
+	border-radius: 5px;
 }
+.messageInput {
+	min-height: 103px;
+	min-width: 54%;
+	width: 100%;
+	max-width: 360px;
+	padding-top: 19px;
+	padding-left: 14px;
+	margin-top: 20px;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 16px;
+	color: #323941;
+	border: solid 1px #d5d8de;
+}
+.messageInput::placeholder {
+	color: #90959c;
+}
+
 .inputConainer input:focus {
 	padding-top: 10px;
 	font-family: 'Noto Sans';
@@ -268,7 +315,7 @@
 .inputConainer input:active + label {
 	font-size: 12px;
 	color: #323941;
-	transform: translateY(-2em);
+	transform: translateY(2em);
 }
 
 .inputConainer input:focus,
@@ -345,6 +392,37 @@
 }
 /* mobile version  */
 
+@media only screen and (max-width: 1300px) {
+	.contactUs {
+		flex: 1 1;
+		height: 1024px;
+		display: flex;
+		flex-direction: column;
+		margin-top: 68px;
+		margin-left: 40px;
+	}
+	.formContainer {
+		z-index: 0;
+	}
+}
+@media only screen and (max-width: 1100px) {
+	.contactUsContainer {
+		display: flex;
+		margin: auto;
+		width: calc(100% - 0px);
+		max-width: calc(1440px - 100px);
+		background-color: #fff;
+		flex-direction: column;
+		align-items: center;
+	}
+	.cardContainerImg {
+		display: none;
+	}
+	.formContainer {
+		z-index: 0;
+	}
+}
+
 @media only screen and (max-width: 767px) {
 	.container {
 		padding: 0;
@@ -352,18 +430,29 @@
 	.contactUsContainer {
 		display: flex;
 		flex-direction: column;
-		margin: 50px 0px 60px 10px;
+		padding-left: 16px;
+		padding-right: 16px;
 	}
 	.contactUs {
-		display: flex;
+		/* display: flex;
 		align-items: center;
 		width: 100%;
-		order: 2;
+		order: 2; */
+
+		flex: 1 1;
+		height: 1024px;
+		display: flex;
+		flex-direction: column;
+		margin-top: 18px;
+		margin-left: 0px;
 	}
 
 	.contactUsCardContainer {
 		order: 1;
 		border: none;
+
+		margin-top: 0;
+		margin-bottom: 0;
 	}
 
 	.cardContainerImg {
@@ -375,10 +464,13 @@
 	.imgForMobile {
 		display: flex;
 		justify-content: flex-end;
-		width: 400px;
-		margin-top: -150px;
+		width: 100%;
+		background-color: #ffbbb6;
 	}
-
+	.nameSurnameContainer {
+		display: flex;
+		gap: 23px;
+	}
 	.contactInfoForMobile {
 		display: flex;
 		flex-direction: column;
@@ -417,5 +509,48 @@
 	.btnContainer {
 		display: flex;
 		justify-content: center;
+	}
+	.formContainer {
+		z-index: 0;
+		width: 100%;
+	}
+	.inputConainer {
+		width: 100%;
+	}
+	.messageInput {
+		min-height: 103px;
+		min-width: 100%;
+		padding-top: 19px;
+		padding-left: 14px;
+		margin-top: 20px;
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 16px;
+		color: #323941;
+		border: solid 1px #d5d8de;
+	}
+	.singInTextStyle {
+		width: 100%;
+	}
+	.loginButton {
+		width: 100%;
+		margin-bottom: 60px;
+	}
+	.inputField {
+		display: flex;
+		flex-direction: column;
+		width: 160px;
+		margin-right: 0;
+	}
+	.inputField input {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		width: 100%;
+	}
+	.contactUsInputText {
+		margin-top: 0;
 	}
 }

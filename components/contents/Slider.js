@@ -83,7 +83,9 @@ const Slider = ({ type = 'desktop' }) => {
 											</div>
 											<div className={classes.medicalCardsButtons}>
 												<Link href='/buyCardPage'>
-													<a className={classes.orderBtn}>ბარათის შეძენა</a>
+													<span className={classes.orderBtn}>
+														ბარათის შეძენა
+													</span>
 												</Link>
 
 												{/* <Button name="Download" style={classes.downloadOrderBtn} /> */}

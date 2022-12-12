@@ -37,8 +37,8 @@
 }
 .firstPart {
 	margin: auto;
-	width: calc(100% - 100px);
-	max-width: calc(1440px - 0px);
+	width: 1440px;
+	max-width: calc(100% - 0px);
 }
 
 .firstPartImg {
@@ -196,6 +196,11 @@
 	margin-top: 18px;
 	text-align: left;
 	margin: 12px 0 10px;
+	width: 100%;
+	-webkit-line-clamp: 2;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 .clinicAddressText {
 	font-family: 'Noto Sans';
@@ -208,6 +213,11 @@
 	display: flex;
 	align-items: center;
 	gap: 8px;
+	width: 100%;
+	-webkit-line-clamp: 2;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 .clinicAddressText img {
 	margin-right: 10px;
@@ -236,7 +246,7 @@
 	position: relative;
 	overflow: hidden;
 	width: 313px;
-	height: 383px;
+	height: 403px;
 }
 .doctorNameText {
 	font-family: 'Noto Sans';
@@ -245,10 +255,17 @@
 	font-size: 18px;
 	line-height: 24.52px;
 	color: #1e2837;
-	margin-left: 20px;
-	margin-top: 20px;
 	text-align: left;
-	height: 47px;
+	-webkit-line-clamp: 2;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.contentContainer {
+	display: flex;
+	flex-direction: column;
+	padding: 20px 24px;
+	gap: 8px;
 }
 .doctorSpecialityText {
 	font-family: 'Noto Sans';
@@ -257,10 +274,11 @@
 	font-size: 16px;
 	line-height: 24px;
 	color: #797a80;
-	margin: 20px 0px 20px 20px;
-	margin-top: 7px;
-	text-align: left;
-	height: 47px;
+	/* text-align: left; */
+	-webkit-line-clamp: 2;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 .iconsContainer {
 	display: flex;
@@ -932,6 +950,7 @@
 		margin-top: 26px;
 		margin-right: 14px;
 		margin-left: 14px;
+		display: none;
 	}
 	.firstPartImg img {
 		width: 254px;
@@ -996,8 +1015,15 @@
 		border: 1px solid #d8d8d8;
 		border-radius: 5px;
 		position: relative;
+		width: 254px;
+		height: 361px;
+		object-fit: cover;
 	}
 
+	.docImage {
+		width: 254px;
+		height: 264px;
+	}
 	.cardItemContainer {
 		display: flex;
 		flex-direction: column;

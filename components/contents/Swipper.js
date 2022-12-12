@@ -1,8 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState, useCallback } from 'react';
 import style from '../../styles/slider.module.css';
-import BranchPageCardItem from './BranchPageCardItem';
-
+import BranchPageCardItem from '../contents/BranchPageCardItem';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -13,8 +12,6 @@ import { Pagination, Navigation, Lazy } from 'swiper';
 
 const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 	const [swiperRef, setSwiperRef] = useState();
-
-	console.log('gaer', data);
 
 	const handleLeftClick = useCallback(() => {
 		if (!swiperRef) return;
@@ -52,6 +49,10 @@ const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 					},
 					// when window width is >= 768px
 					768: {
+						slidesPerView: 2,
+						spaceBetween: 15,
+					},
+					950: {
 						slidesPerView: 3,
 						spaceBetween: 15,
 					},
@@ -60,7 +61,7 @@ const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 						spaceBetween: 30,
 					},
 				}}
-				className='offerSlider'
+				className={style.branchMobileSize}
 			>
 				{branches?.length > 0
 					? branches.map((data) => (
@@ -72,11 +73,14 @@ const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 							</SwiperSlide>
 					  ))
 					: data.map((data) => (
-							<SwiperSlide key={data.id}>
+							<SwiperSlide
+								key={data.id}
+								className={style.swiperImg}
+							>
 								<img
 									src={data.url}
-									width=' 100%'
-									height='228px'
+									width='100%'
+									height={data?.size ? '100%' : '228px'}
 									style={{
 										display: 'flex',
 										objectFit: 'cover',
@@ -89,20 +93,42 @@ const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 				<div
 					className={iconTop ? style.arrowContainerTop : style.arrowContainer}
 				>
-					<img
-						src='/Arrow - Left.svg'
-						alt='arrowLeft'
-						width='12.5px'
-						height='15px'
-						onClick={handleLeftClick}
-					/>
-					<img
-						src='/Arrow - Right.svg'
-						alt='arrowRight'
-						width='12.5px'
-						height='15px'
-						onClick={handleRightClick}
-					/>
+					{iconTop && (
+						<>
+							<img
+								src='/Arrow - Left.svg'
+								alt='arrowLeft'
+								width='12.5px'
+								height='15px'
+								onClick={handleLeftClick}
+							/>
+							<img
+								src='/Arrow - Right.svg'
+								alt='arrowRight'
+								width='12.5px'
+								height='15px'
+								onClick={handleRightClick}
+							/>
+						</>
+					)}
+					{branches?.length > 4 ? (
+						<>
+							<img
+								src='/Arrow - Left.svg'
+								alt='arrowLeft'
+								width='12.5px'
+								height='15px'
+								onClick={handleLeftClick}
+							/>
+							<img
+								src='/Arrow - Right.svg'
+								alt='arrowRight'
+								width='12.5px'
+								height='15px'
+								onClick={handleRightClick}
+							/>
+						</>
+					) : null}
 				</div>
 			)}
 		</div>

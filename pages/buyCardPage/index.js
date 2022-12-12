@@ -148,6 +148,7 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 	const [paymentType, setPaymentType] = useState('');
 	const [filteredCard, setFilteredCard] = useState([]);
 	const [chooseCard, setChooseCard] = useState();
+	const [showMore, setShowMore] = useState(false);
 
 	const [cardTypes, setCardTypes] = useState({
 		individual: [],
@@ -158,15 +159,15 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 		setFilteredCard(products?.filter((e) => e.endDateIncrementValue == month));
 		setProductState(
 			filteredCard?.filter(
-				(e) => e.genericTransactionTypeToAddInfo.infoCategory == selectPack
+				(e) => e.genericTransactionTypeToAddInfo?.infoCategory == selectPack
 			)
 		);
 		setChooseCard(
-			productState.filter((item) => item.genericTransactionTypeId == cardType)
+			productState?.filter((item) => item.genericTransactionTypeId == cardType)
 		);
 	}, [month, cardType, selectPack]);
 
-	console.log('choose', month, cardType, selectPack);
+	console.log('products', products);
 
 	useEffect(() => {
 		setPrice(chooseCard && chooseCard[0]?.price);
@@ -175,12 +176,12 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 	useEffect(() => {
 		let individual = products?.filter(
 				(e) =>
-					e.genericTransactionTypeToAddInfo.infoCategory !==
+					e.genericTransactionTypeToAddInfo?.infoCategory !==
 					'PERCENTAGE_CLINIC_DISCOUNT_FAMILY'
 			),
 			family = products?.filter(
 				(e) =>
-					e.genericTransactionTypeToAddInfo.infoCategory ==
+					e.genericTransactionTypeToAddInfo?.infoCategory ==
 					'PERCENTAGE_CLINIC_DISCOUNT_FAMILY'
 			);
 
@@ -390,15 +391,15 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 												setDropDown('');
 											} else {
 												setDropDown(item.title);
+												setShowMore(false);
 											}
 										}}
 										className={s.categorieTitle}
 									>
 										<div className={s.nameIconCont}>
-											{item.title}
-
+											<span className={s.nameIconTitle}> {item.title}</span>
 											<Image
-												src='/dropArrow.svg'
+												src='/droparrow.svg'
 												width='14px'
 												height='8px'
 											/>
@@ -423,7 +424,24 @@ function BuyCardPage({ cards, clinics, categories, products }) {
 															}
 														})
 														.filter((e) => e !== undefined);
-													return catsw.map((e, i) => <span key={i}>{e.displayName}</span>);
+													return (
+														<>
+															{!showMore &&
+																catsw.length > 3 &&
+																catsw
+																	.slice(0, 3)
+																	.map((e, i) => (
+																		<span key={i}>{e.displayName}</span>
+																	))}
+															{showMore &&
+																catsw.map((e, i) => (
+																	<span key={i}>{e.displayName}</span>
+																))}
+															<span onClick={() => setShowMore(!showMore)}>
+																{showMore ? 'იხილე ნაკლები' : 'იხილეთ მეტი'}
+															</span>
+														</>
+													);
 												}
 											})}
 										</div>
@@ -568,6 +586,7 @@ export const getStaticProps = async () => {
 			categories: getCategories,
 			products: getProducts,
 		},
+		revalidate: 10
 	};
 };
 

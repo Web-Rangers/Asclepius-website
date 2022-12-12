@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Button from '../ui/Button';
 import Link from 'next/link';
+import { Tooltip } from 'antd';
 
 const BranchPageCardItem = ({ props }) => {
 	const router = useRouter();
@@ -18,6 +19,27 @@ const BranchPageCardItem = ({ props }) => {
 		'Saturday',
 		'Sunday ',
 	];
+
+	const text = (
+		<span>
+			{props?.workingHours
+				?.sort((a, b) => a.dayId - b.dayId)
+				?.map((item) => (
+					<div
+						key={item.id}
+						className={
+							item.dayId === 6 || item.dayId === 7
+								? s.clinicWorkingHours
+								: s.weekendWorkingHours
+						}
+					>
+						<Text> {weekday[item.dayId]} </Text>
+						<Text> {[item.startHour, '-', item.endHour]} </Text>
+					</div>
+				))}
+		</span>
+	);
+
 	return (
 		<Link href={`/branchDetailPage/${props?.parentId}`}>
 			<div
@@ -49,21 +71,22 @@ const BranchPageCardItem = ({ props }) => {
 				</div>
 				<div>
 					<Text style={s.clinicNameText}>{props?.displayName}</Text>
-					{props?.workingHours
-						?.sort((a, b) => a.dayId - b.dayId)
-						?.map((item) => (
-							<div
-								key={item.id}
-								className={
-									item.dayId === 6 || item.dayId === 7
-										? s.clinicWorkingHours
-										: s.weekendWorkingHours
-								}
-							>
-								<Text> {weekday[item.dayId]} </Text>
-								<Text> {[item.startHour, '-', item.endHour]} </Text>
-							</div>
-						))}
+					<Tooltip
+						placement='bottomLeft'
+						title={text}
+						color={'white'}
+					>
+						<span className={s.hoursContainer}>
+							<Image
+								alt='locationIcon'
+								src='/i.svg'
+								width='16.67px'
+								height='15.04'
+							/>
+							<span>working Hours</span>
+						</span>
+					</Tooltip>
+
 					<Text style={s.clinicAddressText}>
 						<Image
 							alt='locationIcon'

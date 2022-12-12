@@ -67,7 +67,7 @@ const ClinicCardList = ({ clinicsData, products }) => {
 						showMoreFunc();
 					}}
 				>
-					{'იხილეთ მეტი'}
+					{'მეტი'}
 				</div>
 			</div>
 		</div>
