@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Button from '../ui/Button';
 import classes from '../../styles/headerFooter.module.css';
 import DropDown from '../ui/DropDown';
@@ -29,10 +29,6 @@ const customStyles = {
 
 const items = [
 	{
-		label: <Link href='/transaction'>Transactions</Link>,
-		key: '0',
-	},
-	{
 
 		label: <Link href='https://profile.pirveli.ge'>Settings</Link>,
 
@@ -55,6 +51,7 @@ const Header = () => {
 	const [searchInput, setSearchInput] = useState('');
 	const [user, setUser] = useState(null);
 	const [userInfo, setUserInfo] = useState({});
+	const headerRef = useRef();
 
 	const handleChange = (e) => {
 		setSearchInput(e.target.value);
@@ -224,7 +221,7 @@ const Header = () => {
 							<a className={classes.smallheaderLeftText}>ვაუჩერები</a>
 						</Link>
 						<Link href='https://lot51.pirveli.ge'>
-							<a className={classes.smallheaderLeftText}>ლოტო</a>
+							<a className={classes.smallheaderLeftText}>გათამაშება</a>
 						</Link>
 					</div>
 					<div className={classes.smallheaderRight}>
@@ -292,7 +289,7 @@ const Header = () => {
 							})}>ბარათის შეძენა</span>
 						</Link>
 						{user && (
-							<div className={classes.authorizedUser}>
+							<div className={classes.authorizedUser} ref={headerRef}>
 								<Dropdown
 									trigger={['click']}
 									dropdownRender={(nodes) => {
@@ -304,6 +301,7 @@ const Header = () => {
 											</>
 										);
 									}}
+									getPopupContainer={() => headerRef.current}
 									overlayClassName={classes.userNotDropBlock}
 									placement={'bottomRight'}
 								>
@@ -351,6 +349,7 @@ const Header = () => {
 									}}
 									overlayClassName={classes.userDropBlock}
 									placement={'bottomRight'}
+									getPopupContainer={() => headerRef.current}
 								>
 									<a onClick={(e) => e.preventDefault()}>
 										<Space>
