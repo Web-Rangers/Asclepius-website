@@ -33,7 +33,7 @@ const ClinicCardList = ({ clinicsData, products }) => {
 						router.push('/buyCardPage');
 					}}
 				>
-					{'მეტი'}
+					ყიდვა
 				</div>
 				<div className={classes.clinicCardContainerTitle}>
 					{/* <Text style={classes.serviceTextStyle}>Services</Text> */}

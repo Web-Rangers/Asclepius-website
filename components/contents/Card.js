@@ -87,54 +87,73 @@ const Card = ({ data }) => {
 		},
 		{
 			id: '2',
-			name: 'ამბულატორიული  სერვისები',
-			starter: '15%-მდე',
-			pro: '15-20%',
-			plus: '20%-დან',
+			name: 'ოჯახის ექიმთან სატელეფონო კონსულტაცია',
+			starter: 'თვეში 1-ჯერ',
+			pro: 'თვეში 2-ჯერ',
+			plus: 'თვეში 3-ჯერ',
 		},
 		{
 			id: '3',
-			name: 'ჰოსპიტალური მომსახურება',
-			starter: '15%-მდე',
-			pro: '15-20%',
-			plus: '20%-დან',
+			name: 'ოჯახის ექიმთან ვიზიტი',
+			starter: 'თვეში 1-ჯერ',
+			pro: 'თვეში 2-ჯერ',
+			plus: 'თვეში 3-ჯერ',
 		},
 		{
 			id: '4',
-			name: 'სტომატოლოგიური მომსახურება',
-			starter: '15%-მდე',
-			pro: '15-20%',
-			plus: '20%-დან',
+			name: 'ამბულატორია',
+			starter: '40%-მდე',
+			pro: '',
+			plus: '',
 		},
 		{
 			id: '5',
-			name: 'ლაბორატორიული დიაგნოსტიკა და მაღალტექნოლოგიური კვლევები',
-			starter: '15%-მდე',
-			pro: '15-20%',
-			plus: '20%-დან',
+			name: 'სასწრაფო გადაუდებელი დახმარება',
+			starter: '',
+			pro: '',
+			plus: '',
 		},
 		{
 			id: '6',
-			name: 'ესთეტიკა და სილამაზე',
-			starter: '15%-მდე',
-			pro: '15-20%',
-			plus: '20%-დან',
+			name: 'ლაბორატორია',
+			starter: '40%-მდე',
+			pro: '',
+			plus: '',
 		},
 		{
 			id: '7',
-			name: 'რეაბილიტაცია და გამაჯანსაღებელი მომსახურება',
-			starter: '15%-მდე',
-			pro: '15-20%',
-			plus: '20%-დან',
+			name: 'მაღალტექნოლოგიური კვლევები',
+			starter: '',
+			pro: '',
+			plus: '',
 		},
 		{
 			id: '8',
-			name: 'ოჯახის ექიმის სატელეფონო კონსულტაცია',
-			starter: 'თვეში ერთხელ',
-			pro: 'თვეში 2 ჯერ',
-			plus: 'თვეში სამჯერ',
+			name: 'რეაბილიტაცია',
+			starter: '15%-მდე',
+			pro: '',
+			plus: '',
+		},{
+			id: '8',
+			name: 'ფარმაცია და პარაფარმაცია',
+			starter: '30%-მდე',
+			pro: '',
+			plus: '',
+		},{
+			id: '8',
+			name: 'სტომატოლოგია',
+			starter: '15%-მდე',
+			pro: '',
+			plus: '',
+		},{
+			id: '8',
+			name: 'სილამაზე და ესტეტიკა',
+			starter: '15%-მდე',
+			pro: '',
+			plus: '',
 		},
 	];
+
 	return (
 		<div className={style.cardTableContainer}>
 			<div className={style.cardTableContainerHeader}>
@@ -402,9 +421,7 @@ const Card = ({ data }) => {
 				<div className={style.Starter}>
 					<div className={style.cardTitles}>
 						<span className={style.cardTitleText}>
-							{checked
-								? cardTypes?.family[0]?.cardName
-								: cardTypes?.individual[0]?.cardName}
+							1 თვე
 						</span>
 						<span className={style.price}>
 							<span>
@@ -443,21 +460,12 @@ const Card = ({ data }) => {
 							{item.starter}
 						</span>
 					))}
-
-					<div className={style.getStartedBtnContainer}>
-						<Button
-							name='ყიდვა'
-							style={style.getStartedBtn}
-						/>
-					</div>
 				</div>
 				<div className={style.pro}>
 					<div className={style.proCardTitles}>
 						<span className={style.recommendedStyle}>რეკომენდებული</span>
 						<span className={style.cardTitleTextPro}>
-							{checked
-								? cardTypes?.family[1]?.cardName
-								: cardTypes?.individual[1]?.cardName}
+							3 თვე
 						</span>
 						<span className={style.price}>
 							<span>
@@ -498,19 +506,11 @@ const Card = ({ data }) => {
 							{item.pro}
 						</span>
 					))}
-					<div className={style.getStartedBtnContainerPro}>
-						<Button
-							name='ყიდვა'
-							style={style.getStartedBtnPro}
-						/>
-					</div>
 				</div>
 				<div className={style.plus}>
 					<div className={style.cardTitles}>
 						<span className={style.cardTitleText}>
-							{checked
-								? cardTypes?.family[2]?.cardName
-								: cardTypes?.individual[2]?.cardName}
+							6 თვე
 						</span>
 
 						<span className={style.price}>
@@ -552,12 +552,6 @@ const Card = ({ data }) => {
 							{item.plus}
 						</span>
 					))}
-					<div className={style.getStartedBtnContainer}>
-						<Button
-							name='ყიდვა'
-							style={style.getStartedBtn}
-						/>
-					</div>
 				</div>
 			</div>
 		</div>
