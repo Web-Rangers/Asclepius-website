@@ -52,6 +52,7 @@ const Header = () => {
 	const [user, setUser] = useState(null);
 	const [userInfo, setUserInfo] = useState({});
 	const headerRef = useRef();
+	const [points, setPoints] = useState(null);
 
 	const handleChange = (e) => {
 		setSearchInput(e.target.value);
@@ -73,6 +74,11 @@ const Header = () => {
 				console.log(response)
 			}
 		);
+
+		getData('https://medical.pirveli.ge/medical/products/user-points')
+			.then((response)=>{
+				setPoints(response?.amountOfPoints)
+			})
 	}, []);
 
 
@@ -229,7 +235,7 @@ const Header = () => {
 							src='/coin.svg'
 							alt='headerIcon'
 						/>
-						<span className={classes.coinStyle}>40.076</span>
+						<span className={classes.coinStyle}>{points}</span>
 						<DropDown />
 					</div>
 				</div>
