@@ -37,8 +37,9 @@ const ClinicDetailPage = ({
 	}, [router.isReady]);
 
 	useEffect(()=> {
+		console.log(`https://medical.pirveli.ge/medical/products/get-products-by-contract-id?contractId=${cardData?.contracts?.contractId}`)
 		getData(`https://medical.pirveli.ge/medical/products/get-products-by-contract-id?contractId=${cardData?.contracts?.contractId}`)
-			.then((response)=> {setService(response)})
+			.then((response)=> {setService(response); console.log(response)})
 	},[])
 
 	const weekday = [
