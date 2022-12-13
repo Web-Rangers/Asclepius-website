@@ -245,14 +245,12 @@ const Header = () => {
 					<Link href={'/'}>
 						<a className={classes.logoContainer}>
 							<img
-								src='/footerIcon.png'
+								src='/logo.png'
 								alt='headerIcon'
-								width='44px'
-								height='40px'
+								width='144px'
+								height='32px'
 								// className={classes.mobileIcon}
 							/>
-							<span className={classes.logoTextOne}>Pirveli</span>
-							<span className={classes.logoTextTwo}>.com </span>
 						</a>
 					</Link>
 
