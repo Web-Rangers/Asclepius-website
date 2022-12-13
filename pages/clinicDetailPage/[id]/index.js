@@ -36,12 +36,6 @@ const ClinicDetailPage = ({
 		setClinicData(sliceIntoChunks(clinicArrayData, 3));
 	}, [router.isReady]);
 
-	useEffect(()=> {
-		console.log(`https://medical.pirveli.ge/medical/products/get-products-by-contract-id?contractId=${cardData?.contracts?.contractId}`)
-		getData(`https://medical.pirveli.ge/medical/products/get-products-by-contract-id?contractId=${cardData?.contracts?.contractId}`)
-			.then((response)=> {setService(response); console.log(response)})
-	},[])
-
 	const weekday = [
 		'',
 		'Monday',
@@ -55,13 +49,6 @@ const ClinicDetailPage = ({
 
 	return (
 		<>
-			{
-				isModalOpen && 
-				<ServicesModal
-					services={services}
-					onClose={()=> setModalOpen(false)}
-				/>
-			}
 			<div className={s.mobileBottomNav}>
 				<NavItem />
 			</div>
@@ -182,23 +169,25 @@ const ClinicDetailPage = ({
 									/>
 								</div>
 							</Link>
-							<div className={s.serviceItem} onClick={()=> setModalOpen(true)}>
-								<Image
-									alt='services'
-									src='/servicesIcon.svg'
-									width='24px'
-									height='24px'
-									style={{ paddingRight: '4px' }}
-								/>
-								<Text style={s.serviceTitle}>Services</Text>
-								<Image
-									alt='Arrow-Right'
-									src='/Arrow - Right 9.svg'
-									width='24px'
-									height='24px'
-									style={{ paddingRight: '4px' }}
-								/>
-							</div>
+							<Link href={`services/${cardData?.contracts?.contractId}`}>
+								<div className={s.serviceItem} onClick={()=> setModalOpen(true)}>
+									<Image
+										alt='services'
+										src='/servicesIcon.svg'
+										width='24px'
+										height='24px'
+										style={{ paddingRight: '4px' }}
+									/>
+									<Text style={s.serviceTitle}>Services</Text>
+									<Image
+										alt='Arrow-Right'
+										src='/Arrow - Right 9.svg'
+										width='24px'
+										height='24px'
+										style={{ paddingRight: '4px' }}
+									/>
+								</div>
+							</Link>
 						</div>
 						<div className={s.clinicOfferCardContainer}>
 							<div className={s.offerContiner}>
