@@ -176,6 +176,7 @@ a {
 	height: 43px;
 }
 
+
 @media only screen and (max-width: 1290px) {
 	.carousel .control-dots {
 		display: none;

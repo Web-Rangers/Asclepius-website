@@ -7,8 +7,7 @@ import Typography from '@mui/material/Typography';
 import style from '../../styles/components/card.module.css';
 import Button from '../ui/Button';
 import { Tooltip } from '@nextui-org/react';
-
-import Image from 'next/image';
+import Link from 'next/link';
 
 const Card = ({ data }) => {
 	const [checked, setChecked] = useState(false);
@@ -186,13 +185,13 @@ const Card = ({ data }) => {
 							display: 'block',
 							margin: 'auto',
 							width: '260px',
-							height: '50px',
+							height: '60px',
 							fontSize: '12px',
-							backgroundColor: '#FFBBB6',
+							backgroundColor: '#fff',
 						}}
 						rounded
 						content={
-							'	Family package includes mother, father and 2 minor children'
+							'Family package includes mother, father and 2 minor children'
 						}
 					>
 						<img
@@ -206,7 +205,7 @@ const Card = ({ data }) => {
 					</span>
 				</div>
 			</div>
-			<div className={style.cardTableMobile}>
+			{/* <div className={style.cardTableMobile}>
 				<div className={style.Starter}>
 					<div className={style.cardTitles}>
 						<span className={style.cardTitleText}>
@@ -552,6 +551,40 @@ const Card = ({ data }) => {
 							{item.plus}
 						</span>
 					))}
+				</div>
+			</div> */}
+			<div className={style.cardContainer}>
+				<div className={style.containerCard}>
+					<img src="/card4.png" width={200} /> 
+				</div>
+				<div className={style.containerList}>
+					{featuresData?.map((e)=>{
+						return <div className={style.listItem}><span>{e.name}</span><span>{e.starter}</span></div>
+					})}
+				</div>
+				<div className={style.price}>
+					{checked ? (
+						<span>
+							{cardTypes?.family[0]?.price}
+							<img
+								src='lari.svg'
+								alt='lari'
+								width='29px'
+								height='23px'
+							/>
+						</span>
+					) : (
+						<span>
+							{cardTypes?.individual[0]?.price}
+							<img
+								src='lari.svg'
+								alt='lari'
+								width='29px'
+								height='23px'
+							/>
+						</span>
+					)}
+					<Link href="/buyCardPage"><button>Buy now</button></Link>
 				</div>
 			</div>
 		</div>

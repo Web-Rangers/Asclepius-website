@@ -333,7 +333,7 @@ function BuyCardPage({ cards, clinics, categories }) {
 							</FormGroup>
 						</div>
 					</div>
-					<div className={s.table}>
+					{/* <div className={s.table}>
 						<div className={s.tableHeader}>
 							<span className={s.clinicTitleStyles}>პარტნიორები</span>
 						</div>
@@ -380,7 +380,12 @@ function BuyCardPage({ cards, clinics, categories }) {
 										);
 									}
 							  })}
-					</div>
+					</div> */}
+
+					{
+						!checked ? 'individual' : 'fmaily'
+					}
+
 					{categories
 						.filter((e) => e.parentCategoryId === null)
 						.map((item, i) => {
@@ -453,8 +458,7 @@ function BuyCardPage({ cards, clinics, categories }) {
 								</div>
 							);
 						})}
-
-					<div className={s.buttonContainer}>
+					{/* <div className={s.buttonContainer}>
 						<span className={s.finalPrice}>
 							{price}
 							<span>
@@ -561,7 +565,7 @@ function BuyCardPage({ cards, clinics, categories }) {
 								// ))
 							}}
 						/>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</>

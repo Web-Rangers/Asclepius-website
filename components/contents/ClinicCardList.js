@@ -28,14 +28,6 @@ const ClinicCardList = ({ clinicsData, products }) => {
 		<div className={classes.clinicCardContainer}>
 			<div className={classes.firstPart}>
 				<Card data={products} />
-				<div
-					className={classes.showBtn}
-					onClick={() => {
-						router.push('/buyCardPage');
-					}}
-				>
-					ყიდვა
-				</div>
 				<div className={classes.clinicCardContainerTitle}>
 					{/* <Text style={classes.serviceTextStyle}>Services</Text> */}
 					<div className={classes.arrows}>
