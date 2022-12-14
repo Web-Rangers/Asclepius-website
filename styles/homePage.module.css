@@ -56,10 +56,51 @@
 	display: inline-block;
 	flex-direction: column;
 	/* margin: auto; */
-	/* width: 24%; */
+	height: 0px;
+	width: 0px;
 	overflow: hidden;
 	position: relative;
 	cursor: pointer;
+}
+
+.docskeleton {
+	width: 313px;
+    height: 403px;
+	margin-right: 0px!important;
+	border: 1px solid #d8d8d8;
+	border-radius: 12px;
+}
+
+.doctorSkelton {
+	margin-right:0px!important;
+	margin-left: 0px!important;
+}
+
+.docskeltonImage {
+	display: flex;
+	justify-self: center;
+	align-items: center;
+} 
+
+.docskeltonImage img {
+	width: 100%;
+}
+
+.docskeltonTitles {
+	display: flex;
+	flex-direction: column;
+	gap:10px;
+	padding: 0 20px;
+	margin-top: 18px;
+}
+
+.docskeleton img {
+	height: 286px;
+}
+
+.append {
+	width: auto;
+	height: auto;
 }
 
 .clinicCardItem {
@@ -77,9 +118,6 @@
 .imgPart img {
 	object-fit: cover;
 }
-.doctorCardContainer {
-	/* padding: 40px 0; */
-}
 .doctorPhotoContainer {
 	position: relative;
 	width: 320px;
@@ -91,7 +129,10 @@
 }
 .doctorItem {
 	/* width: 24%; */
+	width: 0px;
+	height: 0px;
 	margin-bottom: 15px;
+	/* overflow: hidden; */
 }
 .docImage {
 	width: 313px;
@@ -103,7 +144,7 @@
 	display: flex;
 	flex-direction: column;
 	margin-top: 72px;
-	background-color: #f5f5f5;
+	background-color: #F7F9FB;
 	padding-top: 38px;
 	position: relative;
 }
@@ -214,7 +255,7 @@
 	overflow: hidden;
 }
 .clinicAddressText {
-	font-family: 'Noto Sans';
+	font-family: 'Noto Sans', 'Avenir Next Georgian';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 14px;
@@ -226,7 +267,7 @@
 	gap: 8px;
 	width: 100%;
 	-webkit-line-clamp: 2;
-	display: -webkit-box;
+	/* display: -webkit-box; */
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
@@ -254,11 +295,18 @@
 	flex-direction: column;
 	border: 1px solid #d8d8d8;
 	border-radius: 5px;
-	position: relative;
+	position: absolute;
 	overflow: hidden;
+	width: 0px; /*313px*/
+	height: 0px;/*403px*/
+	border-radius: 12px;
+	z-index:-1;
+}
+.appendDoc {
 	width: 313px;
 	height: 403px;
-	border-radius: 12px;
+	position: relative;
+	z-index:1;
 }
 .doctorNameText {
 	font-family: 'Noto Sans';
@@ -280,7 +328,7 @@
 	gap: 8px;
 }
 .doctorSpecialityText {
-	font-family: 'Noto Sans';
+	font-family: 'Noto Sans', 'Avenir Next Georgian';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 16px;
@@ -778,13 +826,16 @@
 	justify-content: center;
 	background: #ffffff;
 	border: 1px solid #efefef;
-	font-family: 'Noto Sans';
+	font-family: 'Noto Sans', 'Avenir Next Georgian';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 16px;
 	color: #1e2837;
 	cursor: pointer;
 	border-radius: 12px;
+}
+.nonborder {
+	border:0px!important;
 }
 .bottomImgMobile {
 	display: none;
@@ -839,7 +890,6 @@
 	background-color: transparent;
 	color: #ff1c00;
 }
-
 /* @media only screen and (min-width: 1460px) {
 	.imgPart {
 		height: 60%;

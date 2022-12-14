@@ -181,8 +181,6 @@ function Home({ clinics, doctors, frelancers, categories, products }) {
 				products={products}
 			/>
 			<DoctorCardList doctorsData={doctorsData} />
-			{/* <Services />
-			<Benefits /> */}
 			<CardPrice />
 		</div>
 	);
@@ -217,7 +215,7 @@ export const getServerSideProps = async () => {
 			doctors: getDoctors?.length === 0 ? null : getDoctors,
 			frelancers: getFreelancerDoc?.length === 0 ? null : getFreelancerDoc,
 			categories: getCategories,
-			products: getProducts,
+			products: [],
 		},
 	};
 };

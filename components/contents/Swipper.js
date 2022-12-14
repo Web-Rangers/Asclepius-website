@@ -96,7 +96,7 @@ const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 				onClick={handleLeftClick}
 			/>
 			<img
-				src='/swiperArrow.svg'
+				src='/swiperarrow.svg'
 				alt='arrowRight'
 				className={style.swiperArrowRight}
 				onClick={handleRightClick}

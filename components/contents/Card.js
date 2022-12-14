@@ -242,7 +242,7 @@ const Card = ({ data }) => {
 					</div>
 					{featuresData.map((item, index) => (
 						<div
-							key={item.id}
+							key={item.id + index}
 							className={style.tableValuesContainer}
 						>
 							<span
@@ -306,7 +306,7 @@ const Card = ({ data }) => {
 					</div>
 					{featuresData.map((item, index) => (
 						<div
-							key={item.id}
+							key={item.id + index}
 							className={
 								index % 2 === 0
 									? style.proTextContainer
@@ -372,7 +372,7 @@ const Card = ({ data }) => {
 					</div>
 					{featuresData.map((item, index) => (
 						<div
-							key={item.id}
+							key={item.id + index}
 							className={style.tableValuesContainer}
 						>
 							<span
@@ -407,7 +407,7 @@ const Card = ({ data }) => {
 
 					{featuresData.map((item, index) => (
 						<span
-							key={item.id}
+							key={item.id + index}
 							className={
 								index % 2 === 0
 									? style.featuresTextStyle
@@ -452,7 +452,7 @@ const Card = ({ data }) => {
 					</div>
 					{featuresData.map((item, index) => (
 						<span
-							key={item.id}
+							key={item.id + index}
 							className={
 								index % 2 === 0 ? style.tableValue : style.tableValueSec
 							}
@@ -498,7 +498,7 @@ const Card = ({ data }) => {
 					</div>
 					{featuresData.map((item, index) => (
 						<span
-							key={item.id}
+							key={item.id + index}
 							className={
 								index % 2 === 0 ? style.proTextStyle : style.proTextStyleSec
 							}
@@ -544,7 +544,7 @@ const Card = ({ data }) => {
 					</div>
 					{featuresData.map((item, index) => (
 						<span
-							key={item.id}
+							key={item.id + index}
 							className={
 								index % 2 === 0 ? style.tableValue : style.tableValueSec
 							}
