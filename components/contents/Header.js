@@ -257,13 +257,12 @@ const Header = () => {
 					<div className={classes.searchInput}>
 						<input
 							type='search'
-							placeholder='Search...'
 							value={searchInput}
 							onChange={handleChange}
 						/>
 						<button>
 							<ReactSVG src='/searchIconsvg.svg' />
-							<span>Search</span>
+							<span>ძებნა</span>
 						</button>
 					</div>
 

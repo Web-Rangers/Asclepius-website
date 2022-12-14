@@ -108,10 +108,6 @@ const ClinicCardItem = ({ data, listItem = false, cards }) => {
 				>
 					<a>
 						<div className={classes.cardItemContainer}>
-							{/* <div className={classes.cardRating}>
-        <ReactSVG src="/clinicStar.svg" className={classes.cardRatingStar} />
-        <span>4.9</span>
-      </div> */}
 							<div className={classes.imgPart}>
 								<img
 									src={data?.logoUrl}
@@ -129,7 +125,7 @@ const ClinicCardItem = ({ data, listItem = false, cards }) => {
 										width='16.67px'
 										height='15.04'
 									/>
-									{data?.address.address}
+									{data?.address?.municipality.title}, {data?.address.address}
 								</Text>
 							</div>
 						</div>

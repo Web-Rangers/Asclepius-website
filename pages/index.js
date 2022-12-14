@@ -181,8 +181,6 @@ function Home({ clinics, doctors, frelancers, categories, products }) {
 				products={products}
 			/>
 			<DoctorCardList doctorsData={doctorsData} />
-			{/* <Services />
-			<Benefits /> */}
 			<CardPrice />
 		</div>
 	);

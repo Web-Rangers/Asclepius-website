@@ -16,9 +16,9 @@
 	padding-right: 50px;
 }
 .smallheaderLeftText {
-	font-family: 'Noto Sans';
+	font-family: 'Noto Sans', 'Avenir Next Georgian';
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 400;
 	font-size: 14px;
 	line-height: 19px;
 	color: #ffffff;
@@ -34,9 +34,9 @@
 }
 .smallheaderLeftTextMedical {
 	position: relative;
-	font-family: 'Noto Sans';
+	font-family: 'Noto Sans', 'Avenir Next Georgian';
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 400;
 	font-size: 14px;
 	line-height: 19px;
 	color: #ffbbb6;
@@ -53,6 +53,7 @@
 	left: 50%;
 	transform: translate(-50%, 26px) rotate(0deg);
 	animation: mymove 2s linear infinite;
+	margin-top: 2px;
 }
 
 .smallheaderRight {
@@ -334,6 +335,7 @@
 	padding-left: 21px;
 	background-color: #f7f9fb;
 	border-radius: 12px;
+	font-family: 'Noto Sans', 'Avenir Next Georgian';
 }
 .searchInput input:focus {
 	outline: none;
@@ -357,7 +359,7 @@
 	box-sizing: border-box;
 }
 .searchInput button span {
-	font-family: 'Sofia Pro';
+	font-family: 'Noto Sans', 'Avenir Next Georgian';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 16px;

@@ -4,6 +4,7 @@ import classes from '../../styles/homePage.module.css';
 import Text from '../ui/Text';
 import { useRouter } from 'next/router';
 import Card from './Card';
+import classNames from 'classnames';
 
 const ClinicCardList = ({ clinicsData, products }) => {
 	const router = useRouter();
@@ -47,10 +48,10 @@ const ClinicCardList = ({ clinicsData, products }) => {
 					className={classes.clinicCardList}
 					id='slider'
 				>
-					{data?.map((item) => {
+					{data?.map((item, i) => {
 						return (
 							<ClinicCardItem
-								key={item?.id}
+								key={item?.id + i}
 								id={item.id}
 								src={item.logoUrl || '/testClinic.png'}
 								clinicName={item.displayName}
@@ -62,12 +63,12 @@ const ClinicCardList = ({ clinicsData, products }) => {
 					})}
 				</div>
 				<div
-					className={classes.showBtn}
+					className={classNames(classes.showBtn, classes.nonborder)}
 					onClick={() => {
 						showMoreFunc();
 					}}
 				>
-					{'მეტი'}
+					მეტი
 				</div>
 			</div>
 		</div>
