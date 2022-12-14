@@ -9,12 +9,20 @@ import Link from 'next/link';
 import Button from '../ui/Button';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { LazyLoadImage, trackWindowScroll }
+  from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import Skeleton from '../../components/contents/Skeleton';
+import classNames from 'classnames';
+// import 'antd/dist/reset.css';
 
 const ClinicCardItem = ({ data, listItem = false, cards }) => {
 	const size = useWindowSize();
 	let a;
 
 	const [discount, setDiscount] = useState(0);
+
+	const [state, setState] = useState(false);
 
 	useEffect(() => {
 		cards?.map((item) =>
@@ -66,21 +74,6 @@ const ClinicCardItem = ({ data, listItem = false, cards }) => {
 						</div>
 						<div className={s.bottomContainer}>
 							<Text style={s.clinicNameText}>{data?.displayName}</Text>
-							{/* {data?.workingHours
-								?.sort((a, b) => a.dayId - b.dayId)
-								?.map((item) => (
-									<div
-										key={item.id}
-										className={
-											item.dayId === 6 || item.dayId === 7
-												? s.clinicWorkingHours
-												: s.weekendWorkingHours
-										}
-									>
-										<Text> {weekday[item.dayId]} </Text>
-										<Text> {[item.startHour, '-', item.endHour]} </Text>
-									</div>
-								))} */}
 							<Text style={s.clinicAddressText}>
 								<Image
 									alt='locationIcon'
@@ -102,35 +95,46 @@ const ClinicCardItem = ({ data, listItem = false, cards }) => {
 					</>
 				</div>
 			) : (
-				<Link
-					key={data.key}
-					href={`/clinicDetailPage/${data?.id}`}
-				>
-					<a>
-						<div className={classes.cardItemContainer}>
-							<div className={classes.imgPart}>
-								<img
-									src={data?.logoUrl}
-									alt={'clinic'}
-									width='313px'
-									height='194px'
-								/>
-							</div>
-							<div className={s.bottomContainer}>
-								<Text style={classes.clinicNameText}>{data?.displayName}</Text>
-								<Text style={classes.clinicAddressText}>
-									<Image
-										src='/map-pin 1.svg'
-										alt=''
-										width='16.67px'
-										height='15.04'
+				<>
+					{!state && 
+						<Skeleton />
+					}
+					<Link
+						key={data.key}
+						href={`/clinicDetailPage/${data?.id}`}
+					>
+						<a>
+							<div className={classNames(classes.cardItemContainer, {
+								[classes.append]: state
+							})}>
+								<div className={classes.imgPart}>
+									<LazyLoadImage
+										key={data.id}
+										alt={data.title}
+										effect={'blur'}
+										height={'194px'}
+										src={data?.logoUrl}
+										width={state ? '313px' : '0px'}  
+										beforeLoad={()=> console.log('before')}
+										afterLoad={()=> setState(true)}
 									/>
-									{data?.address?.municipality.title}, {data?.address.address}
-								</Text>
+								</div>
+								<div className={s.bottomContainer}>
+									<Text style={classes.clinicNameText}>{data?.displayName}</Text>
+									<Text style={classes.clinicAddressText}>
+										<Image
+											src='/map-pin 1.svg'
+											alt=''
+											width='16.67px'
+											height='15.04'
+										/>
+										{data?.address?.municipality.title}, {data?.address.address}
+									</Text>
+								</div>
 							</div>
-						</div>
-					</a>
-				</Link>
+						</a>
+					</Link>
+				</>
 			)}
 		</>
 	);

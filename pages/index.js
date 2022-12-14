@@ -215,7 +215,7 @@ export const getServerSideProps = async () => {
 			doctors: getDoctors?.length === 0 ? null : getDoctors,
 			frelancers: getFreelancerDoc?.length === 0 ? null : getFreelancerDoc,
 			categories: getCategories,
-			products: getProducts,
+			products: [],
 		},
 	};
 };
