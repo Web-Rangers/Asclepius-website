@@ -247,7 +247,7 @@ const Header = () => {
 							<img
 								src='/logo.png'
 								alt='headerIcon'
-								width='144px'
+								width='154px'
 								height='32px'
 								// className={classes.mobileIcon}
 							/>

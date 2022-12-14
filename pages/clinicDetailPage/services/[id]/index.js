@@ -50,7 +50,7 @@ export default function Services({services}) {
                         onChange={(e)=>setSearch(e.target.value)}
                         placeholder='ძებნა' 
                     />
-                    <ReactSVG src="/search.svg" className={styles.searchIcon} />
+                    <ReactSVG src="/Search.svg" className={styles.searchIcon} />
                 </div>
             </div>
             <div className={styles.servicesTable}>
