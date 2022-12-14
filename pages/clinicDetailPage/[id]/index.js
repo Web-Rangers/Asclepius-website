@@ -173,7 +173,7 @@ const ClinicDetailPage = ({
 								<div className={s.serviceItem} onClick={()=> setModalOpen(true)}>
 									<Image
 										alt='services'
-										src='/servicesIcon.svg'
+										src='/servicesicon.svg'
 										width='24px'
 										height='24px'
 										style={{ paddingRight: '4px' }}
