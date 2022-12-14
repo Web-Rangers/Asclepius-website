@@ -232,8 +232,9 @@ const Header = () => {
 					</div>
 					<div className={classes.smallheaderRight}>
 						<img
-							src='/coin.svg'
+							src='/coin.png'
 							alt='headerIcon'
+							width={20}
 						/>
 						<span className={classes.coinStyle}>{points}</span>
 						<DropDown />

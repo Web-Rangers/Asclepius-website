@@ -1,6 +1,6 @@
 .doctorBody {
 	padding: 0 60px;
-	max-width: 1920px;
+	/* max-width: 1920px; */
 	width: 100%;
 	margin: auto;
 }
@@ -54,7 +54,7 @@
 	padding: 32px 50px;
 	width: 100%;
 	min-width: 465px;
-	min-height: 1200px;
+	/* min-height: 1200px; */
 }
 
 .aboutTxt span {
@@ -113,7 +113,8 @@
 .doctor {
 	position: relative;
 	width: 301px;
-	height: 290px;
+	/* height: 290px; */
+	padding-bottom:20px;
 }
 
 .poster {
