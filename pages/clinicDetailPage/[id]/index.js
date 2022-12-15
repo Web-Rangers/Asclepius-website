@@ -264,20 +264,20 @@ export const getServerSideProps = async (ctx) => {
 	const { params } = ctx;
 	const userId = params.id;
 	const getClinicById = await getData(
-		`https://asclepius.pirveli.ge/asclepius/v1/api/clinics/${userId}`
+		`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/${userId}`
 	);
 	const getClinicAddress = await getData(
-		`https://asclepius.pirveli.ge/asclepius/v1/api/clinics/${userId}/address`
+		`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/${userId}/address`
 	);
 	const getClinicBranches = await getData(
-		`https://asclepius.pirveli.ge/asclepius/v1/api/clinics/${userId}/branches`
+		`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/${userId}/branches`
 	);
 
 	const getClinicGallery = await getData(
-		`https://asclepius.pirveli.ge/asclepius/v1/api/gallery/clinic/${userId}`
+		`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/gallery/clinic/${userId}`
 	);
 	const getProducts = await getData(
-		`https://medical.pirveli.ge/medical/products/get-products`
+		`${process.env.MEDICAL_API}/medical/products/get-products`
 	);
 
 	return {

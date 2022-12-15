@@ -331,6 +331,7 @@
 .containerCard img {
 	width: 334.03px;
 	margin-bottom: 45px;
+	border-radius: 24px;
 }
 .containerList{
 	width: 100%;

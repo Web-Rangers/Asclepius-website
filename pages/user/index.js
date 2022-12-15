@@ -27,7 +27,7 @@ export default function UserDetailed() {
     const [familyMembers, setFamilyMembers] = useState([]);
 	const [user, setUser] = useState(null);
 	const [userInfo, setUserInfo] = useState({})
-
+    const [randomNum, setRandomNum] = useState(null);
     const memberList = [
         {
             id:1,
@@ -70,7 +70,7 @@ export default function UserDetailed() {
     ];
 
     useEffect(()=> {
-        getData('https://medical.pirveli.ge/medical/products/get-bought-products')
+        getData(`${process.env.MEDICAL_API}/medical/products/get-bought-products`)
             .then((response)=> {
                 const data = response?.products?.map((e)=> {
                     return {...e,
@@ -88,10 +88,11 @@ export default function UserDetailed() {
                 const unique = [...new Set(familyMembersArray)]
                 setFamilyMembers(unique)
             })
+        setRandomNum(Math.floor(1000 + Math.random() * 9000))
     },[])
 
     useEffect(() => {
-		getData('https://medical.pirveli.ge/medical/registry/user-id').then(
+		getData(`${process.env.MEDICAL_API}/medical/registry/user-id`).then(
 			(response) => {
 				setUser(response ? true : false);
 				setUserInfo(response)
@@ -278,7 +279,12 @@ export default function UserDetailed() {
                         actions={<Link href="user/mycard"><button className={styles.upgradeBtn}>ყველა სერვისი</button></Link>}
                         className={styles.cards}
                     >
-                        <img className={styles.cardImage} src="/card.png" alt="" />
+                        <div className={styles.cardView}>
+                            <img className={styles.cardImage} src="/MEDCARD.svg" alt="" />
+                            <span className={styles.cardNumber}>2017 1115 2020 {randomNum}</span>
+                            <span className={styles.cardUserTitle}>{userInfo?.firstName} {userInfo?.lastName}</span>
+                            <span className={styles.expiration}>00/00</span>
+                        </div>
                     </Block>
 
                     {/* <Block

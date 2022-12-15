@@ -134,13 +134,13 @@ function BuyCardPage({ cards, clinics, categories }) {
 			});
 		}
 
-		getData('https://medical.pirveli.ge/medical/registry/user-id').then(
+		getData(`${process.env.MEDICAL_API}/medical/registry/user-id`).then(
 			(response) => {
 				setUser(response);
 			}
 		);
 
-		getData('https://medical.pirveli.ge/medical/products/get-products')
+		getData(`${process.env.MEDICAL_API}/medical/products/get-products`)
 			.then((res)=> {setProducts(res); setProductState(res)})
 	}, []);
 
@@ -192,9 +192,9 @@ function BuyCardPage({ cards, clinics, categories }) {
 		setCardTypes((e) => ({ family: family, individual: individual }));
 	}, []);
 
-	const newMonth = products?.map((e) => e.endDateIncrementValue);
+	// const newMonth = products?.map((e) => e.endDateIncrementValue);
 
-	let uniqueArray = [...new Set(newMonth)];
+	// let uniqueArray = [...new Set(newMonth)];
 
 	const AntSwitch = styled(Switch)(({ theme }) => ({
 		width: 60,
@@ -238,6 +238,10 @@ function BuyCardPage({ cards, clinics, categories }) {
 			boxSizing: 'border-box',
 		},
 	}));
+
+	// if(!products?.length && !cards.length && !clinics?.length && !categories?.length){
+	// 	return 'Loading...'
+	// }
 
 	return (
 		<>
@@ -381,83 +385,144 @@ function BuyCardPage({ cards, clinics, categories }) {
 									}
 							  })}
 					</div> */}
-
-					{
-						!checked ? 'individual' : 'fmaily'
-					}
-
-					{categories
-						.filter((e) => e.parentCategoryId === null)
-						.map((item, i) => {
-							return (
-								<div
-									className={s.tableContentContainer}
-									key={item.id}
-								>
-									<div
-										onClick={() => {
-											if (dropDown === item.title) {
-												setDropDown('');
-											} else {
-												setDropDown(item.title);
-												setShowMore(false);
-											}
-										}}
-										className={s.categorieTitle}
-									>
-										<div className={s.nameIconCont}>
-											<span className={s.nameIconTitle}> {item.title}</span>
-											<Image
-												src='/droparrow.svg'
-												width='14px'
-												height='8px'
-											/>
+					<div className={s.cardsContainer}>
+						{
+							!checked ? <>
+								{/* {
+									cardType?.individual?.map((card)=> {
+										return <div className={s.cardsBlock}>
+											<div className={s.cardOverview}>
+												<img src="/buycradbg.png" alt=""/>
+												<div className={s.cardPrice}>
+													15 $
+												</div>
+												<div className={s.cardDisplayName}>
+													1 თვე
+												</div>
+											</div>
+											<div className={s.buyNow}>
+												შეიძინე
+											</div>
 										</div>
-										<div className={s.tableFackData}>
-											<span>{featuresData[0].starter}</span>
-											<span>{featuresData[1].pro}</span>
-											<span>{featuresData[2].plus}</span>
+									})
+								} */}
+								<div className={s.cardsBlock}>
+									<div className={s.cardOverview}>
+										<img src="/buycradbg.png" alt=""/>
+										<div className={s.cardPrice}>
+											15 $
+										</div>
+										<div className={s.cardDisplayName}>
+											1 თვე
 										</div>
 									</div>
+									<div className={s.buyNow}>
+										შეიძინე
+									</div>
+								</div>
+								<div className={s.cardsBlock}>
+									<div className={s.cardOverview}>
+										<img src="/buycradbg.png" alt=""/>
+										<div className={s.cardPrice}>
+											30 $
+										</div>
+										<div className={s.cardDisplayName}>
+											3 თვე
+										</div>
+									</div>
+									<div className={s.buyNow}>
+										შეიძინე
+									</div>
+								</div>
+								<div className={s.cardsBlock}>
+									<div className={s.cardOverview}>
+										<img src="/buycradbg.png" alt=""/>
+										<div className={s.cardPrice}>
+											45 $
+										</div>
+										<div className={s.cardDisplayName}>
+											6 თვე
+										</div>
+									</div>
+									<div className={s.buyNow}>
+										შეიძინე
+									</div>
+								</div>
+							</> : 'fmaily'
+						}
+					</div>
+					<div className={s.listofCats}>
+						{categories
+							.filter((e) => e.parentCategoryId === null)
+							.map((item, i) => {
+								return (
+									<div
+										className={s.tableContentContainer}
+										key={item.id}
+									>
+										<div
+											onClick={() => {
+												if (dropDown === item.title) {
+													setDropDown('');
+												} else {
+													setDropDown(item.title);
+													setShowMore(false);
+												}
+											}}
+											className={s.categorieTitle}
+										>
+											<div className={s.nameIconCont}>
+												<span className={s.nameIconTitle}> {item.title}</span>
+												<Image
+													src='/droparrow.svg'
+													width='14px'
+													height='8px'
+												/>
+											</div>
+											<div className={s.tableFackData}>
+												<span>{featuresData[2].plus}</span>
+											</div>
+										</div>
 
-									{dropDown === item.title && (
-										<div className={s.dropDownList}>
-											{categories?.map((sub) => {
-												if (sub.id == item.id) {
-													let catsw = clinics
-														.map((e) => {
-															if (
-																e.clinicCategories.some((x) => x.id == sub.id)
-															) {
-																return e;
-															}
-														})
-														.filter((e) => e !== undefined);
-													return (
-														<>
-															{!showMore &&
-																catsw.length > 3 &&
-																catsw
-																	.slice(0, 3)
-																	.map((e, i) => (
+										{dropDown === item.title && (
+											<div className={s.dropDownList}>
+												{categories?.map((sub) => {
+													if (sub.id == item.id) {
+														let catsw = clinics
+															.map((e) => {
+																if (
+																	e.clinicCategories.some((x) => x.id == sub.id)
+																) {
+																	return e;
+																}
+															})
+															.filter((e) => e !== undefined);
+														return (
+															<>
+																{!showMore &&
+																	catsw.length > 3 &&
+																	catsw
+																		.slice(0, 3)
+																		.map((e, i) => (
+																			<span key={i}>{e.displayName}</span>
+																		))}
+																{showMore &&
+																	catsw.map((e, i) => (
 																		<span key={i}>{e.displayName}</span>
 																	))}
-															{showMore &&
-																catsw.map((e, i) => (
-																	<span key={i}>{e.displayName}</span>
-																))}
-															<span onClick={() => setShowMore(!showMore)}>
-																{showMore ? 'იხილე ნაკლები' : 'იხილეთ მეტი'}
-															</span>
-														</>
-													);
-												}
-											})}
-										</div>
-									)}
-								</div>
-							);
-						})}
+																<span onClick={() => setShowMore(!showMore)}>
+																	{showMore ? 'იხილე ნაკლები' : 'იხილეთ მეტი'}
+																</span>
+															</>
+														);
+													}
+												})}
+											</div>
+										)}
+									</div>
+								);
+							})}
+					</div>
 					{/* <div className={s.buttonContainer}>
 						<span className={s.finalPrice}>
 							{price}
@@ -586,9 +651,9 @@ export const getStaticProps = async () => {
 
 	return {
 		props: {
-			cards: getDoctors,
-			clinics: getClinics,
-			categories: getCategories,
+			cards: getDoctors?.length ? getDoctors : [],
+			clinics: getClinics?.length ? getClinics : [],
+			categories: getCategories?.length ? getCategories : [],
 		},
 		revalidate: 10
 	};

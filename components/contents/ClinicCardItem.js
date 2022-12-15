@@ -59,7 +59,7 @@ const ClinicCardItem = ({ data, listItem = false, cards }) => {
 							<img
 								src={
 									data?.logoUrl ===
-									'https://s3.pirveli.ge/v1/api/getFile?id=null'
+									'https://s3.pirveli.com/v1/api/getFile?id=null'
 										? '/clinicImage.png'
 										: data?.logoUrl
 								}

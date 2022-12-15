@@ -11,21 +11,23 @@ export default function Navigation() {
 	let menuRef = useRef();
 
 	useEffect(() => {
-		getData(`https://medical.pirveli.ge/medical/categories`).then((response) =>
+		getData(`${process.env.MEDICAL_API}/medical/categories`).then((response) =>
 		{
-			let medical = response?.filter(e=> e.title == 'სამედიცინო დაწესებულებები')[0];
-			let withoutMedical = response?.filter(e=> e.title !== 'სამედიცინო დაწესებულებები');
-			withoutMedical.push(medical)
-			setCategories(withoutMedical)
-
-			//allsubcats
-			let subcat = response?.filter((item)=> {if(item.parentCategoryId === null && 
-			item.title !== 'ყველა' &&
-			item.title !== 'სტომატოლოგია' &&
-			item.title !== 'ესთეტიკა და სილამაზე' &&
-			item.title !== 'ლაბორატორია და დიაგნოსტიკა' &&
-			item.title !== 'სამედიცინო დაწესებულებები'){return item}})
-			setAllSubcats(subcat)
+			if(response.status === 200 || response.status === 201){
+				let medical = response?.filter(e=> e.title == 'სამედიცინო დაწესებულებები')[0];
+				let withoutMedical = response?.filter(e=> e.title !== 'სამედიცინო დაწესებულებები');
+				withoutMedical?.push(medical)
+				setCategories(withoutMedical)
+	
+				//allsubcats
+				let subcat = response?.filter((item)=> {if(item.parentCategoryId === null && 
+				item.title !== 'ყველა' &&
+				item.title !== 'სტომატოლოგია' &&
+				item.title !== 'ესთეტიკა და სილამაზე' &&
+				item.title !== 'ლაბორატორია და დიაგნოსტიკა' &&
+				item.title !== 'სამედიცინო დაწესებულებები'){return item}})
+				setAllSubcats(subcat)
+			}
 		}
 		);
 	}, []);

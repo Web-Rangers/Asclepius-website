@@ -67,7 +67,7 @@ const Header = () => {
 	};
 
 	useEffect(() => {
-		getData('https://medical.pirveli.ge/medical/registry/user-id').then(
+		getData(`${process.env.MEDICAL_API}/medical/registry/user-id`).then(
 			(response) => {
 				setUser(response ? true : false);
 				setUserInfo(response)
@@ -75,7 +75,7 @@ const Header = () => {
 			}
 		);
 
-		getData('https://medical.pirveli.ge/medical/products/user-points')
+		getData(`${process.env.MEDICAL_API}/medical/products/user-points`)
 			.then((response)=>{
 				setPoints(response?.amountOfPoints)
 			})
@@ -213,20 +213,21 @@ const Header = () => {
 					</section>
 				</Modal>
 			</div>
+			<div className={classes.siteStatus}>საიტი მუშაობს სატესტო რეჟიმში</div>
 			<div className={classes.smallheaderContainer}>
 				<div className={classes.content}>
 					<div className={classes.smallheaderLeft}>
-						<Link href='https://optimoml.geopay.ge/index.php'>
+						<Link href='https://optimoml.geopay.com/index.php'>
 							<a className={classes.smallheaderLeftText}>მაღაზია</a>
 						</Link>
 
 						<Link href='/'>
 							<a className={classes.smallheaderLeftTextMedical}>მედიქალი</a>
 						</Link>
-						<Link href='https://vouchers.pirveli.ge'>
+						<Link href='https://vouchers.pirveli.com'>
 							<a className={classes.smallheaderLeftText}>ვაუჩერები</a>
 						</Link>
-						<Link href='https://lot51.pirveli.ge'>
+						<Link href='https://lot51.pirveli.com'>
 							<a className={classes.smallheaderLeftText}>გათამაშება</a>
 						</Link>
 					</div>
@@ -294,7 +295,7 @@ const Header = () => {
 						</Link>
 						{user && (
 							<div className={classes.authorizedUser} ref={headerRef}>
-								<Dropdown
+								{/* <Dropdown
 									trigger={['click']}
 									dropdownRender={(nodes) => {
 										return (
@@ -314,7 +315,7 @@ const Header = () => {
 											<ReactSVG src='/notificationuser.svg' />
 										</Space>
 									</a>
-								</Dropdown>
+								</Dropdown> */}
 
 								<Dropdown
 									menu={{

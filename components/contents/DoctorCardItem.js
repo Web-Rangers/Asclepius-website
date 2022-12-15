@@ -29,7 +29,7 @@ const DoctorCardItem = ({ id, ...props }) => {
 						effect={'blur'}
 						// height={'286px'}
 						src={
-							props.src === 'https://s3.pirveli.ge/v1/api/getFile?id=null'
+							props.src === 'https://s3.pirveli.com/v1/api/getFile?id=null'
 								? '/Profile.svg'
 								: props.src
 						}

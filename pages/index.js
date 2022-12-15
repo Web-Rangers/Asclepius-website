@@ -15,7 +15,7 @@ import { useWindowSize } from '../components/useWindowSize';
 import { getData } from '../components/request';
 import { Carousel } from 'react-responsive-carousel';
 import MainSlider from '../components/contents/MainSlider';
-import { Dropdown, message } from 'antd';
+import { Alert, Space, Spin } from 'antd';
 import 'antd/dist/antd.css';
 import Link from 'next/link';
 import Swipper from '../components/contents/Swipper';
@@ -123,6 +123,15 @@ function Home({ clinics, doctors, frelancers, categories, products }) {
 		},
 	];
 
+	// if(!products?.length){
+	// 	return <div className={classes.loader}>
+	// 		<img src="/skeleton-gif.gif" />
+	// 		{/* <Spin size="large">
+	// 			<div className="content" />
+	// 		</Spin> */}
+	// 	</div>
+	// }
+
 	return (
 		<div className={classes.homePageContainer}>
 			<Navigation />
@@ -201,21 +210,22 @@ export const getServerSideProps = async () => {
 	const getCategories = await getData(`${API_URL}/asclepius/v1/api/categories`);
 
 	const getProducts = await getData(
-		`https://medical.pirveli.ge/medical/products/get-products`
+		`${process.env.MEDICAL_API}/medical/products/get-products`
 	);
+
+	if (getProducts?.notFound) {
+		return {
+		  notFound: true,
+		};
+	}
 
 	return {
 		props: {
-			clinics:
-				getClinics?.length === 0
-					? null
-					: getClinics.sort(function (a, b) {
-							return a.regDate > b.regDate ? -1 : a.regDate > b.regDate ? 1 : 0;
-					  }),
-			doctors: getDoctors?.length === 0 ? null : getDoctors,
-			frelancers: getFreelancerDoc?.length === 0 ? null : getFreelancerDoc,
-			categories: getCategories,
-			products: getProducts,
+			clinics: Array.isArray(getClinics) ? getClinics : [],
+			doctors: Array.isArray(getDoctors) ? getDoctors : [],
+			frelancers: Array.isArray(getFreelancerDoc) ? getFreelancerDoc : [],
+			categories: Array.isArray(getCategories) ? getCategories : [],
+			products: Array.isArray(getProducts) ? getProducts : []
 		},
 	};
 };

@@ -77,7 +77,7 @@ export const getServerSideProps = async (ctx) => {
 	const id = params.id;
 
     const services = await getData(
-		`https://medical.pirveli.ge/medical/products/get-products-by-contract-id?contractId=${id}`
+		`${process.env.MEDICAL_API}/medical/products/get-products-by-contract-id?contractId=${id}`
 	);
 
     return {
