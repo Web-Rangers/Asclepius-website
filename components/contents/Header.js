@@ -227,7 +227,7 @@ const Header = () => {
 						<Link href='https://vouchers.pirveli.com'>
 							<a className={classes.smallheaderLeftText}>ვაუჩერები</a>
 						</Link>
-						<Link href='https://lot51.pirveli.com'>
+						<Link href='https://win.pirveli.com'>
 							<a className={classes.smallheaderLeftText}>გათამაშება</a>
 						</Link>
 					</div>
