@@ -28,8 +28,8 @@ const ClinicCardList = ({ clinicsData, products }) => {
 		<div className={classes.clinicCardContainer}>
 			<div className={classes.firstPart}>
 				{
-					products?.length &&
-					<Card data={products} />
+					products?.length ? 
+					<Card data={products} /> : ''
 				}
 				<div className={classes.clinicCardContainerTitle}>
 					{/* <Text style={classes.serviceTextStyle}>Services</Text> */}
