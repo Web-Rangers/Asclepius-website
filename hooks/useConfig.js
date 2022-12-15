@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const API_URL = `https://medical.pirveli.ge/medical/twilio/accessToken`
+const API_URL = `${process.env.MEDICAL_API}/medical/twilio/accessToken`
 
 const INITIAL_STATE = {
     isLoading: false,
