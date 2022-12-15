@@ -682,8 +682,8 @@
 
 .buyNow {
 	position: absolute;
-	bottom: 0;
-	height: 0;
+	bottom: 45px;
+	height: 45px;
 	background-color: red;
 	width: 100%;
 	text-align: center;
@@ -703,7 +703,7 @@
 
 .cardsBlock:hover .buyNow {
 	padding: 10px;
-	height: 45px;
+	bottom:-0;
 	transition: 0.5s;
 	visibility: visible;
 }
