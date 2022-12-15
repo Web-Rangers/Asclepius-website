@@ -230,6 +230,9 @@ const Header = () => {
 						<Link href='https://win.pirveli.com'>
 							<a className={classes.smallheaderLeftText}>გათამაშება</a>
 						</Link>
+						<Link href='https://game.pirveli.com'>
+							<a className={classes.smallheaderLeftText}>თამაშები</a>
+						</Link>
 					</div>
 					<div className={classes.smallheaderRight}>
 						<img
