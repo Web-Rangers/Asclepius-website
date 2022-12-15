@@ -555,7 +555,7 @@ const Card = ({ data }) => {
 			</div> */}
 			<div className={style.cardContainer}>
 				<div className={style.containerCard}>
-					<img src="/card4.png" width={200} /> 
+					<img src="/MEDCARD-VECTOR.svg" /> 
 				</div>
 				<div className={style.containerList}>
 					{featuresData?.map((e)=>{

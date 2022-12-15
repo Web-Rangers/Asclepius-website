@@ -302,7 +302,7 @@ export const getServerSideProps = async () => {
 	);
 
 	const getProducts = await getData(
-		`https://medical.pirveli.ge/medical/products/get-products`
+		`${process.env.MEDICAL_API}/medical/products/get-products`
 	);
 
 	const getMunicipalities = await getData(
@@ -312,7 +312,7 @@ export const getServerSideProps = async () => {
 	return {
 		props: {
 			municipalities: getMunicipalities,
-			cards: getProducts,
+			cards: getProducts || [],
 			clinics:
 				getClinics?.length === 0
 					? null

@@ -97,7 +97,7 @@ export default function Clinic({ clinics }) {
 
 export const getStaticProps = async () => {
 	const getClinics = await getData(
-		'https://asclepius.pirveli.ge/asclepius/v1/api/clinics/?page=0&size=10'
+		`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/?page=0&size=10`
 	);
 
 	return {

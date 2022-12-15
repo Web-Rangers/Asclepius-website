@@ -10,8 +10,11 @@ module.exports = {
   trailingSlash: true,
 
   images: {
-      domains: ['s3.pirveli.ge'],
+      domains: ['s3.pirveli.com'],
       disableStaticImages: true
+  },
+  env: {
+    MEDICAL_API: 'https://medical.pirveli.com'
   },
 
   async rewrites() {
@@ -20,7 +23,7 @@ module.exports = {
           {
               source: "/asclepius/v1/:path*",
               destination:
-                  "https://asclepius.pirveli.ge/asclepius/v1/:path*",
+                  "https://asclepius.pirveli.com/asclepius/v1/:path*",
           },
 
       ]
