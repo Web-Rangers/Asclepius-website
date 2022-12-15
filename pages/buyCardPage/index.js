@@ -410,7 +410,7 @@ function BuyCardPage({ cards, clinics, categories }) {
 									<div className={s.cardOverview}>
 										<img src="/buycradbg.png" alt=""/>
 										<div className={s.cardPrice}>
-											15 $
+											15 ლ
 										</div>
 										<div className={s.cardDisplayName}>
 											1 თვე
@@ -424,7 +424,7 @@ function BuyCardPage({ cards, clinics, categories }) {
 									<div className={s.cardOverview}>
 										<img src="/buycradbg.png" alt=""/>
 										<div className={s.cardPrice}>
-											30 $
+											40 ლ
 										</div>
 										<div className={s.cardDisplayName}>
 											3 თვე
@@ -438,7 +438,7 @@ function BuyCardPage({ cards, clinics, categories }) {
 									<div className={s.cardOverview}>
 										<img src="/buycradbg.png" alt=""/>
 										<div className={s.cardPrice}>
-											45 $
+											75 ლ
 										</div>
 										<div className={s.cardDisplayName}>
 											6 თვე
@@ -448,7 +448,50 @@ function BuyCardPage({ cards, clinics, categories }) {
 										შეიძინე
 									</div>
 								</div>
-							</> : 'fmaily'
+							</> : <>
+								<div className={s.cardsBlock}>
+									<div className={s.cardOverview}>
+										<img src="/buycradbg.png" alt=""/>
+										<div className={s.cardPrice}>
+											45 ლ
+										</div>
+										<div className={s.cardDisplayName}>
+											1 თვე
+										</div>
+									</div>
+									<div className={s.buyNow}>
+										შეიძინე
+									</div>
+								</div>
+								<div className={s.cardsBlock}>
+									<div className={s.cardOverview}>
+										<img src="/buycradbg.png" alt=""/>
+										<div className={s.cardPrice}>
+											120 ლ
+										</div>
+										<div className={s.cardDisplayName}>
+											3 თვე
+										</div>
+									</div>
+									<div className={s.buyNow}>
+										შეიძინე
+									</div>
+								</div>
+								<div className={s.cardsBlock}>
+									<div className={s.cardOverview}>
+										<img src="/buycradbg.png" alt=""/>
+										<div className={s.cardPrice}>
+											225 ლ
+										</div>
+										<div className={s.cardDisplayName}>
+											6 თვე
+										</div>
+									</div>
+									<div className={s.buyNow}>
+										შეიძინე
+									</div>
+								</div>
+							</>
 						}
 					</div>
 					<div className={s.listofCats}>
