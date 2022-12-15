@@ -64,7 +64,7 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
         return manageUsersArray
     }
 
-    let API_URL = (cardTp !== 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL' ? 'https://medical.pirveli.ge/medical/orders/create-orders' : 'https://medical.pirveli.ge/medical/orders/create-order');
+    let API_URL = (cardTp !== 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL' ? `${process.env.MEDICAL_API}/medical/orders/create-orders` : `${process.env.MEDICAL_API}/medical/orders/create-order`);
 
     async function request(values = null){
         if(Object.getOwnPropertyNames(values).length !== 0){
@@ -102,7 +102,7 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                 personDob: personDate
             };
 
-            postData(`https://medical.pirveli.ge/medical/registry/${currentUser.id}`, requestBody, 'PUT')
+            postData(`${process.env.MEDICAL_API}/medical/registry/${currentUser.id}`, requestBody, 'PUT')
                 .then((response)=>{
                     console.log(requestBody)
                     postData(

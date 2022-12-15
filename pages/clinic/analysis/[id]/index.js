@@ -97,7 +97,7 @@ export default function Analysis({ analysis }) {
 export const getServerSideProps = async (ctx) => {
     const { params } = ctx;
     const userId = params.id;
-    const getAnalysis = await getData(`https://asclepius.pirveli.ge/asclepius/v1/api/clinics/get-products?contractId=${userId}`)
+    const getAnalysis = await getData(`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/get-products?contractId=${userId}`)
 
     return {
         props: {

@@ -6,7 +6,7 @@ export function useDoctors() {
     // const queryClient = useQueryClient();
 
     const doctors = useQuery("doctors", async () => {
-        const { data } = await axios.get("https://asclepius.pirveli.ge/asclepius/v1/api/clinics/doctors?page=0&size=10");
+        const { data } = await axios.get("https://asclepius.pirveli.com/asclepius/v1/api/clinics/doctors?page=0&size=10");
         return data;
     });
 

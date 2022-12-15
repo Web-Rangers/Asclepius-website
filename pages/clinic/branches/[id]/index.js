@@ -69,7 +69,7 @@ export default function Branches({branches}) {
 export const getServerSideProps = async (ctx) => {
     const { params } = ctx;
     const userId = params.id;
-    const getBranches = await getData(`https://asclepius.pirveli.ge/asclepius/v1/api/clinics/${userId}/branches`)
+    const getBranches = await getData(`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/${userId}/branches`)
 
     return {
         props: {
