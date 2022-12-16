@@ -21,6 +21,10 @@ import Navigation from '../../components/navigation';
 let PageSize = 12;
 
 function ClinicsPage({ clinics, cards, municipalities }) {
+	if(!clinics){
+		return false
+	}
+	
 	const [modalIsOpen, setIsOpen] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [searchInput, setSearchInput] = useState('');
@@ -295,32 +299,40 @@ function ClinicsPage({ clinics, cards, municipalities }) {
 }
 
 export const getServerSideProps = async () => {
-	let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
-
-	const getClinics = await getData(
-		`${API_URL}/asclepius/v1/api/clinics/search?name=`
-	);
-
-	const getProducts = await getData(
-		`${process.env.MEDICAL_API}/medical/products/get-products`
-	);
-
-	const getMunicipalities = await getData(
-		`${API_URL}/asclepius/v1/api/municipalities`
-	);
-
-	return {
-		props: {
-			municipalities: getMunicipalities,
-			cards: getProducts || [],
-			clinics:
-				getClinics?.length === 0
-					? null
-					: getClinics?.sort(function (a, b) {
-							return a.regDate > b.regDate ? -1 : a.regDate > b.regDate ? 1 : 0;
-					  }),
-		},
-	};
+	try {
+		let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
+	
+		const getClinics = await getData(
+			`${API_URL}/asclepius/v1/api/clinics/search?name=`
+		);
+	
+		const getProducts = await getData(
+			`${process.env.MEDICAL_API}/medical/products/get-products`
+		);
+	
+		const getMunicipalities = await getData(
+			`${API_URL}/asclepius/v1/api/municipalities`
+		);
+	
+		return {
+			props: {
+				municipalities: getMunicipalities,
+				cards: getProducts || [],
+				clinics:
+					getClinics?.length === 0
+						? null
+						: getClinics?.sort(function (a, b) {
+								return a.regDate > b.regDate ? -1 : a.regDate > b.regDate ? 1 : 0;
+						  }),
+			},
+		};
+	}catch(error){
+		return {
+			props:{
+				error: true
+			}
+		}
+	}
 };
 
 export default ClinicsPage;

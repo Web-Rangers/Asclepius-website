@@ -19,7 +19,7 @@ const Pagination = (props) => {
     pageSize,
   });
 
-  if (currentPage === 0 || paginationRange.length < 2) {
+  if (currentPage === 0 || paginationRange?.length < 2) {
     return null;
   }
 
@@ -31,7 +31,7 @@ const Pagination = (props) => {
     currentPage > 1 ? onPageChange(currentPage - 1) : onPageChange(currentPage);
   };
 
-  let lastPage = paginationRange[paginationRange.length - 1];
+  let lastPage = paginationRange[paginationRange?.length - 1];
 
   return (
     <ul className={s.paginationContainer}>

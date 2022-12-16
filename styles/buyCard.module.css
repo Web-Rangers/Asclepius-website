@@ -708,6 +708,23 @@
 	visibility: visible;
 }
 
+.cardsTransition {
+	animation: 0.6s checked;
+}
+
+.cardsTransitionUnch {
+	animation: 0.6s unchecked;
+}
+
+@keyframes checked {
+	50% { opacity: 0.5 }
+	100% { opacity: 1 }
+}
+@keyframes unchecked {
+	50% { opacity: 0.5 }
+	100% { opacity: 1 }
+}
+
 @media only screen and (max-width: 1180px) {
 	.forMobile {
 		display: block;

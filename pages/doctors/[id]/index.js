@@ -20,13 +20,16 @@ export default function DoctorDetailed({
 	certificates = [],
 	workingDays = [],
 }) {
+	if(!doctor){
+		return false
+	}
+
 	const [contact, setContact] = useState('');
 	const [patient, setPatient] = useState('');
 	const [modalIsOpen, setModalOpen] = useState(false);
 	const router = useRouter();
 	const [tab, setTab] = useState('certificates');
 	const { firstName, lastName, pictureUrl, professions, aboutMe } = doctor;
-
 	console.log('sertifi', educations);
 	return (
 		<>
@@ -420,50 +423,65 @@ export default function DoctorDetailed({
 }
 
 export const getStaticProps = async (context) => {
-	const getDoctor = await getData(
-		`${API_URL}/asclepius/v1/api/clinics/doctors/${context.params.id}`
-	);
-	const getDocEducations = await getData(
-		`${API_URL}/asclepius/v1/api/doctors/${context.params.id}/educations`
-	);
-	const getDocCertificates = await getData(
-		`${API_URL}/asclepius/v1/api/doctors/${context.params.id}/certificates`
-	);
-	const getDocWorkingDay = await getData(
-		`${API_URL}/asclepius/v1/api/doctors/freelancers/${context.params.id}/days`
-	);
-
-	return {
-		props: {
-			doctor: getDoctor,
-			educations: getDocEducations?.length == 0 ? null : getDocEducations,
-			certificates: getDocCertificates?.length == 0 ? null : getDocCertificates,
-			workingDays: getDocWorkingDay?.length == 0 ? null : getDocWorkingDay,
-		},
-		revalidate: 10,
-	};
+	try {
+		const getDoctor = await getData(
+			`${API_URL}/asclepius/v1/api/clinics/doctors/${context.params.id}`
+		);
+		const getDocEducations = await getData(
+			`${API_URL}/asclepius/v1/api/doctors/${context.params.id}/educations`
+		);
+		const getDocCertificates = await getData(
+			`${API_URL}/asclepius/v1/api/doctors/${context.params.id}/certificates`
+		);
+		const getDocWorkingDay = await getData(
+			`${API_URL}/asclepius/v1/api/doctors/freelancers/${context.params.id}/days`
+		);
+	
+		return {
+			props: {
+				doctor: getDoctor,
+				educations: getDocEducations?.length == 0 ? null : getDocEducations,
+				certificates: getDocCertificates?.length == 0 ? null : getDocCertificates,
+				workingDays: getDocWorkingDay?.length == 0 ? null : getDocWorkingDay,
+			},
+			revalidate: 10,
+		};
+	}catch(error){
+		return {
+			props:{
+				error: true
+			}
+		}
+	}
 };
 
 export const getStaticPaths = async () => {
-	const getDoctors = await getData(
-		`${API_URL}/asclepius/v1/api/clinics/doctors?page=0&size=9999`
-	);
-
-	const getFreelancerDoc = await getData(
-		`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
-	);
-
-	const concatDoctors = [].concat(
-		getDoctors?.content,
-		getFreelancerDoc?.content
-	);
-
-	const paths = concatDoctors?.map((doc) => ({
-		params: { id: doc.id.toString() },
-	}));
-
-	return {
-		paths,
-		fallback: 'blocking',
-	};
+	try {
+		const getDoctors = await getData(
+			`${API_URL}/asclepius/v1/api/clinics/doctors?page=0&size=9999`
+		);
+	
+		const getFreelancerDoc = await getData(
+			`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
+		);
+	
+		const concatDoctors = [].concat(
+			getDoctors?.content,
+			getFreelancerDoc?.content
+		);
+	
+		const paths = concatDoctors?.map((doc) => ({
+			params: { id: doc.id.toString() },
+		}));
+	
+		return {
+			paths,
+			fallback: 'blocking',
+		};
+	}catch(error){
+		return {
+			paths: [],
+			fallback: 'blocking',
+		}
+	}
 };

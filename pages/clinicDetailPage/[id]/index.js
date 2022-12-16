@@ -263,30 +263,38 @@ export default ClinicDetailPage;
 export const getServerSideProps = async (ctx) => {
 	const { params } = ctx;
 	const userId = params.id;
-	const getClinicById = await getData(
-		`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/${userId}`
-	);
-	const getClinicAddress = await getData(
-		`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/${userId}/address`
-	);
-	const getClinicBranches = await getData(
-		`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/${userId}/branches`
-	);
-
-	const getClinicGallery = await getData(
-		`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/gallery/clinic/${userId}`
-	);
-	const getProducts = await getData(
-		`${process.env.MEDICAL_API}/medical/products/get-products`
-	);
-
-	return {
-		props: {
-			cardData: getClinicById,
-			address: getClinicAddress,
-			branches: getClinicBranches,
-			gallery: getClinicGallery,
-			products: getProducts,
-		},
-	};
+	try {
+		const getClinicById = await getData(
+			`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/${userId}`
+		);
+		const getClinicAddress = await getData(
+			`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/${userId}/address`
+		);
+		const getClinicBranches = await getData(
+			`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/${userId}/branches`
+		);
+	
+		const getClinicGallery = await getData(
+			`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/gallery/clinic/${userId}`
+		);
+		const getProducts = await getData(
+			`${process.env.MEDICAL_API}/medical/products/get-products`
+		);
+	
+		return {
+			props: {
+				cardData: getClinicById,
+				address: getClinicAddress,
+				branches: getClinicBranches,
+				gallery: getClinicGallery,
+				products: getProducts,
+			},
+		};
+	}catch(error) {
+		return {
+			props: {
+				error: true
+			}
+		}
+	} 
 };

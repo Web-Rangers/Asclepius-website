@@ -383,7 +383,10 @@ function BuyCardPage({ cards, clinics, categories }) {
 							</FormGroup>
 						</div>
 					</div>
-					<div className={s.cardsContainer}>
+					<div className={classNames(s.cardsContainer, {
+						[s.cardsTransition]: checked,
+						[s.cardsTransitionUnch]: !checked,
+					})}>
 						{
 							!checked ? <>
 								{
@@ -432,7 +435,7 @@ function BuyCardPage({ cards, clinics, categories }) {
 					</div>
 					<div className={s.listofCats}>
 						{categories
-							.filter((e) => e.parentCategoryId === null)
+							?.filter((e) => e.parentCategoryId === null)
 							.map((item, i) => {
 								return (
 									<div
@@ -511,23 +514,32 @@ function BuyCardPage({ cards, clinics, categories }) {
 export const getStaticProps = async () => {
 	let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-	const getClinics = await getData(
-		`${API_URL}/asclepius/v1/api/clinics/search?name=`
-	);
-	const getDoctors = await getData(
-		`${API_URL}/asclepius/v1/api/transactions/cards/get-products?contractId=572`
-	);
+	try{
+		const getClinics = await getData(
+			`${API_URL}/asclepius/v1/api/clinics/search?name=`
+		);
+		const getDoctors = await getData(
+			`${API_URL}/asclepius/v1/api/transactions/cards/get-products?contractId=572`
+		);
+	
+		const getCategories = await getData(`${process.env.MEDICAL_API}/medical/categories`);
+	
+		return {
+			props: {
+				cards: getDoctors?.length ? getDoctors : [],
+				clinics: getClinics?.length ? getClinics : [],
+				categories: getCategories?.length ? getCategories : [],
+			},
+			revalidate: 10
+		};
+	}catch(error){
+		return {
+			props: {
+				error: true
+			}
+		}
+	}
 
-	const getCategories = await getData(`${process.env.MEDICAL_API}/medical/categories`);
-
-	return {
-		props: {
-			cards: getDoctors?.length ? getDoctors : [],
-			clinics: getClinics?.length ? getClinics : [],
-			categories: getCategories?.length ? getCategories : [],
-		},
-		revalidate: 10
-	};
 };
 
 export default BuyCardPage;
