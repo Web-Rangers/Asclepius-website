@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from '../../styles/pages/clinic.module.css';
 import classNames from 'classnames';
 import CheckBox from '../../components/ui/CheckBox';
