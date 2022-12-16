@@ -26,8 +26,6 @@ function Home({ clinics, doctors, frelancers, categories, products }) {
 	const [doctorsData, setDoctorsData] = useState([]);
 	const [imgData, setImgData] = useState([]);
 
-	console.log('products', products);
-
 	const allData = frelancers?.content
 		?.concat(doctors?.content)
 		.sort(function (a, b) {
@@ -207,7 +205,7 @@ export const getServerSideProps = async () => {
 	const getFreelancerDoc = await getData(
 		`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
 	);
-	const getCategories = await getData(`${API_URL}/asclepius/v1/api/categories`);
+	const getCategories = await getData(`${process.env.MEDICAL_API}/medical/categories`);
 
 	const getProducts = await getData(
 		`${process.env.MEDICAL_API}/medical/products/get-products`

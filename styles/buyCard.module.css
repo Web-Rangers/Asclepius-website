@@ -707,6 +707,7 @@
 	transition: 0.5s;
 	visibility: visible;
 }
+
 @media only screen and (max-width: 1180px) {
 	.forMobile {
 		display: block;

@@ -34,7 +34,7 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
     const [edit, setEdit] = useState(null);
 
     const findCard = cards?.filter((e)=> e.genericTransactionTypeId === cardType)[0];
-    let cardTp = findCard.genericTransactionTypeToAddInfo.infoCategory; //"PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL"
+    let cardTp = selectPack; //findCard.genericTransactionTypeToAddInfo.infoCategory
 
     function usersArray() {
         const manageUsersArray = users?.map((user)=> {
@@ -186,6 +186,11 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
 
     let bodyref = useRef();
 
+    useEffect(()=> {
+        console.log(memberType);
+        console.log(openMemberModal)
+    },[memberType])
+    
     return <>
         {
             openMemberModal && <CheckoutFamilyMember onClose={()=> setOpenMemberModal(false)} type={memberType} users={users} setUsers={setUsers} />

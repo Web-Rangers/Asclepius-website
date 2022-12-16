@@ -5,7 +5,7 @@
   left: 0;
   top: 0;
   background-color: transparent;
-  z-index: 999999;
+  z-index: 9999999998
 }
 
 .container {
@@ -17,7 +17,7 @@
   padding: 40px 0;
   top: 0;
   right: 0;
-  z-index: 9999999;
+  z-index: 9999999999
 }
 
 .fmTool {

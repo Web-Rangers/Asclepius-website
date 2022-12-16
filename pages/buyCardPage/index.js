@@ -27,6 +27,69 @@ function BuyCardPage({ cards, clinics, categories }) {
 	const [productState, setProductState] = useState([]);
 	const [checkout, setCheckout] = useState(false);
 	const [products, setProducts] = useState([]);
+	const [selectPack, setSelectPack] = useState('');
+	const [month, setMonth] = useState('');
+	const [cardType, setCardType] = useState('');
+	const [price, setPrice] = useState('');
+	const [checked, setChecked] = useState(false);
+	const [paymentType, setPaymentType] = useState('');
+	const [filteredCard, setFilteredCard] = useState([]);
+	const [chooseCard, setChooseCard] = useState();
+	const [showMore, setShowMore] = useState(false);
+	const [cardTypes, setCardTypes] = useState({
+		individual: [],
+		family: [],
+	});
+	const [user, setUser] = useState({});
+	const [users, setUsers] = useState([]);
+
+	const familycards = [
+		{
+			id: 0,
+			name: 'PERCENTAGE_CLINIC_DISCOUNT_FAMILY',
+			price: 45,
+			length: '1 თვე',
+			lenghtNum: 1,
+		},
+		{
+			id: 1, 
+			name: 'PERCENTAGE_CLINIC_DISCOUNT_FAMILY',
+			price: 120,
+			length: '3 თვე',
+			lenghtNum: 3
+		},
+		{
+			id: 2,
+			name: 'PERCENTAGE_CLINIC_DISCOUNT_FAMILY',
+			price: 225,
+			length: '6 თვე',
+			lenghtNum: 6
+		}
+	];
+
+	const individualcards = [
+		{
+			id: 0,
+			name: 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL',
+			price: 15,
+			length: '1 თვე',
+			lenghtNum: 1
+		},
+		{
+			id: 1, 
+			name: 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL',
+			price: 40,
+			length: '3 თვე',
+			lenghtNum: 3
+		},
+		{
+			id: 2,
+			name: 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL',
+			price: 75,
+			length: '6 თვე',
+			lenghtNum: 6
+		}
+	];
 
 	const featuresData = [
 		{
@@ -87,8 +150,6 @@ function BuyCardPage({ cards, clinics, categories }) {
 		},
 	];
 
-	const [user, setUser] = useState({});
-
 	const openModal = () => {
 		setIsOpen(true);
 	};
@@ -97,7 +158,6 @@ function BuyCardPage({ cards, clinics, categories }) {
 		setIsOpen(false);
 	};
 
-	const [users, setUsers] = useState([]);
 
 	useEffect(() => {
 		if (window.innerWidth < 600) {
@@ -142,22 +202,9 @@ function BuyCardPage({ cards, clinics, categories }) {
 
 		getData(`${process.env.MEDICAL_API}/medical/products/get-products`)
 			.then((res)=> {setProducts(res); setProductState(res)})
+
+		setPrice(chooseCard && chooseCard[0]?.price);
 	}, []);
-
-	const [selectPack, setSelectPack] = useState('');
-	const [month, setMonth] = useState('');
-	const [cardType, setCardType] = useState('');
-	const [price, setPrice] = useState('');
-	const [checked, setChecked] = useState(false);
-	const [paymentType, setPaymentType] = useState('');
-	const [filteredCard, setFilteredCard] = useState([]);
-	const [chooseCard, setChooseCard] = useState();
-	const [showMore, setShowMore] = useState(false);
-
-	const [cardTypes, setCardTypes] = useState({
-		individual: [],
-		family: [],
-	});
 
 	useEffect(() => {
 		setFilteredCard(products?.filter((e) => e.endDateIncrementValue == month));
@@ -171,11 +218,6 @@ function BuyCardPage({ cards, clinics, categories }) {
 		);
 	}, [month, cardType, selectPack]);
 
-	console.log('products', products);
-
-	useEffect(() => {
-		setPrice(chooseCard && chooseCard[0]?.price);
-	});
 
 	useEffect(() => {
 		let individual = products?.filter(
@@ -191,10 +233,6 @@ function BuyCardPage({ cards, clinics, categories }) {
 
 		setCardTypes((e) => ({ family: family, individual: individual }));
 	}, []);
-
-	// const newMonth = products?.map((e) => e.endDateIncrementValue);
-
-	// let uniqueArray = [...new Set(newMonth)];
 
 	const AntSwitch = styled(Switch)(({ theme }) => ({
 		width: 60,
@@ -239,6 +277,14 @@ function BuyCardPage({ cards, clinics, categories }) {
 		},
 	}));
 
+	function openCheckout(type, pack, month){
+		setCardType(type) // card
+		setSelectPack(pack) //family or individual
+		setMonth(month) // month
+
+		setCheckout(true)
+	}
+ 
 	// if(!products?.length && !cards.length && !clinics?.length && !categories?.length){
 	// 	return 'Loading...'
 	// }
@@ -337,160 +383,50 @@ function BuyCardPage({ cards, clinics, categories }) {
 							</FormGroup>
 						</div>
 					</div>
-					{/* <div className={s.table}>
-						<div className={s.tableHeader}>
-							<span className={s.clinicTitleStyles}>პარტნიორები</span>
-						</div>
-						{checked
-							? cardTypes?.family.map((e, i) => {
-									if (i < 3) {
-										return (
-											<>
-												<div
-													className={s.tableColumnTitle}
-													key={e.id}
-												>
-													<div className={s.columnTitleContainer}>
-														<span className={s.tablePriceTitleStyles}>
-															{e.price}
-														</span>
-														<span className={s.tableDataTitleStyles}>
-															{e?.cardName}
-														</span>
-													</div>
-												</div>
-											</>
-										);
-									}
-							  })
-							: cardTypes?.individual.map((e, i) => {
-									if (i < 3) {
-										return (
-											<>
-												<div
-													className={s.tableColumnTitle}
-													key={e.id}
-												>
-													<div className={s.columnTitleContainer}>
-														<span className={s.tablePriceTitleStyles}>
-															{e.price}
-														</span>
-														<span className={s.tableDataTitleStyles}>
-															{e?.cardName}
-														</span>
-													</div>
-												</div>
-											</>
-										);
-									}
-							  })}
-					</div> */}
 					<div className={s.cardsContainer}>
 						{
 							!checked ? <>
-								{/* {
-									cardType?.individual?.map((card)=> {
-										return <div className={s.cardsBlock}>
-											<div className={s.cardOverview}>
-												<img src="/buycradbg.png" alt=""/>
-												<div className={s.cardPrice}>
-													15 $
+								{
+									individualcards?.map(({price, name, length, lenghtNum})=> {
+										return <>
+											<div className={s.cardsBlock} onClick={()=> openCheckout(cards[0]?.genericTransactionTypeToAddInfo?.genericTransactionTypeId, name, lenghtNum)}>
+												<div className={s.cardOverview}>
+													<img src="/buycradbg.png" alt=""/>
+													<div className={s.cardPrice}>
+														{price} ლ
+													</div>
+													<div className={s.cardDisplayName}>
+														{length}
+													</div>
 												</div>
-												<div className={s.cardDisplayName}>
-													1 თვე
+												<div className={s.buyNow}>
+													შეიძინე
 												</div>
 											</div>
-											<div className={s.buyNow}>
-												შეიძინე
-											</div>
-										</div>
+										</>
 									})
-								} */}
-								<div className={s.cardsBlock}>
-									<div className={s.cardOverview}>
-										<img src="/buycradbg.png" alt=""/>
-										<div className={s.cardPrice}>
-											15 ლ
-										</div>
-										<div className={s.cardDisplayName}>
-											1 თვე
-										</div>
-									</div>
-									<div className={s.buyNow}>
-										შეიძინე
-									</div>
-								</div>
-								<div className={s.cardsBlock}>
-									<div className={s.cardOverview}>
-										<img src="/buycradbg.png" alt=""/>
-										<div className={s.cardPrice}>
-											40 ლ
-										</div>
-										<div className={s.cardDisplayName}>
-											3 თვე
-										</div>
-									</div>
-									<div className={s.buyNow}>
-										შეიძინე
-									</div>
-								</div>
-								<div className={s.cardsBlock}>
-									<div className={s.cardOverview}>
-										<img src="/buycradbg.png" alt=""/>
-										<div className={s.cardPrice}>
-											75 ლ
-										</div>
-										<div className={s.cardDisplayName}>
-											6 თვე
-										</div>
-									</div>
-									<div className={s.buyNow}>
-										შეიძინე
-									</div>
-								</div>
+								}
 							</> : <>
-								<div className={s.cardsBlock}>
-									<div className={s.cardOverview}>
-										<img src="/buycradbg.png" alt=""/>
-										<div className={s.cardPrice}>
-											45 ლ
-										</div>
-										<div className={s.cardDisplayName}>
-											1 თვე
-										</div>
-									</div>
-									<div className={s.buyNow}>
-										შეიძინე
-									</div>
-								</div>
-								<div className={s.cardsBlock}>
-									<div className={s.cardOverview}>
-										<img src="/buycradbg.png" alt=""/>
-										<div className={s.cardPrice}>
-											120 ლ
-										</div>
-										<div className={s.cardDisplayName}>
-											3 თვე
-										</div>
-									</div>
-									<div className={s.buyNow}>
-										შეიძინე
-									</div>
-								</div>
-								<div className={s.cardsBlock}>
-									<div className={s.cardOverview}>
-										<img src="/buycradbg.png" alt=""/>
-										<div className={s.cardPrice}>
-											225 ლ
-										</div>
-										<div className={s.cardDisplayName}>
-											6 თვე
-										</div>
-									</div>
-									<div className={s.buyNow}>
-										შეიძინე
-									</div>
-								</div>
+								{
+									familycards?.map(({price, name, length, lenghtNum})=> {
+										return <>
+											<div className={s.cardsBlock} onClick={()=> openCheckout(cards[0]?.genericTransactionTypeToAddInfo?.genericTransactionTypeId, name, lenghtNum)}>
+												<div className={s.cardOverview}>
+													<img src="/buycradbg.png" alt=""/>
+													<div className={s.cardPrice}>
+														{price} ლ
+													</div>
+													<div className={s.cardDisplayName}>
+														{length}
+													</div>
+												</div>
+												<div className={s.buyNow}>
+													შეიძინე
+												</div>
+											</div>
+										</>
+									})
+								}
 							</>
 						}
 					</div>
@@ -566,114 +502,6 @@ function BuyCardPage({ cards, clinics, categories }) {
 								);
 							})}
 					</div>
-					{/* <div className={s.buttonContainer}>
-						<span className={s.finalPrice}>
-							{price}
-							<span>
-								{price && (
-									<img
-										src='/blueLari.svg'
-										alt='lari'
-										width='24px'
-										height='24px'
-									/>
-								)}
-							</span>
-						</span>
-
-						<Select
-							placeholder='Month'
-							label='Month'
-							className={s.buyDropDown}
-							options={
-								products &&
-								uniqueArray?.map((item) => ({
-									label: item,
-									value: item,
-								}))
-							}
-							onChange={(value) => {
-								setMonth(value);
-							}}
-						/>
-						<Select
-							placeholder='Package'
-							label='Package'
-							className={s.buyDropDown}
-							options={[
-								{
-									label: 'Individually',
-									value: 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL',
-								},
-								{ label: 'Family', value: 'PERCENTAGE_CLINIC_DISCOUNT_FAMILY' },
-							]}
-							onChange={(value) => {
-								setSelectPack(value);
-							}}
-						/>
-
-						<Select
-							placeholder='Card type'
-							label='Card type'
-							className={s.buyDropDown}
-							options={
-								products &&
-								productState?.map((item) => ({
-									label: item.cardName,
-									value: item.genericTransactionTypeId,
-								}))
-							}
-							value={cardType}
-							onChange={(options) => {
-								setCardType(options);
-							}}
-						/>
-
-						<Button
-							style={s.buttonActive}
-							name='Buy now'
-							onClick={() => {
-								// paymentType == 'family' ?
-								cardType && setCheckout(!checkout);
-								// (cardType && postData(
-								// 	'https://medical.pirveli.ge/medical/orders/create-order',
-								// 	{
-								// 		"bogOrderRequest_dto": {
-								// 			"user_id": null,
-								// 			"contract_id": null,
-								// 			"party_id": null,
-								// 			"bog_order_request_dto" : {
-								// 			  "intent": "AUTHORIZE",
-								// 			  "items": [
-								// 				  {
-								// 				  "amount": "0.01",
-								// 				  "description": "regTest",
-								// 				  "quantity": "1",
-								// 				  "product_id": cardType
-								// 				  }
-								// 			  ],
-								// 			  "locale": "ka",
-								// 			  "shop_order_id": "123456",
-								// 			  "redirect_url": "https://bog-banking.pirveli.ge/callback/statusChange",
-								// 			  "show_shop_order_id_on_extract": true,
-								// 			  "capture_method": "AUTOMATIC",
-								// 			  "purchase_units": [
-								// 				  {
-								// 				  "amount": {
-								// 					  "currency_code": "GEL",
-								// 					  "value": "0.01"
-								// 				  }
-								// 				  }
-								// 			  ]
-								// 			}
-								// 		  },
-								// 		"customerDTOList": []
-								// 	},
-								// 	'POST'
-								// ))
-							}}
-						/>
-					</div> */}
 				</div>
 			</div>
 		</>
@@ -690,7 +518,7 @@ export const getStaticProps = async () => {
 		`${API_URL}/asclepius/v1/api/transactions/cards/get-products?contractId=572`
 	);
 
-	const getCategories = await getData(`${API_URL}/asclepius/v1/api/categories`);
+	const getCategories = await getData(`${process.env.MEDICAL_API}/medical/categories`);
 
 	return {
 		props: {
