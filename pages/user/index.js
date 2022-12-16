@@ -97,7 +97,7 @@ export default function UserDetailed() {
             .then((e)=> {
                 setUserAvatar({
                     img: `/avatar${e?.path}.png`,
-                    color: `#${e?.code.toString()}`
+                    color: `#${e?.code?.toString()}`
                 })
             })
         setRandomNum(Math.floor(1000 + Math.random() * 9000))
