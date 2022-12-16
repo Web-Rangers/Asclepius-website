@@ -8,9 +8,16 @@ import Link from 'next/link';
 import { getData } from '../../components/request';
 import Image from 'next/image';
 
-export default function Clinic({ clinics }) {
+export default function Clinic() {
 	const [blockId, setBlockId] = useState('');
 	const [done, setDone] = useState(false);
+	const [clinics, setClinics] = useState([]);
+
+	useEffect(() => {
+	  getData(`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/?page=0&size=10`)
+		.then((res)=>setClinics(res))
+	}, [])
+	
 
 	return (
 		<>
@@ -94,24 +101,3 @@ export default function Clinic({ clinics }) {
 		</>
 	);
 }
-
-export const getStaticProps = async () => {
-	try {
-		const getClinics = await getData(
-			`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/?page=0&size=10`
-		);
-
-		return {
-			props: {
-				clinics: getClinics,
-			},
-		};
-	}catch(error) {
-		return {
-			props: {
-				error: true
-			}
-		}
-	}
-
-};

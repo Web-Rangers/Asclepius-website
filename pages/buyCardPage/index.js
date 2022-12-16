@@ -451,7 +451,7 @@ function BuyCardPage() {
 						}
 					</div>
 					<div className={s.listofCats}>
-						{data?.categories
+						{data?.categories?.length > 0 &&  data?.categories
 							?.filter((e) => e.parentCategoryId === null)
 							.map((item, i) => {
 								return (

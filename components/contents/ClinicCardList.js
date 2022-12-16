@@ -21,7 +21,7 @@ const ClinicCardList = ({ clinicsData, products }) => {
 	});
 
 	useEffect(() => {
-		setData(clinicsData?.filter((e, i) => i < 4));
+		if(Array.isArray(clinicsData)) setData(clinicsData?.filter((e, i) => i < 4));
 	}, [clinicsData]);
 
 	return (

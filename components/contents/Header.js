@@ -83,7 +83,7 @@ const Header = () => {
             .then((e)=> {
                 setUserAvatar({
                     img: `/avatar${e?.path}.png`,
-                    color: `#${e?.code.toString()}`
+                    color: `#${e?.code?.toString()}`
                 })
             })
 

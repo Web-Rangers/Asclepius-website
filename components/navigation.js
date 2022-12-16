@@ -13,7 +13,8 @@ export default function Navigation() {
 	useEffect(() => {
 		getData(`${process.env.MEDICAL_API}/medical/categories`).then((response) =>
 		{
-			if(response.status !== 500 ){
+			console.log(response.status)
+			if(response.status !== 500 && response.status !== undefined){
 				let medical = response?.filter(e=> e.title == 'სამედიცინო დაწესებულებები')[0];
 				let withoutMedical = response?.filter(e=> e.title !== 'სამედიცინო დაწესებულებები');
 				withoutMedical?.push(medical)
