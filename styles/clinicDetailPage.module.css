@@ -93,6 +93,7 @@
 	display: flex;
 	position: relative;
 	flex-direction: column;
+	margin-bottom:130px;
 }
 .imageContainer {
 	display: flex;
