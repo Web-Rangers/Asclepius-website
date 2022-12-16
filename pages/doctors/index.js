@@ -170,13 +170,13 @@ export default function Doctors({ frelancers, doctors, clinicDoctors }) {
 		const firstPageIndex = (currentPage - 1) * PageSize;
 		const lastPageIndex = firstPageIndex + PageSize;
 		return router.query.id
-			? clinicDoctors?.content.slice(firstPageIndex, lastPageIndex)
+			? clinicDoctors?.content?.slice(firstPageIndex, lastPageIndex)
 			: concatData?.slice(firstPageIndex, lastPageIndex);
 	}, [currentPage]);
 
-	if(!clinicDoctors){
-		return false
-	}
+	// if(!clinicDoctors){
+	// 	return false
+	// }
 
 	return (
 		<>

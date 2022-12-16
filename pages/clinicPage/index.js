@@ -21,10 +21,6 @@ import Navigation from '../../components/navigation';
 let PageSize = 12;
 
 function ClinicsPage({ clinics, cards, municipalities }) {
-	if(!clinics){
-		return false
-	}
-	
 	const [modalIsOpen, setIsOpen] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [searchInput, setSearchInput] = useState('');

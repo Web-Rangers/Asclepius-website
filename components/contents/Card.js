@@ -558,8 +558,8 @@ const Card = ({ data }) => {
 					<img src="/MEDCARD-VECTOR.svg" /> 
 				</div>
 				<div className={style.containerList}>
-					{featuresData?.map((e)=>{
-						return <div className={style.listItem}><span>{e.name}</span><span>{e.starter}</span></div>
+					{featuresData?.map((e, key)=>{
+						return <div key={key} className={style.listItem}><span>{e.name}</span><span>{e.starter}</span></div>
 					})}
 				</div>
 				<div className={style.price}>

@@ -96,13 +96,22 @@ export default function Clinic({ clinics }) {
 }
 
 export const getStaticProps = async () => {
-	const getClinics = await getData(
-		`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/?page=0&size=10`
-	);
+	try {
+		const getClinics = await getData(
+			`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/?page=0&size=10`
+		);
 
-	return {
-		props: {
-			clinics: getClinics,
-		},
-	};
+		return {
+			props: {
+				clinics: getClinics,
+			},
+		};
+	}catch(error) {
+		return {
+			props: {
+				error: true
+			}
+		}
+	}
+
 };

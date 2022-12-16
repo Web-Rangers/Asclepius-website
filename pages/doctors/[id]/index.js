@@ -15,21 +15,18 @@ import NavItem from '../../../components/contents/NavItem';
 let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export default function DoctorDetailed({
-	doctor,
-	educations = [],
-	certificates = [],
-	workingDays = [],
-}) {
-	if(!doctor){
-		return false
-	}
-
+										   doctor = [],
+										   educations = [],
+										   certificates = [],
+										   workingDays = [],
+									   }) {
 	const [contact, setContact] = useState('');
 	const [patient, setPatient] = useState('');
 	const [modalIsOpen, setModalOpen] = useState(false);
 	const router = useRouter();
 	const [tab, setTab] = useState('certificates');
 	const { firstName, lastName, pictureUrl, professions, aboutMe } = doctor;
+
 	console.log('sertifi', educations);
 	return (
 		<>
@@ -295,21 +292,21 @@ export default function DoctorDetailed({
 							) : null}
 							{tab === 'education'
 								? educations !== null &&
-								  educations?.map((item) => (
-										<div
-											className={styles.educationContent}
-											key={item.id}
-										>
-											<div className={styles.educationItem}>
-												<div className={styles.data}>
-													{' '}
-													{item.dateEnd} - {item.dateStart} yr.
-												</div>
-												<h2>{item.degree}</h2>
-												<p>{item.school}</p>
+								educations?.map((item) => (
+									<div
+										className={styles.educationContent}
+										key={item.id}
+									>
+										<div className={styles.educationItem}>
+											<div className={styles.data}>
+												{' '}
+												{item.dateEnd} - {item.dateStart} yr.
 											</div>
+											<h2>{item.degree}</h2>
+											<p>{item.school}</p>
 										</div>
-								  ))
+									</div>
+								))
 								: null}
 						</div>
 
@@ -422,66 +419,61 @@ export default function DoctorDetailed({
 	);
 }
 
-export const getStaticProps = async (context) => {
-	try {
-		const getDoctor = await getData(
-			`${API_URL}/asclepius/v1/api/clinics/doctors/${context.params.id}`
-		);
-		const getDocEducations = await getData(
-			`${API_URL}/asclepius/v1/api/doctors/${context.params.id}/educations`
-		);
-		const getDocCertificates = await getData(
-			`${API_URL}/asclepius/v1/api/doctors/${context.params.id}/certificates`
-		);
-		const getDocWorkingDay = await getData(
-			`${API_URL}/asclepius/v1/api/doctors/freelancers/${context.params.id}/days`
-		);
-	
-		return {
-			props: {
-				doctor: getDoctor,
-				educations: getDocEducations?.length == 0 ? null : getDocEducations,
-				certificates: getDocCertificates?.length == 0 ? null : getDocCertificates,
-				workingDays: getDocWorkingDay?.length == 0 ? null : getDocWorkingDay,
-			},
-			revalidate: 10,
-		};
-	}catch(error){
-		return {
-			props:{
-				error: true
-			}
-		}
-	}
-};
+// export const getStaticProps = async (context) => {
+// 	try {
+// 		const getDoctor = await getData(
+// 			`${API_URL}/asclepius/v1/api/clinics/doctors/${context.params.id}`
+// 		);
+// 		const getDocEducations = await getData(
+// 			`${API_URL}/asclepius/v1/api/doctors/${context.params.id}/educations`
+// 		);
+// 		const getDocCertificates = await getData(
+// 			`${API_URL}/asclepius/v1/api/doctors/${context.params.id}/certificates`
+// 		);
+// 		const getDocWorkingDay = await getData(
+// 			`${API_URL}/asclepius/v1/api/doctors/freelancers/${context.params.id}/days`
+// 		);
+//
+// 		return {
+// 			props: {
+// 				doctor: getDoctor?.length ? null : getDoctor,
+// 				educations: getDocEducations?.length == 0 ? null : getDocEducations,
+// 				certificates: getDocCertificates?.length == 0 ? null : getDocCertificates,
+// 				workingDays: getDocWorkingDay?.length == 0 ? null : getDocWorkingDay,
+// 			},
+// 			revalidate: 10,
+// 		};
+// 	}catch(error){
+// 		return {
+// 			props: {
+// 				error: true
+// 			}
+// 		}
+// 	}
+//
+// };
 
-export const getStaticPaths = async () => {
-	try {
-		const getDoctors = await getData(
-			`${API_URL}/asclepius/v1/api/clinics/doctors?page=0&size=9999`
-		);
-	
-		const getFreelancerDoc = await getData(
-			`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
-		);
-	
-		const concatDoctors = [].concat(
-			getDoctors?.content,
-			getFreelancerDoc?.content
-		);
-	
-		const paths = concatDoctors?.map((doc) => ({
-			params: { id: doc.id.toString() },
-		}));
-	
-		return {
-			paths,
-			fallback: 'blocking',
-		};
-	}catch(error){
-		return {
-			paths: [],
-			fallback: 'blocking',
-		}
-	}
-};
+
+// export const getStaticPaths = async () => {
+// 	const getDoctors = await getData(
+// 		`${API_URL}/asclepius/v1/api/clinics/doctors?page=0&size=9999`
+// 	);
+//
+// 	const getFreelancerDoc = await getData(
+// 		`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
+// 	);
+//
+// 	const concatDoctors = [].concat(
+// 		getDoctors?.content,
+// 		getFreelancerDoc?.content
+// 	);
+//
+// 	const paths = concatDoctors?.map((doc) => ({
+// 		params: { id: doc.id.toString() },
+// 	}));
+//
+// 	return {
+// 		paths,
+// 		fallback: 'blocking',
+// 	};
+// };
