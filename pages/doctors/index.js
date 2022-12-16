@@ -174,10 +174,6 @@ export default function Doctors({ frelancers, doctors, clinicDoctors }) {
 			: concatData?.slice(firstPageIndex, lastPageIndex);
 	}, [currentPage]);
 
-	// if(!clinicDoctors){
-	// 	return false
-	// }
-
 	return (
 		<>
 			{isOpen && (

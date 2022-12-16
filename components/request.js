@@ -35,3 +35,15 @@ export async function postData(url = '', data = {}, method) {
 	});
 	return response.json(); // parses JSON response into native JavaScript objects
 }
+
+export function getMultipleData(datas, setData, urls) {
+	for(let i = 0; i < datas?.length; i++) {
+		getData(
+			urls[i]
+		).then((response)=> {
+			if(response){
+				setData((e)=> ({...e, [datas[i]]: response}))
+			}
+		})	
+	}
+}

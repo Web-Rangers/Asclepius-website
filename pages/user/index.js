@@ -28,6 +28,10 @@ export default function UserDetailed() {
 	const [user, setUser] = useState(null);
 	const [userInfo, setUserInfo] = useState({})
     const [randomNum, setRandomNum] = useState(null);
+    const [userAvatar, setUserAvatar] = useState({
+        img: ``,
+        color: ''
+    })
     const memberList = [
         {
             id:1,
@@ -87,6 +91,14 @@ export default function UserDetailed() {
                 })
                 const unique = [...new Set(familyMembersArray)]
                 setFamilyMembers(unique)
+            })
+
+        getData(`${process.env.MEDICAL_API}/medical/registry/get-user-avatar`)
+            .then((e)=> {
+                setUserAvatar({
+                    img: `/avatar${e?.path}.png`,
+                    color: `#${e?.code.toString()}`
+                })
             })
         setRandomNum(Math.floor(1000 + Math.random() * 9000))
     },[])
@@ -265,7 +277,9 @@ export default function UserDetailed() {
                     >
                         {
                             user ? <div className={styles.userBlcokItem}>
-                                        <ReactSVG className={styles.userAvatar} src="/useravatar.svg" />
+                                        <div className={styles.userAvatarBg} style={{background: `${userAvatar?.color}`}}>
+                                            <img className={styles.userAvatar} src={userAvatar?.img} />
+                                        </div>
                                         <div className={styles.userinfoBlock}>
                                             <h3>{userInfo?.firstName} {userInfo?.lastName}</h3>
                                             <h4>Birth date: {userInfo?.personDob}</h4>

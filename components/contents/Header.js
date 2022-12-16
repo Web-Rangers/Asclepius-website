@@ -53,6 +53,10 @@ const Header = () => {
 	const [userInfo, setUserInfo] = useState({});
 	const headerRef = useRef();
 	const [points, setPoints] = useState(null);
+    const [userAvatar, setUserAvatar] = useState({
+        img: ``,
+        color: ''
+    })
 
 	const handleChange = (e) => {
 		setSearchInput(e.target.value);
@@ -74,6 +78,14 @@ const Header = () => {
 				console.log(response)
 			}
 		);
+		
+		getData(`${process.env.MEDICAL_API}/medical/registry/get-user-avatar`)
+            .then((e)=> {
+                setUserAvatar({
+                    img: `/avatar${e?.path}.png`,
+                    color: `#${e?.code.toString()}`
+                })
+            })
 
 		getData(`${process.env.MEDICAL_API}/medical/products/user-points`)
 			.then((response)=>{
@@ -298,28 +310,6 @@ const Header = () => {
 						</Link>
 						{user && (
 							<div className={classes.authorizedUser} ref={headerRef}>
-								{/* <Dropdown
-									trigger={['click']}
-									dropdownRender={(nodes) => {
-										return (
-											<>
-												<div className={classes.auth_user_notification}>
-													<h3>No Notifications</h3>
-												</div>
-											</>
-										);
-									}}
-									getPopupContainer={() => headerRef.current}
-									overlayClassName={classes.userNotDropBlock}
-									placement={'bottomRight'}
-								>
-									<a onClick={(e) => e.preventDefault()}>
-										<Space className={classes.notificationHeight}>
-											<ReactSVG src='/notificationuser.svg' />
-										</Space>
-									</a>
-								</Dropdown> */}
-
 								<Dropdown
 									menu={{
 										items,
@@ -332,7 +322,9 @@ const Header = () => {
 													<h2>My Account</h2>
 													<Link href='/user'>
 														<div className={classes.auth_user_icon}>
-															<ReactSVG src='/avatar.svg' />
+															<div className={classes.avatarBg} style={{backgroundColor: `${userAvatar?.color}`}}>
+																<img src={`${userAvatar?.img}`} />
+															</div>
 															<h4>
 																{userInfo?.firstName} {userInfo?.lastName}
 															</h4>
@@ -361,51 +353,15 @@ const Header = () => {
 								>
 									<a onClick={(e) => e.preventDefault()}>
 										<Space>
-											<ReactSVG src='/avatar.svg' />
+										<div className={classes.avatarBg} style={{backgroundColor: `${userAvatar?.color}`}}>
+											<img src={`${userAvatar?.img}`} />
+										</div>
 										</Space>
 									</a>
 								</Dropdown>
 							</div>
 						)}
 					</div>
-
-					{/* <ul className={classes.navbar}>
-						<li>
-							<Link href='/'>
-								<a>Home </a>
-							</Link>
-						</li>
-						<li>
-							<Link href='/Button'>
-								<a>Button</a>
-							</Link>
-						</li>
-						<li>
-							<Link href='/aboutUsPage'>
-								<a> About us</a>
-							</Link>
-						</li>
-						<li>
-							<Link href='#Offers'>
-								<a>Offers</a>
-							</Link>
-						</li>
-						<li>
-							<Link href='/contactUs'>
-								<a>Contact</a>
-							</Link>
-						</li>
-						<li>
-							<Button
-								name='Sign in'
-								style={classes.signInButton}
-								onClick={handleClick}
-							/>
-						</li>
-						<li>
-							<DropDown />
-						</li>
-					</ul> */}
 				</div>
 			</div>
 		</>

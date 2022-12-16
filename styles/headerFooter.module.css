@@ -667,6 +667,21 @@
 	box-shadow: 0 0 0;
 }
 
+.avatarBg {
+	width: 42px;
+	height: 42px;
+	overflow: hidden;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	padding: 5px 0;
+}
+
+.avatarBg img {
+	height: 100%;
+	object-fit: contain;
+}
+
 @media only screen and (max-width: 1400px) {
 	.leftSideContainer {
 		display: none;

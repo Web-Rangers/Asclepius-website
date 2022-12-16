@@ -12,7 +12,7 @@ import Button from '../components/ui/Button';
 import axios from 'axios';
 import ResponsiveSlider from '../components/contents/ResponsiveCarousel';
 import { useWindowSize } from '../components/useWindowSize';
-import { getData } from '../components/request';
+import { getData, getMultipleData } from '../components/request';
 import { Carousel } from 'react-responsive-carousel';
 import MainSlider from '../components/contents/MainSlider';
 import { Alert, Space, Spin } from 'antd';
@@ -21,13 +21,20 @@ import Link from 'next/link';
 import Swipper from '../components/contents/Swipper';
 import Navigation from '../components/navigation';
 
-function Home({ clinics, doctors, frelancers, categories, products }) {
+function Home() {
+	const [data, setData] = useState({
+		clinics: [],
+		doctors: [],
+		frelancers: [],
+		products: [],
+		categories: []
+	})
 	const [clinicData, setClinicData] = useState([]);
 	const [doctorsData, setDoctorsData] = useState([]);
 	const [imgData, setImgData] = useState([]);
 
-	const allData = frelancers?.content
-		?.concat(doctors?.content)
+	const allData = data?.frelancers?.content
+		?.concat(data?.doctors?.content)
 		.sort(function (a, b) {
 			return a.id > b.id ? -1 : a.id > b.id ? 1 : 0;
 		});
@@ -68,11 +75,11 @@ function Home({ clinics, doctors, frelancers, categories, products }) {
 
 	useEffect(() => {
 		if (windowSize.width > 600) {
-			setClinicData(clinics);
+			setClinicData(data?.clinics);
 		} else {
-			setClinicData(clinics);
+			setClinicData(data?.clinics);
 		}
-	}, [clinics, windowSize.width]);
+	}, [data?.clinics, windowSize.width]);
 
 	useEffect(() => {
 		if (windowSize.width > 600) {
@@ -80,57 +87,28 @@ function Home({ clinics, doctors, frelancers, categories, products }) {
 		} else {
 			setDoctorsData(allData);
 		}
-	}, [doctors, windowSize.width]);
+	}, [data?.doctors, windowSize.width]);
 
-	const items = [
-		{
-			key: '1',
-			label: (
-				<a
-					target='_blank'
-					rel='noopener noreferrer'
-					href='https://www.antgroup.com'
-				>
-					1st menu item
-				</a>
-			),
-		},
-		{
-			key: '2',
-			label: (
-				<a
-					target='_blank'
-					rel='noopener noreferrer'
-					href='https://www.aliyun.com'
-				>
-					2nd menu item
-				</a>
-			),
-		},
-		{
-			key: '3',
-			label: (
-				<a
-					target='_blank'
-					rel='noopener noreferrer'
-					href='https://www.luohanacademy.com'
-				>
-					3rd menu item
-				</a>
-			),
-		},
-	];
 
-	// if(!products?.length){
-	// 	return <div className={classes.loader}>
-	// 		<img src="/skeleton-gif.gif" />
-	// 		{/* <Spin size="large">
-	// 			<div className="content" />
-	// 		</Spin> */}
-	// 	</div>
-	// }
+	let datas = [
+		'clinics',
+		'doctors',
+		'frelancers',
+		'products',
+		'categories'
+	]
 
-	console.log('clincs', clinics)
+	let urls = [
+		`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/search?name=`,
+		`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/doctors/?page=0&size=10`,
+		`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`,
+		`${process.env.MEDICAL_API}/medical/products/get-products`,
+		`${process.env.MEDICAL_API}/medical/categories`
+	]
+
+	useEffect(()=>{
+		getMultipleData(datas, setData, urls)
+	},[])
 
 	return (
 		<div className={classes.homePageContainer}>
@@ -187,48 +165,12 @@ function Home({ clinics, doctors, frelancers, categories, products }) {
 			</div>
 			<ClinicCardList
 				clinicsData={clinicData}
-				products={products}
+				products={data?.products}
 			/>
-			<DoctorCardList doctorsData={doctorsData} />
+			<DoctorCardList doctorsData={allData} />
 			<CardPrice />
 		</div>
 	);
 }
-
-export const getServerSideProps = async () => {
-	let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
-	try {
-		// const getClinics = await getData(
-		// 	`${API_URL}/asclepius/v1/api/clinics/search?name=`
-		// );
-		// const getDoctors = await getData(
-		// 	`${API_URL}/asclepius/v1/api/clinics/doctors/?page=0&size=10`
-		// );
-		// const getFreelancerDoc = await getData(
-		// 	`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
-		// );
-		const getCategories = await getData(`${process.env.MEDICAL_API}/medical/categories`);
-	
-		const getProducts = await getData(
-			`${process.env.MEDICAL_API}/medical/products/get-products`
-		);
-
-		return {
-			props: {
-				clinics:  [], //Array.isArray(getClinics) ? getClinics :
-				doctors:  [], //Array.isArray(getDoctors) ? getDoctors :
-				frelancers: [], //Array.isArray(getFreelancerDoc) ? getFreelancerDoc :
-				categories: Array.isArray(getCategories) ? getCategories : [],
-				products: Array.isArray(getProducts) ? getProducts : []
-			},
-		};
-	}catch(error){
-		return {
-			props: {
-				error: true
-			}
-		}
-	}
-};
 
 export default Home;

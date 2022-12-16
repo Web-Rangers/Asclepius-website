@@ -7,7 +7,7 @@ import Modal from 'react-modal';
 import CardCheckoutModal from '../../components/modals/CardCheckoutModal';
 import classNames from 'classnames';
 import { ReactSVG } from 'react-svg';
-import { getData, postData } from '../../components/request';
+import { getData, getMultipleData } from '../../components/request';
 import FormGroup from '@mui/material/FormGroup';
 import Switch from '@mui/material/Switch';
 import { styled } from '@mui/material/styles';
@@ -20,7 +20,12 @@ import TableDropDown from '../../components/TableDropDown';
 import { ConnectingAirportsOutlined } from '@mui/icons-material';
 import Image from 'next/image';
 
-function BuyCardPage({ cards, clinics, categories }) {
+function BuyCardPage() {
+	const [data, setData] = useState({
+		cards: [],
+		clinics: [],
+		categories: []
+	})
 	const [modalIsOpen, setIsOpen] = useState(false);
 	const [customStyles, setCustomStyles] = useState({});
 	const [dropDown, setDropDown] = useState('');
@@ -207,7 +212,7 @@ function BuyCardPage({ cards, clinics, categories }) {
 	}, []);
 
 	useEffect(() => {
-		setFilteredCard(products?.filter((e) => e.endDateIncrementValue == month));
+		setFilteredCard(data?.products?.filter((e) => e.endDateIncrementValue == month));
 		setProductState(
 			filteredCard?.filter(
 				(e) => e.genericTransactionTypeToAddInfo?.infoCategory == selectPack
@@ -284,10 +289,22 @@ function BuyCardPage({ cards, clinics, categories }) {
 
 		setCheckout(true)
 	}
+
+	let datas = [
+		'cards',
+		'clinics',
+		'categories',
+	]
+
+	let urls = [
+		`${process.env.MEDICAL_API}/medical/products/get-products`,
+		`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/search?name=`,
+		`${process.env.MEDICAL_API}/medical/categories`,
+	]
  
-	// if(!products?.length && !cards.length && !clinics?.length && !categories?.length){
-	// 	return 'Loading...'
-	// }
+	useEffect(()=> {
+		getMultipleData(datas, setData, urls)
+	},[])
 
 	return (
 		<>
@@ -392,7 +409,7 @@ function BuyCardPage({ cards, clinics, categories }) {
 								{
 									individualcards?.map(({price, name, length, lenghtNum})=> {
 										return <>
-											<div className={s.cardsBlock} onClick={()=> openCheckout(cards[0]?.genericTransactionTypeToAddInfo?.genericTransactionTypeId, name, lenghtNum)}>
+											<div className={s.cardsBlock} onClick={()=> openCheckout(data?.cards[0]?.genericTransactionTypeToAddInfo?.genericTransactionTypeId, name, lenghtNum)}>
 												<div className={s.cardOverview}>
 													<img src="/buycradbg.png" alt=""/>
 													<div className={s.cardPrice}>
@@ -413,7 +430,7 @@ function BuyCardPage({ cards, clinics, categories }) {
 								{
 									familycards?.map(({price, name, length, lenghtNum})=> {
 										return <>
-											<div className={s.cardsBlock} onClick={()=> openCheckout(cards[0]?.genericTransactionTypeToAddInfo?.genericTransactionTypeId, name, lenghtNum)}>
+											<div className={s.cardsBlock} onClick={()=> openCheckout(data?.cards[0]?.genericTransactionTypeToAddInfo?.genericTransactionTypeId, name, lenghtNum)}>
 												<div className={s.cardOverview}>
 													<img src="/buycradbg.png" alt=""/>
 													<div className={s.cardPrice}>
@@ -434,7 +451,7 @@ function BuyCardPage({ cards, clinics, categories }) {
 						}
 					</div>
 					<div className={s.listofCats}>
-						{categories
+						{data?.categories
 							?.filter((e) => e.parentCategoryId === null)
 							.map((item, i) => {
 								return (
@@ -465,12 +482,12 @@ function BuyCardPage({ cards, clinics, categories }) {
 												<span>{featuresData[2].plus}</span>
 											</div>
 										</div>
-{/* 
+
 										{dropDown === item.title && (
 											<div className={s.dropDownList}>
-												{categories?.map((sub) => {
+												{data?.categories?.map((sub) => {
 													if (sub.id == item.id) {
-														let catsw = clinics
+														let catsw = data?.clinics
 															.map((e) => {
 																if (
 																	e.clinicCategories.some((x) => x.id == sub.id)
@@ -500,7 +517,7 @@ function BuyCardPage({ cards, clinics, categories }) {
 													}
 												})}
 											</div>
-										)} */}
+										)}
 									</div>
 								);
 							})}
@@ -510,28 +527,5 @@ function BuyCardPage({ cards, clinics, categories }) {
 		</>
 	);
 }
-
-export const getStaticProps = async () => {
-	let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
-
-		// const getClinics = await getData(
-		// 	`${API_URL}/asclepius/v1/api/clinics/search?name=`
-		// );
-		const getDoctors = await getData(
-			`${process.env.MEDICAL_API}/medical/products/get-products`
-		);
-	
-		const getCategories = await getData(`${process.env.MEDICAL_API}/medical/categories`);
-	
-		return {
-			props: {
-				cards: getDoctors?.length ? getDoctors : [],
-				clinics: [], //getClinics?.length ? getClinics : 
-				categories: getCategories?.length ? getCategories : [],
-			},
-			revalidate: 10
-		};
-
-};
 
 export default BuyCardPage;
