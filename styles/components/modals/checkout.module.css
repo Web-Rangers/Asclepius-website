@@ -5,7 +5,7 @@
   left: 0;
   top: 0;
   background-color: RGBA(0, 0, 0, 0.5);
-  z-index: 9999999991;
+  z-index: 999999;
 }
 
 .container {
@@ -17,7 +17,7 @@
   padding: 40px 0;
   top: 0;
   right: 0;
-  z-index: 9999999992;
+  z-index: 999999;
   overflow-y: auto;
 }
 

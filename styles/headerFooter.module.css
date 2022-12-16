@@ -24,7 +24,7 @@
 	margin: auto;
 	padding-left: 50px;
 	padding-right: 50px;
-	z-index: 9999999999;
+	z-index: 999999;
 }
 .smallheaderLeftText {
 	font-family: 'Noto Sans', 'Avenir Next Georgian';
@@ -119,7 +119,7 @@
 .headerContainerBg{
 	position: sticky;
 	top: 43px;
-	z-index: 9999999999;
+	z-index: 999999;
 	background: #fff;
 }
 

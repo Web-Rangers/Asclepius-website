@@ -94,7 +94,7 @@
 	display: block;
 	height: min-content;
 	max-height: 300px;
-	overflow: scroll;
+	overflow-y: auto;
 }
 
 .arrow {
