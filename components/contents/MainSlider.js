@@ -92,10 +92,6 @@ const MainSlider = ({ type = 'desktop' }) => {
 													</span>
 												</Link>
 
-												<Button
-													name='Learn More'
-													style={classes.downloadOrderBtn}
-												/>
 											</div>
 										</div>
 
@@ -153,10 +149,7 @@ const MainSlider = ({ type = 'desktop' }) => {
 														ბარათის შეძენა
 													</span>
 												</Link>
-												<Button
-													name='Learn More'
-													style={classes.downloadOrderBtn}
-												/>
+
 											</div>
 										</div>
 										<div className={classes.sliderImageTwo}>

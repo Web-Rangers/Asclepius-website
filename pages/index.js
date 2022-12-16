@@ -198,15 +198,15 @@ function Home({ clinics, doctors, frelancers, categories, products }) {
 export const getServerSideProps = async () => {
 	let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
 	try {
-		const getClinics = await getData(
-			`${API_URL}/asclepius/v1/api/clinics/search?name=`
-		);
-		const getDoctors = await getData(
-			`${API_URL}/asclepius/v1/api/clinics/doctors/?page=0&size=10`
-		);
-		const getFreelancerDoc = await getData(
-			`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
-		);
+		// const getClinics = await getData(
+		// 	`${API_URL}/asclepius/v1/api/clinics/search?name=`
+		// );
+		// const getDoctors = await getData(
+		// 	`${API_URL}/asclepius/v1/api/clinics/doctors/?page=0&size=10`
+		// );
+		// const getFreelancerDoc = await getData(
+		// 	`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
+		// );
 		const getCategories = await getData(`${process.env.MEDICAL_API}/medical/categories`);
 	
 		const getProducts = await getData(
@@ -215,9 +215,9 @@ export const getServerSideProps = async () => {
 
 		return {
 			props: {
-				clinics: Array.isArray(getClinics) ? getClinics : [],
-				doctors: Array.isArray(getDoctors) ? getDoctors : [],
-				frelancers: Array.isArray(getFreelancerDoc) ? getFreelancerDoc : [],
+				clinics:  [], //Array.isArray(getClinics) ? getClinics :
+				doctors:  [], //Array.isArray(getDoctors) ? getDoctors :
+				frelancers: [], //Array.isArray(getFreelancerDoc) ? getFreelancerDoc :
 				categories: Array.isArray(getCategories) ? getCategories : [],
 				products: Array.isArray(getProducts) ? getProducts : []
 			},

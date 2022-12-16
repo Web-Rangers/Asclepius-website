@@ -465,7 +465,7 @@ function BuyCardPage({ cards, clinics, categories }) {
 												<span>{featuresData[2].plus}</span>
 											</div>
 										</div>
-
+{/* 
 										{dropDown === item.title && (
 											<div className={s.dropDownList}>
 												{categories?.map((sub) => {
@@ -500,7 +500,7 @@ function BuyCardPage({ cards, clinics, categories }) {
 													}
 												})}
 											</div>
-										)}
+										)} */}
 									</div>
 								);
 							})}
@@ -514,12 +514,11 @@ function BuyCardPage({ cards, clinics, categories }) {
 export const getStaticProps = async () => {
 	let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-	try{
-		const getClinics = await getData(
-			`${API_URL}/asclepius/v1/api/clinics/search?name=`
-		);
+		// const getClinics = await getData(
+		// 	`${API_URL}/asclepius/v1/api/clinics/search?name=`
+		// );
 		const getDoctors = await getData(
-			`${API_URL}/asclepius/v1/api/transactions/cards/get-products?contractId=572`
+			`${process.env.MEDICAL_API}/medical/products/get-products`
 		);
 	
 		const getCategories = await getData(`${process.env.MEDICAL_API}/medical/categories`);
@@ -527,18 +526,11 @@ export const getStaticProps = async () => {
 		return {
 			props: {
 				cards: getDoctors?.length ? getDoctors : [],
-				clinics: getClinics?.length ? getClinics : [],
+				clinics: [], //getClinics?.length ? getClinics : 
 				categories: getCategories?.length ? getCategories : [],
 			},
 			revalidate: 10
 		};
-	}catch(error){
-		return {
-			props: {
-				error: true
-			}
-		}
-	}
 
 };
 
