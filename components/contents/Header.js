@@ -323,7 +323,7 @@ const Header = () => {
 													<Link href='/user'>
 														<div className={classes.auth_user_icon}>
 															<div className={classes.avatarBg} style={{backgroundColor: `${userAvatar?.color}`}}>
-																<img src={`${userAvatar?.img}`} />
+																<img src={`${userAvatar?.img !== '/avatarundefined.png' ? userAvatar?.img : '/defaulticon.png'}`} />
 															</div>
 															<h4>
 																{userInfo?.firstName} {userInfo?.lastName}
@@ -354,7 +354,7 @@ const Header = () => {
 									<a onClick={(e) => e.preventDefault()}>
 										<Space>
 										<div className={classes.avatarBg} style={{backgroundColor: `${userAvatar?.color}`}}>
-											<img src={`${userAvatar?.img}`} />
+											<img src={`${userAvatar?.img !== '/avatarundefined.png' ? userAvatar?.img : '/defaulticon.png'}`} />
 										</div>
 										</Space>
 									</a>

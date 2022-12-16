@@ -20,7 +20,7 @@ import Navigation from '../../components/navigation';
 
 let PageSize = 12;
 
-function ClinicsPage({ clinics, cards, municipalities }) {
+function ClinicsPage({ clinics  = [], cards = [], municipalities = [] }) {
 	const [modalIsOpen, setIsOpen] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [searchInput, setSearchInput] = useState('');
@@ -85,7 +85,7 @@ function ClinicsPage({ clinics, cards, municipalities }) {
 	const currentTableData = useMemo(() => {
 		const firstPageIndex = (currentPage - 1) * PageSize;
 		const lastPageIndex = firstPageIndex + PageSize;
-		return filterData.slice(firstPageIndex, lastPageIndex);
+		return filterData?.slice(firstPageIndex, lastPageIndex);
 	}, [currentPage, filterData]);
 
 	let subtitle;
@@ -284,7 +284,7 @@ function ClinicsPage({ clinics, cards, municipalities }) {
 					<Pagination
 						className='pagination-bar'
 						currentPage={currentPage}
-						totalCount={filterData.length}
+						totalCount={filterData?.length}
 						pageSize={PageSize}
 						onPageChange={(page) => setCurrentPage(page)}
 					/>

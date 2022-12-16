@@ -13,22 +13,19 @@ export default function Navigation() {
 	useEffect(() => {
 		getData(`${process.env.MEDICAL_API}/medical/categories`).then((response) =>
 		{
-			console.log(response.status)
-			if(response.status !== 500 && response.status !== undefined){
-				let medical = response?.filter(e=> e.title == 'სამედიცინო დაწესებულებები')[0];
-				let withoutMedical = response?.filter(e=> e.title !== 'სამედიცინო დაწესებულებები');
-				withoutMedical?.push(medical)
-				setCategories(withoutMedical)
-	
-				//allsubcats
-				let subcat = response?.filter((item)=> {if(item.parentCategoryId === null && 
-				item.title !== 'ყველა' &&
-				item.title !== 'სტომატოლოგია' &&
-				item.title !== 'ესთეტიკა და სილამაზე' &&
-				item.title !== 'ლაბორატორია და დიაგნოსტიკა' &&
-				item.title !== 'სამედიცინო დაწესებულებები'){return item}})
-				setAllSubcats(subcat)
-			}
+			let medical = response?.filter(e=> e.title == 'სამედიცინო დაწესებულებები')[0];
+			let withoutMedical = response?.filter(e=> e.title !== 'სამედიცინო დაწესებულებები');
+			withoutMedical?.push(medical)
+			setCategories(withoutMedical)
+
+			//allsubcats
+			let subcat = response?.filter((item)=> {if(item.parentCategoryId === null && 
+			item.title !== 'ყველა' &&
+			item.title !== 'სტომატოლოგია' &&
+			item.title !== 'ესთეტიკა და სილამაზე' &&
+			item.title !== 'ლაბორატორია და დიაგნოსტიკა' &&
+			item.title !== 'სამედიცინო დაწესებულებები'){return item}})
+			setAllSubcats(subcat)
 		}
 		);
 	}, []);
