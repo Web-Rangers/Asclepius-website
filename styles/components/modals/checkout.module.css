@@ -214,6 +214,10 @@
   background-color: #fff;
 }
 
+.input {
+  width: 100%;
+}
+
 .currentUserForm {
   margin-top:20px;
   display: flex;

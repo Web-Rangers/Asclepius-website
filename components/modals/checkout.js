@@ -436,7 +436,7 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
                         },
                     ]}
                 >
-                    <Input />
+                    <Input className={styles.input} />
                 </Form.Item>
             }
             {
