@@ -20,10 +20,9 @@ import TableDropDown from '../../components/TableDropDown';
 import { ConnectingAirportsOutlined } from '@mui/icons-material';
 import Image from 'next/image';
 
-function BuyCardPage() {
+function BuyCardPage({clinics}) {
 	const [data, setData] = useState({
 		cards: [],
-		clinics: [],
 		categories: []
 	})
 	const [modalIsOpen, setIsOpen] = useState(false);
@@ -292,13 +291,11 @@ function BuyCardPage() {
 
 	let datas = [
 		'cards',
-		'clinics',
 		'categories',
 	]
 
 	let urls = [
 		`${process.env.MEDICAL_API}/medical/products/get-products`,
-		`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/search?name=`,
 		`${process.env.MEDICAL_API}/medical/categories`,
 	]
  
@@ -487,7 +484,7 @@ function BuyCardPage() {
 											<div className={s.dropDownList}>
 												{data?.categories?.map((sub) => {
 													if (sub.id == item.id) {
-														let catsw = data?.clinics
+														let catsw = clinics
 															.map((e) => {
 																if (
 																	e.clinicCategories.some((x) => x.id == sub.id)
@@ -529,3 +526,13 @@ function BuyCardPage() {
 }
 
 export default BuyCardPage;
+
+export async function getStaticProps() {
+	const clinics = await getData(`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/search?name=`);
+	
+	return {
+		props: {
+			clinics: clinics
+		}
+	}
+}

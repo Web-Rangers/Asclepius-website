@@ -162,7 +162,7 @@ export default function Doctors({ frelancers, doctors, clinicDoctors }) {
 	const [currentPage, setCurrentPage] = useState(1);
 	const router = useRouter();
 
-	const concatData = frelancers?.content.concat(doctors?.content);
+	const concatData = frelancers?.content;
 
 	let PageSize = 12;
 
@@ -308,8 +308,8 @@ export default function Doctors({ frelancers, doctors, clinicDoctors }) {
 						{currentTableData?.map((doctor) => {
 							return (
 								<Link
-									href={`/doctors/${doctor.id}`}
-									key={doctor.id}
+									href={`/doctors/${doctor?.id}`}
+									key={doctor?.id}
 								>
 									<div className={styles.doctor}>
 										<div className={styles.poster}>
@@ -399,29 +399,21 @@ export default function Doctors({ frelancers, doctors, clinicDoctors }) {
 export async function getServerSideProps({ query }) {
 	let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-	try{
-		const getDoctors = await getData(
-			`${API_URL}/asclepius/v1/api/clinics/doctors?page=0&size=100`
-		);
-		const getFreelancerDoc = await getData(
-			`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
-		);
-	
-		const getClinicDoctors = await getData(
-			`${API_URL}/asclepius/v1/api/clinics/${query.id}/doctors?page=0&size=5`
-		);
-		return {
-			props: {
-				doctors: getDoctors,
-				frelancers: getFreelancerDoc,
-				clinicDoctors: getClinicDoctors,
-			},
-		};
-	}catch(error) {
-		return {
-			props: {
-				error: true
-			}
-		}
-	}
+	const getDoctors = await getData(
+		`${API_URL}/asclepius/v1/api/clinics/doctors?page=0&size=100`
+	);
+	const getFreelancerDoc = await getData(
+		`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
+	);
+
+	const getClinicDoctors = await getData(
+		`${API_URL}/asclepius/v1/api/clinics/${query.id}/doctors?page=0&size=5`
+	);
+	return {
+		props: {
+			doctors: Array.isArray(getDoctors?.content) ? getDoctors : [],
+			frelancers: Array.isArray(getFreelancerDoc?.content) ? getFreelancerDoc : [],
+			clinicDoctors: Array.isArray(getClinicDoctors?.content) ? getClinicDoctors : [],
+		},
+	};
 }

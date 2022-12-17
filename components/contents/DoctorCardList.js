@@ -51,9 +51,9 @@ const DoctorCardList = ({ doctorsData }) => {
 								<DoctorCardItem
 									id={item?.id}
 									key={item?.id}
-									rating={item.rating}
-									src={item.pictureUrl}
-									doctorName={item.firstName}
+									rating={item?.rating}
+									src={item?.pictureUrl}
+									doctorName={item?.firstName}
 									speciality={item?.professions && item?.professions[0]?.name}
 								/>
 							</>
