@@ -172,7 +172,7 @@ export async function getStaticProps() {
 
 	return {
 		props: {
-			clinics: Array.isArray(clinics?.content) ? clinics?.content : [],
+			clinics: Array.isArray(clinics?.content) ? clinics?.content?.filter(e=> e.isActive) : [],
 			doctors: Array.isArray(doctors?.content) ? doctors : [],
 		}
 	}

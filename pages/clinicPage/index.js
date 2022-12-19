@@ -314,7 +314,7 @@ export const getServerSideProps = async () => {
 			props: {
 				municipalities: getMunicipalities,
 				cards: getProducts || [],
-				clinics: Array.isArray(clinics?.content) ? clinics?.content : [],
+				clinics: Array.isArray(clinics?.content) ? clinics?.content?.filter(e=> e.isActive) : [],
 			},
 		};
 	}catch(error){
