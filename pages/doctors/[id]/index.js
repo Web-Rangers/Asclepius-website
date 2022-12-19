@@ -455,7 +455,7 @@ export const getStaticPaths = async () => {
 	// );
 
 	const getFreelancerDoc = await getData(
-		`${API_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`
+		`${process.env.MEDICAL_API}/medical/doctors?page=0&size=9999`
 	);
 
 	// const concatDoctors = [].concat(

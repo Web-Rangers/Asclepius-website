@@ -113,7 +113,7 @@ const ClinicCardItem = ({ data, listItem = false, cards }) => {
 										alt={data.title}
 										effect={'blur'}
 										height={'194px'}
-										src={data?.logoUrl}
+										src={data?.logoUrl !== 'https://s3.pirveli.com/v1/api/getFile?id=null' ? data.logoUrl : '/clinicImage.png'}
 										width={state ? '313px' : '0px'}  
 										beforeLoad={()=> console.log('before')}
 										afterLoad={()=> setState(true)}
