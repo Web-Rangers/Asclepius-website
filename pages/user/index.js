@@ -144,7 +144,7 @@ export default function UserDetailed() {
                         />
                     </div>
 
-                    <div className={styles.orders}>
+                    {/* <div className={styles.orders}>
                         <Block
                             title='Order History'
                             actions={
@@ -269,7 +269,7 @@ export default function UserDetailed() {
                                 />
                             }
                         </Block>
-                    </div>
+                    </div> */}
                 </div>
                 <div className={styles.rightMenu}>
                     <Block
