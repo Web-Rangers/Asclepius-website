@@ -10,7 +10,7 @@ import CardPrice from '../components/contents/CardPrice';
 import Text from '../components/ui/Text';
 import Button from '../components/ui/Button';
 import axios from 'axios';
-import ResponsiveSlider from '../components/contents/ResponsiveCarousel';
+import ResponsiveSlider from '../components/contents/responsiveCarousel';
 import { useWindowSize } from '../components/useWindowSize';
 import { getData, getMultipleData } from '../components/request';
 import { Carousel } from 'react-responsive-carousel';

@@ -26,7 +26,7 @@ const tailLayout = {
     },
 };
 
-export default function Checkout({onClose, currentUser, cards, selectPack, cardType, users, setUsers}) {
+export default function Checkout({onClose, currentUser, cards, selectPack, cardType, users, setUsers, price}) {
     const [memberType, setMemberType] = useState('');
     const [openMemberModal, setOpenMemberModal] = useState(false);
     const [personDate, setPersonDate] = useState('');
@@ -35,6 +35,8 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
 
     const findCard = cards?.filter((e)=> e.genericTransactionTypeId === cardType)[0];
     let cardTp = selectPack; //findCard.genericTransactionTypeToAddInfo.infoCategory
+
+    console.log(price, 'price')
 
     function usersArray() {
         const manageUsersArray = users?.map((user)=> {
@@ -65,7 +67,37 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
     }
 
     let API_URL = (cardTp !== 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL' ? `${process.env.MEDICAL_API}/medical/orders/create-orders` : `${process.env.MEDICAL_API}/medical/orders/create-order`);
-
+    let bogRequest = {
+        "bank_name": "bog",
+        "party_id": null,
+        "contract_id": null,
+        "user_id": null,
+        "bog_order_request_dto" : {
+            "intent": "AUTHORIZE",
+            "items": [
+                {
+                "amount": price, //findCard?.entries[0].entryAmount
+                "description": "regTest",
+                "quantity": "1",
+                "product_id": `${findCard?.genericTransactionTypeId}`
+                }
+            ],
+            "locale": "ka",
+            "shop_order_id": "123456",
+            "redirect_url": "https://bog-banking.pirveli.ge/callback/statusChange",
+            "show_shop_order_id_on_extract": true,
+            "capture_method": "AUTOMATIC",
+            "purchase_units": [
+                {
+                    "amount": {
+                        "currency_code": "GEL",
+                        "value": price //findCard?.entries[0].entryAmount
+                    }
+                }
+            ]
+        },
+        "customerDTOList": cardTp !== 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL' ? usersArray() : null
+    };
     async function request(values = null){
         if(Object.getOwnPropertyNames(values).length !== 0){
             let requestBody = {
@@ -80,16 +112,7 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                 activeDocId: null,
                 regDate: null,
                 uuid: currentUser.uuid,
-                contactInfos: [
-                    {
-                        "prefix": "995",
-                        "value": values?.phone,
-                        "info": "my phone number",
-                        "contactInfoType": "phone",
-                        "contactInfoTag": "main",
-                        "serviceType": "personal"
-                    }
-                ],
+                contactInfos: currentUser?.contactInfos ?  currentUser.contactInfos : [],
                 orgDisplayName: null,
                 orgLegalName: null,
                 orgIdentNo: null,
@@ -107,74 +130,14 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                     console.log(requestBody)
                     postData(
                         API_URL,
-                        {
-                            "bank_name": "bog",
-                            "party_id": null,
-                            "contract_id": null,
-                            "user_id": null,
-                            "bog_order_request_dto" : {
-                                "intent": "AUTHORIZE",
-                                "items": [
-                                    {
-                                    "amount": "0.01", //findCard?.entries[0].entryAmount
-                                    "description": "regTest",
-                                    "quantity": "1",
-                                    "product_id": `${findCard?.genericTransactionTypeId}`
-                                    }
-                                ],
-                                "locale": "ka",
-                                "shop_order_id": "123456",
-                                "redirect_url": "https://medical.pirveli.com/user/",
-                                "show_shop_order_id_on_extract": true,
-                                "capture_method": "AUTOMATIC",
-                                "purchase_units": [
-                                    {
-                                        "amount": {
-                                            "currency_code": "GEL",
-                                            "value": "0.01" //findCard?.entries[0].entryAmount
-                                        }
-                                    }
-                                ]
-                            },
-                            "customerDTOList": cardTp !== 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL' ? usersArray() : null
-                        },
+                        bogRequest,
                         'POST'
                     ).then(response=> Router.push(response?.links[1].href)).catch((error)=> console.log(error))
                 })
         }else {
             postData(
                 API_URL,
-                {
-                    "bank_name": "bog",
-                    "party_id": null,
-                    "contract_id": null,
-                    "user_id": null,
-                    "bog_order_request_dto" : {
-                        "intent": "AUTHORIZE",
-                        "items": [
-                            {
-                            "amount": "0.01", //findCard?.entries[0].entryAmount
-                            "description": "regTest",
-                            "quantity": "1",
-                            "product_id": `${findCard?.genericTransactionTypeId}`
-                            }
-                        ],
-                        "locale": "ka",
-                        "shop_order_id": "123456",
-                        "redirect_url": "https://bog-banking.pirveli.ge/callback/statusChange",
-                        "show_shop_order_id_on_extract": true,
-                        "capture_method": "AUTOMATIC",
-                        "purchase_units": [
-                            {
-                                "amount": {
-                                    "currency_code": "GEL",
-                                    "value": "0.01" //findCard?.entries[0].entryAmount
-                                }
-                            }
-                        ]
-                    },
-                    "customerDTOList": cardTp !== 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL' ? usersArray() : null
-                },
+                bogRequest,
                 'POST'
             ).then(response=> Router.push(response?.links[1].href))
         }
@@ -240,13 +203,6 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                                                             </div>
                                                         </div>
                                                         <div className={styles.userInfo}>
-                                                            {
-                                                                user?.phone && 
-                                                                <div className={styles.infoCol}>
-                                                                    <ReactSVG src="/userPhone.svg" />
-                                                                    <h4>Phone number: {user.phone}</h4>
-                                                                </div>
-                                                            }
                                                             <div className={styles.infoCol}>
                                                                 <ReactSVG src="/userDate.svg" />
                                                                 <h4>Date of birth: {user.personDob}</h4>
@@ -336,13 +292,6 @@ export function EditUserInfo({user, users, setEdit, setUsers}) {
                     </div>
                 </div>
                 <div className={styles.userInfo}>
-                    {
-                        user?.phone && 
-                        <div className={styles.infoCol}>
-                            <ReactSVG src="/userPhone.svg" />
-                            <Input value={state.phone} onChange={(value)=> setState(e=> ({...e, phone: value}))} />
-                        </div>
-                    }
                     <div className={styles.infoCol}>
                         <ReactSVG src="/userDate.svg" />
                         <DatePicker
@@ -381,13 +330,6 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
                     </div>
                 </div>
                 <div className={styles.userInfo}>
-                    {
-                        currentUser?.phone && 
-                        <div className={styles.infoCol}>
-                            <ReactSVG src="/userPhone.svg" />
-                            <h4>Phone number: {user.phone}</h4>
-                        </div>
-                    }
                     <div className={styles.infoCol}>
                         <ReactSVG src="/userDate.svg" />
                         <h4>Date of birth: {currentUser.personDob}</h4>
@@ -419,20 +361,6 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
                         {
                         required: true,
                         len: 11
-                        },
-                    ]}
-                >
-                    <Input className={styles.input} />
-                </Form.Item>
-            }
-            {
-                currentUser?.phone == null &&
-                <Form.Item
-                    name="phone"
-                    label="Phone"
-                    rules={[
-                        {
-                        required: true,
                         },
                     ]}
                 >

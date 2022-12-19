@@ -206,8 +206,6 @@ function BuyCardPage({clinics}) {
 
 		getData(`${process.env.MEDICAL_API}/medical/products/get-products`)
 			.then((res)=> {setProducts(res); setProductState(res)})
-
-		setPrice(chooseCard && chooseCard[0]?.price);
 	}, []);
 
 	useEffect(() => {
@@ -281,10 +279,11 @@ function BuyCardPage({clinics}) {
 		},
 	}));
 
-	function openCheckout(type, pack, month){
+	function openCheckout(type, pack, month, price){
 		setCardType(type) // card
 		setSelectPack(pack) //family or individual
 		setMonth(month) // month
+		setPrice(price)
 
 		setCheckout(true)
 	}
@@ -314,6 +313,7 @@ function BuyCardPage({clinics}) {
 					setUsers={(e) => setUsers(e)}
 					currentUser={user}
 					selectPack={selectPack}
+					price={price}
 				/>
 			)}
 			<div className={s.container}>
@@ -406,7 +406,7 @@ function BuyCardPage({clinics}) {
 								{
 									individualcards?.map(({price, name, length, lenghtNum})=> {
 										return <>
-											<div className={s.cardsBlock} onClick={()=> openCheckout(data?.cards[0]?.genericTransactionTypeToAddInfo?.genericTransactionTypeId, name, lenghtNum)}>
+											<div className={s.cardsBlock} onClick={()=> openCheckout(data?.cards[0]?.genericTransactionTypeToAddInfo?.genericTransactionTypeId, name, lenghtNum, price)}>
 												<div className={s.cardOverview}>
 													<img src="/buycradbg.png" alt=""/>
 													<div className={s.cardPrice}>
@@ -427,7 +427,7 @@ function BuyCardPage({clinics}) {
 								{
 									familycards?.map(({price, name, length, lenghtNum})=> {
 										return <>
-											<div className={s.cardsBlock} onClick={()=> openCheckout(data?.cards[0]?.genericTransactionTypeToAddInfo?.genericTransactionTypeId, name, lenghtNum)}>
+											<div className={s.cardsBlock} onClick={()=> openCheckout(data?.cards[0]?.genericTransactionTypeToAddInfo?.genericTransactionTypeId, name, lenghtNum, price)}>
 												<div className={s.cardOverview}>
 													<img src="/buycradbg.png" alt=""/>
 													<div className={s.cardPrice}>

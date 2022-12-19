@@ -24,6 +24,7 @@ export default function Navigation() {
 			item.title !== 'სტომატოლოგია' &&
 			item.title !== 'ესთეტიკა და სილამაზე' &&
 			item.title !== 'ლაბორატორია და დიაგნოსტიკა' &&
+			item.title !== 'ფარმაცია' &&
 			item.title !== 'სამედიცინო დაწესებულებები'){return item}})
 			setAllSubcats(subcat)
 		}
@@ -80,6 +81,7 @@ export default function Navigation() {
 									test == 'სტომატოლოგია' || 
 									test == 'ესთეტიკა და სილამაზე' ||
 									test == 'ლაბორატორია და დიაგნოსტიკა' ||
+									test == 'ფარმაცია' ||
 									test == 'სამედიცინო დაწესებულებები'
 								) &&
 									(<Dropdown

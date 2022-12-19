@@ -229,7 +229,7 @@ const Header = () => {
 			<div className={classes.smallheaderContainer}>
 				<div className={classes.content}>
 					<div className={classes.smallheaderLeft}>
-						<Link href='https://optimoml.geopay.com/index.php'>
+						<Link href='https://shop.pirveli.com/'>
 							<a className={classes.smallheaderLeftText}>მაღაზია</a>
 						</Link>
 
