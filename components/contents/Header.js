@@ -30,7 +30,7 @@ const customStyles = {
 const items = [
 	{
 
-		label: <Link href='https://profile.pirveli.ge'>Settings</Link>,
+		label: <Link href='https://profile.pirveli.com'>Settings</Link>,
 
 
 		key: '1',
