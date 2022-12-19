@@ -299,7 +299,14 @@ function BuyCardPage({clinics}) {
 	]
  
 	useEffect(()=> {
-		getMultipleData(datas, setData, urls)
+		getData(`${process.env.MEDICAL_API}/medical/products/get-products`)
+            .then((response)=> {
+				setData((e)=> ({...e, cards: response}))
+            })
+		getData(`${process.env.MEDICAL_API}/medical/categories`)
+		.then((response)=> {
+			setData((e)=> ({...e, categories: response}))
+		})
 	},[])
 
 	return (

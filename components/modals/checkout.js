@@ -1,5 +1,4 @@
-import { useEffect, useRef } from "react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ReactSVG } from "react-svg";
 import Select from "../../components/Select";
 import styles from "../../styles/components/modals/checkout.module.css";
@@ -30,14 +29,17 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
     const [memberType, setMemberType] = useState('');
     const [openMemberModal, setOpenMemberModal] = useState(false);
     const [personDate, setPersonDate] = useState('');
+    const [findCard, setFindCar] = useState(null);
 
     const [edit, setEdit] = useState(null);
 
-    const findCard = cards?.filter((e)=> e.genericTransactionTypeId === cardType)[0];
+    useEffect(()=>{
+        const fncard = cards?.filter((e)=> e?.genericTransactionTypeToAddInfo?.genericTransactionTypeId === cardType)[0];
+        setFindCar(fncard)
+    },[])
+
     let cardTp = selectPack; //findCard.genericTransactionTypeToAddInfo.infoCategory
-
-    console.log(price, 'price')
-
+    
     function usersArray() {
         const manageUsersArray = users?.map((user)=> {
             let userWithoutId = Object.keys(user).filter(key =>
@@ -67,38 +69,38 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
     }
 
     let API_URL = (cardTp !== 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL' ? `${process.env.MEDICAL_API}/medical/orders/create-orders` : `${process.env.MEDICAL_API}/medical/orders/create-order`);
-    let bogRequest = {
-        "bank_name": "bog",
-        "party_id": null,
-        "contract_id": null,
-        "user_id": null,
-        "bog_order_request_dto" : {
-            "intent": "AUTHORIZE",
-            "items": [
-                {
-                "amount": price, //findCard?.entries[0].entryAmount
-                "description": "regTest",
-                "quantity": "1",
-                "product_id": `${findCard?.genericTransactionTypeId}`
-                }
-            ],
-            "locale": "ka",
-            "shop_order_id": "123456",
-            "redirect_url": "https://medical.pirveli.com/user/",
-            "show_shop_order_id_on_extract": true,
-            "capture_method": "AUTOMATIC",
-            "purchase_units": [
-                {
-                    "amount": {
-                        "currency_code": "GEL",
-                        "value": price //findCard?.entries[0].entryAmount
-                    }
-                }
-            ]
-        },
-        "customerDTOList": cardTp !== 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL' ? usersArray() : null
-    };
     async function request(values = null){
+        let bogRequest = {
+            "bank_name": "bog",
+            "party_id": null,
+            "contract_id": null,
+            "user_id": null,
+            "bog_order_request_dto" : {
+                "intent": "AUTHORIZE",
+                "items": [
+                    {
+                    "amount": price, //findCard?.entries[0].entryAmount
+                    "description": "regTest",
+                    "quantity": "1",
+                    "product_id": `${findCard?.genericTransactionTypeId}`
+                    }
+                ],
+                "locale": "ka",
+                "shop_order_id": "123456",
+                "redirect_url": "https://medical.pirveli.com/user/",
+                "show_shop_order_id_on_extract": true,
+                "capture_method": "AUTOMATIC",
+                "purchase_units": [
+                    {
+                        "amount": {
+                            "currency_code": "GEL",
+                            "value": price //findCard?.entries[0].entryAmount
+                        }
+                    }
+                ]
+            },
+            "customerDTOList": cardTp !== 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL' ? usersArray() : null
+        };
         if(Object.getOwnPropertyNames(values).length !== 0){
             let requestBody = {
                 objectType: 'customer',
