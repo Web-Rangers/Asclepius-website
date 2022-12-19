@@ -34,6 +34,7 @@ const ClinicDetailPage = ({
 	
 	useEffect(() => {
 		setClinicData(sliceIntoChunks(clinicArrayData, 3));
+		console.log(cardData, 'kontraktibijooo')
 	}, [router.isReady]);
 
 	const weekday = [
