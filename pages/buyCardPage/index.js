@@ -19,6 +19,7 @@ import Checkout from '../../components/modals/checkout';
 import TableDropDown from '../../components/TableDropDown';
 import { ConnectingAirportsOutlined } from '@mui/icons-material';
 import Image from 'next/image';
+import { Skeleton } from 'antd';
 
 function BuyCardPage({clinics}) {
 	const [data, setData] = useState({
@@ -301,6 +302,7 @@ function BuyCardPage({clinics}) {
 	useEffect(()=> {
 		getData(`${process.env.MEDICAL_API}/medical/products/get-products`)
             .then((response)=> {
+				console.log('response', response)
 				setData((e)=> ({...e, cards: response}))
             })
 		getData(`${process.env.MEDICAL_API}/medical/categories`)
@@ -313,7 +315,7 @@ function BuyCardPage({clinics}) {
 		<>
 			{checkout && (
 				<Checkout
-					cards={products}
+					cards={data?.cards}
 					cardType={cardType}
 					users={users}
 					onClose={() => setCheckout(false)}
@@ -404,56 +406,70 @@ function BuyCardPage({clinics}) {
 							</FormGroup>
 						</div>
 					</div>
-					<div className={classNames(s.cardsContainer, {
-						[s.cardsTransition]: checked,
-						[s.cardsTransitionUnch]: !checked,
-					})}>
-						{
-							!checked ? <>
-								{
-									individualcards?.map(({price, name, length, lenghtNum})=> {
-										return <>
-											<div className={s.cardsBlock} onClick={()=> openCheckout(data?.cards[0]?.genericTransactionTypeToAddInfo?.genericTransactionTypeId, name, lenghtNum, price)}>
-												<div className={s.cardOverview}>
-													<img src="/buycradbg.png" alt=""/>
-													<div className={s.cardPrice}>
-														{price} ლ
+					{
+						data?.cards.length > 0 ? 	
+						<div className={classNames(s.cardsContainer, {
+							[s.cardsTransition]: checked,
+							[s.cardsTransitionUnch]: !checked,
+						})}>
+							{
+								!checked ? <>
+									{
+										individualcards?.map(({price, name, length, lenghtNum})=> {
+											return <>
+												<div className={s.cardsBlock} onClick={()=> openCheckout(data?.cards[0]?.genericTransactionTypeToAddInfo?.genericTransactionTypeId, name, lenghtNum, price)}>
+													<div className={s.cardOverview}>
+														<img src="/buycradbg.png" alt=""/>
+														<div className={s.cardPrice}>
+															{price} ლ
+														</div>
+														<div className={s.cardDisplayName}>
+															{length}
+														</div>
 													</div>
-													<div className={s.cardDisplayName}>
-														{length}
-													</div>
-												</div>
-												<div className={s.buyNow}>
-													შეიძინე
-												</div>
-											</div>
-										</>
-									})
-								}
-							</> : <>
-								{
-									familycards?.map(({price, name, length, lenghtNum})=> {
-										return <>
-											<div className={s.cardsBlock} onClick={()=> openCheckout(data?.cards[0]?.genericTransactionTypeToAddInfo?.genericTransactionTypeId, name, lenghtNum, price)}>
-												<div className={s.cardOverview}>
-													<img src="/buycradbg.png" alt=""/>
-													<div className={s.cardPrice}>
-														{price} ლ
-													</div>
-													<div className={s.cardDisplayName}>
-														{length}
+													<div className={s.buyNow}>
+														შეიძინე
 													</div>
 												</div>
-												<div className={s.buyNow}>
-													შეიძინე
+											</>
+										})
+									}
+								</> : <>
+									{
+										familycards?.map(({price, name, length, lenghtNum})=> {
+											return <>
+												<div className={s.cardsBlock} onClick={()=> openCheckout(data?.cards[0]?.genericTransactionTypeToAddInfo?.genericTransactionTypeId, name, lenghtNum, price)}>
+													<div className={s.cardOverview}>
+														<img src="/buycradbg.png" alt=""/>
+														<div className={s.cardPrice}>
+															{price} ლ
+														</div>
+														<div className={s.cardDisplayName}>
+															{length}
+														</div>
+													</div>
+													<div className={s.buyNow}>
+														შეიძინე
+													</div>
 												</div>
-											</div>
-										</>
-									})
-								}
-							</>
-						}
-					</div>
+											</>
+										})
+									}
+								</>
+							}
+						</div> : 
+						<div className={s.cardsContainer}>
+							{[1,3,4].map((e)=> {
+								return <>
+								<div className={s.cardsBlock}>
+									<div className={s.skeletonLoadingCards}>
+										<Skeleton.Input active={'active'} />
+									</div>
+								</div>
+								</>
+							})}
+						</div>
+					}
 					<div className={s.listofCats}>
 						{data?.categories?.length > 0 &&  data?.categories
 							?.filter((e) => e.parentCategoryId === null)
