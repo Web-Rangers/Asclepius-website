@@ -265,7 +265,7 @@ export const getServerSideProps = async (ctx) => {
 	const userId = params.id;
 	try {
 		const getClinicById = await getData(
-			`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/${userId}`
+			`${process.env.MEDICAL_API}/medical/clinics/${userId}`
 		);
 		const getClinicAddress = await getData(
 			`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/${userId}/address`

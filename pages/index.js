@@ -21,7 +21,7 @@ import Link from 'next/link';
 import Swipper from '../components/contents/Swipper';
 import Navigation from '../components/navigation';
 
-function Home({clinics = [], doctors = [], freelancers = []}) {
+function Home({clinics = [], doctors = []}) {
 	const [data, setData] = useState({
 		products: [],
 		categories: []
@@ -30,15 +30,13 @@ function Home({clinics = [], doctors = [], freelancers = []}) {
 	const [doctorsData, setDoctorsData] = useState([]);
 	const [imgData, setImgData] = useState([]);
 
-	const allData = freelancers?.content; //.concat(doctors?.content)
+	const allData = doctors?.content; //.concat(doctors?.content)
 		// ?.concat(doctors?.content)
 		// .sort(function (a, b) {
 		// 	return a.id > b.id ? -1 : a.id > b.id ? 1 : 0;
 		// });
 
 	const windowSize = useWindowSize();
-
-	console.log(doctors, freelancers)
 
 	const firstPartImgArray = [
 		{ id: '1', url: 'firstPartImg1.png', size: true },
@@ -169,16 +167,13 @@ function Home({clinics = [], doctors = [], freelancers = []}) {
 export default Home;
 
 export async function getStaticProps() {
-	const clinics = await getData(`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/search?name=`);
-	const doctors = await getData(`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/doctors/?page=0&size=10`);
-	const freelancers = await getData(`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/doctors/freelancers?page=0&size=5`)
-
+	const clinics = await getData(`${process.env.MEDICAL_API}/medical/clinics?page=0&size=9999`);
+	const doctors = await getData(`${process.env.MEDICAL_API}/medical/doctors?page=0&size=999`);
 
 	return {
 		props: {
-			clinics: Array.isArray(clinics) ? clinics : [],
+			clinics: Array.isArray(clinics?.content) ? clinics?.content : [],
 			doctors: Array.isArray(doctors?.content) ? doctors : [],
-			freelancers: Array.isArray(freelancers?.content) ? freelancers : []
 		}
 	}
 }
