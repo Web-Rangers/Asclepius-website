@@ -419,7 +419,9 @@ function BuyCardPage({clinics}) {
 											return <>
 												<div className={s.cardsBlock} onClick={()=> openCheckout(data?.cards[0]?.genericTransactionTypeToAddInfo?.genericTransactionTypeId, name, lenghtNum, price)}>
 													<div className={s.cardOverview}>
-														<img src="/buycradbg.png" alt=""/>
+														<div className={s.cardImage}>
+															<img src="/MEDCARD-VECTOR.svg" alt=""/>
+														</div>
 														<div className={s.cardPrice}>
 															{price} ლ
 														</div>
@@ -440,7 +442,9 @@ function BuyCardPage({clinics}) {
 											return <>
 												<div className={s.cardsBlock} onClick={()=> openCheckout(data?.cards[0]?.genericTransactionTypeToAddInfo?.genericTransactionTypeId, name, lenghtNum, price)}>
 													<div className={s.cardOverview}>
-														<img src="/buycradbg.png" alt=""/>
+														<div className={s.cardImage}>
+															<img src="/MEDCARD-VECTOR.svg" alt=""/>
+														</div>
 														<div className={s.cardPrice}>
 															{price} ლ
 														</div>

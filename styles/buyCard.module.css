@@ -677,7 +677,7 @@
 	font-style: normal;
 	font-weight: 600;
 	font-size: 20px;
-	color: #383838;
+	color: #fff;
 }
 
 .buyNow {
@@ -733,6 +733,18 @@
 .skeletonLoadingCards div span {
 	width: 100%!important;
 	height: 100%!important;
+}
+
+.cardImage {
+	width: 343px;
+    height: 201px;
+	overflow: hidden;
+	border-radius: 20px;
+}
+
+.cardImage img {
+	margin-top:-8px;
+	object-fit: cover;
 }
 
 @keyframes checked {
