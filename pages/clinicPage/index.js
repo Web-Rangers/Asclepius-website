@@ -298,8 +298,8 @@ export const getServerSideProps = async () => {
 	try {
 		let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
 	
-		const getClinics = await getData(
-			`${API_URL}/asclepius/v1/api/clinics/search?name=`
+		const clinics = await getData(
+			`${process.env.MEDICAL_API}/medical/clinics?page=0&size=9999`
 		);
 	
 		const getProducts = await getData(
@@ -314,12 +314,7 @@ export const getServerSideProps = async () => {
 			props: {
 				municipalities: getMunicipalities,
 				cards: getProducts || [],
-				clinics:
-					getClinics?.length === 0
-						? null
-						: getClinics?.sort(function (a, b) {
-								return a.regDate > b.regDate ? -1 : a.regDate > b.regDate ? 1 : 0;
-						  }),
+				clinics: Array.isArray(clinics?.content) ? clinics?.content : [],
 			},
 		};
 	}catch(error){
