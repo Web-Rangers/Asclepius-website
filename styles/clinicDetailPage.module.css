@@ -441,11 +441,6 @@
 		overflow: hidden;
 		height: auto;
 	}
-	.serviceName,
-	.serviceText {
-		/* margin-left: 20px;
-		margin-right: 10px; */
-	}
 	.cardImage {
 		margin-top: 20px;
 		margin-bottom: 33px;
