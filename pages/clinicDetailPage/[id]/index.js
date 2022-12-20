@@ -193,42 +193,16 @@ const ClinicDetailPage = ({
 						<div className={s.clinicOfferCardContainer}>
 							<div className={s.offerContiner}>
 								<Text style={s.clinicInfoTitle}>Offer name</Text>
-								<Text style={s.serviceName}>Offer name1</Text>
-								<Text style={s.serviceText}>
-									Here is the offer name Chairman of the Association of
-									Dermatologists{' '}
-								</Text>
-								<Text style={s.serviceName}>Offer name2</Text>
-								<Text style={s.serviceText}>
-									Here is the offer name Chairman of the Association of
-									Dermatologists{' '}
-								</Text>
-								<Text style={s.serviceName}>Offer name3</Text>
-								<Text style={s.serviceText}>
-									Here is the offer name Chairman of the Association of
-									Dermatologists{' '}
-								</Text>
+								<Text style={s.serviceName}>Briliant</Text>
 							</div>
 							<div className={s.cardType}>
 								<Text style={s.clinicInfoTitle}>Card Type</Text>
 								<div className={s.clinicCardImage}>
 									<Image
 										alt='silver card'
-										src='/Card1.svg'
-										width='117px'
-										height='68.34px'
-									/>
-									<Image
-										alt='silver card'
-										src='/Card2.svg'
-										width='117px'
-										height='68.34px'
-									/>
-									<Image
-										alt='silver card'
-										src='/Card2.svg'
-										width='117px'
-										height='68.34px'
+										src='/MEDCARD-VECTOR.svg'
+										width='107px'
+										height='64.34px'
 									/>
 								</div>
 							</div>
