@@ -318,6 +318,7 @@ export function EditUserInfo({user, users, setEdit, setUsers}) {
 }
 
 export function CurrentUser({currentUser, bodyref, onFinish, children, type, users=[], setPersonDate}) {
+    const [state,setState] = useState(false);
     return <>
         <div className={styles.userBlock}>
             <h2>Your information:</h2>
@@ -356,18 +357,22 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
         >
             {
                 currentUser?.personalId == null &&
-                <Form.Item
-                    name="personalId"
-                    label="Personlal ID"
-                    rules={[
-                        {
-                        required: true,
-                        len: 11
-                        },
-                    ]}
-                >
-                    <Input className={styles.input} />
-                </Form.Item>
+                <>
+                    <ANT.Checkbox defaultValue={state} onChange={(e)=> setState(e.target.checked)}>Checkbox</ANT.Checkbox>
+                    <Form.Item
+                        name="personalId"
+                        label="Personlal ID"
+                        rules={[
+                            {
+                                required: true,
+                                len: state ?  false : 11
+                            },
+                        ]}
+                    >
+                        <Input className={styles.input} />
+                    </Form.Item>
+                </>
+
             }
             {
                 currentUser?.personDob == null &&
