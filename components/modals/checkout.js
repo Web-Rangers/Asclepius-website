@@ -358,7 +358,7 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
             {
                 currentUser?.personalId == null &&
                 <>
-                    <ANT.Checkbox defaultValue={state} onChange={(e)=> setState(e.target.checked)}>Checkbox</ANT.Checkbox>
+                    <ANT.Checkbox defaultValue={state} onChange={(e)=> setState(e.target.checked)}>Citizen of a foreign country</ANT.Checkbox>
                     <Form.Item
                         name="personalId"
                         label="Personlal ID"
