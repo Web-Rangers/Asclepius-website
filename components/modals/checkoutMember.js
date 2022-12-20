@@ -8,11 +8,13 @@ import 'antd/dist/antd.css';
 import { ReactSVG } from 'react-svg';
 import { useEffect } from 'react';
 import classNames from 'classnames';
+import * as ant from 'antd';
 
 export default function CheckoutFamilyMember({onClose, type, users, setUsers}) {
     const [userInfo, setUserInfo] = useState({});
     const [validation, setValidation] = useState(false)
     const [validationList, setValidationList] = useState([])
+    const [idNumLength, setIdNumLength] = useState(false);
 
     function addMember() {
         setValidationList([])
@@ -25,10 +27,12 @@ export default function CheckoutFamilyMember({onClose, type, users, setUsers}) {
                 setValidation(true)
             }else {
                 if(key == 'personalId'){
-                    if(value.toString().length < 11) {
-                        valid = true;
-                        setValidationList((e)=> ([...e, key]))
-                        setValidation(true)
+                    if(!idNumLength){
+                        if(value.toString().length < 11) {
+                            valid = true;
+                            setValidationList((e)=> ([...e, key]))
+                            setValidation(true)
+                        }
                     }
                 }
             }
@@ -61,6 +65,7 @@ export default function CheckoutFamilyMember({onClose, type, users, setUsers}) {
                                         setUserInfo={(e)=> setUserInfo(e)} 
                                         validation={validation} 
                                         validationList={validationList}
+                                        setIdNumLength={setIdNumLength}
                                     /> 
                                 || 
                     type == '2' && <Under18 
@@ -68,6 +73,7 @@ export default function CheckoutFamilyMember({onClose, type, users, setUsers}) {
                                         setUserInfo={(e)=> setUserInfo(e)} 
                                         validation={validation} 
                                         validationList={validationList}
+                                        setIdNumLength={setIdNumLength}
                                     /> 
                                 || 
                     type == '1' && <WifeOrHusband 
@@ -75,6 +81,7 @@ export default function CheckoutFamilyMember({onClose, type, users, setUsers}) {
                                         setUserInfo={(e)=> setUserInfo(e)} 
                                         validation={validation} 
                                         validationList={validationList}
+                                        setIdNumLength={setIdNumLength}
                                     />
                 }
 
@@ -88,7 +95,7 @@ export default function CheckoutFamilyMember({onClose, type, users, setUsers}) {
 }
 
 
-export function Above18({userInfo, setUserInfo, validation, validationList}) {
+export function Above18({userInfo, setUserInfo, validation, validationList, setIdNumLength}) {
     const bodyref = useRef();
 
     useEffect(()=> {
@@ -107,6 +114,10 @@ export function Above18({userInfo, setUserInfo, validation, validationList}) {
             id: Math.floor(Math.random() * 10000)
         })
     },[])
+
+    const onChange = (e) => {
+        setIdNumLength(e.target.checked);
+    };
     
     return <>
         <div className={styles.form} ref={bodyref}>
@@ -140,6 +151,7 @@ export function Above18({userInfo, setUserInfo, validation, validationList}) {
                 value={userInfo.mail}
                 onChange={(e)=> setUserInfo(values=> ({...values, mail: e}))}
             />
+            <ant.Checkbox onChange={onChange}>Citizen of a foreign country</ant.Checkbox>
             <Input 
                 label="Id number" 
                 className={styles.servInput}
@@ -190,7 +202,7 @@ export function Above18({userInfo, setUserInfo, validation, validationList}) {
     </>
 } 
 
-export function WifeOrHusband({userInfo, setUserInfo, validation, validationList}) {
+export function WifeOrHusband({userInfo, setUserInfo, validation, validationList, setIdNumLength}) {
     const bodyref = useRef();
 
     useEffect(()=> {
@@ -209,6 +221,10 @@ export function WifeOrHusband({userInfo, setUserInfo, validation, validationList
             id: Math.floor(Math.random() * 10000)
         })
     },[])
+
+    const onChange = (e) => {
+        setIdNumLength(e.target.checked);
+    };
     
     return <>
         <div className={styles.form} ref={bodyref}>
@@ -242,6 +258,7 @@ export function WifeOrHusband({userInfo, setUserInfo, validation, validationList
                 value={userInfo.mail}
                 onChange={(e)=> setUserInfo(values=> ({...values, mail: e}))}
             />
+            <ant.Checkbox onChange={onChange}>Citizen of a foreign country</ant.Checkbox>
             <Input 
                 label="Id number" 
                 className={styles.servInput}
@@ -292,7 +309,7 @@ export function WifeOrHusband({userInfo, setUserInfo, validation, validationList
     </>
 } 
 
-export function Under18({userInfo, setUserInfo, validation, validationList}) {
+export function Under18({userInfo, setUserInfo, validation, validationList, setIdNumLength}) {
     const bodyref = useRef();
 
     useEffect(()=> {
@@ -310,6 +327,10 @@ export function Under18({userInfo, setUserInfo, validation, validationList}) {
             id: Math.floor(Math.random() * 10000)
         })
     },[])
+
+    const onChange = (e) => {
+        setIdNumLength(e.target.checked);
+    };
 
     return <>
         <div className={styles.form} ref={bodyref}>
@@ -333,6 +354,7 @@ export function Under18({userInfo, setUserInfo, validation, validationList}) {
                 value={userInfo.lastName}
                 onChange={(e)=> setUserInfo(values=> ({...values, lastName: e}))}
             />
+            <ant.Checkbox onChange={onChange}>Citizen of a foreign country</ant.Checkbox>
             <Input 
                 label="Id number" 
                 className={styles.servInput}
