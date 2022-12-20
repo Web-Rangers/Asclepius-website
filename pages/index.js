@@ -21,8 +21,10 @@ import Link from 'next/link';
 import Swipper from '../components/contents/Swipper';
 import Navigation from '../components/navigation';
 
-function Home({clinics = [], doctors = []}) {
+function Home() {
 	const [data, setData] = useState({
+		clinics: [],
+		doctors: [],
 		products: [],
 		categories: []
 	})
@@ -30,7 +32,7 @@ function Home({clinics = [], doctors = []}) {
 	const [doctorsData, setDoctorsData] = useState([]);
 	const [imgData, setImgData] = useState([]);
 
-	const allData = doctors?.content; //.concat(doctors?.content)
+	const allData = data?.doctors?.content; //.concat(doctors?.content)
 		// ?.concat(doctors?.content)
 		// .sort(function (a, b) {
 		// 	return a.id > b.id ? -1 : a.id > b.id ? 1 : 0;
@@ -72,11 +74,11 @@ function Home({clinics = [], doctors = []}) {
 
 	useEffect(() => {
 		if (windowSize.width > 600) {
-			setClinicData(clinics);
+			setClinicData(data?.clinics?.content?.filter((e)=> e.isActive));
 		} else {
-			setClinicData(clinics);
+			setClinicData(data?.clinics?.content?.filter((e)=> e.isActive));
 		}
-	}, [clinics, windowSize.width]);
+	}, [data?.clinics, windowSize.width]);
 
 	useEffect(() => {
 		if (windowSize.width > 600) {
@@ -84,15 +86,19 @@ function Home({clinics = [], doctors = []}) {
 		} else {
 			setDoctorsData(allData);
 		}
-	}, [doctors, windowSize.width]);
+	}, [data?.doctors, windowSize.width]);
 
 
 	let datas = [
+		'clinics',
+		'doctors',
 		'products',
 		'categories'
 	]
 
 	let urls = [
+		`${process.env.MEDICAL_API}/medical/clinics?page=0&size=9999`,
+		`${process.env.MEDICAL_API}/medical/doctors?page=0&size=999`,
 		`${process.env.MEDICAL_API}/medical/products/get-products`,
 		`${process.env.MEDICAL_API}/medical/categories`
 	]
@@ -166,14 +172,14 @@ function Home({clinics = [], doctors = []}) {
 
 export default Home;
 
-export async function getStaticProps() {
-	const clinics = await getData(`${process.env.MEDICAL_API}/medical/clinics?page=0&size=9999`);
-	const doctors = await getData(`${process.env.MEDICAL_API}/medical/doctors?page=0&size=999`);
+// export async function getStaticProps() {
+// 	const clinics = await getData(`${process.env.MEDICAL_API}/medical/clinics?page=0&size=9999`);
+// 	const doctors = await getData(`${process.env.MEDICAL_API}/medical/doctors?page=0&size=999`);
 
-	return {
-		props: {
-			clinics: Array.isArray(clinics?.content) ? clinics?.content?.filter(e=> e.isActive) : [],
-			doctors: Array.isArray(doctors?.content) ? doctors : [],
-		}
-	}
-}
+// 	return {
+// 		props: {
+// 			clinics: Array.isArray(clinics?.content) ? clinics?.content?.filter(e=> e.isActive) : [],
+// 			doctors: Array.isArray(doctors?.content) ? doctors : [],
+// 		}
+// 	}
+// }
