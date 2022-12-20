@@ -328,7 +328,7 @@ function BuyCardPage({clinics}) {
 			<div className={s.container}>
 				<div className={s.firstPart}>
 					<div className={s.headerContainer}>
-						<div className={s.headerContainerLeft}>
+						{/* <div className={s.headerContainerLeft}>
 							<Text style={s.headerContainerTitle}>How to buy a card ?</Text>
 							<div className={s.buyCardStep}>
 								<div>
@@ -350,10 +350,7 @@ function BuyCardPage({clinics}) {
 									</Text>
 								</div>
 							</div>
-						</div>
-						<div className={s.headerContainerRight}>
-							<div className={s.headerBg}></div>
-						</div>
+						</div> */}
 					</div>
 				</div>
 				<div className={s.forMobile}>

@@ -12,11 +12,14 @@
 .headerContainer {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
-	background-color: #f7f9fb;
+	justify-content: space-between;
+	/* background-color: #f7f9fb; */
+	background-image: url('/banner1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 	padding-top: 94px;
 	padding-left: 92px;
-	height: 495px;
+	height: 525px;
 	margin-bottom: 72px;
 }
 .headerContainerTitle {
@@ -545,7 +548,7 @@
 	position: relative;
     width: 612px;
     height: 485px;
-    background-image: url('/doctors.png');
+    background-image: url('/banner1.png');
     background-size: cover;
     background-repeat: no-repeat;
     margin-left: 50px;

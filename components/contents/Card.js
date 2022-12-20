@@ -554,9 +554,11 @@ const Card = ({ data }) => {
 				</div>
 			</div> */}
 			<div className={style.cardContainer}>
-				<div className={style.containerCard}>
-					<img src="/MEDCARD-VECTOR.svg" /> 
-				</div>
+				<Link href="/buyCardPage">
+					<div className={style.containerCard}>
+						<img src="/MEDCARD-VECTOR.svg" /> 
+					</div>
+				</Link>
 				<div className={style.containerList}>
 					{featuresData?.map((e, key)=>{
 						return <div key={key} className={style.listItem}><span>{e.name}</span><span>{e.starter}</span></div>
