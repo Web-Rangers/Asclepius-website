@@ -7,7 +7,7 @@ import SignUpFooter from '../components/contents/SignUpFooter';
 import classes from '../styles/headerFooter.module.css';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
-
+import Head from 'next/head'
 import {
 	Hydrate,
 	QueryClient,
@@ -50,6 +50,9 @@ function MyApp({ Component, pageProps }) {
 			<QueryClientProvider client={queryClient}>
 				<Hydrate state={pageProps.dehidratedState}>
 					{hideHeader ? signUp ? <SignUpHeader /> : <Header /> : null}
+					<Head>
+						<link rel="icon" type="image/png" href={'/med.png'} />					
+					</Head>
 					{getLayout(<Component {...pageProps} />)}
 					<Script
 						id='my-script'

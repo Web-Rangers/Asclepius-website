@@ -151,7 +151,7 @@ export function Above18({userInfo, setUserInfo, validation, validationList, setI
                 value={userInfo.mail}
                 onChange={(e)=> setUserInfo(values=> ({...values, mail: e}))}
             />
-            <ant.Checkbox onChange={onChange}>Citizen of a foreign country</ant.Checkbox>
+            <ant.Checkbox onChange={onChange}>სხვა ქვეყნის მოქალაქე</ant.Checkbox>
             <Input 
                 label="Id number" 
                 className={styles.servInput}
@@ -258,7 +258,7 @@ export function WifeOrHusband({userInfo, setUserInfo, validation, validationList
                 value={userInfo.mail}
                 onChange={(e)=> setUserInfo(values=> ({...values, mail: e}))}
             />
-            <ant.Checkbox onChange={onChange}>Citizen of a foreign country</ant.Checkbox>
+            <ant.Checkbox onChange={onChange}>სხვა ქვეყნის მოქალქე</ant.Checkbox>
             <Input 
                 label="Id number" 
                 className={styles.servInput}
@@ -354,7 +354,7 @@ export function Under18({userInfo, setUserInfo, validation, validationList, setI
                 value={userInfo.lastName}
                 onChange={(e)=> setUserInfo(values=> ({...values, lastName: e}))}
             />
-            <ant.Checkbox onChange={onChange}>Citizen of a foreign country</ant.Checkbox>
+            <ant.Checkbox onChange={onChange}>სხვა ქვეყნის მოქალაქე</ant.Checkbox>
             <Input 
                 label="Id number" 
                 className={styles.servInput}
