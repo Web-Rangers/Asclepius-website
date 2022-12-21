@@ -20,7 +20,7 @@
 	align-items: center;
 	width: 100%;
 	height: 44px;
-	background: #1d1d1e;
+	background: #383838;
 	margin: auto;
 	padding-left: 50px;
 	padding-right: 50px;
@@ -335,18 +335,35 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: #f7f9fb;
-	width: 613px;
+	background-color: #D9D9D94D;
 	height: 48px;
+	width: 613px;
+	margin-left: 48px;
+	transition: 0.4s;
 	border-radius: 12px;
+}
+.defaultSearchInput {
+	width: 100%;
+	max-width: 925px;
+    margin-left: 48px;
+	transition: 0.7s;
+	margin-right: auto;
+}
+.scrollsearch {
+	width: 613px;
+	margin-left: 48px;
+	transition: 0.4s;
 }
 .searchInput input {
 	border: none;
 	width: 400px;
 	padding-left: 21px;
-	background-color: #f7f9fb;
-	border-radius: 12px;
+	background-color: transparent;
 	font-family: 'Noto Sans', 'Avenir Next Georgian';
+	color: #383838;
+}
+.searchInput input::placeholder {
+	color: #383838;
 }
 .searchInput input:focus {
 	outline: none;
@@ -361,7 +378,7 @@
 	display: flex;
 	align-items: center;
 	gap: 11px;
-	background: #FF1C00;
+	background-color: #FFBBB6;
 	border:0px;
 	padding: 0 16px;
 	height: 48px;
@@ -375,7 +392,7 @@
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 16px;
-	color: #FFFFFF;
+	color: #383838;
 }
 .contactBtnStyle {
 	width: 142px;
@@ -412,7 +429,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 196px;
+	width: 0;
 	height: 48px;
 	background: #ff1c00;
 	border-radius: 5px;
@@ -421,20 +438,23 @@
 	font-weight: 900;
 	font-size: 16px;
 	line-height: 23px;
-	color: #ffffff;
+	color: red;
 	border: none;
 	margin-right: 37.5px;
 	cursor: pointer;
 	visibility: hidden;
 	transform: scale(0.6);
-	transition: 0.3s color;
+	transition: 0.4s color;
+	overflow: hidden;
 }
 .buyCardBtnStyle:hover {
 	background-color: #FF6552;
 }
 .buyCardBtnShow {
 	visibility: visible;
-	transition: 0.4s;
+	width: 196px;
+	color: #fff;
+	transition: 0.2s;
 	transform: scale(1);
 }
 .signInBtnStyle {
@@ -444,16 +464,21 @@
 	width: 196px;
 	height: 48px;
 	background: #fdc7c4;
-	border-radius: 5px;
-	font-family: 'Avenir Next Bold';
+	border-radius: 12px;
+	font-family: 'Avenir Next Georgian';
 	font-style: normal;
-	font-weight: 700;
-	font-size: 16px;
-	line-height: 23px;
-	color: #1e2837;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 150%;
+	display: flex;
+	align-items: center;
+	color: #383838;
 	border: none;
 	margin-right: 18px;
 	cursor: pointer;
+}
+.signInBtnStyle:hover {
+	color: #383838;
 }
 .userProfilePart {
 	display: flex;

@@ -353,12 +353,6 @@ function BuyCardPage({clinics}) {
 						</div> */}
 					</div>
 				</div>
-				<div className={s.forMobile}>
-					<CardPrice
-						withoutHeader
-						onClick={openModal}
-					/>
-				</div>
 				<Modal
 					isOpen={modalIsOpen}
 					onRequestClose={closeModal}

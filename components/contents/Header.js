@@ -73,7 +73,11 @@ const Header = () => {
 	useEffect(() => {
 		getData(`${process.env.MEDICAL_API}/medical/registry/user-id`).then(
 			(response) => {
-				setUser(response ? true : false);
+				if(response?.notFound){
+					setUser(false)
+				}else {
+					setUser(true)
+				}
 				setUserInfo(response)
 				console.log(response)
 			}
@@ -112,6 +116,38 @@ const Header = () => {
 
 	return (
 		<>
+			<div className={classes.siteStatus}>საიტი მუშაობს სატესტო რეჟიმში</div>
+			<div className={classes.smallheaderContainer}>
+				<div className={classes.content}>
+					<div className={classes.smallheaderLeft}>
+						<Link href='https://shop.pirveli.com/'>
+							<a className={classes.smallheaderLeftText}>მაღაზია</a>
+						</Link>
+
+						<Link href='/'>
+							<a className={classes.smallheaderLeftTextMedical}>მედიქალი</a>
+						</Link>
+						<Link href='https://vouchers.pirveli.com'>
+							<a className={classes.smallheaderLeftText}>ვაუჩერები</a>
+						</Link>
+						<Link href='https://win.pirveli.com'>
+							<a className={classes.smallheaderLeftText}>გათამაშება</a>
+						</Link>
+						<Link href='https://game.pirveli.com'>
+							<a className={classes.smallheaderLeftText}>თამაშები</a>
+						</Link>
+					</div>
+					<div className={classes.smallheaderRight}>
+						<img
+							src='/coin.png'
+							alt='headerIcon'
+							width={20}
+						/>
+						<span className={classes.coinStyle}>{points}</span>
+						<DropDown />
+					</div>
+				</div>
+			</div>
 			<div className={classes.headerForMobile}>
 				<div className={classes.mobileHeaderContainer}>
 					<img
@@ -225,38 +261,6 @@ const Header = () => {
 					</section>
 				</Modal>
 			</div>
-			<div className={classes.siteStatus}>საიტი მუშაობს სატესტო რეჟიმში</div>
-			<div className={classes.smallheaderContainer}>
-				<div className={classes.content}>
-					<div className={classes.smallheaderLeft}>
-						<Link href='https://shop.pirveli.com/'>
-							<a className={classes.smallheaderLeftText}>მაღაზია</a>
-						</Link>
-
-						<Link href='/'>
-							<a className={classes.smallheaderLeftTextMedical}>მედიქალი</a>
-						</Link>
-						<Link href='https://vouchers.pirveli.com'>
-							<a className={classes.smallheaderLeftText}>ვაუჩერები</a>
-						</Link>
-						<Link href='https://win.pirveli.com'>
-							<a className={classes.smallheaderLeftText}>გათამაშება</a>
-						</Link>
-						<Link href='https://game.pirveli.com'>
-							<a className={classes.smallheaderLeftText}>თამაშები</a>
-						</Link>
-					</div>
-					<div className={classes.smallheaderRight}>
-						<img
-							src='/coin.png'
-							alt='headerIcon'
-							width={20}
-						/>
-						<span className={classes.coinStyle}>{points}</span>
-						<DropDown />
-					</div>
-				</div>
-			</div>
 			<div className={classes.headerContainerBg}>
 				<div className={classes.headerContainer}>
 					<Link href={'/'}>
@@ -271,11 +275,15 @@ const Header = () => {
 						</a>
 					</Link>
 
-					<div className={classes.searchInput}>
+					<div className={classNames(classes.searchInput, {
+						[classes.defaultSearchInput]: offset < 48, 
+						[classes.scrollsearch]: offset > 48
+					})}>
 						<input
 							type='search'
 							value={searchInput}
 							onChange={handleChange}
+							placeholder="მოძებნე ექიმი ან კლინიკა..."
 						/>
 						<button>
 							<ReactSVG src='/searchIconsvg.svg' />
@@ -298,16 +306,16 @@ const Header = () => {
 							</Link>
 						</div>
 
-						{!user && (
-							<Link href='/signInPage'>
-								<a className={classes.signInBtnStyle}>შესვლა</a>
-							</Link>
-						)}
 						<Link href='/buyCardPage'>
 							<span className={classNames(classes.buyCardBtnStyle, {
 								[classes.buyCardBtnShow]: offset > 47
 							})}>ბარათის შეძენა</span>
 						</Link>
+						{(user == null || !user) && (
+							<Link href='https://auth.pirveli.com/realms/xracoon-demo/protocol/openid-connect/auth?response_type=code&client_id=demo-client&scope=email%20profile%20roles%20openid&state=S_SXwlNFk9uQvJbIiv14woIxYEPZC0KGVwjYO2mZUIw%3D&redirect_uri=https://medical.pirveli.com/login/oauth2/code/keycloak&nonce=p73X0jpKyzGZ_AqZWl7bCU4mqpCfVacuaqV-7MddFgk'>
+								<a className={classes.signInBtnStyle}>შესვლა</a>
+							</Link>
+						)}
 						{user && (
 							<div className={classes.authorizedUser} ref={headerRef}>
 								<Dropdown

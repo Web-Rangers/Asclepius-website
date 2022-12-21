@@ -759,12 +759,18 @@
 	100% { opacity: 1 }
 }
 
+@media only screen and (max-width: 1400px){
+	.container {
+		padding: 0 48px;
+	}
+	.headerContainer {
+		height: 36vw;
+	}
+}
+
 @media only screen and (max-width: 1180px) {
 	.forMobile {
 		display: block;
-	}
-	.firstPart {
-		/* width: calc(100% - 32px); */
 	}
 	.headerBg {
 		margin: 0;
@@ -788,10 +794,36 @@
 		order: 1;
 		margin-bottom: 37px;
 	}
-	.headerContainerTitle {
-		font-size: 18px;
-		justify-content: flex-start;
-		margin-bottom: 30px;
+	.chooseCardContainer {
+		margin-top:40px;
+	}
+	.cardsBlock {
+		width: 32%;
+		height: 16vw;
+		background-color: transparent;
+	}
+	.cardOverview {
+		height: 16vw;
+	}
+	.cardOverview{
+		width: 100%;
+	}
+	.cardImage {
+		width: 101%;
+		height: 100%;
+	}
+	.cardImage img {
+		width: 100%;
+		margin-top:0;
+		height: 100%;
+		object-fit: cover;
+	}
+	.cardsContainer {
+		height: 21vw;
+	}
+	.listofCats {
+		max-width: 883px;
+		width: 100%;
 	}
 }
 
@@ -826,17 +858,12 @@
 	}
 	.headerContainerTitle {
 		font-size: 18px;
-		justify-content: flex-start;
-		margin-bottom: 30px;
 	}
 	.buyCardStep {
 		margin: 0;
 	}
 	.buyCardStep div {
 		margin-bottom: 30px;
-	}
-	.chooseCardContainer {
-		display: none;
 	}
 	.checkoutTitleStyle {
 		margin-bottom: 20px;
@@ -849,5 +876,57 @@
 	}
 	.documentLink {
 		margin-top: 10px;
+	}
+	.cardsContainer {
+		gap: 23px;
+	}
+	.cardPrice {
+		padding: 7px 14px;
+		border-radius: 24px 0px 12px;
+	}
+	.buyNow {
+		display: none;
+	}
+	.firstPart{
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.container {
+		padding: 0;
+	}
+	.firstPart {
+		padding:0 20px;
+	}
+	.cardsContainer {
+		overflow-x: auto;
+		justify-content: flex-start;
+		height: 201.31px;
+		margin-bottom:50px;
+		padding:0 20px;
+		gap: 9px;
+	}
+	.cardsBlock {
+		min-width: 343px;
+		height: 201.31px;
+	}
+	.cardsBlock:hover {
+		transform: scale(1);
+	}
+	.cardOverview{ 
+		height: 201.31px;
+	}
+	.listofCats {
+		margin-bottom:75px;
+	}
+	.nameIconCont {
+		display: flex;
+		align-items: center;
+		max-width: 60%;
+	}
+	.nameIconCont span:nth-child(1) {
+		display: block;
+		max-width: 80%;
 	}
 }
