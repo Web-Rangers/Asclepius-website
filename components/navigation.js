@@ -4,11 +4,13 @@ import styles from '../styles/components/navigation.module.css';
 import { useState, useEffect, useRef } from 'react';
 import { getData } from '../components/request';
 import Link from 'next/link';
+import {useWindowSize} from './useWindowSize';
 
 export default function Navigation() {
 	const [categories, setCategories] = useState([]);
 	const [allSubcats, setAllSubcats] = useState([]); 
 	let menuRef = useRef();
+	const windowSize = useWindowSize();
 
 	useEffect(() => {
 		getData(`${process.env.MEDICAL_API}/medical/categories`).then((response) =>
@@ -17,20 +19,35 @@ export default function Navigation() {
 			let withoutMedical = response?.filter(e=> e.title !== 'სამედიცინო დაწესებულებები');
 			withoutMedical?.push(medical)
 			setCategories(withoutMedical)
-
-			//allsubcats
-			let subcat = response?.filter((item)=> {if(item.parentCategoryId === null && 
-			item.title !== 'ყველა' &&
-			item.title !== 'სტომატოლოგია' &&
-			item.title !== 'ესთეტიკა და სილამაზე' &&
-			item.title !== 'ლაბორატორია და დიაგნოსტიკა' &&
-			item.title !== 'ფარმაცია' &&
-			item.title !== 'სამედიცინო დაწესებულებები'){return item}})
-			setAllSubcats(subcat)
+			if(windowSize.width > 1207){
+				//allsubcats
+				let subcat = response?.filter((item)=> {if(item.parentCategoryId === null && 
+					item.title !== 'ყველა' &&
+					item.title !== 'სტომატოლოგია' &&
+					item.title !== 'ესთეტიკა და სილამაზე' &&
+					item.title !== 'ლაბორატორია და დიაგნოსტიკა' &&
+					item.title !== 'ფარმაცია' &&
+					item.title !== 'სამედიცინო დაწესებულებები'){return item}})
+				setAllSubcats(subcat)
+			}else if(windowSize.width < 1207 && windowSize.width > 900){
+				let subcat = response?.filter((item)=> {if(item.parentCategoryId === null && 
+					item.title !== 'ყველა' &&
+					item.title !== 'სტომატოლოგია' &&
+					item.title !== 'ესთეტიკა და სილამაზე' &&
+					item.title !== 'ფარმაცია' &&
+					item.title !== 'სამედიცინო დაწესებულებები'){return item}})
+				setAllSubcats(subcat)
+			}else if(windowSize.width < 900){
+				let subcat = response?.filter((item)=> {if(item.parentCategoryId === null && 
+					item.title !== 'ყველა' &&
+					item.title !== 'სტომატოლოგია' &&
+					item.title !== 'ფარმაცია' &&
+					item.title !== 'სამედიცინო დაწესებულებები'){return item}})
+				setAllSubcats(subcat)
+			}		
 		}
 		);
 	}, []);
-
 
 	return (
 		<>
@@ -72,17 +89,43 @@ export default function Navigation() {
 								};
 							});
 						}
+
+						let appendCat;
+
+						if(windowSize.width > 1207){
+							appendCat = (
+								item.parentCategoryId === null && 
+								test == 'ყველა' ||
+								test == 'სტომატოლოგია' || 
+								test == 'ესთეტიკა და სილამაზე' ||
+								test == 'ლაბორატორია და დიაგნოსტიკა' ||
+								test == 'ფარმაცია' ||
+								test == 'სამედიცინო დაწესებულებები'
+							)
+						}else if(windowSize.width < 1207 && windowSize.width > 900){
+							appendCat = (
+								item.parentCategoryId === null && 
+								test == 'ყველა' ||
+								test == 'სტომატოლოგია' || 
+								test == 'ესთეტიკა და სილამაზე' ||
+								test == 'ფარმაცია' ||
+								test == 'სამედიცინო დაწესებულებები'
+							)
+						}else if(windowSize.width < 900){
+							appendCat = (
+								item.parentCategoryId === null && 
+								test == 'ყველა' ||
+								test == 'სტომატოლოგია' || 
+								test == 'ფარმაცია' ||
+								test == 'სამედიცინო დაწესებულებები'
+							)
+						}
 										
 						return (
 							<>
 								{(
 									item.parentCategoryId === null && 
-									test == 'ყველა' ||
-									test == 'სტომატოლოგია' || 
-									test == 'ესთეტიკა და სილამაზე' ||
-									test == 'ლაბორატორია და დიაგნოსტიკა' ||
-									test == 'ფარმაცია' ||
-									test == 'სამედიცინო დაწესებულებები'
+									appendCat
 								) &&
 									(<Dropdown
 										menu={{

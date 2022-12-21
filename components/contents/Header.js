@@ -369,6 +369,9 @@ const Header = () => {
 								</Dropdown>
 							</div>
 						)}
+						<div className={classes.burgerMenuicon}>
+							<ReactSVG src="/burgericonv2.svg" />
+						</div>
 					</div>
 				</div>
 			</div>

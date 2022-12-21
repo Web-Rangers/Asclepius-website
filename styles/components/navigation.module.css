@@ -17,7 +17,9 @@
 	/* width: calc(100% - 0px);
 	max-width: calc(1440px - 0px); */
 	width: calc(100% - 0px);
-	max-width: calc(1440px - 100px);
+	max-width: 1440px;
+	padding-left: 50px;
+	padding-right: 50px;
 }
 
 .catalogContainer span:last-child a{
@@ -99,9 +101,9 @@
 	transition: 0.4s;
 }
 
-@media only screen and (max-width: 1366px) {
-	.catalogContainer {
-		display: none;
+@media only screen and (max-width: 950px){
+	.catalogContainerBg{
+		display:none;
 	}
 }
 
