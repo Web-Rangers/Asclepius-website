@@ -738,6 +738,8 @@
 		padding-left: 30px;
 		width: 100%;
 		min-height: 150px;
+		position: fixed;
+		bottom: 0;
 	}
 	.leftSideContainer {
 		display: none;
@@ -1182,13 +1184,15 @@
 		margin-bottom: 90px;
 	}
 	.allRightStyle {
-		display: flex;
 		background: #f7f9fb;
 		padding-left: 53px;
 		padding-top: -20px;
 		padding-bottom: 44px;
 		margin-left: 16px;
 		margin-right: 16px;
+		position: fixed;
+		bottom: 0;
+		background-color: #ff1c00;
 	}
 	.burgerMenuAuth {
 		display: flex;
