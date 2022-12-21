@@ -13,7 +13,7 @@
 }
 .smallheaderContainer {
 	position: sticky;
-	top:-1px;
+	top: -1px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -116,13 +116,13 @@
 	margin-top: 4px;
 }
 
-.headerContainerBg{
+.headerContainerBg {
 	position: sticky;
 	top: 43px;
 	z-index: 999999;
 	background: #fff;
 	padding-left: 50px;
-    padding-right: 50px;
+	padding-right: 50px;
 }
 
 .headerContainer {
@@ -337,7 +337,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: #D9D9D94D;
+	background-color: #d9d9d94d;
 	height: 48px;
 	max-width: 613px;
 	width: 38%;
@@ -348,7 +348,7 @@
 .defaultSearchInput {
 	width: 100%;
 	max-width: 925px;
-    margin-left: 48px;
+	margin-left: 48px;
 	transition: 0.4s;
 	margin-right: auto;
 }
@@ -382,8 +382,8 @@
 	display: flex;
 	align-items: center;
 	gap: 11px;
-	background-color: #FFBBB6;
-	border:0px;
+	background-color: #ffbbb6;
+	border: 0px;
 	padding: 0 16px;
 	height: 48px;
 	border-radius: 0px 12px 12px 0px;
@@ -452,7 +452,7 @@
 	overflow: hidden;
 }
 .buyCardBtnStyle:hover {
-	background-color: #FF6552;
+	background-color: #ff6552;
 }
 .buyCardBtnShow {
 	visibility: visible;
@@ -711,11 +711,11 @@
 	object-fit: contain;
 }
 
-.burgerMenuicon{
+.burgerMenuicon {
 	display: none;
 }
 
-@media only screen and (max-width: 1100px){
+@media only screen and (max-width: 1100px) {
 	.searchInput {
 		transition: 0s;
 	}
@@ -724,10 +724,10 @@
 	}
 }
 
-@media only screen and (max-width: 950px){
+@media only screen and (max-width: 950px) {
 	.searchInput {
 		display: none;
-	}	
+	}
 	.authorizedUser {
 		display: none;
 	}
@@ -737,6 +737,10 @@
 	.footerContainer {
 		padding-left: 30px;
 		width: 100%;
+		min-height: 150px;
+	}
+	.leftSideContainer {
+		display: none;
 	}
 }
 
@@ -884,9 +888,10 @@
 }
 
 @media only screen and (max-width: 767px) {
-	.headerContainerBg, .smallheaderContainer {
+	.headerContainerBg,
+	.smallheaderContainer {
 		padding-left: 16px;
-   	 	padding-right: 16px;
+		padding-right: 16px;
 	}
 	.signInText {
 		font-family: 'Noto Sans';
@@ -1219,22 +1224,23 @@
 }
 
 @media only screen and (max-width: 600px) {
-	.buyCardBtnShow{
+	.buyCardBtnShow {
 		display: none;
 	}
-	.smallheaderRight{
+	.smallheaderRight {
 		display: none;
 	}
-	.smallheaderLeft{
+	.smallheaderLeft {
 		width: 100%;
 		overflow-y: hidden;
 		overflow-x: auto;
 	}
-	.smallheaderLeft a:nth-last-child(){
-		padding-right:0;
+	.smallheaderLeft a:nth-last-child() {
+		padding-right: 0;
 	}
-	.headerContainerBg, .smallheaderContainer {
+	.headerContainerBg,
+	.smallheaderContainer {
 		padding-left: 16px;
-   	 	padding-right: 16px;
+		padding-right: 16px;
 	}
 }
