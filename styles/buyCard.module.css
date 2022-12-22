@@ -828,6 +828,7 @@
 	}
 	.cardsBlock:hover {
 		transform: scale(1);
+		height: 16vw;
 	}
 }
 
