@@ -138,12 +138,13 @@ const Header = () => {
 						</Link>
 					</div>
 					<div className={classes.smallheaderRight}>
+						<span className={classes.coinStyle}>{points}</span>
+						<div className={classes.coinBorder}></div>
 						<img
 							src='/coin.png'
 							alt='headerIcon'
 							width={20}
 						/>
-						<span className={classes.coinStyle}>{points}</span>
 						<DropDown />
 					</div>
 				</div>
