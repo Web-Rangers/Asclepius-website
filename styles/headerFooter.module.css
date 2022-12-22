@@ -738,8 +738,6 @@
 		padding-left: 30px;
 		width: 100%;
 		min-height: 150px;
-		position: fixed;
-		bottom: 0;
 	}
 	.leftSideContainer {
 		display: none;
