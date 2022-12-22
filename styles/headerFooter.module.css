@@ -88,13 +88,14 @@
 	font-size: 14px;
 	line-height: 14px;
 	color: #ffffff;
-	padding-left: 5px;
+	margin-left: 12px;
+	/* margin-right: 16px; */
 }
 .coinBorder{
 	height: 20px;
 	width: 1px;
 	background-color: #fff;
-	margin: 0 16px;
+	margin: 0 0 0 16px;
 	opacity: 0.7;
 }
 .logoContainer {
