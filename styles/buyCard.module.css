@@ -820,10 +820,15 @@
 	}
 	.cardsContainer {
 		height: 21vw;
+		gap: 30px;
 	}
 	.listofCats {
 		max-width: 883px;
 		width: 100%;
+	}
+	.cardsBlock:hover {
+		transform: scale(1);
+		height: 16vw;
 	}
 }
 

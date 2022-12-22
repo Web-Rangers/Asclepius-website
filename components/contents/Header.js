@@ -143,6 +143,7 @@ const Header = () => {
 							width={20}
 						/>
 						<span className={classes.coinStyle}>{points}</span>
+						<div className={classes.coinBorder}></div>
 						<DropDown />
 					</div>
 				</div>

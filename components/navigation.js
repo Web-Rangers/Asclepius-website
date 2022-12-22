@@ -18,36 +18,30 @@ export default function Navigation() {
 			let medical = response?.filter(e=> e.title == 'სამედიცინო დაწესებულებები')[0];
 			let withoutMedical = response?.filter(e=> e.title !== 'სამედიცინო დაწესებულებები');
 			withoutMedical?.push(medical)
-			setCategories(withoutMedical)
-			if(windowSize.width > 1207){
-				//allsubcats
-				let subcat = response?.filter((item)=> {if(item.parentCategoryId === null && 
-					item.title !== 'ყველა' &&
-					item.title !== 'სტომატოლოგია' &&
-					item.title !== 'ესთეტიკა და სილამაზე' &&
-					item.title !== 'ლაბორატორია და დიაგნოსტიკა' &&
-					item.title !== 'ფარმაცია' &&
-					item.title !== 'სამედიცინო დაწესებულებები'){return item}})
-				setAllSubcats(subcat)
-			}else if(windowSize.width < 1207 && windowSize.width > 900){
-				let subcat = response?.filter((item)=> {if(item.parentCategoryId === null && 
-					item.title !== 'ყველა' &&
-					item.title !== 'სტომატოლოგია' &&
-					item.title !== 'ესთეტიკა და სილამაზე' &&
-					item.title !== 'ფარმაცია' &&
-					item.title !== 'სამედიცინო დაწესებულებები'){return item}})
-				setAllSubcats(subcat)
-			}else if(windowSize.width < 900){
-				let subcat = response?.filter((item)=> {if(item.parentCategoryId === null && 
-					item.title !== 'ყველა' &&
-					item.title !== 'სტომატოლოგია' &&
-					item.title !== 'ფარმაცია' &&
-					item.title !== 'სამედიცინო დაწესებულებები'){return item}})
-				setAllSubcats(subcat)
-			}		
+			setCategories(withoutMedical)	
 		}
 		);
 	}, []);
+
+	useEffect(()=>{
+		function check(array){
+			let modifyCategories = [];
+			for(let i = 0; i < categories?.length; i++){
+				if(!array.includes(categories[i].title) && categories[i].parentCategoryId === null){
+					modifyCategories.push(categories[i])
+				}
+			}
+
+			setAllSubcats(modifyCategories)
+		}
+		if(windowSize.width > 1207){
+			check(['ყველა', 'სტომატოლოგია', 'ესთეტიკა და სილამაზე', 'ლაბორატორია და დიაგნოსტიკა', 'ფარმაცია', 'სამედიცინო დაწესებულებები'])
+		}else if(windowSize.width < 1207 && windowSize.width > 900){
+			check(['ყველა', 'სტომატოლოგია', 'ესთეტიკა და სილამაზე', 'ფარმაცია', 'სამედიცინო დაწესებულებები'])
+		}else if(windowSize.width < 900){
+			check(['ყველა', 'სტომატოლოგია', 'ფარმაცია', 'სამედიცინო დაწესებულებები'])
+		}
+	},[windowSize.width, categories])
 
 	return (
 		<>

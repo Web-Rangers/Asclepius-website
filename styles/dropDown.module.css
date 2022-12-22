@@ -20,9 +20,9 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 80px;
+	margin-left: 16px;
 	height: 45px;
-	gap: 16px;
+	gap: 8px;
 	border: none;
 	border-radius: 30px;
 	padding: 2px;
@@ -32,6 +32,10 @@
 	gap: 17px;
 	font-family: 'Noto Sans';
 	font-size: 14px;
+}
+.textInfo img {
+	width: 24px;
+    height: 18px;
 }
 .selected {
 	font-family: 'Noto Sans';
@@ -50,7 +54,7 @@
 	overflow: hidden;
 	border-radius: 8px;
 	max-height: 300px;
-	z-index: 9999;
+	z-index: 99999;
 	margin-top: 6px;
 	border: none;
 }
