@@ -123,7 +123,7 @@
 .headerContainerBg {
 	position: sticky;
 	top: 43px;
-	z-index: 999999;
+	z-index: 99999;
 	background: #fff;
 	padding-left: 50px;
 	padding-right: 50px;
