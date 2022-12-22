@@ -21,11 +21,11 @@ import { ConnectingAirportsOutlined } from '@mui/icons-material';
 import Image from 'next/image';
 import { Skeleton } from 'antd';
 
-function BuyCardPage({clinics}) {
+function BuyCardPage({ clinics }) {
 	const [data, setData] = useState({
 		cards: [],
-		categories: []
-	})
+		categories: [],
+	});
 	const [modalIsOpen, setIsOpen] = useState(false);
 	const [customStyles, setCustomStyles] = useState({});
 	const [dropDown, setDropDown] = useState('');
@@ -57,19 +57,19 @@ function BuyCardPage({clinics}) {
 			lenghtNum: 1,
 		},
 		{
-			id: 1, 
+			id: 1,
 			name: 'PERCENTAGE_CLINIC_DISCOUNT_FAMILY',
 			price: 120,
 			length: '3 თვე',
-			lenghtNum: 3
+			lenghtNum: 3,
 		},
 		{
 			id: 2,
 			name: 'PERCENTAGE_CLINIC_DISCOUNT_FAMILY',
 			price: 225,
 			length: '6 თვე',
-			lenghtNum: 6
-		}
+			lenghtNum: 6,
+		},
 	];
 
 	const individualcards = [
@@ -78,22 +78,22 @@ function BuyCardPage({clinics}) {
 			name: 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL',
 			price: 15,
 			length: '1 თვე',
-			lenghtNum: 1
+			lenghtNum: 1,
 		},
 		{
-			id: 1, 
+			id: 1,
 			name: 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL',
 			price: 40,
 			length: '3 თვე',
-			lenghtNum: 3
+			lenghtNum: 3,
 		},
 		{
 			id: 2,
 			name: 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL',
 			price: 75,
 			length: '6 თვე',
-			lenghtNum: 6
-		}
+			lenghtNum: 6,
+		},
 	];
 
 	const featuresData = [
@@ -163,7 +163,6 @@ function BuyCardPage({clinics}) {
 		setIsOpen(false);
 	};
 
-
 	useEffect(() => {
 		if (window.innerWidth < 600) {
 			setCustomStyles({
@@ -205,12 +204,18 @@ function BuyCardPage({clinics}) {
 			}
 		);
 
-		getData(`${process.env.MEDICAL_API}/medical/products/get-products`)
-			.then((res)=> {setProducts(res); setProductState(res)})
+		getData(`${process.env.MEDICAL_API}/medical/products/get-products`).then(
+			(res) => {
+				setProducts(res);
+				setProductState(res);
+			}
+		);
 	}, []);
 
 	useEffect(() => {
-		setFilteredCard(data?.products?.filter((e) => e.endDateIncrementValue == month));
+		setFilteredCard(
+			data?.products?.filter((e) => e.endDateIncrementValue == month)
+		);
 		setProductState(
 			filteredCard?.filter(
 				(e) => e.genericTransactionTypeToAddInfo?.infoCategory == selectPack
@@ -220,7 +225,6 @@ function BuyCardPage({clinics}) {
 			productState?.filter((item) => item.genericTransactionTypeId == cardType)
 		);
 	}, [month, cardType, selectPack]);
-
 
 	useEffect(() => {
 		let individual = products?.filter(
@@ -280,36 +284,35 @@ function BuyCardPage({clinics}) {
 		},
 	}));
 
-	function openCheckout(type, pack, month, price){
-		setCardType(type) // card
-		setSelectPack(pack) //family or individual
-		setMonth(month) // month
-		setPrice(price)
+	function openCheckout(type, pack, month, price) {
+		setCardType(type); // card
+		setSelectPack(pack); //family or individual
+		setMonth(month); // month
+		setPrice(price);
 
-		setCheckout(true)
+		setCheckout(true);
 	}
 
-	let datas = [
-		'cards',
-		'categories',
-	]
+	let datas = ['cards', 'categories'];
 
 	let urls = [
 		`${process.env.MEDICAL_API}/medical/products/get-products`,
 		`${process.env.MEDICAL_API}/medical/categories`,
-	]
- 
-	useEffect(()=> {
-		getData(`${process.env.MEDICAL_API}/medical/products/get-products`)
-            .then((response)=> {
-				console.log('response', response)
-				setData((e)=> ({...e, cards: response}))
-            })
-		getData(`${process.env.MEDICAL_API}/medical/categories`)
-		.then((response)=> {
-			setData((e)=> ({...e, categories: response}))
-		})
-	},[])
+	];
+
+	useEffect(() => {
+		getData(`${process.env.MEDICAL_API}/medical/products/get-products`).then(
+			(response) => {
+				console.log('response', response);
+				setData((e) => ({ ...e, cards: response }));
+			}
+		);
+		getData(`${process.env.MEDICAL_API}/medical/categories`).then(
+			(response) => {
+				setData((e) => ({ ...e, categories: response }));
+			}
+		);
+	}, []);
 
 	return (
 		<>
@@ -397,145 +400,174 @@ function BuyCardPage({clinics}) {
 							</FormGroup>
 						</div>
 					</div>
-					{
-						data?.cards.length > 0 ? 	
-						<div className={classNames(s.cardsContainer, {
-							[s.cardsTransition]: checked,
-							[s.cardsTransitionUnch]: !checked,
-						})}>
-							{
-								!checked ? <>
-									{
-										individualcards?.map(({price, name, length, lenghtNum})=> {
-											return <>
-												<div className={s.cardsBlock} onClick={()=> openCheckout(data?.cards[0]?.genericTransactionTypeToAddInfo?.genericTransactionTypeId, name, lenghtNum, price)}>
-													<div className={s.cardOverview}>
-														<div className={s.cardImage}>
-															<img src="/MEDCARD-VECTOR.svg" alt=""/>
-														</div>
-														<div className={s.cardPrice}>
-															{price} ლ
-														</div>
-														<div className={s.cardDisplayName}>
-															{length}
-														</div>
-													</div>
-													<div className={s.buyNow}>
-														შეიძინე
-													</div>
-												</div>
-											</>
-										})
-									}
-								</> : <>
-									{
-										familycards?.map(({price, name, length, lenghtNum})=> {
-											return <>
-												<div className={s.cardsBlock} onClick={()=> openCheckout(data?.cards[0]?.genericTransactionTypeToAddInfo?.genericTransactionTypeId, name, lenghtNum, price)}>
-													<div className={s.cardOverview}>
-														<div className={s.cardImage}>
-															<img src="/MEDCARD-VECTOR.svg" alt=""/>
-														</div>
-														<div className={s.cardPrice}>
-															{price} ლ
-														</div>
-														<div className={s.cardDisplayName}>
-															{length}
-														</div>
-													</div>
-													<div className={s.buyNow}>
-														შეიძინე
-													</div>
-												</div>
-											</>
-										})
-									}
-								</>
-							}
-						</div> : 
-						<div className={s.cardsContainer}>
-							{[1,3,4].map((e)=> {
-								return <>
-								<div className={s.cardsBlock}>
-									<div className={s.skeletonLoadingCards}>
-										<Skeleton.Input active={'active'} />
-									</div>
-								</div>
-								</>
+					{data?.cards.length > 0 ? (
+						<div
+							className={classNames(s.cardsContainer, {
+								[s.cardsTransition]: checked,
+								[s.cardsTransitionUnch]: !checked,
 							})}
+						>
+							{!checked ? (
+								<>
+									{individualcards?.map(
+										({ price, name, length, lenghtNum }) => {
+											return (
+												<>
+													<div
+														className={s.cardsBlock}
+														onClick={() =>
+															openCheckout(
+																data?.cards[0]?.genericTransactionTypeToAddInfo
+																	?.genericTransactionTypeId,
+																name,
+																lenghtNum,
+																price
+															)
+														}
+													>
+														<div className={s.cardOverview}>
+															<div className={s.cardImage}>
+																<img
+																	src='/MEDCARD-VECTOR.svg'
+																	alt=''
+																/>
+															</div>
+															<div className={s.cardPrice}>{price} ლ</div>
+															<div className={s.cardDisplayName}>{length}</div>
+														</div>
+														<div className={s.buyNow}>შეიძინე</div>
+													</div>
+												</>
+											);
+										}
+									)}
+								</>
+							) : (
+								<>
+									{familycards?.map(({ price, name, length, lenghtNum }) => {
+										return (
+											<>
+												<div
+													className={s.cardsBlock}
+													onClick={() =>
+														openCheckout(
+															data?.cards[0]?.genericTransactionTypeToAddInfo
+																?.genericTransactionTypeId,
+															name,
+															lenghtNum,
+															price
+														)
+													}
+												>
+													<div className={s.cardOverview}>
+														<div className={s.cardImage}>
+															<img
+																src='/MEDCARD-VECTOR.svg'
+																alt=''
+															/>
+														</div>
+														<div className={s.cardPrice}>{price} ლ</div>
+														<div className={s.cardDisplayName}>{length}</div>
+													</div>
+													<div className={s.buyNow}>შეიძინე</div>
+												</div>
+											</>
+										);
+									})}
+								</>
+							)}
 						</div>
-					}
-					<div className={s.listofCats}>
-						{data?.categories?.length > 0 &&  data?.categories
-							?.filter((e) => e.parentCategoryId === null)
-							.map((item, i) => {
+					) : (
+						<div className={s.cardsContainer}>
+							{[1, 3, 4].map((e) => {
 								return (
-									<div
-										className={s.tableContentContainer}
-										key={item.id}
-									>
-										<div
-											onClick={() => {
-												if (dropDown === item.title) {
-													setDropDown('');
-												} else {
-													setDropDown(item.title);
-													setShowMore(false);
-												}
-											}}
-											className={s.categorieTitle}
-										>
-											<div className={s.nameIconCont}>
-												<span className={s.nameIconTitle}> {item.title}</span>
-												<Image
-													src='/droparrow.svg'
-													width='14px'
-													height='8px'
-												/>
-											</div>
-											<div className={s.tableFackData}>
-												<span>{featuresData[2].plus}</span>
+									<>
+										<div className={s.cardsBlock}>
+											<div className={s.skeletonLoadingCards}>
+												<Skeleton.Input active={'active'} />
 											</div>
 										</div>
-
-										{dropDown === item.title && (
-											<div className={s.dropDownList}>
-												{data?.categories?.map((sub) => {
-													if (sub.id == item.id) {
-														let catsw = clinics
-															.map((e) => {
-																if (
-																	e.clinicCategories.some((x) => x.id == sub.id)
-																) {
-																	return e;
-																}
-															})
-															.filter((e) => e !== undefined);
-														return (
-															<>
-																{!showMore &&
-																	catsw.length > 3 &&
-																	catsw
-																		.slice(0, 3)
-																		.map((e, i) => (
-																			<span key={i}>{e.displayName}</span>
-																		))}
-																{showMore &&
-																	catsw.map((e, i) => (
-																		<span key={i}>{e.displayName}</span>
-																	))}
-																<span onClick={() => setShowMore(!showMore)}>
-																	{showMore ? 'იხილე ნაკლები' : 'იხილეთ მეტი'}
-																</span>
-															</>
-														);
-													}
-												})}
-											</div>
-										)}
-									</div>
+									</>
 								);
 							})}
+						</div>
+					)}
+					<div className={s.listofCats}>
+						{
+							(data?.categories?.length > 0 && data?.categories.shift(),
+							data?.categories
+								?.filter((e) => e.parentCategoryId === null)
+								.map((item, i) => {
+									return (
+										<div
+											className={s.tableContentContainer}
+											key={item.id}
+										>
+											<div
+												onClick={() => {
+													if (dropDown === item.title) {
+														setDropDown('');
+													} else {
+														setDropDown(item.title);
+														setShowMore(false);
+													}
+												}}
+												className={s.categorieTitle}
+											>
+												<div className={s.nameIconCont}>
+													<span className={s.nameIconTitle}> {item.title}</span>
+													<Image
+														src='/droparrow.svg'
+														width='14px'
+														height='8px'
+													/>
+												</div>
+												<div className={s.tableFackData}>
+													<span>{featuresData[2].plus}</span>
+												</div>
+											</div>
+
+											{dropDown === item.title && (
+												<div className={s.dropDownList}>
+													{data?.categories?.map((sub) => {
+														if (sub.id == item.id) {
+															let catsw = clinics
+																.map((e) => {
+																	if (
+																		e.clinicCategories.some(
+																			(x) => x.id == sub.id
+																		)
+																	) {
+																		return e;
+																	}
+																})
+																.filter((e) => e !== undefined);
+															return (
+																<>
+																	{!showMore &&
+																		catsw.length > 3 &&
+																		catsw
+																			.slice(0, 3)
+																			.map((e, i) => (
+																				<span key={i}>{e.displayName}</span>
+																			))}
+																	{showMore &&
+																		catsw.map((e, i) => (
+																			<span key={i}>{e.displayName}</span>
+																		))}
+																	<span onClick={() => setShowMore(!showMore)}>
+																		{showMore ? 'იხილე ნაკლები' : 'იხილეთ მეტი'}
+																	</span>
+																</>
+															);
+														}
+													})}
+												</div>
+											)}
+										</div>
+									);
+								}))
+						}
 					</div>
 				</div>
 			</div>
@@ -546,11 +578,13 @@ function BuyCardPage({clinics}) {
 export default BuyCardPage;
 
 export async function getStaticProps() {
-	const clinics = await getData(`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/search?name=`);
-	
+	const clinics = await getData(
+		`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/search?name=`
+	);
+
 	return {
 		props: {
-			clinics: clinics
-		}
-	}
+			clinics: clinics,
+		},
+	};
 }

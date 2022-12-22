@@ -88,10 +88,9 @@ const MainSlider = ({ type = 'desktop' }) => {
 											<div className={classes.medicalCardsButtons}>
 												<Link href='/buyCardPage'>
 													<span className={classes.orderBtn}>
-														ბარათის შეძენა
+														ბარათის ყიდვა
 													</span>
 												</Link>
-
 											</div>
 										</div>
 
@@ -146,10 +145,9 @@ const MainSlider = ({ type = 'desktop' }) => {
 											<div className={classes.medicalCardsButtons}>
 												<Link href='/buyCardPage'>
 													<span className={classes.orderBtn}>
-														ბარათის შეძენა
+														ბარათის ყიდვა
 													</span>
 												</Link>
-
 											</div>
 										</div>
 										<div className={classes.sliderImageTwo}>
