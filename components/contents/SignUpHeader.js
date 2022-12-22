@@ -93,7 +93,7 @@ const SignUpHeader = () => {
 					/>
 
 					<Button
-						name='ბარათის შეძენა'
+						name='ბარათის ყიდვა'
 						style={classes.buyCardBtnStyle}
 						onClick={() => router.push('/buyCardPage')}
 					/>
