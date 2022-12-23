@@ -664,12 +664,13 @@
 
 .cardUserTitle {
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
     left:40px;
     color: #fff;
     background: black;
     padding: 0px 0px 0 2px;
     border-radius: 15px;
+    font-size:22px;
 }
 
 .expiration {
