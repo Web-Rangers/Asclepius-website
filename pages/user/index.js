@@ -124,17 +124,17 @@ export default function UserDetailed() {
                 })}>
                     <div className={styles.greeting}>
                         <div>
-                            <h2>Hello <span>Mary Fowler</span></h2>
-                            <p>Have a nice day and don’t forger to take care of your health !</p>
+                            <h2>გამარჯობა, <span>ვანო</span></h2>
+                            <p>წარმატებულ დღეს გისურვებთ და არ დაგავიწყდეთ თქვენს ჯანმრთელობაზე ზრუნვა!</p>
                             <Button 
                                 style={styles.greetingBtn} 
-                                name='Read more'
+                                name='შეუკვეთე ბარათი'
                             />
                         </div>
                         <div className={styles.greetingImage}>
                             <img 
                                 className={styles.greetingBackground} 
-                                src="/greetingBg.png" 
+                                src="/userImage.svg" 
                                 alt="greeting" 
                             />
                         </div>
@@ -142,6 +142,14 @@ export default function UserDetailed() {
                             style={styles.greetingBtnResp}
                             name="Read more"
                         />
+                    </div>
+                    <div className={styles.greetingBg}>
+                        <img src="/banneruser.png" />
+                    </div>
+
+                    <div className={styles.emptyOrders}>
+                        <h2>შეკვეთების ისტორია</h2>
+                        <span>ამ ეტაპზე, თქვენ არ გაქვთ განხორციელებული შეკვეთა. გთხოვთ შეიძინეთ ჯანდაცვის ბარათი.</span>
                     </div>
 
                     {/* <div className={styles.orders}>
@@ -301,7 +309,7 @@ export default function UserDetailed() {
                         </div>
                     </Block>
 
-                    {/* <Block
+                    <Block
                         title="Family member"
                         actions={
                             memberList.length > 0 && 
@@ -310,7 +318,7 @@ export default function UserDetailed() {
                                 onClick={()=>setFamilyMemberModal(true)}
                             >
                                 <img src="/plus.svg" alt="" />
-                                <span>ADD</span>
+                                <span>დამატება</span>
                             </button>
                         }
                         className={classNames(styles.familyBlock, {
@@ -354,13 +362,13 @@ export default function UserDetailed() {
                                             onClick={()=>setFamilyMemberModal(true)}
                                         >
                                             <img src="/memberPlus.svg" alt=""/>
-                                            <span>Add</span>
+                                            <span>დამატება</span>
                                         </div>
                                     }
                                 />
                             </div>
                         }
-                    </Block> */}
+                    </Block>
                 </div>
             </div>
         </div>

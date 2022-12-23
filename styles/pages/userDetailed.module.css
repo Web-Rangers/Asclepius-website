@@ -13,12 +13,15 @@
     max-width: calc(1440px - 100px);
     display: flex;
     justify-content: space-between;
+    margin-top: 34px;
 }
 
 .container {
     width: 70%;
     background-color:#fff;
     border-radius:6px;
+    position: relative;
+    padding-bottom: 32px;
 }
 
 .rightMenu {
@@ -26,16 +29,21 @@
 }
 
 .greeting {
-    padding:0px 51px;
+    padding:32px 51px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 60%;
 }
 
 .greeting h2 {
-    margin:0;
+    margin:0 0 12px;
+	font-family: 'Avenir Next Georgian Medium';
+    font-style: normal;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 24px;
+    line-height: 150%;
+    color: #01261C;
 }
 
 .greeting h2 span {
@@ -47,21 +55,66 @@
     font-weight: 500;
     font-size: 16px;
     margin-bottom:26px;
+    font-family: 'Avenir Next Georgian Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 150%;
+    color: rgba(56, 56, 56, 0.7);
 }
 
 .greetingBtn {
     width: 188px;
     height: 44px;
     border-radius: 5px;
-    background-color: #3a74d2;
-    color: #fff;
+    background-color: #FFBBB6;
+    color: #383838;
     border:none;
     cursor:pointer;
+    font-family: 'Avenir Next Georgian Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 150%;
+}
+
+.greetingBg {
+    padding: 0 29px;
+}
+
+.greetingBg img{
+    width: 100%;
 }
 
 .cardImage {
     width: 100%;
     border-radius: 12px;
+}
+
+.emptyOrders {
+    margin: 32px 0;
+    padding: 0 29px;
+}
+
+.emptyOrders h2 {
+    font-family: 'Avenir Next Georgian Medium';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+    color: #383838;
+    margin-bottom: 24px;
+}
+
+.emptyOrders span {
+    padding: 0 90px;
+    font-family: 'Avenir Next Georgian Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 150%;
+    color: rgba(56, 56, 56, 0.7);
+    text-align: center;
 }
 
 .upgradeBtn{
@@ -81,6 +134,10 @@
     -webkit-user-drag: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+    position: absolute;
+    right:0;
+    top:-28px;
+    width: 280px;
 }
 
 .addFamilyMember {
@@ -94,6 +151,17 @@
     text-decoration: none;
     cursor:pointer;
     font-size:14px;
+    font-family: 'Avenir Next Georgian';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    color: #5E70DA;
+    border: none;
+    cursor: pointer;
+}
+
+.addFamilyMember img {
+    margin-top:3px;
 }
 
 .memberAddBtn {
