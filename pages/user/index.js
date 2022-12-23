@@ -48,6 +48,7 @@ export default function UserDetailed() {
             image: '/avatar2.png',
         },
     ]
+    const [userCards, setUserCards] = useState([]);
 
     const columns = [
         {
@@ -91,6 +92,7 @@ export default function UserDetailed() {
                 })
                 const unique = [...new Set(familyMembersArray)]
                 setFamilyMembers(unique)
+                setUserCards(response?.products)
             })
 
         getData(`${process.env.MEDICAL_API}/medical/registry/get-user-avatar`)
@@ -112,6 +114,8 @@ export default function UserDetailed() {
 		);
 	}, [])
 
+    console.log(userCards, 'cards')
+
     return <>
         <div className={styles.detailedPage}>
             {
@@ -124,12 +128,14 @@ export default function UserDetailed() {
                 })}>
                     <div className={styles.greeting}>
                         <div>
-                            <h2>გამარჯობა, <span>ვანო</span></h2>
+                            <h2>გამარჯობა, <span>{userInfo?.firstName}</span></h2>
                             <p>წარმატებულ დღეს გისურვებთ და არ დაგავიწყდეთ თქვენს ჯანმრთელობაზე ზრუნვა!</p>
-                            <Button 
-                                style={styles.greetingBtn} 
-                                name='შეუკვეთე ბარათი'
-                            />
+                            <Link href="/buyCardPage">
+                                <Button 
+                                    style={styles.greetingBtn} 
+                                    name='შეუკვეთე ბარათი'
+                                />
+                            </Link>
                         </div>
                         <div className={styles.greetingImage}>
                             <img 
@@ -296,18 +302,37 @@ export default function UserDetailed() {
                             </div> : <Skeleton className={styles.skelton} active avatar></Skeleton>
                         }
                     </Block>
-                    <Block
-                        title="ჩემი ბარათი"
-                        actions={<Link href="user/mycard"><button className={styles.upgradeBtn}>ყველა სერვისი</button></Link>}
-                        className={styles.cards}
-                    >
-                        <div className={styles.cardView}>
-                            <img className={styles.cardImage} src="/MEDCARD.svg" alt="" />
-                            <span className={styles.cardNumber}>2017 1115 2020 {randomNum}</span>
-                            <span className={styles.cardUserTitle}>{userInfo?.firstName} {userInfo?.lastName}</span>
-                            <span className={styles.expiration}>00/00</span>
-                        </div>
-                    </Block>
+                    {userCards?.length > 0
+                        ?
+                        <Block
+                            title="ჩემი ბარათი"
+                            actions={<Link href="user/mycard"><button className={styles.upgradeBtn}>ყველა სერვისი</button></Link>}
+                            className={styles.cards}
+                        >
+                            <div className={styles.cardView}>
+                                <img className={styles.cardImage} src="/MEDCARD.svg" alt="" />
+                                <span className={styles.cardNumber}>2017 1115 2020 {randomNum}</span>
+                                <span className={styles.cardUserTitle}>{userInfo?.firstName} {userInfo?.lastName}</span>
+                                <span className={styles.expiration}>00/00</span>
+                            </div>
+                        </Block>
+                        :
+                        <Block
+                            title="ჩემი ბარათი"
+                            actions={<Link href="user/mycard"><button className={styles.upgradeBtn}>ყველა სერვისი</button></Link>}
+                            className={styles.cards}
+                        >
+                            <span className={styles.cardsSpan}>
+                                შეუკვეთე ბარათი და მიიღე 20%-მდე ფასდაკლება ნებისმიერ კლინიკაში, ან ექიმთან ვიზიტის დროს
+                            </span>
+                            <Link href="/buyCardPage">
+                                <Button 
+                                    style={styles.greetingBtn} 
+                                    name='შეუკვეთე ბარათი'
+                                />
+                            </Link>
+                        </Block>
+                    } 
 
                     <Block
                         title="Family member"

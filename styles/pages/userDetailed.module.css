@@ -661,7 +661,10 @@
     word-spacing: 19px;
     font-size: 23px;
 }
-
+.cardsSpan{
+    display: block;
+    margin-bottom:16px;
+}
 .cardUserTitle {
     position: absolute;
     bottom: 15px;

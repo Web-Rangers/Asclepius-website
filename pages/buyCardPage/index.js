@@ -400,7 +400,7 @@ function BuyCardPage({ clinics }) {
 							</FormGroup>
 						</div>
 					</div>
-					{data?.cards.length > 0 ? (
+					{data?.cards?.length > 0 ? (
 						<div
 							className={classNames(s.cardsContainer, {
 								[s.cardsTransition]: checked,
