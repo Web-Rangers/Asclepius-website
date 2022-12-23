@@ -313,7 +313,7 @@ const Header = () => {
 						<Link href='/buyCardPage'>
 							<span
 								className={classNames(classes.buyCardBtnStyle, {
-									[classes.buyCardBtnShow]: offset > 47,
+									[classes.buyCardBtnShow]: offset > 48,
 								})}
 							>
 								ბარათის ყიდვა
