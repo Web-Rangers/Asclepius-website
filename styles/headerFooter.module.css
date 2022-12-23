@@ -20,7 +20,7 @@
 	align-items: center;
 	width: 100%;
 	height: 44px;
-	background: #0F0E0E;
+	background: #0f0e0e;
 	margin: auto;
 	padding-left: 50px;
 	padding-right: 50px;
@@ -91,7 +91,7 @@
 	margin-left: 12px;
 	/* margin-right: 16px; */
 }
-.coinBorder{
+.coinBorder {
 	height: 20px;
 	width: 1px;
 	background-color: #fff;
@@ -719,6 +719,10 @@
 .burgerMenuicon {
 	display: none;
 }
+.smallheaderLeft {
+	display: flex;
+	flex-wrap: nowrap;
+}
 
 @media only screen and (max-width: 1100px) {
 	.searchInput {
@@ -753,6 +757,7 @@
 	.leftSideContainer {
 		display: none;
 	}
+
 	.signInText {
 		font-family: 'Noto Sans';
 		font-style: normal;
@@ -898,6 +903,7 @@
 		padding-left: 16px;
 		padding-right: 16px;
 	}
+
 	.signInText {
 		font-family: 'Noto Sans';
 		font-style: normal;
@@ -1227,6 +1233,14 @@
 		overflow-x: auto;
 		display: flex;
 		height: 23px;
+		overflow-y: scroll;
+		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none; /* Internet Explorer 10+ */
+	}
+	.smallheaderLeft::-webkit-scrollbar {
+		/* WebKit */
+		width: 0;
+		height: 0;
 	}
 }
 
@@ -1234,16 +1248,17 @@
 	.buyCardBtnShow {
 		display: none;
 	}
-	.smallheaderRight {
-		display: none;
-	}
+
 	.smallheaderLeft {
 		width: 100%;
-		overflow-y: hidden;
-		overflow-x: auto;
+		overflow-y: scroll;
+		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none; /* Internet Explorer 10+ */
 	}
-	.smallheaderLeft a:nth-last-child() {
-		padding-right: 0;
+	.smallheaderLeft::-webkit-scrollbar {
+		/* WebKit */
+		width: 0;
+		height: 0;
 	}
 	.headerContainerBg,
 	.smallheaderContainer {
