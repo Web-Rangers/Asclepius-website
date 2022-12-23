@@ -119,10 +119,12 @@ const Header = () => {
 			<div className={classes.smallheaderContainer}>
 				<div className={classes.content}>
 					<div className={classes.smallheaderLeft}>
+						<Link href='https://pirveli.com/'>
+							<a className={classes.smallheaderLeftText}>მთავარი</a>
+						</Link>
 						<Link href='https://shop.pirveli.com/'>
 							<a className={classes.smallheaderLeftText}>მაღაზია</a>
 						</Link>
-
 						<Link href='/'>
 							<a className={classes.smallheaderLeftTextMedical}>მედიქალი</a>
 						</Link>
