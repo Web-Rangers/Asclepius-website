@@ -750,6 +750,7 @@
 	margin-top:-18px;
 	object-fit: cover;
 	width: 100%;
+	min-height: 108%;
 }
 
 @keyframes checked {
