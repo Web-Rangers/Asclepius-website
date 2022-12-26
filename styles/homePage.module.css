@@ -64,8 +64,8 @@
 }
 
 .docskeleton {
-	width: 313px;
-	height: 403px;
+	width: 100%;
+	height: 383px;
 	margin-right: 0px !important;
 	border: 1px solid #d8d8d8;
 	border-radius: 12px;
@@ -99,7 +99,7 @@
 }
 
 .append {
-	width: auto;
+	width: 100%;
 	height: auto;
 }
 
@@ -109,19 +109,24 @@
 }
 
 .imgPart {
-	width: 313px;
-	height: 194px;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	min-height: 313px;
 	border-radius: 5px;
 	position: relative;
 	overflow: hidden;
+	height: 2px;
+	border-radius: 24px;
+	background-color: white;
 }
 .imgPart img {
-	object-fit: cover;
+	object-fit: contain;
 }
 .doctorPhotoContainer {
 	position: relative;
 	width: 100%;
-	height: 280px;
+	min-height: 286px;
 	overflow: hidden;
 	display: flex;
 	align-items: flex-start;
@@ -181,13 +186,6 @@
 	gap: 24px;
 }
 .clinicCardList {
-	/* display: flex;
-	justify-content: flex-start;
-	width: 100%;
-	overflow: unset;
-	flex-wrap: wrap;
-	gap: 29px;
-	margin: auto; */
 	display: grid;
 	grid-column-gap: 29px;
 	grid-row-gap: 10px;
@@ -314,8 +312,8 @@
 	z-index: -1;
 }
 .appendDoc {
-	width: 313px;
-	height: 403px;
+	width: 100%;
+	height: 383px;
 	position: relative;
 	z-index: 1;
 }
@@ -327,7 +325,7 @@
 	line-height: 24.52px;
 	color: #1e2837;
 	text-align: left;
-	-webkit-line-clamp: 2;
+	-webkit-line-clamp: 1;
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
@@ -337,6 +335,7 @@
 	flex-direction: column;
 	padding: 20px 24px;
 	gap: 8px;
+	background: #f7f9fb;
 }
 .doctorSpecialityText {
 	font-family: 'Noto Sans', 'Avenir Next Georgian';
@@ -346,7 +345,7 @@
 	line-height: 24px;
 	color: #797a80;
 	/* text-align: left; */
-	-webkit-line-clamp: 2;
+	-webkit-line-clamp: 1;
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
@@ -377,14 +376,14 @@
 }
 
 .doctorCardList {
-	display: flex;
-	justify-content: flex-start;
-	width: 100%;
-	overflow: unset;
-	flex-wrap: wrap;
-	gap: 29px;
+	display: grid;
+	grid-column-gap: 29px;
+	grid-row-gap: 10px;
+	grid-template-columns: repeat(4, 1fr);
+	grid-auto-rows: 1fr;
 	margin: auto;
-	width: calc(100% - 0px);
+	overflow-x: scroll;
+	overflow-y: hidden;
 	max-width: calc(1440px - 100px);
 }
 
@@ -942,7 +941,7 @@
 	.firstPart {
 		margin: auto;
 		width: calc(100% - 100px);
-		overflow-x: auto;
+		/* overflow-x: auto; */
 	}
 	.catalogContainer {
 		display: none;
@@ -950,14 +949,19 @@
 	.imgPart {
 		/* height: 80%; */
 	}
+
 	.doctorCardList {
-		display: flex;
-		justify-content: flex-start;
-		width: 100%;
-		overflow: unset;
-		flex-wrap: wrap;
-		gap: 1.3%;
+		display: grid;
+		grid-column-gap: 29px;
+		grid-row-gap: 10px;
+		grid-template-columns: repeat(3, 1fr);
+		grid-auto-rows: 1fr;
+		margin: auto;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		max-width: calc(1440px - 100px);
 	}
+
 	.showSlider {
 		margin: 47px auto 0;
 		width: calc(100% - 0px);
@@ -965,6 +969,16 @@
 	}
 	.doctorItemContainer {
 		margin-bottom: 20px;
+	}
+	.clinicCardList {
+		display: grid;
+		grid-column-gap: 29px;
+		grid-row-gap: 10px;
+		grid-template-columns: repeat(3, 1fr);
+		grid-auto-rows: 1fr;
+		margin: auto;
+		width: calc(100% - 0px);
+		max-width: calc(1440px - 100px);
 	}
 }
 @media only screen and (max-width: 1000px) {
@@ -976,8 +990,29 @@
 	.doctorItemContainer {
 		margin-bottom: 20px;
 	}
+	.clinicCardList {
+		display: grid;
+		grid-column-gap: 29px;
+		grid-row-gap: 10px;
+		grid-template-columns: repeat(2, 1fr);
+		grid-auto-rows: 1fr;
+		margin: auto;
+		width: calc(100% - 0px);
+		max-width: calc(1440px - 100px);
+	}
+	.doctorCardList {
+		display: grid;
+		grid-column-gap: 29px;
+		grid-row-gap: 10px;
+		grid-template-columns: repeat(2, 1fr);
+		grid-auto-rows: 1fr;
+		margin: auto;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		max-width: calc(1440px - 100px);
+	}
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
 	.homePageContainer {
 		width: 100%;
 		overflow: hidden;
@@ -993,6 +1028,7 @@
 	.slide {
 		padding-right: 0px;
 	}
+
 	.showSliderForMobile {
 		display: flex;
 		flex-direction: column;
@@ -1126,23 +1162,27 @@
 	}
 
 	/* doctors list  */
+
 	.doctorCardList {
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-start;
-		flex-wrap: nowrap;
+		display: grid;
+		grid-column-gap: 29px;
+		grid-row-gap: 10px;
+		grid-template-columns: repeat(2, 1fr);
+		grid-auto-rows: 1fr;
+		margin: auto;
 		overflow-x: scroll;
 		overflow-y: hidden;
-		gap: 10px;
+		max-width: calc(1440px - 100px);
 	}
 	.doctorItemContainer {
 		display: flex;
 		flex-direction: column;
 		border: 1px solid #d8d8d8;
-		border-radius: 5px;
+		border-radius: 12px;
 		position: relative;
-		width: 254px;
-		height: 361px;
+		width: 100%;
+		height: 383px;
+		-o-object-fit: cover;
 		object-fit: cover;
 		margin-bottom: 20px;
 	}
@@ -1258,12 +1298,12 @@
 	}
 	.imgPart {
 		width: 100%;
-		height: 207px;
+		height: 313px;
 	}
 	.imgPart img {
-		object-fit: cover;
-		width: 254px;
-		height: 160px;
+		object-fit: contain;
+		width: 100%;
+		height: 100%;
 	}
 	.showBtn {
 		width: 100%;
@@ -1326,5 +1366,29 @@
 	.firstPartImgForMobile {
 		display: flex;
 		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.clinicCardList {
+		display: grid;
+		grid-column-gap: 29px;
+		grid-row-gap: 10px;
+		grid-template-columns: repeat(1, 1fr);
+		grid-auto-rows: 1fr;
+		margin: auto;
+		overflow-x: scroll;
+		overflow-y: hidden;
+	}
+	.doctorCardList {
+		display: grid;
+		grid-column-gap: 29px;
+		grid-row-gap: 10px;
+		grid-template-columns: repeat(1, 1fr);
+		grid-auto-rows: 1fr;
+		margin: auto;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		max-width: calc(1440px - 100px);
 	}
 }

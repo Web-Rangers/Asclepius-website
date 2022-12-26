@@ -9,8 +9,10 @@ import Link from 'next/link';
 import Button from '../ui/Button';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { LazyLoadImage, trackWindowScroll }
-  from 'react-lazy-load-image-component';
+import {
+	LazyLoadImage,
+	trackWindowScroll,
+} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import Skeleton from '../../components/contents/Skeleton';
 import classNames from 'classnames';
@@ -96,31 +98,38 @@ const ClinicCardItem = ({ data, listItem = false, cards }) => {
 				</div>
 			) : (
 				<>
-					{!state && 
-						<Skeleton />
-					}
+					{!state && <Skeleton />}
 					<Link
 						key={data.key}
 						href={`/clinicDetailPage/${data?.id}`}
 					>
 						<a>
-							<div className={classNames(classes.cardItemContainer, {
-								[classes.append]: state
-							})}>
+							<div
+								className={classNames(classes.cardItemContainer, {
+									[classes.append]: state,
+								})}
+							>
 								<div className={classes.imgPart}>
 									<LazyLoadImage
 										key={data.id}
 										alt={data.title}
 										effect={'blur'}
-										height={'194px'}
-										src={data?.logoUrl !== 'https://s3.pirveli.com/v1/api/getFile?id=null' ? data.logoUrl : '/clinicImage.png'}
-										width={state ? '313px' : '0px'}  
-										beforeLoad={()=> console.log('before')}
-										afterLoad={()=> setState(true)}
+										height={'100%'}
+										src={
+											data?.logoUrl !==
+											'https://s3.pirveli.com/v1/api/getFile?id=null'
+												? data.logoUrl
+												: '/clinicImage.png'
+										}
+										width={state ? '100%' : '0px'}
+										beforeLoad={() => console.log('before')}
+										afterLoad={() => setState(true)}
 									/>
 								</div>
 								<div className={s.bottomContainer}>
-									<Text style={classes.clinicNameText}>{data?.displayName}</Text>
+									<Text style={classes.clinicNameText}>
+										{data?.displayName}
+									</Text>
 									<Text style={classes.clinicAddressText}>
 										<Image
 											src='/map-pin 1.svg'

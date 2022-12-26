@@ -13,7 +13,7 @@ const ClinicCardList = ({ clinicsData, products }) => {
 
 	const showMoreFunc = useCallback(() => {
 		if (!state) {
-			setData(clinicsData?.filter((e, i) => i < 12));
+			setData(clinicsData?.filter((e, i) => i < 40));
 		} else setData(clinicsData?.filter((e, i) => i < 4));
 		if (data.length === 12) {
 			router.push('/clinicPage');
@@ -21,16 +21,14 @@ const ClinicCardList = ({ clinicsData, products }) => {
 	});
 
 	useEffect(() => {
-		if(Array.isArray(clinicsData)) setData(clinicsData?.filter((e, i) => i < 4));
+		if (Array.isArray(clinicsData))
+			setData(clinicsData?.filter((e, i) => i < 4));
 	}, [clinicsData]);
 
 	return (
 		<div className={classes.clinicCardContainer}>
 			<div className={classes.firstPart}>
-				{
-					products?.length ? 
-					<Card data={products} /> : ''
-				}
+				{products?.length ? <Card data={products} /> : ''}
 				<div className={classes.clinicCardContainerTitle}>
 					{/* <Text style={classes.serviceTextStyle}>Services</Text> */}
 					<div className={classes.arrows}>
