@@ -237,20 +237,20 @@ export default ClinicDetailPage;
 
 export const getServerSideProps = async (ctx) => {
 	const { params } = ctx;
-	const userId = params.id;
+	const clinicId = params.id;
 	try {
 		const getClinicById = await getData(
-			`${process.env.MEDICAL_API}/medical/clinics/${userId}`
+			`${process.env.MEDICAL_API}/medical/clinics/${clinicId}`
 		);
 		const getClinicAddress = await getData(
-			`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/${userId}/address`
+			`${process.env.MEDICAL_API}/medical/clinics/${clinicId}/address`
 		);
 		const getClinicBranches = await getData(
-			`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/${userId}/branches`
+			`${process.env.MEDICAL_API}/medical/clinics/${clinicId}/branches`
 		);
 	
 		const getClinicGallery = await getData(
-			`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/gallery/clinic/${userId}`
+			`${process.env.MEDICAL_API}/medical/gallery/clinic/${clinicId}`
 		);
 		const getProducts = await getData(
 			`${process.env.MEDICAL_API}/medical/products/get-products`

@@ -295,9 +295,7 @@ function ClinicsPage({ clinics  = [], cards = [], municipalities = [] }) {
 }
 
 export const getServerSideProps = async () => {
-	try {
-		let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
-	
+	try {	
 		const clinics = await getData(
 			`${process.env.MEDICAL_API}/medical/clinics?page=0&size=9999`
 		);
@@ -307,7 +305,7 @@ export const getServerSideProps = async () => {
 		);
 	
 		const getMunicipalities = await getData(
-			`${API_URL}/asclepius/v1/api/municipalities`
+			`${process.env.MEDICAL_API}/medical/municipalities`
 		);
 	
 		return {
