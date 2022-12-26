@@ -310,7 +310,7 @@ export default function UserDetailed() {
                             className={styles.cards}
                         >
                             <div className={styles.cardView}>
-                                <img className={styles.cardImage} src="/MEDCARD.svg" alt="" />
+                                <img className={styles.cardImage} src="/01-5.png" alt="" />
                                 <span className={styles.cardNumber}>2017 1115 2020 {randomNum}</span>
                                 <span className={styles.cardUserTitle}>{userInfo?.firstName} {userInfo?.lastName}</span>
                                 <span className={styles.expiration}>00/00</span>

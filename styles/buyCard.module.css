@@ -743,11 +743,13 @@
     height: 201px;
 	overflow: hidden;
 	border-radius: 20px;
+	background-color: #f7c5c1;
 }
 
 .cardImage img {
-	margin-top:-8px;
+	margin-top:-18px;
 	object-fit: cover;
+	width: 100%;
 }
 
 @keyframes checked {

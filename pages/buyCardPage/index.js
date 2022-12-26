@@ -428,7 +428,7 @@ function BuyCardPage({ clinics }) {
 														<div className={s.cardOverview}>
 															<div className={s.cardImage}>
 																<img
-																	src='/MEDCARD-VECTOR.svg'
+																	src='/01-4.png'
 																	alt=''
 																/>
 															</div>
