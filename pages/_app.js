@@ -51,7 +51,8 @@ function MyApp({ Component, pageProps }) {
 				<Hydrate state={pageProps.dehidratedState}>
 					{hideHeader ? signUp ? <SignUpHeader /> : <Header /> : null}
 					<Head>
-						<link rel="icon" type="image/png" href={'/med.png'} />					
+						<link rel="icon" type="image/png" href={'/med.png'} />
+						<meta name="robots" content="noindex" />
 					</Head>
 					{getLayout(<Component {...pageProps} />)}
 					<Script

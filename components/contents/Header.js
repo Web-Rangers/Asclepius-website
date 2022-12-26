@@ -29,9 +29,7 @@ const customStyles = {
 
 const items = [
 	{
-
 		label: <Link href='https://profile.pirveli.com'>Settings</Link>,
-
 
 		key: '1',
 	},
@@ -53,10 +51,10 @@ const Header = () => {
 	const [userInfo, setUserInfo] = useState({});
 	const headerRef = useRef();
 	const [points, setPoints] = useState(null);
-    const [userAvatar, setUserAvatar] = useState({
-        img: ``,
-        color: ''
-    })
+	const [userAvatar, setUserAvatar] = useState({
+		img: ``,
+		color: '',
+	});
 
 	const handleChange = (e) => {
 		setSearchInput(e.target.value);
@@ -73,30 +71,31 @@ const Header = () => {
 	useEffect(() => {
 		getData(`${process.env.MEDICAL_API}/medical/registry/user-id`).then(
 			(response) => {
-				if(response?.notFound){
-					setUser(false)
-				}else {
-					setUser(true)
+				if (response?.notFound) {
+					setUser(false);
+				} else {
+					setUser(true);
 				}
-				setUserInfo(response)
-				console.log(response)
+				setUserInfo(response);
+				console.log(response);
 			}
 		);
-		
-		getData(`${process.env.MEDICAL_API}/medical/registry/get-user-avatar`)
-            .then((e)=> {
-                setUserAvatar({
-                    img: `/avatar${e?.path}.png`,
-                    color: `#${e?.code?.toString()}`
-                })
-            })
 
-		getData(`${process.env.MEDICAL_API}/medical/products/user-points`)
-			.then((response)=>{
-				setPoints(response?.amountOfPoints)
-			})
+		getData(`${process.env.MEDICAL_API}/medical/registry/get-user-avatar`).then(
+			(e) => {
+				setUserAvatar({
+					img: `/avatar${e?.path}.png`,
+					color: `#${e?.code?.toString()}`,
+				});
+			}
+		);
+
+		getData(`${process.env.MEDICAL_API}/medical/products/user-points`).then(
+			(response) => {
+				setPoints(response?.amountOfPoints);
+			}
+		);
 	}, []);
-
 
 	useEffect(() => {
 		modalIsOpen
@@ -106,13 +105,13 @@ const Header = () => {
 
 	const [offset, setOffset] = useState(0);
 
-    useEffect(() => {
-        const onScroll = () => setOffset(window.pageYOffset);
-        // clean up code
-        window.removeEventListener('scroll', onScroll);
-        window.addEventListener('scroll', onScroll, { passive: true });
-        return () => window.removeEventListener('scroll', onScroll);
-    }, []);
+	useEffect(() => {
+		const onScroll = () => setOffset(window.pageYOffset);
+		// clean up code
+		window.removeEventListener('scroll', onScroll);
+		window.addEventListener('scroll', onScroll, { passive: true });
+		return () => window.removeEventListener('scroll', onScroll);
+	}, []);
 
 	return (
 		<>
@@ -120,10 +119,12 @@ const Header = () => {
 			<div className={classes.smallheaderContainer}>
 				<div className={classes.content}>
 					<div className={classes.smallheaderLeft}>
+						<Link href='https://pirveli.com/'>
+							<a className={classes.smallheaderLeftText}>მთავარი</a>
+						</Link>
 						<Link href='https://shop.pirveli.com/'>
 							<a className={classes.smallheaderLeftText}>მაღაზია</a>
 						</Link>
-
 						<Link href='/'>
 							<a className={classes.smallheaderLeftTextMedical}>მედიქალი</a>
 						</Link>
@@ -276,15 +277,17 @@ const Header = () => {
 						</a>
 					</Link>
 
-					<div className={classNames(classes.searchInput, {
-						[classes.defaultSearchInput]: offset < 48, 
-						[classes.scrollsearch]: offset > 48
-					})}>
+					<div
+						className={classNames(classes.searchInput, {
+							[classes.defaultSearchInput]: offset < 48,
+							[classes.scrollsearch]: offset > 48,
+						})}
+					>
 						<input
 							type='search'
 							value={searchInput}
 							onChange={handleChange}
-							placeholder="მოძებნე ექიმი ან კლინიკა..."
+							placeholder='მოძებნე ექიმი ან კლინიკა...'
 						/>
 						<button>
 							<ReactSVG src='/searchIconsvg.svg' />
@@ -308,9 +311,13 @@ const Header = () => {
 						</div>
 
 						<Link href='/buyCardPage'>
-							<span className={classNames(classes.buyCardBtnStyle, {
-								[classes.buyCardBtnShow]: offset > 47
-							})}>ბარათის შეძენა</span>
+							<span
+								className={classNames(classes.buyCardBtnStyle, {
+									[classes.buyCardBtnShow]: offset > 48,
+								})}
+							>
+								ბარათის ყიდვა
+							</span>
 						</Link>
 						{(user == null || !user) && (
 							<Link href='https://auth.pirveli.com/realms/xracoon-demo/protocol/openid-connect/auth?response_type=code&client_id=demo-client&scope=email%20profile%20roles%20openid&state=S_SXwlNFk9uQvJbIiv14woIxYEPZC0KGVwjYO2mZUIw%3D&redirect_uri=https://medical.pirveli.com/login/oauth2/code/keycloak&nonce=p73X0jpKyzGZ_AqZWl7bCU4mqpCfVacuaqV-7MddFgk'>
@@ -318,7 +325,10 @@ const Header = () => {
 							</Link>
 						)}
 						{user && (
-							<div className={classes.authorizedUser} ref={headerRef}>
+							<div
+								className={classes.authorizedUser}
+								ref={headerRef}
+							>
 								<Dropdown
 									menu={{
 										items,
@@ -331,8 +341,19 @@ const Header = () => {
 													<h2>My Account</h2>
 													<Link href='/user'>
 														<div className={classes.auth_user_icon}>
-															<div className={classes.avatarBg} style={{backgroundColor: `${userAvatar?.color}`}}>
-																<img src={`${userAvatar?.img !== '/avatarundefined.png' ? userAvatar?.img : '/defaulticon.png'}`} />
+															<div
+																className={classes.avatarBg}
+																style={{
+																	backgroundColor: `${userAvatar?.color}`,
+																}}
+															>
+																<img
+																	src={`${
+																		userAvatar?.img !== '/avatarundefined.png'
+																			? userAvatar?.img
+																			: '/defaulticon.png'
+																	}`}
+																/>
 															</div>
 															<h4>
 																{userInfo?.firstName} {userInfo?.lastName}
@@ -346,7 +367,7 @@ const Header = () => {
 															return <li key={key}>{item.label}</li>;
 														})}
 													</div>
-													<Link href="https://auth.pirveli.ge/realms/xracoon-demo/protocol/openid-connect/logout">
+													<Link href='https://auth.pirveli.ge/realms/xracoon-demo/protocol/openid-connect/logout'>
 														<div className={classes.auth_logout}>
 															<ReactSVG src='/Logout.svg' />
 															Log out
@@ -362,16 +383,25 @@ const Header = () => {
 								>
 									<a onClick={(e) => e.preventDefault()}>
 										<Space>
-										<div className={classes.avatarBg} style={{backgroundColor: `${userAvatar?.color}`}}>
-											<img src={`${userAvatar?.img !== '/avatarundefined.png' ? userAvatar?.img : '/defaulticon.png'}`} />
-										</div>
+											<div
+												className={classes.avatarBg}
+												style={{ backgroundColor: `${userAvatar?.color}` }}
+											>
+												<img
+													src={`${
+														userAvatar?.img !== '/avatarundefined.png'
+															? userAvatar?.img
+															: '/defaulticon.png'
+													}`}
+												/>
+											</div>
 										</Space>
 									</a>
 								</Dropdown>
 							</div>
 						)}
 						<div className={classes.burgerMenuicon}>
-							<ReactSVG src="/burgericonv2.svg" />
+							<ReactSVG src='/burgericonv2.svg' />
 						</div>
 					</div>
 				</div>

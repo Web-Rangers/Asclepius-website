@@ -48,6 +48,7 @@ export default function UserDetailed() {
             image: '/avatar2.png',
         },
     ]
+    const [userCards, setUserCards] = useState([]);
 
     const columns = [
         {
@@ -91,6 +92,7 @@ export default function UserDetailed() {
                 })
                 const unique = [...new Set(familyMembersArray)]
                 setFamilyMembers(unique)
+                setUserCards(response?.products)
             })
 
         getData(`${process.env.MEDICAL_API}/medical/registry/get-user-avatar`)
@@ -112,6 +114,8 @@ export default function UserDetailed() {
 		);
 	}, [])
 
+    console.log(userCards, 'cards')
+
     return <>
         <div className={styles.detailedPage}>
             {
@@ -124,17 +128,19 @@ export default function UserDetailed() {
                 })}>
                     <div className={styles.greeting}>
                         <div>
-                            <h2>Hello <span>Mary Fowler</span></h2>
-                            <p>Have a nice day and don’t forger to take care of your health !</p>
-                            <Button 
-                                style={styles.greetingBtn} 
-                                name='Read more'
-                            />
+                            <h2>გამარჯობა, <span>{userInfo?.firstName}</span></h2>
+                            <p>წარმატებულ დღეს გისურვებთ და არ დაგავიწყდეთ თქვენს ჯანმრთელობაზე ზრუნვა!</p>
+                            <Link href="/buyCardPage">
+                                <Button 
+                                    style={styles.greetingBtn} 
+                                    name='შეუკვეთე ბარათი'
+                                />
+                            </Link>
                         </div>
                         <div className={styles.greetingImage}>
                             <img 
                                 className={styles.greetingBackground} 
-                                src="/greetingBg.png" 
+                                src="/userImage.svg" 
                                 alt="greeting" 
                             />
                         </div>
@@ -142,6 +148,14 @@ export default function UserDetailed() {
                             style={styles.greetingBtnResp}
                             name="Read more"
                         />
+                    </div>
+                    <div className={styles.greetingBg}>
+                        <img src="/banneruser.png" />
+                    </div>
+
+                    <div className={styles.emptyOrders}>
+                        <h2>შეკვეთების ისტორია</h2>
+                        <span>ამ ეტაპზე, თქვენ არ გაქვთ განხორციელებული შეკვეთა. გთხოვთ შეიძინეთ ჯანდაცვის ბარათი.</span>
                     </div>
 
                     {/* <div className={styles.orders}>
@@ -288,20 +302,39 @@ export default function UserDetailed() {
                             </div> : <Skeleton className={styles.skelton} active avatar></Skeleton>
                         }
                     </Block>
-                    <Block
-                        title="ჩემი ბარათი"
-                        actions={<Link href="user/mycard"><button className={styles.upgradeBtn}>ყველა სერვისი</button></Link>}
-                        className={styles.cards}
-                    >
-                        <div className={styles.cardView}>
-                            <img className={styles.cardImage} src="/MEDCARD.svg" alt="" />
-                            <span className={styles.cardNumber}>2017 1115 2020 {randomNum}</span>
-                            <span className={styles.cardUserTitle}>{userInfo?.firstName} {userInfo?.lastName}</span>
-                            <span className={styles.expiration}>00/00</span>
-                        </div>
-                    </Block>
+                    {userCards?.length > 0
+                        ?
+                        <Block
+                            title="ჩემი ბარათი"
+                            actions={<Link href="user/mycard"><button className={styles.upgradeBtn}>ყველა სერვისი</button></Link>}
+                            className={styles.cards}
+                        >
+                            <div className={styles.cardView}>
+                                <img className={styles.cardImage} src="/MEDCARD.svg" alt="" />
+                                <span className={styles.cardNumber}>2017 1115 2020 {randomNum}</span>
+                                <span className={styles.cardUserTitle}>{userInfo?.firstName} {userInfo?.lastName}</span>
+                                <span className={styles.expiration}>00/00</span>
+                            </div>
+                        </Block>
+                        :
+                        <Block
+                            title="ჩემი ბარათი"
+                            actions={<Link href="user/mycard"><button className={styles.upgradeBtn}>ყველა სერვისი</button></Link>}
+                            className={styles.cards}
+                        >
+                            <span className={styles.cardsSpan}>
+                                შეუკვეთე ბარათი და მიიღე 20%-მდე ფასდაკლება ნებისმიერ კლინიკაში, ან ექიმთან ვიზიტის დროს
+                            </span>
+                            <Link href="/buyCardPage">
+                                <Button 
+                                    style={styles.greetingBtn} 
+                                    name='შეუკვეთე ბარათი'
+                                />
+                            </Link>
+                        </Block>
+                    } 
 
-                    {/* <Block
+                    <Block
                         title="Family member"
                         actions={
                             memberList.length > 0 && 
@@ -310,7 +343,7 @@ export default function UserDetailed() {
                                 onClick={()=>setFamilyMemberModal(true)}
                             >
                                 <img src="/plus.svg" alt="" />
-                                <span>ADD</span>
+                                <span>დამატება</span>
                             </button>
                         }
                         className={classNames(styles.familyBlock, {
@@ -354,13 +387,13 @@ export default function UserDetailed() {
                                             onClick={()=>setFamilyMemberModal(true)}
                                         >
                                             <img src="/memberPlus.svg" alt=""/>
-                                            <span>Add</span>
+                                            <span>დამატება</span>
                                         </div>
                                     }
                                 />
                             </div>
                         }
-                    </Block> */}
+                    </Block>
                 </div>
             </div>
         </div>

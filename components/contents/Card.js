@@ -107,7 +107,7 @@ const Card = ({ data }) => {
 		},
 		{
 			id: '5',
-			name: 'სასწრაფო გადაუდებელი დახმარება',
+			name: 'სასწრაფო დახმარება',
 			starter: '',
 			pro: '',
 			plus: '',
@@ -132,19 +132,22 @@ const Card = ({ data }) => {
 			starter: '15%-მდე',
 			pro: '',
 			plus: '',
-		},{
+		},
+		{
 			id: '8',
-			name: 'ფარმაცია და პარაფარმაცია',
+			name: 'მედიკამენტები',
 			starter: '30%-მდე',
 			pro: '',
 			plus: '',
-		},{
+		},
+		{
 			id: '8',
 			name: 'სტომატოლოგია',
 			starter: '15%-მდე',
 			pro: '',
 			plus: '',
-		},{
+		},
+		{
 			id: '8',
 			name: 'სილამაზე და ესტეტიკა',
 			starter: '15%-მდე',
@@ -156,7 +159,7 @@ const Card = ({ data }) => {
 	return (
 		<div className={style.cardTableContainer}>
 			<div className={style.cardTableContainerHeader}>
-				<span className={style.headerTitle}>ბარათის ფასი</span>
+				<span className={style.headerTitle}>ბარათის ყიდვა</span>
 				<div className={style.switcher}>
 					<div>
 						<FormGroup>
@@ -554,14 +557,22 @@ const Card = ({ data }) => {
 				</div>
 			</div> */}
 			<div className={style.cardContainer}>
-				<Link href="/buyCardPage">
+				<Link href='/buyCardPage'>
 					<div className={style.containerCard}>
-						<img src="/MEDCARD-VECTOR.svg" /> 
+						<img src='/MEDCARD-VECTOR.svg' />
 					</div>
 				</Link>
 				<div className={style.containerList}>
-					{featuresData?.map((e, key)=>{
-						return <div key={key} className={style.listItem}><span>{e.name}</span><span>{e.starter}</span></div>
+					{featuresData?.map((e, key) => {
+						return (
+							<div
+								key={key}
+								className={style.listItem}
+							>
+								<span>{e.name}</span>
+								<span>{e.starter}</span>
+							</div>
+						);
 					})}
 				</div>
 				<div className={style.price}>
@@ -586,7 +597,9 @@ const Card = ({ data }) => {
 							/>
 						</span>
 					)}
-					<Link href="/buyCardPage"><button>Buy now</button></Link>
+					<Link href='/buyCardPage'>
+						<button>ყიდვა</button>
+					</Link>
 				</div>
 			</div>
 		</div>
