@@ -7,7 +7,7 @@ import SignUpFooter from '../components/contents/SignUpFooter';
 import classes from '../styles/headerFooter.module.css';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
-import Head from 'next/head'
+import Head from 'next/head';
 import {
 	Hydrate,
 	QueryClient,
@@ -51,10 +51,16 @@ function MyApp({ Component, pageProps }) {
 				<Hydrate state={pageProps.dehidratedState}>
 					{hideHeader ? signUp ? <SignUpHeader /> : <Header /> : null}
 					<Head>
-						<link rel="icon" type="image/png" href={'/med.png'} />
-						<meta name="robots" content="noindex" />
+						<link
+							rel='icon'
+							type='image/png'
+							href={'/med.png'}
+						/>
+						<meta
+							name='robots'
+							content='noindex'
+						/>
 					</Head>
-					{getLayout(<Component {...pageProps} />)}
 					<Script
 						id='my-script'
 						strategy='afterInteractive'
@@ -66,6 +72,8 @@ function MyApp({ Component, pageProps }) {
 							})(document, window, 'script');`,
 						}}
 					/>
+					{getLayout(<Component {...pageProps} />)}
+
 					{hideHeader ? signUp ? <SignUpFooter /> : <Footer /> : null}
 				</Hydrate>
 			</QueryClientProvider>

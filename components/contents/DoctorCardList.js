@@ -4,6 +4,18 @@ import classes from '../../styles/homePage.module.css';
 import Text from '../ui/Text';
 import Image from 'next/image';
 import { Carousel } from 'react-responsive-carousel';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import style from '../../styles/slider.module.css';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+// import './styles.css';
+
+// import required modules
+import { Pagination } from 'swiper';
 
 const DoctorCardList = ({ doctorsData }) => {
 	const [data, setData] = useState([]);
@@ -22,18 +34,30 @@ const DoctorCardList = ({ doctorsData }) => {
 		<div className={classes.doctorCardContainer}>
 			<div className={classes.firstPart}>
 				<div className={classes.serviceContainerImg}>
-					<img
-						src='doctorImg1.png'
-						alt='doctorImg1'
-						height='210px'
-						width='655px'
-					/>
-					<img
-						src='doctorImg2.png'
-						alt='doctorImg2'
-						height='210px'
-						width='655px'
-					/>
+					<Swiper
+						pagination={{
+							dynamicBullets: true,
+						}}
+						modules={[Pagination]}
+						className={style.branchMobileSize}
+					>
+						<SwiperSlide>
+							<img
+								src='/doctorImg1.png'
+								alt='doctorImg1'
+								height='343px'
+								width='100%'
+							/>
+						</SwiperSlide>
+						<SwiperSlide>
+							<img
+								src='/doctorImg2.png'
+								alt='doctorImg2'
+								height='343px'
+								width='100%'
+							/>
+						</SwiperSlide>
+					</Swiper>
 				</div>
 				<div className={classes.clinicCardContainerTitle}>
 					{/* <Text style={classes.serviceTextStyle}>Popular</Text> */}

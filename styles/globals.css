@@ -218,3 +218,7 @@ a {
 		display: none;
 	}
 }
+
+#bwc-widget-action {
+	bottom: 90px !important;
+}
