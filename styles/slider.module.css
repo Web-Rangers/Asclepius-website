@@ -62,7 +62,7 @@
 	padding-left: 40px;
 	background-color: #f7f9fb;
 	padding-right: 742px;
-	border-radius:12px;
+	border-radius: 12px;
 }
 .medicalCardTitle {
 	font-family: 'Avenir Next Bold';
@@ -202,20 +202,20 @@
 
 .swiperArrowLeft {
 	position: absolute;
-	left:-29px;
-	top:50%;
+	left: -29px;
+	top: 50%;
 	transform: translateY(-50%);
 	z-index: 70;
-	cursor:pointer;
+	cursor: pointer;
 }
 
 .swiperArrowRight {
 	position: absolute;
-	right:-29px;
+	right: -29px;
 	transform: translateY(-50%);
-	top:50%;
+	top: 50%;
 	z-index: 70;
-	cursor:pointer;
+	cursor: pointer;
 }
 
 @media only screen and (max-width: 1340px) {
@@ -264,12 +264,20 @@
 		display: none;
 	}
 	.swiperImg {
-		width: 254px;
+		width: 299px;
 	}
 	.arrowContainerTop {
 		display: none;
 	}
 	.branchMobileSize {
-		width: 313px;
+		width: 100%;
+		height: auto;
+	}
+	.swiperArrowLeft {
+		display: none;
+	}
+
+	.swiperArrowRight {
+		display: none;
 	}
 }
