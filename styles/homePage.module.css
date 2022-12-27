@@ -176,7 +176,7 @@
 .arrows {
 	display: flex;
 	justify-content: space-between;
-	padding-bottom: 14px;
+	padding-bottom: 12px;
 	margin: auto;
 	width: calc(100% - 0px);
 	max-width: calc(1440px - 100px);
@@ -228,24 +228,24 @@
 	margin-bottom: 20px;
 }
 .ourClinicTextStyle {
-	font-family: 'Avenir Next Bold';
+	font-family: 'Avenir Next Georgian';
 	font-style: normal;
-	font-weight: 300;
-	font-size: 26px;
-	line-height: 28px;
-	color: #1e2837;
-	/* margin-top: 72px; */
-	height: 38px;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 150%;
+	color: #383838;
+	padding-left: 16px;
 }
 .ourDoctorTextStyle {
 	font-family: 'Avenir Next Bold';
 	font-style: normal;
-	font-weight: 300;
-	font-size: 26px;
-	line-height: 28px;
-	color: #1e2837;
-	margin-top: 72px;
-	height: 38px;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 150%;
+	color: #383838;
+	margin-top: 50px;
+	height: 27px;
+	padding-left: 16px;
 }
 .clinicNameText {
 	font-weight: 500;
@@ -1027,12 +1027,13 @@
 	.slide {
 		padding-right: 0px;
 	}
-
+	.headerSliderStyle {
+		margin-bottom: 50px;
+	}
 	.showSliderForMobile {
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		margin-bottom: 50px;
 	}
 	.medicalCardTitle {
 		width: 100%;
@@ -1195,6 +1196,7 @@
 	}
 	.firstPart {
 		width: calc(100% - 0px);
+		/* margin-top: 50px; */
 	}
 	.clinicCardContainer {
 		margin-top: 50px;
@@ -1221,6 +1223,7 @@
 		display: flex;
 		flex-direction: column;
 		padding-right: 16px;
+		padding-left: 16px;
 	}
 
 	/* benefit parts  */

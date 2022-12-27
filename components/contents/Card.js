@@ -169,7 +169,7 @@ const Card = ({ data }) => {
 								alignItems='center'
 							>
 								<Typography className={style.switcherLabel}>
-									ინდივიდუალური
+									პერსონალური
 								</Typography>
 
 								<AntSwitch
@@ -203,9 +203,9 @@ const Card = ({ data }) => {
 							className={style.tooltip}
 						/>
 					</Tooltip>
-					<span className={style.tootltipText}>
+					{/* <span className={style.tootltipText}>
 						Family package includes mother, father and 2 minor children
-					</span>
+					</span> */}
 				</div>
 			</div>
 			{/* <div className={style.cardTableMobile}>
