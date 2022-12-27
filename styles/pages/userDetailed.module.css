@@ -687,9 +687,70 @@
     border-radius: 50%;
 }
 
+.cardOverview{
+    display: none;
+}
+
+.buycardForUser{
+    display: none;
+}
+
+@media only screen and (max-width: 1380px) {
+    .cardView {
+        height: 16vw;
+    }
+    .cardNumber, .cardUserTitle {
+        word-spacing: 0.7vw;
+        font-size: 1.5vw;
+    }
+}
+
+@media only screen and (max-width: 1195px) {
+    .container {
+        width: 63%;
+    }
+    .rightMenu {
+        width: 34%;
+    }
+    .greeting p {
+        max-height: 43px;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (max-width: 935px) {
+    .container {
+        width: 100%;
+    }
+    .rightMenu {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    .detailPageContainer {
+        flex-direction: column;
+        gap:30px;
+    }
+    .cards {
+        margin-right: 6%;
+    }
+    .cards, .familyBlock{
+        display: inline-block;
+        vertical-align: top;
+        width: 47%;
+    }
+    .cardView {
+        height: 23vw;
+    }
+    .userinfoBlock {
+        margin-right: auto;
+        margin-left: 40px;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .container {
         width: 100%;
+        padding-bottom: 12px;
     }
     .detailedPage {
         flex-direction: column;
@@ -699,12 +760,17 @@
     .greeting {
         flex-direction: column;
         padding: 0 20px;
+        width: 77%;
+    }
+    .greeting h2 {
+        margin-top:20px;
+    }
+    .greeting p {
+        max-height: 65px;
+        min-height: 65px;
     }
     .detailedPage {
         padding:0;
-    }
-    .container {
-        padding-top:40px;
     }
     .greetingImage {
         width: 100%;
@@ -722,27 +788,116 @@
     .greetingBtn{
         display: none;
     }
-    .greetingBtnResp{
-        display: block;
-        width: 100%;
-        height: 52px;
-        border-radius: 5px;
-        background-color: #3a74d2;
-        color: #fff;
-        margin-top: 20px;
-        cursor: pointer;
-        border:none;
-        margin-bottom:24px;
-    }
     .rightMenu {
         width: 100%;
-        padding:20px 20px;
+        padding:0px 20px;
+        margin-bottom: 0;
     }
-    .container, .familyBlock, .calendar, .cards {
+    .container, .familyBlock, .calendar {
         display: none;
     }
     .activeTab {
         display: block;
+    }
+    .greetingBg {
+        display: none;
+    }
+    .emptyOrders {
+        display: none;
+    }
+    .greetingBackground {
+        height: 198px;
+        right: -35px;
+        top: -28px;
+        width: 189px;
+    }
+    .userblock {
+        display: none;
+    }
+    .cards {
+        width: 100%;
+    }
+    .cardView {
+        height: 16vw;
+        width: 27vw;
+    }
+    .cardView img {
+        width: 27vw;
+    }
+    .cardNumber {
+        left: 2.2vw;
+        bottom: 4vw;
+    }
+    .cardUserTitle {
+        bottom: 1vw;
+        left: 2.2vw;
+    }
+    .expiration {
+        left: 15vw;
+        bottom: 1vw;
+        word-spacing: 0.7vw;
+        font-size: 1.5vw;
+    }
+    .cardOverview {
+        display: block;
+        font-family: 'Avenir Next Georgian';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 150%;
+        color: rgba(56, 56, 56, 0.7);
+    }
+    .cardBlockDiv{
+        display: flex;
+        gap: 16px;
+        background-color: #fff;
+        padding: 16px;
+        border-radius: 12px;
+        overflow: hidden;
+        min-height: 106px;
+    }
+    .cards > div:first-child {
+        display:none;
+    }
+
+    .cardsSpan{
+        padding: 16px;
+        border-radius: 12px;
+        background-color: #fff;
+        color: rgba(56, 56, 56, 0.7);
+    }
+    .buycardForUser {
+        display: block;
+        width: 100%;
+        height: 45px;
+        background: #FFBBB6;
+        border-radius: 12px;
+        border: none;
+        outline: none;
+        font-family: 'Avenir Next Georgian';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 150%;
+        color: #383838;
+        margin-top:16px;
+    }
+    .activeTab {
+        width: calc(100% - 40px);
+        margin: auto;
+    }
+    .blockemptyOrders {
+        background: #FFFFFF;
+        border-radius: 12px;
+        margin: 0 20px 40px 20px;
+        padding: 20px 16px;
+    }
+    .blockemptyOrders span {
+        font-family: 'Avenir Next Georgian';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        color: rgba(56, 56, 56, 0.7);
     }
 }
 
