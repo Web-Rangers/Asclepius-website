@@ -20,23 +20,24 @@ import 'antd/dist/antd.css';
 import Link from 'next/link';
 import Swipper from '../components/contents/Swipper';
 import Navigation from '../components/navigation';
+import NavItem from '../components/contents/NavItem';
 
 function Home() {
 	const [data, setData] = useState({
 		clinics: [],
 		doctors: [],
 		products: [],
-		categories: []
-	})
+		categories: [],
+	});
 	const [clinicData, setClinicData] = useState([]);
 	const [doctorsData, setDoctorsData] = useState([]);
 	const [imgData, setImgData] = useState([]);
 
 	const allData = data?.doctors?.content; //.concat(doctors?.content)
-		// ?.concat(doctors?.content)
-		// .sort(function (a, b) {
-		// 	return a.id > b.id ? -1 : a.id > b.id ? 1 : 0;
-		// });
+	// ?.concat(doctors?.content)
+	// .sort(function (a, b) {
+	// 	return a.id > b.id ? -1 : a.id > b.id ? 1 : 0;
+	// });
 
 	const windowSize = useWindowSize();
 
@@ -74,9 +75,9 @@ function Home() {
 
 	useEffect(() => {
 		if (windowSize.width > 600) {
-			setClinicData(data?.clinics?.content?.filter((e)=> e.isActive));
+			setClinicData(data?.clinics?.content?.filter((e) => e.isActive));
 		} else {
-			setClinicData(data?.clinics?.content?.filter((e)=> e.isActive));
+			setClinicData(data?.clinics?.content?.filter((e) => e.isActive));
 		}
 	}, [data?.clinics, windowSize.width]);
 
@@ -88,28 +89,26 @@ function Home() {
 		}
 	}, [data?.doctors, windowSize.width]);
 
-
-	let datas = [
-		'clinics',
-		'doctors',
-		'products',
-		'categories'
-	]
+	let datas = ['clinics', 'doctors', 'products', 'categories'];
 
 	let urls = [
 		`${process.env.MEDICAL_API}/medical/clinics?page=0&size=9999`,
 		`${process.env.MEDICAL_API}/medical/doctors?page=0&size=999`,
 		`${process.env.MEDICAL_API}/medical/products/get-products`,
-		`${process.env.MEDICAL_API}/medical/categories`
-	]
+		`${process.env.MEDICAL_API}/medical/categories`,
+	];
 
-	useEffect(()=>{
-		getMultipleData(datas, setData, urls)
-	},[])
+	useEffect(() => {
+		getMultipleData(datas, setData, urls);
+	}, []);
 
 	return (
 		<div className={classes.homePageContainer}>
+			<div className={s.mobileBottomNav}>
+				<NavItem />
+			</div>
 			<Navigation />
+
 			<div>
 				<div className={classes.firstPart}>
 					<div className={classes.showSlider}>

@@ -4,26 +4,26 @@ import s from '../../styles/clinicDetailPage.module.css';
 
 const NavItem = ({ name, path, src }) => {
 	const navLinks = [
-		{ name: 'Main', path: '/', src: '/main.svg' },
+		{ name: 'მთავარი', path: '/', src: '/nav-home.svg' },
 		{
-			name: 'Family',
+			name: 'ძებნა',
 			path: '/family',
-			src: '/familySvg.svg',
+			src: '/nav-search.svg',
 		},
 		{
-			name: 'Calendar',
+			name: 'კლინიკები',
 			path: '/calendar',
-			src: '/calendarSvg.svg',
+			src: '/nav-clinic.svg',
 		},
 		{
-			name: 'Notifications',
+			name: 'ექიმები',
 			path: '/notifications',
-			src: '/notifications.svg',
+			src: '/nav-doctor.svg',
 		},
 		{
-			name: 'Profile',
+			name: 'მენიუ',
 			path: '/profile',
-			src: '/profileNav.svg',
+			src: '/nav-menu.svg',
 		},
 	];
 	return (

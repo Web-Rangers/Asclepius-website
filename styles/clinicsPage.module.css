@@ -62,7 +62,7 @@
 	display: flex;
 	position: relative;
 	overflow: hidden;
-	/* max-width: 290px; */
+	max-width: 290px;
 	min-height: 300px;
 }
 .ratingContainer {

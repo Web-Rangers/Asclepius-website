@@ -576,27 +576,30 @@ const Card = ({ data }) => {
 					})}
 				</div>
 				<div className={style.price}>
-					{checked ? (
-						<span>
-							{cardTypes?.family[0]?.price}
-							<img
-								src='lari.svg'
-								alt='lari'
-								width='29px'
-								height='23px'
-							/>
-						</span>
-					) : (
-						<span>
-							{cardTypes?.individual[0]?.price}
-							<img
-								src='lari.svg'
-								alt='lari'
-								width='29px'
-								height='23px'
-							/>
-						</span>
-					)}
+					<div className={style.priceContainer}>
+						<span className={style.priceText}>ღირებულება</span>
+						{checked ? (
+							<span className={style.priceNumberStyle}>
+								{cardTypes?.family[0]?.price}
+								<img
+									src='lari.svg'
+									alt='lari'
+									width='18px'
+									height='18px'
+								/>
+							</span>
+						) : (
+							<span className={style.priceNumberStyle}>
+								{cardTypes?.individual[0]?.price}
+								<img
+									src='lari.svg'
+									alt='lari'
+									width='18px'
+									height='18px'
+								/>
+							</span>
+						)}
+					</div>
 					<Link href='/buyCardPage'>
 						<button>ყიდვა</button>
 					</Link>
