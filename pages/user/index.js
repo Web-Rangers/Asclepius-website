@@ -410,6 +410,15 @@ export default function UserDetailed() {
                 }
             </div>
         </div>
+        {
+            (useWindowSize().width < 600) && 
+            <div className={styles.familyMembersAddblock}>
+                <div className={styles.familyMembersAddBtn}>
+                    <span>ოჯახის წევრები</span>
+                    <ReactSVG className={styles.familyMemberSvg} src="/familyadd.svg" />
+                </div>
+            </div>
+        }
         {/* {
             useWindowSize().width < 600 && <Menu active={menuItem} onClick={(active)=> setMenuItem(active)} />
         } */}
