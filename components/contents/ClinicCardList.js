@@ -13,7 +13,7 @@ const ClinicCardList = ({ clinicsData, products }) => {
 
 	const showMoreFunc = useCallback(() => {
 		if (!state) {
-			setData(clinicsData?.filter((e, i) => i < 40));
+			setData(clinicsData?.filter((e, i) => i < 12));
 		} else setData(clinicsData?.filter((e, i) => i < 4));
 		if (data.length === 12) {
 			router.push('/clinicPage');
