@@ -117,22 +117,9 @@ function Home() {
 				</div>
 			</div>
 			<div className={classes.showSliderForMobile}>
-				<div className={classes.firstPart}>
+				<div className={classes.headerSliderStyle}>
 					<div className={classes.showSliderForMobile}>
 						<ResponsiveSlider />
-						<Text style={classes.medicalCardTitle}>
-							<span>Multifunctional medical Card</span>
-						</Text>
-						<div className={classes.medicalCardsButtons}>
-							<Button
-								name='Order a card'
-								style={classes.orderBtn}
-							/>
-							<Button
-								name='Learn more'
-								style={classes.downloadOrderBtn}
-							/>
-						</div>
 					</div>
 				</div>
 			</div>
