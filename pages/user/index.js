@@ -302,7 +302,7 @@ export default function UserDetailed() {
                             </div> : <Skeleton className={styles.skelton} active avatar></Skeleton>
                         }
                     </Block>
-                    {userCards?.length < 0
+                    {userCards?.length > 0
                         ?
                         <Block
                             title="ჩემი ბარათი"
