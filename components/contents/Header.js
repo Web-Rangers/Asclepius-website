@@ -134,7 +134,7 @@ const Header = () => {
 						<Link href='https://s3.pirveli.com/v1/api/getFile?id=6555'>
 							<a className={classes.smallheaderLeftText}>გათამაშება</a>
 						</Link>
-						<Link href='http://s3.pirveli.com/v1/api/getFile?id=6556'>
+						<Link href='https://images2.imgbox.com/83/ef/za3P3ZPj_o.png'>
 							<a className={classes.smallheaderLeftText}>თამაშები</a>
 						</Link>
 					</div>
