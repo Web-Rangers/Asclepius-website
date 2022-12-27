@@ -131,10 +131,10 @@ const Header = () => {
 						<Link href='https://vouchers.pirveli.com'>
 							<a className={classes.smallheaderLeftText}>ვაუჩერები</a>
 						</Link>
-						<Link href='https://win.pirveli.com'>
+						<Link href='https://s3.pirveli.com/v1/api/getFile?id=6555'>
 							<a className={classes.smallheaderLeftText}>გათამაშება</a>
 						</Link>
-						<Link href='https://game.pirveli.com'>
+						<Link href='http://s3.pirveli.com/v1/api/getFile?id=6556'>
 							<a className={classes.smallheaderLeftText}>თამაშები</a>
 						</Link>
 					</div>
