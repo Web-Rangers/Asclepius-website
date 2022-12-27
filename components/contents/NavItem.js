@@ -39,7 +39,7 @@ const NavItem = ({ name, path, src }) => {
 						width='24px'
 						height='24px'
 					/>
-					<span>{item.name}</span>
+					<span className={s.bottomNavItemTitle}>{item.name}</span>
 				</div>
 			))}
 		</>

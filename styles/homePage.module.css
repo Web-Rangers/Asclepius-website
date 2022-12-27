@@ -919,6 +919,9 @@
 	position: relative;
 	animation: flew 15s infinite;
 }
+.serviceContainerImgMob {
+	display: none;
+}
 
 @keyframes flew {
 	20% {
@@ -1211,6 +1214,10 @@
 	}
 
 	.serviceContainerImg {
+		display: none;
+	}
+
+	.serviceContainerImgMob {
 		display: flex;
 		flex-direction: column;
 		padding-right: 16px;
