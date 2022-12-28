@@ -526,7 +526,15 @@
 		z-index: 999;
 		/* padding: 11px 24px; */
 		justify-content: space-between;
+		transform: translateY(0);
+		transition: 0.3s;
 	}
+	.mobileBottomNavActive {
+		display: flex;
+		transform: translateY(90px);
+		transition: 0.3s;
+	}
+
 	.bottomNavItem {
 		display: flex;
 		flex-direction: column;

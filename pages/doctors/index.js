@@ -305,9 +305,6 @@ export default function Doctors({ frelancers, doctors, clinicDoctors }) {
 							/>
 						</div>
 					</div>
-					<div className={s.mobileBottomNav}>
-						<NavItem />
-					</div>
 
 					<div className={styles.doctorsList}>
 						{currentTableData?.map((doctor) => {

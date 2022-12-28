@@ -10,19 +10,21 @@ import NavMenu from '../../public/nav-menu';
 
 const NavItem = () => {
 	const router = useRouter();
-	const [tab, setTab] = useState(router.pathname);
 
 	return (
 		<>
 			<Link href='/'>
 				<div
-					className={'/' === tab ? s.bottomNavItemActive : s.bottomNavItem}
-					onClick={() => setTab(router.pathname)}
+					className={
+						'/' === router.pathname ? s.bottomNavItemActive : s.bottomNavItem
+					}
 				>
-					<NavHome color={'/' === tab ? '#5E70DA' : undefined} />
+					<NavHome color={'/' === router.pathname ? '#5E70DA' : undefined} />
 					<span
 						className={
-							'/' === tab ? s.bottomNavItemTitleActive : s.bottomNavItemTitle
+							'/' === router.pathname
+								? s.bottomNavItemTitleActive
+								: s.bottomNavItemTitle
 						}
 					>
 						მთავარი
@@ -32,14 +34,15 @@ const NavItem = () => {
 			<Link href='/search'>
 				<div
 					className={
-						'/search' === tab ? s.bottomNavItemActive : s.bottomNavItem
+						'/search' === router.pathname
+							? s.bottomNavItemActive
+							: s.bottomNavItem
 					}
-					onClick={() => setTab(router.pathname)}
 				>
-					<NavSearch color={'/' === tab ? '#5E70DA' : undefined} />
+					<NavSearch color={'/' === router.pathname ? '#5E70DA' : undefined} />
 					<span
 						className={
-							'/search' === tab
+							'/search' === router.pathname
 								? s.bottomNavItemTitleActive
 								: s.bottomNavItemTitle
 						}
@@ -51,14 +54,17 @@ const NavItem = () => {
 			<Link href='/clinicPage'>
 				<div
 					className={
-						'/clinicPage' === tab ? s.bottomNavItemActive : s.bottomNavItem
+						'/clinicPage' === router.pathname
+							? s.bottomNavItemActive
+							: s.bottomNavItem
 					}
-					onClick={() => setTab(router.pathname)}
 				>
-					<NavClinic color={'/clinicPage' === tab ? '#5E70DA' : undefined} />
+					<NavClinic
+						color={'/clinicPage' === router.pathname ? '#5E70DA' : undefined}
+					/>
 					<span
 						className={
-							'/clinicPage' === tab
+							'/clinicPage' === router.pathname
 								? s.bottomNavItemTitleActive
 								: s.bottomNavItemTitle
 						}
@@ -70,14 +76,17 @@ const NavItem = () => {
 			<Link href='/doctors'>
 				<div
 					className={
-						'/doctors' === tab ? s.bottomNavItemActive : s.bottomNavItem
+						'/doctors' === router.pathname
+							? s.bottomNavItemActive
+							: s.bottomNavItem
 					}
-					onClick={() => setTab(router.pathname)}
 				>
-					<NavDoctor color={'/doctors' === tab ? '#5E70DA' : undefined} />
+					<NavDoctor
+						color={'/doctors' === router.pathname ? '#5E70DA' : undefined}
+					/>
 					<span
 						className={
-							'/doctors' === tab
+							'/doctors' === router.pathname
 								? s.bottomNavItemTitleActive
 								: s.bottomNavItemTitle
 						}
@@ -89,14 +98,17 @@ const NavItem = () => {
 			<Link href='/profile'>
 				<div
 					className={
-						'/profile' === tab ? s.bottomNavItemActive : s.bottomNavItem
+						'/profile' === router.pathname
+							? s.bottomNavItemActive
+							: s.bottomNavItem
 					}
-					onClick={() => setTab(router.pathname)}
 				>
-					<NavMenu color={'/profile' === tab ? '#5E70DA' : undefined} />
+					<NavMenu
+						color={'/profile' === router.pathname ? '#5E70DA' : undefined}
+					/>
 					<span
 						className={
-							'/profile' === tab
+							'/profile' === router.pathname
 								? s.bottomNavItemTitleActive
 								: s.bottomNavItemTitle
 						}

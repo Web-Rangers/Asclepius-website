@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/globals.css';
+import s from '../styles/clinicDetailPage.module.css';
 import Footer from '../components/contents/Footer';
 import SignUpHeader from '../components/contents/SignUpHeader';
 import Header from '../components/contents/Header';
@@ -13,6 +14,7 @@ import {
 	QueryClient,
 	QueryClientProvider,
 } from '@tanstack/react-query';
+import NavItem from '../components/contents/NavItem';
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -25,6 +27,35 @@ const queryClient = new QueryClient({
 function MyApp({ Component, pageProps }) {
 	const [signUp, setSignUp] = useState(false);
 	const router = useRouter();
+
+	const [show, setShow] = useState(true);
+	const [lastScrollY, setLastScrollY] = useState(0);
+
+	const controlNavbar = () => {
+		if (typeof window !== 'undefined') {
+			if (window.scrollY > lastScrollY) {
+				// if scroll down hide the navbar
+				setShow(false);
+			} else {
+				// if scroll up show the navbar
+				setShow(true);
+			}
+
+			// remember current page location to use in the next move
+			setLastScrollY(window.scrollY);
+		}
+	};
+
+	useEffect(() => {
+		if (typeof window !== 'undefined') {
+			window.addEventListener('scroll', controlNavbar);
+
+			// cleanup function
+			return () => {
+				window.removeEventListener('scroll', controlNavbar);
+			};
+		}
+	}, [lastScrollY]);
 
 	const hideHeader =
 		router.pathname === '/signInPage' ||
@@ -47,6 +78,11 @@ function MyApp({ Component, pageProps }) {
 
 	return (
 		<div>
+			<div
+				className={`${s.mobileBottomNav} ${!show && s.mobileBottomNavActive}`}
+			>
+				<NavItem />
+			</div>
 			<QueryClientProvider client={queryClient}>
 				<Hydrate state={pageProps.dehidratedState}>
 					{hideHeader ? signUp ? <SignUpHeader /> : <Header /> : null}

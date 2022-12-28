@@ -217,6 +217,23 @@ a {
 	.carousel .control-dots {
 		display: none;
 	}
+	.swiper-horizontal
+		> .swiper-pagination-bullets.swiper-pagination-bullets-dynamic
+		.swiper-pagination-bullet,
+	.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic
+		.swiper-pagination-bullet {
+		transition: 0.2s transform, 0.2s left;
+		background-color: white !important;
+	}
+	.swiper-horizontal
+		> .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+	.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+		left: 50%;
+		transform: translateX(-50%);
+		white-space: nowrap;
+		padding-bottom: 20px;
+		bottom: 0;
+	}
 }
 
 #bwc-widget-action {

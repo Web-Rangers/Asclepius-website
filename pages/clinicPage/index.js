@@ -34,8 +34,6 @@ function ClinicsPage({ clinics = [], cards = [], municipalities = [] }) {
 	const router = useRouter();
 	const [filterMunici, setFilterMunici] = useState(false);
 
-	console.log('filterData', filterData);
-
 	const handleChangeRange = (event, newValue) => {
 		setValue(newValue);
 		setFilterData(
@@ -169,9 +167,7 @@ function ClinicsPage({ clinics = [], cards = [], municipalities = [] }) {
 							onClick={openModal}
 						></Button>
 					</div>
-					<div className={style.mobileBottomNav}>
-						<NavItem />
-					</div>
+
 					<div className={s.clinicFilterContainer}>
 						<Text style={s.clinicsTitleTextStyle}>Clinics</Text>
 						<div className={s.rangeContainer}>
