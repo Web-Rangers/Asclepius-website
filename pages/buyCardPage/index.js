@@ -428,7 +428,7 @@ function BuyCardPage({ clinics }) {
 														<div className={s.cardOverview}>
 															<div className={s.cardImage}>
 																<img
-																	src='/MEDCARD-VECTOR.svg'
+																	src='/01-4.png'
 																	alt=''
 																/>
 															</div>
@@ -462,7 +462,7 @@ function BuyCardPage({ clinics }) {
 													<div className={s.cardOverview}>
 														<div className={s.cardImage}>
 															<img
-																src='/MEDCARD-VECTOR.svg'
+																src='/01-4.png'
 																alt=''
 															/>
 														</div>
@@ -494,9 +494,9 @@ function BuyCardPage({ clinics }) {
 					)}
 					<div className={s.listofCats}>
 						{
-							(data?.categories?.length > 0 && data?.categories.shift(),
+							(data?.categories?.length > 0 &&
 							data?.categories
-								?.filter((e) => e.parentCategoryId === null)
+								?.filter((e) => e.parentCategoryId === null && e.title !== 'ყველა')
 								.map((item, i) => {
 									return (
 										<div
@@ -515,7 +515,7 @@ function BuyCardPage({ clinics }) {
 												className={s.categorieTitle}
 											>
 												<div className={s.nameIconCont}>
-													<span className={s.nameIconTitle}> {item.title}</span>
+													<span className={s.nameIconTitle}>{item.title}</span>
 													<Image
 														src='/droparrow.svg'
 														width='14px'

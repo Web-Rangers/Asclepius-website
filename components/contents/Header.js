@@ -131,10 +131,10 @@ const Header = () => {
 						<Link href='https://vouchers.pirveli.com'>
 							<a className={classes.smallheaderLeftText}>ვაუჩერები</a>
 						</Link>
-						<Link href='https://win.pirveli.com'>
+						<Link href='https://s3.pirveli.com/v1/api/getFile?id=6555'>
 							<a className={classes.smallheaderLeftText}>გათამაშება</a>
 						</Link>
-						<Link href='https://game.pirveli.com'>
+						<Link href='https://images2.imgbox.com/83/ef/za3P3ZPj_o.png'>
 							<a className={classes.smallheaderLeftText}>თამაშები</a>
 						</Link>
 					</div>
@@ -367,12 +367,14 @@ const Header = () => {
 															return <li key={key}>{item.label}</li>;
 														})}
 													</div>
-													<Link href='https://auth.pirveli.ge/realms/xracoon-demo/protocol/openid-connect/logout'>
-														<div className={classes.auth_logout}>
-															<ReactSVG src='/Logout.svg' />
-															Log out
-														</div>
-													</Link>
+													<form action="https://medical.pirveli.com/logout" method="POST">
+														<button className={classes.noBtn} type='submit'>
+															<div className={classes.auth_logout}>
+																<ReactSVG src='/Logout.svg' />
+																Log out
+															</div>
+														</button>
+													</form>
 												</div>
 											</>
 										);
