@@ -28,7 +28,7 @@ export default function CheckoutFamilyMember({onClose, type, users, setUsers}) {
             }else {
                 if(key == 'personalId'){
                     if(!idNumLength){
-                        if(value.toString().length < 11) {
+                        if(value.toString().length !== 11) {
                             valid = true;
                             setValidationList((e)=> ([...e, key]))
                             setValidation(true)
@@ -65,6 +65,7 @@ export default function CheckoutFamilyMember({onClose, type, users, setUsers}) {
                                         setUserInfo={(e)=> setUserInfo(e)} 
                                         validation={validation} 
                                         validationList={validationList}
+                                        idNumLength={idNumLength}
                                         setIdNumLength={setIdNumLength}
                                     /> 
                                 || 
@@ -73,6 +74,7 @@ export default function CheckoutFamilyMember({onClose, type, users, setUsers}) {
                                         setUserInfo={(e)=> setUserInfo(e)} 
                                         validation={validation} 
                                         validationList={validationList}
+                                        idNumLength={idNumLength}
                                         setIdNumLength={setIdNumLength}
                                     /> 
                                 || 
@@ -81,6 +83,7 @@ export default function CheckoutFamilyMember({onClose, type, users, setUsers}) {
                                         setUserInfo={(e)=> setUserInfo(e)} 
                                         validation={validation} 
                                         validationList={validationList}
+                                        idNumLength={idNumLength}
                                         setIdNumLength={setIdNumLength}
                                     />
                 }
@@ -95,8 +98,9 @@ export default function CheckoutFamilyMember({onClose, type, users, setUsers}) {
 }
 
 
-export function Above18({userInfo, setUserInfo, validation, validationList, setIdNumLength}) {
+export function Above18({userInfo, setUserInfo, validation, validationList, idNumLength, setIdNumLength}) {
     const bodyref = useRef();
+    const [idCheck, setIdCheck] = useState('');
 
     useEffect(()=> {
         setUserInfo({
@@ -161,8 +165,11 @@ export function Above18({userInfo, setUserInfo, validation, validationList, setI
                 })}  
                 placeholder="Id number" 
                 value={userInfo?.personalId}
-                onChange={(e)=> setUserInfo(values=> ({...values, personalId: e}))}
+                onChange={(e)=> {setUserInfo(values=> ({...values, personalId: e})); setIdCheck(e)}}
             />
+            {!idNumLength ? 
+                idCheck?.length == 11 ? '' : <span>*უნდა შეიყვანოთ 11 ციფრი</span> : ''
+            }
             <div className={styles.birth}>
                 <h2>Date of birth</h2>
                 <DatePicker 
@@ -202,8 +209,9 @@ export function Above18({userInfo, setUserInfo, validation, validationList, setI
     </>
 } 
 
-export function WifeOrHusband({userInfo, setUserInfo, validation, validationList, setIdNumLength}) {
+export function WifeOrHusband({userInfo, setUserInfo, validation, validationList, idNumLength, setIdNumLength}) {
     const bodyref = useRef();
+    const [idCheck, setIdCheck] = useState('');
 
     useEffect(()=> {
         setUserInfo({
@@ -268,8 +276,11 @@ export function WifeOrHusband({userInfo, setUserInfo, validation, validationList
                 })}  
                 placeholder="Id number" 
                 value={userInfo?.personalId}
-                onChange={(e)=> setUserInfo(values=> ({...values, personalId: e}))}
+                onChange={(e)=> {setUserInfo(values=> ({...values, personalId: e})); setIdCheck(e)}}
             />
+            {!idNumLength ? 
+                idCheck?.length == 11 ? '' : <span>*უნდა შეიყვანოთ 11 ციფრი</span> : ''
+            }
             <div className={styles.birth}>
                 <h2>Date of birth</h2>
                 <DatePicker 
@@ -309,8 +320,9 @@ export function WifeOrHusband({userInfo, setUserInfo, validation, validationList
     </>
 } 
 
-export function Under18({userInfo, setUserInfo, validation, validationList, setIdNumLength}) {
+export function Under18({userInfo, setUserInfo, validation, validationList, idNumLength, setIdNumLength}) {
     const bodyref = useRef();
+    const [idCheck, setIdCheck] = useState('');
 
     useEffect(()=> {
         setUserInfo({
@@ -364,8 +376,11 @@ export function Under18({userInfo, setUserInfo, validation, validationList, setI
                 })}  
                 placeholder="Id number" 
                 value={userInfo?.personalId}
-                onChange={(e)=> setUserInfo(values=> ({...values, personalId: e}))}
+                onChange={(e)=> {setUserInfo(values=> ({...values, personalId: e}));setIdCheck(e)}}
             />
+            {!idNumLength ? 
+                idCheck?.length == 11 ? '' : <span>*უნდა შეიყვანოთ 11 ციფრი</span> : ''
+            }
             <div className={styles.birth}>
                 <h2>Date of birth</h2>
                 <DatePicker 

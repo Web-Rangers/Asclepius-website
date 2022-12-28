@@ -309,11 +309,16 @@ export default function UserDetailed() {
                             actions={<Link href="user/mycard"><button className={styles.upgradeBtn}>ყველა სერვისი</button></Link>}
                             className={styles.cards}
                         >
-                            <div className={styles.cardView}>
-                                <img className={styles.cardImage} src="/MEDCARD.svg" alt="" />
-                                <span className={styles.cardNumber}>2017 1115 2020 {randomNum}</span>
-                                <span className={styles.cardUserTitle}>{userInfo?.firstName} {userInfo?.lastName}</span>
-                                <span className={styles.expiration}>00/00</span>
+                            <div className={styles.cardBlockDiv}>
+                                <div className={styles.cardView}>
+                                    <img className={styles.cardImage} src="/01-5.png" alt="" />
+                                    <span className={styles.cardNumber}>2017 1115 2020 {randomNum}</span>
+                                    <span className={styles.cardUserTitle}>{userInfo?.firstName} {userInfo?.lastName}</span>
+                                    <span className={styles.expiration}>00/00</span>
+                                </div>
+                                <div className={styles.cardOverview}>
+                                    თქვენ შეძენილი გაქვთ 1 თვიანი პაკეტი. შემდეგ გადახა 27 დღე.
+                                </div>
                             </div>
                         </Block>
                         :
@@ -324,6 +329,7 @@ export default function UserDetailed() {
                         >
                             <span className={styles.cardsSpan}>
                                 შეუკვეთე ბარათი და მიიღე 20%-მდე ფასდაკლება ნებისმიერ კლინიკაში, ან ექიმთან ვიზიტის დროს
+                                <button className={styles.buycardForUser}>შეუკვეთე ბარათი</button>
                             </span>
                             <Link href="/buyCardPage">
                                 <Button 
@@ -395,10 +401,26 @@ export default function UserDetailed() {
                         }
                     </Block>
                 </div>
+                {
+                    useWindowSize().width < 600 && 
+                    <div className={styles.blockemptyOrders}>
+                        <h2>შეკვეთების ისტორია</h2>
+                        <span>ამ ეტაპზე, თქვენ არ გაქვთ განხორციელებული შეკვეთა. გთხოვთ შეიძინეთ ჯანდაცვის ბარათი.</span>
+                    </div>
+                }
             </div>
         </div>
         {
-            useWindowSize().width < 600 && <Menu active={menuItem} onClick={(active)=> setMenuItem(active)} />
+            (useWindowSize().width < 600) && 
+            <div className={styles.familyMembersAddblock}>
+                <div className={styles.familyMembersAddBtn}>
+                    <span>ოჯახის წევრები</span>
+                    <ReactSVG className={styles.familyMemberSvg} src="/familyadd.svg" />
+                </div>
+            </div>
         }
+        {/* {
+            useWindowSize().width < 600 && <Menu active={menuItem} onClick={(active)=> setMenuItem(active)} />
+        } */}
     </>
 }

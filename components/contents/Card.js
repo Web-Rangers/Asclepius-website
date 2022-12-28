@@ -559,7 +559,7 @@ const Card = ({ data }) => {
 			<div className={style.cardContainer}>
 				<Link href='/buyCardPage'>
 					<div className={style.containerCard}>
-						<img src='/MEDCARD-VECTOR.svg' />
+						<img src='/02-6.png' />
 					</div>
 				</Link>
 				<div className={style.containerList}>
