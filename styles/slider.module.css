@@ -274,6 +274,11 @@
 		width: 100%;
 		height: auto;
 	}
+	.branchMobileSize .swiper-wrapper {
+		padding-left: 16px;
+		background-color: red !important;
+		background-color: #ff1c00;
+	}
 	.swiperArrowLeft {
 		display: none;
 	}

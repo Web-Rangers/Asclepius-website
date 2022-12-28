@@ -3,8 +3,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-
-	margin-bottom: 129px;
+	margin-bottom: 50px;
 }
 .cardTable {
 	display: flex;
@@ -426,7 +425,7 @@
 		align-items: center;
 		background: #f7f8fa;
 		border-radius: 12px;
-		padding: 0 15px;
+		padding: 16px;
 	}
 	.listItem span:nth-child(2) {
 		font-family: 'Avenir Next Georgian';

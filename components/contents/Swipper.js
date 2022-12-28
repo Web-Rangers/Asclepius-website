@@ -28,6 +28,7 @@ const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 			<Swiper
 				direction='horizontal'
 				onSwiper={setSwiperRef}
+				id='branchMobileSize'
 				slidesPerView={'auto'}
 				navigation={{
 					prevEl: style.swiperArrowLeft,
@@ -61,7 +62,6 @@ const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 						spaceBetween: 30,
 					},
 				}}
-				className={style.branchMobileSize}
 			>
 				{branches?.length > 0
 					? branches.map((data) => (

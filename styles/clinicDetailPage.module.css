@@ -524,7 +524,7 @@
 		height: 83px;
 		background: #ffffff;
 		z-index: 999;
-		padding: 11px 24px;
+		/* padding: 11px 24px; */
 		justify-content: space-between;
 	}
 	.bottomNavItem {
@@ -533,6 +533,18 @@
 		align-items: center;
 		cursor: pointer;
 		gap: 7px;
+		width: 75px;
+		padding-top: 10px;
+	}
+	.bottomNavItemActive {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		cursor: pointer;
+		gap: 7px;
+		padding-top: 10px;
+		width: 75px;
+		border-top: 3px solid #5e70da;
 	}
 	.bottomNavItemTitle {
 		font-family: 'Avenir Next Georgian';
@@ -542,5 +554,14 @@
 		line-height: 14px;
 		text-align: center;
 		color: rgba(56, 56, 56, 0.7);
+	}
+	.bottomNavItemTitleActive {
+		font-family: 'Avenir Next Georgian';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 10px;
+		line-height: 14px;
+		text-align: center;
+		color: #5e70da;
 	}
 }

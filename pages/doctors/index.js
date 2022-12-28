@@ -10,6 +10,8 @@ import fetchAPI from '../../fetchAPI';
 import { getData } from '../../components/request';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import s from '../../styles/clinicDetailPage.module.css';
+import NavItem from '../../components/contents/NavItem';
 
 const doctorsArray = [
 	{
@@ -303,6 +305,9 @@ export default function Doctors({ frelancers, doctors, clinicDoctors }) {
 							/>
 						</div>
 					</div>
+					<div className={s.mobileBottomNav}>
+						<NavItem />
+					</div>
 
 					<div className={styles.doctorsList}>
 						{currentTableData?.map((doctor) => {
@@ -412,8 +417,12 @@ export async function getServerSideProps({ query }) {
 	return {
 		props: {
 			doctors: Array.isArray(getDoctors?.content) ? getDoctors : [],
-			frelancers: Array.isArray(getFreelancerDoc?.content) ? getFreelancerDoc : [],
-			clinicDoctors: Array.isArray(getClinicDoctors?.content) ? getClinicDoctors : [],
+			frelancers: Array.isArray(getFreelancerDoc?.content)
+				? getFreelancerDoc
+				: [],
+			clinicDoctors: Array.isArray(getClinicDoctors?.content)
+				? getClinicDoctors
+				: [],
 		},
 	};
 }
