@@ -1310,9 +1310,10 @@
 	}
 	.showBtn {
 		width: 100%;
+		margin: 0;
 	}
 	.doctorCardContainer {
-		padding: 20px 0;
+		padding: 103px 0;
 	}
 	.doctorItem {
 		width: 92%;
