@@ -31,10 +31,9 @@ const ClinicDetailPage = ({
 		return res;
 	}
 
-	
 	useEffect(() => {
 		setClinicData(sliceIntoChunks(clinicArrayData, 3));
-		console.log(cardData, 'kontraktibijooo')
+		console.log(cardData, 'kontraktibijooo');
 	}, [router.isReady]);
 
 	const weekday = [
@@ -50,9 +49,6 @@ const ClinicDetailPage = ({
 
 	return (
 		<>
-			<div className={s.mobileBottomNav}>
-				<NavItem />
-			</div>
 			<div className={s.container}>
 				<div>
 					<div onClick={() => router.back()}>
@@ -171,7 +167,10 @@ const ClinicDetailPage = ({
 								</div>
 							</Link>
 							<Link href={`services/${cardData?.contracts?.contractId}`}>
-								<div className={s.serviceItem} onClick={()=> setModalOpen(true)}>
+								<div
+									className={s.serviceItem}
+									onClick={() => setModalOpen(true)}
+								>
 									<Image
 										alt='services'
 										src='/servicesicon.svg'
@@ -209,9 +208,8 @@ const ClinicDetailPage = ({
 						</div>
 					</div>
 				</div>
-							
-				{
-					gallery?.length > 0 && 
+
+				{gallery?.length > 0 && (
 					<div className={s.imageTitleContainer}>
 						<div className={s.clinicTitleArrow}>
 							<Text style={s.clinicsTitleTextStyle}>
@@ -221,13 +219,13 @@ const ClinicDetailPage = ({
 							</Text>
 							<div className={s.imageSlider}> </div>
 						</div>
-							<Swipper
-								data={gallery}
-								branches={branches}
-								iconBottom={true}
-							/>
+						<Swipper
+							data={gallery}
+							branches={branches}
+							iconBottom={true}
+						/>
 					</div>
-				}
+				)}
 			</div>
 		</>
 	);
@@ -248,14 +246,14 @@ export const getServerSideProps = async (ctx) => {
 		const getClinicBranches = await getData(
 			`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/clinics/${userId}/branches`
 		);
-	
+
 		const getClinicGallery = await getData(
 			`${process.env.NEXT_PUBLIC_BASE_URL}/asclepius/v1/api/gallery/clinic/${userId}`
 		);
 		const getProducts = await getData(
 			`${process.env.MEDICAL_API}/medical/products/get-products`
 		);
-	
+
 		return {
 			props: {
 				cardData: getClinicById,
@@ -265,11 +263,11 @@ export const getServerSideProps = async (ctx) => {
 				products: getProducts,
 			},
 		};
-	}catch(error) {
+	} catch (error) {
 		return {
 			props: {
-				error: true
-			}
-		}
-	} 
+				error: true,
+			},
+		};
+	}
 };

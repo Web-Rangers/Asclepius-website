@@ -104,9 +104,6 @@ function Home() {
 
 	return (
 		<div className={classes.homePageContainer}>
-			<div className={s.mobileBottomNav}>
-				<NavItem />
-			</div>
 			<Navigation />
 
 			<div>
