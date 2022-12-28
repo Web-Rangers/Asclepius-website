@@ -180,8 +180,10 @@
 	margin: auto;
 	justify-content: space-between;
 	margin: auto;
-	max-width: calc(1440px - 100px);
-	padding-right: 30%;
+	/* max-width: calc(1440px - 100px);
+	padding-right: 30%; */
+	width: 100%;
+	padding-left: 50px;
 }
 
 .footerContainer {
@@ -1290,5 +1292,8 @@
 	.smallheaderContainer {
 		padding-left: 16px;
 		padding-right: 16px;
+	}
+	.fullfooter {
+		display: none;
 	}
 }

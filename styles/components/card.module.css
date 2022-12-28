@@ -3,8 +3,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-
-	margin-bottom: 129px;
+	margin-bottom: 50px;
 }
 .cardTable {
 	display: flex;
@@ -37,10 +36,10 @@
 .switcherLabel {
 	font-family: 'Avenir Next Georgian';
 	font-style: normal;
-	font-weight: 300;
-	font-size: 18px;
-	line-height: 26px;
-	color: #797a80;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 150%;
+	color: rgba(56, 56, 56, 0.6);
 }
 .features {
 	position: relative;
@@ -426,22 +425,25 @@
 		align-items: center;
 		background: #f7f8fa;
 		border-radius: 12px;
-		padding: 0 8px;
+		padding: 16px;
 	}
 	.listItem span:nth-child(2) {
 		font-family: 'Avenir Next Georgian';
 		font-style: normal;
 		font-weight: 400;
-		font-size: 16px;
+		font-size: 14px;
 		color: #383838;
 		text-align: end;
+	}
+	.listItem span {
+		font-size: 14px;
 	}
 	.price button {
 		width: 198px;
 	}
-	.tooltip {
+	/* .tooltip {
 		display: none;
-	}
+	} */
 	.tootltipText {
 		display: flex;
 		width: 275px;
@@ -458,7 +460,7 @@
 
 	.switcher {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		justify-content: center;
 		align-items: center;
 		margin-bottom: 56px;

@@ -218,3 +218,12 @@ a {
 		display: none;
 	}
 }
+
+#bwc-widget-action {
+	bottom: 90px !important;
+}
+
+#branchMobileSize .swiper-wrapper {
+	padding-left: 16px !important;
+	padding-right: 16px !important;
+}

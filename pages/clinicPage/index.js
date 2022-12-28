@@ -2,6 +2,7 @@ import { useEffect, useState, useMemo } from 'react';
 import BranchPageCardItem from '../../components/contents/BranchPageCardItem';
 import classNames from 'classnames';
 import s from '../../styles/clinicsPage.module.css';
+import style from '../../styles/clinicDetailPage.module.css';
 import Link from 'next/link';
 import Text from '../../components/ui/Text';
 import Button from '../../components/ui/Button';
@@ -17,10 +18,11 @@ import { getData } from '../../components/request';
 import ClinicCardItem from '../../components/contents/ClinicCardItem';
 import { useRouter } from 'next/router';
 import Navigation from '../../components/navigation';
+import NavItem from '../../components/contents/NavItem';
 
 let PageSize = 12;
 
-function ClinicsPage({ clinics  = [], cards = [], municipalities = [] }) {
+function ClinicsPage({ clinics = [], cards = [], municipalities = [] }) {
 	const [modalIsOpen, setIsOpen] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [searchInput, setSearchInput] = useState('');
@@ -167,6 +169,9 @@ function ClinicsPage({ clinics  = [], cards = [], municipalities = [] }) {
 							onClick={openModal}
 						></Button>
 					</div>
+					<div className={style.mobileBottomNav}>
+						<NavItem />
+					</div>
 					<div className={s.clinicFilterContainer}>
 						<Text style={s.clinicsTitleTextStyle}>Clinics</Text>
 						<div className={s.rangeContainer}>
@@ -295,32 +300,33 @@ function ClinicsPage({ clinics  = [], cards = [], municipalities = [] }) {
 }
 
 export const getServerSideProps = async () => {
-	try {	
 		const clinics = await getData(
 			`${process.env.MEDICAL_API}/medical/clinics?page=0&size=9999`
 		);
-	
+
 		const getProducts = await getData(
 			`${process.env.MEDICAL_API}/medical/products/get-products`
 		);
-	
+
 		const getMunicipalities = await getData(
 			`${process.env.MEDICAL_API}/medical/municipalities`
 		);
-	
+
 		return {
 			props: {
 				municipalities: getMunicipalities,
 				cards: getProducts || [],
-				clinics: Array.isArray(clinics?.content) ? clinics?.content?.filter(e=> e.isActive) : [],
+				clinics: Array.isArray(clinics?.content)
+					? clinics?.content?.filter((e) => e.isActive)
+					: [],
 			},
 		};
-	}catch(error){
+	} catch (error) {
 		return {
-			props:{
-				error: true
-			}
-		}
+			props: {
+				error: true,
+			},
+		};
 	}
 };
 

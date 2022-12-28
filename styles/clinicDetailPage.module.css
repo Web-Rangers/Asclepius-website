@@ -93,7 +93,7 @@
 	display: flex;
 	position: relative;
 	flex-direction: column;
-	margin-bottom:130px;
+	margin-bottom: 130px;
 }
 .imageContainer {
 	display: flex;
@@ -273,7 +273,8 @@
 	color: #797a80;
 }
 .swipperContainer {
-	width: calc(100% - 20px);
+	/* width: calc(100% - 20px); */
+	width: calc(100% - 0px);
 	max-width: 1340px;
 	margin: auto;
 }
@@ -297,7 +298,7 @@
 	flex-direction: column;
 	gap: 10px;
 	border-radius: 12px;
-    overflow: hidden;
+	overflow: hidden;
 }
 
 .clinicContainerScroll {
@@ -521,9 +522,9 @@
 		flex-direction: row;
 		width: 100%;
 		height: 83px;
-		background: #f7f9fb;
-		z-index: 1;
-		padding: 11px 24px;
+		background: #ffffff;
+		z-index: 999;
+		/* padding: 11px 24px; */
 		justify-content: space-between;
 	}
 	.bottomNavItem {
@@ -531,5 +532,36 @@
 		flex-direction: column;
 		align-items: center;
 		cursor: pointer;
+		gap: 7px;
+		width: 75px;
+		padding-top: 10px;
+	}
+	.bottomNavItemActive {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		cursor: pointer;
+		gap: 7px;
+		padding-top: 10px;
+		width: 75px;
+		border-top: 3px solid #5e70da;
+	}
+	.bottomNavItemTitle {
+		font-family: 'Avenir Next Georgian';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 10px;
+		line-height: 14px;
+		text-align: center;
+		color: rgba(56, 56, 56, 0.7);
+	}
+	.bottomNavItemTitleActive {
+		font-family: 'Avenir Next Georgian';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 10px;
+		line-height: 14px;
+		text-align: center;
+		color: #5e70da;
 	}
 }

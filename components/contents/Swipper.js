@@ -28,6 +28,7 @@ const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 			<Swiper
 				direction='horizontal'
 				onSwiper={setSwiperRef}
+				id='branchMobileSize'
 				slidesPerView={'auto'}
 				navigation={{
 					prevEl: style.swiperArrowLeft,
@@ -40,7 +41,7 @@ const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 				breakpoints={{
 					// when window width is >= 640px
 					320: {
-						slidesPerView: 1,
+						slidesPerView: 1.3,
 						spaceBetween: 12,
 					},
 					640: {
@@ -61,7 +62,6 @@ const Swipper = ({ data, iconBottom, branches, iconTop }) => {
 						spaceBetween: 30,
 					},
 				}}
-				className={style.branchMobileSize}
 			>
 				{branches?.length > 0
 					? branches.map((data) => (

@@ -15,11 +15,11 @@ import NavItem from '../../../components/contents/NavItem';
 let API_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export default function DoctorDetailed({
-										   doctor = [],
-										   educations = [],
-										   certificates = [],
-										   workingDays = [],
-									   }) {
+	doctor = [],
+	educations = [],
+	certificates = [],
+	workingDays = [],
+}) {
 	const [contact, setContact] = useState('');
 	const [patient, setPatient] = useState('');
 	const [modalIsOpen, setModalOpen] = useState(false);
@@ -38,6 +38,7 @@ export default function DoctorDetailed({
 			<div className={s.mobileBottomNav}>
 				<NavItem />
 			</div>
+
 			<div className={styles.doctorBody}>
 				<div className={styles.doctorContainer}>
 					<div className={styles.back}>
@@ -296,21 +297,21 @@ export default function DoctorDetailed({
 							) : null}
 							{tab === 'education'
 								? educations !== null &&
-								educations?.map((item) => (
-									<div
-										className={styles.educationContent}
-										key={item.id}
-									>
-										<div className={styles.educationItem}>
-											<div className={styles.data}>
-												{' '}
-												{item.dateEnd} - {item.dateStart} yr.
+								  educations?.map((item) => (
+										<div
+											className={styles.educationContent}
+											key={item.id}
+										>
+											<div className={styles.educationItem}>
+												<div className={styles.data}>
+													{' '}
+													{item.dateEnd} - {item.dateStart} yr.
+												</div>
+												<h2>{item.degree}</h2>
+												<p>{item.school}</p>
 											</div>
-											<h2>{item.degree}</h2>
-											<p>{item.school}</p>
 										</div>
-									</div>
-								))
+								  ))
 								: null}
 						</div>
 
@@ -447,7 +448,6 @@ export const getStaticProps = async (context) => {
 		revalidate: 10,
 	};
 };
-
 
 export const getStaticPaths = async () => {
 	// const getDoctors = await getData(
