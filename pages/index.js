@@ -113,11 +113,9 @@ function Home() {
 					</div>
 				</div>
 			</div>
-			<div className={classes.showSliderForMobile}>
-				<div className={classes.headerSliderStyle}>
-					<div className={classes.showSliderForMobile}>
-						<ResponsiveSlider />
-					</div>
+			<div className={classes.headerSliderStyle}>
+				<div className={classes.showSliderForMobile}>
+					<ResponsiveSlider />
 				</div>
 			</div>
 			<div>

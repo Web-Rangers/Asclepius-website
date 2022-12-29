@@ -664,6 +664,8 @@
 }
 .cardPriceContainer img {
 	border-radius: 12px;
+	padding-left: 16px;
+	padding-right: 16px;
 }
 .cardOffersTitles {
 	display: flex;
@@ -1032,8 +1034,8 @@
 	}
 	.showSliderForMobile {
 		display: flex;
-		flex-direction: column;
-		width: 100%;
+		/* flex-direction: column;
+		width: 100%; */
 	}
 	.medicalCardTitle {
 		width: 100%;
@@ -1124,6 +1126,7 @@
 		grid-template-columns: repeat(2, 1fr);
 		grid-auto-rows: 1fr;
 		margin: auto;
+		padding-left: 16px;
 	}
 	.clinicCardList::-webkit-scrollbar,
 	.doctorCardList::-webkit-scrollbar {
@@ -1169,6 +1172,7 @@
 		grid-auto-rows: 1fr;
 		margin: auto;
 		max-width: calc(1440px - 100px);
+		padding-left: 16px;
 	}
 	.doctorItemContainer {
 		display: flex;
@@ -1220,10 +1224,11 @@
 	}
 
 	.serviceContainerImgMob {
-		display: flex;
+		display: inline-block;
 		flex-direction: column;
 		padding-right: 16px;
 		padding-left: 16px;
+		width: 100%;
 	}
 
 	/* benefit parts  */
@@ -1310,9 +1315,10 @@
 	}
 	.showBtn {
 		width: 100%;
+		margin: 0;
 	}
 	.doctorCardContainer {
-		padding: 20px 0;
+		padding: 103px 0;
 	}
 	.doctorItem {
 		width: 92%;
