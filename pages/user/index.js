@@ -339,7 +339,7 @@ export default function UserDetailed() {
                             </Link>
                         </Block>
                     } 
-
+{/* 
                     <Block
                         title="Family member"
                         actions={
@@ -399,7 +399,7 @@ export default function UserDetailed() {
                                 />
                             </div>
                         }
-                    </Block>
+                    </Block> */}
                 </div>
                 {
                     useWindowSize().width < 600 && 
