@@ -237,6 +237,10 @@ a {
 }
 
 #bwc-widget-action {
+	bottom: 13px !important;
+}
+
+.active #bwc-widget-action {
 	bottom: 90px !important;
 }
 

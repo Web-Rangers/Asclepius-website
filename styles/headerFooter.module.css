@@ -746,8 +746,8 @@
 
 .noBtn {
 	background-color: transparent;
-	margin:0;
-	padding:0;
+	margin: 0;
+	padding: 0;
 	border: none;
 	outline: none;
 }
@@ -1004,7 +1004,7 @@
 		display: none;
 	}
 	.footerContainer {
-		display: block;
+		display: flex;
 		overflow: hidden;
 		margin: auto;
 		height: 375px;
@@ -1012,6 +1012,7 @@
 		padding-left: 20px;
 		margin-left: 0;
 		margin-right: 0;
+		flex-direction: row;
 	}
 	.rightSideContainer {
 		display: flex;
@@ -1034,6 +1035,9 @@
 		display: flex;
 		flex-direction: column;
 		height: 220px;
+	}
+	.thirdRow {
+		display: none;
 	}
 	.leftSideContainerText {
 		display: none;
@@ -1318,10 +1322,10 @@
 		transform: scale(1);
 		color: #fff;
 	}
-	.signInBtnStyle{
+	.signInBtnStyle {
 		display: none;
 	}
 	.responsiveAuth {
-		margin-top:7px;
+		margin-top: 7px;
 	}
 }
