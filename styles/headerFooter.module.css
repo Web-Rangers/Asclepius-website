@@ -765,9 +765,6 @@
 	.searchInput {
 		display: none;
 	}
-	.authorizedUser {
-		display: none;
-	}
 	.burgerMenuicon {
 		display: block;
 	}
@@ -1273,10 +1270,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-	.buyCardBtnShow {
-		display: none;
-	}
-
 	.smallheaderLeft {
 		width: 100%;
 		overflow-y: scroll;
@@ -1295,5 +1288,33 @@
 	}
 	.fullfooter {
 		display: none;
+	}
+	.buyCardBtnShow {
+		width: 101px;
+		height: 34px;
+		font-size: 12px;
+		border-radius: 8px;
+		margin-right: 14px;
+	}
+	.authorizedUser {
+		margin-top: 0px;
+	}
+	.buyCardBtnStyle {
+		visibility: visible;
+		width: auto;
+		opacity: 1;
+		width: 101px;
+		height: 34px;
+		font-size: 12px;
+		border-radius: 8px;
+		margin-right: 14px;
+		transform: scale(1);
+		color: #fff;
+	}
+	.signInBtnStyle{
+		display: none;
+	}
+	.responsiveAuth {
+		margin-top:7px;
 	}
 }

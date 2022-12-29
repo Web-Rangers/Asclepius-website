@@ -33,6 +33,8 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
 
     const [edit, setEdit] = useState(null);
 
+    console.log(selectPack, cardType)
+
     useEffect(()=>{
         const fncard = cards?.filter((e)=> e?.genericTransactionTypeToAddInfo?.genericTransactionTypeId === cardType)[0];
         setFindCar(fncard)

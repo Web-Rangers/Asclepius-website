@@ -12,6 +12,7 @@ import { Dropdown, Space } from 'antd';
 import { ReactSVG } from 'react-svg';
 import 'antd/dist/antd.css';
 import classNames from 'classnames';
+import {useWindowSize} from '../../components/useWindowSize';
 
 const customStyles = {
 	content: {
@@ -316,7 +317,11 @@ const Header = () => {
 									[classes.buyCardBtnShow]: offset > 48,
 								})}
 							>
-								ბარათის ყიდვა
+								{
+									 (useWindowSize().width > 600) ? 
+									 'ბარათის ყიდვა' : 'შეუკვეთე'
+
+								}
 							</span>
 						</Link>
 						{(user == null || !user) && (
@@ -324,6 +329,12 @@ const Header = () => {
 								<a className={classes.signInBtnStyle}>შესვლა</a>
 							</Link>
 						)}
+						{
+							(user == null || !user) &&
+							<div className={classes.responsiveAuth}>
+								<ReactSVG src="/userAuthResp.svg" />
+							</div>
+						}
 						{user && (
 							<div
 								className={classes.authorizedUser}
@@ -402,9 +413,6 @@ const Header = () => {
 								</Dropdown>
 							</div>
 						)}
-						<div className={classes.burgerMenuicon}>
-							<ReactSVG src='/burgericonv2.svg' />
-						</div>
 					</div>
 				</div>
 			</div>

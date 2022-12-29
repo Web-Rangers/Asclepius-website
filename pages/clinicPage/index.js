@@ -300,34 +300,27 @@ function ClinicsPage({ clinics = [], cards = [], municipalities = [] }) {
 }
 
 export const getServerSideProps = async () => {
-		const clinics = await getData(
-			`${process.env.MEDICAL_API}/medical/clinics?page=0&size=9999`
-		);
+	const clinics = await getData(
+		`${process.env.MEDICAL_API}/medical/clinics?page=0&size=9999`
+	);
 
-		const getProducts = await getData(
-			`${process.env.MEDICAL_API}/medical/products/get-products`
-		);
+	const getProducts = await getData(
+		`${process.env.MEDICAL_API}/medical/products/get-products`
+	);
 
-		const getMunicipalities = await getData(
-			`${process.env.MEDICAL_API}/medical/municipalities`
-		);
+	const getMunicipalities = await getData(
+		`${process.env.MEDICAL_API}/medical/municipalities`
+	);
 
-		return {
-			props: {
-				municipalities: getMunicipalities,
-				cards: getProducts || [],
-				clinics: Array.isArray(clinics?.content)
-					? clinics?.content?.filter((e) => e.isActive)
-					: [],
-			},
-		};
-	} catch (error) {
-		return {
-			props: {
-				error: true,
-			},
-		};
-	}
+	return {
+		props: {
+			municipalities: getMunicipalities,
+			cards: getProducts || [],
+			clinics: Array.isArray(clinics?.content)
+				? clinics?.content?.filter((e) => e.isActive)
+				: [],
+		},
+	};
 };
 
 export default ClinicsPage;
