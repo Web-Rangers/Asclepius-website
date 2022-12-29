@@ -1318,7 +1318,7 @@
 		margin: 0;
 	}
 	.doctorCardContainer {
-		padding: 103px 0;
+		padding: 50px 0;
 	}
 	.doctorItem {
 		width: 92%;
@@ -1399,6 +1399,7 @@
 		padding-right: 16px;
 	}
 	.cardPriceContainer {
-		display: none;
+		display: flex;
+		margin-bottom: 20px;
 	}
 }

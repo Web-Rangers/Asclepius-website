@@ -76,6 +76,12 @@ function MyApp({ Component, pageProps }) {
 
 	const getLayout = Component.getLayout || ((page) => page);
 
+	if (typeof window !== 'undefined') {
+		show
+			? document.body.classList.add('active')
+			: document.body.classList.remove('active');
+	}
+
 	return (
 		<div>
 			<div

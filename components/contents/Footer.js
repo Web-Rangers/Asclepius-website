@@ -23,7 +23,7 @@ const Footer = () => {
 								height='24px'
 							/>
 							<img
-								src='/instagram.svg'
+								src='/Instagram.svg'
 								alt='headerIcon'
 								width='24'
 								height='24px'
@@ -118,18 +118,18 @@ const Footer = () => {
 				</div>
 
 				<div>
-					<div className={classes.footerLogo}>
+					{/* <div className={classes.footerLogo}>
 						<img
 							src='/footerIcon.png'
 							alt='headerIcon'
 						/>
-					</div>
+					</div> */}
 					<div className={classes.rightSideContainer}></div>
 				</div>
 			</div>
 			<div className={classes.thirdRow}>
 				<img
-					src='/illustration.svg'
+					src='/Illustration.svg'
 					alt='facebook'
 					// className={classes.iconsStyle}
 				/>
