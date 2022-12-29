@@ -182,15 +182,15 @@
 	margin: auto;
 	/* max-width: calc(1440px - 100px);
 	padding-right: 30%; */
-	width: 100%;
-	padding-left: 50px;
+	width: calc(100% - 100px);
+	/* padding-left: 50px; */
 }
 
 .footerContainer {
 	display: flex;
 	gap: 30px;
 	margin: auto;
-	width: 100%;
+	width: calc(1440px - 100px);
 }
 .thirdRow {
 	position: absolute;
@@ -757,6 +757,9 @@
 }
 
 @media only screen and (max-width: 1100px) {
+	/* .fullfooter {
+		padding-left: 50px;
+	} */
 	.searchInput {
 		transition: 0s;
 	}
@@ -766,6 +769,9 @@
 }
 
 @media only screen and (max-width: 950px) {
+	/* .fullfooter {
+		padding-left: 50px;
+	} */
 	.searchInput {
 		display: none;
 	}
@@ -930,10 +936,17 @@
 }
 
 @media only screen and (max-width: 767px) {
-	.headerContainerBg,
-	.smallheaderContainer {
+	.siteStatus {
+		display: none;
+	}
+	.headerContainerBg {
 		padding-left: 16px;
 		padding-right: 16px;
+		position: sticky;
+		top: 0px;
+	}
+	.smallheaderContainer {
+		display: none;
 	}
 
 	.signInText {
@@ -1281,6 +1294,9 @@
 }
 
 @media only screen and (max-width: 600px) {
+	.siteStatus {
+		display: none;
+	}
 	.smallheaderLeft {
 		width: 100%;
 		overflow-y: scroll;

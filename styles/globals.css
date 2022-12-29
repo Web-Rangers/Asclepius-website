@@ -234,14 +234,13 @@ a {
 		padding-bottom: 20px;
 		bottom: 0;
 	}
-}
+	#bwc-widget-action {
+		bottom: 13px !important;
+	}
 
-#bwc-widget-action {
-	bottom: 13px !important;
-}
-
-.active #bwc-widget-action {
-	bottom: 90px !important;
+	.active #bwc-widget-action {
+		bottom: 96px !important;
+	}
 }
 
 #branchMobileSize .swiper-wrapper {
