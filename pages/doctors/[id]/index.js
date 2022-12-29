@@ -35,9 +35,6 @@ export default function DoctorDetailed({
 	return (
 		<>
 			{modalIsOpen && <AddFamilyMember onClose={() => setModalOpen(false)} />}
-			<div className={s.mobileBottomNav}>
-				<NavItem />
-			</div>
 
 			<div className={styles.doctorBody}>
 				<div className={styles.doctorContainer}>
