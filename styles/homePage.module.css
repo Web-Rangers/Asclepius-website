@@ -664,8 +664,6 @@
 }
 .cardPriceContainer img {
 	border-radius: 12px;
-	padding-left: 16px;
-	padding-right: 16px;
 }
 .cardOffersTitles {
 	display: flex;
@@ -1014,6 +1012,11 @@
 	}
 }
 @media only screen and (max-width: 768px) {
+	.cardPriceContainer img {
+		border-radius: 12px;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
 	.homePageContainer {
 		width: 100%;
 		overflow: hidden;
@@ -1212,6 +1215,7 @@
 		align-items: center;
 		margin-top: 32px;
 	}
+
 	.card {
 		width: 99%;
 	}
@@ -1318,7 +1322,7 @@
 		margin: 0;
 	}
 	.doctorCardContainer {
-		padding: 103px 0;
+		padding: 50px 0;
 	}
 	.doctorItem {
 		width: 92%;
@@ -1399,6 +1403,7 @@
 		padding-right: 16px;
 	}
 	.cardPriceContainer {
-		display: none;
+		display: flex;
+		margin-bottom: 20px;
 	}
 }
