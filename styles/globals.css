@@ -241,9 +241,8 @@ a {
 	.active #bwc-widget-action {
 		bottom: 96px !important;
 	}
-}
-
-#branchMobileSize .swiper-wrapper {
-	padding-left: 16px !important;
-	padding-right: 16px !important;
+	#branchMobileSize .swiper-wrapper {
+		padding-left: 16px !important;
+		padding-right: 16px !important;
+	}
 }
