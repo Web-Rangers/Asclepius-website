@@ -98,11 +98,11 @@ const Header = () => {
 		);
 	}, []);
 
-	useEffect(() => {
-		modalIsOpen
-			? (document.body.style.overflow = 'hidden')
-			: (document.body.style.overflow = 'scroll');
-	}, [modalIsOpen]);
+	// useEffect(() => {
+	// 	modalIsOpen
+	// 		? (document.body.style.overflow = 'hidden')
+	// 		: (document.body.style.overflow = 'scroll');
+	// }, [modalIsOpen]);
 
 	const [offset, setOffset] = useState(0);
 
