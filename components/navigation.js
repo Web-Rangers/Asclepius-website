@@ -19,10 +19,13 @@ export default function Navigation() {
 					let medical = response?.filter(
 						(e) => e.title == 'სამედიცინო დაწესებულებები'
 					)[0];
+					let aftiaki = response?.filter(
+						(e) => e.title == 'აფთიაქები'
+					)[0];
 					let withoutMedical = response?.filter(
 						(e) => e.title !== 'სამედიცინო დაწესებულებები'
-					);
-					withoutMedical?.push(medical);
+					).filter((e)=> e.title !== 'აფთიაქები');
+					withoutMedical?.push(aftiaki, medical);
 					setCategories(withoutMedical);
 				}
 			}
@@ -50,6 +53,7 @@ export default function Navigation() {
 				'სილამაზე და ესთეტიკა',
 				'დიაგნოსტიკა',
 				'ფარმაცია',
+				'აფთიაქები',
 				'სამედიცინო დაწესებულებები',
 			]);
 		} else if (windowSize.width < 1207 && windowSize.width > 900) {
@@ -118,6 +122,7 @@ export default function Navigation() {
 								test == 'სილამაზე და ესთეტიკა' ||
 								test == 'დიაგნოსტიკა' ||
 								test == 'ფარმაცია' ||
+								test == 'აფთიაქები' || 
 								test == 'სამედიცინო დაწესებულებები';
 						} else if (windowSize.width < 1207 && windowSize.width > 900) {
 							appendCat =
