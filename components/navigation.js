@@ -47,8 +47,8 @@ export default function Navigation() {
 			check([
 				'ყველა',
 				'სტომატოლოგია',
-				'ესთეტიკა და სილამაზე',
-				'ლაბორატორია და დიაგნოსტიკა',
+				'სილამაზე და ესთეტიკა',
+				'დიაგნოსტიკა',
 				'ფარმაცია',
 				'სამედიცინო დაწესებულებები',
 			]);
@@ -56,7 +56,7 @@ export default function Navigation() {
 			check([
 				'ყველა',
 				'სტომატოლოგია',
-				'ესთეტიკა და სილამაზე',
+				'სილამაზე და ესთეტიკა',
 				'ფარმაცია',
 				'სამედიცინო დაწესებულებები',
 			]);
@@ -115,15 +115,15 @@ export default function Navigation() {
 							appendCat =
 								(item.parentCategoryId === null && test == 'ყველა') ||
 								test == 'სტომატოლოგია' ||
-								test == 'ესთეტიკა და სილამაზე' ||
-								test == 'ლაბორატორია და დიაგნოსტიკა' ||
+								test == 'სილამაზე და ესთეტიკა' ||
+								test == 'დიაგნოსტიკა' ||
 								test == 'ფარმაცია' ||
 								test == 'სამედიცინო დაწესებულებები';
 						} else if (windowSize.width < 1207 && windowSize.width > 900) {
 							appendCat =
 								(item.parentCategoryId === null && test == 'ყველა') ||
 								test == 'სტომატოლოგია' ||
-								test == 'ესთეტიკა და სილამაზე' ||
+								test == 'სილამაზე და ესთეტიკა' ||
 								test == 'ფარმაცია' ||
 								test == 'სამედიცინო დაწესებულებები';
 						} else if (windowSize.width < 900) {
