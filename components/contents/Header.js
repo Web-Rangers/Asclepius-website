@@ -355,14 +355,14 @@ const Header = () => {
 															<div
 																className={classes.avatarBg}
 																style={{
-																	backgroundColor: `${userAvatar?.color}`,
+																	backgroundColor: `${userAvatar?.color !== '#undefined' ? userAvatar?.color : '#000'}`,
 																}}
 															>
 																<img
 																	src={`${
 																		userAvatar?.img !== '/avatarundefined.png'
 																			? userAvatar?.img
-																			: '/defaulticon.png'
+																			: '/avatar3.png'
 																	}`}
 																/>
 															</div>
@@ -398,13 +398,15 @@ const Header = () => {
 										<Space>
 											<div
 												className={classes.avatarBg}
-												style={{ backgroundColor: `${userAvatar?.color}` }}
+												style={{ 
+													backgroundColor: `${userAvatar?.color !== '#undefined' ? userAvatar?.color : '#000'}`,
+												 }}
 											>
 												<img
 													src={`${
 														userAvatar?.img !== '/avatarundefined.png'
 															? userAvatar?.img
-															: '/defaulticon.png'
+															: '/avatar3.png'
 													}`}
 												/>
 											</div>

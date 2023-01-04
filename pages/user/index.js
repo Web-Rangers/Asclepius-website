@@ -16,6 +16,7 @@ import { getData } from '../../components/request';
 import { Skeleton } from 'antd';
 import { ReactSVG } from 'react-svg';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function UserDetailed() {
     const [familyMemberModal, setFamilyMemberModal] = useState(false);
@@ -121,8 +122,6 @@ export default function UserDetailed() {
 			}
 		);
 	}, [])
-
-    console.log(userCards[0]?.transactionDate)
 
     return <>
         <div className={styles.detailedPage}>
@@ -302,8 +301,12 @@ export default function UserDetailed() {
                     >
                         {
                             user ? <div className={styles.userBlcokItem}>
-                                        <div className={styles.userAvatarBg} style={{background: `${userAvatar?.color}`}}>
-                                            <img className={styles.userAvatar} src={userAvatar?.img} />
+                                        <div className={styles.userAvatarBg} 
+                                            style={{
+                                                backgroundColor: `${userAvatar?.color !== '#undefined' ? userAvatar?.color : '#000'}`,
+                                            }}
+                                        >
+                                            <img className={styles.userAvatar} src={userAvatar?.img !== '/avatarundefined.png' ? userAvatar?.img : '/avatar3.png'} />
                                         </div>
                                         <div className={styles.userinfoBlock}>
                                             <h3>{userInfo?.firstName} {userInfo?.lastName}</h3>
