@@ -34,6 +34,7 @@
     justify-content: space-between;
     align-items: center;
     width: 60%;
+    min-height: 226px;
 }
 
 .greeting h2 {
@@ -933,6 +934,9 @@
         font-weight: 500;
         font-size: 14px;
         color: rgba(56, 56, 56, 0.7);
+    }
+    .greeting {
+        min-height: auto;
     }
 }
 

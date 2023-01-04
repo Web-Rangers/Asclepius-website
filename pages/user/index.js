@@ -49,6 +49,7 @@ export default function UserDetailed() {
         },
     ]
     const [userCards, setUserCards] = useState([]);
+    const [length, setLength] = useState(null);
 
     const columns = [
         {
@@ -93,6 +94,13 @@ export default function UserDetailed() {
                 const unique = [...new Set(familyMembersArray)]
                 setFamilyMembers(unique)
                 setUserCards(response?.products)
+
+                var todayDate = new Date();
+                var myDate = new Date();
+                var day = (24*60*60*1000) * response?.products[0]?.endDateIncrementValues;
+                myDate.setTime(todayDate.getTime() + day);
+                console.log(myDate.getDay(), 'datatataltlsllslsa')
+                setLength(myDate.getDay())
             })
 
         getData(`${process.env.MEDICAL_API}/medical/registry/get-user-avatar`)
@@ -114,7 +122,7 @@ export default function UserDetailed() {
 		);
 	}, [])
 
-    console.log(userCards, 'cards')
+    console.log(userCards[0]?.transactionDate)
 
     return <>
         <div className={styles.detailedPage}>
@@ -130,12 +138,15 @@ export default function UserDetailed() {
                         <div>
                             <h2>გამარჯობა, <span>{userInfo?.firstName}</span></h2>
                             <p>წარმატებულ დღეს გისურვებთ და არ დაგავიწყდეთ თქვენს ჯანმრთელობაზე ზრუნვა!</p>
-                            <Link href="/buyCardPage">
-                                <Button 
-                                    style={styles.greetingBtn} 
-                                    name='შეუკვეთე ბარათი'
-                                />
-                            </Link>
+                            {
+                                userCards?.length > 1 ? 
+                                '' : <Link href="/buyCardPage">
+                                        <Button 
+                                            style={styles.greetingBtn} 
+                                            name='შეუკვეთე ბარათი'
+                                        />
+                                    </Link>
+                            }
                         </div>
                         <div className={styles.greetingImage}>
                             <img 
@@ -302,7 +313,7 @@ export default function UserDetailed() {
                             </div> : <Skeleton className={styles.skelton} active avatar></Skeleton>
                         }
                     </Block>
-                    {userCards?.length > 0
+                    {userCards?.length > 1
                         ?
                         <Block
                             title="ჩემი ბარათი"

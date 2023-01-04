@@ -303,8 +303,13 @@ function BuyCardPage({ clinics }) {
 	useEffect(() => {
 		getData(`${process.env.MEDICAL_API}/medical/products/get-products`).then(
 			(response) => {
-				console.log('response', response);
-				setData((e) => ({ ...e, cards: response }));
+				const family = response?.filter(e=> e.genericTransactionTypeToAddInfo.infoCategory !== "PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL")
+				const individual = response?.filter(e=> e.genericTransactionTypeToAddInfo.infoCategory == "PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL")
+				setData((e) => ({ ...e, cards: {
+					individual: individual, 
+					family: family
+				}}));
+				console.log(response)
 			}
 		);
 		getData(`${process.env.MEDICAL_API}/medical/categories`).then(
@@ -400,7 +405,7 @@ function BuyCardPage({ clinics }) {
 							</FormGroup>
 						</div>
 					</div>
-					{data?.cards?.length > 0 ? (
+					{data?.cards ? (
 						<div
 							className={classNames(s.cardsContainer, {
 								[s.cardsTransition]: checked,
@@ -409,16 +414,15 @@ function BuyCardPage({ clinics }) {
 						>
 							{!checked ? (
 								<>
-									{individualcards?.map(
-										({ price, name, length, lenghtNum }) => {
+									{data?.cards?.individual?.map(
+										({ price, name, length, lenghtNum, genericTransactionTypeToAddInfo }) => {
 											return (
 												<>
 													<div
 														className={s.cardsBlock}
 														onClick={() =>
 															openCheckout(
-																data?.cards[0]?.genericTransactionTypeToAddInfo
-																	?.genericTransactionTypeId,
+																genericTransactionTypeToAddInfo?.genericTransactionTypeId,
 																name,
 																lenghtNum,
 																price
@@ -444,15 +448,14 @@ function BuyCardPage({ clinics }) {
 								</>
 							) : (
 								<>
-									{familycards?.map(({ price, name, length, lenghtNum }) => {
+									{data?.cards?.family?.map(({ price, name, length, lenghtNum, genericTransactionTypeToAddInfo }) => {
 										return (
 											<>
 												<div
 													className={s.cardsBlock}
 													onClick={() =>
 														openCheckout(
-															data?.cards[0]?.genericTransactionTypeToAddInfo
-																?.genericTransactionTypeId,
+															genericTransactionTypeToAddInfo?.genericTransactionTypeId,
 															name,
 															lenghtNum,
 															price
