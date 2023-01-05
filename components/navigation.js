@@ -15,6 +15,7 @@ export default function Navigation() {
 	const windowSize = useWindowSize();
 	const router = useRouter();
 	const [routerId, setRouterId] = useState(null);
+	const [parentId, setParentId] = useState(null);
 
 	useEffect(() => {
 		getData(`${process.env.MEDICAL_API}/medical/categories`).then(
@@ -39,8 +40,10 @@ export default function Navigation() {
 	useEffect(()=> {
 		if(router?.query?.id){
 			setRouterId(router?.query?.id)
-		}else {
-			setRouterId(null)
+		}
+
+		if(router?.query?.parentCategory) {
+			setParentId(router?.query?.parentCategory)
 		}
 	},[router])
 
@@ -101,7 +104,7 @@ export default function Navigation() {
 										<Link
 											target='_blank'
 											rel='noopener noreferrer'
-											href={`/clinicPage?id=${e.id}`}
+											href={e.parentCategoryId != null ? `/clinicPage?id=${e.id}&parentCategory=${e.parentCategoryId}` : `/clinicPage?id=${e.id}`}
 										>
 											{e.title}
 										</Link>
@@ -116,7 +119,7 @@ export default function Navigation() {
 										<Link
 											target='_blank'
 											rel='noopener noreferrer'
-											href={`/clinicPage?id=${e.id}`}
+											href={e.parentCategoryId != null ? `/clinicPage?id=${e.id}&parentCategory=${e.parentCategoryId}` : `/clinicPage?id=${e.id}`}
 										>
 											{e.title}
 										</Link>
@@ -184,7 +187,7 @@ export default function Navigation() {
 													href={`/clinicPage?id=${item.id}`}
 												>
 													{
-														routerId == item.id ? 
+														routerId == item.id || parentId == item.id ? 
 														<span className={styles.activeMenuLink}>{item.title}</span> : item.title
 													}
 												</Link>
