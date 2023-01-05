@@ -104,7 +104,7 @@ export default function Navigation() {
 										<Link
 											target='_blank'
 											rel='noopener noreferrer'
-											href={e.parentCategoryId != null ? `/clinicPage?id=${e.id}&parentCategory=${e.parentCategoryId}` : `/clinicPage?id=${e.id}`}
+											href={e.parentCategoryId != null ? `/clinics?id=${e.id}&parentCategory=${e.parentCategoryId}` : `/clinics?id=${e.id}`}
 										>
 											{e.title}
 										</Link>
@@ -119,7 +119,7 @@ export default function Navigation() {
 										<Link
 											target='_blank'
 											rel='noopener noreferrer'
-											href={e.parentCategoryId != null ? `/clinicPage?id=${e.id}&parentCategory=${e.parentCategoryId}` : `/clinicPage?id=${e.id}`}
+											href={e.parentCategoryId != null ? `/clinics?id=${e.id}&parentCategory=${e.parentCategoryId}` : `/clinics?id=${e.id}`}
 										>
 											{e.title}
 										</Link>
@@ -174,7 +174,7 @@ export default function Navigation() {
 												<Link
 													target='_blank'
 													rel='noopener noreferrer'
-													href={`/clinicPage/`}
+													href={`/clinics/`}
 												>
 													<a className={styles.allCatBtn}>
 														<ReactSVG className={styles.menubtnIcon} src="/menu.svg" /> 
@@ -184,7 +184,7 @@ export default function Navigation() {
 												<Link
 													target='_blank'
 													rel='noopener noreferrer'
-													href={`/clinicPage?id=${item.id}`}
+													href={`/clinics?id=${item.id}`}
 												>
 													{
 														routerId == item.id || parentId == item.id ? 
