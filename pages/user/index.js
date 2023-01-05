@@ -1,31 +1,19 @@
-import {useEffect, useState} from 'react';
-import styles from '../../styles/pages/userDetailed.module.css';
+import { useEffect, useState } from 'react';
+import BuyCardModal from '../../components/modals/BuyCardModal';
 import Button from '../../components/ui/Button';
 import Block from '../../components/block';
-import Table from '../../components/TableWithSort';
 import classNames from 'classnames';
-import DatePicker from '../../components/DatePicker';
-import Select from '../../components/Select';
-import Input from '../../components/Input';
-import FilterModal from '../../components/modals/filterModal';
 import AddFamilyMember from '../../components/modals/addFamilyMember';
-import Calendar from '../../components/Calendar';
-import {useWindowSize} from '../../components/useWindowSize';
-import Menu from '../../components/ui/menu';
+import { useWindowSize } from '../../components/useWindowSize';
 import { getData } from '../../components/request';
 import { Skeleton } from 'antd';
 import { ReactSVG } from 'react-svg';
 import Link from 'next/link';
-import Image from 'next/image';
+import styles from '../../styles/pages/userDetailed.module.css';
 
 export default function UserDetailed() {
     const [familyMemberModal, setFamilyMemberModal] = useState(false);
-    const [isOpen, setOpen] = useState(false);
-    const [status, setStatus] = useState('');
-    const [serviceType, setServiceType] = useState('');
     const [menuItem, setMenuItem] = useState('main');
-    const [products, setProducts] = useState([]);
-    const [familyMembers, setFamilyMembers] = useState([]);
 	const [user, setUser] = useState(null);
 	const [userInfo, setUserInfo] = useState({})
     const [randomNum, setRandomNum] = useState(null);
@@ -33,48 +21,9 @@ export default function UserDetailed() {
         img: ``,
         color: ''
     })
-    const memberList = [
-        {
-            id:1,
-            name: 'Martha Fowler',
-            email: 'marthafowler@gmai.com',
-            age: 'Under 18',
-            image: '/avatar1.png',
-        },
-        {
-            id:2,
-            name: 'George Fowler',
-            email: 'georgefowler@gmail.com',
-            age: 'Above 18',
-            image: '/avatar2.png',
-        },
-    ]
     const [userCards, setUserCards] = useState([]);
     const [length, setLength] = useState(null);
-
-    const columns = [
-        {
-            key: "transactionDate",
-            title: "Date",
-            dataIndex: "transactionDate",
-            sort: true,
-        },
-        {
-            key: "productName",
-            title: "Institution",
-            dataIndex: "productName",
-        },
-        {
-            key: "productType",
-            title: "Service type",
-            dataIndex: "productType",
-        },
-        {
-            key: "amount",
-            title: "Discount",
-            dataIndex: "amount",
-        }
-    ];
+    const [open, setOpen] = useState(false);
 
     useEffect(()=> {
         getData(`${process.env.MEDICAL_API}/medical/products/get-bought-products`)
@@ -86,14 +35,11 @@ export default function UserDetailed() {
                     }
                 })
                 let familyMembersArray = [];
-                setProducts(data)
                 response?.products?.map((e)=> {
                     e?.members?.map((z)=> {
                         familyMembersArray.push(z)
                     })
                 })
-                const unique = [...new Set(familyMembersArray)]
-                setFamilyMembers(unique)
                 setUserCards(response?.products)
 
                 var todayDate = new Date();
@@ -111,19 +57,21 @@ export default function UserDetailed() {
                     color: `#${e?.code?.toString()}`
                 })
             })
+        
         setRandomNum(Math.floor(1000 + Math.random() * 9000))
+        
+        getData(`${process.env.MEDICAL_API}/medical/registry/user-id`).then(
+            (response) => {
+                setUser(response ? true : false);
+                setUserInfo(response)
+            }
+        );
     },[])
 
-    useEffect(() => {
-		getData(`${process.env.MEDICAL_API}/medical/registry/user-id`).then(
-			(response) => {
-				setUser(response ? true : false);
-				setUserInfo(response)
-			}
-		);
-	}, [])
-
     return <>
+        {
+            <BuyCardModal open={open} hideModal={()=> setOpen(false)} />
+        }
         <div className={styles.detailedPage}>
             {
                 familyMemberModal && 
@@ -345,75 +293,13 @@ export default function UserDetailed() {
                                 შეუკვეთე ბარათი და მიიღე 20%-მდე ფასდაკლება ნებისმიერ კლინიკაში, ან ექიმთან ვიზიტის დროს
                                 <button className={styles.buycardForUser}>შეუკვეთე ბარათი</button>
                             </span>
-                            <Link href="/buyCardPage">
                                 <Button 
+                                    onClick={()=>setOpen(true)}
                                     style={styles.greetingBtn} 
                                     name='შეუკვეთე ბარათი'
                                 />
-                            </Link>
                         </Block>
                     } 
-{/* 
-                    <Block
-                        title="Family member"
-                        actions={
-                            memberList.length > 0 && 
-                            <button 
-                                className={styles.addFamilyMember} 
-                                onClick={()=>setFamilyMemberModal(true)}
-                            >
-                                <img src="/plus.svg" alt="" />
-                                <span>დამატება</span>
-                            </button>
-                        }
-                        className={classNames(styles.familyBlock, {
-                            [styles.activeTab]: menuItem == 'family'
-                        })}
-                    >
-                        {
-                            familyMembers?.length > 0 ?
-                            <div className={styles.membersList}>
-                                {familyMembers?.map((member)=>{
-                                    return <>
-                                        <div className={styles.familyMember}>
-                                            <div className={styles.memberInfo}>
-                                                <img src={member.image} alt="" />
-                                                <div>
-                                                    <h2>{member.firstName}</h2>
-                                                    <h3>{member.email}</h3>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                {
-                                                    member.age === 'Under 18' ? 
-                                                    <img src="/eye.svg" alt="" />
-                                                    :
-                                                    <img src="/disabledEye.svg" alt="" />
-                                                }
-                                            </div>
-                                        </div>
-                                    </>
-                                })}
-                            </div> 
-                                : 
-                            <div className={styles.membersBlock}>
-                                <img src="/users.svg" alt="" />
-                                <h2>Family members are not added</h2>
-                                <Button 
-                                    style={styles.membersAdd}
-                                    name={
-                                        <div 
-                                            className={styles.memberAddBtn} 
-                                            onClick={()=>setFamilyMemberModal(true)}
-                                        >
-                                            <img src="/memberPlus.svg" alt=""/>
-                                            <span>დამატება</span>
-                                        </div>
-                                    }
-                                />
-                            </div>
-                        }
-                    </Block> */}
                 </div>
                 {
                     useWindowSize().width < 600 && 
@@ -433,8 +319,5 @@ export default function UserDetailed() {
                 </div>
             </div>
         }
-        {/* {
-            useWindowSize().width < 600 && <Menu active={menuItem} onClick={(active)=> setMenuItem(active)} />
-        } */}
     </>
 }

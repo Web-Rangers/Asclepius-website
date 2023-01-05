@@ -5,12 +5,17 @@ import { useState, useEffect, useRef } from 'react';
 import { getData } from '../components/request';
 import Link from 'next/link';
 import { useWindowSize } from './useWindowSize';
+import { ReactSVG } from 'react-svg';
+import { useRouter } from 'next/router';
 
 export default function Navigation() {
 	const [categories, setCategories] = useState([]);
 	const [allSubcats, setAllSubcats] = useState([]);
 	let menuRef = useRef();
 	const windowSize = useWindowSize();
+	const router = useRouter();
+	const [routerId, setRouterId] = useState(null);
+	const [parentId, setParentId] = useState(null);
 
 	useEffect(() => {
 		getData(`${process.env.MEDICAL_API}/medical/categories`).then(
@@ -31,6 +36,16 @@ export default function Navigation() {
 			}
 		);
 	}, []);
+
+	useEffect(()=> {
+		if(router?.query?.id){
+			setRouterId(router?.query?.id)
+		}
+
+		if(router?.query?.parentCategory) {
+			setParentId(router?.query?.parentCategory)
+		}
+	},[router])
 
 	useEffect(() => {
 		function check(array) {
@@ -89,7 +104,7 @@ export default function Navigation() {
 										<Link
 											target='_blank'
 											rel='noopener noreferrer'
-											href={`/clinicPage?id=${e.id}`}
+											href={e.parentCategoryId != null ? `/clinics?id=${e.id}&parentCategory=${e.parentCategoryId}` : `/clinics?id=${e.id}`}
 										>
 											{e.title}
 										</Link>
@@ -104,7 +119,7 @@ export default function Navigation() {
 										<Link
 											target='_blank'
 											rel='noopener noreferrer'
-											href={`/clinicPage?id=${e.id}`}
+											href={e.parentCategoryId != null ? `/clinics?id=${e.id}&parentCategory=${e.parentCategoryId}` : `/clinics?id=${e.id}`}
 										>
 											{e.title}
 										</Link>
@@ -154,13 +169,29 @@ export default function Navigation() {
 											key={index}
 											className={styles.catalogTextStyle}
 										>
-											<Link
-												target='_blank'
-												rel='noopener noreferrer'
-												href={`/clinicPage?id=${item.id}`}
-											>
-												{item.title}
-											</Link>
+											{
+												item.title == 'ყველა' ? 
+												<Link
+													target='_blank'
+													rel='noopener noreferrer'
+													href={`/clinics/`}
+												>
+													<a className={styles.allCatBtn}>
+														<ReactSVG className={styles.menubtnIcon} src="/menu.svg" /> 
+														{item.title}
+													</a> 
+												</Link> : 
+												<Link
+													target='_blank'
+													rel='noopener noreferrer'
+													href={`/clinics?id=${item.id}`}
+												>
+													{
+														routerId == item.id || parentId == item.id ? 
+														<span className={styles.activeMenuLink}>{item.title}</span> : item.title
+													}
+												</Link>
+											}
 										</span>
 									</Dropdown>
 								)}
