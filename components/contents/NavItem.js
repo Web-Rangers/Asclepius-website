@@ -39,7 +39,9 @@ const NavItem = () => {
 							: s.bottomNavItem
 					}
 				>
-					<NavSearch color={'/' === router.pathname ? '#5E70DA' : undefined} />
+					<NavSearch
+						color={'/search' === router.pathname ? '#5E70DA' : undefined}
+					/>
 					<span
 						className={
 							'/search' === router.pathname

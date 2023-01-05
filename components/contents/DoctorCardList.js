@@ -5,6 +5,7 @@ import Text from '../ui/Text';
 import Image from 'next/image';
 import { Carousel } from 'react-responsive-carousel';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import ClinicDoctorSwipper from './clinicDoctorSwipper';
 
 import style from '../../styles/slider.module.css';
 
@@ -18,17 +19,19 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper';
 
 const DoctorCardList = ({ doctorsData }) => {
-	const [data, setData] = useState([]);
+	const [data, setData] = useState();
 	const [state, setState] = useState(false);
 
-	const showMoreFunc = useCallback(() => {
-		if (!state) setData(doctorsData?.filter((e, i) => i < 12));
-		else setData(doctorsData?.filter((e, i) => i < 4));
-	}, [data]);
+	// const showMoreFunc = useCallback(() => {
+	// 	if (!state) setData(doctorsData?.filter((e, i) => i < 12));
+	// 	else setData(doctorsData?.filter((e, i) => i < 4));
+	// }, [data]);
 
 	useEffect(() => {
-		setData(doctorsData?.filter((e, i) => i < 4));
+		setData(doctorsData?.filter((e, i) => i < 8));
 	}, [doctorsData]);
+
+	// console.log('doct data', doctorsData);
 
 	return (
 		<div className={classes.doctorCardContainer}>
@@ -37,14 +40,14 @@ const DoctorCardList = ({ doctorsData }) => {
 					<img
 						src='/doctorImg1.png'
 						alt='doctorImg1'
-						height='343px'
+						height='100%'
 						width='100%'
 					/>
 
 					<img
 						src='/doctorImg2.png'
 						alt='doctorImg2'
-						height='343px'
+						height='100%'
 						width='100%'
 					/>
 				</div>
@@ -75,16 +78,17 @@ const DoctorCardList = ({ doctorsData }) => {
 					</Swiper>
 				</div>
 				<div className={classes.clinicCardContainerTitle}>
-					{/* <Text style={classes.serviceTextStyle}>Popular</Text> */}
 					<div className={classes.arrows}>
 						<Text style={classes.ourDoctorTextStyle}>ექიმები</Text>
 					</div>
 				</div>
-				<div
+
+				<ClinicDoctorSwipper doctorsData={data} />
+				{/* <div
 					className={classes.doctorCardList}
 					id='slider'
 				>
-					{data?.map((item) => {
+					{doctorsData?.map((item) => {
 						return (
 							<>
 								<DoctorCardItem
@@ -98,8 +102,8 @@ const DoctorCardList = ({ doctorsData }) => {
 							</>
 						);
 					})}
-				</div>
-				<div
+				</div> */}
+				{/* <div
 					className={classes.showBtn}
 					onClick={() => {
 						setState(!state);
@@ -107,7 +111,7 @@ const DoctorCardList = ({ doctorsData }) => {
 					}}
 				>
 					{!state ? 'მეტი' : 'ნაკლები'}
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);

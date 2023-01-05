@@ -9,7 +9,7 @@
 	align-items: center;
 	height: 40px;
 	font-family: 'Noto Sans', 'Avenir Next Georgian';
-	font-size: 16px;
+	font-size: 14px;
 }
 .smallheaderContainer {
 	position: sticky;
@@ -752,7 +752,7 @@
 	outline: none;
 }
 
-.responsiveAuth{
+.responsiveAuth {
 	display: none;
 }
 
@@ -786,8 +786,20 @@
 	.leftSideContainer {
 		display: none;
 	}
-	.responsiveAuth{
+	.responsiveAuth {
 		display: block;
+	}
+	.headerContainerBg,
+	.smallheaderContainer {
+		padding-left: 46px;
+		padding-right: 46px;
+		top: 0;
+	}
+	.smallheaderContainer {
+		display: none;
+	}
+	.siteStatus {
+		display: none;
 	}
 }
 
@@ -795,7 +807,18 @@
 	.leftSideContainer {
 		display: none;
 	}
-
+	.headerContainerBg,
+	.smallheaderContainer {
+		padding-left: 46px;
+		padding-right: 46px;
+		top: 0;
+	}
+	.smallheaderContainer {
+		display: none;
+	}
+	.siteStatus {
+		display: none;
+	}
 	.signInText {
 		font-family: 'Noto Sans';
 		font-style: normal;

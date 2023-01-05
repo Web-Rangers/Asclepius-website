@@ -15,7 +15,11 @@
 	width: calc(100% - 0px);
 	max-width: calc(1440px - 100px);
 }
-
+.cardTableContainerHeader {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 .switcher {
 	display: flex;
 	flex-direction: row;
@@ -23,13 +27,24 @@
 	align-items: center;
 	margin-bottom: 56px;
 }
+.switcherChecked {
+	background-color: #ffbbb6;
+	width: 52px;
+	height: 28px;
+	margin: 0 16px;
+}
+.switcherUnChecked {
+	background-color: rgba(56, 56, 56, 0.2);
+	width: 52px;
+	height: 28px;
+	margin: 0 16px;
+}
 .headerTitle {
-	display: block;
-	font-family: 'Avenir Next Georgian';
+	font-family: 'Avenir Next Bold';
 	font-style: normal;
-	font-weight: 700;
-	font-size: 46px;
-	line-height: 64px;
+	font-weight: 900;
+	font-size: 32px;
+	line-height: 150%;
 	color: #383838;
 	margin-bottom: 20px;
 }
@@ -37,9 +52,12 @@
 	font-family: 'Avenir Next Georgian';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 150%;
 	color: rgba(56, 56, 56, 0.6);
+	width: 121px;
+	display: flex;
+	align-items: center;
 }
 .features {
 	position: relative;
@@ -300,6 +318,25 @@
 	margin-bottom: 20px;
 	margin-left: 4px;
 }
+.tooltipTextStyle {
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-size: 14px;
+	line-height: 21px;
+	color: rgba(56, 56, 56, 0.6);
+}
+
+.tooltipContainer:hover .tooltip,
+.tooltipContainer .tooltipActive {
+	display: none;
+}
+.tooltipContainer:hover .tooltipActive {
+	display: inline;
+	height: 18px;
+	width: 18px;
+	margin-bottom: 20px;
+	margin-left: 4px;
+}
 .cardTableMobile {
 	display: none;
 }
@@ -344,9 +381,11 @@
 	background: #f7f8fa;
 	border-radius: 12px;
 	padding: 0 40px;
+	cursor: pointer;
 }
 .listItem:nth-child(2n) {
 	background-color: #fff;
+	cursor: pointer;
 }
 .listItem span {
 	font-family: 'Avenir Next Georgian';
@@ -355,8 +394,14 @@
 	font-size: 16px;
 	color: #383838;
 }
+
 .listItem:hover {
 	background-color: rgb(255, 187, 182, 0.2);
+	cursor: pointer;
+}
+.listItem a:hover {
+	text-decoration: underline;
+	text-decoration-color: #383838;
 }
 
 .priceText {
@@ -379,7 +424,7 @@
 	flex-direction: column;
 }
 .priceNumberStyle {
-	font-family: 'Avenir Next Georgian';
+	font-family: 'Avenir Next Bold';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 24px;
@@ -387,8 +432,9 @@
 	color: #383838;
 }
 .price button {
-	width: 293px;
-	height: 48px;
+	width: 198px;
+	height: 49px;
+	padding: 14px 40px;
 	background: #ffbbb6;
 	border-radius: 12px;
 	border: none;
@@ -396,7 +442,8 @@
 	font-family: 'Avenir Next Georgian';
 	font-style: normal;
 	font-weight: 500;
-	font-size: 16px;
+	font-size: 14px;
+	line-height: 21px;
 	color: #180126;
 	cursor: pointer;
 }
