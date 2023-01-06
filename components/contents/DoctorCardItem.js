@@ -5,7 +5,7 @@ import {
 	LazyLoadImage,
 	trackWindowScroll,
 } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+// import 'react-lazy-load-image-component/src/effects/blur.css';
 import classNames from 'classnames';
 import classes from '../../styles/homePage.module.css';
 import * as ANT from 'antd';
@@ -13,22 +13,26 @@ import * as ANT from 'antd';
 const DoctorCardItem = ({ id, ...props }) => {
 	const [state, setState] = useState(false);
 
+	console.log('propd', props);
+
 	return (
 		<>
 			{!state && <DoctorsSkeleton customStyle={classes.doctorSkelton} />}
-			<Link href={`/doctors/${id}`}>
+			<Link
+				href={`/doctors/${id}`}
+				key={props.id}
+			>
 				<div
 					className={classNames(classes.doctorItemContainer, {
 						[classes.appendDoc]: state,
 					})}
-					key={props.id}
 				>
 					<div className={classes.doctorPhotoContainer}>
 						<LazyLoadImage
 							key={props.id}
 							alt={props.title}
 							effect={'blur'}
-							// height={'100%'}
+							height={'100%'}
 							src={
 								props.src === 'https://s3.pirveli.com/v1/api/getFile?id=null'
 									? '/Profile.svg'

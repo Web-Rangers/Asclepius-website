@@ -19,6 +19,7 @@ import classNames from 'classnames';
 // import 'antd/dist/reset.css';
 
 const ClinicCardItem = ({ data, listItem = false, cards }) => {
+	const [phone, setPhone] = useState('');
 	const size = useWindowSize();
 	let a;
 
@@ -37,6 +38,12 @@ const ClinicCardItem = ({ data, listItem = false, cards }) => {
 			})
 		);
 	}, [data?.id, cards]);
+
+	useEffect(() => {
+		data?.contactInfos.filter(
+			(e) => e?.type.value === 'mobile' && setPhone(e.value)
+		);
+	});
 
 	const weekday = [
 		'',
@@ -138,6 +145,15 @@ const ClinicCardItem = ({ data, listItem = false, cards }) => {
 											height='15.04'
 										/>
 										{data?.address?.municipality.title}, {data?.address.address}
+									</Text>
+									<Text style={classes.clinicAddressText}>
+										<Image
+											src='/P-Phone.svg'
+											alt=''
+											width='16.67px'
+											height='15.04'
+										/>
+										{phone}
 									</Text>
 								</div>
 							</div>

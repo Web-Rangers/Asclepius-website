@@ -12,7 +12,7 @@ import { Dropdown, Space } from 'antd';
 import { ReactSVG } from 'react-svg';
 import 'antd/dist/antd.css';
 import classNames from 'classnames';
-import {useWindowSize} from '../../components/useWindowSize';
+import { useWindowSize } from '../../components/useWindowSize';
 
 const customStyles = {
 	content: {
@@ -317,11 +317,7 @@ const Header = () => {
 									[classes.buyCardBtnShow]: offset > 48,
 								})}
 							>
-								{
-									 (useWindowSize().width > 600) ? 
-									 'ბარათის ყიდვა' : 'შეუკვეთე'
-
-								}
+								{useWindowSize().width > 600 ? 'ბარათის ყიდვა' : 'შეუკვეთე'}
 							</span>
 						</Link>
 						{(user == null || !user) && (
@@ -329,12 +325,11 @@ const Header = () => {
 								<a className={classes.signInBtnStyle}>შესვლა</a>
 							</Link>
 						)}
-						{
-							(user == null || !user) &&
+						{(user == null || !user) && (
 							<div className={classes.responsiveAuth}>
-								<ReactSVG src="/userAuthResp.svg" />
+								<ReactSVG src='/userAuthResp.svg' />
 							</div>
-						}
+						)}
 						{user && (
 							<div
 								className={classes.authorizedUser}
@@ -355,7 +350,11 @@ const Header = () => {
 															<div
 																className={classes.avatarBg}
 																style={{
-																	backgroundColor: `${userAvatar?.color !== '#undefined' ? userAvatar?.color : '#000'}`,
+																	backgroundColor: `${
+																		userAvatar?.color !== '#undefined'
+																			? userAvatar?.color
+																			: '#000'
+																	}`,
 																}}
 															>
 																<img
@@ -378,8 +377,14 @@ const Header = () => {
 															return <li key={key}>{item.label}</li>;
 														})}
 													</div>
-													<form action="https://medical.pirveli.com/logout" method="POST">
-														<button className={classes.noBtn} type='submit'>
+													<form
+														action='https://medical.pirveli.com/logout'
+														method='POST'
+													>
+														<button
+															className={classes.noBtn}
+															type='submit'
+														>
 															<div className={classes.auth_logout}>
 																<ReactSVG src='/Logout.svg' />
 																Log out
@@ -398,9 +403,13 @@ const Header = () => {
 										<Space>
 											<div
 												className={classes.avatarBg}
-												style={{ 
-													backgroundColor: `${userAvatar?.color !== '#undefined' ? userAvatar?.color : '#000'}`,
-												 }}
+												style={{
+													backgroundColor: `${
+														userAvatar?.color !== '#undefined'
+															? userAvatar?.color
+															: '#000'
+													}`,
+												}}
 											>
 												<img
 													src={`${

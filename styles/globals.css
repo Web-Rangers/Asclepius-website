@@ -185,6 +185,7 @@ a {
 	opacity: 1;
 	transition: opacity 0.3s;
 	height: 100%;
+	max-height: 286px;
 	display: flex;
 	object-fit: contain;
 }
@@ -206,10 +207,76 @@ a {
 	height: 12px;
 	width: 12px;
 }
+.ant-switch-checked .ant-switch-handle {
+	left: calc(100% - 24px - 2px) !important;
+}
+.ant-switch-handle {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 24px !important;
+	height: 24px !important;
+	transition: all 0.2s ease-in-out;
+}
+
+.ant-switch-handle::before {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: #fff;
+	border-radius: 13px !important;
+	box-shadow: 0 2px 4px 0 rgb(0 35 11 / 20%);
+	transition: all 0.2s ease-in-out;
+	content: '';
+}
+.ant-tooltip-inner {
+	display: flex !important;
+	justify-content: center !important;
+	min-width: 256px !important;
+	min-height: 74px !important;
+	padding: 16px !important;
+	color: rgba(56, 56, 56, 0.6) !important;
+	text-decoration: none;
+	word-wrap: break-word;
+	text-align: center !important;
+	background-color: white !important;
+	border-radius: 12px !important;
+	box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%),
+		0 9px 28px 8px rgb(0 0 0 / 5%);
+}
+.ant-tooltip-arrow-content {
+	--antd-arrow-background-color: linear-gradient(
+		to right bottom,
+		rgb(255, 255, 255),
+		rgb(255, 255, 255)
+	) !important;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: block;
+	width: 11.3137085px;
+	height: 11.3137085px;
+	margin: auto;
+	content: '';
+	pointer-events: auto;
+	border-radius: 0 0 9px;
+	pointer-events: none;
+}
 
 @media only screen and (max-width: 1290px) {
 	.carousel .control-dots {
 		display: none;
+	}
+	#bwc-widget-action {
+		bottom: 13px !important;
+	}
+
+	.active #bwc-widget-action {
+		bottom: 96px !important;
 	}
 }
 
@@ -242,7 +309,9 @@ a {
 		bottom: 96px !important;
 	}
 	#branchMobileSize .swiper-wrapper {
-		padding-left: 16px !important;
-		padding-right: 16px !important;
+		/* padding-left: 16px !important; */
+		/* padding-right: 16px !important; */
+		margin-right: 16px !important;
+		margin-left: 16px !important;
 	}
 }

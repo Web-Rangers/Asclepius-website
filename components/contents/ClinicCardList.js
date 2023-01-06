@@ -1,15 +1,15 @@
 import { useState, useEffect, useCallback } from 'react';
-import ClinicCardItem from './ClinicCardItem';
 import classes from '../../styles/homePage.module.css';
 import Text from '../ui/Text';
 import { useRouter } from 'next/router';
 import Card from './Card';
 import classNames from 'classnames';
+import ClinicDoctorSwipper from '../contents/clinicDoctorSwipper';
 
 const ClinicCardList = ({ clinicsData, products }) => {
 	const router = useRouter();
-	const [data, setData] = useState([]);
 	const [state, setState] = useState(false);
+	const [data, setData] = useState([]);
 
 	const showMoreFunc = useCallback(() => {
 		if (!state) {
@@ -22,7 +22,7 @@ const ClinicCardList = ({ clinicsData, products }) => {
 
 	useEffect(() => {
 		if (Array.isArray(clinicsData))
-			setData(clinicsData?.filter((e, i) => i < 4));
+			setData(clinicsData?.filter((e, i) => i < 8));
 	}, [clinicsData]);
 
 	return (
@@ -37,32 +37,20 @@ const ClinicCardList = ({ clinicsData, products }) => {
 						</Text>
 					</div>
 				</div>
-				<div
+				{/* <div
 					className={classes.clinicCardList}
 					id='slider'
-				>
-					{data?.map((item, i) => {
-						return (
-							<ClinicCardItem
-								key={item?.id + i}
-								id={item.id}
-								src={item.logoUrl || '/testClinic.png'}
-								clinicName={item.displayName}
-								clinicAddress={item.address.address}
-								rating={''}
-								data={item}
-							/>
-						);
-					})}
-				</div>
-				<div
+				> */}
+				<ClinicDoctorSwipper clinicsData={data} />
+
+				{/* <div
 					className={classNames(classes.showBtn, classes.nonborder)}
 					onClick={() => {
 						showMoreFunc();
 					}}
 				>
 					მეტი
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);

@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import FormGroup from '@mui/material/FormGroup';
-import Switch from '@mui/material/Switch';
-import { styled } from '@mui/material/styles';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
 import style from '../../styles/components/card.module.css';
 import Button from '../ui/Button';
-import { Tooltip } from '@nextui-org/react';
 import Link from 'next/link';
+import { Switch, Tooltip } from 'antd';
 
 const Card = ({ data }) => {
 	const [checked, setChecked] = useState(false);
+
 	const [cardTypes, setCardTypes] = useState({
 		individual: [],
 		family: [],
@@ -31,50 +27,9 @@ const Card = ({ data }) => {
 		setCardTypes((e) => ({ family: family, individual: individual }));
 	}, []);
 
-	const AntSwitch = styled(Switch)(({ theme }) => ({
-		width: 60,
-		height: 32,
-		padding: 0,
-		display: 'flex',
-		'&:active': {
-			'& .MuiSwitch-thumb': {
-				width: 26,
-			},
-			'& .MuiSwitch-switchBase.Mui-checked': {
-				transform: 'translateX(9px)',
-			},
-		},
-		'& .MuiSwitch-switchBase': {
-			padding: 3,
-			'&.Mui-checked': {
-				transform: 'translateX(30px)',
-				color: '#fff',
-				'& + .MuiSwitch-track': {
-					opacity: 1,
-					backgroundColor:
-						theme.palette.mode === 'dark' ? '#FF766C' : '#FF766C',
-				},
-			},
-		},
-		'& .MuiSwitch-thumb': {
-			boxShadow: '0 2px 4px 0 rgb(0 35 11 / 20%)',
-			width: 25,
-			height: 25,
-			borderRadius: 12,
-			transition: theme.transitions.create(['width'], {
-				duration: 25,
-			}),
-		},
-		'& .MuiSwitch-track': {
-			borderRadius: 16,
-			opacity: 1,
-			backgroundColor:
-				theme.palette.mode === '#FF766C' ? '#FF766C' : 'rgba(0,0,0,.25)',
-			boxSizing: 'border-box',
-		},
-	}));
+	console.log('data');
 
-	console.log('data', cardTypes);
+	const text = <span>საოჯახო პაკეტი მოიცავს, დედას, მამას და 2 ბავშვს</span>;
 
 	const featuresData = [
 		{
@@ -161,51 +116,35 @@ const Card = ({ data }) => {
 			<div className={style.cardTableContainerHeader}>
 				<span className={style.headerTitle}>ბარათის ყიდვა</span>
 				<div className={style.switcher}>
-					<div>
-						<FormGroup>
-							<Stack
-								direction='row'
-								spacing={1}
-								alignItems='center'
-							>
-								<Typography className={style.switcherLabel}>
-									პერსონალური
-								</Typography>
-
-								<AntSwitch
-									checked={checked}
-									onChange={(e) => setChecked(e.target.checked)}
-									defaultChecked
-									inputProps={{ 'aria-label': 'ant design' }}
-								/>
-								<Typography className={style.switcherLabel}>საოჯახო</Typography>
-							</Stack>
-						</FormGroup>
-					</div>
-
-					<Tooltip
-						css={{
-							display: 'block',
-							margin: 'auto',
-							width: '260px',
-							height: '60px',
-							fontSize: '12px',
-							backgroundColor: '#fff',
-						}}
-						rounded
-						content={
-							'Family package includes mother, father and 2 minor children'
+					<span className={style.switcherLabel}> პერსონალური</span>
+					<Switch
+						className={
+							checked ? style.switcherChecked : style.switcherUnChecked
 						}
-					>
-						<img
-							src={'tooltip.svg'}
-							alt='star'
-							className={style.tooltip}
-						/>
-					</Tooltip>
-					{/* <span className={style.tootltipText}>
-						Family package includes mother, father and 2 minor children
-					</span> */}
+						onChange={(checked) => setChecked(checked)}
+					/>
+					<span className={style.switcherLabel}>
+						საოჯახო
+						<Tooltip
+							placement='top'
+							title={text}
+							className={style.tooltipTextStyle}
+						>
+							<a className={style.tooltipContainer}>
+								<img
+									src={'tooltip.svg'}
+									alt='star'
+									className={style.tooltip}
+								/>
+
+								<img
+									src={'tooltipActive.svg'}
+									alt='star'
+									className={style.tooltipActive}
+								/>
+							</a>
+						</Tooltip>
+					</span>
 				</div>
 			</div>
 			{/* <div className={style.cardTableMobile}>
@@ -569,7 +508,9 @@ const Card = ({ data }) => {
 								key={key}
 								className={style.listItem}
 							>
-								<span>{e.name}</span>
+								<a href=''>
+									<span>{e.name}</span>
+								</a>
 								<span>{e.starter}</span>
 							</div>
 						);

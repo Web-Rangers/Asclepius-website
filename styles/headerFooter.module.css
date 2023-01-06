@@ -9,7 +9,7 @@
 	align-items: center;
 	height: 40px;
 	font-family: 'Noto Sans', 'Avenir Next Georgian';
-	font-size: 16px;
+	font-size: 14px;
 }
 .smallheaderContainer {
 	position: sticky;
@@ -187,10 +187,13 @@
 }
 
 .footerContainer {
-	display: flex;
-	gap: 30px;
+	/* display: flex;
+	gap: 30px; */
 	margin: auto;
 	width: calc(1440px - 100px);
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	gap: 20px;
 }
 .thirdRow {
 	position: absolute;
@@ -208,9 +211,11 @@
 	margin-bottom: 14px;
 }
 .leftSideContainer {
-	display: flex;
-	flex-direction: row;
+	/* display: flex;
+	flex-direction: row; */
 	/* width: 312px; */
+	display: grid;
+	grid-column: 1 / 4;
 }
 .rightSideContainer {
 	display: flex;
@@ -249,16 +254,20 @@
 }
 
 .firstRow {
-	display: flex;
-	flex-direction: row;
+	/* display: flex;
+	flex-direction: row; */
 	/* width: 312px; */
+	display: grid;
+	grid-column: 4 / 7;
 }
 
 .secondRow {
-	display: flex;
+	/* display: flex;
 	flex-direction: column;
 	/* width: 312px; */
-	gap: 16px;
+
+	display: grid;
+	grid-column: 7 / 10;
 }
 .companyConatiner {
 	display: flex;
@@ -752,7 +761,7 @@
 	outline: none;
 }
 
-.responsiveAuth{
+.responsiveAuth {
 	display: none;
 }
 
@@ -786,8 +795,20 @@
 	.leftSideContainer {
 		display: none;
 	}
-	.responsiveAuth{
+	.responsiveAuth {
 		display: block;
+	}
+	.headerContainerBg,
+	.smallheaderContainer {
+		padding-left: 46px;
+		padding-right: 46px;
+		top: 0;
+	}
+	.smallheaderContainer {
+		display: none;
+	}
+	.siteStatus {
+		display: none;
 	}
 }
 
@@ -795,7 +816,18 @@
 	.leftSideContainer {
 		display: none;
 	}
-
+	.headerContainerBg,
+	.smallheaderContainer {
+		padding-left: 46px;
+		padding-right: 46px;
+		top: 0;
+	}
+	.smallheaderContainer {
+		display: none;
+	}
+	.siteStatus {
+		display: none;
+	}
 	.signInText {
 		font-family: 'Noto Sans';
 		font-style: normal;
