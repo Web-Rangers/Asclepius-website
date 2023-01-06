@@ -60,6 +60,41 @@ function ClinicsPage({ clinics = [], cards = [], municipalities = [] }) {
 		});
 		setCurrentPage(1);
 	}, [router]);
+
+	const regions = [
+		{
+			name: 'სამეგრელო-ზემო სვანეთი',
+			id: 1,
+		},
+		{
+			name: 'სამცხე-ჯავახეთი',
+			id: 2,
+		},
+		{
+			name: 'აჭარა',
+			id: 3,
+		},
+		{
+			name: 'ქვემო ქართლი',
+			id: 4,
+		},
+		{
+			name: 'შიდა ქართლი',
+			id: 5,
+		},
+		{
+			name: 'იმერეთი',
+			id: 6,
+		},
+		{
+			name: 'კახეთი',
+			id: 7,
+		},
+		{
+			name: 'მცხეთა-მთიანეთი',
+			id: 8,
+		}
+	]
 	
 	return (
 		router?.isReady && (
@@ -80,7 +115,7 @@ function ClinicsPage({ clinics = [], cards = [], municipalities = [] }) {
 							{
 								generateBreadcrumbs.parent && 
 								<Breadcrumb.Item>
-									<a href={`?id=${generateBreadcrumbs.parent.id}`}>{generateBreadcrumbs.parent.title}</a>
+									<Link href={`?id=${generateBreadcrumbs.parent.id}`}>{generateBreadcrumbs.parent.title}</Link>
 								</Breadcrumb.Item>
 							}
 							<Breadcrumb.Item>{generateBreadcrumbs?.categorie?.title}</Breadcrumb.Item>
@@ -88,91 +123,97 @@ function ClinicsPage({ clinics = [], cards = [], municipalities = [] }) {
 					</div>
 					<div className={styles.clinicsContent}>
 						<div className={styles.filters}>
-							<div className={styles.searchBar}>
-								<input type="text" placeholder='მოძებნე კლინიკა...' />
-								<ReactSVG src="/searchIconsvg.svg" />
-							</div>
-							<div className={styles.filterBars}>
-								<div className={styles.filterBarHeader}>
-									<h2>ფილტრი</h2>
-									<span>გასუფთავება</span>
+							<div className={styles.stickyBar}>
+								<div className={styles.searchBar}>
+									<input type="text" placeholder='მოძებნე კლინიკა...' />
+									<ReactSVG src="/searchIconsvg.svg" />
 								</div>
-
-								<div className={classNames(styles.filterDropdown, {
-									[styles.dropdownOpen]: filtersOpen.region
-								})}>
-									<div 
-										onClick={()=> setFiltersOpen((prev)=>({
-											municip: false,
-											services: false,
-											region: !prev.region
-										}))}
-										className={styles.filterDropdownValue}
-									>
-										<span>რეგიონი</span>
-										{
-											filtersOpen.region ? 
-											<ReactSVG src="/dropdowfilterOpen.svg" /> :
-											<ReactSVG src="/dropdowfilterClose.svg" />
-										}
+								<div className={styles.filterBars}>
+									<div className={styles.filterBarHeader}>
+										<h2>ფილტრი</h2>
+										<span>გასუფთავება</span>
 									</div>
-									<div className={styles.checkList}>
-										<div className={styles.checkListItem}>
-											<label htmlFor='სამეგრელო-ზემო სვანეთი'>
-												სამეგრელო-ზემო სვანეთი
-											</label>
-											<ANT.Checkbox
-												className={styles.filterCheckbox} 
-												id='სამეგრელო-ზემო სვანეთი'
-												value="სამეგრელო-ზემო სვანეთი"
-											/>
+
+									<div className={classNames(styles.filterDropdown, {
+										[styles.dropdownOpen]: filtersOpen.region
+									})}>
+										<div 
+											onClick={()=> setFiltersOpen((prev)=>({
+												municip: false,
+												services: false,
+												region: !prev.region
+											}))}
+											className={styles.filterDropdownValue}
+										>
+											<span>რეგიონი</span>
+											{
+												filtersOpen.region ? 
+												<ReactSVG src="/dropdowfilterOpen.svg" /> :
+												<ReactSVG src="/dropdowfilterClose.svg" />
+											}
+										</div>
+										<div className={styles.checkList}>
+											{
+												regions?.map((reg, key)=> {
+													return <div key={key} className={styles.checkListItem}>
+														<label htmlFor={reg.id}>
+															{reg.name}
+														</label>
+														<ANT.Checkbox
+															className={styles.filterCheckbox} 
+															id={reg.id}
+															value={reg.name}
+														/>
+													</div>
+												})
+											}
 										</div>
 									</div>
-								</div>
 
-								<div className={classNames(styles.filterDropdown, {
-									[styles.dropdownOpen]: filtersOpen.municip
-								})}>
-									<div 
-										onClick={()=> setFiltersOpen((prev)=>({
-											municip: !prev.municip,
-											services: false,
-											region: false
-										}))}
-										className={styles.filterDropdownValue}
-									>
-										<span>მუნიციპალიტეტები/რაიონები</span>
-										{
-											filtersOpen.municip ? 
-											<ReactSVG src="/dropdowfilterOpen.svg" /> :
-											<ReactSVG src="/dropdowfilterClose.svg" />
-										}
+									<div className={classNames(styles.filterDropdown, {
+										[styles.dropdownOpen]: filtersOpen.municip
+									})}>
+										<div 
+											onClick={()=> setFiltersOpen((prev)=>({
+												municip: !prev.municip,
+												services: false,
+												region: false
+											}))}
+											className={styles.filterDropdownValue}
+										>
+											<span>მუნიციპალიტეტები/რაიონები</span>
+											{
+												filtersOpen.municip ? 
+												<ReactSVG src="/dropdowfilterOpen.svg" /> :
+												<ReactSVG src="/dropdowfilterClose.svg" />
+											}
+										</div>
+										<div className={styles.checkList}>
+											Loading..
+										</div>
 									</div>
-									<div className={styles.checkList}>
-										Loading..
-									</div>
-								</div>
 
-								<div className={classNames(styles.filterDropdown, {
-									[styles.dropdownOpen]: filtersOpen.services
-								})}>
-									<div 
-										onClick={()=> setFiltersOpen((prev)=>({
-											municip: false,
-											services: !prev.services,
-											region: false
-										}))}
-										className={styles.filterDropdownValue}
-									>
-										<span>მუნიციპალიტეტები/რაიონები</span>
-										{
-											filtersOpen.services ? 
-											<ReactSVG src="/dropdowfilterOpen.svg" /> :
-											<ReactSVG src="/dropdowfilterClose.svg" />
-										}
-									</div>
-									<div className={styles.checkList}>
-										Loading..
+									<div className={classNames(styles.filterDropdown, {
+										[styles.dropdownOpen]: filtersOpen.services
+									})}>
+										<div 
+											onClick={()=> setFiltersOpen((prev)=>({
+												municip: false,
+												services: !prev.services,
+												region: false
+											}))}
+											className={styles.filterDropdownValue}
+										>
+											<span>მომსახურება</span>
+											{
+												filtersOpen.services ? 
+												<ReactSVG src="/dropdowfilterOpen.svg" /> :
+												<ReactSVG src="/dropdowfilterClose.svg" />
+											}
+										</div>
+										<div className={styles.checkList}>
+											Loading..
+										</div>
 									</div>
 								</div>
 							</div>

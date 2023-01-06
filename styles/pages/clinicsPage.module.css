@@ -320,6 +320,7 @@
 	font-weight: 500;
 	font-size: 14px;	
 	color: rgba(56, 56, 56, 0.7);
+	margin-bottom:20px;
 }
 
 .checkListItem label {
@@ -341,7 +342,7 @@
 	border-radius: 50%!important;
 	border: none!important;
 	margin-top:2px;
-	margin-left: 0.2px;
+	margin-left: 1.2px;
 }
 
 .filterCheckbox span:hover {
@@ -356,3 +357,41 @@
 .breadcrumbs {
 	margin-bottom: 44px;
 }
+
+.breadcrumbs li {
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	color: #383838;
+}
+
+.stickyBar {
+	position: sticky;
+	top: 214px;
+	overflow-y: auto;
+	max-height: calc(100vh - 214px);
+	padding-right: 6px;
+	padding-bottom:30px;
+}
+
+/* width */
+.stickyBar::-webkit-scrollbar {
+	width: 4px;
+  }
+  
+  /* Track */
+.stickyBar::-webkit-scrollbar-track {
+	width: 4px;
+	background: #fff; 
+  }
+   
+  /* Handle */
+.stickyBar::-webkit-scrollbar-thumb {
+	background: #F7F9FB; 
+  }
+  
+  /* Handle on hover */
+.stickyBar::-webkit-scrollbar-thumb:hover {
+	background: #fff; 
+  }

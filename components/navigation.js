@@ -48,6 +48,8 @@ export default function Navigation() {
 		}
 		if(router?.query?.parentCategory) {
 			setParentId(router?.query?.parentCategory)
+		}else {
+			setParentId(null)
 		}
 	},[router])
 
