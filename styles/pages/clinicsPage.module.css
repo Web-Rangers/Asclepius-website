@@ -1,0 +1,358 @@
+.clinicsContainer {
+	max-width: 1440px;
+	width: 100%;
+	margin: auto;
+	padding: 43px 50px;
+}
+
+.clinicsContent {
+	display: flex;
+	gap: 31px;
+	justify-content: flex-start;
+}
+
+.filters {
+	flex: 312px 0;
+}
+
+.content {
+	flex: 1;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 29px;
+}
+
+.clinicBlock {
+	flex: 0 0 0;
+	cursor: pointer;
+	visibility: hidden;
+	width: 0;
+	margin-right:-29px;
+}
+
+.skeletonBody {
+	flex: 0 0 313px;
+	margin-bottom: 11px;
+	overflow: hidden;
+}
+
+.displayBlock{
+	visibility: visible;
+	flex: 0 0 313px;
+	margin-bottom: 11px;
+	margin-right:0;
+}
+
+.clinicBlock:hover h2 {
+	transition: 0.3s;
+	color: #FFBBB6;
+	text-decoration-color: #FFBBB6;
+	-webkit-text-decoration-color: #FFBBB6;
+	-moz-text-decoration-color: #FFBBB6
+}
+
+.clinicsInformation h2 {
+	margin: 8px 0;
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 150%;
+	color: #383838;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	/* height: 48px; */
+	max-height: 48px;
+	overflow: hidden;
+	transition: 0.3s;
+	text-decoration: underline;
+	text-decoration-color: transparent;
+   	-webkit-text-decoration-color: transparent;
+	-moz-text-decoration-color: transparent;
+}
+
+.clinicAddress, .clinicPhone {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 4px;
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	color: rgba(56, 56, 56, 0.6);
+}
+
+.clinicAddress span, .clinicPhone span {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 223px;
+}
+
+.clinicAddress > div {
+	margin-left:-4px;
+}
+
+.clinicAddress > div , .clinicPhone > div {
+	margin-top:8px;
+}
+
+.clinicImage, .skeletonImage {
+	width: 100%;
+	height: 313px;
+	/* background-color: antiquewhite; */
+	border-radius: 24px;
+	overflow: hidden;
+	position: relative;
+}
+
+.skeletonImage {
+	background-color: #F7F9FB;
+	border-radius: 24px;
+}
+
+.skeletonImage img {
+	width: 100%;
+}
+
+.skeletonInfos {
+	margin: 17px 0 ;
+}
+
+.skeletonInfos div:nth-child(1) {
+	margin-bottom:8px;
+	width: 400px!important;
+}
+
+.skeletonInfos div span {
+	width: 90px!important;
+}
+
+.phonenumskel div span{
+	width: 220px!important;
+}
+
+.searchBar {
+	display: flex;
+	align-items: center;
+	height: 48px;
+	background: #F7F9FB;
+	border-radius: 12px;
+	margin-bottom: 32px;
+}
+
+.searchBar input {
+	border: none;
+	outline: none;
+	background-color: transparent;
+	margin-left:24px;
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	color: #383838;
+	width: 80%;
+}
+
+.clinicsContentContainer {
+	flex: auto;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	height: 50px;
+}
+
+
+.servInput {
+	width: 312px;
+	height: 48px;
+    background-color: #F7F9FB;
+    border-radius: 12px;
+}
+
+.servInput div {
+    border: none;
+}
+
+.familyAddBtn > div:first-child {
+    padding: 14px 24px;
+}
+
+.familyAddBtn > div:first-child > div:nth-child(2) div svg{
+	width: 11.11px;
+	filter: invert(16%) sepia(7%) saturate(2%) hue-rotate(318deg) brightness(97%) contrast(82%);
+}
+
+.familyAddBtn {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 48px;
+    border-radius: 4px;
+    background-color: transparent;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: left;
+    color: #797a80;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+} 
+
+.familyAddBtn > div:nth-child(2) {
+    background-color: #F7F9FB;
+    box-shadow: 0 0 0;
+    margin-top:-10px;
+    border-radius: 0px 0px 12px 12px;
+    font-family: 'Avenir Next Georgian';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 150%;
+    color: rgba(56, 56, 56, 0.7);
+}
+
+.familyAddBtn span {
+    font-family: 'Avenir Next Georgian';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 150%;
+    color: rgba(56, 56, 56, 0.7);
+}
+
+.modalBodyAddFamilyMembers h3 {
+    font-family: 'Avenir Next Georgian';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 150%;
+    color: #383838;
+    margin-bottom:12px;
+}
+
+.filterBarHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.filterBarHeader h2 {
+	margin: 0;
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 150%;
+	color: #383838;
+}
+
+.filterBarHeader span {
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 150%;
+	color: #FF5440;
+	cursor: pointer;
+}
+
+.filterDropdown {
+	height: 48px;
+	margin-top:12px;
+	background-color: #F7F9FB;
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.filterDropdownValue {
+	display: flex;
+	justify-content: space-between;
+	padding: 13px 24px;
+	cursor: pointer;
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	color: rgba(56, 56, 56, 0.7);
+}
+
+.paginationBar {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.dropdownOpen {
+	height: auto;
+}
+
+.checkbox img {
+	position: relative;
+	margin:2.3px 2.3px;
+}
+
+.checkbox img:after{
+	content: '';
+	position: absolute;
+	top:0;
+	background-color: red;
+	width: 22px;
+	height: 22px;
+}
+
+.checkList {
+	padding: 24px;
+}
+
+.checkListItem {
+	display: flex;
+	justify-content: space-between;
+	cursor: pointer;
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;	
+	color: rgba(56, 56, 56, 0.7);
+}
+
+.checkListItem label {
+	cursor: pointer!important;
+}
+
+.filterCheckbox span span{
+	border-radius: 50%!important;
+	width: 20px!important;
+	height: 20px!important;
+	border: none!important;
+	background-color: rgba(56, 56, 56, 0.1)!important;
+}
+
+.filterCheckbox span span::after {
+	background-color: #FFBBB6!important;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%!important;
+	border: none!important;
+	margin-top:2px;
+	margin-left: 0.2px;
+}
+
+.filterCheckbox span:hover {
+	border:none!important;
+}
+
+.filterCheckbox span:hover::after {
+	border: none!important;
+    outline: none!important;
+}
+
+.breadcrumbs {
+	margin-bottom: 44px;
+}

@@ -15,6 +15,8 @@ import {
 	QueryClientProvider,
 } from '@tanstack/react-query';
 import NavItem from '../components/contents/NavItem';
+import { wrapper, store } from "../redux/store";
+import { Provider } from 'react-redux'
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -83,43 +85,45 @@ function MyApp({ Component, pageProps }) {
 	}
 
 	return (
-		<div>
-			<div
-				className={`${s.mobileBottomNav} ${!show && s.mobileBottomNavActive}`}
-			>
-				<NavItem />
-			</div>
-			<QueryClientProvider client={queryClient}>
-				<Hydrate state={pageProps.dehidratedState}>
-					{hideHeader ? signUp ? <SignUpHeader /> : <Header /> : null}
-					<Head>
-						<link
-							rel='icon'
-							type='image/png'
-							href={'/med.png'}
+		<Provider store={store}>
+			<div>
+				<div
+					className={`${s.mobileBottomNav} ${!show && s.mobileBottomNavActive}`}
+				>
+					<NavItem />
+				</div>
+				<QueryClientProvider client={queryClient}>
+					<Hydrate state={pageProps.dehidratedState}>
+						{hideHeader ? signUp ? <SignUpHeader /> : <Header /> : null}
+						<Head>
+							<link
+								rel='icon'
+								type='image/png'
+								href={'/med.png'}
+							/>
+							<meta
+								name='robots'
+								content='noindex'
+							/>
+						</Head>
+						<Script
+							id='my-script'
+							strategy='afterInteractive'
+							dangerouslySetInnerHTML={{
+								__html: `(function(d, w, s) {
+									var widgetHash = 'UwPgnPMNck3Zi0wl06Xw', bch = d.createElement(s); bch.type = 'text/javascript'; bch.async = true;
+									bch.src = '//widgets.binotel.com/chat/widgets/' + widgetHash + '.js';
+									var sn = d.getElementsByTagName(s)[0]; sn.parentNode.insertBefore(bch, sn);
+								})(document, window, 'script');`,
+							}}
 						/>
-						<meta
-							name='robots'
-							content='noindex'
-						/>
-					</Head>
-					<Script
-						id='my-script'
-						strategy='afterInteractive'
-						dangerouslySetInnerHTML={{
-							__html: `(function(d, w, s) {
-								var widgetHash = 'UwPgnPMNck3Zi0wl06Xw', bch = d.createElement(s); bch.type = 'text/javascript'; bch.async = true;
-								bch.src = '//widgets.binotel.com/chat/widgets/' + widgetHash + '.js';
-								var sn = d.getElementsByTagName(s)[0]; sn.parentNode.insertBefore(bch, sn);
-							})(document, window, 'script');`,
-						}}
-					/>
-					{getLayout(<Component {...pageProps} />)}
+						{getLayout(<Component {...pageProps} />)}
 
-					{hideHeader ? signUp ? <SignUpFooter /> : <Footer /> : null}
-				</Hydrate>
-			</QueryClientProvider>
-		</div>
+						{hideHeader ? signUp ? <SignUpFooter /> : <Footer /> : null}
+					</Hydrate>
+				</QueryClientProvider>
+			</div>
+		</Provider>
 	);
 }
 

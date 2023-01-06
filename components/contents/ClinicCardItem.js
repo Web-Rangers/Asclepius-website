@@ -1,5 +1,5 @@
 import classes from '../../styles/homePage.module.css';
-import s from '../../styles/clinicsPage.module.css';
+import s from '../../styles/pages/clinicsPage.module.css';
 import Text from '../ui/Text';
 import { useRouter } from 'next/router';
 import Image from 'next/image';

@@ -7,15 +7,19 @@ import Link from 'next/link';
 import { useWindowSize } from './useWindowSize';
 import { ReactSVG } from 'react-svg';
 import { useRouter } from 'next/router';
+import { getCategories } from '../redux/reducers/categoriesReducer';
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Navigation() {
-	const [categories, setCategories] = useState([]);
 	const [allSubcats, setAllSubcats] = useState([]);
 	let menuRef = useRef();
 	const windowSize = useWindowSize();
 	const router = useRouter();
 	const [routerId, setRouterId] = useState(null);
 	const [parentId, setParentId] = useState(null);
+
+	const categories = useSelector((state)=> state.categories.categories);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		getData(`${process.env.MEDICAL_API}/medical/categories`).then(
@@ -31,7 +35,8 @@ export default function Navigation() {
 						(e) => e.title !== 'სამედიცინო დაწესებულებები'
 					).filter((e)=> e.title !== 'აფთიაქები');
 					withoutMedical?.push(aftiaki, medical);
-					setCategories(withoutMedical);
+
+					dispatch(getCategories(withoutMedical))
 				}
 			}
 		);
@@ -41,7 +46,6 @@ export default function Navigation() {
 		if(router?.query?.id){
 			setRouterId(router?.query?.id)
 		}
-
 		if(router?.query?.parentCategory) {
 			setParentId(router?.query?.parentCategory)
 		}

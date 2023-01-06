@@ -16,7 +16,7 @@ const ClinicCardList = ({ clinicsData, products }) => {
 			setData(clinicsData?.filter((e, i) => i < 12));
 		} else setData(clinicsData?.filter((e, i) => i < 4));
 		if (data.length === 12) {
-			router.push('/clinicPage');
+			router.push('/clinics');
 		}
 	});
 

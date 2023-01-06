@@ -3,9 +3,6 @@
   list-style-type: none;
   justify-content: flex-end;
   gap: 30px;
-  margin-right: 141px;
-  margin-bottom: 73px;
-  margin-top: -60px;
 }
 
 .paginationItem {
@@ -18,6 +15,7 @@
   font-size: 14px;
   line-height: 19px;
   color: #797a80;
+  cursor: pointer;
 }
 
 .paginationitemselected {
@@ -29,7 +27,9 @@
   width: 30px;
   height: 30px;
   border-radius: 30px;
+  cursor: pointer;
 }
+
 .paginationItemDots :hover {
   background-color: transparent;
   cursor: default;
