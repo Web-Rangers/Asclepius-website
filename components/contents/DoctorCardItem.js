@@ -13,8 +13,6 @@ import * as ANT from 'antd';
 const DoctorCardItem = ({ id, ...props }) => {
 	const [state, setState] = useState(false);
 
-	console.log('propd', props);
-
 	return (
 		<>
 			{!state && <DoctorsSkeleton customStyle={classes.doctorSkelton} />}

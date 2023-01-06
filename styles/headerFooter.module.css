@@ -126,7 +126,7 @@
 	top: 43px;
 	z-index: 99999;
 	background: #fff;
-	padding-left: 50px;
+	/* padding-left: 50px; */
 	padding-right: 50px;
 }
 
@@ -258,7 +258,7 @@
 	flex-direction: row; */
 	/* width: 312px; */
 	display: grid;
-	grid-column: 4 / 7;
+	grid-column: 5 / 8;
 }
 
 .secondRow {
@@ -267,7 +267,10 @@
 	/* width: 312px; */
 
 	display: grid;
-	grid-column: 7 / 10;
+	grid-column: 9 / 12;
+	height: 20px;
+	grid-row-gap: 16px;
+	z-index: 999;
 }
 .companyConatiner {
 	display: flex;
@@ -294,6 +297,11 @@
 	line-height: 150%;
 	color: #383838;
 	cursor: pointer;
+}
+.textStyle:hover {
+	text-decoration: underline;
+	text-decoration-color: 1px solid #ffbbb6;
+	color: #ffbbb6;
 }
 .textStyle img {
 	padding-right: 15px;
