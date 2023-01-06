@@ -113,6 +113,7 @@ const Footer = () => {
 					</Text>
 					<a
 						target={'_blank'}
+						rel='noopener'
 						href={'https://goo.gl/maps/FJr1txtq9jTJhKQQA'}
 					>
 						<Text style={classes.textStyle}>
