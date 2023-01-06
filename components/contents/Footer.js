@@ -20,6 +20,12 @@ const Footer = () => {
 						<Link href={''}>
 							<Text style={classes.textStyle}>ხშირად დასმული კითხვები</Text>
 						</Link>
+						<Link href={''}>
+							<Text style={classes.textStyle}>გახდი პარტნიორი</Text>
+						</Link>
+						<Link href={''}>
+							<Text style={classes.textStyle}>რეკლამა პირველზე</Text>
+						</Link>
 
 						<div className={classes.iconContainer}>
 							<img
@@ -134,13 +140,13 @@ const Footer = () => {
 									/>
 								</div>
 							</div> */}
-					<div className={classes.thirdRow}>
-						<img
-							src='/Illustration.svg'
-							alt='facebook'
-							className={classes.iconsStyle}
-						/>
-					</div>
+				</div>
+				<div className={classes.thirdRow}>
+					<img
+						src='/Illustration.svg'
+						alt='facebook'
+						className={classes.iconsStyle}
+					/>
 				</div>
 
 				<div>
@@ -150,7 +156,7 @@ const Footer = () => {
 							alt='headerIcon'
 						/>
 					</div> */}
-					<div className={classes.rightSideContainer}></div>
+					{/* <div className={classes.rightSideContainer}></div> */}
 				</div>
 			</div>
 
