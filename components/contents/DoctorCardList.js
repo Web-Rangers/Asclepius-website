@@ -40,14 +40,14 @@ const DoctorCardList = ({ doctorsData }) => {
 					<img
 						src='/doctorImg1.png'
 						alt='doctorImg1'
-						height='100%'
+						height='210px'
 						width='100%'
 					/>
 
 					<img
 						src='/doctorImg2.png'
 						alt='doctorImg2'
-						height='100%'
+						height='210px'
 						width='100%'
 					/>
 				</div>
