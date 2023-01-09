@@ -44,10 +44,7 @@
 	width: 145px !important;
 	height: 49px !important;
 }
-.modalHeader {
-	border-bottom: none !important;
-	background-color: #ffbbb6 !important;
-}
+
 .modalHeader span {
 	font-family: 'Avenir Next Bold';
 	font-style: normal;
