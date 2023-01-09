@@ -16,10 +16,8 @@
 	margin: auto;
 	/* width: calc(100% - 0px);
 	max-width: calc(1440px - 0px); */
-	width: calc(100% - 0px);
 	max-width: 1560px;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    width: calc(100% - 4rem);
 }
 
 .catalogContainer span:last-child a{
