@@ -20,7 +20,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-left: 16px;
+	margin-left: 12px;
 	height: 45px;
 	gap: 8px;
 	border: none;
@@ -32,6 +32,8 @@
 	gap: 17px;
 	font-family: 'Noto Sans';
 	font-size: 14px;
+	margin-right: 5px;
+	width: 24px;
 }
 .textInfo img {
 	width: 24px;
@@ -90,4 +92,5 @@
 	justify-content: center;
 	border-radius: 4px;
 	overflow: hidden;
+	width: 9px;
 }

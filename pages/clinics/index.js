@@ -53,6 +53,8 @@ function ClinicsPage({ clinics = [], cards = [], municipalities = [] }) {
 					e.clinicCategories.some(clinicsWithId)
 				);
 				return filterState;
+			}else {
+				setClinics(clinics)
 			}
 
 			return state;

@@ -28,6 +28,10 @@ export default function Navigation() {
 		}else {
 			setParentId(null)
 		}
+
+		if(!router?.query?.categoryId){
+			setRouterId(null)
+		}
 	},[router])
 
 	useEffect(() => {
@@ -159,10 +163,10 @@ export default function Navigation() {
 													rel='noopener noreferrer'
 													href={`/clinics/`}
 												>
-													<a className={styles.allCatBtn}>
+													<span className={styles.allCatBtn}>
 														<ReactSVG className={styles.menubtnIcon} src="/menu.svg" /> 
 														{item.title}
-													</a> 
+													</span> 
 												</Link> : 
 												<Link
 													target='_blank'

@@ -7,7 +7,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 40px;
+	height: 39px;
 	font-family: 'Noto Sans', 'Avenir Next Georgian Medium';
 	font-size: 16px;
 	color: #000;
@@ -30,7 +30,7 @@
 }
 .smallheaderLeftText {
 	position: relative;
-	font-family: 'Noto Sans', 'Avenir Next Georgian';
+	font-family: 'Noto Sans', 'Avenir Next Georgian Medium';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 14px;
@@ -123,13 +123,13 @@
 	margin: auto;
 }
 .coinStyle {
-	font-family: 'Sofia Pro';
+	font-family: 'Avenir Next Georgian Medium';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 14px;
 	color: #ffffff;
-	margin-left: 12px;
+	margin-left: 7px;
 	/* margin-right: 16px; */
 }
 .coinBorder {
