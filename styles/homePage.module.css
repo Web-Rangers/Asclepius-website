@@ -265,7 +265,7 @@
 	color: #383838;
 	margin-top: 50px;
 	height: 27px;
-	padding-left: 16px;
+	/* padding-left: 16px; */
 }
 .clinicNameText {
 	font-family: 'Avenir Next Bold';
@@ -1143,6 +1143,12 @@
 		height: 154px;
 	}
 	/* clinics services */
+	.clinicSwiperArrowLeft {
+		display: none;
+	}
+	.clinicSwiperArrowRight {
+		display: none;
+	}
 	.clinicCardList {
 		/* display: grid;
 		grid-column-gap: 29px;
@@ -1151,6 +1157,7 @@
 		grid-auto-rows: 1fr; */
 		margin: auto;
 		/* padding-left: 16px; */
+		padding-bottom: 0;
 	}
 	.clinicCardList::-webkit-scrollbar,
 	.doctorCardList::-webkit-scrollbar {
@@ -1200,7 +1207,7 @@
 		padding-left: 16px;
 	}
 	.doctorItemContainer {
-		display: flex;
+		/* display: flex;
 		flex-direction: column;
 		border: 1px solid #d8d8d8;
 		border-radius: 12px;
@@ -1209,9 +1216,27 @@
 		height: 383px;
 		-o-object-fit: cover;
 		object-fit: cover;
-		margin-bottom: 20px;
+		margin-bottom: 20px; */
+
+		display: inline-block;
+		flex-direction: column;
+		/* margin: auto; */
+		height: 0px;
+		width: 0px;
+		overflow: hidden;
+		position: relative;
+		cursor: pointer;
+		z-index: 22;
 	}
 
+	.appendDoc {
+		/* width: 100%;
+		height: 383px;
+		position: relative;
+		z-index: 1; */
+		width: 100%;
+		height: auto;
+	}
 	.docImage {
 		width: 254px;
 		height: 264px;
@@ -1331,8 +1356,8 @@
 		border: 1px solid rgba(30, 40, 55, 0.1);
 	}
 	.imgPart {
-		width: 313px;
-		height: 313px;
+		width: 100%;
+		height: 100%;
 	}
 	.imgPart img {
 		object-fit: contain;
@@ -1344,7 +1369,7 @@
 		margin: 0;
 	}
 	.doctorCardContainer {
-		padding: 50px 0;
+		/* padding: 50px 0; */
 	}
 	.doctorItem {
 		width: 92%;
@@ -1406,6 +1431,12 @@
 }
 
 @media only screen and (max-width: 500px) {
+	.clinicSwiperArrowLeft {
+		display: none;
+	}
+	.clinicSwiperArrowRight {
+		display: none;
+	}
 	.clinicCardList {
 		display: flex;
 		overflow: scroll;

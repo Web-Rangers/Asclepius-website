@@ -63,15 +63,15 @@ const DoctorCardList = ({ doctorsData }) => {
 							<img
 								src='/doctorImg1.svg'
 								alt='doctorImg1'
-								height='343px'
+								height='100%'
 								width='100%'
 							/>
 						</SwiperSlide>
 						<SwiperSlide>
 							<img
-								src='/doctorImg2.png'
+								src='/doctorImg1.svg'
 								alt='doctorImg2'
-								height='343px'
+								height='100%'
 								width='100%'
 							/>
 						</SwiperSlide>
