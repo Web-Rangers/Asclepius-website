@@ -367,10 +367,6 @@
 }
 
 .stickyBar {
-	position: sticky;
-	top: 214px;
-	overflow-y: auto;
-	max-height: calc(100vh - 214px);
 	padding-right: 6px;
 	padding-bottom:30px;
 }

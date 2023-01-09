@@ -35,17 +35,16 @@ function ClinicsPage({ clinics = [], cards = [], municipalities = [] }) {
 	}, [currentPage, loadedClinics]);	
 
 	useEffect(() => {
-		const categorie = categories?.filter((e)=> e.id == router?.query?.id)[0];
+		const categorie = categories?.filter((e)=> e.id == router?.query?.categoryId)[0];
 		const parent = categories?.filter((e)=> e.id == categorie?.parentCategoryId)[0];
-		console.log(categorie, parent)
 		setGenerateBreadcrumbs({
 			categorie: categorie,
 			parent: parent
 		})
-	}, [router,])
+	}, [router])
 
 	useEffect(() => {
-		let id = router?.query?.id;
+		let id = router?.query?.categoryId;
 
 		setClinics((state) => {
 			if (id) {
@@ -115,7 +114,7 @@ function ClinicsPage({ clinics = [], cards = [], municipalities = [] }) {
 							{
 								generateBreadcrumbs.parent && 
 								<Breadcrumb.Item>
-									<Link href={`?id=${generateBreadcrumbs.parent.id}`}>{generateBreadcrumbs.parent.title}</Link>
+									<Link href={`?categoryId=${generateBreadcrumbs.parent.id}`}>{generateBreadcrumbs.parent.title}</Link>
 								</Breadcrumb.Item>
 							}
 							<Breadcrumb.Item>{generateBreadcrumbs?.categorie?.title}</Breadcrumb.Item>
@@ -235,7 +234,7 @@ function ClinicsPage({ clinics = [], cards = [], municipalities = [] }) {
 							</div>
 							{
 								currentTableData?.map((clinic, key)=> {
-									return <ClinicBlock clinic={clinic} key={key} />
+									return <ClinicBlock clinic={clinic} router={router?.query} key={key} />
 								})
 							}
 							<div className={styles.paginationBar}>
@@ -255,7 +254,7 @@ function ClinicsPage({ clinics = [], cards = [], municipalities = [] }) {
 	);
 }
 
-export const ClinicBlock = ({clinic, key}) => {
+export const ClinicBlock = ({clinic, router, key}) => {
 	const [state, setState] = useState(false);
 
 	const municipality = clinic?.address?.municipality?.title;
@@ -263,42 +262,54 @@ export const ClinicBlock = ({clinic, key}) => {
 
 	const phone = clinic?.contactInfos?.filter((e)=> e.type.value == 'mobile')[0]
 
+	let endpoint = `/clinicDetailPage/${clinic.id}`;
+
+	if(router?.categoryId){
+		endpoint += `?categoryId=${router?.categoryId}`
+	}
+
+	if(router?.parentCategory) {
+		endpoint += `&parentCategory=${router?.parentCategory}`
+	}
+
 	return <>
 		{!state && <Skeleton />}
-		<div key={key} className={classNames(styles.clinicBlock, {
-			[styles.displayBlock]: state
-		})}>
-			<div className={styles.clinicImage}>
-				<LazyLoadImage
-					key={clinic.id}
-					alt={clinic.displayName}
-					effect={'blur'}
-					height={'100%'}
-					src={
-						clinic?.logoUrl !==
-						'https://s3.pirveli.com/v1/api/getFile?id=null'
-							? clinic.logoUrl
-							: '/clinicImage.png'
-					}
-					width={state ? '100%' : '0px'}
-					afterLoad={() => setState(true)}
-				/>
-				<Image src={`${clinic.logoUrl}`} layout="fill" />
-			</div>
-			<div className={styles.clinicsInformation}>
-				<h2>
-					{clinic?.displayName}
-				</h2>
-				<div className={styles.clinicAddress}>
-					<ReactSVG src="/clinicaddress.svg" /> 
-					<span>{municipality}, {address}</span>
+		<Link href={endpoint}>
+			<div key={key} className={classNames(styles.clinicBlock, {
+				[styles.displayBlock]: state
+			})}>
+				<div className={styles.clinicImage}>
+					<LazyLoadImage
+						key={clinic.id}
+						alt={clinic.displayName}
+						effect={'blur'}
+						height={'100%'}
+						src={
+							clinic?.logoUrl !==
+							'https://s3.pirveli.com/v1/api/getFile?id=null'
+								? clinic.logoUrl
+								: '/clinicImage.png'
+						}
+						width={state ? '100%' : '0px'}
+						afterLoad={() => setState(true)}
+					/>
+					<Image src={`${clinic.logoUrl}`} layout="fill" />
 				</div>
-				<div className={styles.clinicPhone}>
-					<ReactSVG src="/clinicphone.svg" /> 
-					<span>+{phone?.prefix} {phone?.value}</span>
+				<div className={styles.clinicsInformation}>
+					<h2>
+						{clinic?.displayName}
+					</h2>
+					<div className={styles.clinicAddress}>
+						<ReactSVG src="/clinicaddress.svg" /> 
+						<span>{municipality}, {address}</span>
+					</div>
+					<div className={styles.clinicPhone}>
+						<ReactSVG src="/clinicphone.svg" /> 
+						<span>+{phone?.prefix} {phone?.value}</span>
+					</div>
 				</div>
 			</div>
-		</div>
+		</Link>
 	</>
 }
 

@@ -13,6 +13,8 @@ import { ReactSVG } from 'react-svg';
 import 'antd/dist/antd.css';
 import classNames from 'classnames';
 import { useWindowSize } from '../../components/useWindowSize';
+import { useDispatch } from "react-redux";
+import { getCategories } from '../../redux/reducers/categoriesReducer';
 
 const customStyles = {
 	content: {
@@ -56,6 +58,7 @@ const Header = () => {
 		img: ``,
 		color: '',
 	});
+	const dispatch = useDispatch();
 
 	const handleChange = (e) => {
 		setSearchInput(e.target.value);
@@ -98,6 +101,27 @@ const Header = () => {
 		);
 	}, []);
 
+	useEffect(() => {
+		getData(`${process.env.MEDICAL_API}/medical/categories`).then(
+			(response) => {
+				if (Array.isArray(response)) {
+					let medical = response?.filter(
+						(e) => e.title == 'სამედიცინო დაწესებულებები'
+					)[0];
+					let aftiaki = response?.filter(
+						(e) => e.title == 'აფთიაქები'
+					)[0];
+					let withoutMedical = response?.filter(
+						(e) => e.title !== 'სამედიცინო დაწესებულებები'
+					).filter((e)=> e.title !== 'აფთიაქები');
+					withoutMedical?.push(aftiaki, medical);
+
+					dispatch(getCategories(withoutMedical))
+				}
+			}
+		);
+	}, []);
+
 	// useEffect(() => {
 	// 	modalIsOpen
 	// 		? (document.body.style.overflow = 'hidden')
@@ -127,7 +151,7 @@ const Header = () => {
 							<a className={classes.smallheaderLeftText}>მაღაზია</a>
 						</Link>
 						<Link href='/'>
-							<a className={classes.smallheaderLeftTextMedical}>მედიქალი</a>
+							<a className={classes.smallheaderLeftTextMedical}>ჯანდაცვა</a>
 						</Link>
 						<Link href='https://vouchers.pirveli.com'>
 							<a className={classes.smallheaderLeftText}>ვაუჩერები</a>
@@ -136,7 +160,7 @@ const Header = () => {
 							<a className={classes.smallheaderLeftText}>გათამაშება</a>
 						</Link>
 						<Link href='https://images2.imgbox.com/83/ef/za3P3ZPj_o.png'>
-							<a className={classes.smallheaderLeftText}>თამაშები</a>
+							<a className={classes.smallheaderLeftText}>გართობა</a>
 						</Link>
 					</div>
 					<div className={classes.smallheaderRight}>

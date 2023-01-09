@@ -17,9 +17,9 @@
 	/* width: calc(100% - 0px);
 	max-width: calc(1440px - 0px); */
 	width: calc(100% - 0px);
-	max-width: 1440px;
-	padding-left: 50px;
-	padding-right: 50px;
+	max-width: 1560px;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .catalogContainer span:last-child a{
@@ -79,7 +79,7 @@
 	vertical-align: top;
 	width: 33.333333%;
 	overflow: hidden;
-	margin-bottom: 32px;
+	margin-bottom: 20px;
 	font-family: 'Avenir Next Georgian';
 	font-weight: 500;
 	font-size: 14px;
@@ -96,7 +96,7 @@
 	font-family: 'Avenir Next Georgian';
 	font-style: normal;
 	font-weight: 300;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 23px;
 	color: #01261c;
 	cursor: pointer;
