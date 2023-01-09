@@ -34,7 +34,7 @@ export default function BecomePartnerModal({ open, hideModal, becomePartner }) {
 	return (
 		<Modal
 			title={
-				<div wrapClassName={styles.modalHeader}>
+				<div className={styles.modalHeader}>
 					<span>{becomePartner ? 'გახდი პარტნიორი' : 'რეკლამა პირველზე'}</span>
 				</div>
 			}

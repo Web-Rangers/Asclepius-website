@@ -117,7 +117,7 @@ const ClinicDetailPage = () => {
 							<div className={styles.clinicWorkingHoursView}>
 								{
 									clinic?.workingHours?.sort((a,b)=> a.dayId - b.dayId).map((e, i)=> {
-										return <div className={styles.workingHours}>
+										return <div key={i} className={styles.workingHours}>
 											<span>{days[e.dayId]}</span> 
 											<span>{e.startHour} - {e.endHour}</span>
 										</div>
