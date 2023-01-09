@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Breadcrumb } from 'antd';
 import { useSelector } from "react-redux";
 import Navigation from '../../../components/navigation';
@@ -8,12 +8,18 @@ import styles from '../../../styles/clinicDetailPage.module.css'
 import { getData, getMultipleData } from '../../../components/request';
 import { ReactSVG } from 'react-svg';
 import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import * as swiper from 'swiper';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 const ClinicDetailPage = () => {
 	const router = useRouter();
 	const categories = useSelector((state)=> state.categories.categories);
 	const [additionalData, setAdditionalData] = useState({
 		services: [],
+		branches: []
 	})
 	const [generateBreadcrumbs, setGenerateBreadcrumbs] = useState({});
 	const [clinic, setClinic] = useState({});
@@ -51,16 +57,15 @@ const ClinicDetailPage = () => {
 	useEffect(()=> {
 		
 		if(clinic?.contracts?.contractId) {
-			let objectKeys = ['services'];
+			let objectKeys = ['services', 'branches'];
 
 			let urls = [
 				`${process.env.MEDICAL_API}/medical/products/get-products-by-contract-id?contractId=${clinic?.contracts?.contractId}`,
+				`${process.env.MEDICAL_API}/medical/clinics/${clinic?.id}/branches`
 			];
 	
 			getMultipleData(objectKeys, setAdditionalData, urls);
 		}
-
-		console.log(additionalData, 'klinikia')
 
 	},[clinic])
 
@@ -79,6 +84,14 @@ const ClinicDetailPage = () => {
 									<span className={styles.breadcrumbSpan}>მთავარი გვერდი</span>
 								</Link>
 							</Breadcrumb.Item>
+							{
+								(!generateBreadcrumbs?.parent && !generateBreadcrumbs?.categorie) &&
+								<Breadcrumb.Item>
+									<Link href={`/clinics`}>
+										<span className={styles.breadcrumbSpan}>კლინიკები</span>
+									</Link>
+								</Breadcrumb.Item>
+							}
 							{
 								generateBreadcrumbs?.parent && 
 								<Breadcrumb.Item>
@@ -163,12 +176,39 @@ const ClinicDetailPage = () => {
 							</div>
 							<div className={styles.clinicServicesBock}>
 								<h4>სერვისები</h4>
+								<div className={styles.clinicServices}>
+									<div>თერაპიული მკურნალობა</div>
+									<div>თერაპიული მკურნალობა</div>
+									<div>თერაპიული მკურნალობა</div>
+								</div>
 							</div>
 							<div className={styles.clinicDocAndServ}>
 								<button>ექიმები</button>
 								<button>მომსახურებები</button>
 							</div>
+							<div className={styles.clinicOffers}>
+								<h4>შეთავაზებები</h4>
+								<div className={styles.clinicOffersBlock}>
+									<div className={styles.clinicOffer}>
+										<h2>შეთავაზების დასახელება</h2>
+										<p>შეთავაზების ტექსტი რასაც მოიცავს</p>
+										<h3>ბრენჩის სახელი</h3>
+									</div>
+									<div className={styles.clinicOffer}>
+										<h2>შეთავაზების დასახელება</h2>
+										<p>შეთავაზების ტექსტი რასაც მოიცავს</p>
+										<h3>ბრენჩის სახელი</h3>
+									</div>
+								</div>
+							</div>
 						</div>
+					</div>
+				</div>
+
+				<div className={styles.clinicBranches}>
+					<div className={styles.clinicBranchTitle}>
+						<h2>ბრენჩები</h2>
+						<Branches branches={additionalData?.branches} />
 					</div>
 				</div>
 			</div>
@@ -177,3 +217,95 @@ const ClinicDetailPage = () => {
 };
 
 export default ClinicDetailPage;
+
+export function Branches({branches}) {
+	const [swiperRef, setSwiperRef] = useState();
+
+	const handleLeftClick = useCallback(() => {
+		if (!swiperRef) return;
+		swiperRef.slidePrev();
+	}, [swiperRef]);
+
+	const handleRightClick = useCallback(() => {
+		if (!swiperRef) return;
+		swiperRef.slideNext();
+	}, [swiperRef]);
+
+	return <>
+		<div className={styles.branchCardList}>
+			<Swiper
+				direction='horizontal'
+				onSwiper={setSwiperRef}
+				id='branchMobileSize'
+				slidesPerView={'auto'}
+				navigation={{
+					prevEl: styles.swiperArrowLeft,
+					nextEl: styles.swiperArrowLeft,
+				}}
+				freeMode={true}
+				loopFillGroupWithBlank={true}
+				lazy={true}
+				modules={[swiper.Pagination, swiper.Navigation, swiper.Lazy]}
+				breakpoints={{
+					// when window width is >= 640px
+					320: {
+						slidesPerView: 1.3,
+						spaceBetween: 12,
+					},
+					640: {
+						slidesPerView: 2,
+						spaceBetween: 15,
+					},
+					// when window width is >= 768px
+					768: {
+						slidesPerView: 2,
+						spaceBetween: 15,
+					},
+					950: {
+						slidesPerView: 3,
+						spaceBetween: 15,
+					},
+					1280: {
+						slidesPerView: 4,
+						spaceBetween: 30,
+					},
+				}}
+			>
+				{branches?.map((item, i) => (
+					<SwiperSlide key={i}>
+						<div className={styles.branchView}>
+							<div className={styles.branchImage}>
+								<Image src={item.logoUrl} layout="fill" />
+							</div>
+							<div className={styles.branchWorkingHours}>
+								სამუშაო საათები
+							</div>
+							<div className={styles.branchDisplayName}>
+								<h2>{item.displayName}</h2>
+								<div className={styles.branchLocation}>
+									<ReactSVG src="/locationcl.svg" />
+									<span>
+										{item?.address?.municipality?.title}, 
+										{item?.address?.address}
+									</span>
+								</div>
+							</div>
+						</div>
+					</SwiperSlide>
+				))}
+			</Swiper>
+			<img
+				src='/swiperLeftArrow.svg'
+				alt='arrowLeft'
+				className={styles.clinicSwiperArrowLeft}
+				onClick={handleLeftClick}
+			/>
+			<img
+				src='/swiperarrow.svg'
+				alt='arrowRight'
+				className={styles.clinicSwiperArrowRight}
+				onClick={handleRightClick}
+			/>
+		</div>
+	</>
+}
