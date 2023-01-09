@@ -432,8 +432,10 @@
 }
 
 .clinicBlokInfo {
-	background-color: blue;
 	flex: 1 313px;
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
 }
 
 .clinicImage {
@@ -497,6 +499,51 @@
 
 .clinicPhone {
 	padding-left:3px;
+}
+
+.clinicDescriptionInfo h4 { 
+	font-family: 'Avenir Next Bold';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	color: #383838;
+}
+
+.clinicDescriptionInfo p {
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 150%;
+	color: rgba(56, 56, 56, 0.8);
+	margin-bottom: 0;
+}
+
+.clinicServicesBock h4 {
+	font-family: 'Avenir Next Bold';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	color: #383838;
+}
+
+.clinicDocAndServ {
+	display: flex;
+	gap: 24px;
+}
+
+.clinicDocAndServ button {
+	padding: 12px 32px;
+	background: #FFFFFF;
+	border: 1px solid rgba(56, 56, 56, 0.2);
+	border-radius: 100px;
+	cursor: pointer;
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 150%;
+	color: #383838;
 }
 
 @media only screen and (max-width: 900px) {

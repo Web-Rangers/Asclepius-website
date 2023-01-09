@@ -33,8 +33,6 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
 
     const [edit, setEdit] = useState(null);
 
-    console.log(selectPack, cardType, 'this is info')
-
     useEffect(()=>{
         let card = [];
         const fncard = card?.concat(cards.family, cards.individual).filter((e)=> e?.genericTransactionTypeToAddInfo?.genericTransactionTypeId === cardType)[0];
@@ -70,6 +68,8 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
         })
         return manageUsersArray
     }
+
+    console.log(cards, 'cardtp')
 
     let API_URL = (cardTp !== 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL' ? `${process.env.MEDICAL_API}/medical/orders/create-orders` : `${process.env.MEDICAL_API}/medical/orders/create-order`);
     async function request(values = null){
@@ -168,13 +168,13 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
             <div className={styles.bg}>
                 <div className={styles.checkoutheader}>
                     <div className={styles.fmTool}>
-                        <h2>Checkout</h2>
+                        <h2>ბარათის ყიდვა</h2>
                         <img src="/closeFilter.svg" onClick={() => onClose()} alt="" />
                     </div>
                 </div>
                 <div className={styles.checkoutContainer}>
                     <div className={styles.document}>
-                        Read information about the processing of personal data here - <a href="">Document link</a>
+                        გაგრძელებით ეთანხმებით - <a href="http://s3.pirveli.com/v1/api/getFile?id=6574">წესებს და პირობებს</a>
                     </div>
                     {
                         cardTp !== 'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL' ? <>
@@ -187,7 +187,7 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                             setPersonDate={setPersonDate}
                         >
                             <div className={styles.users}>
-                                {users.length > 0 && <h2>Family members:</h2>}
+                                {users.length > 0 && <h2>ოჯახის წევრები:</h2>}
                                 {
                                     users && users.map((user)=> {
                                         return <>
@@ -231,18 +231,18 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                                 }
                             </div>
                             <div className={styles.addFamilymember}>
-                                <h2>Add family member</h2>
+                                <h2>დაამატე ოჯახის წევრი</h2>
                                 <Select
-                                    label="Family member"
+                                    label="ოჯახის წევრი"
                                     labelStyle="inside"
                                     className={styles.servInput}
                                     value={memberType}
                                     options={[
                                         {
-                                        label: "Wife / Husbend",
+                                        label: "მეუღლე",
                                         value: "1",
                                         },
-                                        { label: "Child Under 18", value: "2" },
+                                        { label: "შვილი", value: "2" },
                                     ]}
                                     onChange={(value) => {
                                         setMemberType(value);
@@ -288,10 +288,10 @@ export function EditUserInfo({user, users, setEdit, setUsers}) {
             <div className={styles.user}>
                 <div className={styles.userHead}>
                     <div className={styles.block}>
-                        <Input label="Name" value={state.firstName} onChange={(value)=> setState(e=> ({...e, firstName: value}))} />
+                        <Input label="სახელი" value={state.firstName} onChange={(value)=> setState(e=> ({...e, firstName: value}))} />
                         {
                             user?.mail && 
-                            <Input label="mail" value={state.mail} onChange={(value)=> setState(e=> ({...e, mail: value}))} />
+                            <Input label="მეილი" value={state.mail} onChange={(value)=> setState(e=> ({...e, mail: value}))} />
                         }
                     </div>
                 </div>
@@ -313,7 +313,7 @@ export function EditUserInfo({user, users, setEdit, setUsers}) {
                         <Input value={state.personalId} onChange={(value)=> setState(e=> ({...e, personalId: value}))} />
                     </div>
                 </div>
-                <button className={styles.save} onClick={()=> editUser()}>save</button>
+                <button className={styles.save} onClick={()=> editUser()}>შენახვა</button>
             </div>
         </div>
     </>
@@ -323,7 +323,7 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
     const [state,setState] = useState(false);
     return <>
         <div className={styles.userBlock}>
-            <h2>Your information:</h2>
+            <h2>პირადი ინფორმაცია:</h2>
             <div className={styles.user}>
                 <div className={styles.userHead}>
                     <div className={styles.block}>
@@ -337,11 +337,11 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
                 <div className={styles.userInfo}>
                     <div className={styles.infoCol}>
                         <ReactSVG src="/userDate.svg" />
-                        <h4>Date of birth: {currentUser.personDob}</h4>
+                        <h4>დაბადების თარიღი: {currentUser.personDob}</h4>
                     </div>
                     <div className={styles.infoCol}>
                         <ReactSVG src="/userId.svg" />
-                        <h4>ID number: {currentUser.personalId}</h4>
+                        <h4>პირადი ნომერი: {currentUser.personalId}</h4>
                     </div>
                 </div>
             </div>
@@ -349,7 +349,7 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
         {children}
         {
             !currentUser?.personalId && 
-            <h2>Additional personal information:</h2>
+            <h2>დამატებითი ინფორმაცია:</h2>
         }
         <Form 
             className={styles.currentUserForm} 
@@ -363,7 +363,7 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
                     <ANT.Checkbox defaultValue={state} onChange={(e)=> setState(e.target.checked)}>სხვა ქვეყნის მოქალაქე</ANT.Checkbox>
                     <Form.Item
                         name="personalId"
-                        label="Personlal ID"
+                        label="პირადი ნომერი"
                         rules={[
                             {
                                 required: true,
@@ -380,7 +380,7 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
                 currentUser?.personDob == null &&
                 <Form.Item
                     name="personDob"
-                    label="Date of birthday"
+                    label="დაბადების თარიღი"
                     rules={[
                         {
                         required: true,
@@ -389,7 +389,7 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
                 >
                     <DatePicker 
                         className={styles.dataPicker}
-                        placeholder='Date of birth' 
+                        placeholder='დაბადების თარიღი' 
                         onChange={(date, dateString)=> setPersonDate(dateString)}
                         getPopupContainer={() => bodyref.current}
                     />
@@ -399,7 +399,7 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
                 currentUser?.gender == null && 
                 <Form.Item
                     name="gender"
-                    label="Gender"
+                    label="სქესი"
                     rules={[
                         {
                         required: true,
@@ -413,11 +413,11 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
                         options={[
                             {
                                 value: 'm',
-                                label: 'Male',
+                                label: 'კაცი',
                             },
                             {
                                 value: 'f',
-                                label: 'Female',
+                                label: 'ქალი',
                             },
                         ]}
                     />
@@ -426,11 +426,11 @@ export function CurrentUser({currentUser, bodyref, onFinish, children, type, use
             <Form.Item {...tailLayout}>
                 {
                     (type == 'individual') && 
-                    <button type="Submit" className={styles.save}>Buy card</button>
+                    <button type="Submit" className={styles.save}>ბარათის ყიდვა</button>
                 }
                 {
                     (type == 'family' && users.length > 0) && 
-                    <button type="Submit" className={styles.save}>Buy card</button>
+                    <button type="Submit" className={styles.save}>ბარათის ყიდვა</button>
                 }
             </Form.Item>
         </Form>
