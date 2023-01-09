@@ -5,13 +5,16 @@ import { Breadcrumb } from 'antd';
 import { useSelector } from "react-redux";
 import Navigation from '../../../components/navigation';
 import styles from '../../../styles/clinicDetailPage.module.css'
-import { getData } from '../../../components/request';
+import { getData, getMultipleData } from '../../../components/request';
 import { ReactSVG } from 'react-svg';
 import Image from 'next/image';
 
 const ClinicDetailPage = () => {
 	const router = useRouter();
 	const categories = useSelector((state)=> state.categories.categories);
+	const [additionalData, setAdditionalData] = useState({
+		services: [],
+	})
 	const [generateBreadcrumbs, setGenerateBreadcrumbs] = useState({});
 	const [clinic, setClinic] = useState({});
 	const [phoneNumber, setPhoneNumber] = useState(null);
@@ -26,26 +29,40 @@ const ClinicDetailPage = () => {
 		'შაბათი',
 		'კვირა'
 	]
-
+	
 	useEffect(() => {
 		const categorie = categories?.filter((e)=> e.id == router?.query?.categoryId)[0];
 		const parent = categories?.filter((e)=> e.id == categorie?.parentCategoryId)[0];
-
+		
 		getData(`${process.env.MEDICAL_API}/medical/clinics/${router?.query?.id}`)
-			.then((response)=> {
-				const phone = response?.contactInfos?.filter((e)=> e.type.value === 'mobile');
-				setPhoneNumber(phone[0].value)
-				setClinic(response)
-			})
-			.catch(err=> console.log(err))
-
-		console.log(clinic, 'klinikiaa')
+		.then((response)=> {
+			const phone = response?.contactInfos?.filter((e)=> e.type.value === 'mobile');
+			setPhoneNumber(phone[0].value)
+			setClinic(response)
+		})
+		.catch(err=> console.log(err))
 
 		setGenerateBreadcrumbs({
 			categorie: categorie,
 			parent: parent
 		})
 	}, [router])
+
+	useEffect(()=> {
+		
+		if(clinic?.contracts?.contractId) {
+			let objectKeys = ['services'];
+
+			let urls = [
+				`${process.env.MEDICAL_API}/medical/products/get-products-by-contract-id?contractId=${clinic?.contracts?.contractId}`,
+			];
+	
+			getMultipleData(objectKeys, setAdditionalData, urls);
+		}
+
+		console.log(additionalData, 'klinikia')
+
+	},[clinic])
 
 	return (
 		<>
@@ -108,18 +125,24 @@ const ClinicDetailPage = () => {
 								}
 							</div>
 							<div className={styles.clinicContact}>
-								<div className={styles.clinicMail}>
-									<ReactSVG src="/mail.svg" />
-									<span>
-										{clinic?.email}
-									</span>
-								</div>
-								<div className={styles.clinicPhone}>
-									<ReactSVG src="/phonecl.svg" />
-									<span>
-										+ 995 {phoneNumber}
-									</span>
-								</div>
+								{
+									clinic?.email &&
+									<div className={styles.clinicMail}>
+										<ReactSVG src="/mail.svg" />
+										<span>
+											{clinic?.email}
+										</span>
+									</div>
+								}
+								{
+									phoneNumber &&
+									<div className={styles.clinicPhone}>
+										<ReactSVG src="/phonecl.svg" />
+										<span>
+											+ 995 {phoneNumber}
+										</span>
+									</div>
+								}
 								<div className={styles.clinicLocation}>
 									<ReactSVG src="/locationcl.svg" />
 									<span>
@@ -129,7 +152,23 @@ const ClinicDetailPage = () => {
 								</div>
 							</div>
 						</div>
-						<div className={styles.clinicBlokInfo}>asd</div>
+						<div className={styles.clinicBlokInfo}>
+							<div className={styles.clinicDescriptionInfo}>
+								<h4>კლინიკის შესახებ</h4>
+								<p>
+									{
+										clinic?.description
+									}
+								</p>
+							</div>
+							<div className={styles.clinicServicesBock}>
+								<h4>სერვისები</h4>
+							</div>
+							<div className={styles.clinicDocAndServ}>
+								<button>ექიმები</button>
+								<button>მომსახურებები</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

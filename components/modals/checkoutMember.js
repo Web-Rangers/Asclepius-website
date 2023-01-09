@@ -52,12 +52,12 @@ export default function CheckoutFamilyMember({onClose, type, users, setUsers}) {
             <div className={styles.checkoutheader}>
                 <div className={styles.fmTool}>
                     <ReactSVG className={styles.back} src="/backToCheckout.svg" onClick={() => onClose()} />
-                    <h2>Add family member</h2>
+                    <h2>ოჯახის წევრის დამატება</h2>
                 </div>
             </div>
             <div className={styles.checkoutContainer}>
                 <div className={styles.document}>
-                    Read information about the processing of personal data here - <a href="">Document link</a>
+                    გაგრძელებით ეთანხმებით - <a href="http://s3.pirveli.com/v1/api/getFile?id=6574">წესებს და პირობებს</a>
                 </div>
                 {
                     type == '2' && <Under18 
@@ -80,8 +80,8 @@ export default function CheckoutFamilyMember({onClose, type, users, setUsers}) {
                 }
 
                 <div className={styles.btnControl}>
-                    <button className={styles.cancel} onClick={()=> onClose()}>Cancel</button>
-                    <button className={styles.save} onClick={()=> addMember()}>Add member</button>
+                    <button className={styles.cancel} onClick={()=> onClose()}>გაუქმება</button>
+                    <button className={styles.save} onClick={()=> addMember()}>დამატება</button>
                 </div>
             </div>
         </div>
@@ -159,7 +159,7 @@ export function Above18({userInfo, setUserInfo, validation, validationList, idNu
                 onChange={(e)=> {setUserInfo(values=> ({...values, personalId: e})); setIdCheck(e)}}
             />
             {!idNumLength ? 
-                idCheck?.length == 11 ? '' : <span>*უნდა შეიყვანოთ 11 ციფრი</span> : ''
+                idCheck?.length == 11 ? '' : <span className={styles.warning}>*უნდა შეიყვანოთ 11 ციფრი</span> : ''
             }
             <div className={styles.birth}>
                 <h2>Date of birth</h2>
@@ -229,74 +229,74 @@ export function WifeOrHusband({userInfo, setUserInfo, validation, validationList
     return <>
         <div className={styles.form} ref={bodyref}>
             <Input 
-                label="Wife / husbend’s name" 
+                label="მეუღლის სახელი" 
                 style={classNames(styles.servInput, {
                     [styles.validationInput]: validationList.findIndex((e)=> e == 'firstName') !== -1,
                     [styles.removeValidation]: userInfo?.firstName,
                 })} 
-                placeholder="Name" 
+                placeholder="სახელი" 
                 value={userInfo.firstName}
                 onChange={(e)=> setUserInfo(values=> ({...values, firstName: e}))}
             />
             <Input 
-                label="Wife / husbend’s surname" 
+                label="მეუღლის გვარი" 
                 style={classNames(styles.servInput, {
                     [styles.validationInput]: validationList.findIndex((e)=> e == 'lastName') !== -1,
                     [styles.removeValidation]: userInfo?.lastName,
                 })} 
-                placeholder="Surname" 
+                placeholder="გვარი" 
                 value={userInfo.lastName}
                 onChange={(e)=> setUserInfo(values=> ({...values, lastName: e}))}
             />
              <Input 
-                label="Phone" 
+                label="ტელეფონი" 
                 style={classNames(styles.servInput, {
                     [styles.validationInput]: validationList.findIndex((e)=> e == 'phone') !== -1,
                     [styles.removeValidation]: userInfo?.phone,
                 })} 
-                placeholder="Phone" 
+                placeholder="ტელეფონი" 
                 value={userInfo.phone}
                 onChange={(e)=> setUserInfo(values=> ({...values, phone: e}))}
             />
             <Input 
-                label="Mail" 
+                label="მეილი" 
                 style={classNames(styles.servInput, {
                     [styles.validationInput]: validationList.findIndex((e)=> e == 'mail') !== -1,
                     [styles.removeValidation]: userInfo?.mail,
                 })} 
-                placeholder="Mail" 
+                placeholder="მეილი" 
                 value={userInfo.mail}
                 onChange={(e)=> setUserInfo(values=> ({...values, mail: e}))}
             />
             <ant.Checkbox onChange={onChange}>სხვა ქვეყნის მოქალქე / პასპორტი</ant.Checkbox>
             <Input 
-                label="Id number" 
+                label="პირადი ნომერი" 
                 className={styles.servInput}
                 style={classNames(styles.servInput, {
                     [styles.validationInput]: validationList.findIndex((e)=> e == 'personalId') !== -1,
                     [styles.removeValidation]: userInfo?.personalId?.toString().length > 10,
                 })}  
-                placeholder="Id number" 
+                placeholder="პირადიდ ნომერი" 
                 value={userInfo?.personalId}
                 onChange={(e)=> {setUserInfo(values=> ({...values, personalId: e})); setIdCheck(e)}}
             />
             {!idNumLength ? 
-                idCheck?.length == 11 ? '' : <span>*უნდა შეიყვანოთ 11 ციფრი</span> : ''
+                idCheck?.length == 11 ? '' : <span className={styles.warning}>*უნდა შეიყვანოთ 11 ციფრი</span> : ''
             }
             <div className={styles.birth}>
-                <h2>Date of birth</h2>
+                <h2>დაბადების თარიღი</h2>
                 <DatePicker 
                     className={classNames(styles.dataPicker, {
                         [styles.validationDate]: validationList.findIndex((e)=> e == 'personDob') !== -1,
                         [styles.removevalidationDate]: userInfo?.personDob,
                     })}  
-                    placeholder='Date of birth' 
+                    placeholder='დაბადების თარიღი' 
                     onChange={(date, dateString)=> setUserInfo(values=> ({...values, personDob: dateString}))}
                     getPopupContainer={() => bodyref.current}
                 />
             </div>
             <Select
-                label="Gender"
+                label="სქესი"
                 labelStyle="outside"
                 value={userInfo.gender}
                 onChange={(e)=> setUserInfo(values=> ({...values, gender: e}))}
@@ -306,17 +306,17 @@ export function WifeOrHusband({userInfo, setUserInfo, validation, validationList
                 })}  
                 options={[
                 {
-                    label: "Male",
+                    label: "კაცი",
                     value: "m",
                 },
-                { label: "Female", value: "f" },
+                { label: "ქალი", value: "f" },
                 ]}
             />
         </div>
         {
             validation && 
             <div className={styles.validation}>
-                Please, fill all the inputs
+                შეავსეთ ყველა ველი
             </div>
         }
     </>
@@ -349,54 +349,54 @@ export function Under18({userInfo, setUserInfo, validation, validationList, idNu
     return <>
         <div className={styles.form} ref={bodyref}>
             <Input 
-                label="Child’s name" 
+                label="შვილის სახელი" 
                 style={classNames(styles.servInput, {
                     [styles.validationInput]: validationList.findIndex((e)=> e == 'firstName') !== -1,
                     [styles.removeValidation]: userInfo?.firstName,
                 })} 
-                placeholder="Name" 
+                placeholder="სახელი" 
                 value={userInfo.firstName}
                 onChange={(e)=> setUserInfo(values=> ({...values, firstName: e}))}
             />
             <Input 
-                label="Child’s surname" 
+                label="შვილის გვარი" 
                 style={classNames(styles.servInput, {
                     [styles.validationInput]: validationList.findIndex((e)=> e == 'lastName') !== -1,
                     [styles.removeValidation]: userInfo?.lastName,
                 })} 
-                placeholder="Surname" 
+                placeholder="გვარი" 
                 value={userInfo.lastName}
                 onChange={(e)=> setUserInfo(values=> ({...values, lastName: e}))}
             />
             <ant.Checkbox onChange={onChange}>სხვა ქვეყნის მოქალაქე / პასპორტი</ant.Checkbox>
             <Input 
-                label="Id number" 
+                label="პირადი ნომერი" 
                 className={styles.servInput}
                 style={classNames(styles.servInput, {
                     [styles.validationInput]: validationList.findIndex((e)=> e == 'personalId') !== -1,
                     [styles.removeValidation]: userInfo?.personalId?.toString().length > 10,
                 })}  
-                placeholder="Id number" 
+                placeholder="პირადი ნომერი" 
                 value={userInfo?.personalId}
                 onChange={(e)=> {setUserInfo(values=> ({...values, personalId: e}));setIdCheck(e)}}
             />
             {!idNumLength ? 
-                idCheck?.length == 11 ? '' : <span>*უნდა შეიყვანოთ 11 ციფრი</span> : ''
+                idCheck?.length == 11 ? '' : <span className={styles.warning}>*უნდა შეიყვანოთ 11 ციფრი</span> : ''
             }
             <div className={styles.birth}>
-                <h2>Date of birth</h2>
+                <h2>დაბადების თარიღი</h2>
                 <DatePicker 
                     className={classNames(styles.dataPicker, {
                         [styles.validationDate]: validationList.findIndex((e)=> e == 'personDob') !== -1,
                         [styles.removevalidationDate]: userInfo?.personDob,
                     })}  
-                    placeholder='Date of birth' 
+                    placeholder='დაბადების თარიღი' 
                     onChange={(date, dateString)=> setUserInfo(values=> ({...values, personDob: dateString}))}
                     getPopupContainer={() => bodyref.current}
                 />
             </div>
             <Select
-                label="Gender"
+                label="სქესი"
                 labelStyle="outside"
                 value={userInfo.gender}
                 onChange={(e)=> setUserInfo(values=> ({...values, gender: e}))}
@@ -406,17 +406,17 @@ export function Under18({userInfo, setUserInfo, validation, validationList, idNu
                 })}  
                 options={[
                 {
-                    label: "Male",
+                    label: "კაცი",
                     value: "m",
                 },
-                { label: "Female", value: "f" },
+                { label: "ქალი", value: "f" },
                 ]}
             />
         </div>
         {
             validation && 
             <div className={styles.validation}>
-                Please, fill all the inputs
+                შეავსეთ ყველა ველი
             </div>
         }
     </>

@@ -423,7 +423,7 @@ function BuyCardPage({ clinics }) {
 														onClick={() =>
 															openCheckout(
 																genericTransactionTypeToAddInfo?.genericTransactionTypeId,
-																name,
+																genericTransactionTypeToAddInfo?.infoCategory,
 																lenghtNum,
 																price
 															)
@@ -456,7 +456,7 @@ function BuyCardPage({ clinics }) {
 													onClick={() =>
 														openCheckout(
 															genericTransactionTypeToAddInfo?.genericTransactionTypeId,
-															name,
+															genericTransactionTypeToAddInfo?.infoCategory,
 															lenghtNum,
 															price
 														)
