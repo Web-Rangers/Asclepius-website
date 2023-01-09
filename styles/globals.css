@@ -267,6 +267,16 @@ a {
 	pointer-events: none;
 }
 
+/* ant modal  */
+.ant-modal-header {
+	padding: 32px 32px 0 32px !important;
+	border-bottom: 0 none !important;
+}
+
+.ant-modal {
+	padding-bottom: 0 !important;
+}
+
 .ant-breadcrumb-link {
 	padding: 0 21px 0 0;
 }

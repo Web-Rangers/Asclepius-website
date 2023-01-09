@@ -1,0 +1,83 @@
+.modalContent {
+	width: 637px !important;
+	height: auto;
+	top: 100px !important;
+	border-radius: 16px !important;
+	background-color: #fff !important;
+	overflow: hidden;
+	box-shadow: none !important;
+}
+.nameSurnameConatiner {
+	display: flex;
+	flex-direction: row;
+	gap: 23px;
+}
+.modalContainer {
+	display: flex;
+	align-items: center;
+	/* z-index: 1000040; */
+}
+.Input {
+	border-radius: 12px !important;
+	background-color: #f7f9fb !important;
+	border: none !important;
+}
+
+.Input::placeholder {
+	font-family: 'Avenir Next Georgian' !important;
+	font-style: normal !important;
+	font-weight: 500 !important;
+	font-size: 14px !important;
+	line-height: 150% !important;
+	color: rgba(56, 56, 56, 0.7) !important;
+}
+.sendBtn {
+	font-family: 'Avenir Next Georgian' !important;
+	font-style: normal !important;
+	font-weight: 500 !important;
+	font-size: 14px !important;
+	line-height: 150% !important;
+	color: #383838 !important;
+	background: #ffbbb6 !important;
+	border-radius: 12px !important;
+	border: none !important;
+	width: 145px !important;
+	height: 49px !important;
+}
+.modalHeader {
+	border-bottom: none !important;
+	background-color: #ffbbb6 !important;
+}
+.modalHeader span {
+	font-family: 'Avenir Next Bold';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 150%;
+	color: #383838;
+}
+.closeBtnIcon {
+	height: 40px;
+	width: 40px;
+	padding-top: 20px;
+	padding-right: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+	.modalContent {
+		width: 637px !important;
+		top: 180px !important;
+		border-radius: 16px !important;
+		overflow: hidden;
+	}
+	.nameSurnameConatiner {
+		display: flex;
+		flex-direction: column;
+		gap: 0px;
+		width: 100%;
+	}
+
+	.nameSurnameConatiner .input {
+		width: 100%;
+	}
+}

@@ -1,194 +1,194 @@
 .modalContainer {
-    display: flex;
-    align-items: center;
-    z-index: 1000040;
+	display: flex;
+	align-items: center;
+	z-index: 1000040;
 }
 
 .modalContent {
-    width: 637px!important;
-    top:0!important;
-    border-radius: 16px!important;
-    padding-bottom: 0px;
-    overflow: hidden;
+	width: 637px !important;
+	top: 0 !important;
+	border-radius: 16px !important;
+	padding-bottom: 0px;
+	overflow: hidden;
 }
 
 .modalContent div {
-    border-bottom: none;
+	border-bottom: none;
 }
 
 .modalRenderContent > div:first-child {
-    min-height: 532px;
+	min-height: 532px;
 }
 
-.modalHeader{
-    margin-top:16px;
-    padding-left: 8px;
+.modalHeader {
+	margin-top: 16px;
+	padding-left: 8px;
 }
 
 .modalHeader span {
-    font-family: 'Avenir Next Georgian';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    color: #383838;
-    display: block;
-    margin-bottom: 5px;
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	color: #383838;
+	display: block;
+	margin-bottom: 5px;
 }
 
 .modalHeader div {
-    font-family: 'Avenir Next Georgian';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    color: rgba(56, 56, 56, 0.7);
-    max-width: 90%;
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	color: rgba(56, 56, 56, 0.7);
+	max-width: 90%;
 }
 
 .modalHeader div a {
-    color: #5E70DA;
-    text-decoration: underline;
+	color: #5e70da;
+	text-decoration: underline;
 }
 
 .closeBtnIcon {
-    margin:20px 20px 0 0;
+	margin: 20px 20px 0 0;
 }
 
 .userAvatarBg {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
 }
 
 .userAvatarBg img {
-    width: 55%;
+	width: 55%;
 }
 
 .modalBodyUserInfo {
-    padding: 13px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    background-color: #F7F9FB;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+	padding: 13px 24px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px;
+	background-color: #f7f9fb;
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
 }
 
 .modalBodyUserInfoNames {
-    margin-right: auto;
-    display: flex;
-    flex-direction: column;
+	margin-right: auto;
+	display: flex;
+	flex-direction: column;
 }
 
 .modalBodyuserName {
-    font-family: 'Avenir Next Georgian';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    color: #383838;
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	color: #383838;
 }
 
 .modalBodyuseremail {
-    font-family: 'Avenir Next Georgian';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    color: rgba(56, 56, 56, 0.7);
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	color: rgba(56, 56, 56, 0.7);
 }
 
 .modalBodyUserEdit {
-    background-color: transparent;
-    font-family: 'Avenir Next Georgian';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    color: #5E70DA;
-    outline: none;
-    border: none;
-    cursor: pointer;
-} 
+	background-color: transparent;
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	color: #5e70da;
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
 
 .modalBodyUserPersonalInfo {
-    background-color: #5E70DA;
-    padding: 16px 24px;
-    display: flex;
-    justify-content: space-between;
-    border-radius: 0px 0px 12px 12px;
-    margin-bottom: 32px;
+	background-color: #5e70da;
+	padding: 16px 24px;
+	display: flex;
+	justify-content: space-between;
+	border-radius: 0px 0px 12px 12px;
+	margin-bottom: 32px;
 }
 
 .modalBodyUserPersonalInfo div {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    font-family: 'Avenir Next Georgian';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    color: #F7F9FB;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 12px;
+	color: #f7f9fb;
 }
 
 .servInput {
-    background-color: #F7F9FB;
-    border-radius: 12px;
+	background-color: #f7f9fb;
+	border-radius: 12px;
 }
 
 .servInput div {
-    border: none;
+	border: none;
 }
 
 .familyAddBtn {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    height: 60px;
-    border-radius: 4px;
-    background-color: transparent;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0;
-    text-align: left;
-    color: #797a80;
-    cursor: pointer;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-} 
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	height: 60px;
+	border-radius: 4px;
+	background-color: transparent;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: 0;
+	text-align: left;
+	color: #797a80;
+	cursor: pointer;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
 
 .familyAddBtn > div:nth-child(2) {
-    background-color: #F7F9FB;
-    box-shadow: 0 0 0;
-    margin-top:-10px;
-    border-radius: 0px 0px 12px 12px;
-    font-family: 'Avenir Next Georgian';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 150%;
-    color: rgba(56, 56, 56, 0.7);
+	background-color: #f7f9fb;
+	box-shadow: 0 0 0;
+	margin-top: -10px;
+	border-radius: 0px 0px 12px 12px;
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 150%;
+	color: rgba(56, 56, 56, 0.7);
 }
 
 .familyAddBtn span {
-    font-family: 'Avenir Next Georgian';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 150%;
-    color: rgba(56, 56, 56, 0.7);
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 150%;
+	color: rgba(56, 56, 56, 0.7);
 }
 
 .modalBodyAddFamilyMembers h3 {
-    font-family: 'Avenir Next Georgian';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 150%;
-    color: #383838;
-    margin-bottom:12px;
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 150%;
+	color: #383838;
+	margin-bottom: 12px;
 }
