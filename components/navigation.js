@@ -7,8 +7,7 @@ import Link from 'next/link';
 import { useWindowSize } from './useWindowSize';
 import { ReactSVG } from 'react-svg';
 import { useRouter } from 'next/router';
-import { getCategories } from '../redux/reducers/categoriesReducer';
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function Navigation() {
 	const [allSubcats, setAllSubcats] = useState([]);
@@ -19,32 +18,10 @@ export default function Navigation() {
 	const [parentId, setParentId] = useState(null);
 
 	const categories = useSelector((state)=> state.categories.categories);
-	const dispatch = useDispatch();
-
-	useEffect(() => {
-		getData(`${process.env.MEDICAL_API}/medical/categories`).then(
-			(response) => {
-				if (Array.isArray(response)) {
-					let medical = response?.filter(
-						(e) => e.title == 'სამედიცინო დაწესებულებები'
-					)[0];
-					let aftiaki = response?.filter(
-						(e) => e.title == 'აფთიაქები'
-					)[0];
-					let withoutMedical = response?.filter(
-						(e) => e.title !== 'სამედიცინო დაწესებულებები'
-					).filter((e)=> e.title !== 'აფთიაქები');
-					withoutMedical?.push(aftiaki, medical);
-
-					dispatch(getCategories(withoutMedical))
-				}
-			}
-		);
-	}, []);
 
 	useEffect(()=> {
-		if(router?.query?.id){
-			setRouterId(router?.query?.id)
+		if(router?.query?.categoryId){
+			setRouterId(router?.query?.categoryId)
 		}
 		if(router?.query?.parentCategory) {
 			setParentId(router?.query?.parentCategory)
@@ -110,7 +87,7 @@ export default function Navigation() {
 										<Link
 											target='_blank'
 											rel='noopener noreferrer'
-											href={e.parentCategoryId != null ? `/clinics?id=${e.id}&parentCategory=${e.parentCategoryId}` : `/clinics?id=${e.id}`}
+											href={e.parentCategoryId != null ? `/clinics?categoryId=${e.id}&parentCategory=${e.parentCategoryId}` : `/clinics?id=${e.id}`}
 										>
 											{e.title}
 										</Link>
@@ -125,7 +102,7 @@ export default function Navigation() {
 										<Link
 											target='_blank'
 											rel='noopener noreferrer'
-											href={e.parentCategoryId != null ? `/clinics?id=${e.id}&parentCategory=${e.parentCategoryId}` : `/clinics?id=${e.id}`}
+											href={e.parentCategoryId != null ? `/clinics?categoryId=${e.id}&parentCategory=${e.parentCategoryId}` : `/clinics?id=${e.id}`}
 										>
 											{e.title}
 										</Link>
@@ -190,7 +167,7 @@ export default function Navigation() {
 												<Link
 													target='_blank'
 													rel='noopener noreferrer'
-													href={`/clinics?id=${item.id}`}
+													href={`/clinics?categoryId=${item.id}`}
 												>
 													{
 														routerId == item.id || parentId == item.id ? 

@@ -370,6 +370,53 @@
 	display: none;
 }
 
+/*new styles*/
+.clinicContainer {
+	max-width: 1440px;
+	width: 100%;
+	margin: auto;
+	padding: 43px 50px;
+}
+
+.breadcrumbSpan {
+	cursor: pointer;
+	transition: color 0.3s;
+}
+
+.breadcrumbSpan:hover {
+	color: #FFBBB6;
+}
+
+.breadcrumbs {
+	margin-bottom: 32px;
+	color: #383838!important;
+}
+
+.activeBreadCrumb {
+	font-weight: 700;
+	font-family: 'Avenir Next Bold';
+	color: #FFBBB6;
+	padding: 0 21px 0 0;
+}
+
+.breadcrumbs li {
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	color: #383838!important;
+}
+
+.clinicHeader h2 {
+	font-family: 'Avenir Next Bold';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 150%;
+	color: #383838;
+	margin: 0;
+}
+
 @media only screen and (max-width: 900px) {
 	.imgArrow {
 		display: none;

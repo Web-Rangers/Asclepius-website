@@ -8,8 +8,10 @@
 	justify-content: center;
 	align-items: center;
 	height: 40px;
-	font-family: 'Noto Sans', 'Avenir Next Georgian';
-	font-size: 14px;
+	font-family: 'Noto Sans', 'Avenir Next Georgian Medium';
+	font-size: 16px;
+	color: #000;
+	margin-top:1px;
 }
 .smallheaderContainer {
 	position: sticky;
@@ -22,19 +24,19 @@
 	height: 44px;
 	background: #0f0e0e;
 	margin: auto;
-	padding-left: 50px;
-	padding-right: 50px;
+	padding-right: 2rem;
+    padding-left: 2rem;
 	z-index: 999999;
 }
 .smallheaderLeftText {
-	font-family: 'Noto Sans', 'Avenir Next Georgian';
+	font-family: 'Noto Sans', 'Avenir Next Georgian Medium';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 19px;
 	color: #ffffff;
 	opacity: 0.7;
-	padding-right: 40px;
+	padding-right: 32px;
 }
 
 .smallheaderLeftText:hover {
@@ -52,7 +54,7 @@
 	line-height: 19px;
 	color: #ffbbb6;
 	opacity: 0.7;
-	margin-right: 40px;
+	margin-right: 32px;
 }
 .smallheaderLeftTextMedical::after {
 	content: '';
@@ -78,7 +80,7 @@
 	justify-content: space-between;
 	align-items: center;
 	width: calc(100% - 0px);
-	max-width: calc(1440px - 100px);
+	max-width: calc(1562px);
 	margin: auto;
 }
 .coinStyle {
@@ -101,6 +103,10 @@
 .logoContainer {
 	display: flex;
 	flex-direction: row;
+}
+.logoContainer img {
+	width: 234px;
+	height: auto;
 }
 .logoTextOne {
 	font-family: 'Avenir Next Bold';
@@ -126,8 +132,8 @@
 	top: 43px;
 	z-index: 99999;
 	background: #fff;
-	/* padding-left: 50px; */
-	padding-right: 50px;
+	padding-right: 2rem;
+    padding-left: 2rem;
 }
 
 .headerContainer {
@@ -140,7 +146,7 @@
 	height: 80px;
 	margin: auto;
 	width: calc(100% - 0px);
-	max-width: calc(1440px - 100px);
+	max-width: calc(1560px);
 }
 .headerIcon {
 	/* margin-top: 15px; */

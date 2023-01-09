@@ -243,7 +243,6 @@ export default function Checkout({onClose, currentUser, cards, selectPack, cardT
                                         value: "1",
                                         },
                                         { label: "Child Under 18", value: "2" },
-                                        { label: "Child Above 18", value: "3" },
                                     ]}
                                     onChange={(value) => {
                                         setMemberType(value);
