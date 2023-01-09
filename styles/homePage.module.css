@@ -265,7 +265,7 @@
 	color: #383838;
 	margin-top: 50px;
 	height: 27px;
-	padding-left: 16px;
+	/* padding-left: 16px; */
 }
 .clinicNameText {
 	font-family: 'Avenir Next Bold';
@@ -1157,6 +1157,7 @@
 		grid-auto-rows: 1fr; */
 		margin: auto;
 		/* padding-left: 16px; */
+		padding-bottom: 0;
 	}
 	.clinicCardList::-webkit-scrollbar,
 	.doctorCardList::-webkit-scrollbar {
@@ -1355,8 +1356,8 @@
 		border: 1px solid rgba(30, 40, 55, 0.1);
 	}
 	.imgPart {
-		width: 313px;
-		height: 313px;
+		width: 100%;
+		height: 100%;
 	}
 	.imgPart img {
 		object-fit: contain;
@@ -1368,7 +1369,7 @@
 		margin: 0;
 	}
 	.doctorCardContainer {
-		padding: 50px 0;
+		/* padding: 50px 0; */
 	}
 	.doctorItem {
 		width: 92%;

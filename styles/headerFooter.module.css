@@ -11,7 +11,7 @@
 	font-family: 'Noto Sans', 'Avenir Next Georgian Medium';
 	font-size: 16px;
 	color: #000;
-	margin-top:1px;
+	margin-top: 1px;
 }
 .smallheaderContainer {
 	position: sticky;
@@ -25,7 +25,7 @@
 	background: #0f0e0e;
 	margin: auto;
 	padding-right: 2rem;
-    padding-left: 2rem;
+	padding-left: 2rem;
 	z-index: 999999;
 }
 .smallheaderLeftText {
@@ -64,7 +64,7 @@
 	height: 3px;
 	background-color: #ffbbb6;
 	border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
+	border-top-right-radius: 3px;
 	left: 50%;
 	transform: translate(-50%, 26px) rotate(0deg);
 	animation: mymove 2s linear infinite;
@@ -82,7 +82,7 @@
 	width: 100%;
 	height: 3px;
 	border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
+	border-top-right-radius: 3px;
 	left: 50%;
 	transform: translate(-50%, 26px) rotate(0deg);
 	margin-top: 2px;
@@ -97,7 +97,7 @@
 }
 
 .vouchers:hover:after {
-	background-color: #8338EC;
+	background-color: #8338ec;
 }
 
 .gatamasheba:hover:after {
@@ -172,7 +172,7 @@
 	z-index: 99999;
 	background: #fff;
 	padding-right: 2rem;
-    padding-left: 2rem;
+	padding-left: 2rem;
 }
 
 .headerContainer {
@@ -1111,6 +1111,15 @@
 		display: flex;
 		align-items: flex-end;
 		color: #1e2837;
+	}
+	.avatarBg {
+		width: 26px;
+		height: 28px;
+		overflow: hidden;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		padding: 5px 0;
 	}
 
 	.registrationButton {
