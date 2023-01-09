@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import Button from '../ui/Button';
 import classes from '../../styles/headerFooter.module.css';
 import DropDown from '../ui/DropDown';
 import Link from 'next/link';
@@ -7,7 +6,6 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Modal from 'react-modal';
 import { getData } from '../request';
-import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, Space } from 'antd';
 import { ReactSVG } from 'react-svg';
 import 'antd/dist/antd.css';
@@ -26,7 +24,6 @@ const customStyles = {
 		margin: 0,
 		inset: '0px 0px 0px',
 		zIndex: 1,
-		// border: "none",
 	},
 };
 
@@ -122,12 +119,6 @@ const Header = () => {
 		);
 	}, []);
 
-	// useEffect(() => {
-	// 	modalIsOpen
-	// 		? (document.body.style.overflow = 'hidden')
-	// 		: (document.body.style.overflow = 'scroll');
-	// }, [modalIsOpen]);
-
 	const [offset, setOffset] = useState(0);
 
 	useEffect(() => {
@@ -145,22 +136,22 @@ const Header = () => {
 				<div className={classes.content}>
 					<div className={classes.smallheaderLeft}>
 						<Link href='https://pirveli.com/'>
-							<a className={classes.smallheaderLeftText}>მთავარი</a>
+							<a className={classNames(classes.smallheaderLeftText, classes.main)}>მთავარი</a>
 						</Link>
 						<Link href='https://shop.pirveli.com/'>
-							<a className={classes.smallheaderLeftText}>მაღაზია</a>
+							<a className={classNames(classes.smallheaderLeftText, classes.shop)}>მაღაზია</a>
 						</Link>
 						<Link href='/'>
 							<a className={classes.smallheaderLeftTextMedical}>ჯანდაცვა</a>
 						</Link>
 						<Link href='https://vouchers.pirveli.com'>
-							<a className={classes.smallheaderLeftText}>ვაუჩერები</a>
+							<a className={classNames(classes.smallheaderLeftText, classes.vouchers)}>ვაუჩერები</a>
 						</Link>
 						<Link href='https://s3.pirveli.com/v1/api/getFile?id=6555'>
-							<a className={classes.smallheaderLeftText}>გათამაშება</a>
+							<a className={classNames(classes.smallheaderLeftText, classes.gatamasheba)}>გათამაშება</a>
 						</Link>
 						<Link href='https://images2.imgbox.com/83/ef/za3P3ZPj_o.png'>
-							<a className={classes.smallheaderLeftText}>გართობა</a>
+							<a className={classNames(classes.smallheaderLeftText, classes.gartoba)}>გართობა</a>
 						</Link>
 					</div>
 					<div className={classes.smallheaderRight}>

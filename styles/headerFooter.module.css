@@ -29,14 +29,15 @@
 	z-index: 999999;
 }
 .smallheaderLeftText {
-	font-family: 'Noto Sans', 'Avenir Next Georgian Medium';
+	position: relative;
+	font-family: 'Noto Sans', 'Avenir Next Georgian';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 19px;
-	color: #ffffff;
-	opacity: 0.7;
-	padding-right: 32px;
+	padding-right: 0;
+	margin-right: 32px;
+	color: #ffffffb3;
 }
 
 .smallheaderLeftText:hover {
@@ -52,21 +53,59 @@
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 19px;
-	color: #ffbbb6;
-	opacity: 0.7;
+	padding-right: 0;
 	margin-right: 32px;
+	color: #ffbbb6;
 }
 .smallheaderLeftTextMedical::after {
 	content: '';
 	position: absolute;
 	width: 100%;
-	height: 6px;
+	height: 3px;
 	background-color: #ffbbb6;
-	border-radius: 5px;
+	border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 	left: 50%;
 	transform: translate(-50%, 26px) rotate(0deg);
 	animation: mymove 2s linear infinite;
 	margin-top: 2px;
+}
+
+.smallheaderLeftText:hover {
+	color: #ffffffb3;
+	opacity: 1;
+}
+
+.smallheaderLeftText:hover::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 3px;
+	border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+	left: 50%;
+	transform: translate(-50%, 26px) rotate(0deg);
+	margin-top: 2px;
+}
+
+.main:hover:after {
+	background-color: #db0060;
+}
+
+.shop:hover:after {
+	background-color: #5db039;
+}
+
+.vouchers:hover:after {
+	background-color: #8338EC;
+}
+
+.gatamasheba:hover:after {
+	background-color: #db0060;
+}
+
+.gartoba:hover:after {
+	background-color: #edc520;
 }
 
 .smallheaderRight {
