@@ -276,6 +276,15 @@ a {
 .ant-modal {
 	padding-bottom: 0 !important;
 }
+
+.ant-breadcrumb-link {
+	padding: 0 21px 0 0;
+}
+
+.ant-breadcrumb-separator {
+	padding: 0 21px 0 0;
+}
+
 @media only screen and (max-width: 1290px) {
 	.carousel .control-dots {
 		display: none;

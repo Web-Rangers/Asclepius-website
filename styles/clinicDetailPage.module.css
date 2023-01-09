@@ -370,6 +370,135 @@
 	display: none;
 }
 
+/*new styles*/
+.clinicContainer {
+	max-width: 1440px;
+	width: 100%;
+	margin: auto;
+	padding: 43px 50px;
+}
+
+.breadcrumbSpan {
+	cursor: pointer;
+	transition: color 0.3s;
+}
+
+.breadcrumbSpan:hover {
+	color: #FFBBB6;
+}
+
+.breadcrumbs {
+	margin-bottom: 32px;
+	color: #383838!important;
+}
+
+.activeBreadCrumb {
+	font-weight: 700;
+	font-family: 'Avenir Next Bold';
+	color: #FFBBB6;
+	padding: 0 21px 0 0;
+}
+
+.breadcrumbs li {
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	color: #383838!important;
+}
+
+.clinicHeader h2 {
+	font-family: 'Avenir Next Bold';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 150%;
+	color: #383838;
+	margin: 0;
+}
+
+.clinicDetails {
+	display: flex;
+	gap: 30px;
+	margin-top: 24px;
+}
+
+.clinicBlok {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	flex: 0 313px;
+	padding-bottom:30px;
+}
+
+.clinicBlokInfo {
+	background-color: blue;
+	flex: 1 313px;
+}
+
+.clinicImage {
+	position: relative;
+	width: 313px;
+	height: 313px;
+	overflow: hidden;
+	border-radius: 24px;
+}
+
+.clinicWorkingHoursView {
+	display: flex;
+	flex-direction: column;
+	padding: 24px 20px;
+	background-color: #eff1fb;
+	border-radius: 12px;
+	gap: 20px;
+}
+
+.workingHours {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.workingHours span:nth-child(1){
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 150%;
+	color: rgba(94, 112, 218, 0.8);
+}
+
+.workingHours span:nth-child(2) {
+	font-family: 'Avenir Next Bold';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 150%;
+	color: #5E70DA;
+}
+
+.clinicContact {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.clinicContact div {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 150%;
+	color: #383838;
+}
+
+.clinicPhone {
+	padding-left:3px;
+}
+
 @media only screen and (max-width: 900px) {
 	.imgArrow {
 		display: none;

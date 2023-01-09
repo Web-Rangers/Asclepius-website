@@ -102,7 +102,6 @@ function Home() {
 		getMultipleData(datas, setData, urls);
 	}, []);
 
-	console.log('all data', allData);
 	return (
 		<div className={classes.homePageContainer}>
 			<Navigation />

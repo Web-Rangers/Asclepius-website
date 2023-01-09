@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import Button from '../ui/Button';
 import classes from '../../styles/headerFooter.module.css';
 import DropDown from '../ui/DropDown';
 import Link from 'next/link';
@@ -7,12 +6,13 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Modal from 'react-modal';
 import { getData } from '../request';
-import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, Space } from 'antd';
 import { ReactSVG } from 'react-svg';
 import 'antd/dist/antd.css';
 import classNames from 'classnames';
 import { useWindowSize } from '../../components/useWindowSize';
+import { useDispatch } from "react-redux";
+import { getCategories } from '../../redux/reducers/categoriesReducer';
 
 const customStyles = {
 	content: {
@@ -24,7 +24,6 @@ const customStyles = {
 		margin: 0,
 		inset: '0px 0px 0px',
 		zIndex: 1,
-		// border: "none",
 	},
 };
 
@@ -56,6 +55,7 @@ const Header = () => {
 		img: ``,
 		color: '',
 	});
+	const dispatch = useDispatch();
 
 	const handleChange = (e) => {
 		setSearchInput(e.target.value);
@@ -98,11 +98,26 @@ const Header = () => {
 		);
 	}, []);
 
-	// useEffect(() => {
-	// 	modalIsOpen
-	// 		? (document.body.style.overflow = 'hidden')
-	// 		: (document.body.style.overflow = 'scroll');
-	// }, [modalIsOpen]);
+	useEffect(() => {
+		getData(`${process.env.MEDICAL_API}/medical/categories`).then(
+			(response) => {
+				if (Array.isArray(response)) {
+					let medical = response?.filter(
+						(e) => e.title == 'სამედიცინო დაწესებულებები'
+					)[0];
+					let aftiaki = response?.filter(
+						(e) => e.title == 'აფთიაქები'
+					)[0];
+					let withoutMedical = response?.filter(
+						(e) => e.title !== 'სამედიცინო დაწესებულებები'
+					).filter((e)=> e.title !== 'აფთიაქები');
+					withoutMedical?.push(aftiaki, medical);
+
+					dispatch(getCategories(withoutMedical))
+				}
+			}
+		);
+	}, []);
 
 	const [offset, setOffset] = useState(0);
 
@@ -121,22 +136,22 @@ const Header = () => {
 				<div className={classes.content}>
 					<div className={classes.smallheaderLeft}>
 						<Link href='https://pirveli.com/'>
-							<a className={classes.smallheaderLeftText}>მთავარი</a>
+							<a className={classNames(classes.smallheaderLeftText, classes.main)}>მთავარი</a>
 						</Link>
 						<Link href='https://shop.pirveli.com/'>
-							<a className={classes.smallheaderLeftText}>მაღაზია</a>
+							<a className={classNames(classes.smallheaderLeftText, classes.shop)}>მაღაზია</a>
 						</Link>
 						<Link href='/'>
-							<a className={classes.smallheaderLeftTextMedical}>მედიქალი</a>
+							<a className={classes.smallheaderLeftTextMedical}>ჯანდაცვა</a>
 						</Link>
 						<Link href='https://vouchers.pirveli.com'>
-							<a className={classes.smallheaderLeftText}>ვაუჩერები</a>
+							<a className={classNames(classes.smallheaderLeftText, classes.vouchers)}>ვაუჩერები</a>
 						</Link>
 						<Link href='https://s3.pirveli.com/v1/api/getFile?id=6555'>
-							<a className={classes.smallheaderLeftText}>გათამაშება</a>
+							<a className={classNames(classes.smallheaderLeftText, classes.gatamasheba)}>გათამაშება</a>
 						</Link>
 						<Link href='https://images2.imgbox.com/83/ef/za3P3ZPj_o.png'>
-							<a className={classes.smallheaderLeftText}>თამაშები</a>
+							<a className={classNames(classes.smallheaderLeftText, classes.gartoba)}>გართობა</a>
 						</Link>
 					</div>
 					<div className={classes.smallheaderRight}>

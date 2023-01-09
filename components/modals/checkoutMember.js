@@ -60,15 +60,6 @@ export default function CheckoutFamilyMember({onClose, type, users, setUsers}) {
                     Read information about the processing of personal data here - <a href="">Document link</a>
                 </div>
                 {
-                    type == '3' && <Above18 
-                                        userInfo={userInfo} 
-                                        setUserInfo={(e)=> setUserInfo(e)} 
-                                        validation={validation} 
-                                        validationList={validationList}
-                                        idNumLength={idNumLength}
-                                        setIdNumLength={setIdNumLength}
-                                    /> 
-                                || 
                     type == '2' && <Under18 
                                         userInfo={userInfo} 
                                         setUserInfo={(e)=> setUserInfo(e)} 
@@ -155,7 +146,7 @@ export function Above18({userInfo, setUserInfo, validation, validationList, idNu
                 value={userInfo.mail}
                 onChange={(e)=> setUserInfo(values=> ({...values, mail: e}))}
             />
-            <ant.Checkbox onChange={onChange}>სხვა ქვეყნის მოქალაქე</ant.Checkbox>
+            <ant.Checkbox onChange={onChange}>სხვა ქვეყნის მოქალაქე / პასპორტი</ant.Checkbox>
             <Input 
                 label="Id number" 
                 className={styles.servInput}
@@ -219,6 +210,7 @@ export function WifeOrHusband({userInfo, setUserInfo, validation, validationList
             registryType: "individual",
             taxationPolicy: "notax",
             orgLegalForm: "ind",
+            phone: '',
             firstName: '',
             lastName: '',
             mail: '',
@@ -256,6 +248,16 @@ export function WifeOrHusband({userInfo, setUserInfo, validation, validationList
                 value={userInfo.lastName}
                 onChange={(e)=> setUserInfo(values=> ({...values, lastName: e}))}
             />
+             <Input 
+                label="Phone" 
+                style={classNames(styles.servInput, {
+                    [styles.validationInput]: validationList.findIndex((e)=> e == 'phone') !== -1,
+                    [styles.removeValidation]: userInfo?.phone,
+                })} 
+                placeholder="Phone" 
+                value={userInfo.phone}
+                onChange={(e)=> setUserInfo(values=> ({...values, phone: e}))}
+            />
             <Input 
                 label="Mail" 
                 style={classNames(styles.servInput, {
@@ -266,7 +268,7 @@ export function WifeOrHusband({userInfo, setUserInfo, validation, validationList
                 value={userInfo.mail}
                 onChange={(e)=> setUserInfo(values=> ({...values, mail: e}))}
             />
-            <ant.Checkbox onChange={onChange}>სხვა ქვეყნის მოქალქე</ant.Checkbox>
+            <ant.Checkbox onChange={onChange}>სხვა ქვეყნის მოქალქე / პასპორტი</ant.Checkbox>
             <Input 
                 label="Id number" 
                 className={styles.servInput}
@@ -366,7 +368,7 @@ export function Under18({userInfo, setUserInfo, validation, validationList, idNu
                 value={userInfo.lastName}
                 onChange={(e)=> setUserInfo(values=> ({...values, lastName: e}))}
             />
-            <ant.Checkbox onChange={onChange}>სხვა ქვეყნის მოქალაქე</ant.Checkbox>
+            <ant.Checkbox onChange={onChange}>სხვა ქვეყნის მოქალაქე / პასპორტი</ant.Checkbox>
             <Input 
                 label="Id number" 
                 className={styles.servInput}

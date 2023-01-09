@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 const language = [
 	{
 		id: '1',
-		language: '/geo.svg',
+		language: '/geoFlag.svg',
 		name: 'geo',
 	},
 	{
@@ -87,12 +87,12 @@ export default function DropDown({
 						</div>
 						{open ? (
 							<img
-								src='/dropUp.svg'
+								src='/arrowlang.svg'
 								className={styles.icon}
 							/>
 						) : (
 							<img
-								src='/dropDown.svg'
+								src='/arrowlang.svg'
 								className={styles.icon}
 							/>
 						)}
