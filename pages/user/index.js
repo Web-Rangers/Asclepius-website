@@ -260,7 +260,9 @@ export default function UserDetailed() {
                                             <h3>{userInfo?.firstName} {userInfo?.lastName}</h3>
                                             <h4>Birth date: {userInfo?.personDob}</h4>
                                         </div>
-                                        <ReactSVG className={styles.userOptionBtn} src="/useroption.svg" />
+                                        <Link href="https://profile.pirveli.com">
+                                            <ReactSVG className={styles.userOptionBtn} src="/useroption.svg" />
+                                        </Link>
                             </div> : <Skeleton className={styles.skelton} active avatar></Skeleton>
                         }
                     </Block>
