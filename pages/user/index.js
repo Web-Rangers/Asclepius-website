@@ -85,7 +85,6 @@ export default function UserDetailed() {
 					hideModal={() => setOpen(false)}
 				/>
 			}
-
 			<div className={styles.detailedPage}>
 				<div>
 					<Breadcrumb separator={<img src='/separator.svg' />}>
@@ -96,7 +95,7 @@ export default function UserDetailed() {
 							პროფილი
 						</Breadcrumb.Item>
 					</Breadcrumb>
-				</div>
+				</div>{' '}
 				{familyMemberModal && (
 					<AddFamilyMember onClose={() => setFamilyMemberModal(false)} />
 				)}
@@ -321,11 +320,6 @@ export default function UserDetailed() {
 						{userCards?.length > 1 ? (
 							<Block
 								title='ჩემი ბარათი'
-								actions={
-									<Link href='user/mycard'>
-										<button className={styles.upgradeBtn}>ყველა სერვისი</button>
-									</Link>
-								}
 								className={styles.cards}
 							>
 								<div className={styles.cardBlockDiv}>
@@ -351,11 +345,6 @@ export default function UserDetailed() {
 						) : (
 							<Block
 								title='ჩემი ბარათი'
-								actions={
-									<Link href='user/mycard'>
-										<button className={styles.upgradeBtn}>ყველა სერვისი</button>
-									</Link>
-								}
 								className={styles.cards}
 							>
 								<span className={styles.cardsSpan}>
