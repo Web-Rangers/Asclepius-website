@@ -270,7 +270,6 @@ export default function UserDetailed() {
                         ?
                         <Block
                             title="ჩემი ბარათი"
-                            actions={<Link href="user/mycard"><button className={styles.upgradeBtn}>ყველა სერვისი</button></Link>}
                             className={styles.cards}
                         >
                             <div className={styles.cardBlockDiv}>
@@ -288,7 +287,6 @@ export default function UserDetailed() {
                         :
                         <Block
                             title="ჩემი ბარათი"
-                            actions={<Link href="user/mycard"><button className={styles.upgradeBtn}>ყველა სერვისი</button></Link>}
                             className={styles.cards}
                         >
                             <span className={styles.cardsSpan}>

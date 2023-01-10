@@ -197,7 +197,9 @@ const ClinicDetailPage = () => {
 								<Link href={router?.query?.categoryId ? `/clinicDetailPage/${clinic?.id}/doctors?${doctorsLink}` : `/clinicDetailPage/${clinic?.id}/doctors`}>
 									<button>ექიმები</button>
 								</Link>
-								<button>მომსახურებები</button>
+								<Link href={router?.query?.categoryId ? `/clinicDetailPage/${clinic?.id}/services?${doctorsLink}&contractId=${clinic?.contracts?.contractId}` : `/clinicDetailPage/${clinic?.id}/services?contractId=${clinic?.contracts?.contractId}`}>
+									<button>მომსახურებები</button>
+								</Link>
 							</div>
 							<div className={styles.clinicOffers}>
 								<h4>შეთავაზებები</h4>
