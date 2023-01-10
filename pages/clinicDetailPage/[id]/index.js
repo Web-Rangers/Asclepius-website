@@ -216,7 +216,15 @@ const ClinicDetailPage = () => {
 								>
 									<button>ექიმები</button>
 								</Link>
-								<button>მომსახურებები</button>
+								<Link
+									href={
+										router?.query?.categoryId
+											? `/clinicDetailPage/${clinic?.id}/services?${doctorsLink}`
+											: `/clinicDetailPage/${clinic?.id}/services`
+									}
+								>
+									<button>მომსახურებები</button>
+								</Link>
 							</div>
 							<div className={styles.clinicOffers}>
 								<h4>შეთავაზებები</h4>
