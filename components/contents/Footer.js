@@ -57,7 +57,7 @@ const Footer = () => {
 							<div className={classes.iconContainer}>
 								<a
 									target={'_blank'}
-									rel='noreferrer'
+									rel='noopener noreferrer'
 									href={
 										'https://www.facebook.com/profile.php?id=100088325187616'
 									}
@@ -72,7 +72,7 @@ const Footer = () => {
 
 								<a
 									target={'_blank'}
-									rel='noreferrer'
+									rel='noopener noreferrer'
 									href={'https://www.instagram.com/pirveli_pirveli/'}
 								>
 									<img
@@ -90,7 +90,7 @@ const Footer = () => {
 								/>
 								<a
 									target={'_blank'}
-									rel='noreferrer'
+									rel='noopener noreferrer'
 									href={'https://www.linkedin.com/company/88047011'}
 								>
 									<img
@@ -183,7 +183,7 @@ const Footer = () => {
 						</Text>
 						<a
 							target={'_blank'}
-							rel='noreferrer'
+							rel='noopener noreferrer'
 							href={'https://goo.gl/maps/FJr1txtq9jTJhKQQA'}
 						>
 							<Text style={classes.textStyle}>
