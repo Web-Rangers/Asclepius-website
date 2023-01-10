@@ -432,7 +432,7 @@ function BuyCardPage({ clinics }) {
 														<div className={s.cardOverview}>
 															<div className={s.cardImage}>
 																<img
-																	src='/01-4.png'
+																	src='/01-4.webp'
 																	alt=''
 																/>
 															</div>
@@ -465,7 +465,7 @@ function BuyCardPage({ clinics }) {
 													<div className={s.cardOverview}>
 														<div className={s.cardImage}>
 															<img
-																src='/01-4.png'
+																src='/01-4.webp'
 																alt=''
 															/>
 														</div>

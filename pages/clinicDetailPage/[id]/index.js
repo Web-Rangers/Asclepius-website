@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState, useEffect, useCallback } from 'react';
+import classNames from 'classnames';
 import { Breadcrumb } from 'antd';
 import { useSelector } from "react-redux";
 import Navigation from '../../../components/navigation';
@@ -19,11 +20,13 @@ const ClinicDetailPage = () => {
 	const categories = useSelector((state)=> state.categories.categories);
 	const [additionalData, setAdditionalData] = useState({
 		services: [],
-		branches: []
+		branches: [],
+		gallery: []
 	})
 	const [generateBreadcrumbs, setGenerateBreadcrumbs] = useState({});
 	const [clinic, setClinic] = useState({});
 	const [phoneNumber, setPhoneNumber] = useState(null);
+	const [doctorsLink, setDoctorsLink] = useState('');
 
 	const days = [
 		'',
@@ -37,6 +40,13 @@ const ClinicDetailPage = () => {
 	]
 	
 	useEffect(() => {
+		//modify href
+		if(router?.query?.categoryId){
+			setDoctorsLink(`${router?.asPath.toString().split('?')[1]}`)
+		}else {
+			setDoctorsLink('')
+		}
+
 		const categorie = categories?.filter((e)=> e.id == router?.query?.categoryId)[0];
 		const parent = categories?.filter((e)=> e.id == categorie?.parentCategoryId)[0];
 		
@@ -57,11 +67,12 @@ const ClinicDetailPage = () => {
 	useEffect(()=> {
 		
 		if(clinic?.contracts?.contractId) {
-			let objectKeys = ['services', 'branches'];
+			let objectKeys = ['services', 'branches', 'gallery'];
 
 			let urls = [
 				`${process.env.MEDICAL_API}/medical/products/get-products-by-contract-id?contractId=${clinic?.contracts?.contractId}`,
-				`${process.env.MEDICAL_API}/medical/clinics/${clinic?.id}/branches`
+				`${process.env.MEDICAL_API}/medical/clinics/${clinic?.id}/branches`,
+				`${process.env.MEDICAL_API}/medical/gallery/clinic/${clinic?.id}`
 			];
 	
 			getMultipleData(objectKeys, setAdditionalData, urls);
@@ -183,7 +194,9 @@ const ClinicDetailPage = () => {
 								</div>
 							</div>
 							<div className={styles.clinicDocAndServ}>
-								<button>ექიმები</button>
+								<Link href={router?.query?.categoryId ? `/clinicDetailPage/${clinic?.id}/doctors?${doctorsLink}` : `/clinicDetailPage/${clinic?.id}/doctors`}>
+									<button>ექიმები</button>
+								</Link>
 								<button>მომსახურებები</button>
 							</div>
 							<div className={styles.clinicOffers}>
@@ -202,6 +215,12 @@ const ClinicDetailPage = () => {
 								</div>
 							</div>
 						</div>
+					</div>
+				</div>
+
+				<div className={styles.clinicBranches}>
+					<div className={styles.clinicBranchTitle}>
+						<ClinicGallery gallery={additionalData?.gallery} />
 					</div>
 				</div>
 
@@ -294,18 +313,107 @@ export function Branches({branches}) {
 					</SwiperSlide>
 				))}
 			</Swiper>
-			<img
-				src='/swiperLeftArrow.svg'
-				alt='arrowLeft'
-				className={styles.clinicSwiperArrowLeft}
-				onClick={handleLeftClick}
-			/>
-			<img
-				src='/swiperarrow.svg'
-				alt='arrowRight'
-				className={styles.clinicSwiperArrowRight}
-				onClick={handleRightClick}
-			/>
+			{
+				branches?.length >= 5 && 
+				<>
+					<img
+						src='/swiperLeftArrow.svg'
+						alt='arrowLeft'
+						className={styles.clinicSwiperArrowLeft}
+						onClick={handleLeftClick}
+					/>
+					<img
+						src='/swiperarrow.svg'
+						alt='arrowRight'
+						className={styles.clinicSwiperArrowRight}
+						onClick={handleRightClick}
+					/>
+				</>
+			}
+		</div>
+	</>
+}
+
+export function ClinicGallery({gallery}) {
+	const [swiperRef, setSwiperRef] = useState();
+
+	const handleLeftClick = useCallback(() => {
+		if (!swiperRef) return;
+		swiperRef.slidePrev();
+	}, [swiperRef]);
+
+	const handleRightClick = useCallback(() => {
+		if (!swiperRef) return;
+		swiperRef.slideNext();
+	}, [swiperRef]);
+
+	return <>
+		<div className={styles.branchCardList}>
+			<Swiper
+				direction='horizontal'
+				onSwiper={setSwiperRef}
+				id='branchMobileSize'
+				slidesPerView={'auto'}
+				navigation={{
+					prevEl: styles.swiperArrowLeft,
+					nextEl: styles.swiperArrowLeft,
+				}}
+				freeMode={true}
+				loopFillGroupWithBlank={true}
+				lazy={true}
+				modules={[swiper.Pagination, swiper.Navigation, swiper.Lazy]}
+				breakpoints={{
+					// when window width is >= 640px
+					320: {
+						slidesPerView: 1.3,
+						spaceBetween: 12,
+					},
+					640: {
+						slidesPerView: 2,
+						spaceBetween: 15,
+					},
+					// when window width is >= 768px
+					768: {
+						slidesPerView: 2,
+						spaceBetween: 15,
+					},
+					950: {
+						slidesPerView: 3,
+						spaceBetween: 15,
+					},
+					1280: {
+						slidesPerView: 4,
+						spaceBetween: 30,
+					},
+				}}
+			>
+				{gallery?.map((item, i) => (
+					<SwiperSlide key={i}>
+						<div className={styles.branchView}>
+							<div className={styles.galleryImage}>
+								<Image src={item.url} layout="fill" />
+							</div>
+						</div>
+					</SwiperSlide>
+				))}
+			</Swiper>
+			{
+				gallery?.length >= 5 && 
+				<>
+					<img
+						src='/swiperLeftArrow.svg'
+						alt='arrowLeft'
+						className={classNames(styles.clinicSwiperArrowLeft, styles.noMargins)}
+						onClick={handleLeftClick}
+					/>
+					<img
+						src='/swiperarrow.svg'
+						alt='arrowRight'
+						className={classNames(styles.clinicSwiperArrowRight, styles.noMargins)}
+						onClick={handleRightClick}
+					/>
+				</>
+			}
 		</div>
 	</>
 }

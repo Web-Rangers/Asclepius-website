@@ -109,6 +109,10 @@
 	position: relative;
 }
 
+.clinicImage img {
+	object-fit: cover;
+}
+
 .skeletonImage {
 	background-color: #F7F9FB;
 	border-radius: 24px;

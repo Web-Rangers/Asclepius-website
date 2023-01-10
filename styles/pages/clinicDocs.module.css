@@ -1,0 +1,158 @@
+.doctorsContainer {
+	max-width: 1440px;
+	width: 100%;
+	margin: auto;
+	padding: 43px 50px;
+}
+
+.breadcrumbSpan {
+	cursor: pointer;
+	transition: color 0.3s;
+}
+
+.breadcrumbSpan:hover {
+	color: #FFBBB6;
+}
+
+.breadcrumbs {
+	margin-bottom: 32px;
+	color: #383838!important;
+}
+
+.activeBreadCrumb {
+	font-weight: 700;
+	font-family: 'Avenir Next Bold';
+	color: #FFBBB6;
+	padding: 0 21px 0 0;
+}
+
+.breadcrumbs li {
+	font-family: 'Avenir Next Georgian';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	color: #383838!important;
+}
+
+.clinicContent {
+    overflow: hidden;
+}
+
+.doctorsList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 30px;
+    grid-gap: 24px;
+}
+
+.doctorsView {
+    background: #F7F9FB;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.doctorImage {
+    position: relative;
+    overflow: hidden;
+    height: 286px;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+}
+
+.doctorImage img {
+    object-fit: cover;
+}
+
+.doctorInfo {
+    padding: 24px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.doctorInfo h2, .doctorInfo h4 {
+    margin: 0;
+}
+
+.doctorInfo h2 {
+    font-family: 'Avenir Next Georgian Medium';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    color: #383838;
+}
+
+.doctorInfo h4 {
+    font-family: 'Avenir Next Georgian';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #797A80;
+}
+
+.clinicDocHeader {
+    margin-bottom: 26px;
+    font-family: 'Avenir Next Georgian Medium';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+    color: #383838;
+}
+
+.loadmoreBtn {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin:30px auto;
+    height: auto;
+    background-color: transparent;
+    padding: 14px 40px;
+    border: 1px solid rgba(56, 56, 56, 0.2);
+    border-radius: 12px;
+    font-family: 'Avenir Next Georgian Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #383838;
+}
+
+.loadmoreBtn:hover {
+    background-color: transparent;
+    border: 1px solid rgba(56, 56, 56, 0.2);
+    color: #383838;
+}
+
+.clinicImage {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 24px;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.clinicImage img {
+    object-fit: cover;
+}
+
+.clincInfo {
+    display: flex;
+    align-items: center;
+    gap: 0 40px;
+}
+
+.clincInfo h2 {
+    font-family: 'Avenir Next Georgian';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    color: #383838;
+    max-width: 30%;
+}
+
+.clincInfo {
+    margin: 10px 0 82px;
+}

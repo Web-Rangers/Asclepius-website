@@ -98,7 +98,7 @@ export default function UserDetailed() {
                         <div className={styles.greetingImage}>
                             <img 
                                 className={styles.greetingBackground} 
-                                src="/userImage.svg" 
+                                src="/userImage.png" 
                                 alt="greeting" 
                             />
                         </div>
@@ -112,8 +112,8 @@ export default function UserDetailed() {
                     </div>
 
                     <div className={styles.emptyOrders}>
-                        <h2>შეკვეთების ისტორია</h2>
-                        <span>ამ ეტაპზე, თქვენ არ გაქვთ განხორციელებული შეკვეთა. გთხოვთ შეიძინეთ ჯანდაცვის ბარათი.</span>
+                        <h2>ისტორია</h2>
+                        <span>პაციენტის ისტორია მალე დაემატება.</span>
                     </div>
 
                     {/* <div className={styles.orders}>
@@ -273,7 +273,7 @@ export default function UserDetailed() {
                         >
                             <div className={styles.cardBlockDiv}>
                                 <div className={styles.cardView}>
-                                    <img className={styles.cardImage} src="/01-5.png" alt="" />
+                                    <img className={styles.cardImage} src="/01-5.webp" alt="" />
                                     <span className={styles.cardNumber}>2017 1115 2020 {randomNum}</span>
                                     <span className={styles.cardUserTitle}>{userInfo?.firstName} {userInfo?.lastName}</span>
                                     <span className={styles.expiration}>00/00</span>
@@ -304,8 +304,8 @@ export default function UserDetailed() {
                 {
                     useWindowSize().width < 600 && 
                     <div className={styles.blockemptyOrders}>
-                        <h2>შეკვეთების ისტორია</h2>
-                        <span>ამ ეტაპზე, თქვენ არ გაქვთ განხორციელებული შეკვეთა. გთხოვთ შეიძინეთ ჯანდაცვის ბარათი.</span>
+                        <h2>ისტორია</h2>
+                        <span>პაციენტის ისტორია მალე დაემატება.</span>
                     </div>
                 }
             </div>

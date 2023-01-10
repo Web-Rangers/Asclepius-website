@@ -48,7 +48,7 @@
 }
 .smallheaderLeftTextMedical {
 	position: relative;
-	font-family: 'Noto Sans', 'Avenir Next Georgian';
+	font-family: 'Noto Sans', 'Avenir Next Georgian Medium';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 14px;
@@ -522,7 +522,7 @@
 	justify-content: center;
 	width: 0;
 	height: 48px;
-	background: #ff1c00;
+	background: #ff6552;
 	border-radius: 5px;
 	font-family: 'Avenir Next Bold';
 	font-style: normal;

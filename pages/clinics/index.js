@@ -103,7 +103,9 @@ function ClinicsPage({ clinics = [], cards = [], municipalities = [] }) {
 				<Navigation />
 				<div className={styles.clinicsContainer}>
 					<div className={styles.breadcrumbs}>
-						<Breadcrumb>
+						<Breadcrumb
+							separator={<img src="/separator.svg" />}
+						>
 							<Breadcrumb.Item>
 								<Link href="/">მთავარი გვერდი</Link>
 							</Breadcrumb.Item>
