@@ -89,3 +89,34 @@
 	font-size: 14px;
 	color: #383838!important;
 }
+
+
+.clinicImage {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 24px;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.clinicImage img {
+    object-fit: cover;
+}
+
+.clincInfo {
+    display: flex;
+    gap: 0 40px;
+}
+
+.clincInfo h2 {
+    font-family: 'Avenir Next Georgian';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    color: #383838;
+}
+
+.clincInfo {
+    margin: 10px 0 40px;
+}

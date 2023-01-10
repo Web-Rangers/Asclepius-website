@@ -153,9 +153,12 @@ export default function Services() {
             </div>
             <div className={styles.clincInfo}>
                 <div className={styles.clinicImage}>
-                    {/* <Image src={clinic?.logoUrl} layout="fill" /> */}
+                    <Image src={clinic?.logoUrl} layout="fill" />
                 </div>
-                <h2>{clinic?.displayName}</h2>
+                <div>
+                    <h2>{clinic?.displayName}</h2>
+                    <p>{clinic?.description}</p>
+                </div>
             </div>
             <div className={styles.servicesSearch}>
                 <h3>მომსახურებები</h3>
