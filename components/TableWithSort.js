@@ -116,8 +116,6 @@ export default function Table({
 							headerStyle={headerStyle}
 							dataIndex={dataIndex}
 							sort={sort}
-							setSort={setSort}
-							sortData={sortData}
 						/>
 					);
 				})}
@@ -298,7 +296,7 @@ export const TableRow = ({
 	);
 };
 
-export function Columns({ key, title, headerStyle, dataIndex, sort, setSort, sortData }) {
+export function Columns({ key, title, headerStyle, dataIndex, sort }) {
 	const [sorted, setSorted] = useState(false);
 	return (
 		<>
@@ -316,13 +314,13 @@ export function Columns({ key, title, headerStyle, dataIndex, sort, setSort, sor
 									className={styles.sortIcons}
 									onClick={() => {
 										setSorted(!sorted);
-										setSort((prevState) => ({ ...prevState, [dataIndex]: !sorted }))
-										sortData(dataIndex)
+										// setSort((prevState) => ({ ...prevState, [dataIndex]: !sorted }));*/}
+										// sortData(dataIndex)*/}
 									}}
 								>
 									<ReactSVG
-										src='/sortArrows.svg'
-										className={styles.sorted}
+										src='/sortArrow.svg'
+										className={sorted ? styles.sort : styles.sorted}
 										alt=''
 									/>
 								</button>

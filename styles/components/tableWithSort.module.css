@@ -131,12 +131,9 @@
     font-weight: 500;
     padding: 15px 0;
     background-color: transparent;
-    font-family: 'Avenir Next Georgian Medium';
-    font-style: normal;
-    font-weight: 500;
+    color:#3A74D2;
+    font-weight: 700;
     font-size: 14px;
-    line-height: 150%;
-    color: #383838;
 }
 
 .tableRow {
@@ -253,18 +250,16 @@
 }
 
 .sortIcons div{
-    margin-bottom:0px;
-    margin-top: 0px;
+    margin-bottom:-3px;
 }
 
 .sorted {
     transform: rotate(180deg);
-    margin-top:0px;
+    margin-top:9px;
 }
 
 .sort {
     transform: rotate(0);
-    margin-top: 0px!important;
 }
 
 .paginationBar {
