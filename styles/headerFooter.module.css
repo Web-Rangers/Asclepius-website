@@ -248,7 +248,7 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	gap: 16px;
-	padding: 35px 20px;
+	/* padding: 35px 20px; */
 }
 .headerIcon img {
 	width: 47px;
@@ -258,8 +258,8 @@
 .leftSideContainer {
 	display: flex;
 	flex-direction: row;
-	width: 23.28%;
-	min-width: 230px;
+	/* width: 23.28%; */
+	/* min-width: 230px; */
 	/* background-color: fuchsia; */
 }
 .rightSideContainer {
@@ -301,26 +301,26 @@
 .firstRow {
 	display: flex;
 	flex-direction: row;
-	width: 23.28%;
-	min-width: 230px;
+	/* width: 23.28%; */
+	/* min-width: 230px; */
 	/* background-color: aquamarine; */
 }
 
 .secondRow {
 	display: flex;
 	flex-direction: column;
-	width: 23.28%;
-	min-width: 230px;
+	/* width: 23.28%; */
+	/* min-width: 230px; */
 	z-index: 1;
 	/* background-color: chartreuse; */
 	gap: 16px;
-	padding: 35px 20px;
+	/* padding: 35px 20px; */
 }
 .companyConatiner {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
-	padding: 35px 20px;
+	/* padding: 35px 20px; */
 }
 .companyConatiner img {
 	width: 30px;
@@ -342,6 +342,7 @@
 	line-height: 150%;
 	color: #383838;
 	cursor: pointer;
+	white-space: nowrap;
 }
 .textStyle:hover {
 	text-decoration: underline;
