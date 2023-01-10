@@ -301,15 +301,15 @@ function BuyCardPage({ clinics }) {
 				/>
 			)}
 			<div className={s.container}>
-				<Breadcrumb separator={<img src='/separator.svg' />}>
-					<Breadcrumb.Item>
-						<Link href='/'>მთავარი გვერდი</Link>
-					</Breadcrumb.Item>
-					<Breadcrumb.Item className={styles.activeBreadCrumb}>
-						ბარათის შეძენა
-					</Breadcrumb.Item>
-				</Breadcrumb>
 				<div className={s.firstPart}>
+					<Breadcrumb separator={<img src='/separator.svg' />}>
+						<Breadcrumb.Item>
+							<Link href='/'>მთავარი გვერდი</Link>
+						</Breadcrumb.Item>
+						<Breadcrumb.Item className={styles.activeBreadCrumb}>
+							ბარათის შეძენა
+						</Breadcrumb.Item>
+					</Breadcrumb>
 					<div className={s.headerContainer}>
 						{/* <div className={s.headerContainerLeft}>
 							<Text style={s.headerContainerTitle}>How to buy a card ?</Text>
