@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import style from '../../styles/components/card.module.css';
-import Button from '../ui/Button';
 import Link from 'next/link';
 import { Switch, Tooltip } from 'antd';
 
@@ -132,13 +131,13 @@ const Card = ({ data }) => {
 						>
 							<a className={style.tooltipContainer}>
 								<img
-									src={'tooltip.svg'}
+									src={'/tooltip.svg'}
 									alt='star'
 									className={style.tooltip}
 								/>
 
 								<img
-									src={'tooltipActive.svg'}
+									src={'/tooltipActive.svg'}
 									alt='star'
 									className={style.tooltipActive}
 								/>

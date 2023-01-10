@@ -8,18 +8,14 @@ import CardCheckoutModal from '../../components/modals/CardCheckoutModal';
 import classNames from 'classnames';
 import { ReactSVG } from 'react-svg';
 import { getData, getMultipleData } from '../../components/request';
-import FormGroup from '@mui/material/FormGroup';
-import Switch from '@mui/material/Switch';
-import { styled } from '@mui/material/styles';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
 import style from '../../styles/components/card.module.css';
-import Select from '../../components/Select';
 import Checkout from '../../components/modals/checkout';
 import TableDropDown from '../../components/TableDropDown';
 import { ConnectingAirportsOutlined } from '@mui/icons-material';
 import Image from 'next/image';
 import { Skeleton } from 'antd';
+
+import { Switch, Tooltip } from 'antd';
 
 function BuyCardPage({ clinics }) {
 	const [data, setData] = useState({
@@ -241,48 +237,7 @@ function BuyCardPage({ clinics }) {
 		setCardTypes((e) => ({ family: family, individual: individual }));
 	}, []);
 
-	const AntSwitch = styled(Switch)(({ theme }) => ({
-		width: 60,
-		height: 32,
-		padding: 0,
-		display: 'flex',
-		'&:active': {
-			'& .MuiSwitch-thumb': {
-				width: 26,
-			},
-			'& .MuiSwitch-switchBase.Mui-checked': {
-				transform: 'translateX(9px)',
-			},
-		},
-		'& .MuiSwitch-switchBase': {
-			padding: 3,
-			'&.Mui-checked': {
-				transform: 'translateX(30px)',
-				color: '#fff',
-				'& + .MuiSwitch-track': {
-					opacity: 1,
-					backgroundColor:
-						theme.palette.mode === 'dark' ? '#FF766C' : '#FF766C',
-				},
-			},
-		},
-		'& .MuiSwitch-thumb': {
-			boxShadow: '0 2px 4px 0 rgb(0 35 11 / 20%)',
-			width: 25,
-			height: 25,
-			borderRadius: 12,
-			transition: theme.transitions.create(['width'], {
-				duration: 0,
-			}),
-		},
-		'& .MuiSwitch-track': {
-			borderRadius: 16,
-			opacity: 1,
-			backgroundColor:
-				theme.palette.mode === '#FF766C' ? '#FF766C' : 'rgba(0,0,0,.25)',
-			boxSizing: 'border-box',
-		},
-	}));
+	const text = <span>საოჯახო პაკეტი მოიცავს, დედას, მამას და 2 ბავშვს</span>;
 
 	function openCheckout(type, pack, month, price) {
 		setCardType(type); // card
@@ -303,13 +258,24 @@ function BuyCardPage({ clinics }) {
 	useEffect(() => {
 		getData(`${process.env.MEDICAL_API}/medical/products/get-products`).then(
 			(response) => {
-				const family = response?.filter(e=> e.genericTransactionTypeToAddInfo.infoCategory !== "PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL")
-				const individual = response?.filter(e=> e.genericTransactionTypeToAddInfo.infoCategory == "PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL")
-				setData((e) => ({ ...e, cards: {
-					individual: individual, 
-					family: family
-				}}));
-				console.log(response)
+				const family = response?.filter(
+					(e) =>
+						e.genericTransactionTypeToAddInfo.infoCategory !==
+						'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL'
+				);
+				const individual = response?.filter(
+					(e) =>
+						e.genericTransactionTypeToAddInfo.infoCategory ==
+						'PERCENTAGE_CLINIC_DISCOUNT_INDIVIDUAL'
+				);
+				setData((e) => ({
+					...e,
+					cards: {
+						individual: individual,
+						family: family,
+					},
+				}));
+				console.log(response);
 			}
 		);
 		getData(`${process.env.MEDICAL_API}/medical/categories`).then(
@@ -374,36 +340,35 @@ function BuyCardPage({ clinics }) {
 						<Text>Choose exactly what you need</Text>
 					</div>
 					<div className={s.switcher}>
-						<div>
-							<FormGroup>
-								<Stack
-									direction='row'
-									spacing={1}
-									alignItems='center'
-								>
-									<Typography className={style.switcherLabel}>
-										ინდივიდუალური
-									</Typography>
-									<AntSwitch
-										checked={checked}
-										onChange={(e) => {
-											setPaymentType(e.target.ariaChecked);
-											setChecked(e.target.checked);
-										}}
-										defaultChecked
-										inputProps={{
-											'aria-label': 'ant design',
-											'aria-checked': checked ? 'individual' : 'family',
-										}}
-										checkedChildren='YESxasdiasldkasjdljasd'
-										unCheckedChildren='NOasdkhasjkdhsakjdhksajd'
+						<span className={style.switcherLabel}> პერსონალური</span>
+						<Switch
+							className={
+								checked ? style.switcherChecked : style.switcherUnChecked
+							}
+							onChange={(checked) => setChecked(checked)}
+						/>
+						<span className={style.switcherLabel}>
+							საოჯახო
+							<Tooltip
+								placement='top'
+								title={text}
+								className={style.tooltipTextStyle}
+							>
+								<a className={style.tooltipContainer}>
+									<img
+										src={'/tooltip.svg'}
+										alt='star'
+										className={style.tooltip}
 									/>
-									<Typography className={style.switcherLabel}>
-										საოჯახო
-									</Typography>
-								</Stack>
-							</FormGroup>
-						</div>
+
+									<img
+										src={'/tooltipActive.svg'}
+										alt='star'
+										className={style.tooltipActive}
+									/>
+								</a>
+							</Tooltip>
+						</span>
 					</div>
 					{data?.cards ? (
 						<div
@@ -415,7 +380,13 @@ function BuyCardPage({ clinics }) {
 							{!checked ? (
 								<>
 									{data?.cards?.individual?.map(
-										({ price, name, length, lenghtNum, genericTransactionTypeToAddInfo }) => {
+										({
+											price,
+											name,
+											length,
+											lenghtNum,
+											genericTransactionTypeToAddInfo,
+										}) => {
 											return (
 												<>
 													<div
@@ -448,35 +419,43 @@ function BuyCardPage({ clinics }) {
 								</>
 							) : (
 								<>
-									{data?.cards?.family?.map(({ price, name, length, lenghtNum, genericTransactionTypeToAddInfo }) => {
-										return (
-											<>
-												<div
-													className={s.cardsBlock}
-													onClick={() =>
-														openCheckout(
-															genericTransactionTypeToAddInfo?.genericTransactionTypeId,
-															genericTransactionTypeToAddInfo?.infoCategory,
-															lenghtNum,
-															price
-														)
-													}
-												>
-													<div className={s.cardOverview}>
-														<div className={s.cardImage}>
-															<img
-																src='/01-4.png'
-																alt=''
-															/>
+									{data?.cards?.family?.map(
+										({
+											price,
+											name,
+											length,
+											lenghtNum,
+											genericTransactionTypeToAddInfo,
+										}) => {
+											return (
+												<>
+													<div
+														className={s.cardsBlock}
+														onClick={() =>
+															openCheckout(
+																genericTransactionTypeToAddInfo?.genericTransactionTypeId,
+																genericTransactionTypeToAddInfo?.infoCategory,
+																lenghtNum,
+																price
+															)
+														}
+													>
+														<div className={s.cardOverview}>
+															<div className={s.cardImage}>
+																<img
+																	src='/01-4.png'
+																	alt=''
+																/>
+															</div>
+															<div className={s.cardPrice}>{price} ლ</div>
+															<div className={s.cardDisplayName}>{length}</div>
 														</div>
-														<div className={s.cardPrice}>{price} ლ</div>
-														<div className={s.cardDisplayName}>{length}</div>
+														<div className={s.buyNow}>შეიძინე</div>
 													</div>
-													<div className={s.buyNow}>შეიძინე</div>
-												</div>
-											</>
-										);
-									})}
+												</>
+											);
+										}
+									)}
 								</>
 							)}
 						</div>
@@ -496,10 +475,11 @@ function BuyCardPage({ clinics }) {
 						</div>
 					)}
 					<div className={s.listofCats}>
-						{
-							(data?.categories?.length > 0 &&
+						{data?.categories?.length > 0 &&
 							data?.categories
-								?.filter((e) => e.parentCategoryId === null && e.title !== 'ყველა')
+								?.filter(
+									(e) => e.parentCategoryId === null && e.title !== 'ყველა'
+								)
 								.map((item, i) => {
 									return (
 										<div
@@ -569,8 +549,7 @@ function BuyCardPage({ clinics }) {
 											)}
 										</div>
 									);
-								}))
-						}
+								})}
 					</div>
 				</div>
 			</div>
