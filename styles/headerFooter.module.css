@@ -1470,4 +1470,8 @@
 	.responsiveAuth {
 		margin-top: 7px;
 	}
+	.logoContainer img {
+		width: 143px;
+		height: auto;
+	}
 }

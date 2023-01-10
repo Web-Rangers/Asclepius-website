@@ -783,4 +783,7 @@
 		line-height: 22px;
 		color: #180126;
 	}
+	.containerCard img {
+		padding: 0 60px;
+	}
 }
