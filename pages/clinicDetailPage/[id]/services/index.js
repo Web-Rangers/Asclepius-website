@@ -155,7 +155,7 @@ export default function Services() {
                 <div className={styles.clinicImage}>
                     <Image src={clinic?.logoUrl} layout="fill" />
                 </div>
-                <div>
+                <div style={{flex: 1}}>
                     <h2>{clinic?.displayName}</h2>
                     <p>{clinic?.description}</p>
                 </div>
