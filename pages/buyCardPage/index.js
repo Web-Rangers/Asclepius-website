@@ -14,8 +14,9 @@ import TableDropDown from '../../components/TableDropDown';
 import { ConnectingAirportsOutlined } from '@mui/icons-material';
 import Image from 'next/image';
 import { Skeleton } from 'antd';
-
-import { Switch, Tooltip } from 'antd';
+import { Switch, Tooltip, Breadcrumb } from 'antd';
+import styles from '../../styles/clinicDetailPage.module.css';
+import Link from 'next/link';
 
 function BuyCardPage({ clinics }) {
 	const [data, setData] = useState({
@@ -300,6 +301,14 @@ function BuyCardPage({ clinics }) {
 				/>
 			)}
 			<div className={s.container}>
+				<Breadcrumb separator={<img src='/separator.svg' />}>
+					<Breadcrumb.Item>
+						<Link href='/'>მთავარი გვერდი</Link>
+					</Breadcrumb.Item>
+					<Breadcrumb.Item className={styles.activeBreadCrumb}>
+						ბარათის შეძენა
+					</Breadcrumb.Item>
+				</Breadcrumb>
 				<div className={s.firstPart}>
 					<div className={s.headerContainer}>
 						{/* <div className={s.headerContainerLeft}>
@@ -377,10 +386,16 @@ function BuyCardPage({ clinics }) {
 								[s.cardsTransitionUnch]: !checked,
 							})}
 						>
-														{!checked ? (
+							{!checked ? (
 								<>
 									{data?.cards?.individual?.map(
-										({ price, name, length, lenghtNum, genericTransactionTypeToAddInfo }) => {
+										({
+											price,
+											name,
+											length,
+											lenghtNum,
+											genericTransactionTypeToAddInfo,
+										}) => {
 											return (
 												<>
 													<div
@@ -413,35 +428,43 @@ function BuyCardPage({ clinics }) {
 								</>
 							) : (
 								<>
-									{data?.cards?.family?.map(({ price, name, length, lenghtNum, genericTransactionTypeToAddInfo }) => {
-										return (
-											<>
-												<div
-													className={s.cardsBlock}
-													onClick={() =>
-														openCheckout(
-															genericTransactionTypeToAddInfo?.genericTransactionTypeId,
-															genericTransactionTypeToAddInfo?.infoCategory,
-															lenghtNum,
-															price
-														)
-													}
-												>
-													<div className={s.cardOverview}>
-														<div className={s.cardImage}>
-															<img
-																src='/01-4.png'
-																alt=''
-															/>
+									{data?.cards?.family?.map(
+										({
+											price,
+											name,
+											length,
+											lenghtNum,
+											genericTransactionTypeToAddInfo,
+										}) => {
+											return (
+												<>
+													<div
+														className={s.cardsBlock}
+														onClick={() =>
+															openCheckout(
+																genericTransactionTypeToAddInfo?.genericTransactionTypeId,
+																genericTransactionTypeToAddInfo?.infoCategory,
+																lenghtNum,
+																price
+															)
+														}
+													>
+														<div className={s.cardOverview}>
+															<div className={s.cardImage}>
+																<img
+																	src='/01-4.png'
+																	alt=''
+																/>
+															</div>
+															<div className={s.cardPrice}>{price} ლ</div>
+															<div className={s.cardDisplayName}>{length}</div>
 														</div>
-														<div className={s.cardPrice}>{price} ლ</div>
-														<div className={s.cardDisplayName}>{length}</div>
+														<div className={s.buyNow}>შეიძინე</div>
 													</div>
-													<div className={s.buyNow}>შეიძინე</div>
-												</div>
-											</>
-										);
-									})}
+												</>
+											);
+										}
+									)}
 								</>
 							)}
 						</div>
@@ -461,10 +484,11 @@ function BuyCardPage({ clinics }) {
 						</div>
 					)}
 					<div className={s.listofCats}>
-						{
-							(data?.categories?.length > 0 &&
+						{data?.categories?.length > 0 &&
 							data?.categories
-								?.filter((e) => e.parentCategoryId === null && e.title !== 'ყველა')
+								?.filter(
+									(e) => e.parentCategoryId === null && e.title !== 'ყველა'
+								)
 								.map((item, i) => {
 									return (
 										<div
@@ -534,8 +558,7 @@ function BuyCardPage({ clinics }) {
 											)}
 										</div>
 									);
-								}))
-						}
+								})}
 					</div>
 				</div>
 			</div>

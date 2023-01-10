@@ -28,7 +28,7 @@ const Footer = () => {
 							className={classes.iconsStyle}
 						/> */}
 							<Text style={classes.textTitle}>პირველი</Text>
-							<Link href={'/aboutUs'}>
+							<Link href={'/aboutUsPage'}>
 								<Text style={classes.textStyle}>ჩვენ შესახებ</Text>
 							</Link>
 							{/* <Link href={''}>

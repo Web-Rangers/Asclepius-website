@@ -9,8 +9,6 @@
     max-width: 1340px;
     margin: auto;
     padding-bottom:20px;
-    margin-top: 43px;
-    margin-bottom: 100px;
 }
 
 .tableRow {
@@ -20,34 +18,19 @@
 .servicesSearch {
     padding:70px 0 24px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.servicesSearch h3 {
-    font-family: 'Avenir Next Georgian Medium';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    color: #383838;
+    justify-content: flex-end;
 }
 
 .search {
     width: 358px;
-    height: 48px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 24px;
+    background: #FFFFFF;
     border: 1px solid rgba(151, 151, 151, 0.4);
-    background: #F7F9FB;
     border-radius: 12px;
-    border:none;
-    font-family: 'Avenir Next Georgian Medium';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    color: rgba(56, 56, 56, 0.5);
 }
 
 .searchIcon {
@@ -55,8 +38,6 @@
 }
 
 .search input {
-    width: 100%;
-    background-color: transparent;
     border:none;
     outline: none;
 }
