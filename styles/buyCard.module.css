@@ -15,8 +15,8 @@
 	justify-content: space-between;
 	/* background-color: #f7f9fb; */
 	background-image: url('/banner1.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+	background-size: cover;
+	background-repeat: no-repeat;
 	padding-top: 94px;
 	padding-left: 92px;
 	height: 525px;
@@ -140,11 +140,11 @@
 	width: 883px;
 	overflow: hidden;
 	margin: auto;
-	margin-bottom:300px;
+	margin-bottom: 300px;
 }
 .tableContentContainer:nth-child(2n) .categorieTitle {
 	padding: 16px 32px;
-	background: #F7F8FA;
+	background: #f7f8fa;
 	border-radius: 12px;
 }
 .customOptContainer {
@@ -476,14 +476,14 @@
 	line-height: 20px;
 	color: #1e2837;
 	gap: 24px;
-	margin-bottom:10px;
+	margin-bottom: 10px;
 	padding: 24px 36px;
-	margin-top:-7px;
+	margin-top: -7px;
 	border-bottom-left-radius: 12px;
 	border-bottom-right-radius: 12px;
 }
 .tableContentContainer:nth-child(2n) .dropDownList {
-	background-color: #F7F8FA;
+	background-color: #f7f8fa;
 }
 .finalPrice {
 	display: flex;
@@ -505,9 +505,9 @@
 .nameIconCont {
 	width: 353px;
 }
-.nameIconCont span:nth-child(2){
+.nameIconCont span:nth-child(2) {
 	cursor: pointer;
-	transform: scale(.8);
+	transform: scale(0.8);
 }
 .nameIconTitle {
 	margin-right: 21px;
@@ -522,7 +522,7 @@
 	font-style: normal;
 	font-weight: 500;
 	font-size: 14px;
-	color: #1E2837;
+	color: #1e2837;
 }
 .selectBody {
 	display: flex;
@@ -546,13 +546,13 @@
 
 .headerBg {
 	position: relative;
-    width: 612px;
-    height: 485px;
-    background-image: url('/banner1.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin-left: 50px;
-    top: -85px;
+	width: 612px;
+	height: 485px;
+	background-image: url('/banner1.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin-left: 50px;
+	top: -85px;
 }
 
 .doc {
@@ -631,7 +631,7 @@
 }
 .cardsContainer {
 	position: relative;
-	max-width: 1212px;;
+	max-width: 1212px;
 	height: 287px;
 	display: flex;
 	justify-content: space-around;
@@ -639,7 +639,7 @@
 	margin: auto;
 }
 .cardsBlock {
-	background-color: red;
+	background-color: #ff6552;
 	border-radius: 24px;
 	width: 343px;
 	height: 201px;
@@ -652,14 +652,14 @@
 	position: absolute;
 	width: 343px;
 	height: 201px;
-	z-index:2;
+	z-index: 2;
 	user-select: none;
 	cursor: pointer;
 }
 
 .cardPrice {
 	position: absolute;
-	background: #FF1C00;
+	background: #ff6552;
 	border-radius: 24px 0px 12px;
 	left: 0;
 	top: 0;
@@ -668,13 +668,13 @@
 	font-style: normal;
 	font-weight: 700;
 	font-size: 16px;
-	color: #FFFFFF;
+	color: #ffffff;
 }
 
 .cardDisplayName {
 	position: absolute;
-	left:50%;
-	top:50%;
+	left: 50%;
+	top: 50%;
 	transform: translate(-50%, -50%);
 	font-family: 'Avenir Next Georgian';
 	font-style: normal;
@@ -687,7 +687,7 @@
 	position: absolute;
 	bottom: 45px;
 	height: 45px;
-	background-color: red;
+	background-color: #ff6552;
 	width: 100%;
 	text-align: center;
 	color: white;
@@ -706,7 +706,7 @@
 
 .cardsBlock:hover .buyNow {
 	padding: 10px;
-	bottom:-0;
+	bottom: -0;
 	transition: 0.5s;
 	visibility: visible;
 }
@@ -721,48 +721,56 @@
 
 .skeletonLoadingCards {
 	position: absolute;
-    width: 343px;
-    height: 201px;
-    z-index: 2;
-    border-radius: 24px;
+	width: 343px;
+	height: 201px;
+	z-index: 2;
+	border-radius: 24px;
 	overflow: hidden;
 }
 
 .skeletonLoadingCards div {
-	width: 100%!important;
-	height: 100%!important;
+	width: 100% !important;
+	height: 100% !important;
 }
 
 .skeletonLoadingCards div span {
-	width: 100%!important;
-	height: 100%!important;
+	width: 100% !important;
+	height: 100% !important;
 }
 
 .cardImage {
 	width: 343px;
-    height: 201px;
+	height: 201px;
 	overflow: hidden;
 	border-radius: 20px;
 	background-color: #f7c5c1;
 }
 
 .cardImage img {
-	margin-top:-18px;
+	margin-top: -18px;
 	object-fit: cover;
 	width: 100%;
 	min-height: 108%;
 }
 
 @keyframes checked {
-	50% { opacity: 0.5 }
-	100% { opacity: 1 }
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 @keyframes unchecked {
-	50% { opacity: 0.5 }
-	100% { opacity: 1 }
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
-@media only screen and (max-width: 1400px){
+@media only screen and (max-width: 1400px) {
 	.container {
 		padding: 0 48px;
 	}
@@ -798,7 +806,7 @@
 		margin-bottom: 37px;
 	}
 	.chooseCardContainer {
-		margin-top:40px;
+		margin-top: 40px;
 	}
 	.cardsBlock {
 		width: 32%;
@@ -808,7 +816,7 @@
 	.cardOverview {
 		height: 16vw;
 	}
-	.cardOverview{
+	.cardOverview {
 		width: 100%;
 	}
 	.cardImage {
@@ -817,7 +825,7 @@
 	}
 	.cardImage img {
 		width: 100%;
-		margin-top:0;
+		margin-top: 0;
 		height: 100%;
 		min-height: 100%;
 		object-fit: cover;
@@ -896,7 +904,7 @@
 	.buyNow {
 		display: none;
 	}
-	.firstPart{
+	.firstPart {
 		width: 100%;
 	}
 }
@@ -906,14 +914,14 @@
 		padding: 0;
 	}
 	.firstPart {
-		padding:0 20px;
+		padding: 0 20px;
 	}
 	.cardsContainer {
 		overflow-x: auto;
 		justify-content: flex-start;
 		height: 201.31px;
-		margin-bottom:50px;
-		padding:0 20px;
+		margin-bottom: 50px;
+		padding: 0 20px;
 		gap: 9px;
 	}
 	.cardsBlock {
@@ -923,11 +931,11 @@
 	.cardsBlock:hover {
 		transform: scale(1);
 	}
-	.cardOverview{ 
+	.cardOverview {
 		height: 201.31px;
 	}
 	.listofCats {
-		margin-bottom:75px;
+		margin-bottom: 75px;
 	}
 	.nameIconCont {
 		display: flex;
